@@ -1,0 +1,850 @@
+% Aberdeen style guide should be followed when using this
+% layout. Their template powerpoint slide is used to extract the
+% Aberdeen color and logo but is otherwise ignored (it has little or
+% no formatting in it anyway).
+%
+% http://www.abdn.ac.uk/documents/style-guide.pdf
+
+%%%%%%%%%%%%%%%%%%%% Document Class Settings %%%%%%%%%%%%%%%%%%%%%%%%%
+% Pick if you want slides, or draft slides (no animations)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Normal document mode
+%\documentclass[10pt,compress]{beamer}
+%Draft or handout mode
+%\documentclass[10pt,compress,handout]{beamer}
+\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
+\newcommand{\frc}{\displaystyle\frac}
+
+
+%%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
+% These settings must be set for each presentation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\shortname}{Dr Jeff Gomes}
+\newcommand{\fullname}{Dr Jeff Gomes}
+\institute{School of Engineering}
+\newcommand{\emailaddress}{jefferson.gomes@abdn.ac.uk}
+\newcommand{\logoimage}{../FigBanner/UoAHorizBanner}
+\title{Renewable Energy 1: Solar and Geothermal (EG501J)}
+\subtitle{Module 3: Engineering Thermodynamics \\ (Appendix: Review of Thermodynamics)}
+\date[2014-15]{2014-15}
+
+%%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% You shouldn't have to change below this line, unless you want to.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usecolortheme{whale}
+\useoutertheme{infolines}
+
+% Use the fading effect for items that are covered on the current
+% slide.
+\beamertemplatetransparentcovered
+
+% We abuse the author command to place all of the slide information on
+% the title page.
+\author[\shortname]{%
+  \fullname\\\ttfamily{\emailaddress}
+}
+
+
+%At the start of every section, put a slide indicating the contents of the current section.
+%\AtBeginSection[] {
+%  \begin{frame}
+%    \frametitle{Section Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+% Allow the inclusion of movies into the Presentation! At present,
+% only the Okular program is capable of playing the movies *IN* the
+% presentation.
+\usepackage{multimedia}
+\usepackage{animate}
+\usepackage{comment} 
+
+%%%%% Color settings
+\usepackage{color}
+%% The background color for code listings (i.e. example programs)
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}%
+\definecolor{UoARed}{rgb}{0.64706, 0.0, 0.12941}
+\definecolor{UoALight}{rgb}{0.85, 0.85, 0.85}
+\definecolor{UoALighter}{rgb}{0.92, 0.92, 0.92}
+\setbeamercolor{structure}{fg=UoARed} % General background and higlight color
+\setbeamercolor{frametitle}{bg=black} % General color
+\setbeamercolor{frametitle right}{bg=black} % General color
+\setbeamercolor{block body}{bg=UoALighter} % For blocks
+\setbeamercolor{structure}{bg=UoALight} % For blocks
+% Rounded boxes for blocks
+\setbeamertemplate{blocks}[rounded]
+
+%%%%% Font settings
+% Aberdeen requires the use of Arial in slides. We can use the
+% Helvetica font as its widely available like so
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+% But beamer already uses a sans font, so we will stick with that.
+
+% The size of the font used for the code listings.
+\newcommand{\goodsize}{\fontsize{6}{7}\selectfont}
+
+% Extra math packages, symbols and colors. If you're using Latex you
+% must be using it for formatting the math!
+\usepackage{amscd,amssymb} \usepackage{amsfonts}
+\usepackage[mathscr]{eucal} \usepackage{mathrsfs}
+\usepackage{latexsym} \usepackage{amsmath} \usepackage{bm}
+\usepackage{amsthm} \usepackage{textcomp} \usepackage{eurosym}
+% This package provides \cancel{a} and \cancelto{a}{b} to "cancel"
+% expressions in math.
+\usepackage{cancel}
+
+% Get rid of font warnings as modern LaTaX installations have scalable
+% fonts
+\usepackage{type1cm} 
+
+%\usepackage{enumitem} % continuous numbering throughout enumerate commands
+
+% For exact placement of images/text on the cover page
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}%sets the textpos unit
+\setlength{\TPVertModule}{\TPHorizModule} 
+
+% Source code formatting package
+\usepackage{listings}%
+\lstset{ backgroundcolor=\color{lbcolor}, tabsize=4,
+  numberstyle=\tiny, rulecolor=, language=C++, basicstyle=\goodsize,
+  upquote=true, aboveskip={1.5\baselineskip}, columns=fixed,
+  showstringspaces=false, extendedchars=true, breaklines=false,
+  prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+  frame=single, showtabs=false, showspaces=false,
+  showstringspaces=false, identifierstyle=\ttfamily,
+  keywordstyle=\color[rgb]{0,0,1},
+  commentstyle=\color[rgb]{0.133,0.545,0.133},
+  stringstyle=\color[rgb]{0.627,0.126,0.941}}
+
+% Allows the inclusion of other PDF's into the final PDF. Great for
+% attaching tutorial sheets etc.
+\usepackage{pdfpages}
+\setbeamercolor{background canvas}{bg=}  
+
+% Remove foot note horizontal rules, they occupy too much space on the slide
+\renewcommand{\footnoterule}{}
+
+% Force the driver to fix the colors on PDF's which include mixed
+% colorspaces and transparency.
+\pdfpageattr {/Group << /S /Transparency /I true /CS /DeviceRGB>>}
+
+% Include a graphics, reserve space for it but
+% show it on the next frame.
+% Parameters:
+% #1 Which slide you want it on
+% #2 Previous slides
+% #3 Options to \includegraphics (optional)
+% #4 Name of graphic
+\newcommand{\reserveandshow}[4]{%
+\phantom{\includegraphics<#2|handout:0>[#3]{#4}}%
+\includegraphics<#1>[#3]{#4}%
+}
+
+
+\begin{document}
+
+% Title page layout
+\begin{frame}
+  \titlepage
+  \vfill%
+  \begin{center}
+    \includegraphics[clip,width=0.8\textwidth]{\logoimage}
+  \end{center}
+\end{frame}
+
+
+%%%
+%%% Summary 
+%%%
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%% The Presentation Proper %%%%%%%%%%%%%%%%%%%%%%%%%
+% Fill below this line with \begin{frame} commands! It's best to
+% always add the fragile option incase you're going to use the
+% verbatim environment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%% Appendix
+%%%
+\section{Appendix A: Review of Thermodynamic Laws}\label{AppendixA}
+
+\begin{frame}
+   \begin{center}
+      \huge{Appendix A:}\\
+      \huge{Review of Thermodynamic Laws}
+   \end{center}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\subsection{Zeroth Law of Thermodynamics}
+
+\begin{frame}
+ \frametitle{Zeroth Law of Thermodynamics (Thermal Equilibrium)}
+
+ \begin{columns}
+  \begin{column}[r]{0.4\linewidth}
+   \begin{block}{R.H. Fowler (1931)}
+   \textcolor{blue}{$\lq$Two bodies are in equilibrium if both have the same temperature reading even if they are not in contact.'}
+   \end{block}
+    $ T_{j} = T_{i}
+    \begin{cases}
+     \forall_{i}, \forall{j} \\
+     i \neq j
+    \end{cases}$
+  \end{column}
+  
+  \begin{column}[c]{0.6\linewidth}
+\scriptsize \textcolor{blue}{Two bodies reaching thermal equilibrium after being brought into contact in an isolated enclosure.}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=\columnwidth,clip]{./Pics/zeroth_law}\\
+      \scriptsize \textcolor{blue}{$t = 0 \hspace{3.cm} \text{equilibrium state}$}
+
+     
+    \end{center}
+   \end{figure}
+  \end{column}
+ \end{columns}
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\subsection{First Law of Thermodynamics}
+\begin{frame}
+ \frametitle{First Law of Thermodynamics (Conservation of Work)}
+ %\scriptsize
+
+ \begin{block}{R. Clausius and J.P. Joule (1850)}
+  \textcolor{blue}{$\lq$For all adiabatic processes between two specified states of a closed system, the net work done is the same regardless of the nature of the closed system and the details of the process.}
+  \begin{center}
+   \textcolor{red}{or}
+  \end{center}
+  \textcolor{blue}{$\lq$Although energy assumes many forms, the total quantity of energy is constant, and when energy disappears in one form it appears simultaneously in other forms.}'
+ \end{block}
+
+
+ \begin{itemize}
+  \item<2-> It states that energy can neither be created, nor can it be destroyed. This means that the total amount of energy in the universe always remains conserved;
+  \item<3-> Energy can be changed from one form to another. There are many different forms of energy, some of which may be more useful than others for a particular process;
+ \end{itemize}
+
+\normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Cycle}
+
+ \begin{block}{}During any cycle, the cyclic integral of heat added to a system is proportional to the cyclic integral of work done by the system.\end{block}
+
+ The mathematical representation of the first law is
+ \begin{equation}
+  \displaystyle\oint \delta Q = \displaystyle\oint \delta W
+  \label{Module00:first_law}
+ \end{equation}
+ with {\it [Q] = J} and {\it [W] = J}.
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Cycle}
+ %\scriptsize
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{itemize}
+    \item <1-> \textcolor{blue}{Power cycle}: systems (e.g., rhs) that deliver a net work transfer of energy to their surroundings during each cycle;
+    \item <2-> $W_{cycle} = Q_{in} - Q_{out}$ with $Q_{in} > Q_{out}$ for a power cycle;
+    \item <3-> The energy supplied by heat transfer to a system on a power cycle is normally derived from combustion (also from nuclear fission or solar radiation). The energy $Q_{out}$ is generally discharged to the surrounding atmosphere or a nearby body of water;
+   \end{itemize}
+  \end{column}
+   
+  \begin{column}[l]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm,clip]{./Pics/FirstLaw_Cycle_01}
+    \end{center}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Cycle}
+ %\scriptsize
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{itemize}
+    \item <1-> \textcolor{blue}{Thermal efficiency}: $\eta =\displaystyle\frac{W_{cycle}}{Q_{in}} = \displaystyle\frac{Q_{in} - Q_{out}}{Q_{in}} = 1 - \displaystyle\frac{Q_{out}}{Q_{in}} < 1$;
+    \item <2-> For reversible power cycles the ratio of heat transfer, $Q_{cold}/Q_{hot}$ depends only on the reservoir temperatures: $Q_{cold}/Q_{hot} = T_{cold}/T_{hot}$;
+    \item <3-> Thus the thermal efficiency of a reversible power cycle while operating between thermal reservoirs at temperatures $T_{hot}$ and $T_{cold}$ is expressed as,\\
+          $\eta_{max} = 1 - \displaystyle\frac{T_{cold}}{T_{hot}}$
+   \end{itemize}
+  \end{column}
+   
+  \begin{column}[l]{0.5\linewidth}
+   \begin{itemize}
+    \item <4-> This is the \textcolor{blue}{Carnot efficiency} and it is the maximum efficiency any power cycle can have while operating between the 2 reservoirs.
+   \end{itemize}\vspace{-.5cm}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm,clip]{./Pics/FirstLaw_Cycle_01}
+    \end{center}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+ \normalsize
+\end{frame}
+
+
+\begin{comment}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Cycle}
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{itemize}%\scriptsize
+    \item <1-> \textcolor{blue}{Refrigerators} and \textcolor{blue}{Heat Pumps} Cycles (rhs): cycles in which Q$_{in}$ is associated with the heat energy transferred into the system from the cold body. Q$_{out}$ is the energy discharged via heat transfer from the system to the hot body;
+    \item <2-> $W_{cycle} = Q_{out} - Q_{in}$% > 0 \Longrightarrow Q_{out} > Q_{in}$
+    \item <3-> \textcolor{blue}{Refrigeration cycle}:
+     \begin{enumerate}[(a)]%\scriptsize
+      \item <4-> Objective: to cool a refrigerated body or to maintain the temperature of a body bellow that of the surroundings;
+      \item <5-> Coefficient of Performance: $\beta = \displaystyle\frac{Q_{in}}{W_{cycle}} = \displaystyle\frac{Q_{in}}{Q_{out} - Q_{in}}$;
+      %\item <6-> E.g., in a fridge: cavity contents $\xrightarrow{Q_{in}}$ refrigerant fluid $\left(T_{fluid} < T_{cavity}\right)$ $\xrightarrow{Q_{out}}$ surrounding air; 
+     \end{enumerate}
+    \end{itemize}
+  \end{column}
+   
+  \begin{column}[c]{0.5\linewidth}
+     \begin{enumerate}[(c)]%\scriptsize
+      \item <6-> E.g., in a fridge: cavity contents $\xrightarrow{Q_{in}}$ refrigerant fluid $\left(T_{fluid} < T_{cavity}\right)$ $\xrightarrow{Q_{out}}$ surrounding air; 
+     \end{enumerate}
+\vspace{-.5cm}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm,clip]{./Pics/FirstLaw_Cycle_02}
+    \end{center}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Cycle}
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{itemize}
+    \item <1-> \textcolor{blue}{Heat pump cycle}:
+     \begin{enumerate}[(a)]
+      \item <2-> Objective: to maintain a heated space at a high temperature by absorbing heat from a low-temperature source (e.g., well water or cold outside air), and supplying this heat to the high-temperature medium (e.g., house);
+      \item <3-> Coefficient of Performance: $\gamma = \displaystyle\frac{Q_{out}}{W_{cycle}} = \displaystyle\frac{Q_{out}}{Q_{out} - Q_{in}} = \beta + 1 \geq 1$;
+      \item <4-> E.g., a fridge in a window (with the door open to cold outside environment): outside surrounding air $\xrightarrow{Q_{in}}$ refrigerant fluid $\left(T_{fluid} < T_{cavity}\right)$ $\xrightarrow{Q_{out}}$ inside the house; 
+     \end{enumerate}
+   \end{itemize}
+  \end{column}
+   
+  \begin{column}[c]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm,clip]{./Pics/FirstLaw_Cycle_02}
+    \end{center}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+ \normalsize
+\end{frame}
+
+\end{comment}
+
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1: Thermodynamic Cycle}
+   \textcolor{blue}{{\it {\bf Example:} A gas undergoes a thermodynamic cycle consisting of three processes: 
+   \begin{enumerate}[(a)]
+    \item \textcolor{blue}{{\it 1-2}: compression with $PV$ = constant, from $P_{1}$ = 1 bar, V$_{1}$ = 1.6m$^{3}$ to V$_{2}$ = 0.2m$^{3}$, U$_{2}$ - U$_{1}$ = 0.0 J;}
+    \item \textcolor{blue}{{\it 2-3}: constant pressure to V$_{3}$ = V$_{1}$;}
+    \item \textcolor{blue}{{\it 3-1}: constant volume, U$_{1}$ - U$_{3}$ = -3549 kJ.}
+   \end{enumerate}
+   There are no significant changes in kinetic or potential energy. Determine the heat transfer and work for process 2–3 (in kJ). Is this a power cycle or a refrigeration cycle?}}
+
+   Let's assume that the gas is a closed system and the only work done is due to volume change. In order to compute the work for process {\it 2-3} with constant pressure,\\
+   %\begin{displaymath}
+    $W_{2}^{3} = \int\limits_{V_{2}}^{V_{3}} P dV = P_{2}\left(V_{3}-V_{2}\right)$\\
+   %\end{displaymath}
+   Using the {\it PV} relation for process {\it 1-2} $\rightarrow$ $P_{2}=P_{1}V_{1}V_{2}^{-1}=8\text{ bar}$. Thus , with $V_{3}=V_{1}$,\\
+   $W_{2}^{3} = ( 8 bar ) \left[ \left( 1.6m^{3}\right) - \left( 0.2m^{3}\right) \right]$\\
+   $\;\;\;\;\;\; = 11.2 bar.m^{3} = \textcolor{red}{1120 kJ}$
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1: Thermodynamic Cycle}
+
+   The energy balance for process {\it 2-3} reduces to $Q_{2}^{3}=\left(U_{3}-U_{2}\right)+W_{2}^{3}$. \\
+   Remember that in a cycle, $\left(\Delta U\right)_{\text{cycle}}=0$, therefore:\\
+   $\left(U_{2}-U_{1}\right) + \left(U_{3}-U_{2}\right) + \left(U_{1}-U_{3}\right)=0$\\
+   $\left(U_{3}-U_{2}\right) = - \left(U_{1}-U_{3}\right) = 3549 kJ$\\
+   For process {\it 2-3}: $Q_{2}^{3}= 3549 + 1120 = \textcolor{red}{4669 kJ}$\\
+\medskip
+
+   For process {\it 1-2}: $\Delta U = 0$, \\
+   $Q_{1}^{2} = W_{1}^{2} = \int_{V_{1}}^{V_{2}}P dV = P_{1}V_{1}\ln\left(V_{2}/V_{1}\right) $\\
+   $\;\;\;\;\;=\textcolor{red}{-332.7 kJ}$\\
+\medskip
+
+   And for process {\it 3-1}: $W_{3}^{1}=0$ and $Q_{3}^{1}=U_{1}-U_{3}=\textcolor{red}{-3549 kJ}$. The cycle can then be calculated as,
+   $W_{\text{cycle}}=W_{1}^{2}+W_{2}^{3}+W_{3}^{1} = -332.7 + 1120 + 0 = 787.3 kJ$\\
+
+\medskip
+   Since \textcolor{red}{$W_{\text{cycle}}>0$}, the cycle is a \textcolor{red}{power cycle}.
+ \normalsize
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Process}
+
+   Let's consider the set of paths from state 1 to 2:
+   \begin{itemize}
+    \item Cycle I: 1 to 2 on Path A followed by 2 to 1 on Path B;
+    \item Cycle II: 1 to 2 on Path A followed by 2 to 1 on Path C;
+   \end{itemize}
+
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=7.5cm,clip]{./Pics/first_law_process}
+     %\caption{P-V diagram for various combinations of processes forming cyclic integrals.}
+    \end{center}
+   \end{figure}
+
+\normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Process}
+   \begin{itemize}
+    \item <1-> These cycles can be mathematically represented using Eqn. \ref{Module00:first_law}:
+   \begin{eqnarray}
+    \text{Cycle I:}  \int\limits_{1}^{2}\delta Q_{A} + \int\limits_{2}^{1}\delta Q_{B} = \int\limits_{1}^{2}\delta W_{A} + \int\limits_{2}^{1}\delta W_{B}  \label{Module00:proc1a}\\
+    \text{Cycle II:} \int\limits_{1}^{2}\delta Q_{A} + \int\limits_{2}^{1}\delta Q_{C} = \int\limits_{1}^{2}\delta W_{A} + \int\limits_{2}^{1}\delta W_{C}  \label{Module00:proc1b}
+   \end{eqnarray}
+   \item <2-> Subtracting \ref{Module00:proc1b} from \ref{Module00:proc1a} and rearranging:
+   \begin{equation}
+    \int\limits_{2}^{1}\left(\delta Q- \delta W\right)_{B} = \int\limits_{2}^{1}\left(\delta Q- \delta W\right)_{C}\label{Module00:proc1c}
+   \end{equation}
+   \item <3-> B and C are arbitrary paths ; Eqn. \ref{Module00:proc1c} asserts that the integral of $\left(\delta Q -\delta W\right)\left.\right|_{2}^{1}$ is path-independent. Notice, however that both \textcolor{blue}{Q} and \textcolor{blue}{W} are path-dependent quantities. 
+    \end{itemize}
+\end{frame}
+
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Process}
+
+  \begin{itemize}
+   \item <1-> Energy (as any property) depends only on the state and not the path taken to arrive at the state. Defining the differential of E:\\
+    $dE =\delta Q - \delta W$\\ 
+   
+   \item <2-> Integrating from 1 to 2:\\
+    $\displaystyle\int\limits_{1}^{2}dE =\displaystyle\int\limits_{1}^{2}\delta Q - \displaystyle\int\limits_{1}^{2}\delta W$\\ 
+
+   \item <3-> Leading to
+   \begin{equation}
+    E_{2} - E_{1} = Q_{1}^{2}- W_{1}^{2} \label{Module00:proc1a}
+   \end{equation}
+
+  \end{itemize}
+\normalsize
+\end{frame}
+
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Process}
+ \begin{block}{Another way to state the First Law} 
+  For a system undergoing a process, the change in energy is equal to the heat added to the system minus the work done by the system.
+  \begin{displaymath}
+   dE =\delta Q - \delta W 
+  \end{displaymath}
+ \end{block}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 2: Conservation of Work}
+ \scriptsize
+ \begin{columns}
+  \begin{column}[r]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=\columnwidth,clip]{./Pics/First_Law_1}
+    \end{center}
+   \end{figure}
+  \end{column}
+  \begin{column}[r]{0.5\linewidth}
+   When a system is taken from state \textcolor{blue}{a} to state \textcolor{blue}{b} along path \textcolor{blue}{acb}, 100 J of heat flows into the system and the system does 40 J of work. 
+   \begin{itemize}
+    \item<2-> How much heat flows into the system along path \textcolor{blue}{aeb} if the work done by the system is 20 J?\\
+          For path \textcolor{blue}{acb}:
+          \begin{displaymath}
+           \Delta E_{ab} = Q_{acb}-W_{acb} = 100 - 40 = 60 J
+          \end{displaymath}
+          For path \textcolor{blue}{aeb}:
+          \begin{eqnarray}
+           &&\Delta E_{ab} = Q_{aeb}-W_{aeb} = 60 J \nonumber \\
+           &&\Delta E_{ab} = Q_{aeb}-20 \therefore Q_{aeb} = 80 J \nonumber
+          \end{eqnarray}
+    \item<3-> The system returns from \textcolor{blue}{b} to \textcolor{blue}{a} along path \textcolor{blue}{bda}. If the work done on the system is 30 J, does the system absorb or liberate heat? How much? \\
+           For path \textcolor{blue}{bda}: 
+           \begin{eqnarray}
+            &&\Delta E_{ba} = -60 J = Q_{bda}-W_{bda} \nonumber \\
+            &&\Delta E_{ba} = Q_{bda} + 30 \therefore Q_{bda} = -90 J \nonumber
+           \end{eqnarray}
+   \end{itemize}
+  \end{column}
+ \end{columns}
+\normalsize
+\end{frame}
+
+
+\subsection{Second Law of Thermodynamics}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Reversible Processes}
+   \begin{itemize}
+    \item When an object at temperature $T=T\left(t_{0}\right)$ is left in a room in contact with ambient air, it is intuitive that the object will cool down at time $t_{1}$ and the air will warm up until the temperature of the body and the surrounding air are the same;
+    \item From the First Law, we know that the {\it decrease in the internal energy of the body is equal to the increase in the internal energy of the surrounding air};
+    \item The body cools down spontaneously and we can predict the {\it direction} of the process as it moves towards an equilibrium state, but; 
+   \end{itemize}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=5.cm,clip]{./Pics/HotColdCoffee}
+     \end{center}
+    \end{figure}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Reversible Processes}
+   \begin{itemize}
+    \item The initial state $\left(\text{i.e., }T_{0}\right)$ can be restored {\it but not spontaneously} $\Longrightarrow$  The reverse processes do not violate the First Law, and yet they {\it do not occur spontaneously};
+    \item Another law is needed to help understand and predict which processes will occur spontaneously.
+   \end{itemize}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=5.5cm,clip]{./Pics/HotColdCoffee}
+     \end{center}
+    \end{figure}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Reversible Processes}
+ \begin{itemize}
+  \item <2-> \textcolor{blue}{Reversible process:} A process in which it is possible to return both the system and surroundings to their original states;
+  \item <3-> \textcolor{blue}{Irreversible process:} A process in which it is impossible to return both the system and surroundings to their original states.
+ \end{itemize}
+
+\end{frame}
+
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Second Law of Thermodynamics}
+ %\scriptsize
+ \begin{itemize}
+  \item <2->The second law of thermodynamics is an expression of the tendency that over time, differences in temperature, pressure and chemical potential will reach an equilibrium state in an isolated physical system;
+  \item <3->From the state of thermodynamic equilibrium, the law deduced the principle of the increase of entropy and explains the phenomenon of irreversibility;
+  \item <4->\textcolor{blue}{$\lq$It is impossible to devise an engine which, working in a cycle, shall produce no effect other than the transfer of heat from a colder to hotter body' (Clausius, 1854)};   
+  \item <5->\textcolor{blue}{$\lq$It is impossible to devise an engine which, working in a cycle, shall produce no effect other than the extraction of heat from a reservoir and the performance of an equal amount of mechanical work' (Kelvin, 1851; Planck, 1897)};
+ \end{itemize}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Second Law of Thermodynamics}
+ 
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm,clip]{./Pics/2ndLaw_Schem}
+    \end{center}
+   \end{figure} 
+
+All spontaneous processes are irreversible -- heat flows from hot to cold spontaneously and irreversibly.
+   
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+ %\scriptsize
+ \begin{columns}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{itemize}
+    \item <2-> In the schematics (rhs), an infinitesimal amount of heat, $\delta Q^{\prime}$, is transferred from the thermal reservoir (with temperature $T_{res}$) to a reversible cyclic engine (1). 
+    \item <3-> The engine produces a small amount of work, $\delta W^{\prime}$, and releases an infinitesimal amount of heat, $\delta Q$ to another reservoir at variable temperature $T$. 
+    \item <4-> The second reservoir (2) also releases work $\left(\delta W\right)$ to the surroundings.
+   \end{itemize}
+
+
+  \end{column}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=1.\columnwidth,clip]{./Pics/2ndLaw_Schem2}
+    \end{center}
+   \end{figure} 
+  \end{column}
+ \end{columns}
+
+
+ \normalsize
+    
+\end{frame}
+
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+ %\scriptsize
+ \begin{columns}
+
+  \begin{column}[c]{0.55\linewidth}
+   \begin{itemize}
+    \item <1-> Using the analogy of heat transfer ratio and temperature ratio (see power cycle systems), \\
+                $\displaystyle\frac{\delta Q^{\prime}}{\delta Q} = \displaystyle\frac{T_{res}}{T} \;\; \Longrightarrow \displaystyle\frac{\delta Q^{\prime}}{T_{res}} = \displaystyle\frac{\delta Q}{T}$
+  \item <2-> The first law in differential form for the combined cycle (within the dotted box) is \\
+                $dE= \delta Q^{\prime} - \left(\delta W + \delta W^{\prime}\right) \Longrightarrow \delta W + \delta W^{\prime} = \delta Q^{\prime} - dE$
+  \item <3-> The process is not required to be cyclic and the heat transfer $\delta Q$ is internal and do not cross the boundary of the combined system;
+   \end{itemize}
+
+
+  \end{column}
+
+  \begin{column}[c]{0.45\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=1.\columnwidth,clip]{./Pics/2ndLaw_Schem2}
+    \end{center}
+   \end{figure} 
+  \end{column}
+ \end{columns}
+
+
+ \normalsize
+    
+\end{frame}
+
+
+
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+ %\scriptsize
+ \begin{columns}
+
+  \begin{column}[c]{0.55\linewidth}
+   \begin{itemize}
+    \item <1-> And eliminating $\delta Q^{\prime}$, \\
+                $\delta W + \delta W^{\prime} = T_{res}\displaystyle\frac{\delta Q}{T} - dE$
+     \item <2-> If the configuration shown in the previous slide undergoes a cyclic process, \\
+             $\displaystyle\oint \delta W + \displaystyle\oint \delta W^{\prime} = \displaystyle\oint T_{res}\displaystyle\frac{\delta Q}{T} - \displaystyle\oint dE$
+     \item <3-> as $E$ is a thermodynamic property, the cyclic integral is equal to zero.  Integrating the equation above, and assuming that $T_{res}$ is (by definition) constant:\\
+             $W + W^{\prime} = T_{res} \displaystyle\oint \displaystyle\frac{\delta Q}{T}$
+   \end{itemize}
+  \end{column}
+
+  \begin{column}[c]{0.45\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=1.\columnwidth,clip]{./Pics/2ndLaw_Schem2}
+    \end{center}
+   \end{figure} 
+  \end{column}
+ \end{columns}
+ \normalsize
+    
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+    \item <1-> Thus from Kelvin-Plancks statement of the Second Law -- \textcolor{blue}{$\lq$we cannot convert all the heat to work, but we can convert all the work to heat'}:\\
+             $W + W^{\prime} \leq 0$
+    \item <2-> And therefore,\\
+             $T_{res} \displaystyle\displaystyle\oint \displaystyle\frac{\delta Q}{T} \leq 0$
+    \item <3->  Since $T_{res} > 0$, we can divide the previous equation without changing the meaning of the inequality to obtain the mathematical representation of the Second Law:
+             \begin{eqnarray}
+             \textcolor{blue}{\displaystyle\oint \displaystyle\frac{\delta Q}{T} \leq 0 \;\;\; \text{for irreversible processes}} \nonumber \\
+             \textcolor{blue}{\displaystyle\oint \displaystyle\frac{\delta Q}{T} = 0 \;\;\;\;\; \text{for reversible processes}} \nonumber 
+             \end{eqnarray}
+   \end{itemize}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+    \item <3-> In a reversible process, from state 1 to 2, via path {\it A}, and returning to state 2 from either path {\it B} or {\it C}. The cyclic integral $\displaystyle\oint\displaystyle\frac{\delta Q}{T} = 0$ can be split as,
+         \textcolor{blue}{\begin{eqnarray}
+          \left( \displaystyle\int\limits_{1}^{2} \displaystyle\frac{\delta Q}{T} \right)_{A} + \left( \displaystyle\int\limits_{2}^{1} \displaystyle\frac{\delta Q}{T} \right)_{B} = 0 \nonumber \\
+          \left( \displaystyle\int\limits_{1}^{2} \displaystyle\frac{\delta Q}{T} \right)_{A} + \left( \displaystyle\int\limits_{2}^{1} \displaystyle\frac{\delta Q}{T} \right)_{C} = 0 \nonumber 
+         \end{eqnarray}}
+   \end{itemize}
+ \normalsize
+    
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+    \item <2-> Leading to:
+          $\left( \displaystyle\int\limits_{1}^{2} \displaystyle\frac{\delta Q}{T} \right)_{B} = \left( \displaystyle\int\limits_{2}^{1} \displaystyle\frac{\delta Q}{T} \right)_{C} $
+    \item <3-> Since paths {\it B} and {\it C} are different and arbitrary, but $\displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$ is the same on either paths -- therefore \textcolor{blue}{the integral is path-independent};
+    \item <4-> This defines another (extensive) thermodynamic property -- \textcolor{red}{entropy (S)}, \\
+          $S_{2} - S_{1} = \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$
+    \item <5-> Assuming constant mass ($m$), the intensive property entropy $\left(s=S/m\right)$, the differential form is, \\
+          $ds = \displaystyle\frac{\delta q}{T} \;\;\;\; \Longrightarrow \;\;\;\; \delta q = Tds$
+    \item <6-> Integrating from state 1 to 2: $q_{1}^{2} = \displaystyle\int_{1}^{2} Tds$    
+   \end{itemize}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+  \item <1-> This is the heat transfer equivalent of $w_{1}^{2}=\displaystyle\int_{1}^{2}PdV$
+  \item <2-> Thus for a reversible process, \\
+       $S_{2} - S_{1} = \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$ and $S_{1} - S_{2} = \displaystyle\int\limits_{2}^{1}\displaystyle\frac{\delta Q}{T}$;
+  \item <3-> From the Second Law, \\
+       $0 \geq \left( \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T} \right)_{A} + \left( \displaystyle\int\limits_{2}^{1}\displaystyle\frac{\delta Q}{T} \right)_{B}$ 
+  \item <4-> Combinig the equations above to eliminate the path {\it B}, \\
+        $S_{2}-S_{1} \geq \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$
+ \end{itemize}
+ \normalsize
+\end{frame}
+
+
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+  \item <1-> If path {\it A} is reversible, the equality holds, however if {\it A} is irreversible, the inequality holds;
+  \item <2-> If the system is isolated $\left(\delta Q = 0\right)$ then\\
+    $S_{2}-S_{1}\geq 0$
+   \end{itemize}
+ \normalsize
+    
+\end{frame}
+
+
+\end{document}

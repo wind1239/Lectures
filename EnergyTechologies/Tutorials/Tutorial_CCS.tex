@@ -1,0 +1,177 @@
+\documentclass[14pt,twoside]{article}
+
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=red}
+%\usepackage{natbib}
+\usepackage{pdfpages}
+%\usepackage{fancyhdr} %%%%
+%\pagestyle{fancy}%%%%
+\pagestyle{empty}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+
+%%%
+%%% Headers and Footers
+%\lhead[\text{\small{IMPERIAL COLLEGE LONDON}}] {\text{\small{Applied Modelling and Computation Group - AMCG}}} 
+%%\chead[\text{\small{AMCG}}] {\text{\small{ }}}
+%\rhead[\text{\small{c.pain@imperial.ac.uk}}]{\text{\small{c.pain@imperial.ac.uk}} }
+%\rfoot[\thepage]{\thepage}
+%\cfoot[\text{\small{April 2005}}] {\text{\small{April 2005}}}
+%\lfoot [\text{\small{http://amcg.ese.imperial.ac.uk}}]{\text{\small{http://amcg.ese.imperial.ac.uk}}}
+%\renewcommand{\headrulewidth}{0.8pt}
+
+%%%
+%%% space between lines
+%%%
+\renewcommand {\baselinestretch}{1.5}
+\pagestyle{myheadings}
+\markboth{\hfill EG5066: Energy Technologies \hfill Tutorial Brief 2013/14}{EG5066: Energy Technologies \hfill Tutorial Brief 2013/14 \hfill}
+
+\begin{document}
+
+%\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill October, 2013}
+
+\bigskip
+
+\begin{center}
+{\Large CCS: Carbon Capture and Storage}\\
+{\large Combined $\lq$Clean Coal Technologies' and CCS -- Towards Lower Carbon Footprint}\\
+{\large \today}
+\end{center}
+
+
+\section{Introduction}
+
+$\lq$Clean coal technology' (CCT) is one energy route by which industrialised world can improve sustainability of its electricity generation while paving the way to gradual transition towards low-carbon and/or renewable energy matrix. CCT involves capturing CO$_{2}$ from the electricity generation process and transporting the nearly pure CO$_{2}$ fluid stream to storage sites (e.g., ocean, depleted oil/gas fields or deep aquifer). Carbon Capture and Storage is not a single technology, but a suite of highly advanced technologies that can be readily applied to existing energy-converter processes, such as coal-fired power stations.
+
+In {\it Integrated Gasification and Combined Cycle} (IGCC, Fig. \ref{pic:igcc}) power generation plants, $\lq$clean coal' is partially oxidised at high temperature and pressure conditions to produce syngas (i.e., synthesis gas -- a mixture of H$_{2}$ and CO with traces of CO$_{2}$). Common coal pollutants such as NO$_{\text{x}}$, SO$_{\text{x}}$ and particulates can be readily removed from the high-pressure syngas stream prior to the combustion stage. This process also includes the pre-combustion removal of CO$_{2}$ for further transport and storage. Additionally, syngas can also be used as a feedstock for chemicals manufacturing -- an economic advantages to IGCC projects.
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=15.0cm,height=8.0cm]{../Books_Refs/blob.png}
+\includegraphics[width=15.0cm,height=8.0cm]{../Books_Refs/IGCC2.jpg}
+\caption{Simple (top) and detailed schematics for an IGCC power plant.}\label{pic:igcc}
+\end{center}
+\end{figure}
+
+
+\section{Tutorial}
+You should read some of the arguments and science behind the $\lq$Clean Coal Technologies' and CCS. In the Tutorial Session (Nov 3$^{\text{rd}}$), the students should be gathered in ($\sim$10-11) groups and discuss the following subjects. This will be followed by class discussion.
+\begin{enumerate}
+%%
+\item Capture Technologies are by far the most expansive and critical set of technologies for CCS, both in financial and energy costings. Thus,  
+\begin{enumerate}
+\item Define and explain post-, pre- and oxyfuel-combustion processes;\\
+  \textcolor{blue}{
+Post-combustion processes refer to CO$_{\text{2}}$ capture from flue gases produced by fuel combustion -- in this technology, low concentration stream of CO$_{\text{2}}$ (3-20$\%$) is absorbed at low-pressure ($\sim$ 1 bar) and high-temperature $\left(\text{120-180}^{\text{o}}\text{C}\right)$ with small amounts of SO$_{\text{x}}$ and NO$_{\text{x}}$ -- Fig. \ref{pic:prepost}(a). The high temperature and low partial pressure of CO$_{\text{2}}$ in the gas stream pose as process design challenges requiring large cooling systems. These issues have been addressed by using organic solvents in absorption, adsorption and gas-separation membrane processes to chemically react with CO$_{\text{2}}$ and extract it from the gas stream. Unfortunately these processes require large energy budget due to solvent regeration and losses during absorption processes.}
+
+  \textcolor{blue}{
+Pre-combustion processes refer to CO$_{\text{2}}$ capture from the synthesis gas (syngas) stream $\left(\right.$H$_{\text{2}}$, CO, and traces of CO$\left._{\text{2}}\right)$ before combustion and power generation -- Fig. \ref{pic:prepost}(b). The fuel is reacted with either steam (for solid fuels -- reaction \ref{pre-steam}) or O$_{\text{2}}$ (for liquid or gas fuels -- reaction \ref{pre-o2}) at high temperature and pressure conditions $\left(\sim\right.$1400$^{\text{o}}$C and 34-55 bar$\left.\right)$,
+\begin{eqnarray}
+C_{\text{x}}H_{\text{y}} + \text{x}H_{\text{2}}O &\longleftrightarrow& \text{x}CO + \left(\text{x}+\frac{\text{y}}{2}\right)H_{\text{2}} \label{pre-steam} \\
+&& \nonumber \\
+C_{\text{x}}H_{\text{y}} + \frac{\text{x}}{2}O_{\text{2}} &\longleftrightarrow& \text{x}CO + \frac{\text{y}}{2}H_{\text{2}} \label{pre-o2}% \\
+\end{eqnarray}
+The syngas reacts with the steam converting CO into CO$_{\text{2}}$ (water-gas shift reaction -- WGS),
+\begin{equation}
+CO + H_{\text{2}}O \longleftrightarrow CO_{\text{2}} + H_{\text{2}}.
+\end{equation} 
+The concentrated CO$_{\text{2}}$ stream (i.e., with high partial pressure) can then be captured by contact with solvents in either/both absorption and gas-membrane processes. 
+}
+
+  \textcolor{blue}{
+In oxy-combustion processes (Fig. \ref{pic:prepost}(c)), the fuel is oxidised with oxygen instead of air.  The combustion results in a gas stream contaning CO$_{\text{2}}$, H$_{\text{2}}$O and traces of other gases. The CO$_{\text{2}}$ is extracted from the flue gas stream -- 75-80$\%$ of CO$_{\text{2}}+\text{H}_{\text{2}}\text{O}\left(\text{vapour}\right)$. This capture technoloy has attacted the attention of the CCS community due to its larger efficiency if compared to the traditional post-combustion capture technologies.}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=12.0cm,height=8.0cm]{Pre_Post-Combustion}
+\caption{Schematics of (a) post-, (b) pre- and (c) oxy-combustion capture processes.}\label{pic:prepost}
+\end{center}
+\end{figure}
+
+\item How can these (or some of them) processes be coupled with IGCC?\\
+  \textcolor{blue}{
+In Integrated Gasification Combined Cycle -- IGCC (Fig. \ref{pic:igcc}), the fuel is gasified and and the resulting gas is purified/cleaned and used in combined (gas- and steam-based turbine) cycles. When combined with pre-combustioon capture technologies, the high CO$_{\text{2}}$ concentration in the gasification gas stream allows efficient de-carbonisation of the fuel via gas-washing (organic solvent absorption) processes. In post-combustion capture processes, CO$_{\text{2}}$ is removed from the flue gas after ordinary combustion using gas-washing process. However, as the flue gas stream is very poor in CO$_{\text{2}}$, the capture is inherently of low efficiency and requires energy for solvent (usually amine based) regeneration. In oxy-fuel capture processes, the resulting gas stream is a solution of high concentrated CO$_{\text{2}}$, water-steam and traces of impurities (as the oxidation is performed with $\lq$pure' O$_{\text{2}}$, instead of air, the resulting gas contains just traces of NO$\left._{\text{x}}\right)$. The water is then condensed from the gas stream and CO$_{\text{2}}$ can be removed, however in order to limit the combustion temperature, cold flue gas need to be recycled.}
+
+\item In chemical-looping combustion (CLC), CO$_{2}$ is separated from the other flue gas components (i.e., N$_{2}$ and O$_{2}$). The fuel is introduced in the fuel-reactor that contains a metal oxide (e.g.,oxides of Ni, Fe, Mn and Cu) -- Me$_{\text{x}}$O$_{\text{y}}$,
+\begin{displaymath}
+\left(2n + m\right)Me_{x}O_{y} + C_{n}H_{2m} \rightarrow \left(2n+m\right)Me_{x}O_{y-1} + mH_{2}O + nCO_{2}
+\end{displaymath}
+The CO$_{2}$ and H$_{2}$O stream leaves the reactor and the water is condensated to produce a stream of pure CO$_{2}$. The reduced metal oxide, Me$_{x}$O$_{y-1}$ is conducted to the air-reactor to recuperate the metal oxide,
+\begin{displaymath}
+Me_{x}O_{y-1}+ 1/2 O_{2} \rightarrow Me_{x}O_{y}
+\end{displaymath}
+What are the advantages of such process for CO$_{2}$ capture?  \\
+  \textcolor{blue}{
+CLC can be operated at high temperatures -- 800-950$^{\text{o}}$C leading to production of H$_{\text{2}}$ (that in turn can be used to produce energy) whilst capturing CO$_{\text{2}}$.} %via:
+%\begin{itemize}
+%\item Autothermal chemical looping reform: partial oxidation of the syngas followed by WGS reaction producing separated H$_{\text[2}}$ and CO$_{text{2}}$ streams;
+%\item Chemical looping steam reform: 
+%\end{itemize} which result in lower efficiency if compared if natural gas combined cycles; use of circulating fluidised beds which have been used in industry for over 50 years; see page 60 of Imperial 
+\end{enumerate}
+
+%%
+\item Transport Technologies: before transportation, CO$_{2}$ is compressed to either supercritical state (i.e., T $>$ T$_{c}$ = 31.1$^{o}$C and P $>$ P$_{c}$ = 74bar) or liquid state (see phase diagram in the lecture notes).
+\begin{enumerate}
+\item Supercritical CO$_{2}$ is used when transported via pipelines. What are the main technological challenges for long distances? Operating pressures in pipelines are often in the range of 85 $<$ P $<$ 210 bar.  \\
+  \textcolor{blue}{
+Transporting CO$_{\text{2}}$ via pipelines requires that fluid be kept during all path in a single phase stage -- either as gas or liquid phases. This will require a strict monitoring/controlling of the pressure drop conditions through the pipeline with intermediate pumps or compressors. In either phase, CO$_{\text{2}}$ will need to be free of water (to avoid formation of gas hydrates) and contaminants (e.g., SO$_{\text{x}}$ can react with water to produce H$_{\text{2}}$S that can potentially act as a corrosion agent in the pipeline metal). For short distances, pressure conditions may be ensured without the use of pumps or compressors, but by substantially increasing the inlet pressure.  However this would require extra energy for the compression process and the pipeline wall would need to be reengineered to sustain larger pressure.  }
+\item Ship-tanks can transport (cryogenic) liquid CO$_{2}$ at T$\sim$-51.2$^{o}$C and P$\sim$6.5bar. Compare the liquefaction process used to produce LNG and to liquefy CO$_{2}$. What are the advantages (if any) of using ships over pipelines?\\
+  \textcolor{blue}{
+Liquefaction process for LNG and CO$_{\text{2}}$ are similar (see Linde and/or Claude liquefaction processes) and involve a set of thermodynamic refrigeration operations starting from compression to supercritical conditions followed by constant-pressure cooling and isenthalpic expansion. Although transporting CO$_{\text{2}}$ by ship-tanks requires intermediate storage facilities (that can increase the costings), it is a more flexible process as the fluid can be $\lq$collected' in multiple sites on the way to the storage site (ships can transport less than the designed volume). }
+\end{enumerate}
+
+%%
+\item Most of the uncertainty on CCS lies on {\it geological storage technologies}. Although the analogue -- EOR, have been extensively used in industry, the unknowns in the CO$_{2}$ injection process still poses as the main engineering challenge for CCS. 
+\begin{enumerate}
+\item Four main mechanisms are assumed to be responsible for hold the CO$_{2}$ within the pores of the underground geological formations: (i) physical trapping, %below impermeable or low -permeability rock, 
+(ii) dissolution trapping; 
+(iii) mineral trapping; 
+(iv) capillary trapping. 
+Explain these mechanisms.
+  \textcolor{blue}{
+\begin{enumerate}
+\item Physical trapping (or known a structural ans stratigraphic trapping): CO$_{\text{2}}$ is contained below $\lq$impermeable' or low-permeability rocks (i.e., caprock sealing integrity); 
+\item Dissolution trapping: CO$_{\text{2}}$ is dissolved in brine -- the resulting solution is denser and slowly sink through the storage aquifer;
+\item Mineral trapping: Insoluble carbonates and bicarbonates $\left(\text{CO}_{\text{3}}^{\text{-2}},\text{ HCO}_{\text{3}}^{\text{-}}\right)$ are formed and precipitated by the reaction CO$_{\text{2}}$ and the surrounding rocks;
+\item Capillary trapping: CO$_{\text{2}}$ can be trapped as micro-bubbles in the pore space.
+\end{enumerate}
+}
+\item The medium- and long-term risks associated with storage are extensive fracturing of the impermeable rock layer (caprock) and CO$_{2}$ plume migration throughout (existing) fractures and geological faults. The former is directly related to the storage capacity and injection flow rate, whilst the later is a function of the pore-scale properties and the trapping mechanisms. Discuss both risks.\\
+  \textcolor{blue}{
+The caprock's sealing capacity (i.e., the ability to prevent leakage) is critical when considering a site for geological storage of CO$_{\text{2}}$. Brittle lithologies for the caprock tend to develop fractures whilst ductile lithologies can behave plastically under deformation. CO$_{\text{2}}$ is preferably injected in supercritical state than in gaseous phase because the larger density of the former. However due change in the storage site pressure and/or temperature conditions, part of the (or plume of) CO$_{\text{2}}$ can migrate before been permanently trapped. The excess pressure from coupled buoyancy forces and injection overpressure are the driving force for different transport processes. Pressure-driven (or Darcy-) flow through the caprock is the main risk associated with CO$_{\text{2}}$ storage and the main physical mechanisms are:
+\begin{enumerate}
+\item Leakage by mechanical failure of the caprock (i.e., seal breaking) or damage of the wells (i.e., fracture and rupture in casings, corrosion of the pipes, perforation in the cement layers  etc);
+\item Seepage of CO$_{\text{2}}$ through existing open fault or fractures (possibly due to water production mechanisms prior to storage);
+\item Leakage through the pore-space due to capillary forces and permeability (after capillary breakthrough pressure is exceeded). 
+\end{enumerate}
+Any of the above can occur individually or in combination.
+}
+\item What are the actual similarities between EOR and CO$_{2}$ storage?\\
+  \textcolor{blue}{
+In enhanced oil recovery (EOR), CO$_{\text{2}}$ is injected in the reservoir displacing crude oil in the pore scale while being partially dissolved in it (miscible flooding). The dissolution of CO$_{\text{2}}$ in oil has twofold effects: to increase oil saturation above the residual saturation enabling oil to flow more easily and to reduce the oil viscosity resulting in enhanced mobility. The efficiency of the EOR process may depend on the reservoir pressure, i.e., CO$_{\text{2}}$ miscibility may occur at pressures above the $\lq$minimum miscibility pressure' (MMP). The sweep efficiency of EOR depends on the viscosity ratio between oil and CO$_{\text{2}}$ and strongly affect the preferential pore paths in the system leading to channelling the injected CO$_{\text{2}}$ through the reservoir fluid. CO$_{\text{2}}$ can be stored in zones where it replaces reservoir oil and water.  The fraction of pore space that the injected CO$_{\text{2}}$ can occupy is controlled by the reservoir heterogeneity, gravity segregation and miscible flooding (i.e., displacement) efficiency. In both CO$_{\text{2}}$ storage and EOR, screening of the geological site is crucial to determine permeability distribution required to accurately predict the breakthrough time of injected CO$_{\text{2}}$ (i.e., maximum injection rate) at production wells and the amount of CO$_{\text{2}}$ produced with the oil (i.e., the  maximum stored quantity of CO$_{\text{2}}$). These quantities are critical to keep the integrity of the geological storage site. 
+}
+\end{enumerate} 
+\end{enumerate}
+
+\section{Feedback}
+Students should write (optional) a {\bf (MAX) 2-pages} report containing his/her critical view/analysis on the three questions above. The report should be emailed to \href{mailto:jefferson.gomes@abdn.ac.uk}{jefferson.gomes@abdn.ac.uk} on (or before) Dec 10$^{th}$. The report {\bf MUST} be in {\bf PDF} format and the {\bf Subject} of the email {\bf MUST} be {\bf EG5066: Tutorial CCS}. Feedback on the report will be given on Dec 17$^{th}$.
+
+
+\clearpage
+
+   
+\end{document}
