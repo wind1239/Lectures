@@ -1,0 +1,131 @@
+
+\section{Introduction to Partial Differentiation}
+Eight properties of a system -- pressure ({\it P}), volume ({\it V}), temperature ({\it T}), internal energy ({\it u}), enthalpy ({\it h}), entropy ({\it s}), Helmholtz free energy ({\it f}) and Gibbs free energy ({\it g}) have been introduced in EG2004 (Fluid Mechanics and Thermodynamics) and EG3020 (Process Thermodynamics). {\it h}, {\it f} and {\it g} are sometimes referred to as thermodynamic potentials. Both {\it f} and {\it g} are extremely important when considering chemical reactions (e.g., combustion) and processes involving phase change (e.g., water/steam industrial systems, atmospheric and crystallisation processes etc).
+
+From the aforementioned (eight) properties, only pressure, temperature and volume can be directly measurable. Therefore it is convenient to introduce other combination of properties which are relatively easily measurable and which, along with {\it P}, {\it T} and {\it V}, enable the values of the remaining properties to be determined. These combinations of properties are commonly referred as {\it thermodynamic gradients} -- i.e., they are defined as the rate of change of one property with another while a third is kept constant.
+
+\medskip
+
+Let's consider three variables $x$, $y$ and $z$, and their functional relationship, $f\left(x,y,z\right)=0$ with $x=x(y,z)$, $y=y(x,z)$ and $z=z(x,y)$.  The intrinsic relationship of the differential dependent variable $x=x(y,z)$ in relation to the independent variables $y$ and $z$ can be represented as
+\begin{equation}
+dx = \left(\frc{\partial x}{\partial y}\right)_{z}dy + \left(\frc{\partial x}{\partial z}\right)_{y}dz
+\label{exact_diff_dx}
+\end{equation}
+\noindent
+in which $dx$ is the exact differential. Renaming $M=\left(\frc{\partial x}{\partial y}\right)_{z}$ and $N=\left(\frc{\partial x}{\partial z}\right)_{y}$, and Eqn. \ref{exact_diff_dx} can be rewritten as,
+\begin{equation}
+dx = Mdy + Ndz \label{diff1}
+\end{equation}
+\noindent
+The partial differentiation of $M$ and $N$ with respect to $z$ and $y$, respectively, leads to,
+\begin{equation}
+  \frc{\partial M}{\partial z}=\frc{\partial^{2} x}{\partial y \partial z} \;\;\;\text{and}\;\;\; \frc{\partial N}{\partial y}=\frc{\partial^{2} x}{\partial z \partial y} \;\; \Longleftrightarrow \;\;  \frc{\partial M}{\partial z}=\frc{\partial N}{\partial y} \label{diff2}
+\end{equation}
+\noindent
+Similarly for $y=y(x,z)$ and $z=z(x,y)$, 
+\begin{eqnarray}
+  dy = \left(\frc{\partial y}{\partial x}\right)_{z}dx + \left(\frc{\partial y}{\partial z}\right)_{x}dz \nonumber \\
+  dz = \left(\frc{\partial z}{\partial x}\right)_{y}dx + \left(\frc{\partial z}{\partial y}\right)_{x}dy \nonumber
+\end{eqnarray}
+\noindent
+Replacing $dz$ in $dy$ above,
+\begin{eqnarray}
+dy &=& \left(\frc{\partial y}{\partial x}\right)_{z}dx +  \left(\frc{\partial y}{\partial z}\right)_{x} \left[ \left(\frc{\partial z}{\partial x}\right)_{y}dx + \left(\frc{\partial z}{\partial y}\right)_{x}dy \right] \nonumber \\
+%
+  &=& \left[ \left(\frc{\partial y}{\partial x}\right)_{z} + \left(\frc{\partial y}{\partial z}\right)_{x} \left(\frc{\partial z}{\partial x}\right)_{y} \right]dx + dy \nonumber 
+\end{eqnarray}
+\noindent
+Clearly, the term in the square-brackets vanishes,
+\begin{eqnarray}
+&& \left(\frc{\partial y}{\partial x}\right)_{z} + \left(\frc{\partial y}{\partial z}\right)_{x} \left(\frc{\partial z}{\partial x}\right)_{y}  = 0 \nonumber \\
+%
+&& \left(\frc{\partial y}{\partial z}\right)_{x} \left(\frc{\partial z}{\partial x}\right)_{y} =  -\left(\frc{\partial y}{\partial x}\right)_{z} \nonumber \\
+&&  \left(\frc{\partial x}{\partial y}\right)_{z} \left(\frc{\partial z}{\partial x}\right)_{y} \left(\frc{\partial y}{\partial z}\right)_{x} = -1 \label{diff3}
+\end{eqnarray}
+\noindent
+Replacing $x$, $y$ and $z$ by $P$, $V$ and $T$,
+\begin{equation}
+\left(\frc{\partial P}{\partial V}\right)_{T} = \left(\frc{\partial T}{\partial P}\right)_{V} = \left(\frc{\partial V}{\partial T}\right)_{P} = -1
+\end{equation}
+
+\section{Thermodynamic Relations}
+
+From the Course Notes we saw that the First Law applied to a closed system in a reversible process states that,
+\begin{equation}
+dQ= du + PdV, \label{firstlaw_simplified}
+\end{equation}
+\noindent
+and the Second Law,
+\begin{equation}
+ds=\left(\frc{dQ}{T}\right)_{\text{rev}}
+\end{equation}
+\noindent
+we can combine these equations to obtain
+\begin{equation}
+du = - PdV + Tds \label{gibbs_eqn0}
+\end{equation}
+We can similarly derive the equations for enthalpy, free Gibbs and free Helmholtz energy equations as
+\begin{eqnarray}
+&& dh = Tds + VdP \label{enthalpy_eqn} \\
+&& df = -PdV - sdT \label{helmholtz_eqn} \\
+&& dg = -VdP -sdT \label{gibbs_eqn}
+\end{eqnarray}
+
+\noindent
+As $du$, $dh$, $df$ and $dg$ are exact differentials, we can express them as the following set of chain rule -based differentials,
+\begin{eqnarray}
+du = \left(\frc{\partial u}{\partial  s}\right)_{V}ds + \left(\frc{\partial u}{\partial V}\right)_{s}dV \nonumber \\
+%
+dh = \left(\frc{\partial h}{\partial  s}\right)_{P}ds + \left(\frc{\partial h}{\partial P}\right)_{s}dP \nonumber \\
+%
+df = \left(\frc{\partial f}{\partial  V}\right)_{T}dV + \left(\frc{\partial f}{\partial T}\right)_{V}dT \nonumber \\
+%
+dg = \left(\frc{\partial g}{\partial  P}\right)_{T}dP + \left(\frc{\partial g}{\partial T}\right)_{P}dT \nonumber \\
+\end{eqnarray}
+
+
+\section{Maxwell Relations}
+
+Comparing the Gibbs equation (\ref{gibbs_eqn0}) with Eqn. \ref{diff1} for $dx$,
+\begin{displaymath}
+du = -PdV +Tds \;\;\;\;\;\text{and}\;\;\;\;\; dx = Mdy + Ndz 
+\end{displaymath}
+We can easily notice the mathematical equivalences,
+\begin{displaymath}
+x\Longrightarrow u, \;\; y\Longrightarrow V, \;\; z\Longrightarrow s, \;\; M\Longrightarrow -P, \;\; N\Longrightarrow T
+\end{displaymath}
+\noindent
+With the analogy of $x=x(y,z)$ and $u=u(V,s)$, Eqn. \ref{diff2} leads to,
+\begin{equation}
+-\left(\frc{\partial P}{\partial s}\right)_{V} = \left(\frac{\partial T}{\partial V}\right)_{s}, \label{maxwell_rel1} 
+\end{equation}
+\noindent
+$\left(\frc{\partial u}{\partial V}\right)_{s} = -P$ and $\left(\frc{\partial u}{\partial s}\right)_{V}=T$.  Eqn. \ref{maxwell_rel1} is known as a {\it Maxwell relation}. Similar relations can be obtained from the remaining fundamental thermodynamics equations -- Eqns. \ref{enthalpy_eqn}-\ref{gibbs_eqn} leading to the whole set of {\it Maxwell relations}:
+\begin{eqnarray}
+%
+ \left(\frac{\partial T}{\partial V}\right)_{s} &=& -\left(\frc{\partial P}{\partial s}\right)_{V} \nonumber \\
+%
+ \left(\frc{\partial T}{\partial P}\right)_{s} &=& \left(\frac{\partial V}{\partial s}\right)_{P} \label{maxwell_rel2} \\
+%
+ \left(\frc{\partial P}{\partial T}\right)_{V} &=& \left(\frac{\partial s}{\partial V}\right)_{T} \label{maxwell_rel3} \\
+%
+  \left(\frac{\partial V}{\partial T}\right)_{P} &=& -\left(\frc{\partial s}{\partial P}\right)_{T} \label{maxwell_rel4} 
+\end{eqnarray}
+\noindent
+with,
+\begin{eqnarray}
+%
+\left(\frc{\partial u}{\partial s}\right)_{V} & =  T  = & \left(\frc{\partial h}{\partial s}\right)_{P} \label{maxwell_coef1} \\
+%
+\left(\frc{\partial u}{\partial V}\right)_{s} & = - P = & \left(\frc{\partial f}{\partial V}\right)_{T} \label{maxwell_coef2} \\
+%
+\left(\frc{\partial h}{\partial P}\right)_{s} & =  V =  & \left(\frc{\partial g}{\partial P}\right)_{T} \label{maxwell_coef3} \\
+%
+\left(\frc{\partial f}{\partial T}\right)_{V} & =  -s  = & \left(\frc{\partial g}{\partial T}\right)_{P} \label{maxwell_coef4}
+%
+\end{eqnarray}
+
+Equations \ref{maxwell_rel1}-\ref{maxwell_coef4} do not refer to a process, but do express relations between properties which must be satisfied when any system is in a state of equilibrium.
+
+
+

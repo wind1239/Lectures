@@ -1,0 +1,376 @@
+
+\documentclass[12pt,twoside]{report}
+
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{natbib,enumerate}
+%\usepackage{fancyhdr} %%%%
+%\pagestyle{fancy}%%%%
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\begin{document}
+
+
+\setcounter{page}{1}
+
+\vfill
+
+\pagebreak
+
+
+\begin{description}
+
+%%%
+%%% Module 01
+%%%
+\item [Question 1:] In the secondary cooling circuit of a nuclear power plant, the steam generator (boiler / reheater) is connected to two turbines operating as a reheat Rankine cycle (Fig. \ref{exam_mod01_rankinecycle}). Primary superheated steam is at 40 bar and 370$^{\text{o}}$C, with reheat to 7 bar and 370$^{\text{o}}$C. The isentropic efficiencies of the first $\left(\eta_{\text{T1}}\right)$ and second $\left(\eta_{\text{T2}}\right)$ turbines and boiler feed pump $\left(\eta_{\text{P}}\right)$ are 84$\%$, 80$\%$ and 61$\%$ respectively.
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=13.cm,clip]{./Pics/Exam_Reheat_Rankine_Cycle}
+\caption{ Reheat Rankine cycle with 2 turbines.}
+\label{exam_mod01_rankinecycle}
+\end{center}
+\end{figure}
+
+
+\begin{enumerate}[(a)]
+\item (10 Marks) In the Table below, determine {\it (a)-(j)}.\\
+%\begin{table}[h]
+%\label{exam1_table1}
+\begin{center}
+\begin{tabular} {||c | c c c c c || }
+\hline\hline
+{\bf Stage} & {\bf P}    & {\bf T}        & {\bf State}    & {\bf H}             & {\bf S}                  \\
+            & {\bf (bar)}& {\bf ($^{o}$C)} &               & {\bf (kJ.kg$^{-1}$)} & {\bf (kJ.(kg.K)$^{-1}$)} \\
+\hline\hline
+ {\bf 1 }   & 40         & 370            &   superheated  & {\bf (a)}           & {\bf (b)}                 \\
+            &            &                &   steam        &                     &                           \\
+ {\bf 2 }   &  --        &  --            &     {\bf (c)}  & --                  &   --                      \\
+ {\bf 3 }   & 7          & 370            &   superheated  & {\bf (d)}           & {\bf (e)}                 \\
+            &            &                &   steam        &                     &                           \\
+ {\bf 4 }   & 0.10       & --             &     --         & --                   & --                      \\
+ {\bf 5 }   & 0.10       & --             &   {\bf (f)}    & {\bf (g)}           & {\bf (h)}                 \\
+ {\bf 6 }   & 40         & --             &   {\bf (i)}    & {\bf (j)}           & --                       \\
+
+\hline\hline
+\end{tabular}
+\end{center}
+%\caption{Thermodynamic table of the reheat Rankine cycle.}
+%\end{table}
+
+
+\item (5 Marks) Calculate the thermal efficiency $\left(\eta_{\text{Thermal}}\right)$ of the reheat Rankine cycle with 2 turbines. $\eta_{\text{Thermal}}$ is expressed as,
+\begin{displaymath}
+\eta_{\text{Thermal}} = \frc{ \left(H_{1}-H_{2s}\right)\eta_{\text{T1}} + \left(H_{3}-H_{4s}\right)\eta_{\text{T2}} - V_{5}\left(P_{6}-P_{5}\right)\eta_{\text{P}}^{-1}} {\left(H_{1}-H_{6}\right)+\left(H_{3}-H_{2}\right)}
+\end{displaymath}
+\item (5 Marks) Sketch the {\it T-S} diagram for this cycle.
+
+\end{enumerate}
+
+%%%
+%%% Module 02
+%%%
+\item [Question 2:] \mbox{}
+\begin{enumerate}[(a)]
+\item (8 Marks) In France, 421 billion kWh of electricity were made from nuclear fuels in 2011.  If an equivalent amount had been raised from natural gas, what would have been the carbon footprint? \\
+{\it Heat of combustion of methane = 889 kJ.mol$^{-1}$ \\
+Atomic weights/gmol$^{-1}$: C: 12 \;\; H: 1}
+\item (2 Marks) Give an example, in qualitative terms, of how a chemical and nuclear explosion can have equivalent blasts if quantities in the former are much larger than in the latter.
+\item (8 Marks) Coke, of calorific value is 25 MJ.kg$^{-1}$, is used to make heat at 300 MW. It is desired to reduce the carbon footprint by 10$\%$ by blending the coke with citrus peel of calorific value 7 MJ.kg$^{-1}$ whilst maintaining a heat production rate of 30MW. At what ratios by weight will coke and citrus peel have to be blended?
+\item (2 Marks) Explain how in the supply of biomass for fuel use forest sustainability is ensured. 
+\end{enumerate} 
+
+
+%%%
+%%% Module 03
+%%%
+\item [Question 3:] \mbox{}
+
+\begin{enumerate}[(a)]
+%
+\item (4 Marks) A horizontally mounted turbine is housed between circular inlet and outlet pipes of circumference 1 m and 0.6 m, respectively. Assume gas satisfying the steady flow energy conservation
+\begin{displaymath}
+\frc{ \dot{Q} -\dot{W}_{s}}{\dot{m}} = \left( h_{2}+ \frc{u_{2}^{2}}{2}\right) - \left(h_{1} + \frc{u_{1}^{2}}{2}\right),
+\end{displaymath}
+flows through the turbine at a steady rate of 4 kg/s. At the inlet the fluid has an enthalpy of 70 kJ and a velocity of 30 m/s, while at the outlet the fluid has an enthalpy of 40 kJ. If the gas does work on the turbine at a rate of 30 kW and transfers heat to the surroundings at a rate of 15 kW, then find the change in gas density between the inlet and the outlet.
+
+%
+\item (2 Marks) For gas flow along a duct whose length is parameterized by $x$ and has slowly-varying cross-sectional area  $A(x)$, use equations corresponding to mass and energy conservation to show that
+\begin{displaymath}
+\frc{dV}{V} + \frc{d h}{u^{2}} - \frc{dA}{A}=0,
+\end{displaymath}
+where the specific volume is denoted $V$, the specific enthalpy $h$, and fluid velocity $u$.
+\medskip
+
+\item (4 Marks) Define the speed of sound and the Mach number in a gas. Give equations that are appropriate for calculating these quantities in an isentropic gas.
+\medskip
+
+\item (3 Marks) For an isentropic process show that changes in specific volume are related to changes in pressure through
+\begin{displaymath}
+dV=-\frc{V^{2}}{c^{2}}dp
+\end{displaymath}
+and explain how changes in enthalpy are related to changes in pressure. 
+\medskip
+
+\item (5 Marks) Hence, for isentropic flow along a duct, show that
+\begin{displaymath}
+\frc{1}{A\left(1-Ma^{2}\right)}\frc{dA}{dx} = \frc{1}{\rho M a^{2}}\frc{d\rho}{dx}
+\end{displaymath}
+\medskip
+
+\item (2 Marks) Explain with reasoning how the gas density $\left(\rho\right)$, changes for flow along a supersonic diffuser.
+%
+\end{enumerate}
+
+%%%
+%%% Module 04 (Rajput 14.19)
+%%%
+\item [Question 4:] A refrigerator operating with Freon-12 as a refrigerant fluid produces a cooling effect of 20 kJ/s (Fig. \ref{exam_refrig1}). The refrigerator operates on a simple cycle with pressure limits of 1.509 bar and 9.607 bar. The vapour leaves the evaporator dry saturated and there is no undercooling.  Assume that the compressor operaters at 300 rpm and has a clearance volume of 3$\%$ of stroke volume.  For the compressor assume that the expansion is described by $PV^{1.13}$ = constant. 
+\begin{enumerate}[(a)]
+\item (10 Marks) Determine the power required by the machine (W).
+\item (10 Marks) Calculate the piston displacement of the compressor $\left(\text{m}^{3}\right)$. 
+\end{enumerate}
+
+\medskip
+Given:
+\begin{center}
+\begin{tabular}{|c c| c c c c c c| }
+\hline
+$T$             & $P_{s}$  & $V_{g}$  & $H_{f}$  & $H_{g}$   &  $S_{f}$   &  $S_{g}$   & {\it Specific Heat} \\
+($^{\text{o}}$C)  & (bar)   & $\left(\text{m}^{3}/\text{kg}\right)$ & (kJ/kg) & (kJ/kg) & (kJ/(kg.K)) &  (kJ/(kg.K)) &   (kJ/(kg.K)) \\
+\hline
+-20   & 1.509 & 0.1088 & 17.8 & 178.61 & 0.073 & 0.7082 & -- \\
+40    & 9.607 & --     & 74.53 & 203.05 & 0.2716 & 0.682 & 0.747 \\
+\hline
+\end{tabular}
+\end{center}
+
+and the volumetric efficiency,
+
+\begin{displaymath}
+\eta_{\text{vol}} = 1 + C - C\left(\frc{P_{d}}{P_{s}}\right)^{1/n} 
+\end{displaymath}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.cm,clip]{./Pics/Exam_Refrigeration1}
+\caption{ Refrigeration cycle, $Ts$ diagram  -- Question 4}
+\label{exam_refrig1}
+\end{center}
+\end{figure}
+
+\clearpage
+
+%%%
+%%% Module 05
+%%%
+\item [Question 5:]\mbox{}
+\begin{enumerate}[(a)]
+\item (4 Marks) Define the specific humidity $\omega$. Assuming both dry air and water vapour behave like ideal gases with specific gas constants $R_{a}=0.2871$ kJ/(kg.K) and $R_{v}=0.4615$ kJ/(kg.K), respectively, show that
+\begin{displaymath}
+\omega = \frc{0.622 p_{v}}{p-p_{v}}
+\end{displaymath}
+where $p$ is the absolute pressure and $p_{v}$ is the partial pressure of water vapour. 
+\medskip
+
+\item (2 Marks) If the saturation pressure of water is denoted $p_{g}$, and relative humidity $\varphi$, then show that
+\begin{displaymath}
+\omega = \frc{0.622 \varphi p_{g}}{p-\varphi p_{g}}
+\end{displaymath}
+\medskip
+
+\item An air-conditioning system takes in outdoor air at 12$^{\text{o}}$C and 25 percent relative humidity at a steady rate of 40 m$^{3}$/min and then conditions it to 24$^{\text{o}}$C and 55 percent relative humidity. This heating and humidification takes place in two distinct steady processes. Firstly the outdoor air is heated to 20$^{\text{o}}$C in a heating section, and secondly the air is humidified by the injection of hot steam in a humidifying section. Assuming both stages take place at a constant pressure of 100 kPa, determine:
+\begin{enumerate}[(i)]
+\item (3 Marks) the partial pressures of water vapour and dry air, and the specific humidity at the inlet;  
+\item (6 Marks) the rate heat is supplied in the heating section;  
+\item (5 Marks) the mass flow rate of the steam required in the humidifying section.
+\end{enumerate}
+\medskip
+\end{enumerate}
+You may assume that the specific heat of dry air is independent of temperature and has the value $C_{p}=1.005$ kJ/(kg.K). The saturation pressure of water is 1.4028 kPa at 12$^{\text{o}}$C, and 2.9858 kPa at 24$^{\text{o}}$C. The enthalpy of saturated water vapour is 2523 kJ/kg at 12$^{\text{o}}$C, and 2537 kJ/kg at 20$^{\text{o}}$C.
+
+
+\end{description}
+
+%\begin{Large}
+%\include{Module_Questions}
+%\include{Module_03}
+%\include{Module_04}
+%\include{Module_05}
+
+
+\end{document}

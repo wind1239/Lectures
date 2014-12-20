@@ -1,0 +1,74 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{natbib}
+\usepackage[pagebackref=true,colorlinks=true,linkcolor=blue,citecolor=red]{hyperref}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{bm}
+
+%% MACROS
+\newcommand{\mathbi}[1]{\boldsymbol{ #1 }}
+\newcommand{\fracp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\fracd}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\fracD}[2]{\frac{D #1}{D #2}}
+\newcommand{\nd}[1]{\left[ #1 \right]}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\pr}[1]{{ #1 }^\prime}
+\newcommand{\br}[1]{\!\left( #1 \right)}
+\newcommand{\Or}[1]{{\cal{O}}\!\left( #1 \right)}
+\newcommand{\hint}{\relbar \mkern-24mu \int}
+\newcommand{\nh}{{n+\frac{1}{2}}}
+\newcommand{\ol}[1]{\overline{ #1 }}
+\newcommand{\Uh}{\ol{U}}
+\renewcommand{\d}[1]{\mathrm{d} #1}
+\newcommand{\bcdot}{\ensuremath{%
+  \mathchoice%
+   {\mskip\thinmuskip\lower0.2ex\hbox{\scalebox{1.5}{$\cdot$}}\mskip\thinmuskip}}%
+   {\mskip\thinmuskip\lower0.2ex\hbox{\scalebox{1.5}{$\cdot$}}\mskip\thinmuskip}%        
+   {\lower0.3ex\hbox{\scalebox{1.2}{$\cdot$}}}%  
+   {\lower0.3ex\hbox{\scalebox{1.2}{$\cdot$}}}%
+}
+\newcommand{\dcdot}{\mathrlap{\raisebox{1.5\depth}{$\bcdot$}}{\raisebox{-2.5\depth}{$\bcdot$}}}
+
+\author{Peter D. Hicks}
+
+\begin{document}
+
+Mass conservation for a compressible gas flowing in a pipe implies
+\begin{subequations}
+\begin{align}
+ \fracd{}{x}\left(\rho u A\right) = 0,
+\end{align}
+where $\rho$ is the fluid density, $u$ is the fluid velocity, $A$ is the cross sectional area of the pipe and $x$ is the distance along the pipe. In the absence of heat sources and work done by the gas, energy conservation for a compressible ideal gas flowing in a pipe implies
+\begin{align}
+ c_p \fracd{T}{x} + u \fracd{u}{x} - g \cos \theta,
+\end{align}
+where $c_p$ is the specific heat capacity of the gas at constant pressure, $T$ is the gas temperature, $g$ is the acceleration due to gravity and $\theta$ is the angle the pipe makes with the vertical. Momentum conservation implies
+\begin{align}
+ \rho u \fracd{u}{x} = -\fracd{p}{x} - \rho g \cos \theta,
+\end{align}
+where $p$ is the pressure in the pipe. This system is completed by the ideal gas equation
+\begin{align}
+ p = \rho R T,
+\end{align}
+where $R$ is the specific gas constant.
+\end{subequations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Problem 1}
+Enter this system of ordinary differential equations into Matlab and solve them for suitable initial conditions when the pipe has uniform cross section. Investigate how the flow properties vary when the pipe has either a constriction or a bulge by modifying how the cross section $A\br{x}$ varies along the length of the pipe.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Problem 2}
+Enter this system of ordinary differential equations into Matlab and solve them for suitable initial conditions when the pipe has uniform cross section. Investigate how the momentum equation can be modified to incorporate friction between the gas and the pipe wall, and assess how the flow properties vary when this effect is included.
+
+\vspace{0.6cm}
+
+\textit{Hint: in EG3007 we looked at systems of equations of the form $\fracd{\mathbi{u}}{t} = f\br{t,\,\mathbi{u}}$, where $\mathbi{u}$ is a vector of different variables. In this problem you need to solve a system of equation $M\br{\mathbi{u}} \fracd{\mathbi{u}}{t} = f\br{t,\,\mathbi{u}}$, where $M\br{\mathbi{u}}$ is a matrix. If you can form the matrix $M\br{\mathbi{u}}$, then we can reduce this system of equations to one we can solve, by premultiplying both sides by $M^{-1}$.}
+\end{document}

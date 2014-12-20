@@ -1,0 +1,751 @@
+
+
+
+\documentclass[12pt,twoside]{report}
+
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{natbib,enumerate}
+%\usepackage{fancyhdr} %%%%
+\usepackage{color}
+\usepackage{fullpage}
+\usepackage{helvet}
+%\pagestyle{fancy}%%%%
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+% Added macros
+\newcommand{\mathbi}[1]{\boldsymbol{ #1 }}
+\newcommand{\fracp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\fracd}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\renewcommand{\d}[1]{\mathrm{d} #1}
+\newcommand{\Ma}{\mathrm{M\! a}}
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\uline}[1]{\rule[0pt]{#1}{0.4pt}}% Fill this blank
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\begin{document}
+
+
+\setcounter{page}{1}
+
+\vfill
+
+\pagebreak
+
+
+\begin{center}
+{\Large Solution of the Problems -- Exam (May 2012/13)}
+\end{center}
+
+\begin{description}
+
+%%%
+%%% Module 01
+%%%
+\item [Question 1:] Reheat Rankine cycle with two turbines:
+%\renewcommand{\theenumi}{\Alph{enumi}}
+\begin{enumerate}[(a)]
+
+\item \label{Q1}In order to fill the Table we need to calculate the thermodynamic properties for each stage of the cycle 
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.cm,clip]{./Pics/Exam_Reheat_Rankine_Cycle}
+\caption{ Reheat Rankine cycle with 2 turbines.}
+\label{exam_mod01_rankinecycle}
+\end{center}
+\end{figure}
+
+\begin{description}
+
+%%%
+\item [Stage 1:] The fluid leaving the boiler towards the first turbine is at 40 bar and 370$^{o}$C. This is well above the saturation temperature $\left(T_{\text{sat}}=250.3^{\text{o}}\text{C}\right)$ and we can thus confirm (as outlined in the given Table) that the fluid is superheated steam. At such pressure, the superheated steam tables (SHST) give,
+\begin{center}
+\begin{tabular}{c c c}
+{\bf T $\left(^{\text{o}}\text{C}\right)$} & {\bf H (kJ/kg)}  & {\bf S (kJ/(kg.K))} \\ 
+350                                      & 3092.5           & 6.582               \\
+400                                      & 3213.6           & 6.769               \\ 
+\end{tabular}
+\end{center}
+Thus, with linear interpolation at $T_{1}=370^{\text{o}}\text{C}$ for $H_{1}$ and $S_{1}$,
+\begin{eqnarray}
+&& H_{i} = H_{0} + \frc{T_{i}-T_{0}}{T_{1}-T_{0}}\left(H_{1}-H_{0}\right) = 3092.5 + \frc{370-350}{400-350}\left(3213.6-3092.5\right) \nonumber \\
+&& \text{ or } \nonumber \\
+&& H_{i} = H_{1} - \frc{T_{1}-T_{i}}{T_{1}-T_{0}}\left(H_{1}-H_{0}\right) = 3213.6 - \frc{400-370}{400-350}\left(3213.6-3092.5\right) \nonumber 
+\end{eqnarray}
+This leads to \textcolor{red}{$H_{1}=3140.94\frc{kJ}{kg}$} \textcolor{blue}{(1 Mark)} and \textcolor{red}{$S_{1}=6.6568\frc{kJ}{kg.K}$} \textcolor{blue}{(1 Mark)}.
+
+%%%
+\item [Stage 2:] Isentropic expansion in {\it Turbine 1} at $P_{2}=P_{3}=7\; bar \Leftrightarrow \;\; S_{2s}=S_{1}=6.6568\frc{kJ}{kg.K}$.  The fluid can be either \textcolor{red}{saturated steam} or \textcolor{red}{2 phase (steam + liquid) fluid} \textcolor{blue}{(1 Mark)}. From the saturated water-steam table (SWST),
+\begin{center}
+\begin{tabular}{l r c l r}
+         & {\bf (kJ/kg)}  &  &          & {\bf (kJ/(kg.K))} \\
+$H_{f}$   & 697.1          &  & $S_{f}$  & 1.9918 \\
+%$H_{fg}$  & 2064.9        &   & $S_{fg}$ & 4.7134 \\
+$H_{g}$   & 2762.0        &   & $S_{g}$  & 6.7052  \\
+\end{tabular}
+\end{center}
+We need to alculate the quality of the ideal fluid, $X_{2s}$,
+\begin{displaymath}
+X_{2s} = \frc{S_{2s}-S_{f}}{S_{g}-S_{f}} = 0.9897
+\end{displaymath}
+Now that we know $X_{2s}$, we can determine the ideal enthalpy,
+\begin{displaymath}
+X_{2s}=0.9897=\frc{H_{2s}-H_{f}}{H_{g}-H_{f}} \Leftrightarrow \;\;  H_{2s} = 2740.73 \frc{kJ}{kg}
+\end{displaymath}
+The efficiency associated with {\it Turbine 1} is 84$\%$ thus,
+\begin{displaymath}
+\eta_{T1} = \frc{H_{2}-H_{1}}{H_{2s}-H_{1}} = 0.84 \Leftrightarrow \;\;  H_{2}=2804.76 \frc{kJ}{kg}
+\end{displaymath}
+
+%%%
+\item [Stage 3:] The reheated steam is at 7 bar $\left(T_{\text{sat}}=165^{\text{o}}\text{C}\right)$ and 370$^{o}$C is also superheated and from SHST,
+\begin{center}
+\begin{tabular}{c c c}
+{\bf T $\left(^{\text{o}}\text{C}\right)$} & {\bf H (kJ/kg)}  & {\bf S (kJ/(kg.K))} \\ 
+350                                      & 3163.7           & 7.473      \\
+400                                      & 3268.7           & 7.635      \\
+\end{tabular}
+\end{center}
+From linear interpolation, at $T_{1}=370^{\text{o}}\text{C}$: \textcolor{red}{$H_{3}=3205.7\frc{kJ}{kg}$} \textcolor{blue}{(1 Mark)} and \textcolor{red}{$S_{3}=7.5378\frc{kJ}{kg.K}$} \textcolor{blue}{(1 Mark)}
+
+
+%%%
+\item [Stage 4:] The fluid that leaves the second turbine is a saturated steam at 0.10 bar with $S_{4s}=S_{3}=7.5378\frc{kJ}{kg.K}$. At this pressure the SWST gives
+\begin{center}
+\begin{tabular}{ l l l }
+$V_{f}=0.00101 \frc{m^{3}}{kg}$  &  $H_{f}=191.8\frc{kJ}{kg}$   & $S_{f} = 0.649 \frc{kJ}{kg.K}$ \\
+$V_{g}=14.67 \frc{m^{3}}{kg}$    &  $H_{g}=2584.7\frc{kJ}{kg}$  & $S_{g} = 8.150 \frc{kJ}{kg.K}$ \\
+\end{tabular}
+\end{center}
+
+Calculating the quality of the fluid, $X_{4s}$,
+\begin{displaymath}
+X_{4s} = \frc{S_{4s}-S_{f}}{S_{g}-S_{f}} = 0.9184
+\end{displaymath}
+Now calculating the enthalpy of the ideal fluid,
+\begin{displaymath}
+X_{4s} = \frc{H_{4s}-H_{f}}{H_{g}-H_{f}} \Leftrightarrow \;\; H_{4s} = 2389.35 \frc{kJ}{kg}
+\end{displaymath}
+For {\it Tubine 2}, the associated efficiency is of 80$\%$,
+\begin{displaymath}
+\eta_{T2}=\frc{H_{4}-H_{3}}{H_{4s}-H_{3}}=0.80 \Leftrightarrow \;\; H_{4}=2552.69 \frc{kJ}{kg}
+\end{displaymath}
+
+%%%
+\item [Stage 5:] The fluid after the \underline{condenser} is a \textcolor{red}{saturated water (liquid)} \textcolor{blue}{(1 Mark)} at 0.10 bar with the following characteristics:
+\begin{eqnarray}
+&& \textcolor{red}{H_{5}=191.8\frc{kJ}{kg}}=H_{f}\;\;\;\textcolor{blue}{(1\; Mark)} \nonumber \\
+&& \textcolor{red}{S_{5}=0.649\frc{kJ}{kg.K}}=S_{f}\;\;\;\textcolor{blue}{(1\; Mark)} \nonumber \\
+&& V_{5} = 0.00101 \frc{m^{3}}{kg} = V_{f} \nonumber
+\end{eqnarray}
+
+%%%
+\item [Stage 6:] Finally, the fluid leaving the boiler feed \underline{pump} is a \textcolor{red}{saturated water (liquid)} \textcolor{blue}{(1 Mark)} at 40 bar. The pump has an efficiency of 61$\%$ and assuming that the water is nearly incompressible,
+\begin{eqnarray}
+\textcolor{red}{H_{6}} &\approx& H_{5} + V_{5} \frc{P_{6}-P_{5}}{\eta_{P}} \nonumber \\
+     &\approx& 191.8 \frc{kJ}{kg} + 0.00101 \frc{m^{3}}{kg}\left(40-0.10\right)\text{bar} \times \frc{10^{5} kg/\left(m.s^{2}\right)}{1\text{ bar }} \times \frc{10^{-3} \frc{kJ}{kg}}{m^{2}/s^{2}}\times \frc{1}{0.61} \nonumber \\
+     &\approx& \textcolor{red}{198.41\;\frc{kJ}{kg}}\;\;\textcolor{blue}{(1\; Mark)} \nonumber
+\end{eqnarray}
+%
+\end{description}
+
+Thus the Table becomes:
+%\begin{table}[]
+\begin{center}
+\begin{tabular} {||c | c c c c c || }
+\hline\hline
+{\bf Stage} & {\bf P}    & {\bf T}        & {\bf State}    & {\bf H}             & {\bf S}                  \\
+            & {\bf (bar)}& {\bf ($^{o}$C)} &               & {\bf (kJ.kg$^{-1}$)} & {\bf (kJ.(kg.K)$^{-1}$)} \\
+\hline\hline
+ {\bf 1 }   & 40         & 370            &   superheated  & \textcolor{red}{(a) 3140.94} & \textcolor{red}{(b) 6.6568}                \\
+            &            &                &   steam        &                     &                           \\
+ {\bf 2 }   &  --        &  --            & \textcolor{red}{(c) saturated}  & --                  &   --                      \\
+            &            &                &   \textcolor{red}{steam}        &                     &                           \\
+ {\bf 3 }   & 7          & 370            &   superheated  & \textcolor{red}{(d) 3205.7} & \textcolor{red}{(e) 7.5358}                 \\
+            &            &                &   steam        &                     &                           \\
+ {\bf 4 }   & 0.10       & --             &     --         & --                   & --                      \\
+ {\bf 5 }   & 0.10       & --             & \textcolor{red}{(f) saturated }    & \textcolor{red}{(g) 191.8} & \textcolor{red}{(h) 0.649}      \\
+            &            &                & \textcolor{red}{liquid (or water)} &                             &  \\
+ {\bf 6 }   & 40         & --             & \textcolor{red}{(i) saturated }     & \textcolor{red}{(j) 198.41
+} & --                 \\
+            &            &                & \textcolor{red}{liquid (or water)} &                             &  \\
+\hline\hline
+\end{tabular}
+\end{center}
+
+\item The thermal efficiency of the cycle is expressed by
+\begin{equation}
+\textcolor{red}{\eta_{\text{Thermal}}}=\frc{ \left(H_{1}-H_{2s}\right)\eta_{\text{T1}} + \left(H_{3}-H_{4s}\right)\eta_{\text{T2}} - V_{5}\left(P_{6}-P_{5}\right)\eta_{\text{P}}^{-1}} {\left(H_{1}-H_{6}\right)+\left(H_{3}-H_{2}\right)} \nonumber
+ %& = & \frc{\left(3140.94-2754.84\right)0.84 + \left(3205.7-2389.35\right)0.80 - \frc{0.0101\left(40-0.10\right)}{0.610}\frc{100}{1.0}} {\left(3140.44-257.86\right)+\left(3205.7-2816.61\right)} \nonumber\\
+%&=& \textcolor{black}{0.2785} \nonumber
+\end{equation}
+
+Before determine $\eta_{\text{thermal}}$, the following should have been calculated,
+\begin{eqnarray}
+&& \textcolor{red}{H_{2s}=2740.73\frc{kJ}{kg}} \;\;\textcolor{blue}{(1 \; Mark)} \;\;\;\;\;\; \textcolor{red}{H_{2}=2804.76\frc{kJ}{kg}}   \;\;\textcolor{blue}{(1 \; Mark)} \nonumber\\
+&& \textcolor{red}{H_{4s}=2389.35\frc{kJ}{kg}} \;\;\textcolor{blue}{(1 \; Mark)} \;\;\;\;\;\; \textcolor{red}{V_{5}=0.00101\frc{m^{3}}{kg}} \;\;\textcolor{blue}{(1 \; Mark)} \nonumber 
+\end{eqnarray}
+
+Now calculating $\eta_{\text{Thermal}}$,
+\begin{eqnarray}
+\textcolor{red}{\eta_{Thermal}}&=&\frc{\left(3140.94-2740.73\right)0.84 + \left(3205.7-2389.35\right)0.80 - \frc{0.00101\left(40-0.10\right)10^{5}10^{-3}}{0.61}}{\left(3140.94-198.41\right)+\left(3205.7-2804.76\right)} \nonumber\\
+&=& \textcolor{red}{0.2939}\;\;\;\textcolor{blue}{(1\; Mark)} \nonumber 
+\end{eqnarray}
+
+
+
+\item Sketch of the $Ts$ diagram
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=12.cm,height=12cm,clip]{./Pics/Exam_Reheat_Rankine_Cycle3}
+\end{center}
+\end{figure}
+
+\end{enumerate}
+
+\clearpage
+
+%%%
+%%% Module 02
+%%%
+\item [Question 2:] \mbox{}\\
+ 
+\begin{enumerate}[(a)]
+\item 
+\begin{displaymath}
+421 \text{ billion kWh} = 421 \times 10^{12}  \text{ J.s}^{-1} \times 3600 \text{ s}  = 1.5 \times 10^{18} \text{ J of electricity.}
+\end{displaymath}
+Efficiencies of generation depend on turbine performance not on whether nuclear and or chemical fuels were used, so the electricity above must have been obtained from about: 
+\begin{displaymath}
+    \left(1.5 \times 10^{18} / 0.35\right) \text{ J of heat} =  4.3 \times 10^{18} \text{ J  of heat}
+\end{displaymath}
+
+If this had been raised from natural gas, the carbon dioxide release would have been: 
+\begin{displaymath}                              
+\left[ 4.3 \times 10^{18} \text{ J} / \left(889 × 103 \text{ J.mol}^{-1}\right)\right] \times 0.044 \text{ kg.mol}^{-1} \times 10^{-3} \text{ tonne.kg}^{-1} = 213 \text{ million tonnes}
+\end{displaymath}
+
+\item A supertanker, carrying 1 million barrels of oil, would if it blew up have a blast equivalent to that from the atomic bomb at Hiroshima. A blast of this magnitude was actually observed at a refinery fire in Venezuela in 2012 (either of these). 
+
+\item Rate  of supply of coke = $\left[ 300 \times 10^{6}  \text{ J. s}^{-1} / \left( 25 \times 10^{6} \text{ J.kg}^{-1}\right)\right]  = 12 \text{ kg.s}^{-1}$\\ 
+ rate of production of carbon dioxide = $12 \text{ kg.s}^{-1} \times \left( 44 / 12\right) \times 7 \times 24 \times 3600 \times 0.001 \text{ tonne per week}$ = $26611$ tonne per week. \\
+
+For 10$\%$ mitigation of the carbon  10$\%$ of the heat must come from the citrus peel.\\
+$10.8 \text{ kg.s}^{-1} \text{ of coke plus:}$ \\
+$\left( 1.2 \times 25/7\right) \text{ kg.s}^{-1} \text{ of citrus peel} = 4.3 \text{ kg.s}^{-1} \text{ of citrus peel}$ \\ 
+Ratio coke to citrus peel = $\left(10.8 / 4.3\right) = 2.5$ 
+
+\item Suppliers are monitored by the Forest Stewardship Council (FSC) for replacement of trees felled with new plantings.
+
+\end{enumerate}
+
+\clearpage
+
+%%%
+%%% Module 03
+%%%
+\item [Question 3:]
+
+
+\begin{itemize}
+\item[(a)] The inlet has circumference $1$\,m. Therefore the radius of the inlet $r_1 = 1 / 2\pi = 0.15915$\,m and the area of the inlet $A_1 = \pi r_1^2 = 0.07958$\,m$^2$.\\
+Similarly the outlet has circumference $0.6$\,m. Therefore the radius of the outlet $r_2 = 0.6/ 2\pi = 0.09549$\,m and the area of the outlet $A_2 = \pi r_2^2 = 0.02865$\,m$^2$.  \hfill \textbf{[1 Mark of 4]}
+
+
+Evaluating the mass flux at the inlet gives
+\begin{align*}
+ \rho_1 = \frac{\dot{m}}{u_1 A_1} = \frac{4\,\mbox{kg\,s}^{-1}}{30\,\mbox{m\,s}^{-1} \times 0.07958\,\mbox{m}^2} = 1.6755\,\mbox{kg\,m}^{-3}.
+\end{align*} \hfill \textbf{[1 Mark of 4]}
+
+Rearranging the SFEE to give the gas velocity at the outlet implies
+\begin{align*}
+ u_2^2 = u_1^2 + \frac{2\left(\dot{Q} - \dot{W}_s\right)}{\dot{m}} + 2\left(h_1 - h_2\right).
+\end{align*}
+Therefore
+\begin{align*}
+ u_2^2 =& 30^2 + \frac{2\left(-15000 - 30000\right)}{4} + 2\left(70000 - 40000\right) \nonumber \\
+ =& 900 - 22500 + 60000 \nonumber \\
+ =& 38400\,\mbox{m}^2\,\mbox{s}^{-2},
+\end{align*}
+giving a fluid velocity at the outlet of
+\begin{align*}
+ u_2 =& 195.959\,\mbox{m\,s}^{-1}
+\end{align*} \hfill \textbf{[1 Mark of 4]}
+
+Now the gas density at the outlet can be calculated from the mass flux
+\begin{align*}
+ \rho_2 = \frac{\dot{m}}{u_2 A_2} = \frac{4\,\mbox{kg\,s}^{-1}}{195.959\,\mbox{m\,s}^{-1} \times 0.02865\,\mbox{m}^2} = 0.7125\,\mbox{kg\,m}^{-3}.
+\end{align*} 
+
+Finally the difference in gas density the turbine is given by
+\begin{align*}
+ \Delta \rho = \rho_1 - \rho_2 = 1.6755 - 0.7125 = 0.9630 \,\mbox{kg\,m}^{-3}.
+\end{align*} \hfill \textbf{[1 Mark of 4]}
+
+\item[(b)] The differential forms of for mass and energy conservation are
+\begin{align*}
+ \frac{\d{V}}{V} - \frac{\d{u}}{u} - \frac{\d{A}}{A} =& 0, \\
+ \d{h} + u \, \d{u} =& 0.
+\end{align*} \hfill \textbf{[1 Mark of 2]} \\
+Eliminating $\d{u}$ between these two expressions gives
+\begin{align*}
+ \frac{\d{V}}{V} + \frac{\d{h}}{u^2} - \frac{\d{A}}{A} =& 0
+\end{align*} \hfill \textbf{[1 Mark of 2]}
+
+The speed of sound is the distance travelled during a unit of time by a sound wave propagating through a compressible medium. The Mach number is the non-dimensional ratio of the speed of a body moving through a fluid to the local speed of sound. For an isentropic process, the speed of sound is given by
+\begin{align*}
+ c = \left(\fracp{p}{\rho}\right)^{1/2},
+\end{align*}
+while the Mach number is defined to be
+\begin{align*}
+ \Ma = \frac{u}{c},
+\end{align*} \hfill \textbf{[4 Marks]}
+
+For an isentropic process the specific volume $V = 1/\rho$, is a function of just pressure and therefore satisfies
+\begin{align*}
+ \d{V} = \fracd{V}{p} \d{p}.
+\end{align*}
+In this expression the derivative can be written in terms of the speed of sound $c$ since
+\begin{align*}
+ \fracd{V}{p} = \fracp{V}{\rho} \fracp{\rho}{p} = -\frac{V^2}{c^2},
+\end{align*}
+and therefore
+\begin{align*}
+ \d{V} = -\frac{V^2}{c^2} \d{p}.
+\end{align*} \hfill \textbf{[2 Marks of 3]}
+
+For a general thermodynamic process
+\begin{align*}
+ \d{h} = T\,\d{s} + V \, \d{p}.
+\end{align*}
+However for an isentropic process the entropy remains constant $\d{s} = 0$, and the enthalpy is a function of just pressure. Changes in enthalpy are not related to changes in entropy, and
+\begin{align*}
+ \d{h} = V \, \d{p}.
+\end{align*} \hfill \textbf{[1 Mark of 3]}
+
+Hence if we eliminate $\d{V}$ and $\d{h}$,
+\begin{align*}
+ -\frac{V}{c^2} \d{p} + \frac{V}{u^2} \d{p} - \frac{\d{A}}{A} =& 0.
+\end{align*}
+Collecting together terms involving $\d{p}$ gives
+\begin{align*}
+ \frac{\d{A}}{A} = \left(\frac{V}{u^2} - \frac{V}{c^2}\right) \d{p} = \frac{V}{u^2}\left(1 - \frac{u^2}{c^2}\right) \d{p}.
+\end{align*}
+Given the definition of Mach number
+\begin{align*}
+ \frac{\d{A}}{A} = \frac{V}{u^2}\left(1 - \Ma^2\right) \d{p}.
+\end{align*}
+For an isentropic process the speed of sound can be used to eliminate $\d{p}$, giving
+\begin{align*}
+ \frac{\d{A}}{A} = \frac{V}{u^2}\left(1 - \Ma^2\right) c^2 \d{\rho}.
+\end{align*}
+Rearranging and using the definition of Mach number and specific density gives
+\begin{align*}
+ \frac{1}{\left(1 - \Ma^2\right) A} \d{A} = \frac{1}{\rho \Ma^2} \d{\rho}.
+\end{align*}
+If we're interested in changes along a pipe whose length is parameterized by $x$, then
+\begin{align*}
+ \frac{1}{\left(1 - \Ma^2\right) A} \fracd{A}{x} = \frac{1}{\rho \Ma^2} \fracd{\rho}{x},
+\end{align*}
+as required. \hfill \textbf{[5 Marks]}
+
+For a supersonic diffuser $\left(1 - \Ma^2\right) < 0$, while $\fracd{A}{x} > 0$, $A>0$, $\rho>0$ and $\Ma^2>0$. Therefore $\fracd{\rho}{x} < 0$ and the gas density falls as gas flows along a supersonic diffuser. \hfill \textbf{[2 Marks]}
+\end{itemize}
+
+\clearpage
+
+
+%%%
+%%% Module 04
+%%%
+\item [Question 4:] Figure \ref{exam_refrig1} shows the $Ts$ diagram for the refrigeration cycle.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.cm,clip]{./Pics/Exam_Refrigeration1}
+\caption{ Refrigeration cycle -- Question 4}
+\label{exam_refrig1}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.cm,clip]{./Pics/Exam_Refrigeration2}
+\caption{ Sketch of the vapour-compressed refrigeration -- Question 4.}
+\label{exam_refrig2}
+\end{center}
+\end{figure}
+
+Before solve the vapour-compressed refrigeration problem we should sketch the cycle (Fig. \ref{exam_refrig2} -- \textcolor{blue}{(1 Mark)}), and calculate the enthaplies (and entropies) of the the different stages of the cycle based on the data obtained from the thermodynamic table (for Freon-12),
+\begin{center}
+\begin{tabular}{|c c| c c c c c c| }
+\hline
+$T$             & $P_{s}$  & $V_{g}$  & $H_{f}$  & $H_{g}$   &  $S_{f}$   &  $S_{g}$   & {\it Specific Heat} \\
+($^{\text{o}}$C)  & (bar)   & $\left(\text{m}^{3}/\text{kg}\right)$ & (kJ/kg) & (kJ/kg) & (kJ/(kg.K)) &  (kJ/(kg.K)) &   (kJ/(kg.K)) \\
+\hline
+-20   & 1.509 & 0.1088 & 17.8 & 178.61 & 0.073 & 0.7082 & -- \\
+40    & 9.607 & --     & 74.53 & 203.05 & 0.2716 & 0.682 & 0.747 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{description}
+%
+\item [Stage 2:] At $P_{2}=1.509\;bar$,
+\begin{eqnarray}
+&&\textcolor{red}{H_{2}=178.61\frc{kJ}{kg}}\;\;=H_{g}\;\;\;\textcolor{blue}{(1 Mark)} \nonumber \\
+&&S_{2}=S_{g}=0.7082 \frc{kJ}{kg.K} \nonumber 
+\end{eqnarray}
+
+%
+\item [Stage 3:] The refrigerant fluid undertakes an \underline{isentropic compression} $\left(S_{3}=S_{2}\right)$ leading to a superheated fluid. Because we do not have the full saturation tables we need to use fundamental relationship to calculate the properties of the superheated fluid,
+\begin{displaymath}
+H_{3} = H_{3}^{\text{sat}}+C_{p}\left(T_{3}-T_{3}^{sat}\right)
+\end{displaymath} 
+where $T_{3}^{\text{sat}}=T^{\text{sat}}\left(P=9.607\;bar\right)=40^{\text{o}}\text{C}=313.15\;\text{K}$. However we first need to calculate the temperature, $T_{3}$, of the superheated fluid,
+\begin{eqnarray}
+&&S_{3} = 0.7082 = S_{3}^{\text{sat}} + C_{p}\ln\left(\frc{T_{3}}{T_{3}^{\text{sat}}}\right) = 0.682 + 0.747 \ln\left(\frc{T_{3}}{313.15}\right) \nonumber \\
+&&\Longrightarrow \;\; \textcolor{red}{T_{3}= 324.33 K} \;\textcolor{blue}{(1\; Mark)} \nonumber
+\end{eqnarray}
+Now, replacing $T_{3}$ in the above equation for $H_{3}$,
+\begin{displaymath}
+\textcolor{red}{H_{3}}=H_{3}^{\text{sat}}+C_{p}\left(T_{3}-T_{3}^{\text{sat}}\right)=203.05+0.747\left(324.33-313.15\right)=\textcolor{red}{211.40\frc{kJ}{kg}}\;\textcolor{blue}{(1\; Mark)}
+\end{displaymath}
+%
+\item [Stage 4:] Saturated liquid at the exit of the condenser $\left(P_{4}=9.607\; bar\right) \Longrightarrow\; \textcolor{red}{H_{4}}=H_{f}=\textcolor{red}{74.5\frc{kJ}{kg}}$ \textcolor{blue}{(1\; Mark)}. 
+
+%
+\item [Stage 1:] Isenthalpic expansion through the throttling valve, $\textcolor{red}{H_{1}}=H_{4}=\textcolor{red}{74.5\frc{kJ}{kg}}$ \textcolor{blue}{(1\; Mark)}. 
+%
+\end{description}
+Now that we have all key-parameters, 
+
+\begin{enumerate}[(a)]
+\item The power required by the compressor is
+\begin{displaymath}
+\mathcal{P}=\dot{m}_{r}\left(H_{3}-H_{2}\right)
+\end{displaymath}
+where $\dot{m}_{r}$ is the mass flow rate of the refrigerant fluid that can be calculated with the help of the given refrigerant capacity, $R_{n}$,
+\begin{eqnarray}
+R_{n} = 20 = \dot{m}_{r}\left(H_{2}-H_{1}\right) =  \dot{m}_{r}\left(178.61-74.53\right) \; \Longrightarrow \; \textcolor{red}{\dot{m}_{r}=0.1922\frc{kg}{s}}\;\textcolor{blue}{(1\; Mark)} \nonumber
+\end{eqnarray}
+and 
+\begin{displaymath}
+\mathcal{P}=0.1922\left(211.40-178.61\right)\; \Longrightarrow \; \textcolor{red}{\mathcal{P}}= 6.3022\frc{kJ}{s}=\textcolor{red}{6302.2\;W}\;\textcolor{blue}{(3\; Mark)}
+\end{displaymath}
+
+\item In order to determine the piston displacement in the cylinder, we first need to calculate the volumetric efficiency given by
+\begin{displaymath}
+\textcolor{red}{\eta_{\text{vol}}} = 1 + C - C\left(\frc{P_{d}}{P_{s}}\right)^{1/n} = 1 + 0.03 - 0.03\left( \frc{9.607}{1.509}\right)^{1/1.13}=\textcolor{red}{0.876} \;\;\textcolor{blue}{(2\; Mark)}
+\end{displaymath}
+
+The volume of the fluid at intake conditions is,
+\begin{displaymath}
+\textcolor{red}{\dot{V}_{r}}=\dot{m}_{r}V_{g}=0.1922 \times 0.1088 = \textcolor{red}{0.0209\frc{m^{3}}{s}} \;\;\textcolor{blue}{(2\; Mark)}
+\end{displaymath}
+
+The swept volume rate is,
+\begin{displaymath}
+\textcolor{red}{\dot{V}_{\text{swept}}} = \frc{\dot{V}_{r}}{\eta_{\text{vol}}} = \frc{0.0209}{0.876} = \textcolor{red}{2.385\times 10^{-2}\frc{m^{3}}{s}} \;\;\textcolor{blue}{(2\; Mark)}
+\end{displaymath}
+
+The piston operates at {\it 300 rpm}, thus each stroke is completed in $t_{r}$,
+\begin{eqnarray}
+300 \;\text{rotations} \;\; &\uline{0.5cm}& \;\;1\;\text{min}=60\;\text{sec} \nonumber\\
+1 \;\text{rotation} \;\; &\uline{0.5cm}& \;\; t_{r} \nonumber\\
+\end{eqnarray}
+\textcolor{red}{$t_{r}=0.2\text{ s }$} \textcolor{blue}{(2\; Mark)}. Thus, it takes {\it 0.2 seconds} to fill up the cylinder with {\it Freon} in the compressor operating with a reciprocating (or piston) engine. Now calculating the piston displacement -- $V_{\text{swept}}$,
+\begin{eqnarray}
+2.385\times 10^{-2} m^{3} \;\; &\uline{0.5cm}& \;\; 1\;\text{s} \nonumber \\
+V_{\text{swept}}                &\uline{0.5cm}& 0.2\;\text{s} \nonumber
+\end{eqnarray}
+
+\textcolor{red}{$V_{\text{swept}}=4.771\times 10^{-3}\;m^{3}$} \textcolor{blue}{(2\; Mark)}
+
+\end{enumerate}
+\clearpage
+
+%%%
+%%% Module 05
+%%%
+\item [Question 5:] 
+
+The specific humidity $\omega$ is the ratio of the mass of water vapour $m_v$, to the mass of dry air $m_a$ and satisfies the equation
+\begin{align*}
+ \omega = \frac{m_v}{m_a}.
+\end{align*}
+As both water vapour and dry air behave like ideal gases, in some arbitrary volume $V$,
+\begin{align*}
+ \omega = \frac{m_v}{m_a} = \frac{\rho_v}{\rho_a} = \frac{p_v}{R_v T} \frac{R_a T}{p_a} = \frac{R_a p_v}{R_v p_a}.
+\end{align*}
+The ratio of specific gas constants $R_a/R_v = 0.622$, while the partial pressures of dry air and water vapour satisfy $p_a = p - p_v$. Hence
+\begin{align*}
+ \omega = \frac{0.622 p_v}{p - p_v}.
+\end{align*} \hfill \textbf{[4 Marks]}
+
+The saturation pressure of water
+\begin{align*} 
+ p_g = \phi p_v.
+\end{align*}
+Hence eliminating $p_v$ from the previous expression gives
+\begin{align*}
+ \omega = \frac{0.622 \phi p_g}{p - \phi p_g}.
+\end{align*} \hfill \textbf{[2 Marks]}
+
+
+The heating and humidification are split into two steady process. Firstly a heater (with inlet properties labelled 1 and outlet properties labelled 2) and secondly a humidifier (with inlet properties labelled 2 and outlet properties labelled 3).
+
+\begin{itemize}
+\item[(a)] The partial vapour pressure at the inlet 1, is
+\begin{align*}
+ p_{v_1} = \phi_1 p_{g_1} = \phi p_\text{sat @ 10$^\circ$C} = 0.25 \times 1.4028\,\mbox{kPa} = 0.3507\,\mbox{kPa}.
+\end{align*} \hfill \textbf{[1 Mark]} \\
+Hence the partial pressure of dry air is given by
+\begin{align*}
+ p_{a_1} = p_1 - p_{v_1} = 100\,\mbox{kPa} - 0.3507\,\mbox{kPa} = 99.6493\,\mbox{kPa}.
+\end{align*} \hfill \textbf{[1 Mark]} \\
+The specific humidity is given by
+\begin{align*}
+ \omega_1 = \frac{0.622 p_{v_1}}{p_1 - p_{v_1}} = \frac{0.622 \times 0.3507\,\mbox{kPa}}{100\,\mbox{kPa} - 0.3507\,\mbox{kPa}} = 0.00219\,\mbox{kg H$_2$O/ kg dry air}.
+\end{align*} \hfill \textbf{[1 Mark]} \\
+
+\item[(b)] Applying the mass and energy balances on the heating section gives
+\begin{align*}
+ \mbox{Dry air mass balance:} &~~~~~ \dot{m}_{a_1} = \dot{m}_{a_2} = \dot{m}_a, \\
+ \mbox{Water mass balance:} &~~~~~ \dot{m}_{a_1} \omega_1 = \dot{m}_{a_2} \omega_2, ~~ \Rightarrow ~~ \omega_1 = \omega_2, \\
+ \mbox{Energy balance:} &~~~~~ \dot{Q} = \dot{m}_a h_2 - \dot{m}_a h_1.
+\end{align*} \hfill \textbf{[2 Marks]}
+
+The total specific enthalpy at 1, the inlet is
+\begin{align*}
+ h_1 = c_p T_1 + \omega_1 h_{g_1} =& \left(1.005\,\mbox{kJ/(kg\,K)} \times \left(12 + 173.15\right)\,\mbox{K}\right) \nonumber \\
+ &+ \left(0.00219 \times 2523\,\mbox{kJ/kg}\right) \nonumber \\
+ =& 292.0988\,\mbox{kJ/kg}.
+\end{align*}
+The total specific enthalpy at 2, the outlet of the heating is
+\begin{align*}
+ h_2 = c_p T_2 + \underbrace{\omega_2}_{=\omega_1} h_{g_2} =& \left(1.005\,\mbox{kJ/(kg\,K)} \times \left(20 + 173.15\right)\,\mbox{K}\right) \nonumber \\
+ &+ \left(0.00219 \times 2537\,\mbox{kJ/kg}\right) \nonumber \\
+ =& 300.1693\,\mbox{kJ/kg}
+\end{align*} \hfill \textbf{[2 Marks]}
+
+The specific volume of dry air at 1, is given by
+\begin{align*}
+ V_1 = \frac{R_a T_1}{p_{a_1}} = \frac{287.058\,\mbox{J/(kg\,K)} \left(12 + 273.15\right)\,\mbox{K}}{99649.3\,\mbox{Pa}} = 0.8215\,\mbox{m}^3\mbox{/kg}.
+\end{align*}
+Therefore the mass flux of dry air through the inlet
+\begin{align*}
+ \dot{m}_a = \frac{q_1}{V_1} = \frac{40\,\mbox{m}^3\mbox{/min}}{0.8185\,\mbox{m}^3\mbox{/kg}} = 48.6886\,\mbox{kg/min},
+\end{align*}
+where $q_1 = 40$\,m$^3$/min is the total volume flux through the inlet. \hfill \textbf{[1 Mark]}
+
+Hence the energy conservation equation gives the rate at which heat is transferred to the air
+\begin{align*}
+ \dot{Q} = \dot{m}_a \left(h_2 - h_1\right) = 48.6958\,\mbox{kg/min} \left(300.1693\,\mbox{kJ/kg} - 292.0988\,\mbox{kJ/kg}\right) = 392.9488\,\mbox{kJ/min}.
+\end{align*} \hfill \textbf{[1 Mark]}
+
+
+\item[(c)] The mass balance for water in the humidifying section can be expressed as
+\begin{align*}
+ \dot{m}_{a_2} \omega_2 + \dot{m}_w = \dot{m}_{a_3} \omega_3,
+\end{align*}
+or
+\begin{align*}
+ \dot{m}_w = \dot{m}_a \left(\omega_3 - \omega_2\right).
+\end{align*} \hfill \textbf{[2 Marks]} \\
+Here $\omega_2 = \omega_1$, while the specific humidity at 3, the outlet is given by
+\begin{align*}
+ \omega_3 = \frac{0.622 \phi_3 p_{g_3}}{p_3 - \phi_3 p_{g_3}} = \frac{0.622 \times 0.55 \times 2.9858}{100 - \left(0.55 \times 2.9858\right)} = 0.0104\,\mbox{kg H$_2$O/ kg dry air}.
+\end{align*} \hfill \textbf{[1 Mark]} \\
+Therefore the required mass flow rate of steam is
+\begin{align*}
+ \dot{m}_w = \dot{m}_a \left(\omega_3 - \omega_2\right) = 48.6886\,\mbox{kg/min}\left(0.0104 - 0.00219\right) = 0.3990\,\mbox{kg/min}
+\end{align*} \hfill \textbf{[2 Marks]}
+
+\end{itemize}
+
+
+
+
+\end{description}
+
+%\begin{Large}
+%\include{Module_Questions}
+%\include{Module_03}
+%\include{Module_04}
+%\include{Module_05}
+
+
+\end{document}

@@ -1,0 +1,657 @@
+
+
+
+
+\documentclass[12pt,twoside]{report}
+
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{natbib,enumerate}
+%\usepackage{fancyhdr} %%%%
+\usepackage{color}
+\usepackage{fullpage}
+\usepackage{helvet}
+%\pagestyle{fancy}%%%%
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\begin{document}
+
+
+\setcounter{page}{1}
+
+\vfill
+
+\pagebreak
+
+
+\begin{center}
+{\Large Solution of the Problems -- Resit Exam Paper (August 2012/13)}
+\end{center}
+
+
+\begin{description}
+
+%%%
+%%% Module 01
+%%%
+\item [Question 1:] Internal combustion operating on dual cycle, given
+\begin{eqnarray}
+&& T_{1}= 30^{\text{o}}\text{C}\;,\;\;P_{1}=1\text{ bar} \nonumber \\
+&& \text{Cylinder bore: } 0.25 \text{ m}\;,\;\;\text{Stroke length: } 0.40 \text{ m} \nonumber \\
+&& r_{c}=\frc{V_{1}}{V_{2}}=9\;,\;\; r_{e}=\frc{V_{5}}{V_{4}}=5 \nonumber \\
+&& \rho=\frc{r_{c}}{r_{e}}=\frc{V_{1}}{V_{2}}\times\frc{V_{4}}{V_{5}}=\frc{V_{5}}{V_{3}}\times\frc{V_{4}}{V_{5}}=\frc{V_{4}}{V_{3}}; \;\;\left(\text{ Note that }V_{1}=V_{5}\text{ and }V_{2}=V_{3}\right) \nonumber \\
+&& C_{p}=1.0 \frc{kJ}{kg.K}\;, \;\; C_{v}=0.71\frc{kJ}{kg.K} \nonumber
+\end{eqnarray}
+
+\begin{enumerate}[(a)]
+\item Calculating $T_{i}$ and $P_{i}$, with i $\in\left\{1,2,3,4,5\right\}$ at all strokes:
+\begin{description}
+
+\item [1--2: Isentropic Compression]
+\begin{eqnarray}
+&& P_{1}V_{1}^{n}=P_{2}V_{2}^{n} \Longrightarrow \textcolor{red}{P_{2}} = P_{1}\left(\frc{V_{1}}{V_{2}}\right)^{n}=1\times 9^{1.25}=\textcolor{red}{15.59\text{ bar}}\; \textcolor{blue}{\text{(1 Mark)}}\nonumber \\
+&& \frc{T_{2}}{T_{1}}=\left(\frc{V_{1}}{V_{2}}\right)^{n-1}= 9^{1.25-1} =1.732 \Longrightarrow \textcolor{red}{T_{2}=525.07\text{ K}} \;\textcolor{blue}{\text{(1 Mark)}} \nonumber
+\end{eqnarray}
+
+\item [3--4: Addition of Heat at Constant Pressure]
+Calculating $T_{3}$ and $T_{4}$:
+\begin{displaymath}
+\frc{T_{4}}{T_{3}}=\frc{V_{4}}{V_{3}}=\rho=\frc{r_{c}}{r_{e}}=\frc{9}{5}=1.8 \Longrightarrow T_{4}=1.8 T_{3} \nonumber \\
+\end{displaymath} 
+
+The problem states that heat liberated at constant pressure is twice the heat liberated at constant colume, i.e.,
+\begin{displaymath}
+C_{p}\left(T_{4}-T_{3}\right)=2 C_{v}\left(T_{3}-T_{2}\right).
+\end{displaymath}
+Substituting $T_{2}$ and $T_{4}$,
+\begin{eqnarray}
+&& 1.0\left(1.8 T_{3}-T_{3}\right)=2\times 0.71\left(T_{3}-525.07\right) \Longrightarrow \textcolor{red}{T_{3} = 1202.58\text{ K}}\; \textcolor{blue}{\text{(1 Mark)}} \nonumber \\
+&& \frc{P_{3}}{T_{3}}=\frc{P_{2}}{T_{2}}\Longrightarrow \textcolor{red}{P_{3}}= \frc{15.59}{525.07}1202.58=\textcolor{red}{35.70\text{ bar}}\; \textcolor{blue}{\text{(1 Mark)}} \nonumber\\
+&& \textcolor{red}{P_{4}=P_{3}=35.70\;\text{bar}}\;\textcolor{blue}{\text{(1 Mark)}}\;\;\text{ and } \;\;\textcolor{red}{T_{4}}=1.8T_{3}=\textcolor{red}{2164.65\text{ K}}\;\textcolor{blue}{\text{(1 Mark)}} \nonumber
+\end{eqnarray}
+
+\item [4--5: Isentropic Expansion]
+\begin{eqnarray}
+&& P_{4}V_{4}^{n}=P_{5}V_{5}^{n}\Longrightarrow \textcolor{red}{P_{5}}=P_{4}\left(\frc{V_{4}}{V_{5}}\right)^{n}=P_{4}\frc{1}{r_{e}^{n}}=35.70\frc{1}{5^{1.25}}=\textcolor{red}{4.775\text{ bar}}\;\textcolor{blue}{\text{(1 Mark)}} \nonumber \\
+&& \frc{T_{5}}{T_{4}}=\left(\frc{V_{4}}{V_{5}}\right)^{n-1} \Longrightarrow \textcolor{red}{T_{5}}=T_{4}\frc{1}{r_{e}^{n-1}}=\textcolor{red}{1447.59\text{ K}}\;\textcolor{blue}{\text{(1 Mark)}} \nonumber 
+\end{eqnarray}
+
+\begin{center}
+\begin{tabular}{||c |c |c ||}
+\hline \hline
+ {\bf Stroke}  &  {\bf P (bar)}   &  {\bf T (K)} \\
+\hline\hline
+{\bf 1 }       &     1.0          &    303.15    \\
+\hline         
+{\bf 2 }       &   15.59          &   525.07    \\
+\hline         
+{\bf 3 }       &   35.70          &   1202.58   \\
+\hline         
+{\bf 4 }       &   35.70          &   2164.65   \\
+\hline         
+{\bf 5 }       &   4.78           &   1447.59   \\
+\hline\hline         
+\end{tabular}
+\end{center}
+
+\end{description}
+
+\item Skecth of the $Pv$ diagram in Fig. \ref{dualcycle} \textcolor{blue}{(2 Marks)}.
+\begin{center}
+\begin{figure}[h]
+\label{dualcycle}
+\includegraphics[width=10.cm,clip]{./Pics/Exam_DualCycle}
+\caption{$Pv$ diagram for Question 1.}
+\end{figure}
+\end{center}
+
+
+\item Calculating MEP:
+
+\begin{eqnarray}
+\textcolor{red}{MEP} &=& \frc{1}{V_{s}}\left[P_{3}\left(V_{4}-V_{3}\right) + \frc{P_{4}V_{4}-P_{5}V_{5}}{n-1} - \frc{P_{2}V_{2}-P_{1}V_{1}}{n-1}\right] \nonumber \\
+    &=& \frc{1}{r_{c}-1} \left[ P_{3}\left(\rho-1\right) + \frc{P_{4}\rho-P_{5}r_{c}}{n-1} - \frc{P_{2}-P_{1}r_{c}}{n-1}\right] \nonumber \\
+    &=& \frc{1}{9-1} \left[ 35.70\left(1.8-1\right) + \frc{35.70\times 1.8 - 4.78 \times 9}{1.25 - 1} - \frc{15.59 - 1\times 9}{1.25-1}\right] \nonumber \\
+    &=& \textcolor{red}{10.895\text{ bar}}\;\;\textcolor{blue}{\text{(2 Marks)}} \nonumber 
+\end{eqnarray}
+
+
+\item The work done per cycle is defined as
+\begin{displaymath}
+W_{\text{cycle}} = MEP \times V_{s}
+\end{displaymath}
+where
+\begin{displaymath}
+V_{s} = \frc{\pi}{4} D^{2}L= \frc{3.1415}{4}\left(0.25\right)^{2}\times 0.4 = 0.0196\text{ m}^{3}
+\end{displaymath}
+Thus
+\begin{displaymath}
+\textcolor{red}{W_{\text{cycle}}} = 10.895\text{ bar }\times 0.0196\text{ m}^{3} = 0.213542 \text{ bar.m}^{3} = \textcolor{red}{21.354 \text{ kJ}}\;\textcolor{blue}{\text{( 1 Mark)}}
+\end{displaymath}
+
+The heat supplied to the cycle is given by 
+\begin{displaymath}
+Q_{\text{cycle}} = m Q_{s} = m \left[ C_{p}\left(T_{3}-T_{2}\right) + C_{p}\left(T_{4}-T_{3}\right)\right] 
+\end{displaymath}
+we need to calculate the mass ({\it m}) of air in the cylinder:
+\begin{eqnarray}
+&& V_{1}=V_{s}+V_{c}=\frc{r_{c}}{r_{c}-1}V_{s}=\frc{9}{9-1}\times 0.0196 = 0.02205\text{ m}^{3} \nonumber \\
+&& m = \frc{P_{1}V_{1} MW}{R T_{1}}= \frc{ 1\text{ bar} \times 0.02205\text{ m}^{3} \times 29 \frc{\text{g}}{\text{gmol}}} {8.3144621\times 10^{-5} \frc{\text{m}^{3}\text{.bar}}{\text{K.gmol}} \times 303.15\text{ K}} = 25.3697\text{ g} \nonumber 
+\end{eqnarray}
+\begin{eqnarray}
+ \textcolor{red}{Q_{\text{cycle}}} &=& mQ_{s} \nonumber \\
+ &=& 0.02537\left[0.71\left(1202.58-525,07\right) + 1.0\left(2164.65 - 1202.58\right)\right] \nonumber \\
+ &=& \textcolor{red}{36.67\text{ kJ}} \;\textcolor{blue}{\text{(1 Mark)}} \nonumber
+\end{eqnarray}
+
+%\clearpage
+
+\item {\it PV} and {\it TS} diagrams for Otto and Diesel cycles \textcolor{blue}{(1.5 Marks for each diagram)}.
+
+    \begin{figure}[h]
+     \begin{center}
+      \includegraphics[width=15.cm,clip]{./Pics/InternalCombustion_IdealOttoxDieselCycles}
+     \end{center}
+    \end{figure}  
+
+\end{enumerate}
+
+
+
+\clearpage
+
+%%%
+%%% Module 02
+%%%
+\item [Question 2:] \mbox{}\\
+ 
+\begin{enumerate}[(a)]
+\item 
+\begin{eqnarray}
+\text{Amount of petroleum material}&& \nonumber \\
+\text{thermally equivalent to the biodiesel} &=& \left(75000 \times 103 \times \frc{37}{43} \right) \text{ kg releasing on burning} \nonumber \\
+&=& \left[\left( 75000 \times 103 \times \frc{37}{43}\right) \times \frc{44}{14}\right] \times 10^{-3} \text{ tonnes of CO}_{2}  \nonumber \\
+&=& \textcolor{red}{0.2 \text{ million tonnes of carbon dioxide.}} \; \textcolor{blue}{\text{(8 Marks)}} \nonumber
+\end{eqnarray}
+
+\item \textcolor{red}{Trans-esterification with methanol} \textcolor{blue}{(2 Marks)}.
+
+\item \textcolor{red}{It can be transported long distances by tanker, reducing the need for pipelines} \textcolor{blue}{(2 Marks)}.
+
+\item 
+\begin{eqnarray}
+ \textcolor{red}{\text{Rate of electricity production}}&=& \nonumber \\
+&=& 1.2 \times 109 \text{kg} \times 55 \times 106 \text{J.kg}^{-1}  \times \frc{0.35}{3600 \times 365 \times 24} \text{W} \nonumber \\
+&=&  \textcolor{red}{730 \text{MW}}\;\;\textcolor{blue}{\text{(8 Marks)}} \nonumber 
+\end{eqnarray}
+
+\end{enumerate}
+
+\clearpage
+
+%%%
+%%% Module 03
+%%%
+\item [Question 3:]\mbox{} \\
+
+
+\begin{itemize}
+\item[(a)] Symbols:
+\begin{description}
+\item[$\dot{Q}$ -] the rate of heat added to the fluid;
+\item[$\dot{W}_s$ -] the rate of shaft work done by the fluid;
+\item[$\dot{m}$ -] the mass flux through the device;
+\item[$c_p$ -] the specific heat capacity at constant pressure;
+\item[$T$ -] the fluid temperature;
+\item[$u$ -] the fluid velocity;
+\item[$\chi_2$ -] the property $\chi$ evaluated at the device outlet;
+\item[$\chi_1$ -] the property $\chi$ evaluated at the device inlet;
+\end{description}
+\hfill \textbf{[3 Marks]}
+
+Assumptions:
+\begin{itemize}
+\item Steady fluid flow through the turbine;
+\item The fluid is an ideal gas;
+\item The velocity, pressure, internal energy and potential energy over each inlet or outlet can be replaced by their respective averages;
+\item No work due to viscosity, chemical, radiological etc;
+\end{itemize}
+\hfill \textbf{[Half mark for each up to 2 Marks]}
+
+\item[(b)] For a steady flow device with two inlets (labelled 1 and 2) and one outlet (labelled 3), the steady flow energy equation can be written as
+\begin{align*}
+ \dot{Q} - \dot{W}_s = \dot{m}_3 \left(c_p T_3 + \frac{u_3^2}{2} + g z_3\right) - \dot{m}_1 \left(c_p T_1 + \frac{u_1^2}{2} + g z_1\right) - \dot{m}_2 \left(c_p T_2 + \frac{u_2^2}{2} + g z_2\right).
+\end{align*}\hfill \textbf{[2 Marks]} \\
+The corresponding steady mass conservation equation is
+\begin{align*}
+ \dot{m}_1 + \dot{m}_2 = \dot{m}_3.
+\end{align*}
+\hfill \textbf{[1 Marks]}
+
+\item[(c)]
+\begin{itemize}
+\item[(i)] the volume flux is related to the velocity through
+\begin{align*}
+ \mbox{Fluid velocity, } u = \frac{\mbox{Volume flux}}{\mbox{Cross-sectional area, } A}.
+\end{align*} \hfill \textbf{[1 Mark of 2]} \\
+At inlet 1,
+\begin{align*}
+ u_1 = \frac{1.8\,\mbox{m}^3\mbox{/s}}{0.03\,\mbox{m}^2} = 60\,\mbox{m/s}, \\
+ u_2 = \frac{0.5\,\mbox{m}^3\mbox{/s}}{0.1\,\mbox{m}^2} = 5\,\mbox{m/s}, \\
+ u_3 = \frac{20\,\mbox{m}^3\mbox{/s}}{0.5\,\mbox{m}^2} = 40\,\mbox{m/s},
+\end{align*} \hfill \textbf{[1 Mark of 2]}
+
+\item[(ii)] The fluid density at inlet 1 and outlet 3 can be calculated directly
+\begin{align*}
+ \rho_1 =& \frac{p_1}{R T_1} = \frac{200000\,\mbox{Pa}}{300\,\mbox{J/(kg K)} \left(80 + 273.15\right)\,K} = 1.8878\,\mbox{kg/m}^3, \\
+ \rho_3 =& \frac{p_3}{R T_3} = \frac{110000\,\mbox{Pa}}{300\,\mbox{J/(kg K)} \left(30 + 273.15\right)\,K} = 1.2095\,\mbox{kg/m}^3.
+\end{align*} \hfill \textbf{[1 Mark of 6]} \\
+The mass flux at inlet 1 and outlet 3 are given by
+\begin{align*}
+ \dot{m}_1 =& \rho_1 u_1 A_1 = 1.8878\,\mbox{kg/m}^3 \times 60\,\mbox{m/s} \times 0.03\,\mbox{m}^2 = 22.6533\,\mbox{kg/s}, \\
+ \dot{m}_3 =& \rho_3 u_3 A_3 = 1.2095\,\mbox{kg/m}^3 \times 40\,\mbox{m/s} \times 0.5\,\mbox{m}^2 = 24.1904\,\mbox{kg/s}.
+\end{align*} \hfill \textbf{[1 Mark of 6]} \\
+Now the mass flux through the inlet satisfies
+\begin{align*}
+ \dot{m}_1 + \dot{m}_2 = \dot{m}_3,
+\end{align*} \hfill \textbf{[1 Mark of 6]} \\
+i.e.
+\begin{align*}
+ \dot{m}_2 = \dot{m}_3 - \dot{m}_1 = 24.1904\,\mbox{kg/s} - 22.6533\,\mbox{kg/s} = 1.5372\,\mbox{kg/s}.
+\end{align*} \hfill \textbf{[1 Mark of 6]} \\
+Consequently the density
+\begin{align*}
+ \rho_2 = \frac{\dot{m}_2}{u_2 A_2} = \frac{1.5372\,\mbox{kg/s}}{5\,\mbox{m/s} \times 0.1\,\mbox{m}^2} = 3.0744\,\mbox{kg/m}^3,
+\end{align*} \hfill \textbf{[1 Mark of 6]} \\
+and the pressure
+\begin{align*}
+ p_2 = \rho_2 R T_2 = 3.0744\,\mbox{kg/m}^3 \times 300\,\mbox{J/(kg K)} \times \left(70 + 273.15\right)\,K = 316490\,\mbox{Pa} = 316\,\mbox{kPa}.
+\end{align*} \hfill \textbf{[1 Mark of 6]}
+
+\item[(iii)] Now we can use the SFEE in the form
+\begin{align*}
+ \dot{Q} - \dot{W}_s = \dot{m}_3 \left(c_p T_3 + \frac{u_3^2}{2} + g z_3\right) - \dot{m}_1 \left(c_p T_1 + \frac{u_1^2}{2} + g z_1\right) - \dot{m}_2 \left(c_p T_2 + \frac{u_2^2}{2} + g z_2\right).
+\end{align*}
+to calculate the rate at which heat is added to the gas.
+\begin{align*}
+ \dot{Q} =& -80000 + \dot{m}_3 \left(\left(800 \times 303.15\right) + \frac{40^2}{2} + \left(9.81 \times 0.5\right)\right) \nonumber \\
+ &- \dot{m}_1 \left(\left(800 \times 353.15\right) + \frac{60^2}{2} + \left(9.81 \times 0.2\right)\right) \nonumber \\
+ &- \dot{m}_2 \left(\left(800 \times 343.15\right) + \frac{5^2}{2} + \left(9.81 \times 1.2\right)\right) \nonumber \\
+ =& -80000 + 5886138 - 6440820 - 422024 \nonumber \\
+ =& -1056707.0\,\mbox{W} = -1057\,\mbox{kW}.
+\end{align*}\hfill \textbf{[2 Marks]}
+\end{itemize}
+The rate at which heat added to the gas is negative indicating the gas in the device heats the surroundings.\hfill \textbf{[1 Mark]}
+\end{itemize}
+
+
+
+
+\clearpage
+
+%%%
+%%% Module 04
+%%%
+\item [Question 4:] 
+
+\begin{enumerate}[(a)]
+\item Calculating enthapies:
+\begin{enumerate}[(i)]
+\item {\it State 1:} At $P_{1}=1.4\text{ bar}$, the $T_{\text{sat}}=-18.80^{\text{o}}\text{C}<< T_{1}=-10^{\text{o}}$C. Thus the refrigerant fluid is a {\it superheated vapour} and the thermodynamic table for {\it R-134a} gives \textcolor{red}{$H_{1}=243.40$ kJ/kg} \textcolor{blue}{(2 Marks)} and $S_{1}=0.9606$ kJ/(kg.K).
+\item {\it State 2:} Isentropic compression from $P_{1}=1.4$ bar to $P_{2}=7$ bar $\Longrightarrow\;\;S_{2s}=S_{1}$. The fluid remains at superheated vapour state, 
+\begin{center}
+\begin{tabular}{c c c}
+$T\;\left(^{\text{o}}\text{C}\right)$ & $H\;\left(kJ/kg\right)$ & $S\;\left(kJ/(kg.K)\right)$ \\
+40  & 275.93  & 0.9539 \\
+50  & 286.35  & 0.9867 
+\end{tabular}
+\end{center}
+From linear interpolation, we can find $H_{2s}=278.06$ kJ/kg. Now, using the compressor efficiency,
+\begin{displaymath}
+\eta=\frc{H_{2s}-H_{1}}{H_{2}-H_{1}}=0.67 \Longrightarrow \textcolor{red}{H_{2}=295.13 \text{ kJ/kg}}\;\;\textcolor{blue}{\text(2 Marks)}.%,\;\;S_{2} =1.0135 \text{ kJ/(kg.K)}
+\end{displaymath} 
+With the updated $H_{2}$, we should return to the superheated vapour table at $P_{2}=7$ bar,
+\begin{center}
+\begin{tabular}{c c c}
+$T\;\left(^{\text{o}}\text{C}\right)$ & $H\;\left(kJ/kg\right)$ & $S\;\left(kJ/(kg.K)\right)$ \\
+50  & 286.35  & 0.9867 \\
+60  & 286.35  & 1.0182 
+\end{tabular}
+\end{center}
+through linear interpolation, $S_{2} =1.0135 \text{ kJ/(kg.K)}$ and $T_{2}=58.49^{\text{o}}$C.
+
+\item {\it State 3:} For $P_{3}=7$ bar and $T_{3}=24^{\text{o}}$C, the fluid is at subcooled state $\left(\right.$at this pressure, the saturation temperature is 26.72$^{\text{o}}$C $\left.>T_{3}\right)$ and the thermodynamic table gives \textcolor{red}{$H_{3}=H_{f}\left(T=297.15\text{ K}\right)=82.90\text{ kJ/kg}$} \textcolor{blue}{\text{(2 Marks)}} and $S_{3}=0.3113\text{ kJ/(kg.K)}$
+\item {\it State 4:} Throttling (isenthalpic) process at $P_{4}=1.4$ bar $\Longrightarrow\;\textcolor{red}{H_{4}=H_{3}=82.90\text{ kJ/kg}}$ \textcolor{blue}{(2 Marks)}. At this pressure, from the thermodynamic table,
+\begin{center}
+\begin{tabular}{c c}
+$H_{f}=25.77$ kJ/kg & $S_{f}=0.1055$ kJ/(kg.K) \\
+$H_{g}=236.04$ kJ/kg & $S_{g}=0.9322$ kJ/(kg.K) \\
+\end{tabular}
+\end{center} 
+$H_{4}>>>H_{f} \;\Longrightarrow$ two-phase fluid, thus in order to calculate $S_{4}$, we first need to calculate the quality of the fluid
+\begin{displaymath}
+x_{4}=\frc{H_{4}-H_{f}}{H_{g}-H_{f}}=\frc{82.90-25.77}{236.04-25.77}=0.2717
+\end{displaymath}
+Now,
+\begin{displaymath}
+x_{4}=\frc{S_{4}-S_{f}}{S_{g}-S_{f}}=0.2717\;\Longrightarrow\;\;S_{4}=0.3301\;\text{kJ/(kg.K)}
+\end{displaymath}
+ %and $S_{4}=0.33011\text{ kJ/(kg.K)}$
+\end{enumerate}
+
+\item The coefficient of performance, $\beta$, is,
+\begin{displaymath}
+\textcolor{red}{\beta}=\frc{H_{1}-H_{4}}{H_{2}-H_{1}}=\frc{243.40-82.90}{295.13-243.40}=\textcolor{red}{3.10}\;\;\textcolor{blue}{\text{(3 Marks)}}
+\end{displaymath}
+
+\item The refrigeration capacity, $\dot{Q}_{\text{in}}$, is,
+\begin{eqnarray}
+\textcolor{red}{\dot{Q}_{in}}&=& \dot{m}\left(H_{1}-H_{4}\right) \nonumber \\
+         &=& 6\frc{\text{kg}}{\text{min}} \times \left(243.40-82.90\right) \frc{\text{kJ}}{\text{kg}} \times \frc{60\text{ min}}{1\text{ h}} \times \frc{1\text{ ton}}{1.4\times10^{4}\text{ kJ/h}} = \textcolor{red}{4.127\text{ tons}}\;\;\textcolor{blue}{\text{(3 Marks)}}\nonumber
+%\left[\frc{1\text{ ton}}{211\text{ kJ/min}}\right] = 4.564 \text{ tons}
+\end{eqnarray}
+
+\item The schematic and $TS$ diagrams are given bellow \textcolor{blue}{(3 Marks each)}.%(Fig. \ref{refri2}).
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=12.cm,angle=0,clip]{./Pics/Exam_Refrigeration3}
+\includegraphics[width=8.cm,angle=0,clip]{./Pics/Exam_Refrigeration_TS}
+\label{refri2}
+\caption{Schematic and $Ts$ diagram for Question 4.}
+\end{center}
+\end{figure}
+
+\medskip
+\end{enumerate}
+
+
+\clearpage
+%%%
+%%% Module 05
+%%%
+\item [Question 5:]
+
+The specific humidity $\omega$ is the ratio of the mass of water vapour $m_v$, to the mass of dry air $m_a$ and satisfies the equation
+\begin{align*}
+ \omega = \frac{m_v}{m_a}.
+\end{align*}
+As both water vapour and dry air behave like ideal gases, in some arbitrary volume $V$,
+\begin{align*}
+ \omega = \frac{m_v}{m_a} = \frac{\rho_v}{\rho_a} = \frac{p_v}{R_v T} \frac{R_a T}{p_a} = \frac{R_a p_v}{R_v p_a}.
+\end{align*}
+The partial pressures of dry air and water vapour satisfy $p_a = p - p_v$. Hence
+\begin{align*}
+ \omega = \frac{R_a p_v}{R_v \left(p - p_v\right)}.
+\end{align*} 
+The saturation pressure of water $p_{v,\text{sat}}$ is the maximum partial pressure of water vapour a gas can contain at a give temperature before water starts condensing out of the gas. The relative humidity $\phi$ is the ratio of the partial pressure of water vapour to the saturation pressure of water
+\begin{align*} 
+ \phi = \frac{p_v}{p_{v,\text{sat}}}.
+\end{align*}
+Hence eliminating $p_v$ from the previous expression gives
+\begin{align*}
+ \omega = \frac{R_a \phi p_{v,\text{sat}}}{R_v \left(p - \phi p_{v,\text{sat}}\right)}.
+\end{align*} \hfill \textbf{[5 Marks]}
+
+
+If the inlet from inside is labelled 1, the inlet from outside is labelled 2 and the outlet with the mixture is labelled 3, then
+\begin{align*}
+ \dot{m}_{a_1} + \dot{m}_{a_2} =& \dot{m}_{a_3}, &\mbox{Mass conservation of dry air}, \\
+ \omega_1 \dot{m}_{a_1} + \omega_2 \dot{m}_{a_2} =& \omega_3 \dot{m}_{a_3}, &\mbox{Mass conservation of water vapour}, \\
+  h_1 \dot{m}_{a_1} + h_2 \dot{m}_{a_2} =& h_3 \dot{m}_{a_3}, &\mbox{Energy conservation},
+\end{align*}
+where $\dot{m}_a$ is a mass flux of air, $h$ is the enthalpy and $\omega$ is the specific humidity. \hfill \textbf{[3 Marks of 7]}
+
+Eliminating $\dot{m}_3$ from the water vapour conservation equation gives
+\begin{align*}
+ \omega_1 \dot{m}_{a_1} + \omega_2 \dot{m}_{a_2} =& \omega_3\left(\dot{m}_{a_1} + \dot{m}_{a_2}\right) = \omega_3 \dot{m}_{a_1} + \omega_3 \dot{m}_{a_2}.
+\end{align*}
+Collecting together terms involving $\dot{m}_1$ and terms involving $\dot{m}_2$ gives
+\begin{align*}
+ \omega_1 \dot{m}_{a_1} - \omega_3 \dot{m}_{a_1} =& \omega_3 \dot{m}_{a_2} - \omega_2 \dot{m}_{a_2} \nonumber \\
+ \Rightarrow \left(\omega_1 - \omega_3\right) \dot{m}_{a_1} =& \left(\omega_3 - \omega_2\right) \dot{m}_{a_2},
+\end{align*}
+and hence rearranging gives
+\begin{align*}
+ \frac{\dot{m}_{a_2}}{\dot{m}_{a_1}} =& \frac{\omega_1 - \omega_3}{\omega_3 - \omega_2} = \frac{\omega_3 - \omega_1}{\omega_2 - \omega_3}.
+\end{align*}\hfill \textbf{[2 Marks of 7]}
+
+Similarly eliminating $\dot{m}_3$ from the energy conservation equation gives
+\begin{align*}
+ h_1 \dot{m}_{a_1} + h_2 \dot{m}_{a_2} =& h_3\left(\dot{m}_{a_1} + \dot{m}_{a_2}\right) = h_3 \dot{m}_{a_1} + h_3 \dot{m}_{a_2}.
+\end{align*}
+Collecting together terms involving $\dot{m}_1$ and terms involving $\dot{m}_2$ gives
+\begin{align*}
+ h_1 \dot{m}_{a_1} - h_3 \dot{m}_{a_1} =& h_3 \dot{m}_{a_2} - h_2 \dot{m}_{a_2} \nonumber \\
+ \Rightarrow \left(h_1 - h_3\right) \dot{m}_{a_1} =& \left(h_3 - h_2\right) \dot{m}_{a_2},
+\end{align*}
+and hence rearranging gives
+\begin{align*}
+ \frac{\dot{m}_{a_2}}{\dot{m}_{a_1}} =& \frac{h_1 - h_3}{h_3 - h_2} = \frac{h_3 - h_1}{h_2 - h_3} = \frac{\omega_3 - \omega_1}{\omega_2 - \omega_3},
+\end{align*}
+as required. \hfill \textbf{[2 Marks of 7]}
+
+\begin{itemize}
+\item[(a)] The partial pressure of dry air at 1 is given by
+\begin{align*}
+ p_{a_1} = p_1 - p_{{v,\text{sat}}_1} = 100000\,\mbox{Pa} - 1818.747\,\mbox{Pa} = 98181.253\,\mbox{Pa}.
+\end{align*}
+The specific volume of dry air
+\begin{align*}
+ V_1 = \frac{R_a T_1}{p_{a_1}} = \frac{287.1\,\mbox{kJ/(kg\,K)} \left(16 + 273.15\right)}{98181.253\,\mbox{Pa}} = \,\mbox{m}^3\mbox{/kg}
+\end{align*} \hfill \textbf{[1 Mark of 3]} \\
+The mass flux of dry air through inlet 1 is given by
+\begin{align*}
+ \dot{m}_{a_1} = \frac{\mbox{volume flux}}{V_1} = \frac{1\,\mbox{m}^3\mbox{/s}}{0.8455\,\mbox{m}^3\mbox{/kg}} = 1.1827\,\mbox{kg/s}.
+\end{align*} \hfill \textbf{[1 Mark of 3]}
+
+The mass flux of dry air through inlet 2 is given by
+\begin{align*}
+ \dot{m}_{a_2} =& \dot{m}_{a_3} - \dot{m}_{a_1} = 1.8\,\mbox{kg/s} - 1.1827\,\mbox{kg/s} = 0.6173\,\mbox{kg/s}
+\end{align*} \hfill \textbf{[1 Mark of 3]}
+
+\item[(b)] The gas entering the system through inlet 1 is saturated ($\phi_1 = 1$), and therefore the specific humidity
+\begin{align*}
+ \omega_1 =& \frac{R_a \phi_1 p_{{v,\text{sat}}_1}}{R_v \left(p_1 - \phi_1 p_{{v,\text{sat}}_1}\right)} = \frac{287.1\,\mbox{kJ/(kg\,K)} \times 1 \times 1818.747\,\mbox{Pa}}{461.5\,\mbox{kJ/(kg\,K)} \left(100000\,\mbox{Pa} - 1 \times 1818.747\,\mbox{Pa}\right)} \nonumber \\
+ =& 0.0115\,\mbox{kg H$_2$O/ kg dry air}.
+\end{align*} \hfill \textbf{[1 Mark]}
+
+\item[(c)] Using
+\begin{align*}
+ \frac{\dot{m}_{a_2}}{\dot{m}_{a_1}} =& \frac{\omega_3 - \omega_1}{\omega_2 - \omega_3}.
+\end{align*}
+Rearranging
+\begin{align*}
+ \left(\omega_2 - \omega_3\right)\frac{\dot{m}_{a_2}}{\dot{m}_{a_1}} =& \left(\omega_3 - \omega_1\right).
+\end{align*}
+Collecting terms involving $\omega_3$ gives
+\begin{align*}
+ \omega_2 \frac{\dot{m}_{a_2}}{\dot{m}_{a_1}} + \omega_1 =& \omega_3 + \omega_3\frac{\dot{m}_{a_2}}{\dot{m}_{a_1}} = \omega_3 \left(1 + \frac{\dot{m}_{a_2}}{\dot{m}_{a_1}}\right).
+\end{align*}
+Therefore
+\begin{align*}
+ \omega_3 = \frac{\omega_1 + \omega_2 \frac{\dot{m}_{a_2}}{\dot{m}_{a_1}}}{1 + \frac{\dot{m}_{a_2}}{\dot{m}_{a_1}}}
+\end{align*} \hfill \textbf{[2 Marks of 4]} \\
+The mass flux ratio
+\begin{align*}
+ \frac{\dot{m}_{a_2}}{\dot{m}_{a_1}} = \frac{0.6173}{1.1827} = 0.5219
+\end{align*} \hfill \textbf{[1 Mark of 4]} \\
+Therefore
+\begin{align*}
+ \omega_3 = \frac{0.0115 + \left(0.5219 \times 0.0182\right)}{1 + 0.5219} = 0.0138\,\mbox{kg H$_2$O/ kg dry air}.
+\end{align*} \hfill \textbf{[1 Mark of 4]} 
+\end{itemize}
+
+\end{description}
+
+%\begin{Large}
+%\include{Module_Questions}
+%\include{Module_03}
+%\include{Module_04}
+%\include{Module_05}
+
+
+\end{document}

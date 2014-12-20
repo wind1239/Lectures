@@ -1,0 +1,422 @@
+
+
+
+\documentclass[12pt,twoside]{report}
+
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{natbib,enumerate}
+%\usepackage{fancyhdr} %%%%
+\usepackage{color}
+\usepackage{fullpage}
+\usepackage{helvet}
+%\pagestyle{fancy}%%%%
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+% Added macros
+\newcommand{\mathbi}[1]{\boldsymbol{ #1 }}
+\newcommand{\fracp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\fracd}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\renewcommand{\d}[1]{\mathrm{d} #1}
+\newcommand{\Ma}{\mathrm{M\! a}}
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\uline}[1]{\rule[0pt]{#1}{0.4pt}}% Fill this blank
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\begin{document}
+
+
+\setcounter{page}{1}
+
+\vfill
+
+\pagebreak
+
+
+\begin{center}
+{\Large Solution of the Problems -- Exam (August 2013/14)}
+\end{center}
+
+\begin{description}
+
+%%%
+%%% Module 01
+%%%
+\item [Question 1:] The modified air-standard Otto cycle with the following initial conditions:
+\begin{displaymath}
+\gamma = 1.3,\;\;\; \frc{V_{1}}{V_{2}}=\frc{V_{4}}{V_{3}}=9, \;\;\; P_{1}= 1\;\text{bar}, \;\;\; T_{1}=300\;K, \;\;\; T_{\text{max}}=T_{4}=2000\;K
+\end{displaymath}
+
+\begin{enumerate}
+\item In order to fill Table \ref{exam2_table1}, we need to calculate all relevant variables for each stage of the cycle (using the ideal-gas properties of air table):
+\begin{enumerate}
+\item {\bf Stage 1:} At $T_{1}=300\;K\text{ and }P_{1}=1\text{ bar }\;\Rightarrow\;U_{1}=214.07\frc{kJ}{kg}$. From the ideal gas equation,
+\begin{displaymath}
+V_{1}=\frc{R T_{1}}{P_{1}}= 0.8610 \frc{m^{3}}{kg}
+\end{displaymath}
+\item {\bf Stage 2:}
+\begin{displaymath}
+T_{2}=T_{1}\left(\frc{V_{1}}{V_{2}}\right)^{\gamma-1}=300\left(9\right)^{0.3}=580K \Rightarrow U_{2}=419.55\frc{kJ}{kg}
+\end{displaymath}
+\item {\bf Stage 3:} $T_{3}=2000\;K\;\Rightarrow\;U_{3}=1678.7\frc{kJ}{kg}$;
+\item {\bf Stage 4:} 
+\begin{displaymath}
+T_{4}=T_{3}\left(\frc{V_{3}}{V_{4}}\right)^{\gamma-1}=1034.57\; K \Rightarrow U_{4}=788.67\frc{kJ}{kg}
+\end{displaymath}
+\end{enumerate}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|| c || c |c |c |c || }
+\hline\hline
+        & {\bf $P$ (bar)} & {\bf $T$ (K)}  & {\bf V$\left(m^{3}/kg\right)$} & {\bf $U\;\left(kJ/kg\right)$} \\
+\hline
+{\bf 1} & 1               &     300        &       \textcolor{red}{(a)0.8610}                      & \textcolor{red}{(b)214.07}                 \\    
+{\bf 2} & --              &\textcolor{red}{(c)580}        &       --                      &  \textcolor{red}{(d)419.55}                 \\
+{\bf 3} & --              &    2000        &       --                       & \textcolor{red}{(e)1678.7}                 \\
+{\bf 4} & --              &\textcolor{red}{(f)1034.57}         &       --                      &  \textcolor{red}{(g)788.67}                 \\
+\hline\hline
+\end{tabular}
+\end{center}
+\caption{Thermodynamic table of the modified air-standard Otto cycle (Question 1) -- \textcolor{blue}{1 Mark each}.}\label{exam2_table1}
+\end{table}
+
+\item Now calculating the mass-based heat $\left(Q_{ij}/m\right)$ and work $\left(W_{12}/m\right)$ for each stroke $i--j$:
+\begin{enumerate}
+%
+\item {\bf 1--2:}
+\begin{displaymath}
+\textcolor{red}{\frc{W_{12}}{m}=}\int_{1}^{2}P dV = \frc{R\left(T_{2}-T_{1}\right)}{1-\gamma} = \textcolor{red}{-267.85 \frc{kJ}{kg}}\;\;\textcolor{blue}{\text{(1 Mark)}}
+\end{displaymath}
+and from the energy balance,
+\begin{displaymath}
+\textcolor{red}{\frc{Q_{12}}{m}=}\left(U_{2}-U_{1}\right)+\frc{W_{12}}{m}=\textcolor{red}{-62.37\frc{kJ}{kg}}\;\;\textcolor{blue}{\text{(1 Mark)}}
+\end{displaymath}
+
+% 
+\item {\bf 2--3:}
+\begin{eqnarray}
+&& \textcolor{red}{\frc{W_{23}}{m}=0} \;\;\textcolor{blue}{\text{(1 Mark)}} \nonumber \\
+&& \textcolor{red}{\frc{Q_{23}}{m}=}\left(U_{3}-U_{2}\right)+\frc{W_{23}}{m}=\textcolor{red}{1259.15\frc{kJ}{kg}}\;\;\textcolor{blue}{\text{(1 Mark)}} \nonumber 
+\end{eqnarray} 
+
+%
+\item {\bf 3--4:}
+\begin{eqnarray}
+&& \textcolor{red}{\frc{W_{34}}{m}=}\int_{3}^{4}P dV = \frc{R\left(T_{4}-T_{3}\right)}{1-\gamma} = \textcolor{red}{923.10 \frc{kJ}{kg}}\;\;\textcolor{blue}{\text{(1 Mark)}} \nonumber \\
+&& \textcolor{red}{\frc{Q_{34}}{m}=}\left(U_{4}-U_{3}\right)+\frc{W_{34}}{m}=\textcolor{red}{33.07\frc{kJ}{kg}}\;\;\textcolor{blue}{\text{(1 Mark)}} \nonumber 
+\end{eqnarray}
+
+% 
+\item {\bf 4--1:}
+\begin{eqnarray}
+&& \textcolor{red}{\frc{W_{41}}{m}=0} \;\;\textcolor{blue}{\text{(1 Mark)}} \nonumber \\
+&& \textcolor{red}{\frc{Q_{41}}{m}=}\left(U_{4}-U_{1}\right)+\frc{W_{41}}{m}=\textcolor{red}{-574.60\frc{kJ}{kg}}\;\;\textcolor{blue}{\text{(1 Mark)}} \nonumber 
+\end{eqnarray} 
+
+\end{enumerate}
+
+\item Calculating the thermal efficiency of the cycle -- $\eta = \frc{\left(W_{\text{cycle}}/m\right)}{\left(Q_{\text{in}}/m\right)}$:
+
+\begin{eqnarray}
+&& \textcolor{red}{\frc{W_{\text{cycle}}}{m} =} \frc{W_{12}}{m} + \frc{W_{34}}{m} = \textcolor{red}{655.25\frc{kJ}{kg}}\;\;\textcolor{blue}{\text{(1 Mark)}} \nonumber \\ 
+&& \textcolor{red}{\frc{Q_{in}}{m} =} \frc{Q_{23}}{m} + \frc{Q_{34}}{m} = \textcolor{red}{1292.22\frc{kJ}{kg}}\;\;\textcolor{blue}{\text{(1 Mark)}} \nonumber \\
+&& \textcolor{red}{\eta =} \frc{655.25}{1292.22}=\textcolor{red}{0.507}\;\;\textcolor{blue}{\text{(1 Mark)}} \nonumber 
+\end{eqnarray}
+
+\item Finally, calculating the mean effective pressure,
+\begin{displaymath}
+\textcolor{red}{\text{MEP} =} \frc{\left(W_{\text{cycle}}/m\right)}{V_{1}-V_{2}}=\frc{\left(W_{\text{cycle}}/m\right)}{V_{1}\left(1 - \frc{V_{2}}{V_{1}}\right)} = \textcolor{red}{8.56\text{ bar}}\;\;\textcolor{blue}{\text{(2 Mark)}}
+\end{displaymath}
+
+\end{enumerate}
+
+
+\clearpage
+
+%%%
+%%% Module 02
+%%%
+\item [Question 2:] \mbox{}\\
+
+\clearpage
+
+%%%
+%%% Module 03
+%%%
+\item [Question 3:]
+
+\clearpage
+
+
+%%%
+%%% Module 04
+%%%
+\item [Question 4:] Refrigerant R-134a;\\
+ 
+\begin{enumerate}
+
+\item Sketch can be seen in Fig \ref{Ex02:Q04} \textcolor{blue}{(2 Marks)}
+\begin{figure}[h]
+\label{Ex02:Q04}
+\begin{center}
+\includegraphics[width=8.0cm,height=8.0cm]{./Pics/Exam_Refrigeration4}
+\vspace{-1.9cm}
+\caption{Schematic of the vapour compression refrigeration cycle (Question 4).}
+\end{center}
+\end{figure}
+
+
+\item Calculating the enthalpies for each stage:
+\begin{itemize}
+\item {\bf Stage 1:}  Saturated vapour at $P_{1}=2\text{ bar} \Rightarrow$ \textcolor{red}{$H_{1}=241.30\frc{kJ}{kg}$} \textcolor{blue}{(2 Mark)} and $S_{1}=0.9253\frc{kJ}{kg.K}$;
+\item {\bf Stage 2:} Isentropic compression $\left(S_{2s}=S_{1}\right)$ at $P_{2}=P_{3}=8\text{ bar}$. At this pressure, the entropy of the saturated vapour is $S_{g}=0.9066\frc{kJ}{kg.K} << S_{2s}$, therefore we can conclude that the fluid is at superheated state $\Rightarrow$ (via linear interpolation) $T_{2s}=36.59^{\text{o}}C$ and $H_{2s}=269.92\frc{kJ}{kg}$. Now, in order to calculate $H_{2}$, 
+\begin{displaymath}
+\eta_{C}=\frc{H_{2s}-H_{1}}{H_{2}-H_{1}}\;\Rightarrow\; \textcolor{red}{H_{2}=277.08\frc{kJ}{kg}}\;\;\textcolor{blue}{\text{(2 Mark)}}
+\end{displaymath}
+\item {\bf State 3:} Saturated liquid at $P_{3}=8\text{ bar} \Rightarrow$ \textcolor{red}{$H_{3}=93.42\frc{kJ}{kg}$} \textcolor{blue}{(2 Mark)};
+\item {\bf State 4:} Isenthalpic expansion: \textcolor{red}{$H_{4}=H_{3}$} \textcolor{blue}{(2 Mark)}.
+\end{itemize}
+
+\item Calculating the compressor power:
+\begin{displaymath}
+\textcolor{red}{W_{\text{C}}=}\dot{m}_{R}\left(H_{2}-H_{1}\right) = \textcolor{red}{4.17\text{ kW}}\;\;\textcolor{blue}{\text{(2 Marks)}}
+\end{displaymath}
+
+\item Calculating the refrigerant capacity:
+\begin{displaymath}
+\textcolor{red}{R_{\text{n}}=}\dot{m}_{R}\left(H_{1}-H_{4}\right) = \textcolor{red}{4.93\text{ tons}}\;\;\textcolor{blue}{\text{(2 Marks)}}
+\end{displaymath}
+
+
+\item Calculating the COP:
+\begin{displaymath}
+\textcolor{red}{\text{COP}=} \frc{W_{\text{C}}}{R_{\text{n}}}= \textcolor{red}{4.13}\;\;\textcolor{blue}{\text{(2 Marks)}}
+\end{displaymath}
+\end{enumerate}
+
+\item The $TS$ diagram is shown below \textcolor{blue}{(4 Marks)}
+\begin{figure}[h]
+\label{Ex02:Q04b}
+\begin{center}
+\includegraphics[width=8.0cm,height=8.0cm]{./Pics/Exam_Refrigeration4_TS}
+\vspace{-.4cm}
+\caption{$TS$ diagram for the vapour compression refrigeration cycle (Question 4).}
+\end{center}
+\end{figure}
+
+
+\clearpage
+
+%%%
+%%% Module 05
+%%%
+\item [Question 5:] 
+
+
+\begin{enumerate}
+
+\item Refrigerant fluid R-134a is adiabatically compressed from 400 kPa to 16 bar. In order to calculate the work executed by the piston we need to calculate teh thermodynamic variables at states $1$ and $2$.
+\begin{enumerate}
+%
+\item {\bf State 1:} Saturated vapour at $P_{1}=400$ kPa = 4 bar $\Rightarrow$ $T_{1}=T_{\text{sat}}=8.93^{\text{o}}C$, $V_{1}=V_{g}=0.0509\frc{m^{3}}{kg}$, $H_{1}=252.32\frc{kJ}{kg}$, $S_{1}=0.9145\frc{kJ}{kg.K}$ and \textcolor{red}{$U_{1}=231.97\frc{kJ}{kg}$} \textcolor{blue}{(2 Marks)}. 
+%
+\item {\bf State 2:} Adiabatic (i.e., isentropic) compression to $P_{2}=16$ bar $\Rightarrow$ $S_{2}=S_{1}=0.9145\frc{kJ}{kg.K}$. At this pressure, the saturated vapour entropy is smaller than the prescribed entropy, i.e., $S_{g}=0.8982\frc{kJ}{kg.K}<<S_{2}$. Therefore, the fluid in $2$ is at superheated state, thus (via linear interpolation): $T_{2}=61.96^{\text{o}}C<<T_{C}$, $V_{2}=0.01254\frc{m^{3}}{kg}$, $H_{2}=280.77\frc{kJ}{kg}$ and \textcolor{red}{$U_{2}=260.71\frc{kJ}{kg}$} \textcolor{blue}{(2 Marks)}. Notice that $P_{2} << P_{C}$ and $V_{2} << V_{1}$. 
+%
+\end{enumerate}
+ Now, from the First Law:
+\begin{displaymath}
+dU = dQ + dW \Rightarrow U_{2}-U_{1} = 0 = \Delta W \Rightarrow \textcolor{red}{\Delta W = 28.74 \frc{kJ}{kg}} \;\;\textcolor{blue}{\text{(2 Marks)}}
+\end{displaymath}
+
+\item $TS$ and $PV$ diagrams are shown below \textcolor{blue}{(4 Marks)}
+\begin{figure}[h]
+\label{Ex02:Q05}
+\begin{center}
+\includegraphics[width=12.0cm,height=8.0cm]{./Pics/Exam_PV-TS_Diagrams}
+\caption{$TS$ and $PV$ (rhs) diagrams (Question 5).}
+\end{center}
+\end{figure}
+
+\end{enumerate}
+
+\end{description}
+
+%\begin{Large}
+%\include{Module_Questions}
+%\include{Module_03}
+%\include{Module_04}
+%\include{Module_05}
+
+
+\end{document}

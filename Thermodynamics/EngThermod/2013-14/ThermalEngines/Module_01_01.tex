@@ -1,0 +1,1276 @@
+% Aberdeen style guide should be followed when using this
+% layout. Their template powerpoint slide is used to extract the
+% Aberdeen color and logo but is otherwise ignored (it has little or
+% no formatting in it anyway).
+%
+% http://www.abdn.ac.uk/documents/style-guide.pdf
+
+%%%%%%%%%%%%%%%%%%%% Document Class Settings %%%%%%%%%%%%%%%%%%%%%%%%%
+% Pick if you want slides, or draft slides (no animations)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Normal document mode
+\documentclass[10pt,compress]{beamer}
+%Draft or handout mode
+%\documentclass[10pt,compress,handout]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
+
+%%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
+% These settings must be set for each presentation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\shortname}{Dr Jeff Gomes}
+\newcommand{\fullname}{Dr Jeff Gomes}
+\institute{School of Engineering}
+\newcommand{\emailaddress}{jefferson.gomes@abdn.ac.uk}
+\newcommand{\logoimage}{../FigBanner/UoAHorizBanner}
+\title{Engineering Thermodynamics (EG3521)}
+\subtitle{Module 1: Introduction and Principles}
+%\subtitle{Module 1.1: Review of Thermodynamics}
+\date[03-06/02/2014]{03-06 February 2014}
+
+%%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% You shouldn't have to change below this line, unless you want to.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usecolortheme{whale}
+\useoutertheme{infolines}
+
+% Use the fading effect for items that are covered on the current
+% slide.
+\beamertemplatetransparentcovered
+
+% We abuse the author command to place all of the slide information on
+% the title page.
+\author[\shortname]{%
+  \fullname\\\ttfamily{\emailaddress}
+}
+
+
+%At the start of every section, put a slide indicating the contents of the current section.
+%\AtBeginSection[] {
+%  \begin{frame}
+%    \frametitle{Section Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+% Allow the inclusion of movies into the Presentation! At present,
+% only the Okular program is capable of playing the movies *IN* the
+% presentation.
+\usepackage{multimedia}
+\usepackage{animate}
+
+%%%%% Color settings
+\usepackage{color}
+%% The background color for code listings (i.e. example programs)
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}%
+\definecolor{UoARed}{rgb}{0.64706, 0.0, 0.12941}
+\definecolor{UoALight}{rgb}{0.85, 0.85, 0.85}
+\definecolor{UoALighter}{rgb}{0.92, 0.92, 0.92}
+\setbeamercolor{structure}{fg=UoARed} % General background and higlight color
+\setbeamercolor{frametitle}{bg=black} % General color
+\setbeamercolor{frametitle right}{bg=black} % General color
+\setbeamercolor{block body}{bg=UoALighter} % For blocks
+\setbeamercolor{structure}{bg=UoALight} % For blocks
+% Rounded boxes for blocks
+\setbeamertemplate{blocks}[rounded]
+
+%%%%% Font settings
+% Aberdeen requires the use of Arial in slides. We can use the
+% Helvetica font as its widely available like so
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+% But beamer already uses a sans font, so we will stick with that.
+
+% The size of the font used for the code listings.
+\newcommand{\goodsize}{\fontsize{6}{7}\selectfont}
+
+% Extra math packages, symbols and colors. If you're using Latex you
+% must be using it for formatting the math!
+\usepackage{amscd,amssymb} \usepackage{amsfonts}
+\usepackage[mathscr]{eucal} \usepackage{mathrsfs}
+\usepackage{latexsym} \usepackage{amsmath} \usepackage{bm}
+\usepackage{amsthm} \usepackage{textcomp} \usepackage{eurosym}
+% This package provides \cancel{a} and \cancelto{a}{b} to "cancel"
+% expressions in math.
+\usepackage{cancel}
+
+% Get rid of font warnings as modern LaTaX installations have scalable
+% fonts
+\usepackage{type1cm} 
+
+%\usepackage{enumitem} % continuous numbering throughout enumerate commands
+
+% For exact placement of images/text on the cover page
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}%sets the textpos unit
+\setlength{\TPVertModule}{\TPHorizModule} 
+
+% Source code formatting package
+\usepackage{listings}%
+\lstset{ backgroundcolor=\color{lbcolor}, tabsize=4,
+  numberstyle=\tiny, rulecolor=, language=C++, basicstyle=\goodsize,
+  upquote=true, aboveskip={1.5\baselineskip}, columns=fixed,
+  showstringspaces=false, extendedchars=true, breaklines=false,
+  prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+  frame=single, showtabs=false, showspaces=false,
+  showstringspaces=false, identifierstyle=\ttfamily,
+  keywordstyle=\color[rgb]{0,0,1},
+  commentstyle=\color[rgb]{0.133,0.545,0.133},
+  stringstyle=\color[rgb]{0.627,0.126,0.941}}
+
+% Allows the inclusion of other PDF's into the final PDF. Great for
+% attaching tutorial sheets etc.
+\usepackage{pdfpages}
+\setbeamercolor{background canvas}{bg=}  
+
+% Remove foot note horizontal rules, they occupy too much space on the slide
+\renewcommand{\footnoterule}{}
+
+% Force the driver to fix the colors on PDF's which include mixed
+% colorspaces and transparency.
+\pdfpageattr {/Group << /S /Transparency /I true /CS /DeviceRGB>>}
+
+% Include a graphics, reserve space for it but
+% show it on the next frame.
+% Parameters:
+% #1 Which slide you want it on
+% #2 Previous slides
+% #3 Options to \includegraphics (optional)
+% #4 Name of graphic
+\newcommand{\reserveandshow}[4]{%
+\phantom{\includegraphics<#2|handout:0>[#3]{#4}}%
+\includegraphics<#1>[#3]{#4}%
+}
+
+\begin{document}
+
+% Title page layout
+\begin{frame}
+  \titlepage
+  \vfill%
+  \begin{center}
+    \includegraphics[clip,width=0.8\textwidth]{\logoimage}
+  \end{center}
+\end{frame}
+
+% Table of contents
+%\frame{ \frametitle{Slides Outline}
+%  \tableofcontents
+%}
+
+
+%%%%%%%%%%%%%%%%%%%% The Presentation Proper %%%%%%%%%%%%%%%%%%%%%%%%%
+% Fill below this line with \begin{frame} commands! It's best to
+% always add the fragile option incase you're going to use the
+% verbatim environment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Module 1: Introduction and Principles} 
+
+
+%%%
+%%% Slide
+%%%
+\subsection{Motivation}
+\begin{frame}
+ \frametitle{Aims and Objectives}
+  \begin{columns}
+    \begin{column}[l]{0.6\linewidth}
+     \begin{enumerate}[(a)]
+      \item <2-> We aim to understand how energy evolves or is consumed in industrial- or environmental-based processes.
+      \item <3-> In order to achieve this, we first must define the thermodynamic system and review the definition of:
+       \begin{enumerate}[(i)]
+        \item  Intensive and extensive properties;
+        \item  Laws of thermodynamics;
+        \item  Reversible and irreversible processes;
+       \end{enumerate}
+      \item <4->Finally, we should review industrial applications of the \textcolor{red}{{\it First and Second Laws}} to heat-engine cycles. 
+     \end{enumerate}
+    \end{column}
+     \begin{column}[l]{0.4\linewidth}
+      \begin{figure}%
+        \begin{center}
+          \includegraphics[width=\columnwidth,clip]{./Pics/Fig_SteamPowerPlant2}
+           \caption{{\it Schematics of a simplified steam power plant.}} 
+        \end{center}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\subsection{Bibliography} 
+\begin{frame}
+ \frametitle{Suggested References}
+  Literature relevant for this module:
+  \begin{enumerate}[(a)]
+   \item J.M. Smith, H.C. Van Ness, M.M. Abbott, $\lq$Introduction to Chemical Engineering Thermodynamics', 6$^{th}$ Edition: Chapters 2.1-5, 2.8-11 and 5;
+   \item A.B. Pippard, $\lq$Elements of Classical Thermodynamics' (1966): Chapters 2, 3 and 4;
+   \item H. Devoe, $\lq$Thermodynamics and Chemistry', 2$^{nd}$ Edition: Chapters 2.5-6, 3.1,2,4,5,9,10;
+   \item M.J. Moran, H.N. Saphiro, D.D. Boettner, M.B. Bailey, $\lq$Principles of Engineering Thermodynamics', 7$^{th}$ Edition: Chapters 1.2-8, 2, 3.1-8, 5.1-7, 6.1.
+  \end{enumerate}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\subsection{The Thermodynamic System}
+\begin{frame}
+ \frametitle{Introduction}
+  \begin{enumerate}[(a)]
+   \item <2-> Thermodynamics is the study of energy and its transformations;
+   \item <3-> It deals with overall energy and entropy changes, and their relation to direction of reactions and the position of equilibrium;
+   \item <4-> Thermodynamics embodies a macroscopic viewpoint, i.e., it focuses on properties of a system (e.g., temperature, volume and heat capacity);
+   \item <5-> Thermodynamics can be applied to systems in equilibrium and non-equilibrium;
+   \item <6-> In this course we focus on system on equilibrium thermodynamics relevant to engineering problems.   
+  \end{enumerate}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+ \frametitle{System and Control Volumes}
+  \begin{columns}
+    \begin{column}[l]{0.6\linewidth}
+      \begin{itemize}%\scriptsize
+       \item <2-> The thermodynamic system is the part of the universe we are considering. We are free to choose boundary conditions.
+       \item <3-> A \textcolor{red}{system} is defined as a quantity of matter or a region in space chosen for study;
+       \item <4-> The mass or region outside the system is called the \textcolor{red}{surroundings};
+       \item <5-> The real or imaginary surface that separates the system from its surroundings is called the \textcolor{red}{boundary};
+       \item <6-> Systems may be considered to be {\it closed} or {\it open}, depending on whether a fixed mass or a fixed volume in space is chosen for study; 
+      \end{itemize}
+    \end{column}
+    \begin{column}[l]{0.4\linewidth}\scriptsize
+      \begin{figure}%
+        \begin{center}
+          \includegraphics[width=\columnwidth,clip]{./Pics/Fig_SystemDefinition}
+        \end{center}
+      \end{figure}
+      \begin{tabular}{|c|c|c|}
+         \hline
+                      & {\bf Mass} & {\bf Energy} \\
+                      & {\bf Exchange} & {\bf Exchange} \\
+         \hline
+         {\bf Open}   & {\it yes}  & {\it yes}    \\
+         {\bf Closed} & {\it no}   & {\it yes}    \\
+         {\bf Isolated}&{\it no}   & {\it no}     \\
+         \hline 
+      \end{tabular}    
+    \end{column}
+  \end{columns}
+\end{frame}
+\normalsize
+
+
+
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+ \frametitle{System and Control Volumes}
+  \begin{columns}
+    \begin{column}[l]{0.6\linewidth}
+      \begin{itemize}%\scriptsize
+       \item <1-> A \textcolor{red}{closed system} (also known as a \textcolor{red}{control mass}) consists of a fixed amount of mass, and no mass can cross its boundary. However, energy (in the form of heat or work) may cross the boundary -- and the volume of a closed system does not have to be fixed; 
+       \item <2-> When neither energy nor mass is allowed to cross the boundary, that system is called an \textcolor{red}{isolated system};
+       \item <3-> An open system (or \textcolor{red}{control volume}) is a properly selected region in space. It usually encloses a device that involves mass flow such as a compressor, turbine, or nozzle.
+      \end{itemize}
+    \end{column}
+    \begin{column}[l]{0.4\linewidth}\scriptsize
+      \begin{figure}%
+        \begin{center}
+          \includegraphics[width=\columnwidth,clip]{./Pics/Fig_SystemDefinition}
+        \end{center}
+      \end{figure}
+      \begin{tabular}{|c|c|c|}
+         \hline
+                      & {\bf Mass} & {\bf Energy} \\
+                      & {\bf Exchange} & {\bf Exchange} \\
+         \hline
+         {\bf Open}   & {\it yes}  & {\it yes}    \\
+         {\bf Closed} & {\it no}   & {\it yes}    \\
+         {\bf Isolated}&{\it no}   & {\it no}     \\
+         \hline 
+      \end{tabular}    
+    \end{column}
+  \end{columns}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{System and Control Volumes}
+ \begin{itemize}
+  \item <2-> The \textcolor{red}{material} in a system is composed of phases (e.g., solid, liquid, gas) with distinct physical and chemical properties;
+  \item <3-> The \textcolor{red}{composition} of each phase is described by a series of discrete chemical formula units (i.e., chemical components) -- e.g., water/steam $\left(\right.$H$_{2}$O$\left.\right)$, ammonia $\left(\right.$NH$_{3}\left.\right)$, carbon dioxide $\left(\right.$CO$_{2}\left.\right)$, etc;
+  \item <4-> Any characteristic of a system is called a \textcolor{red}{property} -- e.g., pressure, temperature, mass, etc;
+  \item <5-> Properties can be classified as \textcolor{red}{intensive} or \textcolor{red}{extensive};
+  \item <6-> \textcolor{red}{Intensive properties} are those that are {\bf independent} of the mass of a system -- e.g., temperature, pressure, density, viscosity, etc;
+  \item <7-> \textcolor{red}{Extensive properties} are those whose values {\bf depend} on the size (or extent) of the system -- e.g., mass, volume, number of moles, internal energy, enthalpy, entropy, etc.  
+ \end{itemize}
+\end{frame}
+
+
+
+
+\subsection{Review of the Main Tools for the Course}
+%%%
+%%% Slide
+%%%
+
+\begin{frame}
+ \frametitle{PVT Behaviour of Pure Substances}
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+\begin{itemize}
+\item <1-> This surface represents the \textcolor{red}{Pressure} - \textcolor{red}{specific volume} - \textcolor{red}{Temperature} -- $PVT$, relation in a pure substance;
+\item <2-> Any given coordinate in both, the surface plot and diagrams (projections), will represent values of pressure, specific volume and temperature when the substance is at equilibrium;
+\end{itemize}
+  \end{column}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=4.cm,clip]{./Pics/PVT_Surface.jpg}
+    \end{center}
+\caption{$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+\end{frame}
+
+
+
+%%%
+%%% Slide
+%%%
+
+\begin{frame}
+ \frametitle{PVT Behaviour of Pure Substances}
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+\begin{itemize}
+\item <1-> The \textcolor{red}{Gibbs phase rule},
+\begin{equation}
+\Psi = 2 + \mathcal{C} - \mathcal{P}
+\end{equation} 
+\item <2-> describes the number of degrees of freedom (dof), $\Psi$ (intensive variables, e.g., temperature, pressure), in a closed system at equilibrium as a function of the number of phases ($\mathcal{P}$ = solid, liquid and vapour) and components, $\mathcal{C}$ (e.g., water, CO$_{2}$, N$_{2}$, etc). 
+\end{itemize}
+  \end{column}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=4.cm,clip]{./Pics/PVT_Surface.jpg}
+    \end{center}
+\caption{$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+
+\begin{frame}
+ \frametitle{PVT Behaviour of Pure Substances}
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+\begin{itemize}
+\item <1-> {\bf Example:} In the $PT$ diagram (b) for one hypothetical component -- $\textcolor{red}{\mathcal{C}=1}$, within each phase region -- $\textcolor{blue}{\mathcal{P}=1}$ (i.e., as either solid, liquid or vapour phases),
+\begin{displaymath}
+\Psi = 2 + \textcolor{red}{1} - \textcolor{blue}{1} = 2
+\end{displaymath}
+\item <2-> In this case, the number of degrees of freedom correspond to temperature and pressure;
+\item <3-> Thus, within (e.g.) the vapour phase, temperature and pressure can readily be changed without explicit phase change or composition of the vapour phase.
+\end{itemize}
+  \end{column}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=4.cm,clip]{./Pics/PVT_Surface.jpg}
+    \end{center}
+\caption{$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+
+\begin{frame}
+ \frametitle{PVT Behaviour of Pure Substances}
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+\begin{itemize}
+\item <1-> However, along with the \textcolor{red}{phase-line boundary}, two phases are in equilibrium, i.e., $\textcolor{blue}{\mathcal{P}=2}$,%
+\begin{displaymath}
+\Psi = 2 + \textcolor{red}{1} - \textcolor{blue}{2} = 1
+\end{displaymath}
+\item <2-> When the vapour and liquid phases are in equilibrium, any change in temperature {\bf leads} to change in pressure for the system remains in equilibrium;
+\end{itemize}
+  \end{column}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=4.cm,clip]{./Pics/PVT_Surface.jpg}
+    \end{center}
+\caption{$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+
+\begin{frame}
+ \frametitle{PVT Behaviour of Pure Substances}
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+\begin{itemize}
+\item <1-> Similarly, for the {\bf triple point} -- $\textcolor{blue}{\mathcal{P}=3}$, all three phases are in equilibrium
+\begin{displaymath}
+\Psi = 2 + \textcolor{red}{1} - \textcolor{blue}{3} = 0
+\end{displaymath}
+\item <2-> Here there is {\bf no degrees of freedom} -- i.e., there is {\bf just} one value for pressure and temperature that make the {\bf three phases to coexist}.
+\item <3-> Any change in either intensive properties will drive the system away from the {\it triple point}.
+\end{itemize}
+  \end{column}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=4.cm,clip]{./Pics/PVT_Surface.jpg}
+    \end{center}
+\caption{$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+
+\begin{frame}
+ \frametitle{Thermodynamics Diagrams: $PH$ and $TS$}
+   \begin{figure}%
+     \vbox{
+      \hbox{\hspace{.8cm}
+      \includegraphics[width=4.6cm,height=3.8cm,clip]{./Pics/Overview_Refrig18}
+      \hspace{.1cm}
+      \includegraphics[width=4.6cm,height=3.8cm,clip]{./Pics/Overview_Refrig17}}
+      \vspace{-.1cm}
+      \hbox{\hspace{.8cm}
+      \includegraphics[width=4.9cm,height=4.cm,clip]{./Pics/CO2col}
+      \hspace{.1cm}
+      \includegraphics[width=4.6cm,height=3.87cm,clip]{./Pics/water_TS.png}}}
+   \end{figure}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+
+\begin{frame}
+  \frametitle{Another option: Saturated and Superheated Steam Tables}
+   \begin{figure}%
+   \vbox{
+      \hbox{\hspace{-1.cm}
+      \includegraphics[width=8.cm,height=8.5cm,clip]{./Pics/Sample_SteamTablePg}
+      \hspace{-2cm}
+      \includegraphics[width=8.cm,height=8.5cm,clip]{./Pics/Sample_SteamTablePg2}}}
+   \end{figure}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+
+\begin{frame}
+  \frametitle{Another option: Saturated and Superheated Steam Tables}
+\noindent
+\begin{itemize}
+\item <2-> {\bf \textcolor{red}{Example:}} At $P=1.50\;$ bar, the saturated steam has the following thermodynamic properties,
+\tiny
+\begin{center}
+%\begin{table}[h]
+\begin{tabular}{||c|c|c c c|c c c|c c||} 
+\hline\hline
+$P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_{f}$ & $V_{g}$ \\ 
+\hline
+1.50 & 111.3 & 467.1 & 2226.2 & 2693.4 & 1.4336 & 5.7898 & 7.2334 & 0.001053 & 1.159 \\
+\hline
+\end{tabular}
+%\caption{Carnot and Rankine Cycles: From Saturated water and steam tables.}
+%\label{Example01_01:Table2}
+%\end{table}
+\end{center}
+
+\item <3-> But the properties of superheated steam at the same pressure will depend on the temperature $\Rightarrow$ \textcolor{red}{see superheated steam table}.
+
+\item <2-> {\bf Units:} [$P$] = bar, [$T$] = $^{o}$C, [$H$]= $\frac{kJ}{kg}$, [$S$]=$\frac{kJ}{kg.K}$, [$V$]=$\frac{m^{3}}{kg}$.
+
+\end{itemize}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+
+\begin{frame}
+  \frametitle{Linear Interpolation}
+\noindent
+\begin{itemize}
+\item <2-> Most of the problems in this course involves extracting values from the steam tables;
+\item <3-> And although the tables are very extensive (for most of the materials), sometimes we need values that can not be directly found on them;
+\item <4-> In this case, we just operate a linear interpolation between neighbour fields;
+\item <5-> For example, water-steam at 1.8 bar and 200$^{o}$C;
+\item <6-> At this pressure, the {\bf saturation temperature} is 111.4$^{o}$C, therefore we know that the fluid (water/steam) is at \textcolor{red}{superheated state};
+\end{itemize}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+
+\begin{frame}
+  \frametitle{Linear Interpolation}
+\noindent
+\begin{itemize}
+\item <2-> Thus at 200$^{o}$C, the enthalpies for $P_{1}=1.5$bar and $P_{2}=2.0$bar are $H_{1}=2872.7\frac{kJ}{kg}$ and $H_{2}=2870.5\frac{kJ}{kg}$, respectively.
+\item <3-> The enthalpy at $P^{\star}=1.8$bar:
+\begin{tabular}{ l c l }
+$\Delta P=P_{2}-P_{1}=0.5$bar & \hspace{0.5cm}$\longleftrightarrow$ & $\Delta H=H_{2}-H_{1}=-2.20\frac{kJ}{kg}$ \\
+ $\Delta P^{\star}_{2}=P_{2}-P^{\star}=0.2$bar      & \hspace{0.5cm}$\longleftrightarrow$ & $\Delta H^{\star}_{2}=H_{2}-H^{\star}$ 
+\end{tabular}
+\item <4-> $\Delta H^{\star}_{2}=-0.88\frac{kJ}{kg}$ 
+\item <5-> Thus $\Delta H^{\star}_{2}= H_{2}-H^{\star} \longrightarrow H^{\star}=2871.38\frac{kJ}{kg}$
+\end{itemize}
+
+\end{frame}
+
+
+
+
+%%%
+%%% Slide
+%%%
+\subsection{Zeroth Law of Thermodynamics}
+
+\begin{frame}
+ \frametitle{Zeroth Law of Thermodynamics (Thermal Equilibrium)}
+
+ \begin{columns}
+  \begin{column}[r]{0.4\linewidth}
+   \begin{block}{R.H. Fowler (1931)}
+   \textcolor{blue}{$\lq$Two bodies are in equilibrium if both have the same temperature reading even if they are not in contact.'}
+   \end{block}
+    $ T_{j} = T_{i}
+    \begin{cases}
+     \forall_{i}, \forall{j} \\
+     i \neq j
+    \end{cases}$
+  \end{column}
+  
+  \begin{column}[c]{0.6\linewidth}
+\scriptsize \textcolor{blue}{Two bodies reaching thermal equilibrium after being brought into contact in an isolated enclosure.}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=\columnwidth,clip]{./Pics/zeroth_law}\\
+      \scriptsize \textcolor{blue}{$t = 0 \hspace{3.cm} \text{equilibrium state}$}
+
+     
+    \end{center}
+   \end{figure}
+  \end{column}
+ \end{columns}
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\subsection{First Law of Thermodynamics}
+\begin{frame}
+ \frametitle{First Law of Thermodynamics (Conservation of Work)}
+ %\scriptsize
+
+ \begin{block}{R. Clausius and J.P. Joule (1850)}
+  \textcolor{blue}{$\lq$For all adiabatic processes between two specified states of a closed system, the net work done is the same regardless of the nature of the closed system and the details of the process.}
+  \begin{center}
+   \textcolor{red}{or}
+  \end{center}
+  \textcolor{blue}{$\lq$Although energy assumes many forms, the total quantity of energy is constant, and when energy disappears in one form it appears simultaneously in other forms.}'
+ \end{block}
+
+
+ \begin{itemize}
+  \item<2-> It states that energy can neither be created, nor can it be destroyed. This means that the total amount of energy in the universe always remains conserved;
+  \item<3-> Energy can be changed from one form to another. There are many different forms of energy, some of which may be more useful than others for a particular process;
+ \end{itemize}
+
+\normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Cycle}
+
+ \begin{block}{}During any cycle, the cyclic integral of heat added to a system is proportional to the cyclic integral of work done by the system.\end{block}
+
+ The mathematical representation of the first law is
+ \begin{equation}
+  \displaystyle\oint \delta Q = \displaystyle\oint \delta W
+  \label{Module00:first_law}
+ \end{equation}
+ with {\it [Q] = J} and {\it [W] = J}.
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Cycle}
+ %\scriptsize
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{itemize}
+    \item <1-> \textcolor{blue}{Power cycle}: systems (e.g., rhs) that deliver a net work transfer of energy to their surroundings during each cycle;
+    \item <2-> $W_{cycle} = Q_{in} - Q_{out}$ with $Q_{in} > Q_{out}$ for a power cycle;
+    \item <3-> The energy supplied by heat transfer to a system on a power cycle is normally derived from combustion (also from nuclear fission or solar radiation). The energy $Q_{out}$ is generally discharged to the surrounding atmosphere or a nearby body of water;
+   \end{itemize}
+  \end{column}
+   
+  \begin{column}[l]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm,clip]{./Pics/FirstLaw_Cycle_01}
+    \end{center}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Cycle}
+ %\scriptsize
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{itemize}
+    \item <1-> \textcolor{blue}{Thermal efficiency}: $\eta =\displaystyle\frac{W_{cycle}}{Q_{in}} = \displaystyle\frac{Q_{in} - Q_{out}}{Q_{in}} = 1 - \displaystyle\frac{Q_{out}}{Q_{in}} < 1$;
+    \item <2-> For reversible power cycles the ratio of heat transfer, $Q_{cold}/Q_{hot}$ depends only on the reservoir temperatures: $Q_{cold}/Q_{hot} = T_{cold}/T_{hot}$;
+    \item <3-> Thus the thermal efficiency of a reversible power cycle while operating between thermal reservoirs at temperatures $T_{hot}$ and $T_{cold}$ is expressed as,\\
+          $\eta_{max} = 1 - \displaystyle\frac{T_{cold}}{T_{hot}}$
+   \end{itemize}
+  \end{column}
+   
+  \begin{column}[l]{0.5\linewidth}
+   \begin{itemize}
+    \item <4-> This is the \textcolor{blue}{Carnot efficiency} and it is the maximum efficiency any power cycle can have while operating between the 2 reservoirs.
+   \end{itemize}\vspace{-.5cm}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm,clip]{./Pics/FirstLaw_Cycle_01}
+    \end{center}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Cycle}
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{itemize}%\scriptsize
+    \item <1-> \textcolor{blue}{Refrigerators} and \textcolor{blue}{Heat Pumps} Cycles (rhs): cycles in which Q$_{in}$ is associated with the heat energy transferred into the system from the cold body. Q$_{out}$ is the energy discharged via heat transfer from the system to the hot body;
+    \item <2-> $W_{cycle} = Q_{out} - Q_{in}$% > 0 \Longrightarrow Q_{out} > Q_{in}$
+    \item <3-> \textcolor{blue}{Refrigeration cycle}:
+     \begin{enumerate}[(a)]%\scriptsize
+      \item <4-> Objective: to cool a refrigerated body or to maintain the temperature of a body bellow that of the surroundings;
+      \item <5-> Coefficient of Performance: $\beta = \displaystyle\frac{Q_{in}}{W_{cycle}} = \displaystyle\frac{Q_{in}}{Q_{out} - Q_{in}}$;
+      %\item <6-> E.g., in a fridge: cavity contents $\xrightarrow{Q_{in}}$ refrigerant fluid $\left(T_{fluid} < T_{cavity}\right)$ $\xrightarrow{Q_{out}}$ surrounding air; 
+     \end{enumerate}
+    \end{itemize}
+  \end{column}
+   
+  \begin{column}[c]{0.5\linewidth}
+     \begin{enumerate}[(c)]%\scriptsize
+      \item <6-> E.g., in a fridge: cavity contents $\xrightarrow{Q_{in}}$ refrigerant fluid $\left(T_{fluid} < T_{cavity}\right)$ $\xrightarrow{Q_{out}}$ surrounding air; 
+     \end{enumerate}
+\vspace{-.5cm}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm,clip]{./Pics/FirstLaw_Cycle_02}
+    \end{center}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Cycle}
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{itemize}
+    \item <1-> \textcolor{blue}{Heat pump cycle}:
+     \begin{enumerate}[(a)]
+      \item <2-> Objective: to maintain a heated space at a high temperature by absorbing heat from a low-temperature source (e.g., well water or cold outside air), and supplying this heat to the high-temperature medium (e.g., house);
+      \item <3-> Coefficient of Performance: $\gamma = \displaystyle\frac{Q_{out}}{W_{cycle}} = \displaystyle\frac{Q_{out}}{Q_{out} - Q_{in}} = \beta + 1 \geq 1$;
+      \item <4-> E.g., a fridge in a window (with the door open to cold outside environment): outside surrounding air $\xrightarrow{Q_{in}}$ refrigerant fluid $\left(T_{fluid} < T_{cavity}\right)$ $\xrightarrow{Q_{out}}$ inside the house; 
+     \end{enumerate}
+   \end{itemize}
+  \end{column}
+   
+  \begin{column}[c]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm,clip]{./Pics/FirstLaw_Cycle_02}
+    \end{center}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+ \normalsize
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1: Thermodynamic Cycle}
+   \textcolor{blue}{{\it {\bf Example:} A gas undergoes a thermodynamic cycle consisting of three processes: 
+   \begin{enumerate}[(a)]
+    \item \textcolor{blue}{{\it 1-2}: compression with $PV$ = constant, from $P_{1}$ = 1 bar, V$_{1}$ = 1.6m$^{3}$ to V$_{2}$ = 0.2m$^{3}$, U$_{2}$ - U$_{1}$ = 0.0 J;}
+    \item \textcolor{blue}{{\it 2-3}: constant pressure to V$_{3}$ = V$_{1}$;}
+    \item \textcolor{blue}{{\it 3-1}: constant volume, U$_{1}$ - U$_{3}$ = -3549 kJ.}
+   \end{enumerate}
+   There are no significant changes in kinetic or potential energy. Determine the heat transfer and work for process 2–3 (in kJ). Is this a power cycle or a refrigeration cycle?}}
+
+   Let's assume that the gas is a closed system and the only work done is due to volume change. In order to compute the work for process {\it 2-3} with constant pressure,\\
+   %\begin{displaymath}
+    $W_{2}^{3} = \int\limits_{V_{2}}^{V_{3}} P dV = P_{2}\left(V_{3}-V_{2}\right)$\\
+   %\end{displaymath}
+   Using the {\it PV} relation for process {\it 1-2} $\rightarrow$ $P_{2}=P_{1}V_{1}V_{2}^{-1}=8\text{ bar}$. Thus , with $V_{3}=V_{1}$,\\
+   $W_{2}^{3} = ( 8 bar ) \left[ \left( 1.6m^{3}\right) - \left( 0.2m^{3}\right) \right]$\\
+   $\;\;\;\;\;\; = 11.2 bar.m^{3} = \textcolor{red}{1120 kJ}$
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1: Thermodynamic Cycle}
+
+   The energy balance for process {\it 2-3} reduces to $Q_{2}^{3}=\left(U_{3}-U_{2}\right)+W_{2}^{3}$. \\
+   Remember that in a cycle, $\left(\Delta U\right)_{\text{cycle}}=0$, therefore:\\
+   $\left(U_{2}-U_{1}\right) + \left(U_{3}-U_{2}\right) + \left(U_{1}-U_{3}\right)=0$\\
+   $\left(U_{3}-U_{2}\right) = - \left(U_{1}-U_{3}\right) = 3549 kJ$\\
+   For process {\it 2-3}: $Q_{2}^{3}= 3549 + 1120 = \textcolor{red}{4669 kJ}$\\
+\medskip
+
+   For process {\it 1-2}: $\Delta U = 0$, \\
+   $Q_{1}^{2} = W_{1}^{2} = \int_{V_{1}}^{V_{2}}P dV = P_{1}V_{1}\ln\left(V_{2}/V_{1}\right) $\\
+   $\;\;\;\;\;=\textcolor{red}{-332.7 kJ}$\\
+\medskip
+
+   And for process {\it 3-1}: $W_{3}^{1}=0$ and $Q_{3}^{1}=U_{1}-U_{3}=\textcolor{red}{-3549 kJ}$. The cycle can then be calculated as,
+   $W_{\text{cycle}}=W_{1}^{2}+W_{2}^{3}+W_{3}^{1} = -332.7 + 1120 + 0 = 787.3 kJ$\\
+
+\medskip
+   Since \textcolor{red}{$W_{\text{cycle}}>0$}, the cycle is a \textcolor{red}{power cycle}.
+ \normalsize
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Process}
+
+   Let's consider the set of paths from state 1 to 2:
+   \begin{itemize}
+    \item Cycle I: 1 to 2 on Path A followed by 2 to 1 on Path B;
+    \item Cycle II: 1 to 2 on Path A followed by 2 to 1 on Path C;
+   \end{itemize}
+
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=7.5cm,clip]{./Pics/first_law_process}
+     %\caption{P-V diagram for various combinations of processes forming cyclic integrals.}
+    \end{center}
+   \end{figure}
+
+\normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Process}
+   \begin{itemize}
+    \item <1-> These cycles can be mathematically represented using Eqn. \ref{Module00:first_law}:
+   \begin{eqnarray}
+    \text{Cycle I:}  \int\limits_{1}^{2}\delta Q_{A} + \int\limits_{2}^{1}\delta Q_{B} = \int\limits_{1}^{2}\delta W_{A} + \int\limits_{2}^{1}\delta W_{B}  \label{Module00:proc1a}\\
+    \text{Cycle II:} \int\limits_{1}^{2}\delta Q_{A} + \int\limits_{2}^{1}\delta Q_{C} = \int\limits_{1}^{2}\delta W_{A} + \int\limits_{2}^{1}\delta W_{C}  \label{Module00:proc1b}
+   \end{eqnarray}
+   \item <2-> Subtracting \ref{Module00:proc1b} from \ref{Module00:proc1a} and rearranging:
+   \begin{equation}
+    \int\limits_{2}^{1}\left(\delta Q- \delta W\right)_{B} = \int\limits_{2}^{1}\left(\delta Q- \delta W\right)_{C}\label{Module00:proc1c}
+   \end{equation}
+   \item <3-> B and C are arbitrary paths ; Eqn. \ref{Module00:proc1c} asserts that the integral of $\left(\delta Q -\delta W\right)\left.\right|_{2}^{1}$ is path-independent. Notice, however that both \textcolor{blue}{Q} and \textcolor{blue}{W} are path-dependent quantities. 
+    \end{itemize}
+\end{frame}
+
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Process}
+
+  \begin{itemize}
+   \item <1-> Energy (as any property) depends only on the state and not the path taken to arrive at the state. Defining the differential of E:\\
+    $dE =\delta Q - \delta W$\\ 
+   
+   \item <2-> Integrating from 1 to 2:\\
+    $\displaystyle\int\limits_{1}^{2}dE =\displaystyle\int\limits_{1}^{2}\delta Q - \displaystyle\int\limits_{1}^{2}\delta W$\\ 
+
+   \item <3-> Leading to
+   \begin{equation}
+    E_{2} - E_{1} = Q_{1}^{2}- W_{1}^{2} \label{Module00:proc1a}
+   \end{equation}
+
+  \end{itemize}
+\normalsize
+\end{frame}
+
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Representations of the First Law -- Process}
+ \begin{block}{Another way to state the First Law} 
+  For a system undergoing a process, the change in energy is equal to the heat added to the system minus the work done by the system.
+  \begin{displaymath}
+   dE =\delta Q - \delta W 
+  \end{displaymath}
+ \end{block}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 2: Conservation of Work}
+ \scriptsize
+ \begin{columns}
+  \begin{column}[r]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=\columnwidth,clip]{./Pics/First_Law_1}
+    \end{center}
+   \end{figure}
+  \end{column}
+  \begin{column}[r]{0.5\linewidth}
+   When a system is taken from state \textcolor{blue}{a} to state \textcolor{blue}{b} along path \textcolor{blue}{acb}, 100 J of heat flows into the system and the system does 40 J of work. 
+   \begin{itemize}
+    \item<2-> How much heat flows into the system along path \textcolor{blue}{aeb} if the work done by the system is 20 J?\\
+          For path \textcolor{blue}{acb}:
+          \begin{displaymath}
+           \Delta E_{ab} = Q_{acb}-W_{acb} = 100 - 40 = 60 J
+          \end{displaymath}
+          For path \textcolor{blue}{aeb}:
+          \begin{eqnarray}
+           &&\Delta E_{ab} = Q_{aeb}-W_{aeb} = 60 J \nonumber \\
+           &&\Delta E_{ab} = Q_{aeb}-20 \therefore Q_{aeb} = 80 J \nonumber
+          \end{eqnarray}
+    \item<3-> The system returns from \textcolor{blue}{b} to \textcolor{blue}{a} along path \textcolor{blue}{bda}. If the work done on the system is 30 J, does the system absorb or liberate heat? How much? \\
+           For path \textcolor{blue}{bda}: 
+           \begin{eqnarray}
+            &&\Delta E_{ba} = -60 J = Q_{bda}-W_{bda} \nonumber \\
+            &&\Delta E_{ba} = Q_{bda} + 30 \therefore Q_{bda} = -90 J \nonumber
+           \end{eqnarray}
+   \end{itemize}
+  \end{column}
+ \end{columns}
+\normalsize
+\end{frame}
+
+
+\subsection{Second Law of Thermodynamics}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Reversible Processes}
+   \begin{itemize}
+    \item When an object at temperature $T=T\left(t_{0}\right)$ is left in a room in contact with ambient air, it is intuitive that the object will cool down at time $t_{1}$ and the air will warm up until the temperature of the body and the surrounding air are the same;
+    \item From the First Law, we know that the {\it decrease in the internal energy of the body is equal to the increase in the internal energy of the surrounding air};
+    \item The body cools down spontaneously and we can predict the {\it direction} of the process as it moves towards an equilibrium state, but; 
+   \end{itemize}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=5.5cm,clip]{./Pics/HotColdCoffee}
+     \end{center}
+    \end{figure}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Reversible Processes}
+   \begin{itemize}
+    \item The initial state $\left(\text{i.e., }T_{0}\right)$ can be restored {\it but not spontaneously} $\Longrightarrow$  The reverse processes do not violate the First Law, and yet they {\it do not occur spontaneously};
+    \item Another law is needed to help understand and predict which processes will occur spontaneously.
+   \end{itemize}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=5.5cm,clip]{./Pics/HotColdCoffee}
+     \end{center}
+    \end{figure}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Reversible Processes}
+ \begin{itemize}
+  \item <2-> \textcolor{blue}{Reversible process:} A process in which it is possible to return both the system and surroundings to their original states;
+  \item <3-> \textcolor{blue}{Irreversible process:} A process in which it is impossible to return both the system and surroundings to their original states.
+ \end{itemize}
+
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Second Law of Thermodynamics}
+ %\scriptsize
+ \begin{itemize}
+  \item <2->The second law of thermodynamics is an expression of the tendency that over time, differences in temperature, pressure and chemical potential will reach an equilibrium state in an isolated physical system;
+  \item <3->From the state of thermodynamic equilibrium, the law deduced the principle of the increase of entropy and explains the phenomenon of irreversibility;
+  \item <4->\textcolor{blue}{$\lq$It is impossible to devise an engine which, working in a cycle, shall produce no effect other than the transfer of heat from a colder to hotter body' (Clausius, 1854)};   
+  \item <5->\textcolor{blue}{$\lq$It is impossible to devise an engine which, working in a cycle, shall produce no effect other than the extraction of heat from a reservoir and the performance of an equal amount of mechanical work' (Kelvin, 1851; Planck, 1897)};
+ \end{itemize}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Second Law of Thermodynamics}
+ 
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm,clip]{./Pics/2ndLaw_Schem}
+    \end{center}
+   \end{figure} 
+
+All spontaneous processes are irreversible -- heat flows from hot to cold spontaneously and irreversibly.
+   
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+ %\scriptsize
+ \begin{columns}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{itemize}
+    \item <2-> In the schematics (rhs), an infinitesimal amount of heat, $\delta Q^{\prime}$, is transferred from the thermal reservoir (with temperature $T_{res}$) to a reversible cyclic engine (1). 
+    \item <3-> The engine produces a small amount of work, $\delta W^{\prime}$, and releases an infinitesimal amount of heat, $\delta Q$ to another reservoir at variable temperature $T$. 
+    \item <4-> The second reservoir (2) also releases work $\left(\delta W\right)$ to the surroundings.
+   \end{itemize}
+
+
+  \end{column}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=1.1\columnwidth,clip]{./Pics/2ndLaw_Schem2}
+    \end{center}
+   \end{figure} 
+  \end{column}
+ \end{columns}
+
+
+ \normalsize
+    
+\end{frame}
+
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+ %\scriptsize
+ \begin{columns}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{itemize}
+    \item <1-> Using the analogy of heat transfer ratio and temperature ratio (see power cycle systems), \\
+                $\displaystyle\frac{\delta Q^{\prime}}{\delta Q} = \displaystyle\frac{T_{res}}{T} \;\; \Longrightarrow \displaystyle\frac{\delta Q^{\prime}}{T_{res}} = \displaystyle\frac{\delta Q}{T}$
+  \item <2-> The first law in differential form for the combined cycle (within the dotted box) is \\
+                $dE= \delta Q^{\prime} - \left(\delta W + \delta W^{\prime}\right) \Longrightarrow \delta W + \delta W^{\prime} = \delta Q^{\prime} - dE$
+  \item <3-> The process is not required to be cyclic and the heat transfer $\delta Q$ is internal and do not cross the boundary of the combined system;
+   \end{itemize}
+
+
+  \end{column}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=1.1\columnwidth,clip]{./Pics/2ndLaw_Schem2}
+    \end{center}
+   \end{figure} 
+  \end{column}
+ \end{columns}
+
+
+ \normalsize
+    
+\end{frame}
+
+
+
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+ %\scriptsize
+ \begin{columns}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{itemize}
+    \item <1-> And eliminating $\delta Q^{\prime}$, \\
+                $\delta W + \delta W^{\prime} = T_{res}\displaystyle\frac{\delta Q}{T} - dE$
+     \item <2-> If the configuration shown in the previous slide undergoes a cyclic process, \\
+             $\displaystyle\oint \delta W + \displaystyle\oint \delta W^{\prime} = \displaystyle\oint T_{res}\displaystyle\frac{\delta Q}{T} - \displaystyle\oint dE$
+     \item <3-> as $E$ is a thermodynamic property, the cyclic integral is equal to zero.  Integrating the equation above, and assuming that $T_{res}$ is (by definition) constant:\\
+             $W + W^{\prime} = T_{res} \displaystyle\oint \displaystyle\frac{\delta Q}{T}$
+   \end{itemize}
+  \end{column}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=1.1\columnwidth,clip]{./Pics/2ndLaw_Schem2}
+    \end{center}
+   \end{figure} 
+  \end{column}
+ \end{columns}
+ \normalsize
+    
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+    \item <1-> Thus from Kelvin-Plancks statement of the Second Law -- \textcolor{blue}{$\lq$we cannot convert all the heat to work, but we can convert all the work to heat'}:\\
+             $W + W^{\prime} \leq 0$
+    \item <2-> And therefore,\\
+             $T_{res} \displaystyle\displaystyle\oint \displaystyle\frac{\delta Q}{T} \leq 0$
+    \item <3->  Since $T_{res} > 0$, we can divide the previous equation without changing the meaning of the inequality to obtain the mathematical representation of the Second Law:
+             \begin{eqnarray}
+             \textcolor{blue}{\displaystyle\oint \displaystyle\frac{\delta Q}{T} \leq 0 \;\;\; \text{for irreversible processes}} \nonumber \\
+             \textcolor{blue}{\displaystyle\oint \displaystyle\frac{\delta Q}{T} = 0 \;\;\;\;\; \text{for reversible processes}} \nonumber 
+             \end{eqnarray}
+   \end{itemize}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+    \item <3-> In a reversible process, from state 1 to 2, via path {\it A}, and returning to state 2 from either path {\it B} or {\it C}. The cyclic integral $\displaystyle\oint\displaystyle\frac{\delta Q}{T} = 0$ can be split as,
+         \textcolor{blue}{\begin{eqnarray}
+          \left( \displaystyle\int\limits_{1}^{2} \displaystyle\frac{\delta Q}{T} \right)_{A} + \left( \displaystyle\int\limits_{2}^{1} \displaystyle\frac{\delta Q}{T} \right)_{B} = 0 \nonumber \\
+          \left( \displaystyle\int\limits_{1}^{2} \displaystyle\frac{\delta Q}{T} \right)_{A} + \left( \displaystyle\int\limits_{2}^{1} \displaystyle\frac{\delta Q}{T} \right)_{C} = 0 \nonumber 
+         \end{eqnarray}}
+   \end{itemize}
+ \normalsize
+    
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+    \item <2-> Leading to:
+          $\left( \displaystyle\int\limits_{1}^{2} \displaystyle\frac{\delta Q}{T} \right)_{B} = \left( \displaystyle\int\limits_{2}^{1} \displaystyle\frac{\delta Q}{T} \right)_{C} $
+    \item <3-> Since paths {\it B} and {\it C} are different and arbitrary, but $\displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$ is the same on either paths -- therefore \textcolor{blue}{the integral is path-independent};
+    \item <4-> This defines another (extensive) thermodynamic property -- \textcolor{red}{entropy (S)}, \\
+          $S_{2} - S_{1} = \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$
+    \item <5-> Assuming constant mass ($m$), the intensive property entropy $\left(s=S/m\right)$, the differential form is, \\
+          $ds = \displaystyle\frac{\delta q}{T} \;\;\;\; \Longrightarrow \;\;\;\; \delta q = Tds$
+    \item <6-> Integrating from state 1 to 2: $q_{1}^{2} = \displaystyle\int_{1}^{2} Tds$    
+   \end{itemize}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+  \item <1-> This is the heat transfer equivalent of $w_{1}^{2}=\displaystyle\int_{1}^{2}PdV$
+  \item <2-> Thus for a reversible process, \\
+       $S_{2} - S_{1} = \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$ and $S_{1} - S_{2} = \displaystyle\int\limits_{2}^{1}\displaystyle\frac{\delta Q}{T}$;
+  \item <3-> From the Second Law, \\
+       $0 \geq \left( \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T} \right)_{A} + \left( \displaystyle\int\limits_{2}^{1}\displaystyle\frac{\delta Q}{T} \right)_{B}$ 
+  \item <4-> Combinig the equations above to eliminate the path {\it B}, \\
+        $S_{2}-S_{1} \geq \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$
+ \end{itemize}
+ \normalsize
+\end{frame}
+
+
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+  \item <1-> If path {\it A} is reversible, the equality holds, however if {\it A} is irreversible, the inequality holds;
+  \item <2-> If the system is isolated $\left(\delta Q = 0\right)$ then\\
+    $S_{2}-S_{1}\geq 0$
+   \end{itemize}
+ \normalsize
+    
+\end{frame}
+
+
+\subsection{Third Law of Thermodynamics}
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Third Law of Thermodynamics}
+ 
+ \begin{block}{G.N. Lewis and M. Randall (1923) ; W.H. Nerst (1906)}
+   \textcolor{blue}{$\lq$If the entropy of each element in some crystalline state be taken as zero at the absolute zero of temperature: every substance has a finite positive entropy, but at the absolute zero of temperature the entropy may become zero, and does so become in the case of perfect crystalline substances.'}
+  \end{block}
+
+  \begin{itemize}
+   \item <2-> The Third Law of Thermodynamics is concerned with the relationship between entropy and the morphological structure of substances in lower limit temperature (i.e., absolute zero temperature). In a mathematical form, 
+        \begin{displaymath}
+         \displaystyle\lim_{T\rightarrow 0} \Delta S = 0
+        \end{displaymath}
+  \end{itemize}
+ 
+\end{frame}
+
+
+\subsection{Summary}
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Summary}
+After these set of lectures you should know the fundamentals of thermodynamics which will be relevant to understand heat-engine cycles. This includes knowledge of: 
+ \begin{itemize}
+  \item <2-> Phase diagram and steam tables;
+  \item <3-> Zeroth, First, Second and (in lesser extent) Third laws;
+  \item <4-> Reversibility and its impact on thermodynamics formulation;
+  \item <5-> Definition of the key thermodynamic properties, e.g., work, heat, temperature, internal energy, enthalpy, entropy, etc;
+  \item <6-> Mass and energy balances in open and closed systems.
+ \end{itemize}
+\end{frame}
+
+ 
+%%%
+%%% Appendix
+%%%
+\subsection{Appendix}
+\begin{frame}
+\begin{itemize}
+\item Saturated Water and Steam Tables;
+\item Superheated Steam at Various Pressure and Temperatures;
+\item Units Conversion.
+\end{itemize}
+\end{frame}
+{
+  \includepdf[pages=-,fitpaper]{./Pics/Tables_Steam.pdf}
+}
+
+
+\end{document}

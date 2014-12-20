@@ -1,0 +1,384 @@
+
+
+
+\documentclass[12pt,twoside]{report}
+
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{natbib,enumerate}
+%\usepackage{fancyhdr} %%%%
+%\pagestyle{fancy}%%%%
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\begin{document}
+
+\setcounter{page}{1}
+
+\vfill
+
+\pagebreak
+
+
+\begin{description}
+
+%%%
+%%% Module 01
+%%%
+\item [Question 1:] An oil engine operates in a {\it dual cycle} with compression $\left(r_{c}\right)$ and expansion $\left(r_{e}\right)$ ratios of 9 and 5, respectively. The initial pressure and temperature of the air are 1 bar and 30$^{\text{o}}$C. The heat liberated at constant pressure is twice the heat liberated at constant volume, i.e.,
+\begin{displaymath}
+C_{p}\left(T_{4}-T_{3}\right)=2 C_{v}\left(T_{3}-T_{2}\right).
+\end{displaymath}
+The isentropic expansion and compression strokes follow $PV^{n}=\text{ constant}$, with $n=1.25$. The cylinder bore (diameter) is of 250 mm and the stroke length is of 400 mm. 
+\begin{enumerate}[(a)]
+
+%%%
+%%%
+%%%
+\item (8 Marks) Calculate pressures and temperatures at all strokes and fill up the table below
+\begin{center}
+\begin{tabular}{||c |c |c ||}
+\hline \hline
+ {\bf Stroke}  &  {\bf P (bar)}   &  {\bf T (K)} \\
+\hline\hline
+{\bf 1 }       &     1.0          &    303.15    \\
+\hline         
+{\bf 2 }       &                  &             \\
+\hline         
+{\bf 3 }       &                  &             \\
+\hline         
+{\bf 4 }       &                  &             \\
+\hline         
+{\bf 5 }       &                  &             \\
+\hline\hline         
+\end{tabular}
+\end{center}
+
+%%%
+%%%
+%%%
+\item (2 Marks) Sketch the {\it P-v} diagram for this cycle, indicating the swept $\left(V_{s}\right)$ and TDC $\left(V_{c}\right)$ volumes.
+
+%%%
+%%%
+%%%
+\item (2 Marks) Calculate the Mean Effective Pressure (MEP) of the cycle (in bar) using the following expression:
+\begin{displaymath}
+MEP = \frc{1}{r_{c}-1} \left[ P_{3}\left(\rho-1\right) + \frc{P_{4}\rho-P_{5}r_{c}}{n-1} - \frc{P_{2}-P_{1}r_{c}}{n-1}\right]
+\end{displaymath}
+
+%%%
+%%%
+%%%
+\item (2 Marks) Calculate {\it work done per cycle} (in kJ) and the {\it heat supplied per cycle} (in KJ), given
+\begin{eqnarray}
+&& W_{\text{cycle}} = MEP \times V_{s} \nonumber\\
+&& Q_{\text{cycle}} = m Q_{s} = m \left[ C_{p}\left(T_{3}-T_{2}\right) + C_{p}\left(T_{4}-T_{3}\right)\right] \;\;\text{ with } V_{1}=V_{s}+V_{c}=\frc{r_{c}}{r_{c}-1}V_{s} \nonumber
+\end{eqnarray}
+
+%%%
+%%%
+%%%
+\item (6 Marks) Sketch {\it T-S} and {\it P-V} diagrams for the Otto and Diesel cycles.
+%
+\end{enumerate}
+
+Also given: 
+\begin{eqnarray}
+&& C_{p}=1.0\frc{\text{kJ}}{\text{kg.K}}\;,\;\;C_{v}=0.71\frc{\text{kJ}}{\text{kg.K}}\;, \;\; MW=29 \frc{\text{g}}{\text{gmol}}\;\; \text{(molecular weight),} \nonumber \\
+&& R=8.3144621\times 10^{-5}\frc{\text{m}^{3}.\text{bar}}{\text{K.gmol}}\;\;\text{(gas constant),}\;\; \rho = \frc{r_{c}}{r_{e}} \nonumber 
+\end{eqnarray}
+
+\clearpage
+
+%%%
+%%% Module 02
+%%%
+\item [Question 2:]  \mbox{}
+\begin{enumerate}[(a)]
+\item (8 marks) A biodiesel manufacturing plant takes animal fats as feedstock and also spent cooking oil for refining. The output of the plant is 75000 tonnes per year of biodiesel.  Assigning this a calorific value of 37 MJ.kg$^{-1}$, calculate the amount of fossil fuel derived carbon dioxide eliminated by its use in preference to mineral diesel of calorific value 43 MJ.kg$^{-1}$. Given, atomic weights/g.mol$^{-1}$: C: 12 and H: 1.
+
+\item (2 Marks) By what chemical process can the performance of a bio-diesel be improved?
+
+\item (2 Marks) What is one major benefit of having natural gas in its liquefied form?
+
+\item (8 marks) Natural gas is supplied in liquefied form to a particular terminal as LNG (liquefied natural gas, heat of combustion 55 MJ.kg$^{-1}$) in a quantity of 1.2 million tonnes per annum where it is converted back to gas and used to generate electricity. At what rate will it so generate if the efficiency is 35$\%$?
+\end{enumerate} 
+
+
+%%%
+%%% Module 03
+%%%
+\item [Question 3:] \mbox{}
+\begin{enumerate}[(a)]
+
+\item The steady flow energy conservation can be written in the form:
+\begin{displaymath}
+\frc{\dot{Q}-\dot{W}_{s}}{\dot{m}} = \left(h_{out} + \frc{u_{out}^{2}}{2}+ g z_{out}\right) - \left(h_{in} + \frc{u_{in}^{2}}{2}+ g z_{in}\right)
+\end{displaymath}
+\begin{enumerate}[(i)]
+\item (3 Marks) Explain the meaning of the symbols and terms in this equation.
+\medskip
+
+\item (3 Marks) What assumptions are used to derive this expression?
+\end{enumerate}
+\item (3 Marks) The equation given above is valid for steady flow devices with one inlet and one outlet. State a modified version of this formula that is valid of steady flow devices with two inlets (whose properties are labelled 1 and 2) and one outlet (labelled 3). Give an equation representing steady mass conservation in this case.
+
+\item  A steady flow device with two inlets and one outlet does work on the fluid at a rate of 80 kW. The remaining known inlet and outlet properties are given by: \\
+\begin{center}
+\begin{tabular}{||l |c |c |c |c ||}
+\hline\hline
+{\bf Property}            & {\bf Inlet 1} & {\bf Inlet 2} & {\bf Outlet 3} & {\bf Units} \\
+\hline\hline
+Cross-sectional area, $A$ & 0.03          & 0.1           & 0.5            & m$^{2}$ \\
+Inlet/outlet height, $z$  & 0.2           & 1.2           & 0.5            & m    \\
+Volume flux, $q$          & 1.8           & 0.5           & 20             & m$^{3}$/s \\
+Temperature, $T$          & 80            & 70            & 30             & $^{\text{o}}$C\\
+Pressure, $p$             & 200           &               & 110            & kPa\\
+\hline \hline
+\end{tabular}
+\end{center}
+Assuming the fluid behaves as an ideal gas with  $R=0.3$ kJ/(kg.K) and $C_{p}=800$ kJ/(kg.K), calculate:
+\begin{enumerate}[(i)]
+\item (2 Marks) the fluid velocity through each inlet and outlet; 
+\item (6 Marks) the pressure $p_{2}$;
+\item (2 Marks) the rate is heat added to gas.
+\end{enumerate}
+\medskip
+
+\item (1 Mark) Comment on whether the gas transfers heat to the surroundings or whether the steady flow device heats the gas.
+\end{enumerate} 
+
+%%%
+%%% Module 04 (saphiro 10.17)
+%%%
+\item [Question 4:] A vapour-compression refrigeration system circuates Refrigerant 134a at a rate of 6 kg/min. The refrigerant enters the compressor at -10$^{\text{o}}$C, 1.4 bar and exits at 7 bar. The isentropic compressor efficiency is 67$\%$. There are no appreciable pressure drops as the refrigerant flows through the condenser and evaporator. The refrigerant leaves the condenser at 7 bar, 24$^{o}$C. Ignoring heat transfer between the compressor and its surroundings, determine:
+\begin{enumerate}[(a)]
+\item (8 Marks) $H_{i}$, $i\in\{1,2,3,4\}$;
+\item (3 Marks) Coefficient of performance, $\beta$;
+\begin{displaymath}
+\beta = \frc{H_{1}-H_{4}}{H_{2}-H_{1}}
+\end{displaymath}
+\item (3 Marks) Refrigeration capacity, $\dot{Q}_{\text{in}}$ (in ton),
+\begin{displaymath}
+\dot{Q}_{\text{in}}=\dot{m}\left(H_{1}-H_{4}\right)
+\end{displaymath}
+\item (6 Marks) Sketch the schematics of the process and {\it T-S} diagram for this cycle.
+\end{enumerate}
+In the expressions above for $\beta$ and $\dot{Q}_{\text{in}}$, assume that subscripts $1$, $2$, $3$ and $4$ represent the flows:
+\begin{itemize}
+\item $1$: evaporator $\Rightarrow$ compressor; 
+\item $2$: compressor $\Rightarrow$ condenser; 
+\item $3$: Condenser $\Rightarrow$  Expansion Valve and; 
+\item $4$: Expansion Valve $\Rightarrow$   Evaporator.
+\end{itemize}
+
+
+%%%
+%%% Module 05
+%%%
+\item [Question 5:] \mbox{}
+\begin{enumerate}[(a)] 
+\item (5 Marks) Define the specific humidity $\omega$, the saturation pressure of water vapour $p_{\text{v,sat}}$, and relative humidity $\varphi$. Assuming that dry air and water vapour behave like ideal gases show that
+\begin{displaymath}
+\omega = \frc{R_{a}\varphi p_{\text{v,sat}}}{R_{v}\left(p - \varphi p_{\text{g,v,sat}}\right)},
+\end{displaymath}
+where $R_{a}$ and $R_{v}$ are the specific gas constants of dry air and water vapour, respectively. 
+\medskip
+
+\item (7 Marks) Air leaving an air-conditioning system in a building is mixed adiabatically with air from outside in a steady process. If the inlets to the mixing chamber are labelled 1 and 2 and the outlet is labelled 3, then state equations corresponding to the mass conservation of dry air, the mass conservation of water vapour and the conservation of energy. Hence show that
+\begin{displaymath}
+\frc{\dot{m}_{a2}}{\dot{m}_{a1}} = \frc{\omega_{}-\omega_{1}}{\omega_{2}-\omega_{3}} = \frc{h_{3}-h_{1}}{h_{2}-h_{3}}
+\end{displaymath}
+where $\dot{m}_{a}$  is a mass flux of dry air and $h$ is an enthalpy.
+\medskip
+
+\item Saturated air at 16$^{\text{o}}$C leaves the cooling section of an air-conditioning system in a building at a rate of 1 m$^{3}$/s. This air is mixed adiabatically at a constant pressure of 100 kPa, with air from outside that has temperature 30$^{\text{o}}$C and specific humidity 0.0182 kg H$_{2}$O/kg dry air. If the mass flux of dry air after mixing is 1.8 kg/s, then:
+\begin{enumerate}[(i)]
+\item (3 Marks) Determine the mass flux through both inlets;
+\item (1 Mark)  Calculate the specific humidity of the air leaving the cooling section of the air-conditioning system;
+\item (4 Marks)  Calculate the specific humidity of the mixed air. 
+\end{enumerate}
+\end{enumerate}
+You may assume the saturation pressure of water vapour at 16$^{\text{o}}$C is 1818.747 Pa and that the specific gas constants $R_{a}=287.1$ J/(kg.K) and $R_{v}=461.5$ J/(kg.K), respectively.
+\end{description}
+
+%\begin{Large}
+%\include{Module_Questions}
+%\include{Module_03}
+%\include{Module_04}
+%\include{Module_05}
+
+
+\end{document}

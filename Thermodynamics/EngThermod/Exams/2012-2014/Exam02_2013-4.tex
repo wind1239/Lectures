@@ -1,0 +1,145 @@
+\documentclass[calculator,steamtables,refrigeranttables]{exam}
+% The full list of class options are
+% calculator : Allows approved calculator use.
+% datasheet : Adds a note that data sheet are attached to the exam.
+% handbook : Allows the use of the engineering handbook.
+% resit : Adds the resit markings to the paper.
+% sample : Adds conspicuous SAMPLE markings to the paper
+% solutions : Uses the contents of \solution commands (and \solmarks) to generate a solution file
+% steam and refrigerant tables
+
+\coursecode{EG3521}%
+\coursetitle{Engineering Thermodynamics}%
+\examtime{00.00--00.00}%
+\examdate{00}{08}{2014}%
+\examformat{Candidates must attempt \textit{all} questions.}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+\begin{document}
+
+%%%
+%%% Question 01 
+%%%
+\begin{question} In an air-standard Otto cycle, the isentropic compression and expansion strokes are replaced by polytropic processes -- $PV^{\gamma}=\text{constant}$, with $\gamma=1.3$,
+\begin{itemize}
+\item {\bf 1--2:} Polytropic compression;
+\item {\bf 2--3:} Addition of heat at constant volume;
+\item {\bf 3--4:} Polytropic expansion and;
+\item {\bf 4--1:} Rejection of heat at constant volume. 
+\end{itemize}
+The compression ratio $\left(\frc{V_{1}}{V_{2}}=\frc{V_{4}}{V_{3}}\right)$ is 9 for the modified cycle. At the beginning of compression, $P_{1}=1.0\;\text{bar}$ and $T_{1}=300K$. The maximum temperature during the cycle is $2000K$. 
+\begin{enumerate}
+\item In Table \ref{exam2_table1}, determine {\it (a)-(g)}.{\bf [7 Marks]}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|| c | c c c c || }
+\hline\hline
+        & {\bf $P$ (bar)} & {\bf $T$ (K)}  & {\bf V$\left(m^{3}/kg\right)$} & {\bf $U\;\left(kJ/kg\right)$} \\
+{\bf 1} & 1               &     300        &       (a)                      & (b)                 \\    
+{\bf 2} & --              &     (c)        &       --                      &  (d)                 \\
+{\bf 3} & --              &    2000        &       --                       & (e)                 \\
+{\bf 4} & --              &    (f)         &       --                      &  (g)                 \\
+\hline\hline
+\end{tabular}
+\end{center}
+\caption{Thermodynamic table of the modified air-standard Otto cycle (Question 1).}\label{exam2_table1}
+\end{table}
+%
+\item Calculate the mass-based heat $\left(Q/m\right)$ and work $\left(W/m\right)$ (both in $kJ/kg$) for each stroke in the cycle; {\bf [8 Marks]}
+%
+\item Calculate the thermal efficiency; {\bf [3 Marks]}
+\begin{displaymath}
+\eta = \frc{\left(W_{\text{cycle}}/m\right)}{\left(Q_{\text{in}}/m\right)}
+\end{displaymath}
+\item Calculate the mean effective pressure (in bar). {\bf [2 Marks]}
+\begin{displaymath}
+\text{MEP} = \frc{\left(W_{\text{cycle}}/m\right)}{V_{1}-V_{2}}
+\end{displaymath}
+\end{enumerate} 
+Also given:
+\begin{itemize}
+\item Isentropic relations for ideal gas:
+\begin{eqnarray}
+&& TV^{\gamma-1}=\text{constant} \nonumber \\
+&& TP^{\frac{1-\gamma}{\gamma}}=\text{constant} \nonumber \\
+&& PV^{\gamma}=\text{constant} \nonumber 
+\end{eqnarray}
+\item Molecular weight of air:  $MW=28.97\frc{kg}{kgmol}$;
+\item Polytropic relation for an ideal gas from state $i$ to $j$:
+\begin{displaymath}
+\frc{W_{ij}}{m} = \int_{i}^{j}P dV = \frc{R\left(T_{j}-T_{i}\right)}{1-\gamma}
+\end{displaymath}
+\end{itemize}
+\end{question}
+
+
+\clearpage
+
+%%%
+%%% Question 2
+%%%
+\begin{question} \vspace{-2\baselineskip}
+
+\end{question}
+
+\clearpage
+
+
+%%%
+%%% Question 3
+%%%
+\begin{question}\vspace{-2\baselineskip}
+
+\end{question}
+
+
+\clearpage
+
+
+%%%
+%%% Question 4 
+%%%
+\begin{question} A vapour-compression refrigeration cycle is operated with Refrigerant R-134a as working fluid. Saturated vapour enters the compressor (with isentropic efficiency of 80$\%$) at $2$ bar, and saturated liquid exits the condenser at $8$ bar. The mass flow rate of R-134a is $7$ kg/min.
+\begin{enumerate}
+\item Sketch the schematic of the cycle indicating the numbering used in the calculation; {\bf [2 Marks]}
+\item Calculate all enthalpies in the cycle $\left(H_{k}\;\forall k\in\left\{1,2,3,4\right\}\right)$; {\bf [8 Marks]}
+\item Calculate the compressor power $\left(W_{\text{C}}\right)$ in $kW$; {\bf [2 Marks]}
+\item Determine the refrigeration capacity $\left(R_{\text{n}}\right)$ in {\it tons}; {\bf [2 Marks]}
+\item Calculate the coefficient of performance of the cycle $\left(\text{COP}=R_{\text{n}}/W_{\text{C}}\right)$, {\bf [2 Marks]}
+\item Sketch the $TS$ diagram, indicating all stages of the cycle. {\bf [4 Marks]}
+\end{enumerate}
+
+The efficiency of the compressor can be expressed as,
+\begin{displaymath}
+\eta_{C}=\frc{H_{ks}-H_{k-1}}{H_{k}-H_{k-1}} 
+\end{displaymath}
+where $H_{ks}$ is the ideal enthalpy of the flow at stage $k$.
+
+\end{question}
+
+\clearpage
+
+
+%%%
+%%% Question 5
+%%%
+\begin{question} 
+\begin{enumerate}%[(1)]
+\item Saturated refrigerant R-134a vapour at $P_{1}=400\;kPa$ is compressed by a piston to $P_{2}=16\;\text{bar}$ in a reversible adiabatic process. Critical pressure and temperature of R-134a are 4.059 MPa and 101.06$^{\text{o}}$C.
+\begin{enumerate}[(a)]
+\item Calculate the work done by the piston. {\bf [6 Marks]}
+\item Sketch the $TS$ and $PV$ diagrams including the constant pressure and temperature lines. {\bf [4 Marks]}
+\end{enumerate}
+\end{enumerate}
+
+
+\end{question}
+
+
+
+\vfill
+
+\paperend
+
+\end{document}

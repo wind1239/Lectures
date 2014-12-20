@@ -1,0 +1,216 @@
+\documentclass[11pt,oneside,a4paper]{article}
+
+%\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+%\usepackage{psfig,graphicx,times,psfrag}
+\usepackage{amsfonts,amsmath,amssymb,indentfirst}
+%\usepackage{graphicx,times,psfrag}
+\usepackage{graphicx,times}
+\usepackage{enumerate}% Align table columns on decimal point
+%\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{multirow,color}
+
+%\usepackage{natbib}
+%\usepackage{fancyhdr} %%%%
+%\pagestyle{fancy}%%%%
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {18.5cm}
+\setlength\textheight     {26.2cm}
+\setlength\oddsidemargin  {-1.1cm}
+\setlength\evensidemargin {0.6cm}
+
+\setlength\headheight{-.1cm}
+%%\setlength\headheight{14.49998pt}
+\setlength\topmargin{-2.2cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{.9cm}
+\setlength\parskip{0pt}
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{0.9}
+\begin{document}
+
+\setcounter{page}{1}
+
+\begin{center}
+{\bf {\Large Thermodynamics 1B (EG3539)}}\\
+{\large Drs Jeff Gomes (Course Coordinator), Peter Hicks and John C. Jones}
+\end{center}
+
+
+\section{ Syllabus }
+
+\begin{enumerate}[{\bf Module 1:}]
+%
+\item The production of power from heat (8 lectures, Chps: 8 of \cite{smith_2001}, 9 and 10 of \cite{cengel_2010}, 12 and 13 of \cite{rajput_2007}): 
+\begin{enumerate}[(a)]
+\item Revision of the Carnot-engine cycle and the basic steam power plant; the Rankine cycle; 
+\item Modifications of the Rankine cycle to increase efficiency including superheat/re-heat $\&$ feed water heating; 
+\item Internal combustion engines including the Otto Engine, the Diesel engine and the gas-turbine engine (Brayton cycle); 
+\item Jet $\&$ rocket engines;
+\end{enumerate}
+%
+\item Combustion (3 lectures):%, Chps: 11 of \cite{devoe_2012}, 12.3 of \cite{muller_2009}, 15 of \cite{cengel_2010}, 11 of \cite{rajput_2007}):
+\begin{enumerate}[(a)]
+\item Combustion and its relation to steam power plants $\&$ internal combustion engines; 
+\item Combustion of coal, gas and liquid fuels;
+\end{enumerate}
+%
+\item Applications of thermodynamics to flow processes (8 lectures, Chps: 7 of \cite{smith_2001} and 5 and 17 of \cite{cengel_2010}, 16 of \cite{rajput_2007}, 6 and 9 of \cite{powers_2012}): 
+\begin{enumerate}[(a)]
+\item Duct flow of compressible fluids in pipes, nozzles and throttling devices; 
+\item Turbines; 
+\item Compression processes including compressors, pumps and ejectors ;
+\end{enumerate}
+%
+\item Refrigeration $\&$ Liquefaction (8 lectures, Chps: 9 of \cite{smith_2001}, 11 of \cite{cengel_2010}, 14 of \cite{rajput_2007}):
+\begin{enumerate}[(a)]
+\item The Carnot refrigerator; 
+\item The vapour-compression cycle; 
+\item Refrigerant choice; 
+\item Absorption refrigeration; 
+\item The Linde liquefaction process; 
+\item The Claude liquefaction process;
+\end{enumerate}
+%
+\item Psychrometry (3 lectures, Chps: 10 of \cite{muller_2009}, 14 of \cite{cengel_2010}, 10 of \cite{rajput_2007}): 
+\begin{enumerate}[(a)]
+\item Basic definitions; 
+\item Wet bulb temperature; 
+\item Adiabatic saturation temperature; 
+\item Humidity data for the air-water system (humidity-temperature chart $\&$ humidity-enthalpy diagram); 
+\item Mixing of humid streams; 
+\item Humidification $\&$ dehumidification.
+\end{enumerate}
+
+\end{enumerate}
+
+\section{Timetable}
+
+\begin{center}
+\begin{tabular}{||c||c|c|c|c|c||}
+\hline\hline
+\multicolumn{6}{||c||}{Thermodynamics 1B (EG3539)} \\
+\hline\hline
+\multirow{3}{*}{\color{red}{Week 30}} & Jan 28   & 16.00-17.00 & Lect  1.01  & JG  & G3 St. Mary's (120)\\
+                                      & Jan 29   & 09.00-10.00 & Lect  1.02  & JG  & FN2 Fraser Noble (141)\\
+                                      & Jan 31   & 12.00-13.00 & Lect  1.03  & JG  & MT4 Meston (190)   \\
+\hline
+\multirow{3}{*}{\color{red}{Week 31}} & Feb 04   & 16.00-17.00 & Lect  1.04  & JG  & G3 St. Mary's \\
+                                      & Feb 05   & 09.00-10.00 & Lect  1.05  & JG  & FN2 Fraser Noble \\
+                                      & Feb 07   & 12.00-13.00 & Lect  1.06  & JG  & MT4 Meston    \\
+\hline
+\multirow{3}{*}{\color{red}{Week 32}} & Feb 11   & 16.00-17.00 & Lect  1.07  & JG  & G3 St. Mary's \textcolor{red}{(Cancelled)}\\
+                                      & Feb 12   & 09.00-10.00 & Lect  1.08  & JG  & FN2 Fraser Noble \\
+                                      & Feb 14   & 12.00-13.00 & Lect  1.09  & JG  & MT4 Meston    \\
+                                      & Feb 14   & 09.00-10.00 & Pract 1     &     & G3 St. Mary's \\
+                                      & Feb 15   & 16.00-17.00 & Tutr  1     &     & NK 10 New Kings (112) \\
+                                      &          &             &             &     & 105 St. Mary's (156) \\
+\hline
+\multirow{3}{*}{\color{red}{Week 33}} & Feb 18   & 12.00-13.00 & Lect  2.01  & JCJ & G8 King's College \\
+                                      & Feb 19   & 09.00-10.00 & Lect  2.02  & JCJ & FN2 Fraser Noble \\
+                                      & Feb 21   & 12.00-13.00 & Lect  2.03  & JCJ & MT4 Meston    \\
+                                      & Feb 21   & 09.00-10.00 & Pract 2     &     & G3 St. Mary's \\
+                                      & Feb 22   & 16.00-17.00 & Tutr  2     &     & NK 10 New Kings \\
+                                      &          &             &             &     & 105 St. Mary's \\
+\hline
+\multirow{3}{*}{\color{red}{Week 34}} & Feb 25   & 12.00-13.00 & Lect  3.01  & PH  & G8 King's College \\
+                                      & Feb 26   & 09.00-10.00 & Lect  3.02  & PH  & FN2 Fraser Noble \\
+                                      & Feb 28   & 12.00-13.00 & Lect  3.03  & PH  & MT4 Meston    \\
+\hline
+\multirow{3}{*}{\color{red}{Week 35}} & Mar 04   & 12.00-13.00 & Lect  3.04  & PH  & G8 King's College \\
+                                      & Mar 05   & 09.00-10.00 & Lect  3.05  & PH  & FN2 Fraser Noble \\
+                                      & Mar 07   & 12.00-13.00 & Lect  3.06  & PH  & MT4 Meston    \\
+\hline
+\multirow{3}{*}{\color{red}{Week 36}} & Mar 11   & 12.00-13.00 & Lect  3.07  & PH  & G8 King's College \\
+                                      & Mar 12   & 09.00-10.00 & Lect  3.08  & PH  & FN2 Fraser Noble \\
+                                      & Mar 14   & 12.00-13.00 & Lect  3.09  & PH  & MT4 Meston    \\
+                                      & Mar 14   & 09.00-10.00 & Pract 3     &     & G3 St. Mary's \\
+                                      & Mar 15   & 16.00-17.00 & Tutr  3     &     & NK 10 New Kings \\
+                                      &          &             &             &     & 105 St. Mary's \\
+\hline
+\multirow{3}{*}{\color{red}{Week 37}} & Mar 18   & 12.00-13.00 & Lect  4.01  & JG  & G8 King's College \\
+                                      & Mar 19   & 09.00-10.00 & Lect  4.02  & JG  & FN2 Fraser Noble \\
+                                      & Mar 21   & 12.00-13.00 & Lect  4.03  & JG  & MT4 Meston    \\
+\hline\hline
+                                      &          &             &             &     &               \\
+\hline\hline
+\multirow{2}{*}{\color{red}{Week 41}} & Apr 16   & 09.00-10.00 & Lect  4.04  & JG  & FN2 Fraser Noble \\
+                                      & Apr 18   & 12.00-13.00 & Lect  4.05  & JG  & MT4 Meston  \\
+\hline
+\multirow{2}{*}{\color{red}{Week 42}} & Apr 23   & 09.00-10.00 & Lect  4.06  & JG  & FN2 Frase Noble \\
+                                      & Apr 25   & 12.00-13.00 & Lect  4.07  & JG  & MT4 Meston \\
+\hline
+\multirow{4}{*}{\color{red}{Week 43}} & Apr 30   & 09.00-10.00 & Lect  4.08  & JG  & FN2 Fraser Noble \\
+                                      & May 02   & 12.00-13.00 & Lect  5.01  & PH  & MT4 Meston\\
+                                      & May 02   & 09.00-10.00 & Pract 4     &     & G3 St. Mary's \\
+                                      & May 03   & 16.00-17.00 & Tutr  4     &     & NK 10 New Kings \\
+                                      &          &             &             &     & 105 St. Mary's \\
+\hline
+\multirow{5}{*}{\color{red}{Week 44}} & May 07   & 09.00-10.00 & Lect  5.02  & PH  & FN2 Fraser Noble \\
+                                      & May 09   & 12.00-13.00 & Lect  5.03  & PH  & MT4 Meston \\
+                                      & May 09   & 14.00-15.00 & Pract 5     &     & G3 St. Mary's \\
+                                      & May 10   & 16.00-17.00 & Tutr  5     &     & NK 10 New Kings \\
+                                      &          &             &             &     & 105 St. Mary's \\
+\hline
+\multirow{5}{*}{\color{red}{Week 45}} & May 14   & 09.00-10.00 & Revision 1  &     & FN2 Fraser Noble \\
+                                      & May 16   & 12.00-13.00 & Revision 2  &     & MT4 Meston\\
+                                      & May 16   & 09.00-10.00 & Revision 4  &     & G3 St. Mary's \\
+                                      & May 17   & 16.00-17.00 & Revision 3  &     & NK 10 New Kings \\
+                                      &          &             &             &     & 105 St. Mary's \\
+\hline
+
+\hline\hline
+
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{||c c c c c ||}
+\hline\hline
+{\bf Activity} & {\bf Weeks}  & {\bf N$^{o}$ weeks} &                &       \\
+\hline\hline
+Lectures       &  30-37       &  8                 &  3 $\times$ 1h &  24h    \\
+Lectures       &  41-44       &  4                 &  2 $\times$ 1h &  08h     \\
+Revision       &   45         &  1                 &  2 $\times$ 1h &  02h     \\
+{\bf Total}    &              &                    &                &  {\bf 34h}\\
+\hline
+Tutorials      & 32, 33, 35,  &  6                &  1h            &  {\bf 06h}  \\
+               & 36, 43, 44   &                   &                &            \\
+\hline
+Practicals     & 32, 33, 35,  &  6                &  1h (in class) &   06h  \\
+               & 36, 43, 44   &                   &  2h (out of class)& 12h  \\ 
+{\bf Total}    &              &                   &                &  {\bf 18h}\\
+\hline\hline
+\end{tabular}
+\end{center}
+
+\section{Assessment}
+\begin{enumerate}[(a)]
+\item {\it First Attempt:} 1 three-hour writtem examination paper (80$\%$) and continuous assessment (20$\%$);
+\begin{itemize}
+\item CA comprises a report (50$\%$) and oral presentation (50$\%$). 
+\end{itemize}
+\item {\it Resit:} 1 three-hour writtem examination paper (80$\%$) and continuous assessment mark from the {\it first attempt} (20$\%$). 
+\end{enumerate}
+
+\begin{thebibliography}{1}
+%
+\bibitem{smith_2001} J.M. Smith, H.C. Van Ness, M.M. Abbott (2001) {\it Introduction to Chemical Engineering Thermodynamics}, McGraw-Hill Higher Education, 6$^{th}$ Edition.
+%
+\bibitem{muller_2009} I. Muller, W.H. Muller (2009) {\it Fundamentals of Thermodynamics and Applications}, Springer.
+%
+\bibitem{cengel_2010} Y.A. \'Cengel, M.A. Boles (2010) {\it Thermodynamics -- An Engineering Approach}, McGraw-Hill Higher Education, 7$^{th}$ Edition.
+%
+\bibitem{devoe_2012} H. Devoe (2012) {\it Thermodynamics and Chemistry}, Free PDF Textbook, 2$^{nd}$ Edition.
+%
+\bibitem{rajput_2007} R.K. Rajput (2007) {\it Engineering Thermodynamics}, Laxmi Publications Ltd, 3$^{rd}$ Edition.
+%
+\bibitem{powers_2012} J.M. Powers (2012) {\it Lecture Notes on Thermodynamics}, Department of Aerospace and Mechanical Engineering University of Notre Dame.
+%
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,560 @@
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\usepackage{graphicx,wrapfig,pdfpages}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate}%,enumitem}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+
+
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{subeqnarray}
+\usepackage{ifthen}
+
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+\usepackage{lastpage}
+%\usepackage{pdflscape}
+
+
+%\usepackage{booktabs}
+%\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{Course information 2014/15}}} 
+\rhead[] {{\text{\small{EG3521}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+%\lfoot[]{Dr Jeff Gomes}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+%\cfoot[\thepage]{\thepage}
+%\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+%\newlist{ExList}{enumerate}{1}
+%\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+%\newlist{ProbList}{enumerate}{1}
+%\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+\begin{document}
+
+%%%
+%%% FIRST PAGE
+%%%
+\begin{center}
+{\large {\bf UNIVERSITY OF ABERDEEN, SCHOOL OF ENGINEERING}}
+\medskip
+
+{\large {\bf COURSE INFORMATION SESSION 2014/15}}
+\bigskip 
+
+{\Large {\bf EG3521 Engineering Thermodynamics}}
+\end{center}
+
+\bigskip
+\begin{flushleft}
+
+{\large {\bf CREDIT POINTS:}}\\
+\hspace{0.8cm}10
+\medskip
+
+{\large {\bf COURSE COORDINATOR: }}\\
+\hspace{0.8cm}Dr Jeff Gomes \hspace{1.5cm} \href{mailto:jefferson.gomes@abdn.ac.uk}{jefferson.gomes@abdn.ac.uk}
+\medskip 
+
+{\large {\bf COURSE CONTRIBUTORS:}}\\
+\hspace{0.8cm} Drs Jeff Gomes and Peter Hicks
+\medskip
+
+{\large {\bf SCRUTINER:}}\\
+\hspace{0.8cm}Prof Marian Wiercirgroch
+\medskip  
+
+{\large {\bf PRE-REQUISITE:}}\\
+%\hspace{0.8cm}EG2003 Process Engineering\\
+\hspace{0.8cm}EG2004 Fluid Mechanics $\&$ Thermodynamics
+\medskip
+
+{\large {\bf CO-REQUISITE:}}\\
+\hspace{0.8cm}None
+\medskip 
+
+{\large {\bf COURSES FOR WHICH THIS COURSE IS A PRE-REQUISITE:}}\\
+\hspace{0.8cm}EG40JK Thermodynamics 2
+\end{flushleft}
+
+\clearpage
+
+%%%
+%%% Section
+%%%
+\section{AIMS}
+This course aims to provide Mechanical Engineering students with an in-depth treatment of: 1) the applications of thermodynamics to flow processes; 2) the production of power from heat; 3) refrigeration and liquefaction processes. The course also gives a broad introduction to psychrometry with an applications focus on heating, ventilation and air conditioning.
+
+%%%
+%%% Section
+%%%
+\section{DESCRIPTION}
+The course begins with a detailed discussion of the production of power from heat which includes: revision of the Carnot-engine cycle and the basic steam power plant, Rankine cycle, modifications of the Rankine cycle to increase efficiency including superheat/re-heat $\&$ feed water heating, steam power plants and internal combustion engines, internal combustion engines including the Otto Engine, the Diesel engine and the gas-turbine engine (Brayton cycle). 
+\medskip
+
+Following on from the production of power from heat is a module on refrigeration and liquefaction processes which use power to move heat from low temperature to high temperature, this module includes: the Carnot refrigerator, the vapour-compression cycle, refrigerant choice, absorption refrigeration, Linde and Claude liquefaction processes. 
+\medskip
+
+The course continues with applications of thermodynamics to flow processes including: duct flow of compressible fluids in pipes, nozzles and throttling devices, turbines, compression processes including compressors, pumps and ejectors. 
+\medskip
+
+The course concludes with a module on psychrometry which includes: basic definitions, wet bulb temperature, adiabatic saturation temperature, humidity data for the air-water system (humidity-temperature chart and humidity-enthalpy diagram), mixing of humid streams and humidification $\&$ dehumidification.
+
+
+%%%
+%%% Section
+%%%
+\section{LEARNING OUTCOMES}
+By the end of the course students should:
+\begin{enumerate}[{\bf A.}]
+\item {\bf have knowledge and understanding of:}
+  \begin{enumerate}
+    \item Balance equations used in the analysis of duct flow of compressible fluids;
+    \item Fundamental thermodynamics of turbine expansion processes including the application of the 1$^{\text{st}}$ law for a steady flow process;
+    \item Fundamental thermodynamics of compression processes including the application the 1$^{\text{st}}$ law for a steady flow process;
+    \item The Carnot cycle and why it is not practical to operate;
+    \item The Rankine cycle and the modifications which can be incorporated to boost its efficiency;
+    \item The Otto, Diesel and Gas-turbine (Brayton cycle) engines;
+    \item The fundamental thermodynamics of refrigeration and liquefaction processes;
+    \item The quantities used to report the effectiveness of refrigeration processes;
+    \item Factors affecting refrigerant choice;
+    \item The Linde and Claude liquefaction processes;
+    \item Standard terms used in psychrometry, humidification and water cooling.
+  \end{enumerate}
+\item {\bf have gained intellectual skills so that they are able to:}
+  \begin{enumerate}
+    \item Apply balance equations for duct flow of compressible fluids to pipe flow, flow through nozzles and throttling processes;
+    \item Describe turbine expansion processes and undertake calculations on such systems;
+    \item Describe compression processes including compressors, pumps and ejectors and undertake calculations on such systems;
+    \item Describe the Carnot and Rankine cycles using process flow and thermodynamic diagrams;
+    \item Describe the modified Rankine cycle using process flow and thermodynamic diagrams;
+    \item Describe the Otto, Diesel and Brayton cycles using thermodynamic diagrams;
+    \item Describe refrigeration processes using process flow and thermodynamic diagrams;
+    \item Select refrigerants and processes for a given refrigeration duty/application;
+    \item Describe liquefaction processes using process flow and thermodynamic diagrams;
+    \item Undertake simple heat and mass balances on humidification/dehumidification systems.
+  \end{enumerate}
+\item {\bf have gained practical skills so that they are able to:}
+  \begin{enumerate}
+    \item Quantitatively analyze systems incorporating duct flow of compressible fluids;
+    \item Use standard tables and equations to perform analysis of turbine expansion and compressions processes;
+    \item Apply the 1st law of thermodynamics for a steady flow process to a variety of systems incorporating the duct flow of compressible fluids;
+    \item Undertake calculations relating to efficiency and the application of the 1$^{\text{first}}$ law of thermodynamics for a steady flow process to the individual components of the Rankine and modified Rankine cycle;
+    \item Undertake thermodynamic calculations on the Otto, Diesel and Brayton cycles;
+    \item Compute the effectiveness of refrigeration processes;
+    \item Apply the first law of thermodynamics for a steady flow process to the individual components of a refrigeration/liquefaction process;
+    \item Use information sources to procure the data required to undertake thermodynamic calculations on refrigeration/liquefaction processes;
+    \item Use psychrometric charts to undertake design and analysis of humidification/dehumidification systems.
+  \end{enumerate}
+\item {\bf have gained or improved transferable skills so that they are able to:}
+  \begin{enumerate}
+    \item work effectively in a group;
+    \item communicate effectively via technical report
+  \end{enumerate}
+\end{enumerate}
+
+
+%%%
+%%% Section
+%%%
+\section{SYLLABUS}
+\begin{description}
+   \item[Module 1:] Introduction and Principles: First and second laws of thermodynamics; ideal gas processes; steam tables (2 lectures);
+   \item[Module 2:] Production of power from heat: revision of the Carnot-engine cycle and the basic steam power plant; the Rankine cycle; modifications of the Rankine cycle to increase efficiency including superheat/re-heat $\&$ feed water heating; internal combustion engines including the Otto Engine, the Diesel engine and the gas-turbine engine (7 lectures);
+   \item[Module 3:] Refrigeration $\&$ Liquefaction: the Carnot refrigerator; the vapour-compression cycle; refrigerant choice; absorption refrigeration; Linde and Claude liquefaction processes (5 lectures);
+   \item[Module 4:] Applications of thermodynamics to flow processes: duct flow of compressible fluids in pipes, nozzles and throttling devices; Turbines; Compression processes including compressors, pumps and ejectors (6 lectures);
+   \item[Module 5:] Psychrometry: basic definitions; wet bulb temperature; adiabatic saturation temperature; humidity data for the air-water system (humidity-temperature chart $\&$ humidity-enthalpy diagram); mixing of humid streams; humidification and dehumidification (2 lectures).
+\end{description}
+
+\medskip
+This is a guide to the taught content of EG3521 and it should be noted that this is subject to change at the discretion of the course instructor.
+
+
+%%%
+%%% Section
+%%%
+\section{TIMETABLE}
+22 one-hour lectures, 10 one-hour tutorials and 3 one-hour laboratories in total. %Detailed times are provided in Table~\ref{table:timetable}.
+
+
+%%%
+%%% Section
+%%%
+\section{ASSESSMENT}
+1$^{st}$ attempt: 1 three-hour written examination paper (80$\%$) and continuous assessment (20$\%$). 
+\medskip
+
+Resit: A three-hour resit paper may be provided for candidates who fail the course at the first attempt. Where a resit paper is offered, the mark reported for the resit will be the better of:
+\begin{enumerate}[(a)]
+  \item 100$\%$ of the resit examination mark;
+  \item 80$\%$ of the resit examination mark + 20$\%$ of the continuous assessment mark.
+\end{enumerate}
+\medskip
+
+{\it Notes on Assessment:
+\begin{itemize}
+\item Candidates who pass the examination at the first attempt but fail to pass the course will be required to pass the resit examination.
+\end{itemize}}
+
+\medskip
+
+The continuous assessment will be based on the submission of engineering reports. Detailed information relating to the format of reports will be given during course contact time.
+\medskip
+
+Penalties for late or non-submission of in-course work are as follows:
+\begin{enumerate}
+   \item For late submission, 1 CGS mark will be deducted for each late day (including weekends);
+   \item For non-submission, a CGS mark of 0 will be awarded and may lead to a refusal of a Class Certificate.
+\end{enumerate}
+If late or non-submission is due to medical or other circumstances out with your control you must submit a medical certificate or other formal evidence to the Engineering School Office as soon as is practicable but no later than the end of Revision Week (42).
+
+
+
+
+%%%
+%%% Section
+%%%
+\section{FORMAT OF EXAMINATION}
+Candidates must attempt {\bf ALL FIVE} questions. All questions carry 20 marks. Notes:
+\begin{enumerate}[(i)]
+\item Candidates are permitted to use the approved calculator only;
+\item Candidates are permitted to use psychrometric charts, steam, refrigeration and air thermodynamic tables, which will be made available to them.
+\item Steam charts and tables are provided to candidates.
+\end{enumerate}
+
+\medskip
+
+{\large {\bf PLEASE NOTE THE FOLLOWING}}
+\begin{enumerate}[(a)]
+\item You must not have in your possession at the examination any material other than that expressly permitted by the examiner. Where this is permitted, such material must not be amended, annotated or modified in any way.
+\item During the course of the examination, you must not have in your possession or attempt to access any material that could be determined as giving you an advantage in the examination.
+\item You must not attempt to communicate with any candidate during the examination, either orally or by passing written material, or by showing material to another candidate, nor must you attempt to view another candidate's work.
+\item {\bf Approved Calculators in Examinations:}  {\it Starting in academic year 2014-15, the School of Engineering list of approved calculators for use in examinations will consist of a single calculator, the Casio FX-991 ES PLUS.  So from September 2014 the only calculator that you may take to your desk in an examination is this Casio calculator.  Note that examiners will be aware of the capabilities of the machine and will assume that you are able to operate this calculator in an examination.  All students should ensure that they have such a calculator and that they are familiar with its operation.}
+\end{enumerate}
+
+\bigskip
+
+{\bf Failure to comply with the above will be regarded as cheating and may lead to disciplinary action as indicated in the Academic Quality Handbook \href{http://www.abdn.ac.uk/registry/quality/}{(http://www.abdn.ac.uk/registry/quality/)}. 
+
+\medskip
+
+Your attention is drawn to key University policies which can be accessed via,
+\begin{center}
+\href{https://abdn.blackboard.com/bbcswebdav/institution/Policies}{https://abdn.blackboard.com/bbcswebdav/institution/Policies}.
+\end{center}
+It is important to make yourself familiar with the University's policies and procedures on the subjects covered.}
+
+
+%%%
+%%% Section
+%%%
+\section{FEEDBACK}
+\begin{enumerate}[(a)]
+\item Students can receive feedback on their progress with the Course on request at the weekly tutorial/feedback sessions.
+\item Students are given feedback through formal marking and return of practical reports.
+%\item There will be a test exam at the end of the teaching session. The test exam will be marked (but is not part of the continuous assessment) and the test exam paper questions will be discussed in the Revision week.
+\item Students requesting feedback on their exam performance should make an appointment within 2 weeks of the publication of the exam results.
+\end{enumerate}
+
+
+%%%
+%%% Section
+%%%
+\section{STUDENT MONITORING}
+Attention is drawn to Registry's guidance on student attendance and monitoring at:
+\begin{center}
+\href{http://www.abdn.ac.uk/registry/monitoring}{http://www.abdn.ac.uk/registry/monitoring}
+\end{center}
+1.1 of this guidance says that students will be reported as $\lq$at risk' if the following criteria are met. {\it Either}
+\begin{itemize}
+\item Absence for a continuous period of 10 working days or 25$\%$ of a course (whichever is less) without good cause being reported;
+\item {\it or} Absence from two small group teaching sessions for a course without good cause (e.g., tutorial, laboratory class, any other activity where attendance is  expected and can be monitored);
+\item {\it or} Failure to submit a piece of summative or a substantial piece of formative in-course assessment for a course, by the stated deadline (eg class test, formative essay).
+\end{itemize}
+For the purposes of this, course attendance will be monitored at the tutorial and lab sessions and the formative in-course assessment are the lab reports.
+
+
+%%%
+%%% Section
+%%%
+\section{RECOMMENDED BOOKS}
+The course is largely based on the treatment of undergraduate chemical engineering thermodynamics presented in
+\begin{enumerate}[1.]
+\item J.M. Smith, H.C. van Ness, M.M. Abbott. {\it Introduction to Chemical Engineering Thermodynamics}, McGraw-Hill; current edition – 7th Edition, ISBN 9780071247085.
+\item B.E. Poling, J.M. Prausnitz, J. O’Connell. {\it The Properties of Gases and Liquids}, McGraw-Hill; current edition – 5th Edition, ISBN 9780071189712.
+\item C. Borgnakke, R.E. Sonntag. {\it Fundamentals of Thermodynamics}, Wiley; current edition, ISBN 9781118321775.
+\item Y.A. Cengel, M.A. Boles. {\it Thermodynamics – An Engineering Approach}, McGraw-Hill Higher Education, 7th Edition;
+\item R.K. Rajput. {\it Engineering Thermodynamics},  Laxmi Publications Ltd, 3rd Edition;
+\item M.J. Moran, H.N. Saphiro, D.D. Boettner, M.B. Bailey. {\it Principles of Engineering Thermodynamics}, Wiley, 7th Edition, ISBN 9780470918012.
+\end{enumerate}
+
+
+\bigskip
+
+{\large {\bf INSTITUTIONAL INFORMATION}}
+
+Students are asked to make themselves familiar with the information on key institutional policies which have been made available within {\it MyAberdeen},
+\begin{center}
+\href{https://abdn.blackboard.com/bbcswebdav/institution/Policies}{(https://abdn.blackboard.com/bbcswebdav/institution/Policies)}.
+\end{center}
+These policies are relevant to all students and will be useful to you throughout your studies. They contain important information and address issues such as what to do if you are absent, how to raise an appeal or a complaint and how seriously the University takes your feedback. 
+\medskip
+
+These institutional policies should be read in conjunction with this programme and/or course handbook, in which School and College specific policies are detailed. Further information can be found on the \href{http:www.abdn.ac.uk/infohub/}{University's Infohub webpage} or by visiting the {\it Infohub}.
+
+
+%\begin{table}[h]
+%\begin{center}
+%\begin{tabular}{ c || c | c c c | c }
+%\hline\hline
+%\multicolumn{2}{c}{\bf Weeks/Time} & {\bf 10-11h} & {\bf 12-14h} & {\bf 13-14h} & {\bf 15-16h} \\
+%\hline\hline
+%\multirow{2}{*}{10-20} & Monday    &             &  $\bullet$   &            &             \\
+%                       & Tuesday   & $\bullet$   &              &   $\circ$  &             \\
+%\hline 
+%\multirow{2}{*}{13-15} & Monday    &             &              &            &   $\otimes$ \\
+%                       & Thursday  &             &              &            &   $\odot$    \\
+%\hline
+%\end{tabular}
+%\end{center}
+%\caption{Venues for 2014/15 course: $\bullet$: Cruickshank (Auris Lecture Theatre), $\circ$: St Mary's (G3), $\otimes$: Edward Wright (Comp S84), $\odot$: Zoology (Comp G21).}
+%\label{table:timetable}
+%\end{table}
+
+\end{document}

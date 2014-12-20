@@ -1,0 +1,355 @@
+
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+%\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{report}%{article}%{report}%{book}
+\documentclass[12pts,a4paper]{report}%{article}%{report}%{book}
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate,enumitem}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{color}
+\usepackage{units}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+%\usepackage{pdflscape}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{EG3521 -- Engineering Thermodynamics}}} 
+\rhead[] {{\text{\small{Continuous Assessment (2013/14)}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+\lfoot[]{Continuous Assessment}
+%\cfoot[\thepage]{\thepage}
+\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+\newlist{ExList}{enumerate}{1}
+\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+\newlist{ProbList}{enumerate}{1}
+\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+
+
+
+\begin{document}
+
+\begin{center}
+{\Large Continuous Assessment -- Group Work}
+\end{center}
+
+\begin{enumerate}
+%
+\item {\bf 16 Groups of maximum 6 students};
+%
+\item Choose one of the Manuscripts in the list below and assign yourselves in the {\it MyAberdeen}'s Groups -- Deadline: February 27$^{th}$.
+%
+\item Assessment: Oral Presentation and Discussion (May 6-9$^{th}$):
+  \begin{itemize}
+   %\item \textcolor{red}{Everyone must attend the {\bf ALL} presentations and participate in the discussions}
+   \item 10 minutes presentation following 5 minutes of QA and discussions
+   \item Groups 1--4: May 6; 
+   \item Groups 5--8: May 8 (morning);
+   \item Groups 9--12: May 8 (afternoon);
+   \item Groups 13--16: May 9;
+  \end{itemize}
+ \item Feedback will be given 1 week after the last presentation (before May 16);
+ \item The presentation should focus on the thermodynamics aspects of the manuscript and it must cover:
+ \begin{itemize}
+   \item Summary of the manuscript \textcolor{red}{(not copy and paste)};
+   \item Relevance (i.e., main motivation for the work, applications etc);
+   \item How the manuscript relates with the Thermodynamics course;
+   %\item How the main subject of the manuscript can be communicate to a broad audience;
+   \item How the subject can be effectively integrated into a thermodynamic lecture;
+\end{itemize}
+\item {\bf The slides presentation should be submitted (as PDF files) by email \textcolor{red}{before May 2$^{nd}$ at 5pm}.}  The $\lq$Subject' of the email (\href{mailto:jefferson.gomes@abdn.ac.uk}{jefferson.gomes@abdn.ac.uk}) must be $\lq$EG3521 Presentation - Group XX'.
+\end{enumerate}
+%
+
+
+\clearpage
+
+\begin{center}
+{\Large List of Groups / Manuscripts}
+\end{center}
+
+
+\begin{enumerate}[label=\bfseries Group \arabic*:]
+%
+\item A.A. Hasan, D.Y. Goswami and S. Vijayaraghavan (2002) \href{http://dx.doi.org/10.1016/S0038-092X(02)00113-5}{$\lq$First and Second Law Analysis of a New Power and Refrigeration Thermodynamic Cycle using a Solar Heat Source'}, {\it Solar Energy} 73:385-393.
+%
+\item D. Zhao, G. Ding and Z. Wu (2009) \href{http://dx.doi.org/10.1016/j.ijrefrig.2009.05.005}{$\lq$Extension of the implicit curve-fitting method for fast calculation of thermodynamic properties of refrigerants in supercritical region'}, {\it International Journal of Refrigeration}, 32:1615-1625.
+%
+\item C. Coquelet and D. Richon (2009) \href{http://dx.doi.org/10.1016/j.ijrefrig.2009.03.013}{$\lq$Experimental determination of phase diagram and modeling: Application to refrigerant mixtures'}, {\it International Journal of Refrigeration}, 32:1604-1614.
+
+\item M.E. Duprez, E. Dumont and M. Fr\`ere (2007) \href{http://dx.doi.org/10.1016/j.ijrefrig.2006.11.014}{$\lq$Modelling of Reciprocating and Scroll Compressors'}, {\it International Journal of Refrigeration}, 30:873-886.
+%
+\item J. Tarlecki, N. Lior and N. Zhang (2007) \href{http://dx.doi.org/10.1016/j.enconman.2007.06.039}{$\lq$Analysis of Thermal Cycles and Working Fluids for Power Generation in Space'}, {\it Energy Conversion and Management}, 48:2864-2878.
+%
+\item R.N. Christensen and M. Santoso (1990) \href{http://dx.doi.org/10.1016/0890-4332(90)90169-K}{$\lq$An Evaluation of a Rankine Cycle Driven Heat Pump'}, {\it Heat Recovery $\&$ CHP}, 10:161-175.
+%
+\item R.F. Garcia (2012) \href{http://dx.doi.org/10.1016/j.applthermaleng.2012.02.039}{$\lq$Efficiency Enhancement of Combined Cycles by Suitable Working Fluids and Operating Conditions'}, {\it Applied Thermal Engineering}, 42:25-33.
+%
+\item M.G. Soufi, T. Fujii, K. Sugimoto and H. Asano (2004) \href{http://inderscience.metapress.com/content/vvmpkbwp3x0fk08c/?genre=article&issn=1742-8297&volume=1&issue=1&spage=29}{$\lq$A New Rankine Cycle for Hydrogen-Fired Power Generation Plants and Its Exergetic Efficiency'}, {\it International Journal of Exergy} 1:29-46.
+%
+\item H. Chen, D.Y. Goswami and W.K. Stefanakos (2010) \href{http://dx.doi.org/10.1016/j.rser.2010.07.006}{$\lq$A Review of Thermodynamic Cycles and Working Fluids for the Conversion of Low-Grade Heat'}, {\it Renewable and Sustainable Energy Reviews}, 14:3059-3067.
+%
+\item G. Tsiklauri, R. Talbert, B. Schmitt, G. Filippov, R. Bogoyavlensky and E. Grishanin (2005) \href{http://dx.doi.org/10.1016/j.nucengdes.2004.11.016}{$\lq$Supercritical Steam Cycle for Nuclear Power Plant'}, {\it Nuclear Engineering and Design}, 235:1651-1664.
+%
+\item Y. Le Moullec (2013) \href{http://dx.doi.org/10.1016/j.energy.2012.10.022}{$\lq$Conceptual Study of a High Eficiency Coal-Fired Power Plant with CO$_{2}$ capture using Supercritical CO$_{2}$ Brayton Cycle'}, {\it Energy}, 49:32-46.
+%
+\item L. Lizon-A-Lugrin, A. Teyssedou and I. Pioro (2012) \href{http://dx.doi.org/10.1016/j.nucengdes.2011.07.024}{$\lq$Appropriate Thermodynamic Cycles to be used in Future Pressure-Channel Supercritical Water-Cooled Nuclear Power Plants'}, {\it Nuclear Engineering and Design}, 246:2-11.
+%
+\item A.R.D. Thorley and C.H. Tiley (1987) \href{http://dx.doi.org/10.1016/0142-727X(87)90044-0}{$\lq$Unsteady and transient flow of compressible fluids in pipelines—a review of theoretical and some experimental studiess'}, {\it Int. J. Heat Fluid Flow} 8(1):3–15.
+%
+\item P. Spittle (2003) \href{http://dx.doi.org/10.1088/0031-9120/38/6/002}{$\lq$Gas Turbine Technology'}, {\it Physics Education}, 38:504-511.
+%
+\item J. Xu, Z. Wu, S. Wang, B. Qi, K. Chen, X. Li and X. Zhao (2013) \href{http://onlinelibrary.wiley.com/doi/10.1002/cjce.20689/abstract}{$\lq$Prediction of temperature, pressure, density, velocity distribution in H-T-H-P gas wells'}, {\it Canadian J. Chem. Eng.} 91(1):111-121.
+%
+\item D. Hullender, R. Woods and Y.-W. Huang (2010) \href{http://dx.doi.org/10.1115/1.4000742}{$\lq$Single Phase Compressible Steady Flow in Pipes'}, {\it J. Fluid. Eng.} 132(1):014502.
+%
+%\item 
+%\begin{enumerate}
+%  \item C. Jones and G. Wake (2012) $\lq$New Zealand at a Carbon Sequestration Advantage! -- Part 1', {\it Chemistry Education in New Zealand}, February, 5-6; 
+%
+%\item C. Jones and G. Wake (2012) $\lq$New Zealand at a Carbon Sequestration Advantage! -- Part 2', {\it Chemistry Education in New Zealand}, February, 7. 
+%
+%\end{enumerate}
+\end{enumerate}
+
+%\section{Backup Manuscripts}
+%\begin{enumerate}
+%
+%\item R. Nieto, C. Gonz\'alez, A. Jim\'enez, I. L\'opez and J. Rodr\'{\i}guez (2011) \href{http://dx.doi.org/10.1021/ed100798p}{$\lq$A Missing Deduction of the Clausius Equality and Inequality'}, {\it Journal of Chemical Education}, 88:597-601.
+%
+%\item N.C. Craig and E.A. Gislason (2002) \href{http://pubs.acs.org/doi/abs/10.1021/ed079p193}{$\lq$First Law of Thermodynamics; Irreversible and Reversible Processes'}, {\it Journal of Chemical Education}, 79:193-200.
+%
+%\item C. Salter (2000) \href{http://pubs.acs.org/doi/abs/10.1021/ed077p1027}{$\lq$A Simple Approach to Heat Engine Efficiency'}, {\it Journal of Chemical Education}, 77:1027-1030.
+%
+%\end{enumerate}
+
+
+
+%{
+%  \includepdf[pages=-,fitpaper]{EG3521_OralPresentationAssessmentSheet.pdf}
+%}
+
+\end{document}

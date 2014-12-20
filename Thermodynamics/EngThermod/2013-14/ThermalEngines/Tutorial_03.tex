@@ -1,0 +1,384 @@
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\usepackage{graphicx,wrapfig}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate,enumitem}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+
+
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{subeqnarray}
+\usepackage{ifthen}
+
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+%\usepackage{pdflscape}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{EG3521 -- Engineering Thermodynamics}}} 
+\rhead[] {{\text{\small{Tutorial 03 (2013/14)}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+\lfoot[]{Module 02}
+%\cfoot[\thepage]{\thepage}
+\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+\newlist{ExList}{enumerate}{1}
+\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+\newlist{ProbList}{enumerate}{1}
+\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+
+\begin{document}
+
+\begin{flushright}
+{\bf \today}
+\end{flushright}
+
+
+\begin{enumerate}[label=\bfseries Example \arabic*]
+
+
+%%%
+%%% Carnot: Example 13.4 (Rajput)
+%%%
+\item {\it A reversible engine converts one-sixth of the heat input into work. When the temperature of the sink is reduced by 70$^{\text{ o}}$C, its efficiency is doubled. Determine the temperature of the source and the sink.}\label{Example_03_01}
+
+Let's first stablish that $T_{1}\text{ and }T_{2}\;\left[\text{K}\right]$ are the source and sink temperatures, respectively. For a {\bf reversible engine}, converting 1/6 of the heat into work means
+\begin{displaymath}
+\frc{T_{1}-T_{2}}{T_{1}}=\frc{1}{6} \;\;\; \Longrightarrow \;\;\; \textcolor{blue}{T_{1}=1.2T_{2}}
+\end{displaymath}
+Now if the sink temperature is reduced to {\it 70$^{\text{ o}}$C = 343.15 K}, ie, $T_{2}^{\prime}=T_{2}-343.15$ then the efficiency of the cycle is doubled
+\begin{eqnarray}
+&& \frc{T_{1}-T_{2}^{\prime}}{T_{1}}=2\times\frc{1}{6} \nonumber \\
+&& 2T_{1}=3T_{2}-1029.45\;\;\Longrightarrow\;\;\textcolor{red}{T_{2}=1715\text{ K and }T_{1}=2058.90\text{ K}}\nonumber
+\end{eqnarray}
+
+
+
+%%%
+%%% Otto: Example 13.9 (Rajput)
+%%%
+\item {\it The minimum pressure and temperature in an Otto cycle are 100 kPa and 27 $^{\text{ o}}$C. The amount of heat added to the air per cycle is 1500 kJ/kg. Calculate:
+\begin{enumerate}
+\item Pressures and temperatures at all stages of the air standard Otto cycle;
+\item Specific  work and thermal efficiency of the cycle for a compression ratio of 8 : 1.
+\end{enumerate}
+}
+Assuming an isentropic compression stage 1--2 and an isentropic expansion stage 3--4 with a compression ratio $V_{1}/V_{2}= 8$. Initial temperature of 300.15 K and pressure of 100 kPa.
+\begin{itemize}
+%
+\item {\it adiabatic compression (1--2):}
+\begin{displaymath}
+  \frc{T_{2}}{T_{1}}=\left(\frc{V_{1}}{V_{2}}\right)^{\gamma-1}=r^{\gamma-1}=8^{1.4-1}=2.297\;\;\Longrightarrow\;\;T_{2}=689.10\text{ K}
+\end{displaymath}
+and
+\begin{displaymath}
+\frc{P_{1}}{P_{2}}=\left(\frc{V_{1}}{V_{2}}\right)^{\gamma}=18.379\;\Longrightarrow P_{2}=18.379\text{ bar}
+\end{displaymath}
+
+\item {\it constant volume (2--3):} heat added: $C_{v}\left(T_{3}-T_{2}\right)=1500\Longrightarrow T_{3}=2772.4\text{ K}$ and 
+\begin{displaymath}
+\frc{P_{2}}{T_{2}}=\frc{P_{3}}{T_{3}}\Longrightarrow P_{3}=73.94\text{ bar}
+\end{displaymath}
+
+\item {\it adiabatic expansion (3--4):}
+\begin{displaymath}
+\frc{T_{3}}{T_{4}}=\left(\frc{V_{4}}{V_{3}}\right)^{\gamma-1}=r^{\gamma-1}\;\Longrightarrow T_{4}=1206.9\text{ K}
+\end{displaymath}
+and
+\begin{displaymath}
+P_{3}V_{3}^{\gamma}=P_{4}V_{4}^{\gamma}\;\Longrightarrow P_{4}=4.023\text{ bar}
+\end{displaymath}
+
+\item {\it Specific work} = heat added - heat rejected
+\begin{displaymath}
+W= C_{v}\left(T_{3}-T_{2}\right)-C_{v}\left(T_{4}-T_{1}\right)=847\text{ kJ/kg}
+\end{displaymath}
+
+\item {\it Thermal efficiency:}
+\begin{displaymath}
+\eta_{\text{Otto}}=1- \frc{1}{r^{\gamma-1}} = 0.5647
+\end{displaymath}
+%
+\end{itemize}
+
+
+%%%
+%%%
+%%%
+\end{enumerate}
+
+\clearpage
+
+
+\begin{enumerate}[label=\bfseries Problem \arabic*]
+
+%%%
+%%% Carnot: Example 13.6 (Rajput)
+%%%
+\item {\it An ideal engine operates on the Carnot cycle using a perfects gas as the working fluid. The ratio of the greatest to the least volume is fixed as $x : 1$, the lower temperature of the cycle is also fixed, but the volume compression ratio $r$ of the reversible adiabatic compression is variable. The ratio of the specific heats is $\gamma$. Show that if the work done in the cycle is a maximum then,
+\begin{displaymath}
+  \left(\gamma-1\right)\ln\frc{x}{r}+\frc{1}{r^{\gamma-1}}-1=0
+\end{displaymath}
+}
+
+%%%
+%%% Otto: Example 13.10 (Rajput)
+%%%
+\item {\it An ideal Otto cycle has a volumetric compression ratio of 6, the lowest cycle pressure of 0.1 MPa and operates between temperature limits of 300.15 and 1842.15 K.
+\begin{enumerate}
+\item \label{a}Calculate the temperature and pressure after the isentropic expansion;
+\item Since the values in (\ref{a}) are well above the lowest cycle operating conditions, the expansion process was allowed to continue down to a pressure of 0.1 MPa. Which process is required to complete the cycle ? 
+\item  Determine the percentage in which the cycle efficiency has improved.
+\end{enumerate}
+}
+
+%%%
+%%% Diesel: Example 13.22 (Rajput)
+%%%
+\item {\it The volume ratios of compression and expansion for a diesel engine are 15.3 and 7.5, respectively. The pressure and temperature at the beginning of the compression are 1 bar and 27 $^{\text{ o}}$C. Assuming an ideal engine, determine the (a) MEP, (b) ratio of maximum pressure to MEP and (c) cycle efficiency. Also find the fuel consumption per kWh if the indicated thermal efficiency is 0.5 of ideal efficiency, mechanical efficiency is 0.8 and the calorific value of oil 42000 kJ/kg. }
+
+
+
+%%%
+%%% Dual: Prob 9.33 (Saphiro) 
+%%%
+\item {\it An air-standard dual cycle has a compression ratio of 9. At the beginning of compression, $P_{1}=100\text{ kPa}$, $T_{1}=300\text{ K}$ and $V_{1}=14\text{ liters}$. The heat addition is 22.7 KJ with one-half added at constant volume and one-half added at constant pressure. Determine: (a) the temperatures at the end of each heat addition process; (b) the net work of the cycle per unit mass of air; (c) the thermal efficiency and; (d) MEP.}
+
+
+\end{enumerate}
+
+
+\end{document}
