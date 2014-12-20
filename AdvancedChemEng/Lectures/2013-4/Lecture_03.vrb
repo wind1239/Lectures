@@ -1,0 +1,14 @@
+\frametitle {Triangular Systems: Algorithm for Forward-Substitution}
+    \begin{algorithm}[H]\caption{Forward-substitution method based on lower $\bm{L}$ matrix.}
+      \KwData{Given: $n$, $L(1:n,1:n)$ and $d(1:n)$}
+      \KwResult{We want to obtain $x(1:n)$}
+      {\bf initialisation}\;
+      {\bf Calculate:} $x(1) = b(n) / L(1,1)$\;
+      \For{$i\leftarrow 2$ \KwTo $n$}{
+         $Sum \leftarrow 0$\;
+         \For{$j\leftarrow 1$ \KwTo $i-1$}{
+           $Sum \leftarrow Sum + L(i,j) * x(j)$;
+         }
+         $x(i)\leftarrow \left(b(i)- Sum\right)/L(i,i)$;
+      }  \label{linalg:algforwardsubst}
+    \end{algorithm}

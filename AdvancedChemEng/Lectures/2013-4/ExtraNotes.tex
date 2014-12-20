@@ -1,0 +1,426 @@
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\usepackage{graphicx,wrapfig}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+ 
+\usepackage{enumerate}%,enumitem}% Align table columns on decimal point
+
+%\usepackage{pifont}
+%\usepackage{subfigure}
+%\usepackage{subeqnarray}
+%\usepackage{ifthen}
+ 
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+%\usepackage{pdflscape}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {21.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{EG5597 -- Advanced Chemical Engineering}}} 
+\rhead[] {{\text{\small{Computational Linear Algebra}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+\lfoot[]{{\it Computational Methods for Fluid Dynamics}}
+%\cfoot[\thepage]{\thepage}
+\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+\newenvironment{frcseries}{\fontfamily{frc}\selectfont}{}
+\newcommand{\textfrc}[1]{{\frcseries#1}}
+
+%\usepackage{enumitem}%
+%\newlist{ExList}{enumerate}{1}
+%\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+%\newlist{ProbList}{enumerate}{1}
+%\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+
+\begin{document}
+
+\begin{flushright}
+{\bf \today}
+\end{flushright}
+
+
+\begin{center}
+{\bf {\Large Appendix: Brief Review of Vector Space}} 
+\end{center}
+
+
+\section{Introduction}
+
+A set of linear equations can be written in the form,
+\begin{eqnarray}
+a_{11}x_{1} + a_{12}x_{2} + & \cdot\cdot\cdot & + a_{1n}x_{n} = b_{1} \nonumber \\
+a_{21}x_{1} + a_{22}x_{2} + & \cdot\cdot\cdot & + a_{2n}x_{n} = b_{2} \nonumber \\
+                          & \cdot\cdot\cdot &                     \nonumber \\
+a_{m1}x_{1} + a_{m2}x_{2} + & \cdot\cdot\cdot & + a_{mn}x_{n} = b_{m}  \label{app:system1}
+\end{eqnarray}
+where $x_{j},\;j=1, ...,  n$ is a set of unkonws, $b_{i},\;i=1, ..., m$ are the right-hand side coefficients, and $a_{ij}$ are the coefficients of the system. If $n=m$ this system of linear equations can be represented in a matricial form as
+\begin{equation}
+\begin{pmatrix}
+a_{11} & a_{12} & a_{13} & \cdot\cdot\cdot\cdot\cdot\cdot & a_{1n} \\
+a_{21} & a_{22} & a_{23} & \cdot\cdot\cdot\cdot\cdot\cdot & a_{2n} \\
+\cdot\cdot\cdot & \cdot\cdot\cdot  & \cdot\cdot\cdot & \cdot\cdot\cdot\cdot\cdot\cdot & \cdot\cdot\cdot \\
+a_{n1} & a_{n2} & a_{n3} & \cdot\cdot\cdot\cdot\cdot\cdot & a_{nn} \\
+\end{pmatrix}
+\begin{pmatrix}
+x_{1} \\ x_{2} \\ \cdot\cdot\cdot \\  x_{n}
+\end{pmatrix}
+=
+\begin{pmatrix}
+b_{1} \\ b_{2} \\ \cdot\cdot\cdot \\  b_{n}
+\end{pmatrix}\label{app:sysmat1}
+\end{equation} 
+or simply
+\begin{equation} 
+  \underline{\underline{A}}\;\underline{x}=\underline{b}\label{app:sysmat1}
+\end{equation}
+
+We can use the traditional notation $a_{ij}$ to refer to the element in the $i^{th}$ row and $j^{th}$ column of matrix $A$.
+
+
+\section{A Few Useful Properties of Matrices}
+
+\subsection{Shape of Matrices}
+
+\begin{description} 
+%
+\item[Column Matrix:] $\begin{pmatrix}a_{11}\\a_{21}\\a_{31}\\\vdots\\a_{n1}\end{pmatrix}$
+%
+\item[Row Matrix:] $\begin{pmatrix}a_{11}\; a_{12}\; a_{13}\; \cdots a_{1n}\end{pmatrix}$
+%
+\item[Null or Zero Matrix:] $\begin{pmatrix} 0 & 0 & \cdots & 0 \\ 0 & 0 & \cdots & 0 \\ \cdots & \cdots & \cdots & \cdots \\ 0 & 0 & \cdots & 0\end{pmatrix}$
+%
+\item[Identity Matrix:] $I = \begin{pmatrix} 1 & 0 & \cdots & 0 \\ 0 & 1 & \cdots & 0 \\ \cdots & \cdots & \cdots & \cdots \\ 0 & 0 & \cdots & 1\end{pmatrix}$ or $a_{ij}  = \begin{cases} 1 & \mbox{if } i=j \\0 & \mbox{otherwise} \end{cases}$ 
+%
+\item[Diagonal Matrix:] $\begin{pmatrix} d_{11} & 0 & \cdots & 0 \\ 0 & d_{22} & \cdots & 0 \\ \cdots & \cdots & \cdots & \cdots \\ 0 & 0 & \cdots & d_{nn}\end{pmatrix}$ or $a_{ij}  = \begin{cases} d_{ii} & \mbox{if } i=j \\0 & \mbox{otherwise} \end{cases}$
+%
+\item[Upper Triangular Matrix:] $\begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ 0 & a_{22} & \cdots & a_{2n} \\ \cdots & \cdots & \cdots & \cdots \\ 0 & 0 & \cdots & a_{nn}\end{pmatrix}$ or $a_{ij}  = \begin{cases} a_{ij} & \mbox{if } i\leq j \\0 & \mbox{otherwise} \end{cases}$
+%
+\item[Lower Triangular Matrix:] $\begin{pmatrix} a_{11} & 0 & \cdots & 0 \\ a_{21} & a_{22} & \cdots & 0 \\ \cdots & \cdots & \cdots & \cdots \\ a_{n1} & a_{n2} & \cdots & a_{nn}\end{pmatrix}$ or $a_{ij}  = \begin{cases} a_{ij} & \mbox{if } i\geq j \\0 & \mbox{otherwise} \end{cases}$
+%
+\item[Dense Matrix:] $\begin{pmatrix} a_{11} & a_{12} & a_{13} & a_{14} \\ a_{21} & a_{22} & 0 & a_{24} \\ a_{31} & 0 & a_{33} & a_{34} \\ a_{41} & a_{42} & a_{43} & a_{44}\end{pmatrix}$ 
+%
+\item[Sparse Matrix:] $\begin{pmatrix} a_{11} & 0  & a_{13} & 0 \\ 0 & a_{22} & 0 & a_{24} \\ 0 & 0 & 0 & a_{34} \\ 0 & 0 & 0 & a_{44}\end{pmatrix}$ 
+%
+\item[Symmetric Matrix:] $\underline{\underline{A}} = \underline{\underline{A}}^{\text{T}}$, i.e., $a_{ij}=a_{ji}\;\;\forall i,j$, e.g.,
+$A=\begin{pmatrix} 3 & 1 & 0 & 4 \\ 1 & 9 & 5 & 2 \\ 0 & 5 & 8 & 6 \\ 4 & 2 & 6 & 7 \end{pmatrix}\;= A^{\text{T}}$
+\end{description}  
+
+\subsection{Invertible Matrix}
+An $n\times n$ square matrix $A$ is called {\bf invertible} (or nonsingular) if there exists a matrix $A^{-1}$ such that,
+\begin{displaymath}
+A^{-1}A = I \;\;\text{ and } \;\; AA^{-1}= I
+\end{displaymath}
+Not {\bf all matrices have inverses} -- this property is crucial when we are solving large linear systems -- $Ax=b$. If we multiply the matricial equation by $A^{-1}$,
+\begin{eqnarray}
+&& Ax=b \;\;\;\times A^{-1} \nonumber \\
+&& A^{-1}Ax = A^{-1}b \nonumber \\
+&& Ix = A^{-1}b \Longrightarrow \;\;x = A^{-1}b
+\end{eqnarray}
+
+\subsection{Operations with Invertible and Transposed Matrices}
+\begin{itemize}
+\item $\left(A^{T}\right)^{T} = A$
+\item $\left(A^{-1}\right)^{-1} = A$
+\item $\left(A^{-1}\right)^{T} = \left(A^{T}\right)^{-1} = A^{-T}$
+\item If $A=BCD$, then $A^{T} = D^{T}C^{T}B^{T}$ and $A^{-1} = D^{-1}C^{-1}B^{-1}$
+\item $\left(A+B\right)^{T} = A^{T} + B^{T}$
+\item $\left(A+B\right)^{-1} \neq A^{-1} + B^{-1}$
+\end{itemize}
+
+%%%
+%%%
+%%%
+\section{Norms}
+{\bf Norms} are mathematical entities used to measure the size of a vector or matrix. Norms can $\lq$diagnose' which vector or matrix is {\it smaller} or {\it larger}.
+
+\subsection{Vector Norms}\label{app:NormDef}
+Let $\mathcal{S}$ be a vector space of finite-/infinite-dimension, and let $\left|\left|\cdot\right|\right|$ denote a mapping $\mathcal{S}\rightarrow\mathbb{R}$ with the following properties:
+\begin{enumerate}[(i)]
+\item\label{app:condvec1} For any nonzero {\bf v}: $||v||>0$
+\item\label{app:condvec2} For any scalar $\lambda$: $||\lambda v|| = |\lambda| ||v||$
+\item\label{app:condvec3} For any two vectors {\bf u} and {\bf v}, the {\it triangle inequality} holds: $||u+v||\leq ||u|| + ||v||$
+%\item Positivity: $\left|\left|v\right|\right|\ge 0,\;\forall v\in\mathcal{S}$ with $\left|\left|v\right|\right|=0$ iff (if and only if)  $v\equiv 0$;
+%\item $||\alpha v||=|\alpha|||v||,\;\forall v\in \mathcal{S},\;\alpha\in\mathbb{R}$;
+%\item Triangle Inequality: $||v+w||\leq ||v|| + ||w||,\;\forall v,w\in\mathcal{S}$
+\end{enumerate} 
+Then $||\cdot||$ is called a {\bf norm} for $\mathcal{S}$. An $L_{P}$ norm, commonly denoted as $||\cdot||_{p}$, is defined for $p\geq 1$ as
+\begin{equation}
+||x||_{p} = \sqrt[p]{\sum\limits_{i=1}^{n}|x_{i}|^{p}}\label{app:pnorm}
+\end{equation}
+The norm in Eqn.~\ref{app:pnorm} is often called the {\it Minkowski or H\"older norm}. The $L_{p}$ norm above satisfies all 3 conditions defined in (\ref{app:condvec1}-\ref{app:condvec3}). The most common $L_{p}$ norms for vectors are:
+\begin{enumerate}[(a)]  
+\item {\it Manhattan norm} or \textfrc{l}$_{1}$: $\left|\left|x\right|\right|_{1}=\displaystyle\sum\limits_{i=1}^{n}\left|x_{i}\right|$
+\item {\it Euclidean norm} or \textfrc{l}$_{2}$: $\left|\left|x\right|\right|_{2}=\sqrt{\displaystyle\sum\limits_{i=1}^{n}\left|x_{i}\right|^{2}}$
+\item {\it Chebyshev norm} or {\it Infinity norm} or {\it Max norm} or \textfrc{l}$_{\infty}$: $\left|\left|x\right|\right|_{\infty}=\lim\limits_{p\rightarrow\infty}\sqrt[p]{\displaystyle\sum\limits_{i=1}^{n}\left|x_{i}\right|^{p}} = \displaystyle\max\limits_{1\leq i\leq n}\left|x_{i}\right|$
+\end{enumerate}
+
+\noindent
+{\bf Example:} For,
+\begin{enumerate}[(a)]
+\item $\bm{u}=\left(2\;3\;6\right)^{T} \Longrightarrow$ $||u||_{1}=11$, $||u||_{2}=7$ and $||u||_{\infty}=6$
+\item $\bm{v}=\left(3\;4\;5\right)^{T} \Longrightarrow$ $||v||_{1}=12$, $||v||_{2}=7.07$ and $||v||_{\infty}=5$
+\end{enumerate}
+
+\subsection{Matrix Norms}\label{app:MatDef}
+The {\it matrix norm} is also represented by $||\cdot||$ and must satisfy the following properties (similar to {\it vector norms}),
+\begin{enumerate}[(i)]
+\item For any nonzero matrix $\bm{A}$: $||\bm{A}||>0$
+\item For any scalar $\lambda$: $||\lambda\bm{A}||=|\lambda| ||\bm{A}||$
+\item For any two matrices, $\bm{A}$ and $\bm{B}$, 
+\begin{itemize}
+\item the {\it triangle inequality} holds: $||\bm{A}+\bm{B}||\leq||\bm{A}||+||\bm{B}||$
+\item the {\it consistency property} holds: $||\bm{A}\bm{B}||\leq ||\bm{A}|| ||\bm{B}||$
+\end{itemize}
+\end{enumerate}
+The {\it vector norms}, defined in Section~\ref{app:NormDef}, have the counterparts the {\it matrix norms} as,
+\begin{enumerate}[(a)]
+\item {\it 1-norm} (i.e., maximum absolute column sum of the matrix): $\left|\left|\bm{A}\right|\right|_{1}=\displaystyle\max\limits_{1\leq j\leq n}\sum\limits_{i=1}^{n}\left|a_{ij}\right|$
+\item {\it 2-norm} or {\it Spectral norm}: $\left|\left|\bm{A}\right|\right|_{2}=\begin{cases}\lambda_{\text{max}} & \mbox{ if } \bm{A}=\bm{A}^{T} \\ \sigma_{\text{max}} & \mbox{ if } \bm{A}\neq\bm{A}^{T}\end{cases}$. $\lambda_{\text{max}}$ is the largest {\it eigenvalue} of $\bm{A}$ and $\sigma_{\text{max}}=\sqrt{\lambda_{\text{max}}\left(\bm{A}^{T}\bm{A}\right)}$
+\item {\it Infinity norm} (i.e., maximum absolute row sum of the matrix): $\left|\left|\bm{A}\right|\right|_{\infty}=\displaystyle\max\limits_{1\leq i\leq n}\sum\limits_{j=1}^{n}\left|a_{ij}\right|$
+\item {\it Frobenius norm} or {\it Hilbert-Schmidt norm}: $\left|\left|\bm{A}\right|\right|_{F}=\sqrt{\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}\left|a_{ij}\right|^{2}}$
+\end{enumerate}   
+
+\noindent
+{\bf Example:} For matrix $\bm{A}=\begin{pmatrix} 2 & -1 \\ 3 & 5 \end{pmatrix}$:
+\begin{itemize}
+\item $||\bm{A}||_{1}=\max\left(|2|+|3|,|-1|+|5|\right)=\max\left(5,6\right)=6$
+\item $||\bm{A}||_{\infty}=\max\left(|2|+|-1|,|3|+|5|\right)=\max\left(3,8\right)=8$
+\item $||\bm{A}||_{F}=\sqrt{|2|^{2}+|-1|^{2}+|3|^{2}+|5|^2}=\sqrt{39}=6.245$
+\item $||\bm{A}||_{2}=\max\left[\sqrt{\lambda\left(\bm{A}^{T}\bm{A}\right)}\right]=\max(2.228;5.834)=5.834$
+\end{itemize}
+
+
+
+
+\end{document}

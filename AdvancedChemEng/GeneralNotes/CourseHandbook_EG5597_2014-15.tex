@@ -1,0 +1,520 @@
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\usepackage{graphicx,wrapfig,pdfpages}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate}%,enumitem}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+
+
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{subeqnarray}
+\usepackage{ifthen}
+
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+\usepackage{lastpage}
+%\usepackage{pdflscape}
+
+
+%\usepackage{booktabs}
+%\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{Course information 2014/15}}} 
+\rhead[] {{\text{\small{EG5597}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+%\lfoot[]{Dr Jeff Gomes}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+%\cfoot[\thepage]{\thepage}
+%\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+%\newlist{ExList}{enumerate}{1}
+%\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+%\newlist{ProbList}{enumerate}{1}
+%\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+
+\begin{document}
+
+%%%
+%%% FIRST PAGE
+%%%
+\begin{center}
+{\large {\bf UNIVERSITY OF ABERDEEN, SCHOOL OF ENGINEERING}}
+\medskip
+
+{\large {\bf COURSE INFORMATION SESSION 2014/15}}
+\bigskip 
+
+{\Large {\bf EG5597 Advanced Chemical Engineering}}
+\end{center}
+
+\bigskip
+\begin{flushleft}
+
+{\large {\bf CREDIT POINTS:}}\\
+\hspace{0.8cm}15
+\medskip
+
+{\large {\bf COURSE COORDINATOR: }}\\
+\hspace{0.8cm}Dr Jeff Gomes \hspace{1.5cm} \href{mailto:jefferson.gomes@abdn.ac.uk}{jefferson.gomes@abdn.ac.uk}
+\medskip 
+
+{\large {\bf COURSE CONTRIBUTORS:}}\\
+\hspace{0.8cm}Prof Tom Baxter, Dr Panagiotis Kechagiopoulos and Dr Jeff Gomes
+\medskip
+
+{\large {\bf SCRUTINER:}}\\
+\hspace{0.8cm}Dr Euan Bain
+\medskip  
+
+{\large {\bf PRE-REQUISITE:}}\\
+EG3570 Separation Processes \\
+EG3575 Unit Operations and Control
+%\textcolor{red}{EG3571 Advanced Unit Operations (what replaced this course?)}
+\medskip
+
+{\large {\bf CO-REQUISITE:}}\\
+\hspace{0.8cm}None
+\medskip 
+
+{\large {\bf COURSES FOR WHICH THIS COURSE IS A PRE-REQUISITE:}}\\
+\hspace{0.8cm}None
+\end{flushleft}
+
+\clearpage
+
+%%%
+%%% Section
+%%%
+\section{AIMS}
+To expose chemical engineering students to areas of cutting edge of research in the discipline so they have skills in the topics likely to challenge chemical engineers in the period 2010-2020.
+
+%%%
+%%% Section
+%%%
+\section{DESCRIPTION}
+This research-led course will be based on 3 advanced chemical engineering topics which will vary from year depending on research direction of the professional group and the challenges facing the discipline. The topics have been designed to fit with the Institution of Chemical Engineers vision for the discipline $\lq$A Roadmap for 21st Century Chemical Engineering'.  Examples could include: Energy Storage $\&$ Power Generation.; Electrochemical processes; Heavy Oil properties and behaviours; Enhanced Oil Recovery (EOR); Emulsion chemistry; Spectroscopy and molecular characterisation of advanced materials and processes; Multiphase flow; Carbon-Capture and Storage; Fuel Cells; Environmental Remediation and Water Treatment; Complex Systems; Process Control; Bio-fuels; Sustainable Processes; Combustion science; Deepwater oil and gas production.
+
+The course delivery will reflect its research-led nature with each topic being covered via a mixture of lectures, workshops, laboratory experiments and simulation. The work will progress through a set of continuously assessed exercises with each student using their skills in core-chemical engineering subjects to make progress on relatively open problems. This may involve developing new thinking in the subject area which students will be challenged to achieve.
+
+
+%%%
+%%% Section
+%%%
+\section{LEARNING OUTCOMES}
+By the end of the course students should:
+\begin{enumerate}[{\bf A.}]
+\item {\bf have knowledge and understanding of:}
+  \begin{enumerate}
+    \item 3 research areas in Chemical Engineering;
+    \item The theory and key issues associated with each topic;
+    \item Future challenges in Chemical Engineering 2010-2020.
+  \end{enumerate}
+\item {\bf have gained intellectual skills so that they are able to:}
+  \begin{enumerate}
+    \item Apply their fundamentals in transport phenomenon, reaction kinetics, separation and control to advanced research problems;
+    \item Research novel topics and identify key theoretical and experimental challenges;
+    \item Carry out theoretical development, simulation, and experimental design in each of the topic areas.
+  \end{enumerate}
+\item {\bf have gained practical skills so that they are able to:}
+  \begin{enumerate}
+    \item Design equipment;
+    \item Undertake assessment of novel equipment and proto-types;
+    \item Undertake process safety evaluations related to the topics.
+  \end{enumerate}
+\item {\bf have gained or improved transferable skills so that they are able to:}
+  \begin{enumerate}
+    \item Research complex topics and make informed assessments;
+    \item Solve open engineering problems;
+    \item Organise a structured technical investigation.
+  \end{enumerate}
+\end{enumerate}
+
+
+%%%
+%%% Section
+%%%
+\section{SYLLABUS}
+\begin{enumerate}[{\bf 1.}]
+\item {\bf Topic 1:} Energy Efficiency (9 lectures -- T. Baxter);
+\item {\bf Topic 2:} Advanced Process Control (9 lectures -- P. Kechagiopoulos);
+\item {\bf Topic 3:} Computational Methods for Fluid Dynamics (12 lectures -- J. Gomes).
+\end{enumerate}
+
+\medskip
+This is a guide to the taught content of EG5597 and it should be noted that this is subject to change at the discretion of the course instructor. In addition to the lectures there may be seminars given by invited external experts.
+
+
+%%%
+%%% Section
+%%%
+\section{TIMETABLE}
+30 hours of contact time (lectures, workshops, presentations). Up to 10 hours of tutorials. Detailed times are provided during course contact time. % in Table~\ref{table:timetable}.
+
+
+%%%
+%%% Section
+%%%
+\section{ASSESSMENT}
+
+{\bf 1$^{st}$ attempt:} 1 three-hour written examination paper (50$\%$) and continuous assessment (50$\%$). 
+
+{\bf Resit:} A three-hour resit paper will be provided for candidates who fail the course at the first attempt. 
+
+\medskip
+
+The continuous assessment will be based on the submission of engineering reports detailing the computational work. Detailed information relating to the format of reports will be given during course contact time.
+
+\medskip
+
+{\bf Penalties} for late or non-submission of in-course work are defined in the Undergraduate Student Handbook which is available on the MyAberdeen pages for each course. If you are absent on medical grounds or other good cause, the University's policy on requiring a medical or self-certificate can be found at:
+\begin{center}
+\href{www.abdn.ac.uk/staffnet/teaching/aqh/appendix7x5.pdf}{www.abdn.ac.uk/staffnet/teaching/aqh/appendix7x5.pdf}
+\end{center}
+You are strongly advised to make yourself fully aware of your responsibilities if absent due to illness or other good cause. In particular, you are asked to note when self-certification of absence is permitted or if you are required to submit a medical certificate. All absences (medical or otherwise) should be reported through MyAberdeen, where you can access a student absence form for completion. MyAberdeen will allow you to upload any required supporting documentation, such as a medical certificate. 
+
+\medskip
+
+
+%%%
+%%% Section
+%%%
+\section{FORMAT OF EXAMINATION}
+Candidates must attempt {\bf ALL FIVE} questions. All questions carry 20 marks. Notes:
+\begin{enumerate}[(i)]
+\item Candidates are permitted to use approved calculators only;
+\item Candidates are permitted to use the Engineering Mathematics Handbook, which will be made available to them.
+\end{enumerate}
+
+\medskip
+
+{\large {\bf PLEASE NOTE THE FOLLOWING}}
+\begin{enumerate}[(a)]
+\item You must not have in your possession at the examination any material other than that expressly permitted by the examiner. Where this is permitted, such material must not be amended, annotated or modified in any way.
+\item During the course of the examination, you must not have in your possession or attempt to access any material that could be determined as giving you an advantage in the examination.
+\item You must not attempt to communicate with any candidate during the examination, either orally or by passing written material, or by showing material to another candidate, nor must you attempt to view another candidate's work.
+\item {\bf Approved Calculators in Examinations:}  {\it Starting in academic year 2014-15, the School of Engineering list of approved calculators for use in examinations will consist of a single calculator, the Casio FX-991 ES PLUS.  So from September 2014 the only calculator that you may take to your desk in an examination is this Casio calculator.  Note that examiners will be aware of the capabilities of the machine and will assume that you are able to operate this calculator in an examination.  All students should ensure that they have such a calculator and that they are familiar with its operation.}
+\end{enumerate}
+
+\bigskip
+
+{\bf Failure to comply with the above will be regarded as cheating and may lead to disciplinary action as indicated in the Academic Quality Handbook \href{http://www.abdn.ac.uk/registry/quality/}{(http://www.abdn.ac.uk/registry/quality/)}. 
+
+\medskip
+
+Your attention is drawn to key University policies which can be accessed via,
+\begin{center}
+\href{https://abdn.blackboard.com/bbcswebdav/institution/Policies}{https://abdn.blackboard.com/bbcswebdav/institution/Policies}.
+\end{center}
+It is important to make yourself familiar with the University's policies and procedures on the subjects covered.}
+
+
+%%%
+%%% Section
+%%%
+\section{FEEDBACK}
+\begin{enumerate}[(a)]
+\item Students can receive feedback on their progress with the Course on request at the weekly tutorial/feedback sessions.
+\item Students are given feedback through formal marking and return of practical reports.
+%\item There will be a test exam at the end of the teaching session. The test exam will be marked (but is not part of the continuous assessment) and the test exam paper questions will be discussed in the Revision week.
+\item Students requesting feedback on their exam performance should make an appointment within 2 weeks of the publication of the exam results.
+\end{enumerate}
+
+
+%%%
+%%% Section
+%%%
+\section{STUDENT MONITORING}
+Attention is drawn to Registry's guidance on student attendance and monitoring at:
+\begin{center}
+\href{http://www.abdn.ac.uk/registry/monitoring}{http://www.abdn.ac.uk/registry/monitoring}
+\end{center}
+1.1 of this guidance says that students will be reported as $\lq$at risk' if the following criteria are met. {\it Either}
+\begin{itemize}
+\item Absence for a continuous period of 10 working days or 25$\%$ of a course (whichever is less) without good cause being reported;
+\item {\it or} Absence from two small group teaching sessions for a course without good cause (e.g., tutorial, laboratory class, any other activity where attendance is  expected and can be monitored);
+\item {\it or} Failure to submit a piece of summative or a substantial piece of formative in-course assessment for a course, by the stated deadline (eg class test, formative essay).
+\end{itemize}
+For the purposes of this, course attendance will be monitored at the tutorial and lab sessions and the formative in-course assessment are the lab reports.
+
+
+%%%
+%%% Section
+%%%
+\section{RECOMMENDED READING}
+
+Specific reading will be defined by Contributors at the start of each topic. Use of research tools
+and publications available through www.scopus.com
+
+\bigskip
+
+
+\begin{center}
+{\large {\bf INSTITUTIONAL INFORMATION}}
+\end{center}
+
+
+Students are asked to make themselves familiar with the information on key institutional policies which have been made available within {\it MyAberdeen},
+\begin{center}
+\href{https://abdn.blackboard.com/bbcswebdav/institution/Policies}{(https://abdn.blackboard.com/bbcswebdav/institution/Policies)}.
+\end{center}
+These policies are relevant to all students and will be useful to you throughout your studies. They contain important information and address issues such as what to do if you are absent, how to raise an appeal or a complaint and how seriously the University takes your feedback. 
+\medskip
+
+These institutional policies should be read in conjunction with this programme and/or course handbook, in which School and College specific policies are detailed. Further information can be found on the \href{http:www.abdn.ac.uk/infohub/}{University's Infohub webpage} or by visiting the {\it Infohub}.
+
+\begin{comment}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ c || c | c c c | c }
+\hline\hline
+\multicolumn{2}{c}{\bf Weeks/Time} & {\bf 10-11h} & {\bf 12-14h} & {\bf 13-14h} & {\bf 15-16h} \\
+\hline\hline
+\multirow{2}{*}{10-20} & Monday    &             &  $\bullet$   &            &             \\
+                       & Tuesday   & $\bullet$   &              &   $\circ$  &             \\
+\hline 
+\multirow{2}{*}{13-15} & Monday    &             &              &            &   $\otimes$ \\
+                       & Thursday  &             &              &            &   $\odot$    \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Venues for 2014/15 course: $\bullet$: Cruickshank (Auris Lecture Theatre), $\circ$: St Mary's (G3), $\otimes$: Edward Wright (Comp S84), $\odot$: Zoology (Comp G21).}
+\label{table:timetable}
+\end{table}
+\end{comment}
+
+\end{document}
