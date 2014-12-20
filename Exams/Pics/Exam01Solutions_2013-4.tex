@@ -1,0 +1,477 @@
+
+
+
+\documentclass[12pt,twoside]{report}
+
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{natbib,enumerate}
+%\usepackage{fancyhdr} %%%%
+\usepackage{color}
+\usepackage{fullpage}
+\usepackage{helvet}
+%\pagestyle{fancy}%%%%
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+% Added macros
+\newcommand{\mathbi}[1]{\boldsymbol{ #1 }}
+\newcommand{\fracp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\fracd}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\renewcommand{\d}[1]{\mathrm{d} #1}
+\newcommand{\Ma}{\mathrm{M\! a}}
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\uline}[1]{\rule[0pt]{#1}{0.4pt}}% Fill this blank
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\begin{document}
+
+
+\setcounter{page}{1}
+
+\vfill
+
+\pagebreak
+
+
+\begin{center}
+{\Large Solution of the Problems -- Exam (May 2013/14)}
+\end{center}
+
+\begin{description}
+
+%%%
+%%% Module 01
+%%%
+\item [Question 1:] Reheat and Regenerative Rankine cycle with two turbines:
+%\renewcommand{\theenumi}{\Alph{enumi}}
+\begin{enumerate}[(a)]
+
+\item \label{Q1}In order to fill the Table we need to calculate the thermodynamic properties for each stage of the cycle 
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.cm,clip]{./Pics/Exam_Reheat_Regenerative_Rankine_Cycle}
+\vspace{-.5cm}
+\caption{ Reheat and regenerative Rankine cycle with 2 turbines.}
+\label{exam_mod02_rankinecycle}
+\end{center}
+\end{figure}
+
+\begin{description}
+
+%%%
+\item [Stage 1:] The fluid leaving the boiler towards the first turbine is at 120 bar and 565$^{o}$C. This is well above the saturation temperature $\left(T_{\text{sat}}=324.60^{\text{o}}\text{C}\right)$ and we can thus confirm that the fluid is \textcolor{red}{superheated steam} \textcolor{blue}{(1 Mark)}. At such pressure, the superheated steam tables (SHST) results in (through linear interpolation) \textcolor{red}{$H_{1}=3518.17\frc{kJ}{kg}$} \textcolor{blue}{(1 Mark)} and \textcolor{red}{$S_{1}=6.6983\frc{kJ}{kg.K}$} \textcolor{blue}{(1 Mark)}.
+
+%%%
+\item [Stage 2:] Isentropic expansion in {\it HP Turbine} at $P_{2}=3\;\text{bar} \Leftrightarrow \;\; S_{2}=S_{1}=6.6983\frc{kJ}{kg.K}$. The fluid is at wet vapour state. The quality of the steam is
+\begin{displaymath}
+\textcolor{red}{x_{2}}=\frc{S_{2}-S_{f}}{S_{g}-S_{f}}=\frc{6.6983-1.6716}{6.9909-1.6716}=\textcolor{red}{0.9450}\;\;\textcolor{blue}{(1 Mark)}
+\end{displaymath}
+Now calculating the enthalpy,
+\begin{displaymath}
+x_{2}=\frc{H_{2}-H_{f}}{H_{g}-H_{f}}=0.9450 \Leftrightarrow \textcolor{red}{H_{2}=2605.72\frc{kJ}{kg}}\;\;\textcolor{blue}{(1 Mark)}
+\end{displaymath}
+
+%%%
+\item [Stage 3:] The fluid at $P_{3}=P_{2}=3.0\;\text{bar}$ and $T_{3}=250^{\text{o}}C \left(>> T_{\text{sat}}=133.5^{\text{o}}C\right)$ is superheated steam with $H_{3}=2967.6\frc{kJ}{kg}$ and $S_{3}=7.517\frc{kJ}{kg.K}$.
+
+%%%
+\item [Stage 4:] The steam leaves the boiler towards the LP turbine at $P_{4}=P_{3}=3.0\;\text{bar}$ and $T_{4}=475^{\text{o}}C$ (also as superheated steam) with (via linear interpolation) $H_{4}=3433.33\frc{kJ}{kg}$ and $S_{4}=8.252\frc{kJ}{kg}$.
+
+%%%
+\item [Stage 5:] Isentropic expansion with $P_{5}=0.060\;\text{bar}$ $\left(\text{with }S_{5}=S_{4}\right)$. The quality of the steam is
+\begin{displaymath}
+\textcolor{red}{x_{5}}=\frc{S_{5}-S_{f}}{S_{g}-S_{f}}=\frc{8.252-0.521}{8.330-0.521}=\textcolor{red}{0.99}\;\textcolor{blue}{(1 Mark)}
+\end{displaymath}
+and the enthalpy,
+\begin{displaymath}
+x_{5}=0.99=\frc{H_{5}-H_{f}}{H_{g}-H_{f}}=\frc{H_{5}-151.5}{2567.4-151.5}\Leftrightarrow \textcolor{red}{H_{5}=2543.24\frc{kJ}{kg}}\;\;\textcolor{blue}{(1 Mark)}
+\end{displaymath}
+
+%%%
+\item [Stage 6:] The fluid leaves the condenser at $P_{6}=P_{5}=0.06\;\text{bar}$ is saturated liquid with \textcolor{red}{$H_{6}$}=$H_{f}\left(0.06\;\text{bar}\right)=\textcolor{red}{151.5\frc{kJ}{kg}}$ \textcolor{blue}{(1 Mark)}.
+
+%%%
+\item [Stage 7:] Saturated and incompressible liquid leaving the pump towards the regenerator at $P_{7}=P_{2}=3.0\;\text{bar}$,
+\begin{eqnarray}
+\textcolor{red}{H_{7}}&\approx& H_{6} + V_{6}\left(P_{7}-P_{6}\right) \nonumber \\
+                     &\approx& 151.5 \frc{kJ}{kg} + 0.001006 \frc{m^{3}}{kg}\left(3-0.06\right)\text{bar} \times \frc{10^{5} kg/\left(m.s^{2}\right)}{1\text{ bar }} \times \frc{10^{-3} \frc{kJ}{kg}}{m^{2}/s^{2}}\times \frc{1}{0.61} \nonumber \\
+     &\approx& \textcolor{red}{151.795\;\frc{kJ}{kg}}\;\;\textcolor{blue}{(1\; Mark)} \nonumber
+\end{eqnarray}
+
+%%%
+\item [Stage 8:] Saturated liquid water leaving the regenerator at $P_{8}=3.0\;\text{bar}$ with $H_{8}=H_{f}\left(3.0\;\text{bar}\right)=561.4\frc{kJ}{kg}$ and $V_{8}=0.001068\frc{m^{3}}{kg}$.
+
+%%%
+\item[Stage 9:] Saturated and incompressible liquid at $P_{9}=120\;\text{bar}$,
+\begin{eqnarray}
+\textcolor{red}{H_{9}}&\approx& H_{8} + V_{8}\left(P_{9}-P_{8}\right) \nonumber \\
+                     &\approx& 561.4 \frc{kJ}{kg} + 0.001068 \frc{m^{3}}{kg}\left(120-3\right)\text{bar} \times \frc{10^{5} kg/\left(m.s^{2}\right)}{1\text{ bar }} \times \frc{10^{-3} \frc{kJ}{kg}}{m^{2}/s^{2}}\times \frc{1}{0.61} \nonumber \\
+     &\approx& \textcolor{red}{573.90\;\frc{kJ}{kg}}\;\;\textcolor{blue}{(1\; Mark)} \nonumber
+\end{eqnarray}
+%
+\end{description}
+
+Thus the Table becomes:
+\begin{center}
+\begin{tabular} {||c | c c c c c c || }
+\hline\hline
+{\bf Stage} & {\bf P}    & {\bf T}        & {\bf State}    & {\bf H}             & {\bf S}                  & {\bf Steam}\\
+            & {\bf (bar)}& {\bf ($^{o}$C)} &               & {\bf (kJ.kg$^{-1}$)} & {\bf (kJ.(kg.K)$^{-1}$)}  & {\bf Quality}\\
+\hline\hline
+ {\bf 1 }   & 120        & 565            &{\bf Superheated vapour}&{\bf 3518.17}&{\bf 6.6983}              & --          \\
+ {\bf 2 }   & 3          &  --            &   wet vapour   &{\bf 2605.72}        &   --                     & {\bf 0.9450}   \\
+ {\bf 3 }   & 3          & 250            &   --           & --                  & --                       & --           \\
+ {\bf 4 }   & 3          & 475            &   --           & --                  & --                       & --            \\
+ {\bf 5 }   & 0.06       & --             &   wet vapour   & {\bf 2543.24}       & --                       & {\bf 0.99}     \\
+ {\bf 6 }   & --         & --             &   sat.liquid   & {\bf 151.5}         & --                       & -- \\
+ {\bf 7 }   & 3          & --             &   --           & {\bf 151.8}         & --                       & --     \\
+ {\bf 8 }   & 3          & --             &   --           & --                  & --                       & --           \\
+ {\bf 9 }   & 120        & --             &   --           & {\bf 573.90}        &  --                      & -- \\
+\hline\hline
+\end{tabular}
+\end{center}
+
+
+%%%
+%%%
+\item Energy balance in the regenerator, assuming total mass of water of $\left(m_{\text{T}}=\right)$ 1 kg, and that a fraction, $\mathcal{F}$, is bled-off from the HP turbine to the regenerator, and the remaining water-steam, $1-\mathcal{F}$ is conducted back to the boiler.
+\begin{displaymath}
+m_{\text{T}}H_{8} = \mathcal{F} H_{2} + \left(1-\mathcal{F}\right)H_{7} \Rightarrow \mathcal{F} = 0.1669 kg
+\end{displaymath}
+Thus \textcolor{red}{83.3$\%$} $\left(1-\mathcal{F}\right)$ of the steam was supplied to the LP turbine \textcolor{blue}{(2 Marks)}.
+
+%%%
+%%%
+\item The heat supplied by the boiler $\left(Q_{\text{Boiler}}\right)$ can be calculated through the energy balance,
+\begin{displaymath}
+Q_{\text{Boiler}}=\left[m_{\text{T}} H_{1} + \left(1-\mathcal{F}\right)H_{4}\right] - \left[\left(1-\mathcal{F}\right)H_{3}+m_{\text{T}}H_{9}\right] \Rightarrow \textcolor{red}{Q_{\text{Boiler}}=3332.27 \frc{kJ}{kg}}
+\end{displaymath}
+\textcolor{blue}{(2 Marks)}.
+
+%%%
+%%%
+\item Now, in order to calculate the thermal efficiency of the cycle,
+\begin{displaymath}
+\eta=\frc{W_{Total}}{Q_{Boiler}} = \frc{\sum W_{\text{Turbines}} - \sum W_{\text{Pumps}}}{Q_{\text{Boiler}}}
+\end{displaymath} 
+We need to calculate the work associated with the turbines and pumps.
+\begin{description}
+%
+\item [HP Turbine:] $\textcolor{red}{W_{\text{T,HP}}}=m_{\text{T}}H_{1}-\left[\mathcal{F}H_{2}+\left(1-\mathcal{F}\right)H_{3}\right]=\textcolor{red}{610.97\frc{kJ}{kg}}$ \textcolor{blue}{(1 Mark)}
+%
+\item [LP Turbine:] $\textcolor{red}{W_{\text{T,LP}}}=\left(1-\mathcal{F}\right)\left(H_{4}-H_{5}\right) = \textcolor{red}{741.53\frc{kJ}{kg}}$ \textcolor{blue}{(1 Mark)}
+%
+\item [Pump 1:] $\textcolor{red}{W_{\text{P,1}}}= \left(1-\mathcal{F}\right)\left(H_{7}-H_{6}\right)=\textcolor{red}{0.246\frc{kJ}{kg}}$ \textcolor{blue}{(1 Mark)}
+%
+\item [Pump 2:] $\textcolor{red}{W_{\text{P,2}}}= m_{\text{T}} \left(H_{9}-H_{8}\right) =\textcolor{red}{12.4\frc{kJ}{kg}}$ \textcolor{blue}{(1 Mark)}
+%
+\end{description}
+
+Thus the thermal efficiency of the cycle is,
+\begin{displaymath}
+\textcolor{red}{\eta} = \frc{\sum W_{\text{Turbines}} - \sum W_{\text{Pumps}}}{Q_{\text{Boiler}}} = \frc{1339.76}{3332.27} = \textcolor{red}{0.4021} \;\;\textcolor{blue}{(2 Marks)} 
+\end{displaymath}
+
+
+\end{enumerate}
+
+\clearpage
+
+%%%
+%%% Module 02
+%%%
+\item [Question 2:] \mbox{}\\
+
+\clearpage
+
+%%%
+%%% Module 03
+%%%
+\item [Question 3:]
+
+\clearpage
+
+
+%%%
+%%% Module 04
+%%%
+\item [Question 4:] Figure \ref{Exam01_Prob4} shows the refrigeration cycle operating as a heat pump with R-134a.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=12.0cm,height=8.0cm]{./Pics/Overview_Refrig42}
+\vspace{-2cm}
+\caption{Heat pump cycle (Question 4).}\label{Exam01_Prob4}
+\end{center}
+\end{figure}
+
+
+\begin{enumerate}[(a)]
+%
+\item Calculating all enthalpies and entropies of the cycle:
+\begin{description}
+%%%
+\item [Stage 1:] The refrigerant fluid leaves the evaporator at $P_{1}= 2\;\text{bar}$ and $T_{1}=10^{\text{o}}C >> T_{\text{sat}}=-10.09^{\text{o}}C$, thus the fluid is at {\it superheated vapour} state and with \textcolor{red}{$H_{1}=258.89\frc{kJ}{kg}$} \textcolor{blue}{(1 Mark)} and \textcolor{red}{$S_{1}=0.9898\frc{kJ}{kg.K}$} \textcolor{blue}{(1 Mark)}.
+
+%%%
+\item [Stage 2:] Isentropic compression, \textcolor{red}{$S_{2}=S_{1}$} \textcolor{blue}{(1 Mark)}, and assuming ideal compressor at $P_{2}=14\;\text{bar}$. Via linear interpolation, \textcolor{red}{$H_{2}=303,66\frc{kJ}{kg}$} \textcolor{blue}{(1 Mark)} and $T_{2}=77.08^{\text{o}}C$.
+
+%%%
+\item [Stage 3:] The fluid leaves the condenser at $P_{3}=14\;\text{bar}$ and $T_{3}=15^{\text{o}}C\left( << T_{\text{sat}}=52.4^{\text{o}}C\right)$ is a {\it sub-cooled liquid} with \textcolor{red}{$H_{3}=125.26\frc{kJ}{kg}$} \textcolor{blue}{(1 Mark)} and \textcolor{red}{$S_{3}=0.4453\frc{kJ}{kg.K}$} \textcolor{blue}{(1 Mark)}.
+
+%%%
+\item [Stage 4:] Isenthalpic process, \textcolor{red}{$H_{4}=H_{3}$} \textcolor{blue}{(1 Mark)}, at $P_{4}=2\;\text{bar}$. Calculating the quality of the vapour,
+\begin{displaymath}
+x_{4}=\frc{H_{4}-H_{f}}{H_{g}-H_{f}}=\frc{125.26-36.84}{241.30-36.84}=0.4325
+\end{displaymath}
+and the entropy,
+\begin{displaymath}
+x_{4}=\frc{S_{4}-S_{f}}{S_{g}-S_{f}}=\frc{S_{4}-0.1481}{0.9253-0.1481} \Rightarrow \textcolor{red}{S_{4}=0.4842\frc{kJ}{kg.K}}\;\;\textcolor{blue}{\text{(1 Mark)}}
+\end{displaymath}
+%%%
+\end{description}
+
+%
+\item In order to calculate the volumetric flow rate of heated air, we first need to determine the mass flow rate,
+\begin{eqnarray}
+&&Q_{H} = \dot{m}_{\text{air}}\left(H_{\text{out}}^{\text{air}}-H_{\text{in}}^{\text{air}}\right) = \dot{m}_{\text{air}}C_{p}^{\text{air}}\left(T_{\text{out}}^{\text{air}}-T_{\text{in}}^{\text{air}}\right) \nonumber \\
+&&6\;\text{ton} \times \frc{210\frc{kJ}{\text{min}}}{1\;\text{ton}}\times\frc{1\text{ min }}{60s}=\dot{m}_{\text{air}}\times 1.004\frc{kJ}{kg.K}\left(40-15\right)^{\text{o}}C\nonumber \\
+&&\dot{m}_{\text{air}} =0.8367 \frc{kg}{s} \nonumber 
+\end{eqnarray}
+
+Now for the volumetric flow rate $\left(\text{with }T=40^{\text{o}}C\right.$ and $\left.P=1.01325\text{ bar}\right)$
+\begin{displaymath}
+\dot{V}_{\text{air}}^{\text{out}}=\dot{m}_{\text{air}}V_{\text{air}}^{\text{out}}=\dot{m}_{\text{air}}\frc{RT_{\text{air}}^{\text{out}}}{P_{\text{air}}}\Rightarrow \textcolor{red}{\dot{V}_{\text{air}}^{\text{out}}=7.42\times 10^{-4}\frc{m^{3}}{s}}\;\textcolor{blue}{\text{(3 Marks)}}
+\end{displaymath}
+
+%
+\item The mass flow rate of the refrigerant fluid R-134a can be calculated as,
+\begin{displaymath}
+Q_{H}=\dot{m}_{R}\left(H_{2}-H_{3}\right)\Rightarrow \textcolor{red}{\dot{m}_{R}=0.1177\frc{kg}{s}}\;\textcolor{blue}{\text{(3 Marks)}}
+\end{displaymath}
+
+%
+\item The compressor power,
+\begin{displaymath}
+W_{C}=\dot{m}_{R}\left(H_{2}-H_{1}\right)\Rightarrow \textcolor{red}{W_{C}=5.27\;kW}\;\;\textcolor{blue}{\text{(3 Marks)}}
+\end{displaymath}
+
+%
+\item And the COP,
+\begin{displaymath}
+\textcolor{red}{\text{COP}} = \frc{Q_{H}}{W_{C}}=\textcolor{red}{3.98}\;\;\textcolor{blue}{\text{(3 Marks)}}
+\end{displaymath}
+
+\end{enumerate}
+
+
+
+\clearpage
+
+%%%
+%%% Module 05
+%%%
+\item [Question 5:] 
+
+
+\begin{enumerate}
+
+\item This is a dual combustion cycle and the $TS$ \textcolor{blue}{(2 Marks)} and $PV$ \textcolor{blue}{(2 Marks)} diagrams are:
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=12.0cm,height=8.0cm]{./Pics/InternalCombustion_IdealDualCombustion}
+\end{center}
+\caption{Dual combustion cycle -- $PV$ and $TS$ (rhs) diagrams (Question 5).}
+\end{figure}
+
+
+\item Thermal analysis, for $m$ kg of air:
+\begin{enumerate}%[(a)]
+\item Total heat supplied (2--3 + 3--4): \textcolor{red}{$m\left[C_{v}\left(T_{3}-T_{2}\right) + C_{p}\left(T_{4}-T_{3}\right)\right]$} \textcolor{blue}{(2 Marks)}
+\item Total heat rejected (5--1): \textcolor{red}{$mC_{v}\left(T_{5}-T_{1}\right)$}  \textcolor{blue}{(2 Marks)}
+\item Net Work: \textcolor{red}{$W_{\text{net}}= m\left[C_{v}\left(T_{3}-T_{2}\right) + C_{p}\left(T_{4}-T_{3}\right)-C_{v}\left(T_{5}-T_{1}\right)\right]$} \textcolor{blue}{(2 Marks)}
+\end{enumerate}
+
+\end{enumerate}
+
+\end{description}
+
+%\begin{Large}
+%\include{Module_Questions}
+%\include{Module_03}
+%\include{Module_04}
+%\include{Module_05}
+
+
+\end{document}
