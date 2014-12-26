@@ -1,5 +1,5 @@
 
-default:	Module_01.pdf \
+default:	Module_01-Full.pdf Module_01.pdf \
 		#Tutorial_01.pdf \
 		#Module_02.pdf Tutorial_02.pdf \
 		#Module_03.pdf Tutorial_03.pdf \
@@ -11,6 +11,8 @@ default:	Module_01.pdf \
 		#Module_07.pdf Tutorial_07.pdf \
 		#EquationsList.pdf
 
+
+Module_01-Full.pdf:	Module_01-Full.tex
 Module_01.pdf:		Module_01.tex
 #Tutorial_01.pdf:	Tutorial_01.tex
 #Module_02.pdf:		Module_02.tex

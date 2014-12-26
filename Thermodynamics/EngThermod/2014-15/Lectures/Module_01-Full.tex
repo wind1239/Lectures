@@ -23,7 +23,7 @@
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\shortname}{jefferson.gomes@abdn.ac.uk} 
+\newcommand{\shortname}{jefferson.gomes@abdn.ac.uk}
 \newcommand{\fullname}{Dr Jeff Gomes}
 \institute{School of Engineering}
 \newcommand{\emailaddress}{}%jefferson.gomes@abdn.ac.uk}
@@ -709,73 +709,35 @@
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Thermodynamics Diagrams: Pressure $\times$ Enthalpy $(PH)$ for CO$_{2}$}
-  \begin{center}
-   \begin{figure}
-     \includegraphics[width=8cm,height=7.cm,clip]{./Pics/CO2col}
+ \frametitle{Thermodynamics Diagrams: $PH$ and $TS$}
+   \begin{figure}%
+     \vbox{
+      \hbox{\hspace{.8cm}
+      \includegraphics[width=4.6cm,height=3.8cm,clip]{./Pics/Overview_Refrig18}
+      \hspace{.1cm}
+      \includegraphics[width=4.6cm,height=3.8cm,clip]{./Pics/Overview_Refrig17}}
+      \vspace{-.1cm}
+      \hbox{\hspace{.8cm}
+      \includegraphics[width=4.9cm,height=4.cm,clip]{./Pics/CO2col}
+      \hspace{.1cm}
+      \includegraphics[width=4.6cm,height=3.87cm,clip]{./Pics/water_TS.png}}}
    \end{figure}
-   \end{center}
 \end{frame}
+
 
 %%%
 %%% Slide
 %%%
-\begin{frame}
- \frametitle{Thermodynamics Diagrams: Pressure $\times$ Enthalpy $(PH)$}
-  \begin{center}
-   \begin{figure}
-      \includegraphics[width=8cm,height=7.9cm,clip]{./Pics/Overview_Refrig18}
-   \end{figure}
-   \end{center}
-\end{frame}
 
-%%%
-%%% Slide
-%%%
 \begin{frame}
- \frametitle{Thermodynamics Diagrams: Pressure $\times$ Enthalpy $(PH)$}
-  \begin{center}
-   \begin{figure}
-      \includegraphics[width=8cm,height=7.9cm,clip]{./Pics/Overview_Refrig17}
+  \frametitle{Another option: Saturated and Superheated Steam Tables}
+   \begin{figure}%
+   \vbox{
+      \hbox{\hspace{-1.cm}
+      \includegraphics[width=8.cm,height=8.5cm,clip]{./Pics/Sample_SteamTablePg}
+      \hspace{-2cm}
+      \includegraphics[width=8.cm,height=8.5cm,clip]{./Pics/Sample_SteamTablePg2}}}
    \end{figure}
-   \end{center}
-\end{frame}
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Thermodynamics Diagrams: Temperature $\times$ Entropy $(TS)$ for Water}
-  \begin{center}
-   \begin{figure}
-     \includegraphics[width=8cm,height=7.cm,clip]{./Pics/water_TS.png}
-   \end{figure}
-   \end{center}
-\end{frame}
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Thermodynamics Diagrams: Temperature $\times$ Entropy $(TS)$}
-  \begin{center}
-   \begin{figure}
-      \includegraphics[width=8cm,height=7.9cm,clip]{./Pics/TS_Diag_Schematics}
-   \end{figure}
-   \end{center}
-\end{frame}
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
-  \frametitle{Another option: (a) Saturated Tables and ...}
-\scriptsize{From Reference (d):}\vspace{-.8cm}
-   \begin{center}
-   \begin{figure}
-      \includegraphics[width=9.5cm,height=9.5cm,clip]{./Pics/WaterSatTable}
-   \end{figure}
-   \end{center}
 \end{frame}
 
 
@@ -783,53 +745,28 @@
 %%% Slide
 %%%
 \begin{frame}
-  \frametitle{Another option: (b) Superheated Tables}
-\scriptsize{From Reference (d):}\vspace{-.8cm}
-   \begin{center}
-   \begin{figure}
-      \includegraphics[width=9.5cm,height=9.5cm,clip]{./Pics/Water_SuperheatedTable}
-   \end{figure}
-   \end{center}
-\end{frame}
-
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
-  \frametitle{Another option: Saturated and Superheated Tables}
+  \frametitle{Another option: Saturated and Superheated Steam Tables}
 \noindent
 \begin{itemize}
-\item <1-> {\bf \textcolor{red}{Example:}} At $P=1.50\;$ bar, the saturated steam has the following thermodynamic properties,
-\tiny 
+\item <2-> {\bf \textcolor{red}{Example:}} At $P=1.50\;$ bar, the saturated steam has the following thermodynamic properties,
+\tiny
 \begin{center}
 %\begin{table}[h]
-\begin{tabular}{c c|c c c|c c|c c} 
-%\hline\hline
-$P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g}$ \\ 
+\begin{tabular}{||c|c|c c c|c c c|c c||} 
+\hline\hline
+$P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_{f}$ & $V_{g}$ \\ 
 \hline
-1.50 & 111.4 & 467.11 & 2226.5 & 2693.6 & 1.4336 & 7.2233 & 0.0010528 & 1.159 \\
-%\hline
+1.50 & 111.3 & 467.1 & 2226.2 & 2693.4 & 1.4336 & 5.7898 & 7.2334 & 0.001053 & 1.159 \\
+\hline
 \end{tabular}
 %\caption{Carnot and Rankine Cycles: From Saturated water and steam tables.}
 %\label{Example01_01:Table2}
 %\end{table}
 \end{center}
 
-\item <3-> But the properties of superheated steam at the same pressure will depend on the temperature $\Rightarrow$ \textcolor{red}{see superheated steam table}. Thus at 1.50 bar $\left(\text{with }T_{\text{sat}}=111.4^{\circ}\text{C}\right)$:
-  \visible<3->{\begin{center}\begin{tabular}{ c | c c c}
-      $T$    & $v$    & $h$     &    $s$     \\
-\hline
-      111.4  & 1.159  & 2693.6  &  7.2233    \\
-      120.0  & 1.188  & 2711.4  &  7.2693    \\
-      160.0  & 1.317  & 2792.8  &  7.4665    \\
-      200.0  & 1.444  & 2872.9  &  7.6433    \\
-      240.0  & 1.570  & 2952.7  &  7.8052    \\ 
-     $\vdots$& $\vdots$&$\vdots$&$\vdots$ \\
-  \end{tabular}
-  \end{center}
-}
-\item <2-> {\bf Units:} [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg.K}$, [$v$]=$\frac{m^{3}}{kg}$.
+\item <3-> But the properties of superheated steam at the same pressure will depend on the temperature $\Rightarrow$ \textcolor{red}{see superheated steam table}.
+
+\item <2-> {\bf Units:} [$P$] = bar, [$T$] = $^{o}$C, [$H$]= $\frac{kJ}{kg}$, [$S$]=$\frac{kJ}{kg.K}$, [$V$]=$\frac{m^{3}}{kg}$.
 
 \end{itemize}
 
@@ -849,7 +786,8 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
 \item <2-> Some of the problems in this course involves extracting values from the thermodynamic tables;
 \item <3-> And although the tables are very extensive (for most of the materials), sometimes we need values that can not be directly found on them;
 \item <4-> In this case, we just operate a {\bf linear interpolation} between neighbour fields;
-\item <5-> For example, water-steam at 1.5 bar and 212$^{o}$C. At this pressure, the {\bf saturation temperature} is 111.3$^{o}$C, therefore we know that the fluid (water/steam) is at \textcolor{red}{superheated state} -- \textcolor{red}{$T > T_{\text{sat}}$}
+\item <5-> For example, water-steam at 1.5 bar and 212$^{o}$C;
+\item <6-> At this pressure, the {\bf saturation temperature} is 111.3$^{o}$C, therefore we know that the fluid (water/steam) is at \textcolor{red}{superheated state};
 \end{itemize}
 
 \end{frame}
@@ -862,22 +800,14 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
   \frametitle{Linear Interpolation}
 \noindent
 \begin{itemize}
-\item <1-> Thus at 1.5 bar and 212$^{\circ}$C, enthalpy and entropy of superheated steam are within the following interval:
-  \visible<1->{\begin{center}\begin{tabular}{ c | c c c}
-      $T$    & $v$    & $h$     &    $s$     \\
-      \textcolor{red}{200.0}  & 1.444  & \textcolor{red}{2872.9}  &  7.6433    \\
-      \textcolor{red}{240.0}  & 1.570  & \textcolor{red}{2952.7}  &  7.8052    \\ 
-  \end{tabular}
-  \end{center}
-}
-\item<2-> The enthalpy at 212$^{o}$C can be calculated as,
-\visible<3->{\begin{tabular}{ l l }
-\scriptsize $\Delta T=T_{2}-T_{1}=240-200^{o}$C   & \scriptsize $\longleftrightarrow$  $\Delta h=h_{2}-h_{1}=2952.7-2872.9=79.8\frac{kJ}{kg}$ \\
-\scriptsize $\Delta T^{\star} = T_{2} - T^{\star}= 240 - 212^{\circ}$C & \scriptsize $\longleftrightarrow$  $\Delta h^{\star}= h_{2} - h^{\star}= 2952.7 - h^{\star}$\\    
-\end{tabular}}
-\item <4-> $\Delta h^{\star}=55.86\frac{kJ}{kg}$ 
-\item <4-> Thus $\Delta h^{\star}= h_{2}-h^{\star} \longrightarrow h\left(T=212^{\circ}C\right)=h^{\star}=2896.84\frac{kJ}{kg}$.
-\item<5-> Similarly for entropy: $s\left(T=212^{\circ}C\right)=s^{\star}=7.6919\frac{kJ}{kg.K}$.
+\item <2-> Thus at 1.5 bar, the enthalpies at 200 and 250$^{o}$C are $H_{1}=2872.9\frac{kJ}{kg}$ and $H_{2}=2972.7\frac{kJ}{kg}$, respectively.
+\item <3-> The enthalpy at 212$^{o}$C,
+\begin{tabular}{ l l }
+\scriptsize $\Delta T=T_{2}-T_{1}=250-200^{o}$C   & \scriptsize $\longleftrightarrow$  $\Delta H=H_{2}-H_{1}=2972.7-2872.9=99.8\frac{kJ}{kg}$ \\
+\scriptsize $\Delta T^{\star} = T_{2} - T^{\star}= 250 - 212^{\circ}$C & \scriptsize $\longleftrightarrow$  $\Delta H^{\star}= H_{2} - H^{\star}= 2972.7 - H^{\star}$\\    
+\end{tabular}
+\item <4-> $\Delta H^{\star}=75.848\frac{kJ}{kg}$ 
+\item <5-> Thus $\Delta H^{\star}= H_{2}-H^{\star} \longrightarrow H^{\star}=2896.85\frac{kJ}{kg}$
 \end{itemize}
 
 \end{frame}
@@ -1464,7 +1394,7 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
            \end{displaymath}} 
         \item<5-> Relationship between $C_{P}(T)$ and $C_{V}(T)$:
            \visible<5->{\begin{displaymath}
-              \textcolor{red}{C_{P}}=\frac{d H(T)}{d T} = \frac{d U(T)}{d T} + \frac{d(RT)}{d T} = \textcolor{red}{C_{V} + R}
+              C_{P}=\frac{d H(T)}{d T} = \frac{d U(T)}{d T} + \frac{d(RT)}{d T} = C_{V} + R
            \end{displaymath}}           
      \end{enumerate} 
   \normalsize
@@ -1591,31 +1521,6 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
 %%% Slides
 %%%
 \begin{frame}
- \frametitle{Second Law of Thermodynamics}
-     \begin{block}{\begin{center}Mathematical Representation of the 2$^{\text{nd}}$ Law\end{center}}
-        \visible<1->{\begin{eqnarray}
-            \textcolor{blue}{\displaystyle\oint \displaystyle\frac{d Q}{T} < 0 \;\;\; \text{for irreversible processes}} \nonumber \\
-            \textcolor{blue}{\displaystyle\oint \displaystyle\frac{d Q}{T} = 0 \;\;\;\;\; \text{for reversible processes}} \nonumber 
-        \end{eqnarray}}
-     \end{block}
-
-\visible<2->{\begin{block}{\begin{center}{\bf Entropy} \end{center}}
-           \begin{displaymath}
-              dS = \left( \frc{d Q}{T}\right)_{\text{int. rev.}}\hspace{3cm}\left(\frc{J}{kg.K}\right)
-           \end{displaymath}
-\end{block}}
-   
-\end{frame}
-
-%%%
-%%% COMMENTS
-%%%
-\begin{comment}
-
-%%%
-%%% Slides
-%%%
-\begin{frame}
  \frametitle{Derivation of the Mathematical Statement of the Second Law}
  %\scriptsize
  \begin{columns}
@@ -1672,6 +1577,8 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
    \end{figure} 
   \end{column}
  \end{columns}
+
+
  \normalsize
     
 \end{frame}
@@ -1795,11 +1702,6 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
  \normalsize
     
 \end{frame}
-
-%%%
-%%% END OF COMMENTED TEXT
-%%%
-\end{comment}
 
 
 %%%
