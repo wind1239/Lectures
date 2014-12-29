@@ -79,7 +79,7 @@
 %%%
 %%% Headers and Footers
 \lhead[] {\text{\small{EG3521 -- Engineering Thermodynamics}}} 
-\rhead[] {{\text{\small{Tutorial 02 (2014/15)}}}}
+\rhead[] {{\text{\small{Tutorial 03 (2014/15)}}}}
 %\chead[] {\text{\small{Session 2012/13}}} 
 \lfoot[]{Dr Jeff Gomes}
 %\cfoot[\thepage]{\thepage}
@@ -268,134 +268,124 @@
 
 
 
-\begin{enumerate}[label=\bfseries Problem \arabic*:]
+\begin{enumerate}[label=\bfseries Problem \arabic*]
 
 %%%
-%%% Johannes T2Q1
+%%% Lecture Notes
 %%%
-\item\label{Tut02:CylinderPiston1}A gas is confined in a vertical 0.47 m diameter cylinder by a piston. On the piston rests a weight and the combined mass of the piston and weight is 150 kg. The local acceleration of gravity is 9.81 m.s$^{-2}$ and the ambient pressure is 101.57 kPa.
+\item\label{Tut03:CarnotEfficiency} Steam (dry and saturated) is supplied by the boiler at 15 bar and the condenser pressure is 0.4 bar. Calculate the Carnot and Rankine efficiencies of the cycle. Neglect the pump work.
+
+
+%%%
+%%% Lecture Notes
+%%%
+\item\label{Tut03:SimpleSteamPowerPlant}The table below represents the steps of an idealised steam power plant:
+    \begin{center}
+     \begin{tabular}{||c | c | c | c | c | c ||}
+      \hline\hline
+       {\bf Step} & {\bf Location}       & {\bf Pressure}  & {\bf Temperature}     & {\bf Quality /}  &{\bf Velocity}    \\
+                  &                      & {\bf (bar)}     &{\bf$\left(^{\circ}\text{C}\right)$}& {\bf State} & {\bf m/s} \\
+      \hline\hline
+          1       & Inlet to turbine     &   60            &   380                 &  --              &       --         \\
+      \hline
+          2       & Exit from turbine and&   0.1           &    --                 & 0.9              &  200             \\
+                  & inlet to condenser   &                 &                       &                  &                  \\ 
+      \hline
+          3       & Exit from condenser and&  0.09         &  --                   & Saturated        &  --              \\
+                  & inlet to pump        &                 &                       & Liquid           &   --             \\
+      \hline
+          4       & Exit from pump and   &  70             &   --                  &     --           &   --             \\
+                  & inlet to boiler      &                 &                       &                  &                  \\
+      \hline 
+          5       & Exit from boiler     &  65             &  400                  &      --          &    --            \\
+           \hline\hline
+     \end{tabular}
+    \end{center}
+    Assume that the steam mass flow rate leaving the boiler is 10$^{4}$ kg.h$^{-1}$. Sketch the cycle numbering each stage. Calculate:
+      \begin{enumerate} 
+         \item Specific enthalpies of all streams;
+         \item Power output of the turbine;
+         \item Heat transfer per hour in the boiler and condenser;
+         \item Mass rate of cooling water circulated (kg/h) in the condenser assuming inlet and outlet fluid temperatures from the condenser of 20$^{\circ}$C and 30$^{\circ}$C;
+         \item Diameter of the pipe connecting the turbine with the condenser;
+         \item Sketch the $Ts$ diagram, indicating each step of the cycle.
+    \end{enumerate}
+
+%%%
+%%% Lecture Notes
+%%%
+\item\label{Tut03:ReheatRankine}In the secondary cooling circuit of a nuclear power plant, the steam generator (boiler / reheater) produces superheated steam (SHS, Fig.~\ref{Fig_Tut03:ReheatRankine}) and is connected to two turbines operating as a reheat Rankine cycle. Isentropic efficiencies of the first $\left(\eta_{\text{T1}}\right)$ and second $\left(\eta_{\text{T2}}\right)$ turbines and boiler feed pump $\left(\eta_{\text{P}}\right)$ are 84$\%$, 80$\%$ and 61$\%$ respectively. Determine {\it (a)-(j)} in Table~\ref{Table_Tut03:ReheatRankine}. Sketch the $Ts$ diagram of the cycle.
+
+         \begin{table}[h]
+       \begin{center}
+         \begin{tabular}{c | c c c c c  }
+           \hline
+           {\bf Stage} & $P$    & $T$             &  State            & $h$                 & $s$                      \\
+                       & (bar)  & ($^{\circ}$C)    &                   & (kJ.kg$^{-1}$)       & (kJ.(kg.K)$^{-1}$)        \\
+           \hline
+            {\bf 1 }   & 40         & 370         & SHS               & {\bf (a)}           & {\bf (b)}                 \\
+            {\bf 2 }   &  --        &  --         & {\bf (c)}         & --                  &   --                      \\
+            {\bf 3 }   & 7          & 370         & SHS               & {\bf (d)}           & {\bf (e)}                 \\
+            {\bf 4 }   & 0.10       & --          &     --            & --                   & --                      \\
+            {\bf 5 }   & 0.10       & --          &   {\bf (f)}       & {\bf (g)}           & {\bf (h)}                 \\
+            {\bf 6 }   & 40         & --          &   {\bf (i)}       & {\bf (j)}           & --                       \\
+           \hline
+         \end{tabular}
+          \caption{\ref{Tut03:ReheatRankine}.}\label{Table_Tut03:ReheatRankine}
+        \end{center}
+         \end{table} 
+    
+           \begin{figure}[h]
+         \begin{center}
+            \includegraphics[width=9.5cm,clip]{./Pics/Exam_Reheat_Rankine_Cycle}
+          \caption{\ref{Tut03:ReheatRankine}}\label{Fig_Tut03:ReheatRankine}
+         \end{center}
+           \end{figure}
+
+%%%
+%%%
+%%%
+\item \label{Problem_02:01}A Carnot engine with water/steam (1 kg/s) as the working fluid operates on the cycle shown in Fig. \ref{PVTSDiags}. For $T_{1}=475\;K$ and $T_{2}=300\;K$, determine: (a) pressures at states 1, 2, 3, and 4; (b) quality $x^{\text{vapour}}$ at states 2 and 3; (c) rate of heat addition; (d) rate of heat rejection; (e) mechanical power for each of the four steps; (f) thermal efficiency $\left(\eta\right)$ of the cycle.
+   \begin{figure}[h]
+    \begin{center}
+     \includegraphics[width=12.cm,clip]{./Pics/Carnot_PV_TS}
+    \end{center}
+    \caption{Ts and Pv diagrams for Carnot cycle (\ref{Problem_02:01}).}\label{PVTSDiags}
+   \end{figure}    
+
+
+%%%
+%%% Problem 8.6 (Saphiro)
+%%%
+\item\label{Tut03:Saphiro8.6} Water is the working fluid in an ideal Rankine cycle. Saturated vapour enters the turbine at 16 MPa, and the condenser pressure is 8 kPa. The mass flow rate of steam entering in the turbine is 120 kg/s. Calculate:
 \begin{enumerate}
-\item What is the total force exerted on the gas by the atmosphere, the piston and the weight assuming no friction between the piston and the cylinder?
-\item What is the pressure of the gas? 
-\item The gas in the cylinder is heated and expands pushing the piston and weight upward. Calculate the work done by the gas if the piston and weight are raised 0.83 m. What is the change in potential energy of the piston and weight?
-\end{enumerate}
+\item the net power developed (in MW);
+\item rate of heat transfer to the steam passing through the boiler (in MW);
+\item thermal efficiency;
+\item mass flow rate of the condenser cooling water (in kg/s), if the cooling water undergoes a temperature increase of 18$^{o}$C with negligible pressure change in passing through the condenser.
+\end{enumerate} 
 
-%%%
-%%% Johannes T2Q2
-%%%
-\item\label{Tut02:IdealGas1}In a closed system (kinetic and potential energy are constant) three consecutive processes are done by an ideal gas $\left(\right.$10 moles, MW = 24.945 g.mol$\left.^{-1}\right)$:
-\begin{center}
-\begin{tabular}{c l}
-\hline
-Initial conditions: & P$_{1}$ = 1 bar, T$_{1}$ = 300K \\
-Process 1$\rightarrow$2: & Reversible isothermal compression, v$_{2}$ = 0.1m$^{3}$.kg$^{-1}$ \\
-Process 2$\rightarrow$3: & Isochoric colling, P$_{3}$ = 2 bar \\
-Process 3$\rightarrow$4: & Isobaric heating, T$_{4}$ = 600 K \\
-\hline
-\end{tabular}
-\end{center}
-\begin{enumerate}
-\item Calculate the initial volume V$^{t}_{1}$ and specific volume v$_{1}$ of the gas.% (0.2494 m3, 1 m3 kg-1)
-\item Calculate the pressure P$_{2}$ after the first process. %(10 bar)
-\item Calculate the temperature T$_{3}$ after the second process.% (60 K)
-\item Calculate the final specific volume v$_{4}$. %(1 m3 kg-1)
-\item What forms of energy are present in transit across the system's boundary during the first process? Calculate the values. %(57.4 kJ)
-\item Which kind of process can we use to reach the initial state?
-\item Draw a $Pv$ diagram with all processes 1$\rightarrow$2$\rightarrow$3$\rightarrow$4$\rightarrow$1.
-\end{enumerate}
 
 
 %%%
-%%% Johannes T2Q3
+%%% Example 12.25 (Rajput)
 %%%
-\item\label{Tut02:IdealGas2} One mole of an ideal gas with C$_{P}$ = (7/2)R and C$_{V}$ = (5/2)R expands form P$_{1}$ = 8 bar and T$_{1}$ = 600 K to P$_{2}$ = 1 bar by each of the following paths:
-\begin{enumerate}
-\item Constant volume.% (0 kJ, -10.91 kJ, -15.28 kJ)
-\item Constant temperature.% (-10.37 kJ, 0 kJ)
-\item Adiabatically.% (-5.586 kJ, 0 kJ, -7.821 kJ)
-\end{enumerate}
-Assuming mechanical reversibility, calculate $W$, $Q$, $\Delta U$, $\Delta H$ $\left(\text{in J.mol}^{-1}\right)$ for each process. Sketch each path on a single PV diagram.
-
-
-%%%
-%%% Johannes T3Q1
-%%%
-\item\label{Tut02:Carnot}A Carnot engine receives 250 kJ.s$^{-1}$ of heat from a heat-source reservoir at 525$^{\circ}$C and rejects heat to a heat-sink reservoir at 50$^{\circ}$C. What are the power developed and the heat rejected?% (148.78 kW; 101.22 kW)
-
-%%%
-%%% COMMENTED QUESTIONS
-%%%
-\begin{comment}
-
-%%%
-%%% Johannes T3Q2
-%%%
-\item\label{Tut02:IdealGas3}An ideal gas at 2500 kPa is throttled adiabatically to 150 kPa at the rate of 20 gmol.s$^{-1}$. Determine the rate of entropy generation if the surrounding temperature is T$_{0}$ = 300 K. %(0.468 kJ s-1 K-1; 140.344 kW)
-
-
-%%%
-%%% Johannes T3Q3
-%%%
-\item\label{Tut02:CylinderPiston2}One kilogram of water $\left(\text{V}_{1} = \text{1003 cm}^{3}\text{.kg}^{-1}\right)$ in a piston/cylinder device at 25$^{\circ}$C and 1 bar is compressed in a mechanically reversible, isothermal process to 1500 bar. Determine $Q$, $W$, $\Delta U$, $\Delta H$ and $\Delta S$ given that $\beta$ = 250$\times$10$^{-6}$ K$^{-1}$ and $\kappa$ = 45$\times$10$^{-6}$ bar$^{-1}$. A satisfactory assumption is that $V$ is at its arithmetic average value. As a $PVT$ equation of state use:% (-10.84 kJ kg-1; 4.91 kJ kg-1; -5.93 kJ kg-1; 134.6 kJ kg-1; -0.03636 kJ kg-1 K-1)
-\begin{displaymath}
-\displaystyle\frac{\d V}{V} = \beta \d T - \kappa \d P
-\end{displaymath}
-
-\end{comment}
-%%%
-%%% END OF COMMENTED
-%%%
-
-%%%
-%%% Johannes T3Q4
-%%%
-\item\label{Tut02:Demonstration}Assuming $S = S\left(P,V\right)$ and taking into consideration that,
-\begin{displaymath}
-\left(\frc{\partial S}{\partial T}\right)_{V} = \frc{C_{V}}{T}\;\;\;\text{ and }\;\;\; \left(\frc{\partial S}{\partial T}\right)_{P} = \frc{C_{P}}{T}
-\end{displaymath}
-Prove that 
-\begin{displaymath}
-\d S = \frc{C_{V}}{T}\left(\frc{\partial T}{\partial P}\right)_{V}\d P + \frc{C_{P}}{T}\left(\frc{\partial T}{\partial V}\right)_{P}\d V
-\end{displaymath}
-
-
-%%%
-%%% Problem 5.7 (SM&VN)
-%%%
-\item\label{Tut02:LNG} Large quantities of liquefied natural gas (LNG) are shipped by ocean tankers. At the unloading port provision is made for vaporisation of the LNG so that it may be delivered to pipelines as gas. The LNG arrives in the tanker at atmospheric pressure and 113.7 K, and represents a possible heat sink for use as the cold reservoir of a heat engine. For unloading vapour LNG at 9000 $m^{3}.s^{-1}$ (measured at 298.15 K and 1.0133 bar) and assuming the availability of an adequate heat source at 303.15 K:
-\begin{enumerate}
-\item What is the maximum possible power ?
-\item What is the rate of heat transfer from the heat source? 
-\end{enumerate}
-Assume that LNG at 298.15 K and 1.0133 bar is an ideal gas with the molar mass of 17. Also assume that the LNG vaporises only, absorbing only its latent heat of 512 kJ/kg at 113.7 K.
-
-%%%
-%%% Problem 8.3 (Power Lectures Notes)
-%%%
-\item Given saturated ammonia vapour at $P_{1} = 200 kPa$ compressed by a piston to $P_{2} = 1.6 MPa$ in a reversible adiabatic process,
-\begin{enumerate}
-\item Find the work done per unit mass; 
-\item Sketch the $T-s$ and $P-v$ diagrams.
-\end{enumerate}
-\begin{comment}
-Given:
-\begin{center}
-%\begin{table}[h]
-\begin{tabular}{||c|c|c c|c c|c c|c c||} 
-\hline\hline
-$T$ & $P_{sat}$ & $v_{f}$ &  $v_{g}$ & $u_{f}$ & $u_{g}$ &  $h_{f}$ &  $h_{g}$ & $s_{f}$ & $s_{g}$ \\ 
-\hline
--20 & 190.2 & 1.504$\times$10$^{-3}$ & 0.62334 & 88.76 & 1299.5 & 89.05 & 1418.0 & 0.3657 & 5.6155 \\
-\hline
--15 & 236.3 & 1.519$\times$10$^{-3}$ & 0.50838 & 111.3 & 1304.5 & 111.66 & 1424.6 & 0.4538 & 5.5397 \\ 
-\hline\hline
-\end{tabular}
-\end{center}
-
-with
-[$T$]= $^{o}$C; [$P$]= kPa; [$v$]=$\frac{m^{3}}{kg}$; [$u$] = [$h$] = $\frac{kJ}{kg}$, [$s$] = $\frac{kJ}{kg.K}$ 
-\end{comment}
-
+\item\label{P:example12_25} A steam power plant operates with with regenerative and reheat arrangement cycles. Steam is supplied to the H.P. turbine (Fig. \ref{example12_25}a) at 80 bar and 470$^{o}$C.  For feed heating, a part of steam is extracted at 7 bar and remainder of the steam is reheated to 350$^{o}$C in a reheater and then expanded in L.P. turbine down to 0.035 bar. Determine: (a) amount of steam bled-off for feed heating; (b) amount of steam supplied to L.P. turbine; (c) heat supplied to the boiler and reheater; (d) cycle efficiency, and (e) power developed by the system. The steam supplied by the boiler is 50 kg/s.
+   \begin{figure}[h]
+    \begin{center}
+    \vbox{
+     \hbox{\hspace{1cm}
+      \includegraphics[width=12.cm,clip]{./Pics/Exemple12_25a_Rajput}}
+     \hbox{\hspace{7.5cm}(a)}
+     \hbox{\hspace{1.cm}
+      \includegraphics[width=12.cm,clip]{./Pics/Exemple12_25b_Rajput}
+      }
+     \hbox{\hspace{7.5cm}(b)}}
+     \caption{ (a) Schematics and (b) $hs$ diagram of a steam power cycle (\ref{P:example12_25}).}
+     \label{example12_25}
+     \end{center}
+   \end{figure}
+ 
 
 \end{enumerate}
 
