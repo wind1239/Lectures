@@ -813,6 +813,198 @@
  \normalsize
 \end{frame}
 
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Regenerative Rankine Cycle}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Regenerative Rankine Cycle (Open feedwater heater)}
+  \begin{columns}
+    \begin{column}[c]{0.5\linewidth}
+      \begin{enumerate}[(a)]\scriptsize
+         \item<1-> In simple RC the \blue{temperature of the working fluid entering the boiler is substantially lower than the boiler steam exiting temperature}.  This results in \red{lower thermal efficiency};
+         \item<2-> In the \blue{Regenerative Rankine Cycle} the temperature of the fluid leaving the pump ({\it feedwater}) is raised in several stages using steam extracted from the turbine;
+         \item<3-> The device where the feedwater is heated by regeneration is called a \blue{regenerator} or \blue{feedwater heater (FWH)};
+     %\item <4-> Not only improve thermal efficiency but also deaerates the feedwater that helps prevent corrosion and pump cavitation;
+         \item<4-> A FWH is a heat exchanger where heat is transferred from the steam to the feedwater either by mixing the two fluid streams (\blue{open feedwater heaters}) or without mixing them (\blue{closed feedwater heaters}).
+    \end{enumerate} 
+   \end{column}
+   \begin{column}[c]{0.5\linewidth} 
+     \begin{center}
+        \begin{figure}
+            \includegraphics[width=6.5cm,clip]{./Pics/RegenerativeOpen_RankineCycle}
+        \end{figure}
+     \end{center}
+   \end{column}
+  \end{columns}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Regenerative Rankine Cycle (Open feedwater heater)}
+  \begin{columns}
+    \begin{column}[c]{0.5\linewidth}
+     \begin{center}
+        \begin{figure}
+            \includegraphics[width=5.5cm,clip]{./Pics/RegenerativeOpen_RankineCycle}
+        \end{figure}
+     \end{center}
+     \begin{enumerate}[(a)]\setcounter{enumi}{4}\scriptsize
+         \item<1->  A fraction of the steam extracted from the turbine \blue{($y$)} leaves the FWH as {\it saturated liquid} $\left(P_{\text{FWH}}\right)$, and a second pump raises the pressure to $P_{\text{boiler}}$;
+         \item<2-> Heat balance in the cycle:
+             \visible<2->{\begin{eqnarray}
+                && \blue{Q_{\text{in}} = H_{1}-H_{7}} \\
+                && \blue{Q_{\text{out}} = \left(1 - y \right)\left(H_{4} - H_{3}\right)} 
+             \end{eqnarray}}
+     \end{enumerate}
+   \end{column}
+    \begin{column}[c]{0.5\linewidth}
+     \begin{center}
+        \begin{figure}
+            \includegraphics[width=6.cm,clip]{./Pics/RegenerativeOpen_RankineCycle_Diagram}
+        \end{figure}
+     \end{center}
+     \begin{enumerate}[(a)]\setcounter{enumi}{6}\scriptsize
+         \item<3-> Pump and turbine work:
+             \visible<3->{\begin{eqnarray}
+                \blue{W_{\text{Turbine}}^{\text{out}} = \left[y h_{2} + \left(1-y\right)h_{3}\right]-h_{1}}\\ 
+                \blue{W_{\text{Pump}}^{\text{in}} = \left(1 - y \right) W_{\text{Pump,1}}^{\text{in}} + W_{\text{Pump,2}}^{\text{in}}}
+             \end{eqnarray}}
+     \end{enumerate}
+   \end{column}
+  \end{columns}
+ \normalsize
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Regenerative Rankine Cycle (Closed feedwater heater)}
+  \begin{columns}
+    \begin{column}[c]{0.5\linewidth}
+     \begin{center}
+        \begin{figure}
+            \includegraphics[width=6.cm,clip]{./Pics/RegenerativeClosed_RankineCycle}
+        \end{figure}
+     \end{center}
+   \end{column}
+    \begin{column}[c]{0.5\linewidth}
+     \begin{center}
+        \begin{figure}
+            \includegraphics[width=6.25cm,clip]{./Pics/RegenerativeClosed_RankineCycle_Diagram}
+        \end{figure}
+     \end{center}
+   \end{column}
+  \end{columns}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Regenerative $\times$ Simple Rankine Cycles}
+  \begin{columns}
+   \begin{column}[c]{0.5\linewidth}
+    \begin{enumerate}[(a)]
+     \item<1-> Advantages of Regenerative cycle over Simple Rankine Cycle
+     \begin{enumerate} [(i)]%\scriptsize
+      \item<1-> The heating process in the boiler tends to become reversible;
+      \item<1-> Thermal stresses in boiler are minimised due to the smaller temperature ranges in the boiler;
+      \item<1-> Thermal efficiency is improved as the average temperature of heat addition to the cycle is increased;
+      \item<1-> Due to continuous steam extraction, the content of moisture is reduced and this decreases the corrosion in the turbine;
+      \item<1-> The size of the condenser is smaller (lower cost and better maintenance).
+     \end{enumerate}
+    \end{enumerate} 
+   \end{column}
+%
+   \begin{column}[c]{0.5\linewidth}  
+    \begin{enumerate}[(a)]\setcounter{enumi}{1}
+     \item<2-> Disadvantages of Regenerative cycle over Simple Rankine Cycle
+     \begin{enumerate}[(i)] %\scriptsize
+      \item<2-> Design of the power plant is more complex;
+      \item<2-> As the number of heaters is increased, the greater maintenance (larger cost) is required;
+      \item<2-> Heater are usually costly and the gain in thermal efficiency may not be enough. 
+     \end{enumerate}
+    \end{enumerate} 
+   \end{column}
+  \end{columns}
+  
+\end{frame}
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Example}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 3: Reheat Rankine Cycle}
+    \scriptsize In the secondary cooling circuit of a nuclear power plant, the steam generator (boiler / reheater) produces superheated steam (SHS) and is connected to two turbines operating as a reheat Rankine cycle. Isentropic efficiencies of the first $\left(\eta_{\text{T1}}\right)$ and second $\left(\eta_{\text{T2}}\right)$ turbines and boiler feed pump $\left(\eta_{\text{P}}\right)$ are 84$\%$, 80$\%$ and 61$\%$ respectively. Determine {\it (a)-(j)} in the table below. Sketch the $Ts$ diagram of the cycle.
+
+       \begin{center}
+         \begin{tabular}{c | c c c c c  }
+           \hline
+           {\bf Stage} & $P$    & $T$             &  State            & $h$                 & $s$                      \\
+                       & (bar)  & ($^{\circ}$C)    &                   & (kJ.kg$^{-1}$)       & (kJ.(kg.K)$^{-1}$)        \\
+           \hline
+            {\bf 1 }   & 40         & 370         & SHS               & {\bf (a)}           & {\bf (b)}                 \\
+            {\bf 2 }   &  --        &  --         & {\bf (c)}         & --                  &   --                      \\
+            {\bf 3 }   & 7          & 370         & SHS               & {\bf (d)}           & {\bf (e)}                 \\
+            {\bf 4 }   & 0.10       & --          &     --            & --                   & --                      \\
+            {\bf 5 }   & 0.10       & --          &   {\bf (f)}       & {\bf (g)}           & {\bf (h)}                 \\
+            {\bf 6 }   & 40         & --          &   {\bf (i)}       & {\bf (j)}           & --                       \\
+           \hline
+         \end{tabular}
+        \end{center}
+         \begin{center}
+            \includegraphics[width=5.5cm,clip]{./Pics/Exam_Reheat_Rankine_Cycle}
+         \end{center}
+%       \end{column}
+%       \begin{column}[c]{0.5\linewidth} 
+%kklkl
+%       \end{column}
+%    \end{columns}
+
+
+  
+\end{frame} 
+
+%%%
+%%% SECTION
+%%%
+\section{Summary}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Summary}
+  \begin{enumerate}
+   \item Components of vapour power cycles;
+   \item Carnot cycle -- maximum possible efficiency derived from the Second Law of Thermodynamics;
+   \item Rankine cycle is currently used in a number of industrial applications to transform thermal to mechanical/electrical energy;
+   \item Practical improvements to the Rankine cycle to enhance thermal efficiency.
+  \end{enumerate}
+\end{frame}
+
 
 \end{document}
  
+
+%      \vbox{
+%         \hbox{\includegraphics[width=6.cm,clip]{./Pics/RegenerativeOpen_RankineCycle}}
+%         \vspace{-0.7cm}
+%         \hbox{\includegraphics[width=6.cm,clip]{./Pics/RegenerativeOpen_RankineCycle_Diagram}}
+%      }  
