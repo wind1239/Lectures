@@ -1,0 +1,1912 @@
+\documentclass[14pt,twoside]{report}
+
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{natbib}
+\usepackage{pdfpages,enumitem}
+
+%%% Rotating Page
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{capt-of}% or use the larger `caption` package
+%\usepackage{lipsum}% dummy text
+
+
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+
+%\usepackage{fancyhdr} %%%%
+%\pagestyle{fancy}%%%%
+\pagestyle{empty}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+
+%%%
+%%% Headers and Footers
+%\lhead[\text{\small{IMPERIAL COLLEGE LONDON}}] {\text{\small{Applied Modelling and Computation Group - AMCG}}} 
+%%\chead[\text{\small{AMCG}}] {\text{\small{ }}}
+%\rhead[\text{\small{c.pain@imperial.ac.uk}}]{\text{\small{c.pain@imperial.ac.uk}} }
+%\rfoot[\thepage]{\thepage}
+%\cfoot[\text{\small{April 2005}}] {\text{\small{April 2005}}}
+%\lfoot [\text{\small{http://amcg.ese.imperial.ac.uk}}]{\text{\small{http://amcg.ese.imperial.ac.uk}}}
+%\renewcommand{\headrulewidth}{0.8pt}
+
+%%%
+%%% space between lines
+%%%
+\renewcommand {\baselinestretch}{1.5}
+
+\begin{document}
+
+
+
+%%%%%%
+%%%%%%
+%%%%%%
+
+\begin{center}
+\Huge{Advanced Topics for MEng Study (EG5085)}\\
+\huge{1$^{st}$ and 2$^{nd}$ Papers (Review + Feedback)}\\
+\huge{November 2014 --  January 2015}
+\end{center}
+
+\vfill
+
+\clearpage
+
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{1}^{\text{st}}\text{ Paper}\right)$\hfill December, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the 2$^{\text{nd}}$ Paper $\lq$Precipitation and Thermodynamic Analysis of Asphaltenes in Crude Oils' by MarySandra Oluchi Anunobi}
+\end{center}
+
+The paper assesses thermodynamic mechanisms of asphaltene precipitation in crude heavy oils under reservoir and transport in pipeline conditions. The student investigated (a) traditional and state-of-the-art technologies (i.e., designed equations of state and formulations for heavy macro-molecules) used to predict onset of asphaltene precipitation; (b) current methods to experimentally assess precipitation / deposition; (c) mechanisms that drives precipitation, floculation and deposition of asphaltenes under prescribed conditions and; (d) current technologies to mitigate / remediate heavy hydrocarbon precipitation.
+
+The paper is relatively well-written with a number of typos and unrevised sentences. Several sentences are confusing and disconnected with no clear objectives and inter-connectivities. Most of all, the paper is well-structured with clear division and linkages between sections and paragraphs, leading to an easy and smooth reading. However the numbering of several sections are mixed up. A few general comments,
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompass all of them.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. Also, it is expected a summary of the remaining sections at the end of the {\it Introduction}. 
+%
+\item The {\it References} follow different standards with missing fields and no clear distinction between articles, conference proceedings, reports (internal or external), book chapters, books, communications (internal or external) etc.  A few {\it references} used in the manuscript are incomplete and/or wrong. Regardless of the chosen citation style (e.g., ACS, AIP, AMS, IEEE, AIAA, etc) any reference {\bf must} contain the following fields: 
+\begin{enumerate}
+\item For journal papers: Authors, Paper Tittle, Journal Name, Volume, Pages, Year of publication;
+\item For books: Authors, Book Tittle, Publisher, Year or Edition;
+\item For book chapters: Authors, Chapter Tittle, Book Tittle, Editors, Publisher, Year or Edition;
+\item For conference papers: Authors, Paper Tittle, Conference Tittle, Place (Country and/or City) where the conference was held, Year of the conference;
+\item For reports,  private communications and Lecture Notes: Authors, Tittle, Place issued (Country and/or City and Institution where the document was originated), Year;
+\item For PhD Thesis and MSc Dissertations: Author, Tittle, Institution (University and Department/School), Year.
+\end{enumerate}  
+Thus, for example:
+\begin{enumerate}[label={[\arabic*]}]
+\item P.L. Houtekamer and L. Mitchell, $\lq$Data Assimilation Using an Ensemble Kalman Filter Technique', {\it Monthly Weather Review}, 126:796-811, 1998.
+\item K. Pruess, $\lq$Numerical Modelling of Gas Migration at a Proposed Repository for Low and Intermediate Level Nuclear Wastes', Technical Report LBL-25413, Lawrence Berkeley Laboratory, Berkeley (USA), 1990.
+\item K. Aziz, A. Settari, {\it Fundamentals of Reservoir Simulation}, Elsevier Applied Science Publishers, New York (USA), 1986.
+\item R.B. Lowrie, $\lq$Compact higher-Order Numerical Methods for Hyperbolic Conservation Laws', PhD Thesis, Department of Aerospace Engineering and Scientific Computing, University of Michigan (USA), 1996.
+\end{enumerate}
+%
+\item There is a mismatch of indices in Section 3 -- thus $n_{k}^{ij}$ (Eqn. 4) is the number of moles of species $k$ in phases $i$ and $j$. This is more correctly expressed as $n_{k}^{j} \;\;\; \forall j={1,2,\cdots, \mathcal{N}_{p}}$ $\left(\text{where }\mathcal{N}_{p}\text{ is the total number of phases}\right)$. 
+%
+\item Terms in Eqns. 10 and 11 were not defined.
+%
+\item No discussion on the pros $\&$ cons on the model formulations (Sections 5 and 6). As thermodynamic formulations (and strategies) to assess the onset of precipitation (and maybe deposition) of asphaltenes are the main aim of the paper, I would expect a more in-depth discussion and analysis of (or at least one of) those formulations.    
+% 
+\end{enumerate}
+
+The topic is very relevant for the energy sector and each section has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics and chemistry (thermodynamics, kinetics, macromolecules, fluid mechanics, etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and computer science (e.g., software engineering, algorithms, parallel processing, etc).  The student demonstrated that she had a solid understanding of the main fundamental physics and engineering concepts involved in the technologies for this project.
+
+
+%%%%%%
+%%%%%%
+%%%%%%
+
+\clearpage
+
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{1}^{\text{st}}\text{ Paper}\right)$\hfill December, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the 2$^{\text{nd}}$ Paper $\lq$An Energy and Exergy Analysis of Geothermal Power Systems' by Douglas Russell}
+\end{center}
+
+The paper reviews technologies on power generation from geothermal energy sources. The paper also reports the thermodynamic analysis of a US-based geothermal power plant. The student investigated (a) current available geothermal energy system technologies and (b) energy and exergy analysis of Rankine and Kalina thermodynamic cycles.   
+
+The paper is well-written with a small number of typos; it is well-structured with clear division and linkages between sections and paragraphs, leading to an easy and smooth reading. However the numbering of a couple of sections / figures are mixed up. A few general comments,
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompass (i-ii) and (iv).
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. Also, it is expected a summary of the remaining sections at the end of the {\it Introduction}. In this paper, the literature review is spread over the whole paper, and the objectives are listed in a specific section (Section 2), however there is no summary of the remaining sections in the main {\it Introduction} section.   
+%
+\item A table containing all initial data (with references) and assumptions of the energy/exergy analysis would easier the reading and make {\it Section 4} more comprehensible. 
+%
+\item As a simplification of the heat and flow through porous media, Eqn. 20 states that the groundwater mass flow rate is constant (steady-state). The simplification, although acceptable for the overall heat balance calculation performed by Mr Russell, should be followed by an explanation of the real physics phenomena involving Darcy equation for the flow transport.  
+% 
+\end{enumerate}
+
+The topic is very relevant for the energy sector and each section has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics and chemistry (thermodynamics, fluid mechanics, etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and computer science (e.g., software engineering, algorithms, parallel processing, etc).  The student demonstrated that he had a very solid understanding of the main fundamental physics and engineering concepts involved in the technologies for this project.
+
+\clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{1}^{\text{st}}\text{ Paper}\right)$\hfill December, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the 2$^{\text{nd}}$ Paper $\lq$A Review of Well Allocation in the Context of Flow Assurance and Well Management' by Lauren Crane}
+\end{center}
+
+The paper investigates multiphase flow meters (MPFM) in the O$\&$G sector and their optimal use in well allocation. In this paper, Ms Crane studied (a) flow assurance problems associated  oil, gas and water transport in pipelines and reservoirs, (b) underlying technology in MPFM and (c) current industry-standard well allocation methods.
+
+The paper is relatively well-written with a number of typos and unrevised sentences. Several sentences are confusing and disconnected with no clear objectives and inter-connectivities. Most of all, the paper lacks a good structured with clear division and linkages between sections and paragraphs -- for example, Section 2 could be readily subdivided into 4 subsections on flow regimes, hydrate formation, asphaltene and wax deposition and operation shutdown. This would lead to an easier an smoother reading. 
+
+My main concern is that there is no clear indication of the actual objectives neither in the {\it Abstract} nor in the {\it General Introduction} Sections. A few comments,
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompass (i), (iii) and (iv).
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. In a {\it review paper} the later is absolutely crucial. Also, it is expected a summary of the remaining sections at the end of the {\it Introduction}. The current {\it Introduction} section, although short, is well-written, but lacks stating the objective of the work and how the remaining work will be divided.
+%
+\item Equations are written down throughout the paper with very little comments on them. Also, a few terms introduced by the equations were not defined, e.g., in Eqns. 4 and 5, $\Delta P$, $\rho$, $C$, $N$, $x$ and $\mu$.
+%
+\item A few figures are $\lq$floating' with no clear explanation/description in the main text (e.g., Fig. 4).   
+% 
+\end{enumerate}
+
+The topic is very relevant for the energy sector and each section has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics and chemistry (thermodynamics, kinetics, macromolecules, fluid mechanics, etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and computer science (e.g., software engineering, algorithms, parallel processing, etc).  The student demonstrated that she had a good understanding of the main fundamental physics and engineering concepts involved in the technologies for this project.
+
+\clearpage
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{1}^{\text{st}}\text{ Paper}\right)$\hfill December, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the 2$^{\text{nd}}$ Paper $\lq$An Investigation into Impact of Retro-Fitting a Carbon Capture Plant to a Gas-Turbine Power Generation System' by Calum Murdoch}
+\end{center}
+
+The paper reports the design project of an integrated carbon-capture plant and dual power generation (Brayton and Rankine cycles) systems. The design project aims to investigate the energy feasibility of well-established technologies of gas and steam power cycles integrated with amine-based absorption column for CO$_{2}$ capture.  In this paper, Mr Murdoch studied (a) process engineering design and optimisation, (b) CO$_{2}$-capture technologies and (c) power generation processes.
+
+The paper is well-written with a small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives and inter-connectivities. Overall, the paper is well-structured with clear division and linkages between sections and paragraphs, leading to an easy and smooth reading. My main concern is that there is no clear indication of the actual objectives neither in the {\it Abstract} nor in the {\it General Introduction} Sections. Indeed, the only part where the objective of the paper is in the first paragraph of Section 2.1 -- $\lq$... the overall objective for this design project is to maximise the export power whilst meeting all design constraints'.  A few comments,
+
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompass (i), (iii) and (iv).
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. Also, it is expected a summary of the remaining sections at the end of the {\it Introduction}. The current {\it Introduction} section is well-written, but lacks stating the objective of the work and how the remaining work will be divided. 
+%
+\item A few terms are not defined (e.g., K$_{4}$ in Section 3.3) or have double-definition (e.g., $m$ in Eqns. 3.2.15 and 3.3.6).
+% 
+\end{enumerate}
+
+The topic is very relevant for the energy sector and each section has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics and chemistry (thermodynamics, kinetics, fluid mechanics, heat and mass transfers, etc), engineering (process engineering, design, optimisation, etc) and computer science (e.g., software engineering, algorithms, parallel processing, etc).  The student demonstrated that she had a good understanding of the main fundamental physics and engineering concepts involved in the technologies for this project.
+
+
+
+\clearpage
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{1}^{\text{st}}\text{ Paper}\right)$\hfill December, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the 2$^{\text{nd}}$ Paper $\lq$Advanced Reservoir Management: History Matching Workflow' by Steven Miskelly}
+\end{center}
+
+The paper reviews current computational / numerical methods used by O$\&$G industry for history matching studies in reservoirs.  In this paper, Mr Miskelly studied: (a) all main stages of the O$\&$G exploration relevant to reservoir simulations, (b) uncertainties analysis, (c) optimisation methods and (d) fluid flow in porous media.
+
+The paper is well-written with a small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives and inter-connectivities. Overall, the paper is well-structured with clear division and linkages between sections and paragraphs, leading to an easy and smooth reading. A few comments,
+
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompass (i), (iii) and (iv).
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding.  In a {\it review paper} the later is absolutely crucial. Also, it is expected a summary of the remaining sections at the end of the {\it Introduction}. The current {\it Introduction} section, although short, is well-written, but lacks a short summary of the remaining of the work.
+%
+\item The {\it References} follow different standards with missing fields and no clear distinction between articles, conference proceedings, reports (internal or external), book chapters, books, communications (internal or external) etc.  A few {\it references} used in the manuscript are incomplete and/or wrong. Regardless of the chosen citation style (e.g., ACS, AIP, AMS, IEEE, AIAA, etc) any reference {\bf must} contain the following fields: 
+\begin{enumerate}
+\item For journal papers: Authors, Paper Tittle, Journal Name, Volume, Pages, Year of publication;
+\item For books: Authors, Book Tittle, Publisher, Year or Edition;
+\item For book chapters: Authors, Chapter Tittle, Book Tittle, Editors, Publisher, Year or Edition;
+\item For conference papers: Authors, Paper Tittle, Conference Tittle, Place (Country and/or City) where the conference was held, Year of the conference;
+\item For reports,  private communications and Lecture Notes: Authors, Tittle, Place issued (Country and/or City and Institution where the document was originated), Year;
+\item For PhD Thesis and MSc Dissertations: Author, Tittle, Institution (University and Department/School), Year.
+\end{enumerate}  
+Thus, for example:
+\begin{enumerate}[label={[\arabic*]}]
+\item P.L. Houtekamer and L. Mitchell, $\lq$Data Assimilation Using an Ensemble Kalman Filter Technique', {\it Monthly Weather Review}, 126:796-811, 1998.
+\item K. Pruess, $\lq$Numerical Modelling of Gas Migration at a Proposed Repository for Low and Intermediate Level Nuclear Wastes', Technical Report LBL-25413, Lawrence Berkeley Laboratory, Berkeley (USA), 1990.
+\item K. Aziz, A. Settari, {\it Fundamentals of Reservoir Simulation}, Elsevier Applied Science Publishers, New York (USA), 1986.
+\item R.B. Lowrie, $\lq$Compact higher-Order Numerical Methods for Hyperbolic Conservation Laws', PhD Thesis, Department of Aerospace Engineering and Scientific Computing, University of Michigan (USA), 1996.
+\end{enumerate}
+%
+\item Most of the figures used in the paper were obtained from journal articles and books with low resolution (quality).
+%
+\item A few symbols / acronyms were used before being defined, e.g., GOR, WOR (gas-oil and water-oil ratios, Secion 2.7) and $Y_{i}$ (Section 3.1) is a vector of observed and simulates values.
+\end{enumerate}
+
+The topic is very relevant for the energy and environmental science sectors and each section has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics (thermodynamics, fluid mechanics, cloud physics, shock-physics etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and computer science (e.g., software engineering, algorithms, parallel processing, etc). The student demonstrated that he had a solid understanding of the main fundamental physics and engineering concepts involved in the technologies for this project.
+
+
+
+%%%%%%%%
+%%%%%%%%
+%%%%%%%%
+
+\clearpage
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{1}^{\text{st}}\text{ Paper}\right)$\hfill November, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the 1$^{\text{st}}$ Paper $\lq$Development and Performance Analysis of the Stochastic Torus Algorithm for Global Optimisation Problems' by Michael Drew}
+\end{center}
+The paper aims to assess and compare the performance of 3 global optimisation algorithms -- torus, simulated annealing and cuckoo search. Global optimisation methods are widely used in industrial engineering applications. Mr Draw studied two main subject areas within the main topic (torus algorithm): stochastic and metaheuristic methods.
+
+The paper is reasonably well-written with a small number of typos and unrevised sentences. A few sentences are very confusing and disconnected with no clear objectives. In general, the paper is well-structured with clear division and linkages between sections and paragraphs, leading to an easy and smooth reading. The paper, although focused on $\lq$generic' (and rather superficial) description of the three optimisation methods was interesting to read with good content to enable discussion and analysis. A few extra comments:
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses (i-ii) and (iv).
+%
+\item The {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. In this paper, the {\it Introduction} section focused mostly on the motivation and application of optimisation algorithms with very little attention to fundamentals underlying these algorithms and novelties (e.g., adaptive/optimal search in SA and CS). 
+%
+\item A few {\it References} are missing important fields, e.g., page numbers and volumes. Also, there are different standards -re the authors' names/initials.
+%
+\item Literature review was the focus of {\it Section 2}. The student divided the section into three parts, each of them with brief (and slightly superficial) description of the algorithms with limited critical analysis of the work undertaken by authors. 
+%
+\item The student outlined the generic algorithm (block diagram) along with the pseudo-code of the three methods. These helped reading and understanding the differences between the algorithms. However, the $\lq$data input deck' of each algorithm is missing -- this is crucial to understand why a method is more used than the others. For example, whereas the CS needs no more than 4-5 parameters, the cooling schedule of the SA requires more than a dozen parameters (similar to the TA).   
+%
+\item The discussion and conclusions sections, although interesting and insightful, were very superficial and lacked analysis and data (that could be gathered from other publications). 
+\end{enumerate}
+
+
+
+In the attached scanned document:
+\begin{itemize}
+\item {\bf PE:} Poor English;
+\item {\bf SC:} Sentence(s) is/are very confusing and do(es) not make much/any sense.   
+\end{itemize}
+\medskip
+
+
+\clearpage
+
+
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{1}^{\text{st}}\text{ Paper}\right)$\hfill November, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the 1$^{\text{st}}$ Paper $\lq$Near-Well Upscaling for Waterflooding' by Blair Ward}
+\end{center}
+The main objective of the paper is to investigate methods and technologies current performed by industry to upscale hydrocarbon producer fields. Upscaling can be considered as a crucial stage on hydrocarbon exploration, and as such has attracted attention from industry and academia towards novel methods that can help to statistically represent geological oil and gas reservoirs. Mr Ward studied two main subject areas within the main topic (upscale methods): geological properties of reservoirs, fluid flow in porous media.
+
+The paper is reasonably well-written with a small number of typos and unrevised sentences. A few sentences are very confusing and disconnected with no clear objectives. In general, the paper is well-structured with clear division and linkages between sections and paragraphs, leading to an easy and smooth reading. The paper attempts to briefly describe the main techniques for field upscaling, sensitivity of the methods and parameters that are often $\lq$averaged'. This led to an interesting to read with good content to enable discussion and analysis. A few extra comments:
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses (i-ii) and (iv).
+%
+\item The {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. In this paper, the {\it Introduction} section focused mostly on the motivation and main background (in a very superficial way) for upscaling techniques.
+%
+\item Equations are written down throughout the paper with very little comments on them (see comments on Eqns. 1-3). Also, in Eqns 6 and 7, there are no commas between $\phi$ and $\rho$, and between $\rho$ and ${\bf u}$, as these are just normal multiplication between scalars and between scalars and vectors. $\left(\rho,{\bf u}\right)$ and $\left(\phi,\rho\right)$ represent $\displaystyle\int\rho d{\bf u}$ and $\displaystyle\int \phi d\rho$, respectively, which is not a correctly description of the continuity and pressure equations.  Same comment applies to Eqn. 12.
+%
+\item The purpose of the paper is to discuss and assess upscaling methods in near-well regions, however there is nearly no mention about how the methods used in Sections 2 and 3 would be applied to this particular region. Section 3 focus on different treatment for boundary conditions but with no (explicit) comment on how this is applied to near-well region.
+%
+\item In Section 5 the upscaling procedures for either permeability and porosity were (very) briefly summarised and these were supposed to be one of the main objectives of the paper.  
+%
+\item Sections 6 and 7 (conclusions), although interesting and insightful, were very superficial and lacked analysis and data (e.g., how these techniques have been used in industry?) that could be gathered from other publications. 
+\end{enumerate}
+
+In the attached scanned document:
+\begin{itemize}
+\item {\bf PE:} Poor English;
+\item {\bf SC:} Sentence(s) is/are very confusing and do(es) not make much/any sense.   
+\end{itemize}
+%\medskip
+
+\clearpage
+
+
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{1}^{\text{st}}\text{ Paper}\right)$\hfill November, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the 1$^{\text{st}}$ Paper $\lq$Assessment of In-Situ Adaptive Tabulation Algorithms for Modelling and Simulation of Reactive Flow Problems' by Eamon Baker}
+\end{center}
+The paper summarises past and current development on computational methods to solve reactive flows. The problem investigated by the paper can be defined into two parts, solving systems of ordinary differential equations that represent chemical kinetics and {\it in-situ adaptive tabulation} (ISAT) method for fast coupling between kinetics and transport equations. Mr Baker studied two main subject areas within the main topic (ISAT methods): reaction mechanisms and numerical time-integration.
+
+The paper is reasonably well-written with a small number of typos and unrevised sentences. A few sentences are very confusing and disconnected with no clear objectives. In general, the paper is well-structured with clear division and linkages between sections and paragraphs, leading to an easy and smooth reading. From the fundamental mass conservation of species equation (partial differential equation), the paper summarises the procedures to solve this equation in time (time-splitting methods) and space, and how to save computational (CPU) time by storing solutions, boundary and initial conditions into a k-ary tree. This led to an interesting paper to read with good content to enable discussion and analysis. A few extra comments:
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses only (i-ii).
+%
+\item The {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. In this paper, the {\it Introduction} section was very poor and did not cover any of the main points above.
+%
+\item The {\it Problem Statement} section was very interesting to read and provided a useful link to the remaining of the paper. However, there are very few references (or actually just one) to support the procedure described in this section.
+%
+\item A few symbols used in Fig. 2 were not defined anywhere.
+%
+\item The search space explanation would have been clear with the use of diagrams showing the rotating and  shrinking-expanded hyper-ellipsoid.
+%
+\item Acronyms are used before definition.
+%
+\item Although ISAT and the main solver method within it were well summarised, there was a very limited analysis on the current state-of-the art methods and procedures for general applications.  
+%
+\item Sections 6 (conclusions) was very superficial and lacked analysis, data (e.g., how these techniques have been used in industry?) and recommendations that could be gathered from other publications. 
+\end{enumerate}
+
+In the attached scanned document:
+\begin{itemize}
+\item {\bf PE:} Poor English;
+\item {\bf SC:} Sentence(s) is/are very confusing and do(es) not make much/any sense.   
+\end{itemize}
+%\medskip
+
+\clearpage
+
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+%\lipsum % Text before
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+
+%\begin{center}
+\Huge{MSc Oil and Gas Engineering Dissertations (EG5908)}\\
+\huge{(Review + Feedback)}\\
+\huge{September 2014}
+%\end{center}
+\normalsize
+
+
+
+\bigskip
+
+%\begin{center}
+\begin{tabular}{||c| c c c |c| c c||}
+\hline\hline
+                           & {\bf Presentation and Style of} & {\bf Technical Content and}           & {\bf Evidence of Critical} & {\bf Average} & {\bf Averaged} & {\bf Oral}\\
+                           & {\bf Writing (20$\%$)}          & {\bf Merit of Dissertation (50$\%$)}  & {\bf Reasoning (30$\%$)}   &               & {\bf CAS Mark} & {\bf Presentation} \\
+\hline
+Efthymios Efthymiou        &         80                      &           80                          &          80                &    80.00      &    18          & 16              \\
+Alexandros Pilichos        &         73                      &           68                          &          73                &    70.50      &    16          & 14              \\
+Reshma Koshy               &         78                      &           77                          &          70                &    75.10      &    15          & 17              \\
+Adarsh Gopinadham          &         69                      &           68                          &          62                &    66.40      &    14          & 16              \\
+Georgios Neofytidis        &         83                      &           86                          &          80                &    83.60      &    17          & 14              \\
+Pat Limpuangthip           &         82                      &           86                          &          84                &    84.60      &    18          & 18              \\
+Alberto Diez Rojo          &         83                      &           85                          &          82                &    83.70      &    18          & 14              \\
+Srikanth Ramani            &         71                      &           69                          &          67                &    68.80      &    13          & 15              \\
+\hline\hline
+\end{tabular}
+%\end{center}
+    \end{landscape}
+    \clearpage% Flush page
+}
+
+%\lipsum % Text after
+
+
+
+\vfill
+
+\clearpage
+
+%%%%%
+%%%%%
+%%%%%
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2014}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Coupling Geomechanical and Fluid Flow Modelling: Effect of Reservoir Parameters' by Georgios Neofytidis}
+\end{center}
+
+\medskip
+
+This dissertation assesses current methods for fluid and solid mechanics for hydrocarbon reservoir applications. The manuscript describes with a good level of details/depth computational methods used in the current- and next-generation of geomechanical models. In addition, the student also investigated coupling methods for fluid and solid models that have been studied (mostly by academics) focusing on 1- and 2-ways interactions. He also assessed the impact of Young modulus and Poisson ratio in compaction phenomena in a flow/subduction simulation using synthetic data.
+
+The manuscript is relatively well-written with a small number of typos and unrevised sentences. Few sentences are very confusing and disconnected with no clear objectives. In general, the dissertation is well-structured with clear division and linkages between chapters, sections and paragraphs, leading to an easy and smooth reading. The dissertation, although heavily focused on mathematical description of solid mechanics (stress/strain-based PDEs) was interesting to read with good content to enable discussion and analysis. A few extra comments:
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses all of them.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. In this dissertation, the {\it Introduction} section focused only on the motivation and objectives of the work. Literature review is spread over the remaining chapters with an in-depth critical analysis of the work undertaken by several authors. 
+%
+\item A few {\it References} are missing important fields, e.g., indication of the nature of the publication (e.g., reports, thesis, manuals etc), page numbers and volumes. Also, references for the commercial software used is also missing.
+%
+\item  Calculations and initial model development (initial and boundary conditions) undertaken for the simulation were clearly indicated with a good level of detail. However, an in-depth discussion of the methods used in the simulations (along with assumptions) is missing. 
+% 
+\end{enumerate}
+
+The topic is very relevant for the O$\&$GE (and energy) sector, and each sub-topic has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics (fluid mechanics, solid mechanics, material science etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and petroleum / mechanical / civil engineering (well completion and design, geomechanics etc). The student demonstrated that he had a excellent understanding of the main technologies involved in this project.
+
+
+\clearpage
+
+%%%%%
+%%%%%
+%%%%%
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2014}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Pressure and Heat Transfer Control for Extraction of Coal without Mining' by Alberto Diez Rojo}
+\end{center}
+
+\medskip
+
+This dissertation investigates a prototype process to extract CH$_{4}$ from coal bed mines. The manuscript describes existing technologies used in the energy sector (oil $\&$ gas, coal mining, chemical processing) that can be readily redesigned and deployed to underground coal devolatilisation. The student undertook extensive literature review on coal and well technologies, fluid flows in porous media and heat transfer. He also developed a simplified model for the initial design and assessment of the process. 
+
+The manuscript is well-written with a few number of typos and unrevised sentences. In general, the dissertation is well-structured with clear division and linkages between chapters, sections and paragraphs, leading to an easy and smooth reading. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses all of them.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. In this dissertation, the {\it Introduction} section focused only on the motivation and objectives of the work. Literature review is spread over the remaining chapters with an in-depth critical analysis of the work undertaken by several authors. 
+%
+\item A few {\it References} are missing important fields, e.g., indication of the nature of the publication (e.g., reports, thesis, manuals etc), page numbers and volumes. Also, references for the commercial software used is also missing.
+%
+\item Calculations developed for the project were clearly indicated with a good level of detail. However, an in-depth discussion of the main alternatives for the large number of (initial) assumptions is missing. 
+% 
+\end{enumerate}
+
+The topic is very relevant for the O$\&$GE and coal (and energy) sectors, and each sub-topic has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics (thermodynamics, fluid mechanics, surface chemistry, material science etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and mining / petroleum / chemical / mechanical / processing engineering chemical (well completion and design, kinetics engineering, etc). The student demonstrated that he had a excellent understanding of the main technologies involved in this project.
+
+
+\bigskip
+\begin{flushleft}
+{\bf Comments from the Industrial Supervisor}
+\end{flushleft}
+\medskip
+
+The project is part of a series of short projects looking at the feasibility of developing a technique for the devolatilisation of coal while in situ by using controlled heat. The techniques are based on the use of oilfield technologies combined with the some underground coal mining aspects. 
+
+The student was set the task of studying the well system from a thermodynamics point of view so that basic energy balance could be derived. 
+ 
+His approach was to diligently explore the literature to develop his understanding of the issues.  I was impressed with his ability to seek out experts where necessary so that he could short cut his studies.  In some places he went beyond what was required seeking out novel ways of conserving heat energy which demonstrated that there many areas that could improve the technique as presently conceived.
+
+The model that the student has developed is an excellent start to a complex issue and there will be errors in the assumptions made because of a lack of experimental data available.  The thesis flows well although there are a few minor omissions in referencing. 
+
+
+
+\clearpage
+
+%%%%%
+%%%%%
+%%%%%
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2014}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Study of Multiscale Waterflooding Mechanisms in Heterogeneous Reservoir Simulations' by Pat Limpuangthip}
+\end{center}
+
+\medskip
+
+This dissertation investigates technologies to improve hydrocarbon production in heterogeneous porous media. The manuscript focuses on methods developed over the past 50 years to: (a) assess and improve sweep efficiency; (b) investigate mechanisms of fluids displacement in oil reservoirs. The student undertook extensive literature review on multiphase flows in porous media, reservoir simulation and fluid instability mechanisms.
+
+The manuscript is well-written but with a few number of typos and unrevised sentences. In general, the dissertation is well-structured with clear division and linkages between chapters, sections and paragraphs, leading to an easy and smooth reading. A few general comments,
+
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses all of them.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. In this dissertation, the {\it Introduction} section focused only on the motivation and objectives of the work. Literature review is spread over the remaining chapters with an in-depth critical analysis of the work undertaken by several authors. 
+%
+\item A few {\it References} are missing important fields, e.g., page numbers and volumes.
+%
+\item Chapter 2 -- {\it Literature Review}, is rather long and convoluted. It would have improved the reading experience if this chapter was split in a more rational way.
+% 
+\end{enumerate}
+
+The topic is very relevant for the O$\&$GE (and energy) sector, and each sub-topic has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics (thermodynamics, fluid mechanics, surface chemistry, etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and petroleum / chemical engineering (EOR, CCS, water production, etc). The student demonstrated that he had a excellent understanding of the main technologies for this project.
+
+
+\clearpage
+
+%%%%%
+%%%%%
+%%%%%
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2014}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Exploring the Potential for CO$_{2}$ Sequestration using Char obtained from Low Temperature Pyrolysis' by Adarsh Gopinadhan}
+\end{center}
+
+\medskip
+
+This dissertation investigates char processing and its potential use for carbon dioxide sequestration in coalmines. The manuscript focused on twofold description, currently available technologies for carbon capture, transport, sequestration and storage and laboratory methods to investigate the potential adsorption of CO$_{2}$ by char. The student undertook extensive literature review on coal technology, CCS and adsorption processes. 
+
+The manuscript is relatively well-written with a small number of typos and unrevised sentences. Few sentences are very confusing and disconnected with no clear objectives. In general, the dissertation was interesting to read with good content to enable discussion and analysis. However, the analysis of the main topics -- low-temperature pyrolysis, coal characterisation and surface chemistry (adsorption mechanisms),  was very superficial. A few extra comments:
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses all of them.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. In this dissertation, the {\it Introduction} section focused only on the motivation and objectives of the work. Literature review is spread over the remaining chapters with limited critical analysis of the work undertaken by several authors. 
+%
+\item The manuscript was very confusing with no real focus on the goals described in Section 1.8 ({\it Aims and Objectives}) -- must of all, the level of analysis of the main technical subjects was extremely superficial. 
+% 
+\end{enumerate}
+
+The topic is very relevant for the O$\&$GE (and energy) and environmental science sectors, and each chapter has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics (thermodynamics, fluid mechanics, surface chemistry, chemical kinetics etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and environmental sciences (environmental chemistry, geosciences, geo-monitoring etc). The student demonstrated that he had a good understanding of the main fundamental physics and technologies for this project.
+
+
+\medskip
+\begin{flushleft}
+{\bf Comments from the Industrial Supervisor}
+\end{flushleft}
+\medskip 
+
+The project is part of a series of short projects looking at the feasibility of developing a technique for the devolatilisation of coal while in situ by using controlled heat. The techniques are based on the use of oilfield technologies combined with the some underground coal mining aspects.  It also draws on nearly 200 years of knowledge about pyrolysis of coal. Ultimately the aim is to leave a high carbon residue which has been identified as a potential repository for CO2 for carbon sequestration.
+
+The student was set the task of studying the possibility of using the residue after the devolatilisation process has been completed called char as a repository for CO2. The student quickly identified that the char could be useful in this respect but that there was a lack of data from char produced in a similar way to the slow low temperature pyrolysis being proposed.  It was suggested to the student that he should look at how this lack of data could be rectified.
+
+His approach was to diligently explore the literature to develop his understanding of the issues.  I was impressed with his ability to seek out experts where necessary so that he could short cut his studies.  In some places he went beyond what was required seeking out novel ways of conserving heat energy which demonstrated that there many areas that could improve the technique as presently conceived.
+
+The model that the student has developed is an excellent start to a complex issue and there will be errors in the assumptions made because of a lack of experimental data available. The thesis flows well although there are a few minor omissions in referencing. 
+
+
+\clearpage
+
+%%%%%
+%%%%%
+%%%%%
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2014}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Assessment of History Matching Techniques in Reservoir Management' by Reshma Koshy}
+\end{center}
+
+\medskip
+
+This dissertation reviews current history matching methods and technologies for reservoir management. In particular, the manuscript focuses on self-adaptive computational methods for data assimilation as part of the history matching procedure undertaken for model and software quality assurance and prediction/forecasting of reservoir production. The student undertook extensive literature review on current technologies for reservoir modelling, data assimilation and model optimisation. 
+
+The manuscript is relatively well-written with a relatively number of typos and unrevised sentences. A few sentences are very confusing and disconnected with no clear objectives. In general, the dissertation was interesting to read with good content to enable discussion and analysis. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses (i-ii) and (iv).
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. In this dissertation, the {\it Introduction} section focused only on the motivation and objectives of the work. Literature review is spread over the remaining chapters with limited critical analysis of the work undertaken by several authors. 
+%
+\item A few {\it References} are missing important fields, e.g., page numbers and volumes. Also, there are different standards -re the authors' names/initials.
+%
+\item A few terms introduced by the equations were not defined. 
+%
+\item The manuscript undertakes a good review of the current state-of-the-art methods for history matching and, in particular, for data assimilation. However, there was no attempt to assess/investigate current industry-standard software for history matching, which would help in the discussion and applications.  
+% 
+\end{enumerate}
+
+The topic is very relevant for the O$\&$GE (and energy) and environmental science sectors, and each chapter has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics (thermodynamics, fluid mechanics, cloud physics, shock-physics etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and computer science (e.g., software engineering, algorithms, parallel processing, etc). The student demonstrated that she had a very good understanding of the main fundamental physics and technologies for this project.
+
+
+\clearpage
+
+%%%%%
+%%%%%
+%%%%%
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2014}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Energy/Exergy Feasibility Study of Carbon Dioxide Enhanced Oil Recovery' by Alexandros Pilichos}
+\end{center}
+
+\medskip
+
+The dissertation investigates currently available technologies for CO$_{2}$ capture, transport and storage for mitigating GHG emissions in concentrated flow streams (i.e., carbon-based power stations). Most of all, the manuscript focuses on assessing the energy costs of injection of CO$_{2}$ in geological formation. The student undertook extensive literature review on current technologies for capture, transport and storage of CO$_{2}$, exploration facilities and case-studies. The student also developed a simplified model to assess the energy/exergy budget for a CO$_{2}$-EOR unit.
+
+The manuscript is relatively well-written with a number of typos and unrevised sentences. A few sentences are very confusing and disconnected with no clear objectives. In general, the dissertation was interesting to read with enough content to enable discussion and analysis. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses (i-ii) and (iv).
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. In this dissertation, the {\it Introduction} section focused only on the motivation and objectives of the work. Literature review is spread over the remaining chapters with limited critical analysis of the work undertaken by several authors. 
+%
+\item A few {\it References} are missing important fields, e.g., page numbers and volumes. Also, there are different standards -re the authors' names/initials.
+%
+\item The student developed his own Excel spreadsheet model with data from a specified field and with a number of correlation found in the open-literature. There was a good discussion of the obtained results although this was slightly confusing.
+%
+\item A few terms introduced by the equations were not defined. 
+% 
+\end{enumerate}
+
+The topic is very relevant for the O$\&$GE (and energy) and environmental science sectors. The student demonstrated that he had a good understanding of some of the main fundamental physics and technologies for this project.
+
+\clearpage
+
+%%%%
+%%%%
+%%%%
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2014}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Formation and Stability of Natural Gas Clathrate Hydrates in Pipelines' by Efthymios Efthymiou}
+\end{center}
+
+\medskip
+
+The dissertation investigates the formation and stability of hydrates in the energy sector. The student proceeded with an extensive literature of: (a) the morphological structure of natural gas clathrate hydrates, (b) chemical kinetics models and (c) thermodynamic models. The student also developed a simplified model of hydrate formation and compared his numerical results against industry-standard models and publicly available experimental data.
+
+The manuscript is well-written with very few typos and unrevised sentences. Most of all, the dissertation is very well-structured with clear division and linkages between chapters, sections and paragraphs, leading to an easy and smooth reading. A few general comments,
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompass all of them.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. In this dissertation, the {\it Introduction} section focused only on the motivation and objectives of the work. Literature review is spread over the remaining chapters with good critical analysis of the work undertaken by several authors. 
+%
+\item A few {\it References} are missing important fields, e.g., page numbers and volumes. Also, there are different standards -re the authors' names/initials.
+%
+\item The student developed his own Matlab code based on one of the previously described model. However, no specific comments on the results obtained -- Figs. 6.2-5 and Tables 6.3-4, were made. The conclusions/discussions of this Chapter (6) were neatly done on Section 6.3, but the specific discussions are missing. Also, no comments were done on the methods used by the student to solve the model and the initial conditions.
+%
+\item A few terms introduced by the equations were not defined. 
+% 
+\end{enumerate}
+
+The topic is very relevant for the O$\&$GE (and energy) sector and each chapter has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics and chemistry (thermodynamics, kinetics, fluid mechanics, etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and computer science (e.g., software engineering, algorithms, parallel processing, etc).  The student demonstrated that he had an excellent understanding of the main fundamental physics and technologies for this project.
+
+\clearpage
+
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2014}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Precipitation and Thermodynamic Stability Analysis of Asphaltenes in Crude Oils' by Srikanth Ramani}
+\end{center}
+
+\medskip
+
+The dissertation assess thermodynamic mechanisms of asphaltene precipitation in crude heavy oils under reservoir and pipelines conditions. The student investigated (a) traditional and state-of-the-art technologies (i.e., designed equations of state and formulations for heavy molecules) used to predict onset of asphaltene precipitation; (b) current methods to experimentally assess precipitation / deposition; (c) commercial software for solid-liquid-vapour equilibrium and comparison against given experimental data and; (d) current technologies to mitigate / remediate heavy hydrocarbon precipitation.
+
+The dissertation is well-written with few typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives and inter-connectivities. Most of all, the dissertation is very well-structured with clear division and linkages between chapters, sections and paragraphs, leading to an easy and smooth reading. A few general comments,
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompass all of them.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current chapters 1 ({\it Introduction}) and 2 ({\it Asphaltene Precipitation}) are well-written and  but lacks demonstration that the student investigated past work on the subject (i.e., fundamental thermodynamic and kinetic mechanisms for precipitation). Also, it is expected a summary of the remaining chapters at the end of the chapter. 
+%
+\item The {\it References} follow different standards with missing fields and no clear distinction between articles, conference proceedings, reports (internal or external), book chapters, books, communications (internal or external) etc.  
+%
+\item One of the stated objectives of the work is optimisation techniques / methods, but this was not covered in this dissertation.
+%
+\item Equations in Chapter 4 were not correctly numbered. In addition, several terms were not defined either in the nomenclature table or throughout the main text.
+% 
+\end{enumerate}
+
+The topic is very relevant for the O$\&$GE (and energy) sector and each chapter has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with physics and chemistry (thermodynamics, kinetics, macromolecules, fluid mechanics, etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and computer science (e.g., software engineering, algorithms, parallel processing, etc).  The student demonstrated that he had a solid understanding of the main fundamental physics and engineering concepts involved in the technologies for this project.
+
+\clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+\begin{center}
+\Huge{SwB Summer Project}\\
+\huge{(Letter / Feedback)}\\
+\huge{September 2014}
+\end{center}
+
+\vfill
+
+\clearpage
+
+\noindent{\bfseries\large SwB Summer Project \hfill September, 2014}
+
+\medskip
+
+\begin{center}
+{\Large Review of the SwB Summer Project $\lq$Numerical Simulations of Multi-Fluid Flows in Heterogeneous Porous Media' by William C. Rad\"unz}
+\end{center}
+
+William Rad\"unz's project focused on numerically investigating fluid displacement in heterogeneous porous media. This project lasted from November 2013 to September 2014. During this period, Mr Rad\"unz performed the following tasks:
+\begin{enumerate}
+\item Literature review of the main subject areas (e.g., multiphase flows in porous media, viscous flow instabilities, partial differential equations, finite element methods, mesh generation etc);
+\item Generated structured/unstructured mesh grids for fluid flow simulations in geological formations;
+\item Performed initial model and software quality assurance (validation);
+\item Performed a number of numerical simulations of multiphase flows in heterogeneous porous media as described in his report. 
+\end{enumerate} 
+
+On March 2014, he submitted a full paper to the \href{http://www.wccm-eccm-ecfd2014.org/frontal/default.asp}{XI Word Congress on Computational Mechanics} (WCCM XI organised by the \href{http://www.eccomas.org/}{ECCOMAS}/\href{http://iacm.info/}{IACM}) that was held in Barcelona on July.  The manuscript -- $\lq$A Multi-Scale Model of Multi-Fluid Flows Transport in Dual Saturated-Unsaturated Heterogeneous Porous Media' (in attachment), encompassed his scientific activities on multi-fluid modelling. During the summer, Mr Rad\"unz has been engaged in extend the manuscript towards a journal paper ({\it Advances in Water Resources}) focusing on twofolds objectives, demonstrating the numerical accuracy of control volume finite element methods (CVFEM) and investigation of viscous instabilities in heterogeneous flows.  The later can be readily applied to the study of {\it waterflooding} for enhanced oil recovery (EOR) and pollutant dispersion in rock matrices.
+
+
+
+Mr Rad\"unz is a hard-working, tenacious and bright undergraduate student. He proved he was well able to apply his good knowledge of computational mathematics and mechanical engineering to real world challenges. He was fully committed to the project and although the topic was very broad, he managed to deliver an outstanding conference paper. During the late stages of his project -- May-September he worked in close collaboration with PhD students to design and perform numerical simulations and write a journal paper on viscous instabilities. 
+\begin{center}
+%\begin{figure}
+\includegraphics[width=4.0cm,height=2.cm]{/data2/Dropbox/Admin/ScannedSignature}\\
+{Dr Jefferson Gomes}\\
+{Project Supervisor}\\
+%\end{figure}
+\end{center}
+
+
+
+\clearpage
+
+%%%
+%%%
+%%%
+
+\noindent{\bfseries\large SwB Summer Project \hfill September, 2014}
+
+\medskip
+
+\begin{center}
+{\Large Review of the SwB Summer Project $\lq$Numerical Simulation of a Dam-Break Problem' by Luciana Renata Carvalho Pedreira}
+\end{center}
+
+The main objective of Luciana Pedreira's project is to apply high-order compressive advection schemes into a new multi-fluid flows formulation to study shock wave based problems. The project started on March to September 2014. During this period, Ms Pedreira performed the following tasks:
+\begin{enumerate}
+\item Literature review of the main subject areas -- single and multiphase flows formulations, multi-components flow sub-models, partial differential equations, finite element methods, mesh generation, signal analysis, etc;
+\item Generated structured/unstructured mesh grids for fluid flow simulations in several idealised geometries;
+\item Performed initial model and software quality assurance (validation);
+\item Performed a number of numerical simulations of oscillatory waves and dam-break problems with a range of materials/species as described in his report. 
+\end{enumerate} 
+
+Ms Pedreira is a bright undergraduate student. She proved she was well able to apply her good knowledge of computational mathematics and fluid mechanics to challenging engineering problems. She was fully committed to the project and although the topic was very difficult, she managed to deliver an impressive set of numerical results that may lead to future publications. 
+\vspace{2.cm}
+\begin{center}
+%\begin{figure}
+\includegraphics[width=4.0cm,height=2.cm]{/data2/Dropbox/Admin/ScannedSignature}\\
+{Dr Jefferson Gomes}\\
+{Project Supervisor}\\
+%\end{figure}
+\end{center}
+
+
+\clearpage
+
+%%%%%%
+%%%%%%
+%%%%%%
+
+\begin{center}
+\Huge{MSc Oil and Gas Engineering Dissertation (EG5908)}\\
+\huge{(Generic Feedback to all supervised students)}\\
+\huge{June-August 2014}
+\end{center}
+
+\vfill
+
+\clearpage
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill August, 2014}
+
+
+\noindent
+Below, a few comments on the attached draft of the dissertation. 
+\begin{enumerate}
+%
+\item Dissertations and thesis are always divided into chapters rather than sections (commonly used in reports). 
+%
+\item Text becomes increasingly more readable if it is clearly divided (and numbered) into sections, subsections etc.  
+%
+\item In the begining of each chapter you should include a paragraph (or two) summarising previous relevant chapters and, most of all, the main aspects of the current chapter. This summary should indicate what the reader should expect from the following sections and how the chapter relates to previous chapters and to the overall thesis' subject.
+%
+\item Similarly, at the end of each chapter, it is expected a short section summarising the main aspects/results/conclusions of the chapter and how this can be linked with the overall thesis' subject and the following chapter.
+%
+\item If your thesis contain a large number of symbols or non-common terms you shoul consider including a {\it Nomenclature} table that would contain all symbols (and units) used in the work. 
+%
+\item Figures and Tables {\bf must} be referenced in the main text -- they can not just $\lq$float around'! Also, figure/table captions should be self-contained, i.e., with a good description of the figure/table highlighting the most relevant aspects/information that the author wants to convene. 
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. 
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. 
+%
+\item Appendices are used to convey complementary (and not crucial) information of the main chapters and need to be referenced in the main text.
+%
+\item {\it References}: regardless of the chosen citation style (e.g., ACS, AIP, AMS, IEEE, AIAA, etc) any reference {\bf must} contain the following fields: 
+\begin{enumerate}
+\item For journal papers: Authors, Paper Tittle, Journal Name, Volume, Pages, Year of publication;
+\item For books: Authors, Book Tittle, Publisher, Year or Edition;
+\item For book chapters: Authors, Chapter Tittle, Book Tittle, Editors, Publisher, Year or Edition;
+\item For conference papers: Authors, Paper Tittle, Conference Tittle, Place (Country and/or City) where the conference was held, Year of the conference;
+\item For reports,  private communications and Lecture Notes: Authors, Tittle, Place issued (Country and/or City and Institution where the document was originated), Year;
+\item For PhD Thesis and MSc Dissertations: Author, Tittle, Institution (University and Department/School), Year.
+\end{enumerate}  
+Thus, for example:\\
+\noindent
+[39] P.L. Houtekamer and L. Mitchell, $\lq$Data Assimilation Using an Ensemble Kalman Filter Technique', {\it Monthly Weather Review}, 126:796-811, 1998.\\
+\noindent
+[40] K. Pruess, $\lq$Numerical Modelling of Gas Migration at a Proposed Repository for Low and Intermediate Level Nuclear Wastes', Technical Report LBL-25413, Lawrence Berkeley Laboratory, Berkeley (USA), 1990.\\
+\noindent
+[41] K. Aziz, A. Settari, {\it Fundamentals of Reservoir Simulation}, Elsevier Applied Science Publishers, New York (USA), 1986.\\
+\noindent
+[42] R.B. Lowrie, $\lq$Compact higher-Order Numerical Methods for Hyperbolic Conservation Laws', PhD Thesis, Department of Aerospace Engineering and Scientific Computing, University of Michigan (USA), 1996.
+%
+\end{enumerate}
+
+\clearpage
+
+%%%%%%
+%%%%%%
+%%%%%%
+
+\begin{center}
+\Huge{MEng Study Assessment (EG4515)}\\
+\huge{(Review + Feedback)}\\
+\huge{May-June 2014}
+\end{center}
+
+\vfill
+
+
+\clearpage
+
+
+\noindent{\bfseries\large EG4515 -- MEng Thesis Assessment \hfill November, 2014}
+\bigskip
+
+\begin{center}
+  {\Large Review of the MEng Thesis $\lq$Evaluation of the Performance of Bioelectrochemical Systems for the Production of Added Value Commodity Chemicals from Glycerol' by MarySandra Oluchi Anunobi }
+\end{center}
+
+\medskip
+
+The dissertation investigates the production of 1,3-propanediol from glycerol through bio-electrochemical conversion system.  Ms Anunobi performed conversion experiments in a H-type bio-electrochemical reactor followed by analysis of the products to assess overall performance. The dissertation encompasses three main subject areas within the main topic (biochemical conversion of polyol into diol organic compounds): microbiology $\&$ enzymology (metabolic conversion route) and electro-chemistry (i.e., induced oxi-reduction mechanisms). 
+
+The manuscript is well-written with a small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives, however in general, the dissertation was interesting to read with enough content to enable discussion and analysis. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses all parts, {\bf except (ii)}, which is the main aim of an abstract.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section, although short, is well-written and cover {\bf (i)} and, in very limited way {\bf (ii)} ($\lq$... therefore the purpose of this project was to investigate the potential for 1,3-PDO production enhancement via the bioelectrochemical route using MECs and the role of microbes in the process'). Literature review is the focus of Chapter 2 instead. However, the student failed to demonstrate that she managed to clearly identify the main technological gaps in the different routes to produce 1,3-PDO (that led to her research on enhanced bio-electrochemical route).
+%
+\item Quality of figures are really good with clear and self-contained legends and captions. However, a few figures are $\lq$floating' with no explanation/description in the main text. For example, Fig. 3 is crucial to understand the several biochemical routes to produce valuable chemical products from glycerol, including the reduction into 1,3-PDO. However, this figure (or indeed this route) is only explained a few pages later when the reductive and oxidative pathways are described along with Fig. 5.
+%
+\item Also, it would easy the reading (and to fully understand synthesis routes) if the organic reactions (e.g., the reductive pathway from glycerol to 1,3-PDO) were explicitly written/described.  
+%
+\item Section 6.3 is incomplete.
+%
+\item Excellent Future Work section.
+\end{enumerate}
+
+The topic of the paper, organic biochemical conversion, is very relevant for the polymer (PTT polyester) processing sector. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with microbiology and enzymology (synthesis of valuable chemical compounds through metabolic route, biochemical kinetics etc), electro-chemistry (induced oxi-reduction reactions) and organic chemistry (chemical mechanisms of enzyme catalysis). The student demonstrated that she had understood the concepts involved in the technologies for the project with a solid comprehension on fundamentals of engineering and chemistry and the impact in polymer business.    
+
+
+\bigskip
+\noindent
+{\Large Comments from Second Marker}
+\begin{itemize}
+\item $\lq$Introduction: Solid. Covers all of the main issues, is well-structured and well-referenced and provides reader with key challenges associated with this research area. An objectives/mains page is absent;
+\item Results are, in the main well-described and presented and indicate a reasonable amount of data was obtained.
+\item Discussion places results in context of prior knowledge based on through evaluation of literature. This is a mature well-written piece of work with evidence of critical thought ans assessment'    
+\end{itemize}
+
+
+\clearpage
+
+
+\noindent{\bfseries\large EG4515 -- MEng Thesis Assessment \hfill June, 2014}
+\bigskip
+
+\begin{center}
+  {\Large Review of the MEng Thesis $\lq$Lattice Boltzmann Simulations of the Influencing Factors of Density Driven Particle Segregation in Micro-Fluidised Beds' by Michael Drew}
+\end{center}
+
+\medskip
+
+The dissertation numerically investigates particle segregation in micro fluidised beds through lattice Boltzmann methods. Mr Drew effectively performed a set of sensitivity analysis on the flow simulations.  The manuscript is reasonably well-written with a number of typos and unrevised sentences. Few sentences are very long, confusing and disconnected with no clear objectives. In general, the dissertation was interesting to read with enough content to enable discussion and analysis. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} successfully encompasses all 4 parts.
+%
+\item A few {\it references} used in the manuscript are incomplete and/or wrong. Regardless of the chosen citation style (e.g., ACS, AIP, AMS, IEEE, AIAA, etc) any reference {\bf must} contain the following fields: 
+\begin{enumerate}
+\item For journal papers: Authors, Paper Tittle, Journal Name, Volume, Pages, Year of publication;
+\item For books: Authors, Book Tittle, Publisher, Year or Edition;
+\item For book chapters: Authors, Chapter Tittle, Book Tittle, Editors, Publisher, Year or Edition;
+\item For conference papers: Authors, Paper Tittle, Conference Tittle, Place (Country and/or City) where the conference was held, Year of the conference;
+\item For reports,  private communications and Lecture Notes: Authors, Tittle, Place issued (Country and/or City and Institution where the document was originated), Year;
+\item For PhD Thesis and MSc Dissertations: Author, Tittle, Institution (University and Department/School), Year.
+\end{enumerate}  
+Thus, for example:\\
+\noindent
+[39] P.L. Houtekamer and L. Mitchell, $\lq$Data Assimilation Using an Ensemble Kalman Filter Technique', {\it Monthly Weather Review}, 126:796-811, 1998.\\
+\noindent
+[40] K. Pruess, $\lq$Numerical Modelling of Gas Migration at a Proposed Repository for Low and Intermediate Level Nuclear Wastes', Technical Report LBL-25413, Lawrence Berkeley Laboratory, Berkeley (USA), 1990.\\
+\noindent
+[41] K. Aziz, A. Settari, {\it Fundamentals of Reservoir Simulation}, Elsevier Applied Science Publishers, New York (USA), 1986.\\
+\noindent
+[42] R.B. Lowrie, $\lq$Compact higher-Order Numerical Methods for Hyperbolic Conservation Laws', PhD Thesis, Department of Aerospace Engineering and Scientific Computing, University of Michigan (USA), 1996.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is well-written and cover all the aforementioned points (though the literature review is the focus of chapter 2 instead). %However, it failed to demonstrate that the student managed to identify the main technological gaps (although this was clear in the following chapters).
+%
+\item Quality of figures are very poor. The font size for some of them is too small and no legends are present in some of them. Also, several figures are $\lq$floating' with no explanation/description in the main text.
+%
+\item All appendices (except for Table 7.2) are not referred in the main text and all symbols used within are not defined.
+%
+\item The manuscript focus on lattice Boltzmann methods, but this was never fully (or partially) explained. So what equations are actually been solved?
+%
+\item Excellent Conclusions and Future Work sections.
+%
+%\item The contents within the Sections 3.2 and 6 were crucial to fully understand and appreciate the work. Unfortunately, the later was superficial and incomplete -- for example, first paragraph of page 41, how the models were built and what they are based upon. Most of the available models are generic and volume-based, were there any attempt to detailed modelling of chemical absorption in packed beds? What is $\lq$dynamic modelling'? 
+%
+%\item I guess Fig. 1 was copied from some public available source. If this was the case, the student should have cited the reference. In any case, the $\lq${\it Eclipse Simulator}' should be replaced by $\lq${\it Simulator}', as {\it Eclipse} is a commercial simulator developed by Schlumberger. Also after the $\lq$time-step', the flow chart should indicate returning to the $\lq$Simulator'.
+\end{enumerate}
+
+The topic of the paper, fluidisation technologies, is very relevant for the energy and environmental sectors. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with mathematics (e.g., solution of partial differential equations, discrete methods, numerical integration, optimisation, etc), physics/chemistry (fluid mechanics, material sciences, phase change, etc), computer science  and chemical / mechanical / petroleum engineering (industrial processing, safety, facilities, etc). The student demonstrated that he had understood the concepts involved in the technologies for the project with a solid comprehension on fundamentals of engineering .    
+
+
+
+\clearpage
+
+%%%%%%
+%%%%%%
+%%%%%%
+
+
+\noindent{\bfseries\large EG4515 -- MEng Thesis Assessment \hfill May, 2014}
+\bigskip
+
+\begin{center}
+  {\Large Review of the MEng Thesis $\lq$Synthesis, Characterisation and Sorption Studies on Imogolite: a Nano-Tubular Aluminium Silicate Mineral' by Creshia Jones}
+\end{center}
+
+\medskip
+
+The dissertation investigates currently available methods for synthesis and characterisation of imogolite that can potentially be used for radionuclides immobilisation in geological disposal facilities (GDF). Ms Jones studied three subject areas within the main topic (radionuclide immobilisation): transport of cations and chemical reaction kinetics and mechanisms.  
+
+The manuscript is well-written with a small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives. In general, the dissertation was interesting to read with enough content to enable discussion and analysis. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} successfully encompasses all 4 parts, although the transition between sentences/paragraphs were not very smooth.
+%
+\item A few {\it references} used in the manuscript are incomplete and/or wrong. Regardless of the chosen citation style (e.g., ACS, AIP, AMS, IEEE, AIAA, etc) any reference {\bf must} contain the following fields: 
+\begin{enumerate}
+\item For journal papers: Authors, Paper Tittle, Journal Name, Volume, Pages, Year of publication;
+\item For books: Authors, Book Tittle, Publisher, Year or Edition;
+\item For book chapters: Authors, Chapter Tittle, Book Tittle, Editors, Publisher, Year or Edition;
+\item For conference papers: Authors, Paper Tittle, Conference Tittle, Place (Country and/or City) where the conference was held, Year of the conference;
+\item For reports,  private communications and Lecture Notes: Authors, Tittle, Place issued (Country and/or City and Institution where the document was originated), Year;
+\item For PhD Thesis and MSc Dissertations: Author, Tittle, Institution (University and Department/School), Year.
+\end{enumerate}  
+Thus, for example:\\
+\noindent
+[39] P.L. Houtekamer and L. Mitchell, $\lq$Data Assimilation Using an Ensemble Kalman Filter Technique', {\it Monthly Weather Review}, 126:796-811, 1998.\\
+\noindent
+[40] K. Pruess, $\lq$Numerical Modelling of Gas Migration at a Proposed Repository for Low and Intermediate Level Nuclear Wastes', Technical Report LBL-25413, Lawrence Berkeley Laboratory, Berkeley (USA), 1990.\\
+\noindent
+[41] K. Aziz, A. Settari, {\it Fundamentals of Reservoir Simulation}, Elsevier Applied Science Publishers, New York (USA), 1986.\\
+\noindent
+[42] R.B. Lowrie, $\lq$Compact higher-Order Numerical Methods for Hyperbolic Conservation Laws', PhD Thesis, Department of Aerospace Engineering and Scientific Computing, University of Michigan (USA), 1996.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is well-written and cover most of the aforementioned points. However, it failed to demonstrate that the student managed to identify the main technological gaps (although this was clear in the following chapters).
+%
+\item Some of the chemical reactions in Chapter 2 are not properly balanced (or are wrongly described).
+%
+\item The topic is very timely as there are several R$\&$D initiatives worldwide on specifics aspects of development and safety assessment of nuclear waste repositories (in particular in immobilisation and storage of ILW and HLW). Novel technologies that accurately address the aforementioned technologies are crucial for the  nuclear sector as industry and NDA need to ensure all waste is accountable and secured. The procedure for synthesis and characterisation of imogolite is relatively complex and it would have helped the reader if a diagram of the work-flow was included in the dissertation. 
+%
+\item Figures and Tables {\bf must} be referenced in the main text -- they can not just $\lq$float around' (e.g., Table 5.2 and Fig. 5.2). 
+%
+\item First paragraph of page 58 refer to Fig. 7.5 which does not exist in the document, although a few conclusions are drawn based on this Figure. 
+%
+\end{enumerate}
+
+The topic of the paper, new materials for radionuclide immobilisation, is very relevant for the energy and environmental sectors. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with physics/chemistry (material sciences, reactions, surface chemistry, etc) and chemical / nuclear / civil engineering (industrial processing, safety, etc). The student demonstrated that she had understood the concepts involved in the technologies for the project with a solid comprehension on fundamentals of engineering, chemistry and physics and the impact on energy and environmental business.    
+
+\medskip
+\noindent
+{\Large Comments from Second Supervisor -- Prof Glasser}\\
+\noindent
+$\lq$It is an excellent piece of work showing great maturity of thought, concept, design and interpretation. This is especially so as I was ill for several crucial weeks towards the final stages of experimental data collection and integration. Some of the experiments described were new to me: if you did not suggest them, she must have designed them herself. And, as they are entirely appropriate to the  the topic, they are welcome additions which lift the quality of the work from very good to excellent. 
+
+\noindent
+Much of the work is entirely original and, of the many approaches which could have been taken to experimental design, hers are well chosen and well implemented. There were many experimental and instrumental barriers to overcome in the course of the work in order to yield results and I am amazed to see how much energy she must have expended to overcome these barriers.
+
+\noindent
+The Nuclear Decommissioning Agency (NDA) was aware of this work and I had promised, if the work warranted,  to send them the results. I would have no hesitation in doing so. The style and level of professionalism is such that very little rewriting is needed. I have made a few notes on post-its  which I would be glad to discuss with her before the Dissertation is sent to NDA (subject to any necessary consents) but no more than I would expect from a document prepared by one of my Post-Docs.  
+
+%So this leads me to the one minor disagreement with your marks: I would have suggested at least an 80 for the criterion marked  "Evidence of innagination..."Otherwise
+\noindent
+(...) It is clear that you, like I, appreciated her enthusiasm for the work and that the enthusiasm was disciplined and focused. I completely agree with the rest of your scores: although high, they are well justified.'
+
+\medskip
+\noindent
+{\Large Comments from Second Examiner}
+\begin{enumerate}
+\item $\lq$Well written thesis. Use of first person should be avoided. 
+\item Well presented, good  looking and logically structured. 
+\item Mature technical narrative for level 4 student. 
+\item Context and importance of topic clearly set put.
+\item Extensive reference listing supporting a through review of the topic.
+\item Student demonstrated good reasoning and insights towards theory and interpreting results.
+\item Conclusions and recommendations are well wide.'
+\end{enumerate}
+
+
+\clearpage
+
+
+\noindent{\bfseries\large EG4515 -- MEng Thesis Assessment \hfill May, 2014}
+\bigskip
+
+\begin{center}
+  {\Large Review of the MEng Thesis $\lq$Feasibility Study of Carbon Dioxide Capture and Storage' by Sophie Svensen}
+\end{center}
+
+\medskip
+
+The dissertation investigates currently available technologies for CO$_{2}$ capture, transport and storage for mitigating GHG emissions in concentrated flow streams (i.e., carbon-based power stations). The student studied three subject areas within the main topic (CCS processes): capture technologies (adsorption, absorption, membranes within pre-, post-combustion and oxy-fuel technologies),  storage technologies and energy analysis $\&$ integration in power plants. 
+
+The manuscript is well-written with a small number of typos and unrevised sentences. A few sentences are very confusing and disconnected with no clear objectives. In general, the dissertation was interesting to read with enough content to enable discussion and analysis. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} successfully encompasses all 4 parts.
+%
+\item A few {\it references} used in the manuscript are incomplete and/or wrong. Regardless of the chosen citation style (e.g., ACS, AIP, AMS, IEEE, AIAA, etc) any reference {\bf must} contain the following fields: 
+\begin{enumerate}
+\item For journal papers: Authors, Paper Tittle, Journal Name, Volume, Pages, Year of publication;
+\item For books: Authors, Book Tittle, Publisher, Year or Edition;
+\item For book chapters: Authors, Chapter Tittle, Book Tittle, Editors, Publisher, Year or Edition;
+\item For conference papers: Authors, Paper Tittle, Conference Tittle, Place (Country and/or City) where the conference was held, Year of the conference;
+\item For reports,  private communications and Lecture Notes: Authors, Tittle, Place issued (Country and/or City and Institution where the document was originated), Year;
+\item For PhD Thesis and MSc Dissertations: Author, Tittle, Institution (University and Department/School), Year.
+\end{enumerate}  
+Thus, for example:\\
+\noindent
+[39] P.L. Houtekamer and L. Mitchell, $\lq$Data Assimilation Using an Ensemble Kalman Filter Technique', {\it Monthly Weather Review}, 126:796-811, 1998.\\
+\noindent
+[40] K. Pruess, $\lq$Numerical Modelling of Gas Migration at a Proposed Repository for Low and Intermediate Level Nuclear Wastes', Technical Report LBL-25413, Lawrence Berkeley Laboratory, Berkeley (USA), 1990.\\
+\noindent
+[41] K. Aziz, A. Settari, {\it Fundamentals of Reservoir Simulation}, Elsevier Applied Science Publishers, New York (USA), 1986.\\
+\noindent
+[42] R.B. Lowrie, $\lq$Compact higher-Order Numerical Methods for Hyperbolic Conservation Laws', PhD Thesis, Department of Aerospace Engineering and Scientific Computing, University of Michigan (USA), 1996.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is well-written and cover all the aforementioned points. However, it failed to demonstrate that the student managed to identify the main technological gaps (although this was clear in the following chapters).
+%
+\item The topic is very timely as there are several R$\&$D initiatives worldwide on specifics aspects of CCS (in particular in capture and storage technologies and proof-of-concept). Novel technologies that accurately address the aforementioned technologies are crucial for energy and environmental management (including decision-making). Several aspects on these topics were covered in the manuscript, but an in-depth idealised or field example would help the reader to fully understand the subject. The calculations described in the report were interesting but it would have helped if the flow diagrams of the investigated plants were shown and the methods for analysis were fully described. 
+%
+\item The contents within the Sections 3.2 and 6 were crucial to fully understand and appreciate the work. Unfortunately, the later was superficial and incomplete -- for example, first paragraph of page 41, how the models were built and what they are based upon. Most of the available models are generic and volume-based, were there any attempt to detailed modelling of chemical absorption in packed beds? What is $\lq$dynamic modelling'? 
+%
+%\item I guess Fig. 1 was copied from some public available source. If this was the case, the student should have cited the reference. In any case, the $\lq${\it Eclipse Simulator}' should be replaced by $\lq${\it Simulator}', as {\it Eclipse} is a commercial simulator developed by Schlumberger. Also after the $\lq$time-step', the flow chart should indicate returning to the $\lq$Simulator'.
+\end{enumerate}
+
+The topic of the paper, CCS technologies, is very relevant for the energy and environmental sectors. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with mathematics (e.g., solution of partial differential equations, optimisation, etc), physics/chemistry (fluid mechanics, material sciences, reactions, signal analysis, phase change, etc), chemical / mechanical / electrical / petroleum engineering (industrial processing, safety, facilities, power grid, etc), economy (project management, financial forecasting etc). The student demonstrated that she had understood the concepts involved in the technologies for the project with a solid comprehension on fundamentals of engineering and the impact on energy and environmental business.    
+
+
+\medskip
+\noindent
+{\Large Comments from Second Examiner}
+\begin{description}
+\item[Presentation] $\lq$Well written. Diagrams simple but neatly presented. Well referenced and draws from a wide variety of sources including journals.'
+\item[Technical] $\lq$Given the broad nature of the topic I don't think it was feasible to go into greater depth for any particular technology. The depth and breadth were appropriate demonstrating a good grasp of the technical concepts. That said I have tried to reflect the $\lq$difficulty' factor in assessing the thesis.'
+\item[Critical Reasoning]$\lq$The ability to critically evaluate was limited by availability of data. To begin with the student relied heavily on material taken directly from the literature with little critical analysis. That being said the balance was redressed somewhat towards the end.'
+\end{description}
+\clearpage
+
+
+
+\noindent{\bfseries\large EG4515 -- MEng Thesis Assessment \hfill May, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the MEng Thesis $\lq$An Investigation into the Thermal Conductivity of Nanofluids utilising Event-Driven Molecular Dynamics Simulation' by Calun Iain Murdoch}
+\end{center}
+
+\medskip
+
+The thesis numerically investigates numerical models for thermal conductivity predictions through molecular dynamics. The manuscript is very well-written with a small number of typos and unrevised sentences. In general, the manuscript was interesting to read with a wide range of content to enable discussion and analysis. A few general comments,
+\begin{enumerate}
+%
+\item Format of {\bf all} journal paper {\it references} used in the manuscript is {\bf wrong} -- format for chapters in books were used instead. 
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses all parts.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is well-written but lacks demonstration that the student investigated past work on the subject topics (e.g., molecular dynamics, Monte-Carlo methods, kinetic theory, nanofluids dynamics etc) but rather relied on a few reference sources based on the software manual.
+%
+\end{enumerate}
+
+The topic of the paper, molecular dynamics, is very relevant for the energy and environmental sectors. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with mathematics (e.g., solution of partial/ordinary differential equations, optimisation, numerical integration etc), physics/chemistry/biology (fluid mechanics, material sciences, reactions, signal analysis, phase change, heat and mass transfers etc) and chemical / mechanical engineering (industrial processing, safety, facilities, etc). The student demonstrated that he had understood the concepts involved in the methods and technologies for the project with a solid comprehension on fundamentals of maths and engineering.    
+
+
+
+
+\clearpage
+
+
+
+
+\noindent{\bfseries\large EG4515 -- MEng Thesis Assessment \hfill May, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the MEng Thesis $\lq$A Review of the Reaction Kinetics $\&$ Reactor Design for the Selective Hydrogenation of Acetylene from Ethylene Streams' by Lesley-Anne Rowand}
+\end{center}
+
+\medskip
+
+The dissertation investigates chemical kinetics in selective hydrogenation reactions of acetylene. The manuscript reviews past and currently experimental and theoretical studies of organic chemical reaction mechanisms and proposes an experimental selectivity analysis on a set of supported catalysts and inflow ratio $\left(\text{H}_{2}:\text{C}_{2}\text{H}_{2}\right)$. Ms Rowand studied three subject areas within the main topic (reaction kinetics technologies: organic chemistry reaction mechanisms, heterogeneous catalysis (surface chemistry) and process engineering.
+
+The manuscript is reasonably well-written with a small number of typos and unrevised sentences. A few sentences are very confusing and disconnected with no clear objectives. In general, the paper was interesting to read with enough content to enable discussion and analysis. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses (iii) and (iv).
+%
+\item Format of {\bf all} journal paper {\it references} used in the manuscript is {\bf wrong} -- format for chapters in books were used instead. 
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section, although short (i.e., an extended {\it Abstract}) is well-written but does not cover most of the aforementioned parts. 
+%
+\item The topic is very timely as there are several R$\&$D initiatives worldwide on efficient methods for industrial hydrogenation of acetylene. Ms Rowand demonstrated that she understood the importance of the topic and undertook a through review.
+%
+\item Quality of figures are very poor, in particular those describing chemical mechanisms reactions (a critical part of the manuscript). Also, several figures are $\lq$floating' with no explanation/description in the main text (e.g., Figs. 16-19).
+%
+\item Section 7.1.2 was very superficial with no explanation of the actual experimental procedure.
+\end{enumerate}
+
+The topic of the paper, hydrogenation of acetylene, is very relevant for the energy and environmental sectors. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with physics/chemistry (e.g., surface physics, chemical kinetics, thermodynamics, fluid mechanics, material sciences, signal analysis, etc) and chemical / petroleum engineering (industrial processing, safety, etc). The student demonstrated that she had understood the concepts involved in the technologies for the project with a solid comprehension on fundamentals of engineering and the impact on energy business.    
+
+
+\clearpage
+
+%%%%%%
+%%%%%%
+%%%%%%
+
+\begin{center}
+\Huge{BEng Level 4 Thesis Assessment (EG4012)}\\
+\huge{(Review + Feedback)}\\
+\huge{May 2014}
+\end{center}
+
+\vfill
+
+\clearpage
+
+
+
+%%%%%%
+%%%%%%
+%%%%%%
+
+\noindent{\bfseries\large EG4012 -- BEng Level 4 Thesis Assessment \hfill May, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the BEng Thesis $\lq$Work Flow for Reservoir Simulation Engineering: From Mapping to Simulation' by Orawanya Boonklong}
+\end{center}
+
+\medskip
+
+The dissertation focuses on study all stages involved on reservoir engineering, from characterising and mapping hydrocarbons fields to flow simulation using commercial software. Ms Boonklong studied three subject areas within the main topic (reservoir simulator): log-/core-analysis, static and dynamic models and history matching. 
+
+
+The manuscript is reasonably well-written with a large number of typos and unrevised sentences. Some paragraphs and sections are very confusing and disconnected with no clear objectives and inter-connectivities. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. This manuscript's {\it Abstract} covered (i) and (ii), however the transitions between sentences/paragraphs were not very smooth.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological /successfully encompasses all scientific gaps in the current understanding. It is also expected a summary of the remaining sections. There is {\bf no} {\it Introduction} in this work -- this was rather replaced by an $\lq$Introduction to Reservoir Simulation' section where a brief review of the main concepts and definitions of flow simulators were outlined. 
+%
+\item Figures and Tables {\bf must} be referenced in the main text -- they can not just $\lq$float around'! Also, figure/table captions should be self-contained, i.e., with a good description of the figure/table highlighting the most relevant aspects/information that the author wants to convene. 
+%
+\item The {\it References} follow different standards with missing fields and no clear distinction between articles, conference proceedings, reports (internal or external), book chapters, books, communications (internal or external) etc.  Regardless of the chosen citation style (e.g., ACS, AIP, AMS, IEEE, AIAA, etc) any reference {\bf must} contain the following fields: 
+\begin{enumerate}
+\item For journal papers: Authors, Paper Tittle, Journal Name, Volume, Pages, Year of publication;
+\item For books: Authors, Book Tittle, Publisher, Year or Edition;
+\item For book chapters: Authors, Chapter Tittle, Book Tittle, Editors, Publisher, Year or Edition;
+\item For conference papers: Authors, Paper Tittle, Conference Tittle, Place (Country and/or City) where the conference was held, Year of the conference;
+\item For reports,  private communications and Lecture Notes: Authors, Tittle, Place issued (Country and/or City and Institution where the document was originated), Year;
+\item For PhD Thesis and MSc Dissertations: Author, Tittle, Institution (University and Department/School), Year.
+\end{enumerate}  
+Thus, for example:\\
+\noindent
+[39] P.L. Houtekamer and L. Mitchell, $\lq$Data Assimilation Using an Ensemble Kalman Filter Technique', {\it Monthly Weather Review}, 126:796-811, 1998.\\
+\noindent
+[40] K. Pruess, $\lq$Numerical Modelling of Gas Migration at a Proposed Repository for Low and Intermediate Level Nuclear Wastes', Technical Report LBL-25413, Lawrence Berkeley Laboratory, Berkeley (USA), 1990.\\
+\noindent
+[41] K. Aziz, A. Settari, {\it Fundamentals of Reservoir Simulation}, Elsevier Applied Science Publishers, New York (USA), 1986.\\
+\noindent
+[42] R.B. Lowrie, $\lq$Compact higher-Order Numerical Methods for Hyperbolic Conservation Laws', PhD Thesis, Department of Aerospace Engineering and Scientific Computing, University of Michigan (USA), 1996.
+%
+\item Some concepts, definitions and equations are wrong and/or incomplete, e.g., 
+\begin{enumerate}
+\item Equation 6 should read as,
+\begin{displaymath}
+\frac{\partial}{\partial t }\left(\phi\rho_{\alpha}S_{\alpha}\right) = -\nabla\left(\rho_{\alpha}u_{\alpha}S_{\alpha}\right)+q_{\alpha}
+\end{displaymath}
+\item Table 8 shows a few example of EOS that represent the PVT behaviour of fluids;
+\item etc
+\end{enumerate}
+
+\end{enumerate}
+
+The topic of this dissertation, workflow of reservoir simulators, is very relevant for the O$\&$GE (and energy) sector.  Individual aspects (within each chapter) have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with mathematics (e.g., inverse theory, mesh generation, solution of partial differential equations, uncertainty quantification etc), physics/chemistry (fluid and solid mechanics, signal processing, phase change, etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc), computer science (e.g., software engineering, algorithms, parallel processing, etc) and chemical / petroleum engineering (industrial processing, safety, EOR, CCS etc). Ms Boonklong  demonstrated that she had understood the concepts involved in the technologies for the project with a reasonable comprehension on fundamentals of engineering and the impact on  the O$\&$G exploration business.   
+
+
+\bigskip
+
+\noindent
+{\large Comments from Second Examiner}
+
+\noindent
+$\lq$The structure and style of the thesis is ok, but with poor attention to details. Unclear writing makes it hard to follow, and there are many mistakes, for instance in the chapter on the software package {\it Eclipse}, the word {\it Eclipse} is spelt in three different ways.  Equations are copied and pasted from {\it pdf} documents, and not well explained.  Concepts, such as auto-correlation and deconvolution are mentioned but not explained, showing poor critical thinking. Some simulation work was done, and the results explained briefly. This suggest some level of competence' 
+
+
+
+\clearpage
+
+
+\noindent{\bfseries\large EG4012 -- BEng Level 4 Thesis Assessment \hfill May, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the BEng Thesis $\lq$Phase Behaviour of Simple Molecular Models' by Daniel Criag McKechnie}
+\end{center}
+
+\medskip
+
+The manuscript is badly written with {\bf no clear indication} of the real objective(s) of the work. In the {\it Abstract}, the objective is stated as $\lq$(...) A look into understanding the link between fundamental liquid-gas behaviour and simulation data throughout the report'.  However this was not effectively tried at any part of this manuscript. From the title, it is expected an {\it in-depth} review of thermodynamic equilibrium calculations, however the student only {\bf briefly} summarised basic concepts of thermodynamics, e.g., first and second laws (though, not entirely right), properties and EOS. There are a number of typos and unrevised sentences. Several paragraphs and sentences are very confusing and disconnected with no clear objectives. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. This paper's {\it Abstract} covered (i) and (ii).
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. It is also expected a summary of the remaining sections. There is {\bf no} {\it Introduction} in this work -- this was rather replaced by an $\lq$Introduction to Thermodynamics' section where a brief review of the main concepts in classical thermodynamics was attempted. 
+%
+\item Figures and Tables {\bf must} be referenced in the main text -- they can not just $\lq$float around'! Also, figure/table captions should be self-contained, i.e., with a good description of the figure/table highlighting the most relevant aspects/information that the author wants to convene. 
+%
+\item The (very few) {\it References} follow different standards with missing fields and no clear distinction between articles, conference proceedings, reports (internal or external), book chapters, books, communications (internal or external) etc.  
+%
+\item Some concepts and definitions are wrong and/or incomplete, e.g., entropy (Clausius inequalities), Helmholtz energy, etc;
+%
+\item Expressions in vdW and SRK EOS are wrong;
+%
+\item As the manuscript's objective is to study phase behaviour, I would expect an in-depth discussion of EOS (derivation and calculations) for pure components, how accurate they are, polynomial- (Virial) and statistically-based etc. The presentation and discussion were very disappointing. 
+%
+\item Molecular simulations are the main focus of {\it Section 4}, although no real explanation of the fundamentals, theory and procedures -- and this (just one page) is the main objective of his work.
+%
+\item A numerical calculation of VLE for octane is attempted in Page 30, but no details, results or analysis are given.
+
+\end{enumerate}
+
+The topic of the paper, phase behaviour is very relevant for the energy and chemistry sectors. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with physics/chemistry (material sciences, reactions, phase change, corrosion, etc), chemical / petroleum engineering (industrial processing, safety, etc) and maths (optimisation, etc). The student did not demonstrate that he had understood the basic concepts involved in the topics for this project.    
+
+
+\clearpage
+
+%%%%%%
+%%%%%%
+%%%%%%
+
+\begin{center}
+\Huge{Advanced Topics for MEng Study (EG5085)}\\
+\huge{2$^{nd}$ Paper (Review + Feedback)}\\
+\huge{January 2014}
+\end{center}
+
+\vfill
+
+\clearpage
+
+
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{2}^{\text{nd}}\text{ Paper}\right)$\hfill January, 2014}
+
+\bigskip
+
+\begin{center}
+  {\Large Review of the 2$^{\text{nd}}$ Paper $\lq$Assessment of Polymer Flooding: Fluid Properties; Reservoir Condition Economical and Environmental Impact' by Ejikemeuwa Eric Nnanna}
+\end{center}
+
+\medskip
+
+The manuscript investigates technical conditions (thermo-fluid, transport, chemical, geo-physics, etc) for enhanced oil recovery using polymer solution injection in geological/reservoir formations.  The student studied three subject areas within the main topic (polymer flooding): polymer thermo-physical properties, transport phenomena in saturated reservoirs, physico-chemistry interactions (i.e., contact chemistry).
+
+The paper is reasonably well-written with a small number of typos and unrevised sentences. A few sentences are very confusing and disconnected with no clear objectives. In general, the paper was very interesting to read with enough content to enable discussion and analysis. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. This paper's {\it Abstract} only targeted on (ii).
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is well-written although it does not cover the aforementioned items. It is also expected a summary of the remaining sections. 
+%
+\item The topic is very timely as there are several R$\&$D initiatives worldwide on enhanced oil recovery techniques aiming to improve hydrocarbon production. Novel technologies that accurately address chemical EOR are crucial for reservoir management (including decision-making). Several aspects of these technologies were covered in the paper, but an idealised or field example would help the reader to fully understand the subject.
+%
+\item Key properties definitions are missing and symbols/acronyms were used with no prior description. For example, WAG, HCPV, MMP, HPAM etc.
+%
+\item Figures and Tables {\bf must} be referenced in the main text -- they can not just $\lq$float around'! Also, figure/table captions should be self-contained, i.e., with a good description of the figure/table highlighting the most relevant aspects/information that the author wants to convene. 
+%
+\item References used different styles, and for most of them it is not clear if they are either conference papers, journal papers, books or book chapters. Regardless of the chosen citation style (e.g., ACS, AIP, AMS, IEEE, AIAA, etc) any reference {\bf must} contain the following fields: 
+\begin{enumerate}
+\item For journal papers: Authors, Paper Tittle, Journal Name, Volume, Pages, Year of publication;
+\item For books: Authors, Book Tittle, Publisher, Year or Edition;
+\item For book chapters: Authors, Chapter Tittle, Book Tittle, Editors, Publisher, Year or Edition;
+\item For conference papers: Authors, Paper Tittle, Conference Tittle, Place (Country and/or City) where the conference was held, Year of the conference.
+\end{enumerate}  
+Thus, for example:
+
+[3] P.L. Houtekamer and L. Mitchell (1998) Data Assimilation Using an Ensemble Kalman Filter Technique, {\it Monthly Weather Review}, 126:796-811, 1998.
+%
+\end{enumerate}
+
+The topic of the paper, polymer flooding, is very relevant for the energy sector. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with physics/chemistry (material sciences, reactions, signal analysis, phase change, corrosion, etc), chemical / mechanical / electrical / petroleum engineering (industrial processing, safety, facilities, maintenance, etc), economy (project management, financial forecasting etc). The student demonstrated that he had understood the concepts involved in the technologies for the project with a solid comprehension on fundamentals of engineering and the impact on energy business.    
+
+
+\clearpage
+
+%%%%%%
+%%%%%%
+%%%%%%
+
+
+
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{2}^{\text{nd}}\text{ Paper}\right)$\hfill January, 2014}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the 2$^{\text{nd}}$ Paper $\lq$The Use and Limitations of Composite Repairs in the Oil and Gas Industry' by Martin Irvane Murawiecki}
+\end{center}
+
+\medskip
+
+The manuscript investigates the use of composite materials in repair procedures in hydrocarbon-related production facilities, in particular pipelines. The student studied three subject areas within the main topic (composite materials): surface treatment, performance and behaviour, industry standards (best-practice).
+
+The paper is reasonably well-written with a small number of typos and unrevised sentences. A few sentences are very confusing and disconnected with no clear objectives. In general, the paper was interesting to read with enough content to enable discussion and analysis. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} encompasses (ii) and (iv).
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is well-written but lacks demonstration that the student investigated past work on the subject topics (e.g., surface and materials science, adhesion, etc). Also, it is expected a summary of the remaining sections. Most of all, it absolutely unclear the main objectives of the work.
+%
+\item The topic is very timely as there are several R$\&$D initiatives worldwide on surface and material sciences with applications spanning industries. Novel technologies that accurately address composite materials for repairs in pipelines are crucial for oil and gas industry, and several aspects on this topic were very superficially covered in the paper. 
+%
+\item Key properties definitions are missing and symbols/acronyms were used with no prior description. For example, matrices were classified as {\it thermosets} and {\it thermoplastics}, but no definition were given for any of them.
+%
+\item Figures and Tables {\bf must} be referenced in the main text -- they can not just $\lq$float around'! Also, figure/table captions should be self-contained, i.e., with a good description of the figure/table, highlighting the most relevant aspects/information that the author wants to convene. 
+%
+\item I guess the info contained in Tables 1-11 were copied from publicly available sources. If this was the case, the student should have cited the reference.
+\end{enumerate}
+
+The topic of the paper, composite materials, is very relevant for the energy and environmental sectors. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with physics/chemistry (material sciences, reactions, signal analysis, phase change, corrosion, etc), chemical / mechanical / electrical / petroleum engineering (industrial processing, safety, facilities, maintenance, etc), economy (project management, financial forecasting etc). The student demonstrated that he had understood the concepts involved in the technologies for the project with a solid comprehension on fundamentals of engineering and the impact on energy business.    
+
+
+\clearpage
+
+%%%%%%
+%%%%%%
+%%%%%%
+
+
+
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{2}^{\text{nd}}\text{ Paper}\right)$\hfill January, 2014}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the 2$^{\text{nd}}$ Paper $\lq$Advanced Reservoir Management: History-Matching Workflow' by Ian William Mitchell}
+\end{center}
+
+\medskip
+
+The paper investigates numerical/computational tools for history-matching for reservoir flow studies. The student studied three subject areas within the main topic (history-matching technologies): overall workflow for reservoir simulation, optimisation techniques and fluid flows in porous media.
+
+The manuscript is reasonably well-written with a small number of typos and unrevised sentences. A few sentences are very confusing and disconnected with no clear objectives. In general, the paper was interesting to read with enough content to enable discussion and analysis. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} successfully encompasses all 4 parts.
+%
+\item {\bf All} journal paper {\it references} used in the paper are incomplete and/or wrong. Regardless of the chosen citation style (e.g., ACS, AIP, AMS, IEEE, AIAA, etc) any reference {\bf must} contain the following fields: 
+\begin{enumerate}
+\item For journal papers: Authors, Paper Tittle, Journal Name, Volume, Pages, Year of publication;
+\item For books: Authors, Book Tittle, Publisher, Year or Edition;
+\item For book chapters: Authors, Chapter Tittle, Book Tittle, Editors, Publisher, Year or Edition;
+\item For conference papers: Authors, Paper Tittle, Conference Tittle, Place (Country and/or City) where the conference was held, Year of the conference.
+\end{enumerate}  
+Thus, for example:\\
+\noindent
+[39] P.L. Houtek and L. Mitchell, $\lq$Data Assimilation Using an Ensemble Kalman Filter Technique', American Meteorological Society, 1998.\\
+\noindent
+should read as,\\
+\noindent
+[39] P.L. Houtekamer and L. Mitchell, $\lq$Data Assimilation Using an Ensemble Kalman Filter Technique', {\it Monthly Weather Review}, 126:796-811, 1998.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is well-written but lacks demonstration that the student investigated past work on the subject topics (e.g., optimisation techniques, flow simulation, Kalman filters, EnKF, data assimilation etc).
+%
+\item The topic is very timely as there are several R$\&$D initiatives worldwide on history matching and data assimilation aiming to forecast both hydrocarbon production (with updated potential reserves) and wells/fields performance. Novel technologies that accurately address the aforementioned technologies are crucial for reservoir management (including decision-making). Several aspects on these topics were covered in the paper, but an idealised or field example (also available in the literature) would help the reader to fully understand the subject.
+%
+\item The contents within the Sections $\lq$Extended Darcy Law' and $\lq$Reservoir Simulation' were crucial to fully understand and appreciate the work. Unfortunately, the former was very superficial and incomplete -- for example, the extended Darcy equation (i.e., the multiphase porous media flow) can only be fulfilled by complementing Eqn. (2) with the global mass conservation equation (i.e., saturation equation) that links fluid flux $\left(u,\;u_{\alpha}\;\rightarrow\;\text{velocity of phase }\alpha\right)$, saturations, densities, relative and absolute permeabilities. Neither the equations nor the physics associated with miscible/immiscible fluid flows were fully explained. Although well-written, the first two paragraphs of the $\lq$Reservoir Simulation' section were very superficial with continuous reference to computing power (and $\lq$improvements') without explaining which developments enabled the new high-performance computing (HPC) technologies.
+%
+\item I guess Fig. 1 was copied from some public available source. If this was the case, the student should have cited the reference. In any case, the $\lq${\it Eclipse Simulator}' should be replaced by $\lq${\it Simulator}', as {\it Eclipse} is a commercial simulator developed by Schlumberger. Also after the $\lq$time-step', the flow chart should indicate returning to the $\lq$Simulator'.
+\end{enumerate}
+
+The topic of the paper, history-matching technology, is very relevant for the energy and environmental sectors. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with mathematics (e.g., solution of partial differential equations, optimisation, etc), physics/chemistry (fluid mechanics, material sciences, reactions, signal analysis, phase change, etc), chemical / mechanical / electrical / petroleum engineering (reservoir management, industrial processing, safety, facilities, power grid, etc), economy (project management, financial forecasting etc). The student demonstrated that he had understood the concepts involved in the technologies for the project with a solid comprehension on fundamentals of engineering and the impact on energy business.    
+
+
+\clearpage
+
+%%%%%%
+%%%%%%
+%%%%%%
+
+\begin{center}
+\Huge{Advanced Topics for MEng Study (EG5085)}\\
+\huge{1$^{st}$ Paper (Review + Feedback)}\\
+\huge{November 2013}
+\end{center}
+
+\vfill
+
+\clearpage
+
+
+\noindent{\bfseries\large EG5085 -- Advanced Topics for MEng Study $\left(\text{1}^{\text{st}}\text{ Paper}\right)$\hfill November, 2013}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the 1$^{\text{st}}$ Paper $\lq$Optimisation of Energy Systems in Smart Cities' by Grant Milne}
+\end{center}
+
+\medskip
+
+The paper aims to investigate optimal energy technologies for urban environments and, in particular co-/tri-generation systems (CHP and CCHP) and applications in cities. The student assessed four subject areas within the main topic (optimal energy usage in $\lq$smart cities'): co-/tri-generation systems, optimal energy integration, UK energy policy and applications of (C)CHP in British cities/towns.
+
+The manuscript is reasonably well-written with a small number of typos and unrevised sentences. Some paragraphs are very confusing and disconnected with no clear objectives. In general, the paper was interesting to read with enough content to enable discussion, although with no in-depth data collection and analysis. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} only encompass (i) and (iii).
+%
+\item A large number of {\it references} used in the paper are from web-pages -- which are usually unreliable sources of information.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is well-written but lacks demonstration that the student investigated past work on the subject topics (e.g., environmental impact of standard large-scale fossil-fuel plants and local (C)CHP, energy integration on thermal-power plants, etc).
+%
+\item Figures {\bf must} be referenced in the main text -- they can not just $\lq$float around'! Also, figure captions should be self-contained, i.e., with a good description of the figure, highlighting the most relevant aspects/information that the author wants to convene. 
+%
+\item The topic is very timely as there are several initiatives worldwide on energy optimisation to both mitigate GHG emissions and improve thermal efficiency at low cost. Several aspects on this topic were covered in the paper: (a) co-/tri-generation systems; (b) optimal energy integration; (c) EU/UK energy and environmental policies and regulations; (d) case-studies of optimal integrated energy systems. The paper superficially covered most of these aspects,
+\begin{enumerate}
+\item Energy generation systems: good overview of the refrigeration cycle but no attempt to describe the integrated cycles -- thermal and refrigeration (which was the main objective of the proposed work). These cycles are the thermal engineering core of the (C)CHP systems and should have been described and discussed. 
+% 
+\item Energy integration: ideally Section 3 should have covered energy and exergy analysis and the relationship with modern energy integration techniques (e.g., pinch and optimal design methods). This section should have focused on the thermal engineering aspects of the paper, leading to an in-depth understanding of the challenges involved on designing and optimisation of sustainable energy technologies. A very superficial and non-connected description of exergy and pinch technology was presented instead.   
+%
+\item EU/UK energy and environmental policies and regulations: the paper partially focused on cost regulations (in particular to economic costing barriers for the introduction of small electricity providers) and the impact of incentives and government subsidises (IGS) in the transmission sector (Section 2.2 and 3.3). No further analysis on costing and IGS for electricity and/or heat generation. Also, one of the main concepts behind $\lq$smart cities' is {\it sustainability} (i.e., bridging the gaps between new and innovative technologies for GHG mitigation, optimal use of energy, low wasting, thermal building efficiency, etc), which was not mentioned in the paper.
+%
+\item Section 5 (case-studies of locally generated power-heat) was very insightful and very well-researched with a clear vision of the potential of this technology to mitigate GHG emissions and lower electricity/heating costs whilst easing the loading in national power grid. This section briefly reviewed three cases in which (C)CHP were used in UK -- Sheffield, London (Pimlico) and Aberdeenshire, to generate electricity and/or heat.
+\end{enumerate} 
+\end{enumerate}
+
+The topic of the paper, optimal energy integration, is very relevant for the energy and environmental sectors. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with mathematics (e.g., solution of partial differential equations, optimisation, etc), physics/chemistry (fluid mechanics, material sciences, reactions, signal analysis, phase change, etc), chemical/mechanical/electrical engineering (industrial processing, safety, facilities, power grid, etc), economy (project management, financial forecasting etc). The student demonstrated that he had understood the concepts involved in the technologies for the project with a solid comprehension on fundamentals of engineering and the impact on energy business.    
+
+
+\clearpage
+
+
+\begin{center}
+\Huge{MSc Oil and Gas Engineering Dissertations (EG5908)}\\
+\huge{(Review + Feedback)}\\
+\huge{September 2013}
+\end{center}
+
+\vfill
+
+\clearpage
+
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2013}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Profitability Assessment of Gas to Power for National Grid, Gulf of Guinea, Nigeria' by Elefin Mayowa Olurunfemi}
+\end{center}
+
+\medskip
+
+The dissertation assess the financial feasibility of an ambitious offshore-based energy project in Nigeria. The engineering aim of the project is to use Combined-Cycle Gas Turbine technology to produce electricity offshore from flaring gas. The produced electricity is then connected into the main Nigerian power grid. The dissertation focuses on the preliminary financial engineering for this proposed project with clear simplified assumptions.
+
+The dissertation is well-written with very few typos. Most of all, it is very well-structured with clear division and linkages between chapters, sections and paragraphs, leading to an easy and smooth reading. A few general comments,
+\begin{enumerate}
+\item Overall presentation: (a) Headers of the first pages are missing, (b) tables in the appendix are larger than the size of the A4 page (therefore they are not readable) and (c) a few tables and figures and not numbered and referenced correctly. Although these do not impact in the quality and comprehensiveness of the work, it indicates a lack of care with the appearance.  
+\item KV $\rightarrow$ kV; and KW $\rightarrow$ kW.
+\item In general, the literature review was good, although I would expect further analysis and comparison with similar initiatives to either diversify the energy matrix or to introduce new energy sources.
+\item Equations in Chapter 4 were not correctly numbered (and referenced in later Sections). In addition, the definition of IRR introduced in Section 4.2.6 (Eqn.1.5) is not correct.
+\item In Table 5.2, it seems that Year 0 (2015) is missing, and most of the discussion in first paragraph of Section 5.1.2 is based upon Year 0. 
+\end{enumerate}
+
+My main (and maybe only) criticism of the work is that there is no analysis on the consumption market for electricity -- the author assumed that there is a natural demand for power in Nigeria, but no numbers (or time series indicating the growth of consumption) were shown. In the analysis, he assumed that all electricity generated by the proposed power plant would be entirely used. 
+%{\it My main concern on recommending this work for publication is that there is no clear indication of the authors' contribution to either particle science and technology or numerical/computational formulation and methods}. Most of the work (if not all) is available in particle technology textbooks and/or specialised journals (e.g., Powder Technology, International Journal of Multiphase Flow, Numerical Heat Transfer etc). %Therefore I would suggest that the authors revise the manuscript and resubmit.
+
+\clearpage
+
+
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2013}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Enhanced Oil Recovery' by Aleksandr Poljakov}
+\end{center}
+
+\medskip
+
+This dissertation aims to review past and current technologies for oil recovery and, in particular, for EOR. The student presented a short review on the main technical factors that impact in the fluid flow behaviour under reservoir conditions. The primary engineering aim of the project is to review EOR techniques and to assess the business case.
+
+The manuscript is reasonably well-written with a number of typos and unrevised sentences. Some paragraphs/sections are very confusing and with no clear objectives. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} only encompass (ii) (in part) and (iv).
+\item Main {\it Introduction} sections usually have the same (but more in-depth) four parts of the {\it Abstract} and a brief description of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is reasonably well-written but lacks (i) connectivity between paragraphs and (ii) demonstration of deep understanding of underlying issues on EOR that led the student to engage into the work.
+\item It is customary for Dissertations to include a list of figures and tables. In addition, they are always divided in chapters rather than  sections. Finally, as stated in the Guidelines, equations must be numbered.
+\end{enumerate}
+
+The topic is very relevant for the O$\&$GE (and energy) sector and has been the main focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with other environmental (e.g., CCS) and energy (e.g., similarities with UCG for in-situ combustion) areas. The student demonstrated a sound understanding of the main technologies used in EOR but with a superficial discussion on both, fundamentals and impact on O$\&$G exploration business.    
+
+
+
+\clearpage
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2013}
+
+\bigskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Assessment of Reservoir Simulators: Workflow and Quality Assurance' by Mohamed Sherif Elkiki}
+\end{center}
+
+\medskip
+
+This dissertation reviews current technologies used by the oil and gas industry to predict reservoir production behaviour and performance. The student divided the reservoir simulation workflow in eight stages, from core and well testing to history matching procedures. The primary engineering aim of the project is to review the major technologies in the workflow in a (as much as it is possible) comprehensive and interconnected way. 
+
+The manuscript is reasonably well-written with a number of typos and unrevised sentences. Some paragraphs are very confusing and disconnected with no clear objectives. A few general comments,
+\begin{enumerate}
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} only encompass (ii) (in part), (iii) and (iv) (also in part).
+\item The {\it References} follow different standards with missing fields.
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is reasonably well-written but lacks demonstration that the student investigated past work on the subject(s). Also, it is expected a summary of the remaining chapters at the end of the section.
+\item A {\it Nomenclature} table should contain (most of) all symbols (and units) used in the work. Several symbols were used throughout the text with no prior definition (e.g., $Z=\rho v$ in the top of page 18).
+\item Captions of figures are in different colour, font and font size from the main text. In addition, they are a very poor description of the figure (i.e., not self-contained). Also some figures exceeded the maximum page size.
+\item Tables must be allocated in a single page, and should not (except in very specific cases) span over 2-3 pages. Finally, as stated in the Guidelines, equations must be numbered.
+\item Chapter 3 -- {\it Seismic Analysis} was a very insightful chapter with excellent linkage with the remaining of the work and, most of all, brought to light an exciting and evolving technology. However, the chapter lacked a (in-depth) description/discussion of seismic analysis, i.e., production of waves, physics of reflection, data collection, processing (i.e., signal processing and inverse theory) and analysis. Also, Chapter 4 -- {\it Grid Creation} was very informative, but some crucial information was missed. For example, what is the difference between structured and unstructured grid? Also, the chapter lacked the important transition from map and grid. 
+\item Appendices are used to convey complementary (and not crucial) information of the main chapters and need to be referenced in the main text.
+\end{enumerate}
+
+The topic is very relevant for the O$\&$GE (and energy) sector and each chapter has been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with mathematics (e.g., inverse theory, mesh generation, solution of partial differential equations, uncertainty quantification etc), physics (fluid and solid mechanics, signal processing, etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and computer science (e.g., software engineering, algorithms, parallel processing, etc). The student demonstrated a good understanding of the main available technologies but with a superficial discussion on fundamentals, engineering and the impact on O$\&$G exploration business.    
+
+
+\clearpage
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2013}
+
+\medskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Virtual Training for O$\&$G Industry: Assessing Existing and Upcoming Technologies in LNG Plants' by Christoforos Constantinou}
+\end{center}
+
+\medskip
+
+The dissertation focuses in twofolds topics, review of current technologies LNG plants and training solutions (i.e., operations and safety) using virtual environments. The student investigated the complete workflow for LNG: natural gas production, purification, liquefaction, transport and regasification on on-/off-shore plants. He also preliminary investigated current and future financial feasibility of LNG expansion. Finally, the workflow was subdivided to propose virtual reality training modules and facilities, focusing on operations and safety.
+
+The manuscript is reasonably well-written with a large number of typos and unrevised sentences. Some paragraphs and sections are very confusing and disconnected with no clear objectives and inter-connectivities. A few general comments,
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} only (partially) encompass (iii) and (iv).
+%
+\item The {\it References} follow different standards with missing fields and no clear distinction between articles, conference proceedings, reports (internal or external), book chapters, books, communications (internal or external) etc.  
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is reasonably well-written but lacks demonstration that the student investigated past work on the subject (i.e., LNG production technology and the use of virtual reality as an industrial training environment). Also, it is expected a summary of the remaining chapters at the end of the section. Most of all, it absolutely unclear the main objectives of the work -- $\lq$The main purpose of this project is to investigate and provide techniques to a company called LanguageLab'.
+%
+\item Most of the figures are not referenced in the main text and are of very poor quality (most of them are nearly unreadable).
+%
+\item As the whole project gravitates around LNG technologies, however there was no physical explanation (basic thermodynamics) of LNG processing (or the liquefaction cycle). The description of one of the main technology (Section 3.1) was very superficial -- I would expect a larger overview of the main technologies.  
+%
+\item The second major focus of the dissertation is the virtual reality as a safe training environment for O$\&$G (and LNG) industry personnel. The description of the main VR technologies are very superficial (Sections 6.1-2) and the student has not demonstrate an understanding of how simulations (or the virtual reality or simulated environment) work and can be manipulated for training purposes. However, as a positive aspect, it is very clear how he (and LanguageLab) envisaged to use the technology to support specialised training and, most of all, designed specific scenarios that can be potentially useful for the industry sector.   
+%
+\item However, this was not clearly highlighted in his conclusion section.
+%
+\end{enumerate}
+
+The topic of the dissertation is very relevant for the O$\&$GE (and energy) sector. The two main subjects -- processing and transport of LNG and industrial applications for VR have been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with mathematics (e.g., CFD, mesh generation, solution of partial differential equations, non-linear optimisation, uncertainty quantification etc), physics (fluid mechanics, material sciences, etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc), computer science (e.g., software engineering, algorithms, parallel processing, artificial intelligence etc) and chemical engineering (industrial processing, safety, etc). The student demonstrated that he had understood the basic concepts involved in the technologies for the project, but with a superficial discussion on fundamentals, engineering and the impact on LNG business.    
+
+
+\clearpage
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2013}
+
+\medskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$The Liberation of Volatiles from Coal under Temperature Controlled Conditions in an Anaerobic Atmosphere' by Craig Donaldson}
+\end{center}
+
+\medskip
+
+The dissertation aims to review current unconventional coal technologies and, in particular, to assess the feasibility of {\it in situ} low-temperature coal pyrolysis to recover remaining energy and chemicals (volatiles) stored in underground deposits. The engineering aim of the dissertation is to introduce the preliminary design of the process based on data collected during the literature review. The proposed novel process was introduced as a hybrid of current CBM and UCG technologies and, due to the lack of data on the prescribed conditions, a lab-scale model was proposed.
+
+The dissertation is very well-written with very few typos. Most of all, it is very well-structured with clear division and linkages between chapters, sections and paragraphs, leading to an easy and smooth reading. A few general comments,
+\begin{enumerate}
+%
+\item The {\it overall presentation} was excellent with clear figures with comprehensive and self-contained captions. However, a couple of them are of poor quality. 
+%
+\item Chapter 2 -- {\it Background Theory}, introduced an excellent overview on basic coal chemistry, geological origins and occurrence (UK and overseas). However, the chapter lacked a further analysis on future trends on coal market and an initial financial analysis on cost of the volatiles in comparison with the current commodities market.  
+%
+\item Chapters 3 and 4 are really good with a very smooth transition from current unconventional coal technologies to the proposed one based on low-temperature pyrolysis. However, there was no formal definition (in any chapter) of the pyrolysis process. I can understand that there was limited time for the dissertation, but I believe a small section/paragraph on fundamentals of pyrolysis (as this is a very well-studied topic -- also stated in Chp. 4) would be useful.  
+%
+\end{enumerate}
+My main (and maybe only) criticism of the work is on Chapter 5. The contents of Appendix A should be part of this chapter as the numerical solution is important for the understanding of Chapter 7.  Additionally, I would expect a more formal model and that the assumptions are clearly stated, e.g., incompressible and inviscid fluid flow with constant thermo-physical solid properties. Also the result should be validated against the multiphase thermal equation (instead of the proposed global equation),
+\begin{equation}
+\displaystyle\frac{\partial}{\partial t}\left(C_{k}\varepsilon_{k}\rho_{k}T_{k}\right) = -p_{k}\nabla\left(\varepsilon_{k}v_{k}\right) + \nabla \cdot \left(\varepsilon_{f}\kappa_{k}\nabla T_{k}\right) + \alpha\left(T_{k'}-T_{k}\right) + \Omega_{wk}\label{thermal} 
+\end{equation}
+where $C_{k}$, $\varepsilon_{k}$, $\rho_{k}$, $\kappa_{k}$ and $v_{k}$ are the heat capacity, volume fraction, density, thermal conductivity and velocity of phase $k$ (solid or fluid). $\alpha$ and $\Omega_{wk}$ are the volumetric interphase and wall-phase heat transfer coefficients. This equation can be simplified (assuming incompressible and inviscid flows with constant granular properties, no thermal source or sink terms and constant fluid velocity and inlet temperature) to, 
+\begin{equation}
+\displaystyle\frac{\partial}{\partial t}\left(\eta T_{f}\right)+ \psi\left(T_{f}-T_{\text{(inlet)}}\right) = 0\label{simple}
+\end{equation} 
+with
+\begin{displaymath}
+\eta=\rho_{s}C_{s}V_{s}+\rho_{f}C_{f}V_{f} \;\;\;\;\text{ and } \;\;\;\; \psi=\rho_{f}C_{f}v_{f}\overline{A}
+\end{displaymath}
+where $V_{k}$ and $\overline{A}$ are the volume of phase $k$ and the cross-section area, respectively. Equation \ref{simple} has an exponential (in time) analytical solution. Alternatively, Eq. \ref{thermal} could be easily solved (with similar assumptions as before) in 1D for $T\left(x,t\right)$.
+
+The topic of the dissertation is very relevant for the O$\&$GE (and energy) sector. The two main subjects -- coal technology and pyrolysis have been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with mathematics (e.g., CFD, solution of partial differential equations, etc), physics (fluid mechanics, material sciences, etc), geology $\&$ geophysics (e.g., lithography, petrology, geochemistry, etc) and chemical engineering (industrial processing, safety, etc). The student demonstrated that he had an excellent understanding of the main fundamental physical and engineering concepts involved in the technologies for this project.    
+
+
+
+
+\clearpage
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2013}
+
+\medskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Thermodynamic Analysis of Clathrate Hydrates Formation and Stability' by Warinthon Lertpornsuksawat}
+\end{center}
+
+\medskip
+
+The dissertation aims to assess the current understanding of formation and thermodynamic stability of hydrates in natural gas. The student investigated the typical workflow for thermodynamic equilibrium analysis of clathrate of hydrates: chemistry of lattice (basic quantum mechanics), multi-component and multiphase equilibrium conditions (i.e., problem formulation) and optimisation problem. She also studied a few deterministic and stochastic optimisation techniques currently used in engineering and financial problems.
+
+The manuscript is reasonably well-written with a large number of typos and unrevised sentences. Some paragraphs and sections are very confusing and disconnected with no clear objectives and inter-connectivities. A few general comments,
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} only (partially) encompass (i), (iii) and (iv).
+%
+\item The {\it References} follow different standards with missing fields and no clear distinction between articles, conference proceedings, reports (internal or external), book chapters, books, communications (internal or external) etc.  
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is reasonably well-written but lacks demonstration that the student investigated past work on the subject (i.e., hydrate thermodynamic formulations other than Sloan and Ballard). Also, it is unclear what the main objectives of the work are.
+%
+\item A few figures are not referenced in the main text.
+%
+\item Equations are of very poor quality.
+%
+\item A good chunk of Chapter 2 ({\it PVT Behaviour of Hydrates: Thermodynamics Stability and formation}) focused on EOS of hydrates in the lattice cavities (i.e, statistical state of empty and filled cavities). However the dissertation did not discussed the (also important) EOS for the guest molecules (also used in Ballard and Sloan work).  
+%
+\item Chapter 3 ({\it Free Gibbs Energy Formulation} is very insightful and with a good explanation of the mathematical formulation of thermodynamics extensive properties. However it was not clear the link between the free Gibbs energy and Eqns. 3.84-5. The latter is not the Gibbs free energy, but a functional that represents the residual of the variation of $G$.
+%
+\item Definitions of stochastic and deterministics optimisation methods are wrong. 
+%
+\end{enumerate}
+
+The topic of the dissertation is very relevant for the O$\&$GE (and energy) sector. The two main subjects -- thermodynamics formulation for hydrate formation and stability and optimisation techniques  have been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with mathematics (e.g., non-linear optimisation, Monte Carlo methods, solution of partial differential equations, etc), physics/chemistry (fluid mechanics, material sciences, quantum mechanics, etc), computer science (e.g., software engineering, algorithms, parallel processing, artificial intelligence etc) and chemical engineering (industrial processing, safety, flow assurance etc). The student demonstrated that she had understood the concepts involved in the technologies for the project with a basic comprehension on fundamentals of engineering and chemistry, and the impact on O$\&$G business.    
+
+
+\clearpage
+
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2013}
+
+\medskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Numerical Investigation of Compositional Flows in Porous Media' by Oluwatosin Anuluwapo}
+\end{center}
+
+\medskip
+
+The dissertation investigates the use of numerical models to simulate compositional flows in homogeneous porous media. The student assessed and compared the individual components of commercial- and academic-based flow simulators: mesh characteristics, allocation of rock and fluid properties in the grid, discretisation and solver methods for PDEs. She also investigated methods used by Eclipse to solve multi-component and multiphase flows in porous media.
+
+The manuscript is reasonably well-written with a small number of typos and unrevised sentences. A few paragraphs and sections are very confusing and disconnected with no clear objectives. A few general comments,
+\begin{enumerate}
+%
+%\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} only (partially) encompass (i), (iii) and (iv).
+%
+\item The {\it References} follow different standards with missing fields and no clear distinction between articles, conference proceedings, reports (internal or external), book chapters, books, communications (internal or external) etc.  
+%
+%\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is reasonably well-written but lacks demonstration that the student investigated past work on the subject (i.e., hydrate thermodynamic formulations other than Sloan and Ballard). Also, it is unclear what the main objectives of the work are.
+%
+\item A few figures are not referenced in the main text.
+%
+\item A few equations are not correctly labelled.
+%
+\item Pages 35 and 36 are missing.
+%
+\item All flow simulators, regardless the main application (e.g., porous media, pipes, shallow waters, vessel and reactors, atmospheric, ocean circulation, etc) and the designed solving method (FDM, FVM, FEM and/or their hybrids) have very similar workflow: 
+\begin{enumerate}
+\item geometry setup (pre-processing);
+\item \label{mesh}dimension setup $\longrightarrow$  choice of mesh grid type (quads, triangles, hex, tets, etc) $\longrightarrow$  mesh generation (pre-processing);
+\item \label{pde}choice of the PDEs that will be solved (i.e., parabolic, hyperbolic or elliptic) and complexity (simplified or 'full-blow' equations);
+\item \label{allocation}allocation of material and system properties (saturation, volume and mass/molar fractions, temperature, pressure, etc) in the mesh. This will depend on the mesh type, corner- or centre-point (ans the derived families);
+\item \label{choice}choice of:
+\begin{enumerate}
+\item \label{disc}spatial- and time-discretisation schemes (application dependent);
+\item \label{solver}pre-conditioners and linear solvers (for the resulting set of system of algebraic equations) -- dependent of the type of PDEs solved, discretisation schemes, single or multiple (parallel) processors;
+\end{enumerate}
+\item initial and boundary conditions setup.
+\end{enumerate}
+A good review of main (academic and commercial) simulators (Section 2.4) should cover \ref{mesh}-\ref{choice}, as these will be pivotal for the accuracy and performance of any flow simulator.
+%
+\item Several terms and methods (Chapter 2) were not explained, e.g., dual porosity dual permeability (DPDP), fractured multimodal porous media (FMPM), maximum reservoir contacts (MRC), actual difference between Eclipse and Intersect, streamline simulation, $\lq${\it benchmark of simulation}' etc.
+%
+\item In multiphase models, a cubic EOS (Section 2.2.2.6) is defined in terms of the  compressibility factor $\left(Z\right)$ as,
+\begin{displaymath}
+Z^{3}+C_{0}Z^{2}+C_{1}Z+C_{2}=0
+\end{displaymath}
+where $C_{j}$ are coefficients that arise from the specific EOS, thermo-physical properties of the fluids, temperature and pressure. This equation can be solved either numerically or analytically, and has 3 roots (real and/or complex). In VLE problems, the largest real (and positive) root is compressibility factor of the vapour phase whereas the smallest real (and positive) root represents the liquid phase. $Z_{k}$ ({\it k} is the phase) is then used to fugacities and chemical potentials (i.e., Gibbs free energy) for each component distributed in all phases. 
+%
+\item Time-discretisation scheme is crucial for solving the extended Darcy law and was not described / explained. Also, the boundary conditions (for pressure, saturation and components) were not described.
+%
+\item Equations 2.9-10 -- governing equations for the multiphase Darcy flows are wrong.
+%
+\item This may be in the missing pages, but I would expect a full explanation of the multi-components equations (for the full blow and the reduced models) as this is the focus point of the dissertation.  
+%\item Definitions of stochastic and deterministics optimisation methods are wrong. 
+%
+\end{enumerate}
+
+The topic of the dissertation is very relevant for the O$\&$GE (and energy) sector. The two main subjects -- multiphase and multi-component flows in porous media and flow simulators have been the focus of several academic- and industrial-based studies worldwide with clear cross-fertilisation with mathematics (e.g., solution of partial differential equations, algebraic topology, computational methods, optimisation, etc), physics/chemistry (fluid mechanics, material sciences, thermodynamics, etc), computer science (e.g., software engineering, algorithms, parallel processing, etc) and chemical/petroleum engineering (industrial processing, safety, oil recovery, CCS,  etc). The student demonstrated that she had understood the concepts involved in the technologies for the project with a basic comprehension on engineering $\&$ physics fundamentals, and the impact on O$\&$G business.    
+
+
+
+
+\clearpage
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2013}
+
+\medskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Creating Artificial Gas Storage in the Rock Salt Layers by Application International Experience, Technical and Financial Costs Estimation and Ways of Costs Decreasing' by Farhad Akbarov}
+\end{center}
+
+\medskip
+
+The dissertation describes the procedure to develop an underground gas storage facility in a leached rock-salt cavity. The project focuses in three aspects:
+\begin{itemize}
+\item geological formation and feasibility for storage purposes;
+\item preliminary (basic) engineering design, including potential and practical safety procedures;
+\item simplified financial engineering analysis.
+\end{itemize} 
+The student investigated the workflow for UGS development in Azerbaijan, including good engineering practice during cavities' creation and operation. He also suggested financial alternatives for gas supplies and caverns' creation.
+
+The manuscript is reasonably well-written with a large number of typos and unrevised sentences. Some paragraphs and sections are very confusing and disconnected with no clear objectives. A few general comments,
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} only (partially) encompass (ii) and (iv).
+%
+\item The {\it References} follow different standards with missing fields and no clear distinction between articles, conference proceedings, reports (internal or external), book chapters, books, communications (internal or external) etc.  Additionally, most of the references used in the dissertation are from web-pages -- which are usually considered as unreliable source of information. As one of the objectives of the dissertation (also stated in the tittle) is to investigate international experiences on development and operation of UGS sites, I would expect a detailed literature review on past published work on the subject, e.g., geology and geophysics related to rock salt layers, structural solid mechanics related to underground cavities, geochemistry (water and salt formation/dissolution and reaction with hydrocarbons), drilling and well engineering challenges, automated and continuous monitoring of critical parameters (e.g., pressure, temperature, hydrates, stress, leakage etc), etc.  
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is reasonably well-written but lacks demonstration that the student investigated past work on the subject.
+%
+\item A few figures are not referenced in the main text. All Tables (except one in page 24) are located in the appendix. However Table 1 appears twice with different contents.
+%
+\item A few equations are not correctly labelled. And some terms were not defined.
+%
+\item Equations are of very poor quality.
+%
+\end{enumerate}
+
+The topic of the dissertation is very relevant for the O$\&$GE (and energy) sector. The main subject -- development and operation of UGS is a relatively new application field. However, individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with mathematics (e.g., optimisation, Monte Carlo methods, solution of partial differential equations, inverse methods, etc), physics/chemistry (fluid mechanics, material sciences, reactions, signal analysis, etc), chemical/petroleum/mechanical/mining engineering (industrial processing, safety, flow assurance, etc), economy (financial maths, market evaluation, project management, financial forecasting, econometrics etc). The student demonstrated that he had understood the concepts involved in the technologies for the project with a basic comprehension on fundamentals of engineering and chemistry, and the impact on O$\&$G business.    
+
+
+
+
+\clearpage
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2013}
+
+\medskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$Topsides Sand Handling' by Francis Okeke}
+\end{center}
+
+\medskip
+
+The dissertation describes the workflow for sand production in hydrocarbons exploration. The student reviewed:
+\begin{itemize}
+%
+\item impact of sand in industrial facilities;
+%
+\item methods to control/mitigate sand production;
+%
+\item fluid-solid separation methods.
+%
+\end{itemize}
+
+The manuscript is reasonably well-written with a number of typos and unrevised sentences. A few paragraphs and sections are very confusing and disconnected with no clear objectives. A few general comments,
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. The current {\it Abstract} only (partially) encompass (i-iii).
+%
+\item The {\it References} follow different standards with missing fields and no clear distinction between articles, conference proceedings, reports (internal or external), book chapters, books, communications (internal or external) etc.  In fact, most of the {\it references} are incomplete and could not be checked.  
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. The current {\it Introduction} section is reasonably well-written but lacks demonstration that the student investigated past work (or current available technologies) on the subject.
+%
+\item Figures {\bf must} be referenced in the main text -- they can not just $\lq$float around'! Also, figure captions should be self-contained, i.e., with a good description of the figure, highlighting the most relevant aspects/information that the author wants to convene. 
+%
+\item Appendices {\bf must} have tittles and they are not designed to hold figures and tables that do not fit in the main text. They are used as a complementary source of information (though non critical) that readers can use for a full understanding of the subject. Most of all, figures and tables in appendices {\bf must} be referenced in the main text. 
+%
+\item Empirical correlations are used in most (if not all) engineering applications and they are designed to be used in specific situations and conditions -- range of: particle diameter, fluid/particle velocities (or flow rates), thermo-physical properties etc. As the student included a few correlations (Eqns. 3.2-6) that are used to investigate sand erosion rate, I would expect (a) range of validity and  (b) accuracy of the correlation (or at least a valid reference).
+%
+\item The description and assessment of fluid-solid separation techniques seem overly superficial. The discussion of engineering/physics principles involving pressure- (or centripetal force-) or gravity-based separators were non-existent. The main criteria for performance analysis for both system are terminal and settling velocities, and none of them were addressed.
+%
+\item The critical analysis of fluid-solid separators undertaken by the student was very interesting and insightful. A few points though (bear in mind it is not a biased opinion as I have worked with gravity settlers, (hydro)cyclones and press-filters in the past): (a) cyclones and filters are generally more expansive as they require power to operate (set of pumps) and continuous maintenance, (b) gravity settlers are usually operated over long periods of time and require more volumetric space (although pre-separators and chemicals could be used to improve efficiency), (c) there is not much difference on the environmental impact for all of them (except for the noise in cyclones and press-filters).   
+%
+\end{enumerate}
+
+The topic of the dissertation, management of particulates (sand) in hydrocarbon production fields, is very relevant for the O$\&$GE (and energy) sector. Individual aspects have been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with mathematics (e.g., solution of partial differential equations, optimisation, etc), physics/chemistry (fluid mechanics, material sciences, reactions, signal analysis, etc), chemical/petroleum/mechanical/mining engineering (industrial processing, safety, flow assurance, etc), economy (project management, financial forecasting etc). The student demonstrated that he had understood the concepts involved in the technologies for the project with a basic comprehension on fundamentals of engineering and the impact on O$\&$G business.    
+
+
+
+\clearpage
+
+\noindent{\bfseries\large MSc in Oil $\&$ Gas Engineering\hfill September, 2013}
+
+\medskip
+
+\begin{center}
+{\Large Review of the MSc Dissertation $\lq$An Examination of the Nature and Performance of Drilling Fluids in Recent Use' by Enefiok Peter Effiong}
+\end{center}
+
+\medskip
+The dissertation outlines drilling fluids (types, properties etc) used in O$\&$G and CBM industry worldwide. The project particularly focuses on (relatively) recent industrial experience on drilling and on the developments of reservoir-tailored drilling fluids (DF). The student investigated proprietary  DF's properties and their main field applications.  
+
+The manuscript is reasonably well-written with a large number of typos and unrevised sentences. Some paragraphs and sections are very confusing and disconnected with no clear objectives. A few general comments,
+\begin{enumerate}
+%
+\item The main aim of {\it Abstracts} is to briefly (and clearly) describe the work undertaken by the author. In general {\it Abstracts} are divided in 4 parts: (i) motivation, (ii) main objectives, (iii) summary of the main procedures / techniques / technologies (optional) and (iv) main findings. 
+%
+\item The {\it References} follow different standards with missing fields and no clear distinction between articles, conference proceedings, reports (internal or external), book chapters, books, communications (internal or external) etc.  Additionally, most of the references used in the dissertation are from web-pages -- which are usually considered as unreliable source of information. As one of the objectives of the dissertation (also stated in the tittle) is to investigate DFs, I would expect an initial overview of the chemistry and surface chemistry on the several families of DF (water-, oil, synthetic-, air-based, etc) and the interaction with the solids (rocks, cuttings, etc) and fluids (hydrocarbons, water, additives etc), followed by a formal classification wrt drilling field type.
+%
+\item The main {\it Introduction} section usually has the same (but more in-depth and descriptive) four parts of the {\it Abstract} and a brief summary of the remaining of the work. In addition, it is always expected a few clear statements -re main background (thus recent innovations related to the main topic), initial literature review and, most of all, technological / scientific gaps in the current understanding. Current {\it Introduction} and {\it Literature Review} sections are reasonably well-written but lacks demonstration that the student investigated past work on the subject -- just relying on commercial material.  There are plenty of SPE material on drilling fluids available.
+%
+\item In Chapter 4 (also in 3), the student used the Grunberg-Nissan (GN) Equation,
+\begin{displaymath}
+\ln \mu_{\text{mixture}} = \sum\limits_{i=1}^{2} x_{i}\ln\mu_{i} + x_{1}x_{2}\gamma_{12} 
+\end{displaymath} 
+$\gamma_{12}$ is a well-known fitting parameter that represents the dependency of the bulk viscosity on the composition and temperature, i.e., 
+\begin{displaymath}
+\gamma_{ij}=\gamma_{ij}\left(x_{i},x_{j}, T\right)
+\end{displaymath} 
+Assuming that both chemical species are in thermal equilibrium. The interpolation procedure in Chp. 4 is used across fields to find linearly dependent parameters, such as $\gamma$ (see Totten {\it et al.} (2003) 'Fuels and Lubricants Handbook: Technology, Properties, Performance, and Testing').
+%
+\end{enumerate}
+
+The topic of the dissertation is very relevant for the O$\&$GE (and energy) sector. The main subject -- review of the performance of DF,  has been investigated by a number of researchers (academics and industrial) worldwide with clear cross-fertilisation with physics/chemistry (fluid mechanics, material sciences, reactions, organic formulations and synthesis, etc), chemical/petroleum/mechanical/mining engineering (industrial processing, safety, flow assurance, drilling, etc) and economy (market evaluation, project management, etc). The student demonstrated that he had understood the concepts involved in the technologies for the project with a basic comprehension on fundamentals of engineering and physics, and the impact on O$\&$G business.    
+
+
+%%%
+%%% Appendix
+%%%
+%{
+%  \includepdf[pages=-,fitpaper, angle=0]{Scan_Review_Tripathy_2013}
+%}
+
+   
+\end{document}
