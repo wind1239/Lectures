@@ -44,8 +44,10 @@
 \newcommand{\emailaddress}{jefferson.gomes@abdn.ac.uk}
 \newcommand{\logoimage}{./FigBanner/UoAHorizBanner}
 \title{Advanced Chemical Engineering (EG5597)}
-\subtitle{Computational Methods for Fluid Dynamics -- Introduction}
-\date[25/04 - 09/05/2014]{25/04 - 09/05/2014}
+\subtitle{Introduction to Computational Methods for Fluid Dynamics: Partial Differential Equations}
+\date[2014-15]{2014-15}
+
+
 
 %%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % You shouldn't have to change below this line, unless you want to.
@@ -78,6 +80,87 @@
 \usepackage{multimedia}
 \usepackage{animate}
 
+%% Handsout -- comment out the lines below to create handstout with 4 slides in a page with space for comments
+\usepackage{handoutWithNotes}
+
+\mode<handout>
+{
+\usepackage{pgf,pgfpages}
+
+\pgfpagesdeclarelayout{2 on 1 boxed with notes}
+{
+\edef\pgfpageoptionheight{\the\paperheight} 
+\edef\pgfpageoptionwidth{\the\paperwidth}
+\edef\pgfpageoptionborder{0pt}
+}
+{
+\setkeys{pgfpagesuselayoutoption}{landscape}
+\pgfpagesphysicalpageoptions
+    {%
+        logical pages=4,%
+        physical height=\pgfpageoptionheight,%
+        physical width=\pgfpageoptionwidth,%
+        last logical shipout=2%
+    } 
+\pgfpageslogicalpageoptions{1}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{2}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{3}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.29\pgfphysicalheight},%
+    copy from=3
+    }%
+\pgfpageslogicalpageoptions{4}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.79\pgfphysicalheight},%
+    copy from=4
+    }%
+
+\AtBeginDocument
+    {
+    \newbox\notesbox
+    \setbox\notesbox=\vbox
+        {
+            \hsize=\paperwidth
+            \vskip-1in\hskip-1in\vbox
+            {
+                \vskip1cm
+                Notes\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth
+            }
+        }
+        \pgfpagesshipoutlogicalpage{3}\copy\notesbox
+        \pgfpagesshipoutlogicalpage{4}\copy\notesbox
+    }
+}
+}
+
+%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+
 %%%%% Color settings
 \usepackage{color}
 %% The background color for code listings (i.e. example programs)
@@ -92,8 +175,7 @@
 \setbeamercolor{structure}{bg=UoALight} % For blocks
 % Rounded boxes for blocks
 \setbeamertemplate{blocks}[rounded]
-% Numbering captions
-\setbeamertemplate{caption}[numbered]%\numberwithin{figure}{section}
+
 %%%%% Font settings
 % Aberdeen requires the use of Arial in slides. We can use the
 % Helvetica font as its widely available like so
@@ -114,14 +196,13 @@
 % expressions in math.
 \usepackage{cancel}
 
+\usepackage{comment} 
+
 % Get rid of font warnings as modern LaTaX installations have scalable
 % fonts
-\usepackage{type1cm} \usepackage{comment}
+\usepackage{type1cm} 
 
 %\usepackage{enumitem} % continuous numbering throughout enumerate commands
-%\newcounter{sauvegardeenumi}
-%\newcommand{\asuivre}{\setcounter{sauvegardeenumi}{\theenumi}}
-%\newcommand{\suite}{\setcounter{enumi}{\thesauvegardeenumi}}
 
 % For exact placement of images/text on the cover page
 \usepackage[absolute]{textpos}
@@ -165,6 +246,13 @@
 \includegraphics<#1>[#3]{#4}%
 }
 
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\purple}{\textcolor{purple}}
+ 
+
 \begin{document}
 
 % Title page layout
@@ -187,6 +275,9 @@
 % always add the fragile option incase you're going to use the
 % verbatim environment.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 
 %%%%%%%%%%%%%%%%%%%
 %%%   SECTION   %%%
@@ -356,7 +447,7 @@
         \item <3-> the solution is unique;
         \item <4-> the solution depends continuously on the data.
       \end{enumerate}
-    \item <5-> The property of \textcolor{blue}{well-posedness} is critical to numerically solve set of PDEs. Thus, a numerical method will not work correctly on a \textcolor{blue}{ill-posed} problem. 
+    \item <5-> The property of \textcolor{blue}{well-posedness} is critical to numerically solve set of PDEs. Thus, a numerical method will not work correctly on \textcolor{blue}{ill-posed} problems. 
  \end{enumerate}   
  
 \end{frame}
@@ -687,7 +778,7 @@
  
 \end{frame}
 
-
+\begin{comment}
 %%%
 %%% Slide
 %%% 
@@ -717,5 +808,6 @@
        \end{center}}
  
 \end{frame}
+\end{comment}
  
 \end{document}
