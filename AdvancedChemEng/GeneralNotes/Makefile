@@ -1,8 +1,10 @@
 
-default:	CourseHandbook_EG5597_2014-15.pdf Syllabus.pdf
+default:	CourseHandbook_EG5597_2014-15.pdf Syllabus.pdf \
+		EG5597_Timetable.pdf
 
 CourseHandbook_EG5597_2014-15.pdf: CourseHandbook_EG5597_2014-15.tex
 Syllabus.pdf:	Syllabus.tex
+EG5597_Timetable.pdf:	EG5597_Timetable.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
