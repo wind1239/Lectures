@@ -1,22 +1,20 @@
 
-default:	Lecture_01.pdf Lecture_02.pdf ExtraNotes.pdf Lecture_03.pdf Tutorial_LinAlg.pdf
+default:	Lecture_01.pdf Lecture_02.pdf Lecture_03.pdf \
+		ExtraNotes.pdf Tutorial_LinAlg.pdf CA_LinAlg.pdf \
+		Tutorial_01.pdf
 
-Lecture_01.pdf:		Lecture_01.tex Lecture_02.tex ExtraNotes.tex Lecture_03.tex Tutorial_LinAlg.tex
+Lecture_01.pdf:		Lecture_01.tex 
+Lecture_02.pdf:		Lecture_02.tex
+Lecture_03.pdf:		Lecture_03.tex 
+ExtraNotes.pdf: 	ExtraNotes.tex
+Tutorial_LinAlg.pdf:	Tutorial_LinAlg.tex
+CA_LinAlg.pdf:		CA_LinAlg.tex
+Tutorial_01.pdf:	Tutorial_01.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
 	pdflatex $<
 	pdflatex $<
-	if fgrep "Rerun to" $*.log; then $(MAKE) --assume-new $< $@;fi
-ifndef NOBIBTEX
-	if fgrep "There were undefined"  $*.log;\
-	then bibtex $*; \
-	$(MAKE) NOBIBTEX=true --assume-new $< $@;fi
-else
-	@echo Sticking a cover on $*.pdf
-	pdftk A=figures/ReportCoverTemplateICON.pdf B=$*.pdf cat A2 B A1 output combined.pdf
-	mv combined.pdf $*.pdf
-endif
 
 %.idx:	%.idx
 	makeindex $<
