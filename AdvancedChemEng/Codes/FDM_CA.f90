@@ -55,8 +55,8 @@ program test_fdm2
   real :: dx, unew, uold_pre, uold_pos, sum_1, sum_2, alpha
 
 
-  !  if( .false. )then
-  if( .true. )then
+    if( .false. )then
+  !if( .true. )then
      open(55, file = 'out.outt', status = 'unknown' )
 
      dx = ( xf - x0 ) / real( nx - 1 )

@@ -1,15 +1,16 @@
 
 default:	Lecture_01.pdf Lecture_02.pdf Lecture_03.pdf \
 		ExtraNotes.pdf Tutorial_LinAlg.pdf CA_LinAlg.pdf \
-		Tutorial_01.pdf
+		Tutorial_01.pdf ContinuousAssessment.pdf
 
-Lecture_01.pdf:		Lecture_01.tex 
-Lecture_02.pdf:		Lecture_02.tex
-Lecture_03.pdf:		Lecture_03.tex 
-ExtraNotes.pdf: 	ExtraNotes.tex
-Tutorial_LinAlg.pdf:	Tutorial_LinAlg.tex
-CA_LinAlg.pdf:		CA_LinAlg.tex
-Tutorial_01.pdf:	Tutorial_01.tex
+Lecture_01.pdf:			Lecture_01.tex 
+Lecture_02.pdf:			Lecture_02.tex
+Lecture_03.pdf:			Lecture_03.tex 
+ExtraNotes.pdf: 		ExtraNotes.tex
+Tutorial_LinAlg.pdf:		Tutorial_LinAlg.tex
+CA_LinAlg.pdf:			CA_LinAlg.tex
+Tutorial_01.pdf:		Tutorial_01.tex
+ContinuousAssessment.pdf:	ContinuousAssessment.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf

@@ -1,7 +1,7 @@
 module auxiliary
 
   real, parameter :: tolerance = 1.e-4
-  integer, parameter :: niter = 4, imeth = 1 ! = 1: Jacobi; = 2: GS; = 3: SOR
+  integer, parameter :: niter = 20, imeth = 3 ! = 1: Jacobi; = 2: GS; = 3: SOR
 
 contains
   subroutine summall( n, i, a, xold, sum )
@@ -190,12 +190,12 @@ program matrix_calc
   close( 5 )
 
 
-  a = 0.
-  do i = 1, n
-     do j = 1, n
-        a( i, j ) = 1. / real( i + j -1 )
-     end do
-  end do
+!!$  a = 0.
+!!$  do i = 1, n
+!!$     do j = 1, n
+!!$        a( i, j ) = 1. / real( i + j -1 )
+!!$     end do
+!!$  end do
 
   open( 55, file = 'matrices.out', status = 'unknown' )
   write( 55, * )'b:', ( b( i ), i = 1, n ) 
