@@ -9,10 +9,10 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-%\documentclass[10pt,compress]{beamer}
+\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
 %\documentclass[10pt,compress,handout]{beamer}
-\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
 
 \renewcommand{\insertframenumber}{\theframenumber}
 \renewcommand{\theframenumber}{\thesection-\arabic{framenumber}}
@@ -29,7 +29,7 @@
 \newcommand{\emailaddress}{}%jefferson.gomes@abdn.ac.uk}
 \newcommand{\logoimage}{../FigBanner/UoAHorizBanner}
 \title{Engineering Thermodynamics (EG3521)}
-\subtitle{Module 2: Production of Power from Heat -- Vapor Power Systems} 
+\subtitle{Module 2: Production of Power from Heat -- Gas Power Systems} 
 \date[2014-15]{2014-15}
 
 %%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -263,6 +263,191 @@
 %%% SECTION
 %%%
 \section{Introduction}
+
+%%%
+%%% Slide
+%%%
+\subsection{Motivation}
+\begin{frame}
+ \frametitle{Aims and Objectives}
+ At the end of this set of lectures, you should be able to:
+ \begin{enumerate}[(i)]
+  \item <1-> Assess the performance of \red{gas power cycles};
+  \item <2-> Solve problems based on the Brayton, Otto and Diesel cycles;
+  \item <3-> Perform second-law analysis of gas power cycles and;
+  \item <4-> Identify simplifying assumptions for second-law analysis of gas power cycles.
+  %\item <5-> 
+ \end{enumerate}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\subsection{Bibliography} 
+\begin{frame}
+ \frametitle{Suggested References}
+  Literature relevant for this module:
+  \begin{enumerate}[(a)]
+   \item J.M. Smith, H.C. Van Ness, M.M. Abbott, $\lq$Introduction to Chemical Engineering Thermodynamics', 6$^{th}$ Edition: Chapter 8;
+   \item  M.J. Moran, H.N. Saphiro, D.D. Boettner, M.B. Bailey, $\lq$Principles of Engineering Thermodynamics',  7$^{th}$ Edition: Chapter 9;
+   %\item A.B. Pippard, $\lq$Elements of Classical Thermodynamics' (1966): Chapters 2, 3 and 4;
+   \item I. Muller, W.H. Muller, $\lq$Fundamentals of Thermodynamics and Applications', Chapter 3;
+   \item \href{http://www.learnthermo.com}{http://www.learnthermo.com}, Chapter 9.
+  \end{enumerate}
+\end{frame}
+
+
+%%%
+%%% SECTION
+%%%
+\section{Air Standard Efficiency}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{General Assumptions:}
+  \begin{enumerate}
+   \item <1-> In the first part of this Module we revised the definition of \textcolor{blue}{cycles} in which fuel is $\lq$burned' in a \textcolor{blue}{combustion chamber} with air, resulting in a stream of combustion products, i.e.;
+   %\item <2-> In Module 2, we will focus on the thermochemical process called \textcolor{blue}{Combustion}, thus in this module we assume that no chemical reaction occurs in the cylinder
+   \item <2-> Here, due to the complexity on thermodynamics analysis of gas power cycle, we will assume that \textcolor{blue}{air is the only work fluid} with an external heat source;
+   \item <3-> Air behaves as an ideal gas with contant heat capacities at room  temperature $\left(MW=29\;g/gmol,\;C_{p}=1.005\;kJ/(kg.K),\;\text{and }C_{v}=0.718\;kJ/(kg.K)\right)$;
+   \item <4-> Compression and expansion processes are adiabatic and with no internal friction;
+   \item <5-> Exhausted process is replaced by a heat-rejection process that restores the working fluid to its initial state;
+   \item <6-> Cycles in which the above is applied are called \textcolor{blue}{Air-Standard Cycle}.
+  \end{enumerate}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Air Standard Efficiency}
+  \begin{enumerate}
+   \item The efficiency of an engine using air as the working medium is called \textcolor{blue}{air standard efficiency} or \textcolor{blue}{ideal efficiency};
+   \item In order to compare ideal and actual/real efficiencies, we introduce the relative efficiency:
+    \begin{displaymath}
+      \textcolor{blue}{\eta_{\text{relative}}=\displaystyle\frac{\text{Actual Thermal Efficiency}}{\text{Air-Standard Efficiency}}}
+    \end{displaymath}
+  \end{enumerate}
+\end{frame}
+
+%%%
+%%% SECTION
+%%%
+\section{Reciprocating Engines}
+\subsection{Nomenclature}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Nomenclature}
+ \begin{columns}
+  \begin{column}[c]{0.5\linewidth}
+   \begin{itemize}\scriptsize
+    \item <1-> Bottom dead center (BDC): position of the piston in which the volume becomes \textcolor{blue}{maximum};
+    \item <2-> Top dead center (TDC): position of the piston in which the volume becomes \textcolor{blue}{minimum} (i.e., clearance volume);
+    \item <3-> Stroke: the largest distance that the piston can travel $\Longrightarrow$ $X_{\text{TDC}}-X_{\text{BDC}}$;
+    \item <4-> Bore: diameter of the piston.
+   \end{itemize}
+  \end{column}
+  \begin{column}[c]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=6.cm,clip]{./Pics/GasCycle_ReciprocatingEngine}
+    \end{center}
+   \end{figure}  
+  \end{column}  
+ \end{columns}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Nomenclature}
+ \begin{columns}
+  \begin{column}[c]{0.4\linewidth}
+   \begin{itemize}
+    \item <1-> The Intake Valve is responsible to control the inflow of the air-fuel solution into the cylinder;
+    \item <2-> The Exhaust Valve lets the combustion gases leave the cylinder;
+    \item <3-> Displacement Volume: volume of the cylinder limited by $X_{\text{TDC}}$ and $X_{\text{BDC}}$ 
+    \item <4-> Compression Ratio: $r=V_{\text{max}}/V_{\text{min}}=$ $V_{\text{BDC}}/V_{\text{TDC}}$ 
+   \end{itemize}
+  \end{column}
+  \begin{column}[c]{0.6\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=7.5cm,clip]{./Pics/GasCycle_ReciprocatingEngine}
+    \end{center}
+   \end{figure}  
+  \end{column}  
+ \end{columns}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Nomenclature}
+   \begin{itemize}
+    \item <1-> The \textcolor{blue}{mean effective pressure of the cycle ({\it MEP})} is a fictitious pressure that, if it acted on the piston during the entire power stroke, would \textcolor{blue}{produce the same amount of net work as that produced during the actual cycle}:
+        \begin{displaymath}
+          W_{\text{net}} =MEP \times \text{Piston area} \times \text{Stroke} \; \Longrightarrow \; MEP= \displaystyle\frac{W_{\text{net}}}{V_{\text{max}}-V_{\text{min}}}
+        \end{displaymath}
+    \item <2-> MEP is used as a parameter to compare performances of reciprocating engines of equal size:  Larger MEP $\Longrightarrow$ larger $W_{\text{net}}$
+    \item <3-> Reciprocating engines are classified as:
+     \begin{enumerate}
+      \item <4->  \textcolor{blue}{{\it Spark-Ignition (SI)} Engines:} the combustion of the air–-fuel mixture is initiated by a spark plug (the mixture is at {\it flash point} conditions);
+      \item <5->  \textcolor{blue}{{\it Compression-Ignition (CI)} Engines:} the air–-fuel mixture is self-ignited as a result of compressing the mixture above its self-ignition temperature.
+     \end{enumerate}
+   \end{itemize}
+\end{frame}
+
+
+%%%
+%%% SECTION
+%%%
+\subsection{Ideal Carnot Cycle}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Carnot Cycle}
+ \begin{columns}
+  \begin{column}[c]{0.45\linewidth}
+   \begin{enumerate} \scriptsize
+     \item \blue{Carnot cycle} has the highest possible efficiency and, similarly from previous lectures, consists of four stages:
+     \begin{enumerate}\scriptsize
+       \item<2-> Isothermal expansion; 
+       \item<2-> Adiabatic expansion;
+       \item<2-> Isothermal compression;
+       \item<2-> Adiabatic compression.
+     \end{enumerate}\scriptsize
+     \item <3-> The efficiency of the cycle is then given by
+       \begin{eqnarray}
+        \textcolor{blue}{\eta_{\text{Carnot}}} &=& \displaystyle\frac{\text{work done}}{\text{heat supplied}} \nonumber\\
+                         &=& \displaystyle\frac{\text{heat supplied}-\text{heat rejected}}{\text{heat supplied}} \nonumber \\
+                         &=& \displaystyle\frac{Q_{s}-Q_{r}}{Q_{s}}= \displaystyle\frac{R\left(T_{1}-T_{2}\right)\ln r}{RT_{1}\ln r} \nonumber  \\
+                         &=& \displaystyle\frac{T_{1}-T_{2}}{T_{1}} = \blue{1 - \frc{T_{2}}{T_{1}}}
+       \end{eqnarray}
+   \end{enumerate}
+  \end{column}
+  \begin{column}[c]{0.55\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=7.cm,clip]{./Pics/GasCycle_CarnotCycle}
+    \end{center}
+   \end{figure}  
+  \end{column}  
+ \end{columns} 
+\end{frame}
+
+
+
+
+
+ 
 
 %%%
 %%% Slide
@@ -693,7 +878,7 @@
  \frametitle{Example 2: Ideal Rankine Cycle (Problem 5)}
  %\scriptsize
 Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enters the turbine at 16 MPa, and the condenser pressure is 8 kPa. The mass flow rate of steam entering in the turbine is 120 kg/s. Calculate:
-\begin{enumerate}[(a)]
+\begin{enumerate}
 \item the net power developed (in MW);
 \item rate of heat transfer to the steam passing through the boiler (in MW);
 \item thermal efficiency;
@@ -734,8 +919,8 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
          \item Specific enthalpies of all streams;
          \item Power output of the turbine;
          \item Heat transfer per hour in the boiler and condenser;
-         \item Mass rate of cooling water circulated (kg/h) in the condenser assuming inlet and outlet fluid temperatures from the condenser of 20$^{\circ}$C and 30$^{\circ}$C. Assume that the heat capacity at constant pressure $\left(\text{C}_{\text{p}}\right)$ of the cooling water is 4.18 $\frac{\text{kJ}}{\text{kg.}^{\circ}\text{C}}$.
-         \item Diameter (m) of the pipe connecting the turbine with the condenser;
+         \item Mass rate of cooling water circulated (kg/h) in the condenser assuming inlet and outlet fluid temperatures from the condenser of 20$^{\circ}$C and 30$^{\circ}$C;
+         \item Diameter of the pipe connecting the turbine with the condenser;
          \item Sketch the $Ts$ diagram, indicating each step of the cycle.
     \end{enumerate}
  \normalsize
@@ -968,25 +1153,25 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
 %%%
 \begin{frame}
  \frametitle{Example 4: Reheat Rankine Cycle (Problem 3)}
-    \scriptsize In the secondary cooling circuit of a nuclear power plant, the steam generator (boiler / reheater) produces superheated steam (SHS) and is connected to two turbines operating as a reheat Rankine cycle. Isentropic efficiencies of the first $\left(\eta_{\text{T1}}\right)$ and second $\left(\eta_{\text{T2}}\right)$ turbines are 84$\%$ and 80$\%$, respectively. (a) Determine {\it (a)-(t)} in the table below. Calculate the (b) power produced by the turbines, (c) heat supplied by the boiler and (d) heat extracted from the condenser. (e) Sketch the $Ts$ diagram of the cycle. Assume that the heat capacity at constant pressure $\left(\text{C}_{\text{p}}\right)$ is 4.18 $\frac{\text{kJ}}{\text{kg.}^{\circ}\text{C}}$.
+    \scriptsize In the secondary cooling circuit of a nuclear power plant, the steam generator (boiler / reheater) produces superheated steam (SHS) and is connected to two turbines operating as a reheat Rankine cycle. Isentropic efficiencies of the first $\left(\eta_{\text{T1}}\right)$ and second $\left(\eta_{\text{T2}}\right)$ turbines and boiler feed pump $\left(\eta_{\text{P}}\right)$ are 84$\%$, 80$\%$ and 61$\%$ respectively. Determine {\it (a)-(j)} in the table below. Sketch the $Ts$ diagram of the cycle.
 
        \begin{center}
-         \begin{tabular}{c | c c c c c c  }
-           \hline\scriptsize
-           {\bf Stage} & $P$    & $T$             &  State       & Quality     & $h$                 & $s$                      \\
-                       & (bar)  & ($^{\circ}$C)    &              &             & (kJ.kg$^{-1}$)       & (kJ.(kg.K)$^{-1}$)        \\
+         \begin{tabular}{c | c c c c c  }
            \hline
-            {\bf 1 }   & 40         & 320         & SHS          & --          & {\bf (a)}           & {\bf (b)}                 \\
-            {\bf 2 }   &  --        & {\bf (c)}   & {\bf (d)}    & {\bf (e)}   & {\bf (f)}           & {\bf (g)}          \\
-            {\bf 3 }   & 7          & 370         & SHS          & --          & {\bf (h)}           & {\bf (i)}                 \\
-            {\bf 4 }   & 0.10       & {\bf (j)}   & {\bf (k)}    & {\bf (l)}   & {\bf (m)}           & {\bf (n)}                     \\
-            {\bf 5 }   & 0.10       & {\bf (o)}   & {\bf (p)}    & --          & {\bf (q)}           & {\bf (r)}    \\
-            {\bf 6 }   & 40         & --          & {\bf (s)}    & --          & {\bf (t)}           & --                      \\
+           {\bf Stage} & $P$    & $T$             &  State            & $h$                 & $s$                      \\
+                       & (bar)  & ($^{\circ}$C)    &                   & (kJ.kg$^{-1}$)       & (kJ.(kg.K)$^{-1}$)        \\
+           \hline
+            {\bf 1 }   & 40         & 370         & SHS               & {\bf (a)}           & {\bf (b)}                 \\
+            {\bf 2 }   &  --        &  --         & {\bf (c)}         & --                  &   --                      \\
+            {\bf 3 }   & 7          & 370         & SHS               & {\bf (d)}           & {\bf (e)}                 \\
+            {\bf 4 }   & 0.10       & --          &     --            & --                   & --                      \\
+            {\bf 5 }   & 0.10       & --          &   {\bf (f)}       & {\bf (g)}           & {\bf (h)}                 \\
+            {\bf 6 }   & 40         & --          &   {\bf (i)}       & {\bf (j)}           & --                       \\
            \hline
          \end{tabular}
         \end{center}
          \begin{center}
-            \includegraphics[width=4.5cm,clip]{./Pics/Exam_Reheat_Rankine_Cycle}
+            \includegraphics[width=5.5cm,clip]{./Pics/Exam_Reheat_Rankine_Cycle}
          \end{center}
 %       \end{column}
 %       \begin{column}[c]{0.5\linewidth} 
