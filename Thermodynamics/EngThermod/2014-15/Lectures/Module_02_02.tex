@@ -529,7 +529,7 @@
   \begin{columns}
    \begin{column}[c]{0.4\linewidth}
     \begin{enumerate}[(1)]\scriptsize
-     \item<1-> Fuel--air solution is compressed to a \blue{temperature just below the auto--ignition temperature of the fuel} and combustion is initialised by an electric spark;
+     \item<1-> Fuel--air solution is compressed to a \blue{temperature just below the auto--ignition temperature of the fuel} and combustion is initialised by an electrical spark;
      \item<2-> \blue{Suction stroke (SS):} also called \blue{intake stroke}. The mixture is injected through the intake valve (IV). The exhaust valve (EV) remains closed during this stage;
      \item<3-> \red{Compression stroke (CS):} whereas IV and EV remain closed, pressure and temperature of the solution rise. Near the end of CS, the fuel is ignited by an electric spark, leading to the combustion of the fuel (consumption of carbon);
      \item<4-> \blue{Expansion stroke (WS):} also called \blue{power} or \blue{working} stroke. IV and EV remain closed and near the completion of the this stroke, the \blue{EV} is opened and the pressure in the cylinder push most of the gases out of the cylinder;
@@ -547,14 +547,142 @@
     \end{enumerate}
    \end{column}  
   \end{columns}
-\vspace{0.5cm}
-\textcolor{red}{Visualisation of the 4-strokes engine: \href{http://www.animatedengines.com/otto.html}{http://www.animatedengines.com/otto.html} }
+\vspace{0.cm}\begin{center}\scriptsize
+\visible<1->{\textcolor{red}{Visualisation of the 4-strokes engine: \href{http://www.animatedengines.com/otto.html}{http://www.animatedengines.com/otto.html} }}\end{center}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Two-Strokes Internal Combustion Engines}
+  \begin{columns}
+   \begin{column}[c]{0.5\linewidth}
+    \begin{enumerate}[(1)]\scriptsize
+     \item<1-> In this class of engines, \blue{both suction and exhaust strokes are eliminated}, and valves are replaced by ports;
+     \item<2-> Exhaust gases are driven out of the cylinder by the fresh intake of mixing fuel + air \blue{at the end of the expansion stroke};
+     \item<3-> Piston moves upwards compressing the fuel mixture (\textcolor{blue}{L}) previously supplied by \textcolor{blue}{V}. Ignition occurs in the end of the stroke (max compression);
+     \item<4-> Piston moves downwards due to the gases expansion and near the end of the stroke; 
+     \item<5-> Piston uncovers the \textcolor{blue}{exhausted port (EP)} and the gases are allowed to escape. The \textcolor{blue}{transfer port (TP)} is uncovered and the fresh fuel enters the cylinder driving away the remaining exhausted gases;
+    \end{enumerate}
+   \end{column}
+   \begin{column}[c]{0.5\linewidth}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=6.cm,clip]{./Pics/InternalCombustion_2Strokes_Otto}
+      %\caption{Air-cooled four-stroke petrol engine.}
+     \end{center}
+    \end{figure}  
+   \end{column}  
+  \end{columns}
+\vspace{0.5cm}\begin{center}\scriptsize
+\visible<1->{\textcolor{red}{Visualisation of the 2-strokes engine: \href{http://www.animatedengines.com/twostroke.html}{http://www.animatedengines.com/twostroke.html} }}\end{center}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Actual and Ideal Otto Cycles}\scriptsize
+    \red{Air-standard Otto cycle} is an ideal cycle that assumes the heat addition occurs instantaneously while the piston is at TDC.
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=9.cm,clip]{./Pics/InternalCombustion_IdealOttoCycle}
+     %\caption{Actual and ideal cycles in SI engines and their associated Pv diagrams.}
+     \end{center}
+    \end{figure} 
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Otto Cycles}
+  \begin{columns}
+   \begin{column}[c]{0.6\linewidth}
+    \begin{enumerate}[(1)]\scriptsize
+      \item<1-> Four strokes:
+      \begin{enumerate}[(a)]\scriptsize
+         \item<1-> {\bf 1-2}: Isentropic compression of air;
+         \item<1-> {\bf 2-3}: Addition of heat, $Q_{in}$, at \blue{constant volume};
+         \item<1-> {\bf 3-4}: Isentropic expansion;
+         \item<1-> {\bf 4-1}: Rejection of heat, $Q_{out}$, at \blue{constant volume}.
+      \end{enumerate}
+      \item<2-> Since ideal Otto cycle is composed of \blue{internally reversible processes}, areas on the {\it Ts} and {\it Pv} diagrams can be interpreted as \blue{heat and work}. Therefore, the energy balance for 1 kg of air is:
+      \item<3-> Heat supplied at constant volume:
+         \visible<3->{\begin{displaymath}
+            Q_{in} = C_{v}\left(T_{3}-T_{2}\right)
+         \end{displaymath}}
+      \item<4-> Heat rejected at constant volume:
+         \visible<3->{\begin{displaymath}
+            Q_{out} = C_{v}\left(T_{4}-T_{1}\right)
+         \end{displaymath}}
+      \item<5-> Net Work = Heat supplied - Heat rejected
+         \visible<3->{\begin{displaymath}
+            W_{\text{net}}=C_{v}\left(T_{3}-T_{2}\right) - C_{v}\left(T_{4}-T_{1}\right)
+         \end{displaymath}} 
+    \end{enumerate}
+   \end{column}
+   \begin{column}[c]{0.4\linewidth}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=5.cm,clip]{./Pics/InternalCombustion_IdealOttoCycle2}
+     \end{center}
+    \end{figure}  
+    \begin{enumerate}[(1)]\setcounter{enumi}{5}\scriptsize
+      \item<6-> Efficiency:
+         \visible<3->{\begin{equation}
+            \eta_{\text{Otto}} = \frc{W_{\text{net}}}{Q_{\text{in}}} = 1 - \frc{T_{4}-T_{1}}{T_{3}-T_{2}} \label{OttoEfficiency1}
+         \end{equation}} 
+    \end{enumerate}
+   \end{column}  
+  \end{columns}
 \end{frame}
 
 
 
-
-
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Otto Cycles}
+  \begin{columns}
+   \begin{column}[c]{0.6\linewidth}
+    \begin{enumerate}[(1)]\setcounter{enumi}{6}\scriptsize
+      \item<1-> Compression $\left(\text{r}_{c}\right)$ and expansion $\left(\text{r}_{e}\right)$ ratios:
+         \visible<1->{\begin{displaymath}
+            r_{c} =\frc{V_{1}}{V_{2}}=r \;\;\;\text{ and }\;\;\; r_{e} =\frc{V_{4}}{V_{3}}=r
+         \end{displaymath}}
+      \item<2-> \blue{1-2} and \blue{3-4} are \red{isentropic}, therefore
+         \visible<2->{\begin{displaymath}
+            \frc{T_{2}}{T_{1}}=\left(\frc{V_{1}}{V_{2}}\right)^{\gamma-1}=r^{\gamma-1}\;\;\;\text{ and }\;\;\;\frc{T_{3}}{T_{4}}=\left(\frc{V_{4}}{V_{3}}\right)^{\gamma-1}=r^{\gamma-1}
+         \end{displaymath}
+         where $\gamma = \frc{C_{p}}{C_{v}}$ is the specific heat ratio.}
+      \item<3-> As V$_{2}$=V$_{3}$ and V$_{1}$=V$_{4}$, replacing T$_{2}$ and T$_{3}$ in Eqn.~\ref{OttoEfficiency1} for Otto efficiency as a function of the compression ratio:
+         \visible<3->{\begin{equation}
+            \eta_{\text{Otto}} = 1 - \frc{1}{r^{\gamma-1}}
+         \end{equation}
+      This expression is called the \blue{air-standard efficiency of the Otto cycle}.}
+    \end{enumerate}
+   \end{column}
+   \begin{column}[c]{0.4\linewidth}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=5.cm,clip]{./Pics/InternalCombustion_IdealOttoCycle2}
+     \end{center}
+    \end{figure}  
+    \begin{enumerate}[(1)]\setcounter{enumi}{5}\scriptsize
+      \item<6-> Efficiency:
+         \visible<3->{\begin{equation}
+            \eta_{\text{Otto}} = \frc{W_{\text{net}}}{Q_{\text{in}}} = 1 - \frc{T_{4}-T_{1}}{T_{3}-T_{2}} 
+         \end{equation}
+      This expression is called the \blue{air-standard efficiency of the Otto cycle}.} 
+    \end{enumerate}
+   \end{column}  
+  \end{columns}
+\end{frame}
 
 
 
