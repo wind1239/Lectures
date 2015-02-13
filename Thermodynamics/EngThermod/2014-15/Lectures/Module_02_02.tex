@@ -402,12 +402,7 @@
           && W_{\text{net}} = MEP \times \text{Piston area} \times \text{Stroke} \nonumber \\
           && MEP= \frc{W_{\text{net}}}{V_{\text{max}}-V_{\text{min}}}
         \end{eqnarray}} 
-     \item<2-> MEP is used as a parameter to compare performances of reciprocating engines of equal size:  Larger MEP $\Longrightarrow$ larger $W_{\text{net}}$
-     \item<3-> Reciprocating engines are classified as:
-     \begin{enumerate}[(a)] \scriptsize
-        \item<3-> \blue{Spark-Ignition (SI) Engines:} the combustion of the air–-fuel mixture is initiated by a spark plug (the mixture is at  \red{flash point} conditions);
-        \item<4-> \blue{Compression-Ignition (CI) Engines:} the air–-fuel mixture is self-ignited as a result of compressing the mixture above its self-ignition temperature.
-     \end{enumerate}
+     \item<2-> MEP is used as a parameter to compare performances of reciprocating engines of equal size:  \blue{Larger MEP $\Longrightarrow$ larger $W_{\text{net}}$}. 
    \end{enumerate}
   \end{column}
   \begin{column}[c]{0.5\linewidth}
@@ -420,6 +415,38 @@
  \end{columns}
 \end{frame}
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Classification of Reciprocating Engines}
+  \begin{columns}
+   \begin{column}[c]{0.45\linewidth}\scriptsize
+   
+     \begin{enumerate}\scriptsize
+      \item <2-> \blue{Spark Ignition (SI) Engines}: the combustion of the air–-fuel mixture is initiated by a spark plug (the mixture is at  \red{flash point} conditions);
+       \begin{enumerate}\scriptsize
+        %\item <4-> Fuel--air solution is compressed to $T<T_{\text{autoignition}}^{\text{fuel}}$ and combustion is initialised by a (electric) spark;
+        \item <4-> Four stroke cycle: suction, compression, expansion (also called power or working) and exhaust;
+        \item <5-> Two stroke cycle: compression and expansion;
+       \end{enumerate}
+      \item <3-> \blue{Compression Ignition (CI) Engines}: the air–-fuel mixture is self-ignited as a result of compressing the mixture above its self-ignition temperature.
+       \begin{enumerate}\scriptsize
+          \item <6-> \underline{Diesel cycle} is the ideal cycle for CI reciprocating engines;
+          \item <7-> Strokes of the cycle: suction, compression, expansion and exhaust.
+       \end{enumerate}
+     \end{enumerate}
+   \end{column}
+   \begin{column}[c]{0.55\linewidth}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=7.5cm,clip]{./Pics/InternalCombustion_4Strokes}
+      \scriptsize\caption{\scriptsize Air-cooled four-stroke petrol engine.}
+     \end{center}
+    \end{figure}  
+   \end{column}  
+  \end{columns}
+\end{frame}
 
 
 %%%===            ===%%%
@@ -441,14 +468,14 @@
        \item<1-> {\bf 3-4}: Isothermal compression;
        \item<1-> {\bf 4-1}: Adiabatic compression.
      \end{itemize}\scriptsize
-     \item <3-> The efficiency of the cycle is then given by
+     \item <2-> The efficiency of the cycle is then given by
        \begin{eqnarray}
         \textcolor{blue}{\eta_{\text{Carnot}}} &=& \displaystyle\frac{\text{work done}}{\text{heat supplied}} \nonumber\\
                          &=& \displaystyle\frac{\text{heat supplied}-\text{heat rejected}}{\text{heat supplied}} \nonumber \\
                          &=& \displaystyle\frac{Q_{s}-Q_{r}}{Q_{s}} = \displaystyle\frac{T_{1}-T_{2}}{T_{1}} \nonumber  \\
                          &=&  \blue{1 - \frc{T_{2}}{T_{1}}}
        \end{eqnarray}
-     \item<4-> The efficiency of the cycle can be readily enhanced if the $T_{2}$ decreases. And in the limit,
+     \item<3-> The efficiency of the cycle can be readily enhanced if the $T_{2}$ decreases. And in the limit,
         \begin{displaymath}
            \lim_{T_{2} \to 0}\eta_{\text{Carnot}} = 1
         \end{displaymath}
@@ -456,12 +483,12 @@
   \end{column}
   \begin{column}[c]{0.55\linewidth}
    \begin{enumerate}[(1)]\setcounter{enumi}{3} \scriptsize
-     \item<5-> We can not produce a system that can move
+     \item<4-> We can not produce a system that can move
      \begin{enumerate}[(a)] \scriptsize
-        \item<5-> very slow in the \blue{isothermal expansion} ($\lq$forward stroke') and;
-        \item<5-> very fast during the remainder of the adiabatic expansion. 
+        \item<4-> very slow in the \blue{isothermal expansion} ($\lq$forward stroke') and;
+        \item<4-> very fast during the remainder of the adiabatic expansion. 
      \end{enumerate}
-     \item<6-> The cycle would become \red{unfeasible}.
+     \item<5-> The cycle would become \red{unfeasible}.
    \end{enumerate} 
    \begin{figure}%
     \begin{center}
@@ -492,41 +519,36 @@
 %%%===            ===%%%
 %%%=== SUBSECTION ===%%%
 %%%===            ===%%%
-\subsection{Combustion Engines}
+\subsection{Otto Cycle (Constant Volume)}
 
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Internal Combustion Engines}
+ \frametitle{Four-Strokes Internal Combustion Engines}
   \begin{columns}
-   \begin{column}[c]{0.45\linewidth}
-    \begin{itemize}
-     \item <1-> \textcolor{blue}{Combustion of fuel + air $\left(\text{O}_{\text{2}}\right)$} in the cylinder of engines:
-     \begin{enumerate}
-      \item <2-> Spark Ignition (SI) Engines:
-       \begin{enumerate}
-        %\item <4-> Fuel--air solution is compressed to $T<T_{\text{autoignition}}^{\text{fuel}}$ and combustion is initialised by a (electric) spark;
-        \item <4-> Four stroke cycle: suction, compression, expansion (also called power or working) and exhaust;
-        \item <5-> Two stroke cycle: compression and expansion;
-       \end{enumerate}
-      \item <3-> Compression Ignition (CI) Engines: 
-       \begin{enumerate}
-          \item <6-> Diesel cycle is the ideal cycle for CI reciprocating engines;
-          \item <7-> Strokes of the cycle: suction, compression, expansion and exhaust.
-       \end{enumerate}
-     \end{enumerate}
-    \end{itemize}
+   \begin{column}[c]{0.4\linewidth}
+    \begin{enumerate}[(1)]\scriptsize
+     \item<1-> Fuel--air solution is compressed to a \blue{temperature just below the auto--ignition temperature of the fuel} and combustion is initialised by an electric spark;
+     \item<2-> \blue{Suction stroke (SS):} also called \blue{intake stroke}. The mixture is injected through the intake valve (IV). The exhaust valve (EV) remains closed during this stage;
+     \item<3-> \red{Compression stroke (CS):} whereas IV and EV remain closed, pressure and temperature of the solution rise. Near the end of CS, the fuel is ignited by an electric spark, leading to the combustion of the fuel (consumption of carbon);
+     \item<4-> \blue{Expansion stroke (WS):} also called \blue{power} or \blue{working} stroke. IV and EV remain closed and near the completion of the this stroke, the \blue{EV} is opened and the pressure in the cylinder push most of the gases out of the cylinder;
+    \end{enumerate}
    \end{column}
-   \begin{column}[c]{0.55\linewidth}
+   \begin{column}[c]{0.6\linewidth}
     \begin{figure}%
      \begin{center}
-      \includegraphics[width=7.5cm,clip]{./Pics/InternalCombustion_4Strokes}
-      \caption{Air-cooled four-stroke petrol engine.}
+      \includegraphics[width=6.5cm,clip]{./Pics/InternalCombustion_4Strokes_Otto}
+      %\caption{Air-cooled four-stroke petrol engine.}
      \end{center}
     \end{figure}  
+    \begin{enumerate}[(1)]\setcounter{enumi}{4}\scriptsize
+      \item<5-> \red{Exhaust stroke (ES):} all remaining gases are removed from the cylinder. While the IV remains closed the \blue{piston returns to the top dead centre (TDC)}.
+    \end{enumerate}
    \end{column}  
   \end{columns}
+\vspace{0.5cm}
+\textcolor{red}{Visualisation of the 4-strokes engine: \href{http://www.animatedengines.com/otto.html}{http://www.animatedengines.com/otto.html} }
 \end{frame}
 
 
