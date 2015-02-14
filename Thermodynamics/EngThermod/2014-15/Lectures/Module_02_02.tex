@@ -689,27 +689,120 @@
 \begin{frame}
  \frametitle{Ideal Diesel Cycles}
   \begin{columns}
-   \begin{column}[c]{0.5\linewidth}
-    \begin{itemize}
-     \item <1-> The Diesel cycle is the ideal cycle for \textcolor{blue}{compression-ignition} reciprocating engines;
-     \item <2-> \textcolor{blue}{Only air is compressed} in the {\it compression stroke} -- eliminating the possibility of autoignition;
-     \item <3-> Combustion starts on contact as the fuel is injected into the hot air \textcolor{blue}{$\left(T>T^{\text{fuel}}_{\text{auto-ignition}}\right)$}, 
-     \item <4-> The spark plug and carburetor are replaced by fuel injector in diesel engines;
-     \item <5-> Diesel engines can be designed to operate at \textcolor{blue}{much higher compression ratios} -- typically 12$\leq$r$\leq$24.
-    \end{itemize}
+   \begin{column}[c]{0.6\linewidth}
+    \begin{enumerate}[(1)]\scriptsize
+     \item<1-> The Diesel cycle is the ideal cycle for \blue{compression-ignition} reciprocating engines;
+     \item<2-> \blue{Only air is compressed} in the {\it compression stroke} -- eliminating the possibility of autoignition;
+     \item<3-> Combustion starts on contact as the fuel is injected into the hot air -- \blue{$T>T^{\text{fuel}}_{\text{auto-ignition}}$};
+     \item<4-> \underline{Spark plug and carburetor} are replaced by \underline{fuel injector};
+     \item<5-> Diesel engines can be designed to operate at \blue{much higher compression ratios} -- typically 12$\leq$r$\leq$24.
+     \item<6-> Fuel injection starts when the piston approaches \blue{TDC} and;
+     \item<6-> Continues during the first part of the expansion stroke;
+     \item<7-> Combustion process occurs over a longer interval and, therefore the \underline{cycle can be approximated} as a \red{constant-pressure heat-addition process};
+     \item<8-> \red{this is the only difference between Otto and Diesel cycles}.
+     \item<9-> Cycle:
+        \begin{enumerate}[(a)]\scriptsize
+          \item<10-> {\bf 1-2}: Isentropic compression $\left(\text{PV}^{\gamma}=\text{constant}\right)$;
+          \item<10-> {\bf 2-3}: Heat addition at \underline{constant pressure};
+          \item<10-> {\bf \red{3}}: \red{point of cut-off};
+          \item<10-> {\bf 3-4}: Isentropic expansion;
+          \item<10-> {\bf 4-1}: Heat rejection at \underline{constant volume};
+        \end{enumerate}
+    \end{enumerate}
    \end{column}
-   \begin{column}[c]{0.5\linewidth}
+   \begin{column}[c]{0.4\linewidth}
     \begin{figure}%
      \begin{center}
-      \includegraphics[width=6.cm,clip]{./Pics/InternalCombustion_IdealDieselCycle}
+      \includegraphics[width=5.cm,clip]{./Pics/InternalCombustion_IdealDieselCycle}
      \end{center}
     \end{figure}   
    \end{column}  
   \end{columns}
 \end{frame}
 
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+ \frametitle{{\it Pv} and {\it Ts} Diagrams: Ideal Otto and Diesel Cycles}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=10.cm,clip]{./Pics/InternalCombustion_IdealOttoxDieselCycles}
+     \end{center}
+    \end{figure}   
+\end{frame}
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Diesel Cycles}
+  \begin{columns}
+   \begin{column}[c]{0.5\linewidth}
+    \begin{enumerate}\setcounter{enumi}{10}\scriptsize
+     \item<1-> \blue{Assuming 1 kg of air:}
+     \item<1-> Heat supplied at constant pressure: $Q_{s}=C_{p}\left(T_{3}-T_{2}\right)$;
+     \item<1-> Heat rejected at constant volume: $Q_{r}=C_{v}\left(T_{4}-T_{1}\right)$;
+     \item<1-> Work done: $W_{net}=C_{p}\left(T_{3}-T_{2}\right)-C_{v}\left(T_{4}-T_{1}\right)$.
+     \item<2-> Efficiency: 
+       \visible<2->{\begin{eqnarray}\scriptsize
+         \eta_{\text{Diesel}}&=&\frc{C_{p}\left(T_{3}-T_{2}\right)-C_{v}\left(T_{4}-T_{1}\right)}{C_{p}\left(T_{3}-T_{2}\right)} \nonumber \\
+                          &=& 1 - \frc{T_{4}-T_{1}}{\gamma\left(T_{3}-T_{2}\right)}
+       \end{eqnarray}}
+     \item<3-> For compression $\left(r\right)$ and \red{cut-off} ratios $\left(\rho\right)$:
+       \visible<3->{\begin{displaymath}
+           r=\frc{V_{1}}{V_{2}}\;\;\;\text{ and }\;\;\;\rho=\frc{\text{volume at cut-off}}{\text{clearence volume}}=\frc{V_{3}}{V_{2}}
+       \end{displaymath}}
+     \item<4-> Isentropic compression \textcolor{blue}{1--2}:
+    \end{enumerate}
+   \end{column}
+   \begin{column}[c]{0.5\linewidth}\scriptsize
+     \visible<4->{\begin{displaymath}\scriptsize
+        \frc{T_{2}}{T_{1}}=\left(\frc{V_{1}}{V_{2}}\right)^{\gamma-1}=r^{\gamma-1} \Rightarrow T_{2}=T_{1}r^{\gamma-1}
+     \end{displaymath}}
+     \begin{enumerate}\setcounter{enumi}{16}\scriptsize
+        \item<5-> Heat addition at constant pressure \blue{2-3}:
+          \visible<5->{\begin{displaymath}
+             \frc{T_{3}}{T_{2}}=\frc{V_{3}}{V_{2}}=\rho \Rightarrow T_{3}=\rho T_{2}=\rho T_{1} r^{\gamma-1}
+          \end{displaymath}}
+     \end{enumerate}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=4.cm,clip]{./Pics/InternalCombustion_IdealDieselCycle}
+     \end{center}
+    \end{figure}   
+   \end{column}  
+  \end{columns}
+\end{frame}
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Diesel Cycles}
+    \begin{enumerate}\setcounter{enumi}{17}\scriptsize
+       \item<1-> Isentropic expansion \blue{3-4}:
+          \visible<1->{\begin{displaymath}
+             \frc{T_{3}}{T_{4}} = \left(\frc{V_{4}}{V_{3}}\right)^{\gamma-1} = \left(\frc{V_{1}}{V_{3}}\right)^{\gamma-1}  = \left(\frc{V_{1}}{V_{2}}\frc{V_{2}}{V_{3}}\right)^{\gamma-1}= \left(\frc{r}{\rho}\right)^{\gamma-1} \Longrightarrow \;\; T_{4} = T_{1}\rho^{\gamma}
+          \end{displaymath}}
+       \item<2-> Replacing $T_{i}$ in the efficiency expression:
+          \visible<2->{\begin{equation}
+            \eta_{\text{Diesel}}= 1 - \frc{T_{4}-T_{1}}{\gamma\left(T_{3}-T_{2}\right)} = 1 - \frc{\rho^{\gamma}-1}{\gamma r^{\gamma-1}\left(\rho-1\right)} =  1 -\frc{1}{r^{\gamma-1}}\left[\frc{\rho^{\gamma}-1}{\gamma\left(\rho-1\right)}\right]
+          \end{equation}}
+       \item<3-> As $\eta_{\text{Otto}} =1 - \frc{1}{r^{\gamma-1}}$, it is clear that (as $\rho>1$) the term in square-brackets is always greater than 1, therefore;
+       \item<4-> \blue{$\eta_{\text{Otto}} > \eta_{\text{Diesel}}$} when both cycles operates on the same compression ratio ($r$);
+       \item<5-> \blue{Cut-off ratio} decreases  $\Rightarrow$ $\eta_{\text{Diesel}}$ increases;
+       \item<6-> If $\rho\to 1$ (using \href{http://people.goshen.edu/~adecelles/calculus_notes/4_4_lhospitals_rule.pdf}{\blue{Calculus L'H\^opital rule}}) $\Rightarrow$ term in the square-bracket $\to$ 1 and \blue{$\eta_{\text{Otto}} = \eta_{\text{Diesel}}$}. 
+       \item<7-> \textcolor{blue}{Net work} for diesel cycle can be define (as a function of $P$ and $V$) as,
+         \visible<7->{\begin{displaymath}
+            W_{\text{net}} = \displaystyle\frac{P_{1}V_{1}r^{\gamma-1}\left[\gamma\left(\rho-1\right)-r^{1-\gamma}\left(\rho^{\gamma}-1\right)\right]}{\gamma-1}
+         \end{displaymath}}
+       \item<8-> And the MEP can be expressed as
+         \visible<8->{\begin{equation}
+           MEP = \displaystyle\frac{P_{1}r^{\gamma}\left[\gamma\left(\rho-1\right)-r^{1-\gamma}\left(\rho^{\gamma}-1\right)\right]}{\left(\gamma-1\right)\left(r-1\right)}
+         \end{equation}}
+ \end{enumerate}
+\end{frame}
 
 
 
