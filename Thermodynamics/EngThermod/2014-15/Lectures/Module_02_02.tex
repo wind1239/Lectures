@@ -503,7 +503,7 @@
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Carnot Cycle -- Example}
+ \frametitle{Example 1: Carnot Cycle (Problem 1)}
      In a Carnot cycle, the maximum pressure and temperature are limited to 18 bar and 410$^{\circ}$C. The ratio of isentropic compression and isothermal expansion are 6 and 1.5, respectively. Assuming the volume of the air at the beginning of isothermal expansion is 0.18 m$^{3}$, determine:
        \begin{enumerate}[(a)]
           \item Temperature and pressures at all stages of the cycle; 
@@ -641,8 +641,6 @@
   \end{columns}
 \end{frame}
 
-
-
 %%%
 %%% Slide
 %%%
@@ -664,7 +662,8 @@
          \visible<3->{\begin{equation}
             \eta_{\text{Otto}} = 1 - \frc{1}{r^{\gamma-1}}
          \end{equation}
-      This expression is called the \blue{air-standard efficiency of the Otto cycle}.}
+         This expression is called the \blue{air-standard efficiency of the Otto cycle}.}
+      \item<4-> With the \blue{pressure ratio} $\left(r_{p} = \frc{P_{3}}{P_{2}} = \frc{P_{4}}{P_{1}}\right)$, the \blue{MEP} is
     \end{enumerate}
    \end{column}
    \begin{column}[c]{0.4\linewidth}
@@ -673,18 +672,41 @@
       \includegraphics[width=5.cm,clip]{./Pics/InternalCombustion_IdealOttoCycle2}
      \end{center}
     \end{figure}  
-    \begin{enumerate}[(1)]\setcounter{enumi}{5}\scriptsize
-      \item<6-> Efficiency:
-         \visible<3->{\begin{equation}
-            \eta_{\text{Otto}} = \frc{W_{\text{net}}}{Q_{\text{in}}} = 1 - \frc{T_{4}-T_{1}}{T_{3}-T_{2}} 
-         \end{equation}
-      This expression is called the \blue{air-standard efficiency of the Otto cycle}.} 
-    \end{enumerate}
+    \visible<4->{\begin{equation}\scriptsize
+       MEP = \frc{P_{1}r\left[\left(r^{\gamma-1} - 1\right)\left(r_{p}-1\right)\right]} {\left(\gamma-1\right)\left(r-1\right)}
+    \end{equation}}
    \end{column}  
   \end{columns}
 \end{frame}
 
-
+%%%===            ===%%%
+%%%=== SUBSECTION ===%%%
+%%%===            ===%%%
+\subsection{Diesel Cycle (Constant Pressure)}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Diesel Cycles}
+  \begin{columns}
+   \begin{column}[c]{0.5\linewidth}
+    \begin{itemize}
+     \item <1-> The Diesel cycle is the ideal cycle for \textcolor{blue}{compression-ignition} reciprocating engines;
+     \item <2-> \textcolor{blue}{Only air is compressed} in the {\it compression stroke} -- eliminating the possibility of autoignition;
+     \item <3-> Combustion starts on contact as the fuel is injected into the hot air \textcolor{blue}{$\left(T>T^{\text{fuel}}_{\text{auto-ignition}}\right)$}, 
+     \item <4-> The spark plug and carburetor are replaced by fuel injector in diesel engines;
+     \item <5-> Diesel engines can be designed to operate at \textcolor{blue}{much higher compression ratios} -- typically 12$\leq$r$\leq$24.
+    \end{itemize}
+   \end{column}
+   \begin{column}[c]{0.5\linewidth}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=6.cm,clip]{./Pics/InternalCombustion_IdealDieselCycle}
+     \end{center}
+    \end{figure}   
+   \end{column}  
+  \end{columns}
+\end{frame}
 
 
 

@@ -2,7 +2,7 @@
 default:	Module_01-Full.pdf Module_01.pdf \
 		Tutorial_01.pdf    Tutorial_02.pdf \
 		Module_02_01.pdf   Tutorial_03.pdf \
-		Module_02_02.pdf
+		Module_02_02.pdf   Tutorial_04.pdf 
 		#Module_03.pdf Tutorial_03.pdf \
 		#Practical_01.pdf \
 		#Module_04.pdf Tutorial_04.pdf \
@@ -20,9 +20,9 @@ Tutorial_02.pdf:	Tutorial_02.tex
 Module_02_01.pdf:	Module_02_01.tex
 Tutorial_03.pdf:	Tutorial_03.tex
 Module_02_02.pdf:	Module_02_02.tex
+Tutorial_04.pdf:	Tutorial_04.tex
 #Practical_01.pdf:	Practical_01.tex
 #Module_04.pdf:		Module_04.tex
-#Tutorial_04.pdf:	Tutorial_04.tex
 #Practical_02.pdf:	Practical_02.tex
 #EquationsList.pdf:	EquationsList.tex
 #Module_05.pdf:		Module_05.tex
