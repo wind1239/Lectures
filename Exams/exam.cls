@@ -149,10 +149,10 @@
 %%
 %% Change here for Exam or Resit
 %%
-  \addtocounter{lastyear}{+1}
-  {\large \textbf{UNIVERSITY OF ABERDEEN\hspace{0.25in}SESSION \getdateyear{ExamDateSaved}--\arabic{lastyear}}
-%  \addtocounter{lastyear}{-1}
-%  {\large \textbf{UNIVERSITY OF ABERDEEN\hspace{0.25in}SESSION \arabic{lastyear}--\getdateyear{ExamDateSaved}}
+%  \addtocounter{lastyear}{+1}
+%  {\large \textbf{UNIVERSITY OF ABERDEEN\hspace{0.25in}SESSION \getdateyear{ExamDateSaved}--\arabic{lastyear}}
+  \addtocounter{lastyear}{-1}
+  {\large \textbf{UNIVERSITY OF ABERDEEN\hspace{0.25in}SESSION \arabic{lastyear}--\getdateyear{ExamDateSaved}}
 
     \textbf{Degree Examination in \@coursecode~\@coursetitle}
 
