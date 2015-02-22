@@ -264,19 +264,6 @@
 %%%
 \section{Introduction}
 
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Introduction}
-  In Module 3, we will cover the following topics:
-  \begin{enumerate}[(i)]
-   \item <1-> Fundamentals of Refrigeration: Refrigeration and heat pump; Elements of refrigeration; Efficieny; Classification and Properties of Refrigerants;
-   \item <2-> Gas-Refrigeration Systems: Reversed Carnot and Brayton;
-   \item <3-> Vapour-Refrigeration Systems: Ideal and Actual Vapour-Compression Refrigeration Cycles; Criteria for choosing Refrigerant Fluids; Cascade and Multi-stage Vapour-Compression systems;
-  \end{enumerate}
-\end{frame}
-
 %%%===            ===%%%
 %%%=== SUBSECTION ===%%%
 %%%===            ===%%%
@@ -314,7 +301,7 @@
    \item E. Logan, $\lq$Thermodynamics -- Processes and Applications' (1999): 8.1-4;
    \item M.J. Moran, H.J. Shapiro, D.D. Boettner, M.B. Bailey, $\lq$Principles of Engineering Thermodynamics', 7$^{th}$ Edition: Chapters: 10.1-4;
    \item R.T. Balmer, $\lq$Modern Engineering Thermodynamics' (2011) Chapters: 14.2,5-9;
-   \item \href{http://www.sfsb.unios.hr/test/testhome/vtAnimations/animations/chapter09/refrigeration/index1.html}{\tiny{http://www.sfsb.unios.hr/test/testhome/vtAnimations/animations/chapter09/refrigeration/index1.html}}
+   \item \href{http://www.sfsb.unios.hr/test/testhome/vtAnimations/animations/chapter09/refrigeration/index1.html}{\scriptsize{http://www.sfsb.unios.hr/test/testhome/vtAnimations/animations/chapter09/refrigeration/index1.html}}
   \end{enumerate}
 \end{frame}
 
@@ -442,63 +429,41 @@
 %%%===            ===%%%
 %%%=== SUBSECTION ===%%%
 %%%===            ===%%%
-\subsection{Coefficient of Performance (COP)}
+\subsection{Assessing Refrigeration}
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Coefficient of Performance}
- \begin{enumerate}[(1)]\scriptsize
-     \item <1-> COP is the ratio of heat absorbed by the refrigerant while passing through the evaporator to the work input required to compress the refrigerant in the compressor;
+ \frametitle{Coefficient of Performance (COP) and Unit of Refrigeration (Ton)}
+    \begin{block}{\begin{center}\scriptsize Coefficient of Performance (COP)\end{center}}\scriptsize
+        COP is the ratio of heat absorbed by the refrigerant while passing through the evaporator to the work input required to compress the refrigerant in the compressor, i.e., \blue{ratio between heat extracted and work done,}
         \visible<2->{\begin{equation}
             \text{COP}_{R} =\frc{\text{Desired Output}}{\text{Required Input}}=\frc{\text{Cooling Effect}}{\text{Work Input}}=\frc{Q_{L}}{W_{net,in}} = \frc{Q_{L}}{|Q_{H}|-Q_{L}}\label{Ref1:1}
         \end{equation}}
         \visible<3->{\begin{equation}
             \text{COP}_{HP} = \frc{\text{Desired Output}}{\text{Required Input}}=\frc{\text{Heating Effect}}{\text{Work Input}}=\frc{Q_{H}}{W_{net,in}} = \frc{Q_{H}}{|Q_{H}|-Q_{L}}    \label{Ref1:2}
        \end{equation}}
-     \item <4-> In other words, it is the ratio between heat extracted and work done;
-     \item <4-> For fixed $Q_{L}$ and $Q_{H}$, Eqns. \ref{Ref1:1} and \ref{Ref1:2} lead to \textcolor{blue}{$\text{COP}_{HP}=\text{COP}_{R}+1$}.
-     \item <4->This means that \textcolor{blue}{COP$_{HP}>1$} (and also \textcolor{red}{COP$_{R}$) is positive}.
-     \item <5-> We should recall the Carnot thermal efficiency, $\eta_{T}=1-\frc{|Q_{L}|}{Q_{H}}$;
-     \item <5-> Thus,
-       \visible<5->{\begin{equation}\label{Refe1:3}
-          \text{COP}_{HP}=\frc{1}{\eta_{T}}\;\;\;\text{ and }\;\;\;\text{COP}_{R}=\frc{1}{\eta_{T}}-1 
-       \end{equation}}
-     \item <6-> We can then conclude that the {\it COP} for any heat engine discussed in Module 02 operating on a reversed thermodynamic cycle (e.g., heat pump or refrigerator) could also be obtained from Eqn.~\ref{Refe1:3}. 
-     \item <6-> As the Carnot thermal efficiency can also be expressed as a function of the temperature of the hot and cold reservoirs, $\eta_{T}^{\text{Carnot}}=1-\frc{T_{L}}{T_{H}}=\frc{T_{H}-T_{L}}{T_{L}}$, the {\it COP} for Carnot engine running backwards can also be expressed as,
-       \visible<5->{\begin{equation}
-          \text{COP}_{HP}^{\text{Carnot}}=\frc{T_{H}}{T_{H}-T_{L}}\;\;\;\text{ and }\;\;\; \text{COP}_{R}^{\text{Carnot}}=\frc{T_{L}}{T_{H}-T_{L}}
-       \end{equation}}
- \end{enumerate}
-\end{frame}
-
-%%%===            ===%%%
-%%%=== SUBSECTION ===%%%
-%%%===            ===%%%
-\subsection{Unit of Refrigeration}
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Unit of Refrigeration}
- \begin{enumerate}[(1)]\scriptsize
-  \item <1-> \textcolor{blue}{Refrigeration effect is the amount of heat extracted by the refrigerator from the refrigerated space.}
-  \item <2-> This effect is quantified by the \textcolor{blue}{unit of refrigeration}, or \textcolor{red}{Ton of refrigeration};
-  \item <3-> \textcolor{red}{One Ton (or Tonne)} of refrigeration is defined as the amount of heat removed from 1000 kg of water at 0$^{\text{o}}$C to form 1000 kg of ice within 24 hours, thus;
-  \item <4-> A \textcolor{red}{Ton of refrigeration} quantifies the latent heat $\left(L_{f}\right)$ required to be removed for solidification of water at 0$^{\text{o}}$C, i.e.,
-  %\item \textcolor{red}{1 Ton of Refrigeration} = {\it mass of water} $\times$ {\it Latent Heat of fusion at 0$^{\text{o}}C$ from water liquid to ice};
-   \begin{eqnarray}
-    \textcolor{red}{\text{1 Ton of Refrigeration}} &=& \text{mass of water} \times L_{f} \nonumber \\
-                                                   &=& \text{ 12000 BTU/h} \sim \textcolor{blue}{210\;\; \text{kJ/min}} = \text{ 3.5 kW}\nonumber 
-   \end{eqnarray}
- \end{enumerate}
+    \end{block}
+     %\item <4-> In other words, it is the ratio between heat extracted and work done;
+     %\item <4-> For fixed $Q_{L}$ and $Q_{H}$, Eqns. \ref{Ref1:1} and \ref{Ref1:2} lead to \textcolor{blue}{$\text{COP}_{HP}=\text{COP}_{R}+1$}.
+     %\item <4->This means that \textcolor{blue}{COP$_{HP}>1$} (and also \textcolor{red}{COP$_{R}$) is positive}.
+     \visible<4->{\begin{block}{\begin{center}\scriptsize Ton of Refrigeration\end{center}}\scriptsize
+        \begin{enumerate}[(a)]\scriptsize
+           \item<4-> \blue{Refrigeration effect} is the amount of heat extracted by the refrigerator from the refrigerated space;
+           \item<4-> This effect is quantified by the \blue{unit of refrigeration} or \red{Ton of refrigeration};
+           \item<4-> \red{One Ton (or Tonne)} of refrigeration is defined as the amount of heat removed from 1000 kg of water at 0$^{\text{o}}$C to form 1000 kg of ice within 24 hours. This quantifies the latent heat $\left(L_{f}\right)$ required to be removed for solidification of water at 0$^{\text{o}}$C, i.e.,
+      \end{enumerate}
+         \visible<5->{\begin{displaymath}
+              \textcolor{red}{\text{1 Ton of Refrigeration}} = \text{mass of water} \times L_{f} = \text{ 12000 BTU/h} \sim \textcolor{blue}{210\;\; \text{kJ/min}} = \text{ 3.5 kW}\nonumber 
+         \end{displaymath}}
+     \end{block}}
+ % \end{enumerate}
 \end{frame}
 
 
 %%%
 %%% SECTION
 %%%
-
 \section{Reversed Carnot Cycle for Refrigeration}
 
 %%%
@@ -509,7 +474,7 @@
   \begin{columns}
    \begin{column}[c]{0.45\linewidth}
     \begin{enumerate}[(1)]\scriptsize
-      \item <1-> As we saw in Module 02, Carnot cycle is the most efficient and ideal thermal cycle and can also be used to get refrigerant effect upon its reversal;
+      \item <1-> As we saw in Module 02, Carnot cycle (ideal) is the most efficient thermal cycle. It can also be used to get refrigerant effect upon its reversal;
       \item <1-> Refrigerated body needs to be kept at low temperature $T_{L}=T_{2}$ for which heat $\left(Q_{L}\right)$ should be removed at constant rate;
       \item <1-> Rejected to surroundings at high temperature, $T_{H}=T_{1}$;
       \item <1-> The amount of heat rejected to the surroundings is Q$_{H}$ while the net work done is {\it W};
@@ -527,12 +492,359 @@
      \begin{center}
       \includegraphics[width=6.8cm,height=6.5cm]{./Pics/Overview_Refrig4}
      \end{center}
-    \end{figure}  
+    \end{figure}
    \end{column}   
   \end{columns}
 \end{frame}
  
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Reversed Carnot Cycle}
+  \begin{columns}
+   \begin{column}[c]{0.5\linewidth}
+    \begin{enumerate}[(1)]\setcounter{enumi}{5}\scriptsize
+      \item <1-> We should recall the Carnot thermal efficiency, $\eta_{T}=1-\frc{|Q_{L}|}{Q_{H}}$;
+      \item <1-> Thus,
+            \visible<1->{\begin{equation}\label{Refe1:3}
+              \text{COP}_{HP}=\frc{1}{\eta_{T}}\;\;\;\text{ and }\;\;\;\text{COP}_{R}=\frc{1}{\eta_{T}}-1 
+            \end{equation}}
+      \item <2-> We can then conclude that the {\it COP} for any heat engine discussed in Module 02 operating on a reversed thermodynamic cycle (e.g., heat pump or refrigerator) could also be obtained from Eqn.~\ref{Refe1:3}.
+      \item <3-> As the Carnot thermal efficiency can also be expressed as a function of the temperature of the hot and cold reservoirs, $\eta_{T}^{\text{Carnot}}=1-\frc{T_{L}}{T_{H}}=\frc{T_{H}-T_{L}}{T_{L}}$, the {\it COP} for Carnot engine running backwards can also be expressed as,
+     \end{enumerate}
+   \end{column}
+   \begin{column}[c]{0.5\linewidth}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=6.cm,height=6.cm]{./Pics/Overview_Refrig4}
+     \end{center}
+    \end{figure}  
+   \end{column}   
+  \end{columns}
+
+       \visible<3->{\begin{equation}\scriptsize
+          \text{COP}_{HP}^{\text{Carnot}}=\frc{T_{H}}{T_{H}-T_{L}}\;\;\;\text{ and }\;\;\; \text{COP}_{R}^{\text{Carnot}}=\frc{T_{L}}{T_{H}-T_{L}}
+       \end{equation}}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1: Reversed Carnot Cycle -- Heat Pump (Problem 1)}
+    For the heating of a residence in a cold enviroment (-5$^{\text{o}}$C), a heat pump was used. The engine was designed to maintain the house's interior temperature at 25$^{\text{o}}$C. The compressor heat pump is driven by a heat engine working between 1000$^{\text{o}}$C and 25$^{\text{o}}$C. Assume that both cycles are reversibles, determine the ratio in which the heat pump and the heat engine share the heating load.
+
+ 
+\end{frame}
+
+
+%%%
+%%% SECTION
+%%%
+\section{Gas Refrigeration}
+
+
+%%%
+
+%%%===            ===%%%
+%%%=== SUBSECTION ===%%%
+%%%===            ===%%%
+\subsection{Air Standard Gas-Refrigeration Cycles}
+
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Air Standard Cycle}
+The following assumptions are usually applied to gas-refrigeration air-standard cycles analysis:
+  \begin{enumerate}[(a)]
+   \item <2-> The working fluid is a fixed mass of air that behaves as an ideal gas;
+   \item <2-> All inlet and exhaust processes in open-loop systems are replaced by heat transfer processes to or from the environment;
+   \item <3-> \blue{All processes within the cycle are reversible};
+   \item <3-> \blue{The air has constant specific heat capacities};
+   \item <3-> MW = 29 g.mol$^{-1}$, C$_{p}$ = 1.005 kJ.(kg.K)$^{-1}$ and C$_{v}$ = 0.718 kJ.(kg.K)$^{-1}$, where MW is the molar mass and C$_{p}$ and C$_{v}$ are the heat capacities at constant pressure and volume, respectively.
+  \end{enumerate}
+\end{frame}
+
+
+%%%===            ===%%%
+%%%=== SUBSECTION ===%%%
+%%%===            ===%%%
+\subsection{Reversed Brayton Cycle}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Bell-Coleman Cycle (or Reversed Brayton Cycle)}
+    \begin{columns}
+       \begin{column}[c]{0.55\linewidth}
+          \begin{figure}%
+            \begin{center}
+               \includegraphics[width=\columnwidth]{./Pics/Overview_Refrig6}
+            \end{center}
+          \end{figure}  
+       \end{column}
+       \begin{column}[c]{0.45\linewidth}
+         \begin{enumerate}[(1)]\scriptsize
+           \item <1-> Bell-Coleman Cycle uses air as a refrigerant and is a modified form of the reversed Carnot cycle where;
+           \item <1-> Isothermal heat addition and release are replaced by isobaric processes;   
+           \item <2-> Mostly used in cargo ships and aircraft refrigeration;
+           \item <3-> The process involves compressor, heat exchanger, expander and refrigeration unit.
+         \end{enumerate}
+      \end{column}
+   \end{columns} 
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Bell-Coleman Cycle (or Reversed Brayton Cycle)}
+  \begin{columns}
+
+   \begin{column}[c]{0.6\linewidth}
+    \begin{figure}%
+     \begin{center}
+      \includegraphics[width=\columnwidth]{./Pics/Overview_Refrig7}
+     \end{center}
+    \end{figure}  
+   \end{column}  
+
+   \begin{column}[c]{0.4\linewidth} 
+      \begin{enumerate}[(1)]\setcounter{enumi}{4}\scriptsize
+         \item <2-> 1-2: Adiabatic compression of air;
+         \item <3-> 2-3: Isobaric heat rejection:
+           \visible<3->{\begin{equation}
+              Q_{\text{rejected}}=mC_{p}\left(T_{2}-T_{3}\right)
+           \end{equation}}
+         \item <4-> 3-4: Adiabatic expansion;
+         \item <5-> 4-1: Isobaric heat absorption:
+          \visible<5->{\begin{equation}
+             Q_{\text{absorbed}}=mC_{p}\left(T_{1}-T_{4}\right)
+          \end{equation}}
+      \end{enumerate}
+   \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermodynamic Analysis}
+    \begin{enumerate}[(1)]\setcounter{enumi}{8}\scriptsize
+     \item <1-> The net work done upon system,
+       \visible<1->{\begin{eqnarray}
+          W &=& \left(\text{Heat Rejected - Heat Absorbed}\right) \nonumber \\
+            &=& mC_{p}\left(T_{2}-T_{3}\right) - mC_{p}\left(T_{1}-T_{4}\right)
+       \end{eqnarray}}
+     \item <2-> Last lecture we defined the Coefficient of Performance as,
+       \visible<2->{\begin{eqnarray}
+          \textcolor{blue}{\text{COP}} &=& \frc{\text{Desired Effect}}{\text{Net Work}} = \frc{mC_{p}\left(T_{1}-T_{4}\right)}{mC_{p}\left(T_{2}-T_{3}\right) - mC_{p}\left(T_{1}-T_{4}\right)} \nonumber \\
+                  &=& \textcolor{blue}{\frc{1}{\left(\frc{T_{2}}{T_{1}}-\frc{T_{3}}{T_{4}}\right)-1}} \label{refrig_CopIdeal}
+        \end{eqnarray}}
+     %\item <3-> Equation \ref{refrig_CopIdeal} describes the COP for \textcolor{blue}{ideal processes}. 
+    \end{enumerate}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 2: Bell-Coleman Cycle (Reversed Brayton Cycle, Problem 2)}\scriptsize
+ A refrigerating engine operates on the Bell-Coleman cycle (of 6 tonnes capacity) with upper limiting pressure of 5.2 bar. Pressure and temperature at the beginning of the compression stage are 1.0 bar and 16$^{\text{o}}$C, respectively. The compressed air is cooled at constant pressure from a temperature of 41$^{\text{o}}$C  (flow entering the expansion cylinder). Assuming that both expansion and compression processes are adiabatic with $\gamma=1.4$ and the latent heat of fusion of water $\left(\text{L}_{\text{f}}\right)$ is 336 kJ/kg determine:
+
+\begin{enumerate}[(a)]\scriptsize
+\item COP;
+\item Mass flow rate of air in circulation (kg/min);
+\item Piston displacement of compressor and expander;
+\item Bore of compressor and expansion cylinders. The unit runs at 240 rpm. Assume that the stroke length is 200 mm;
+\item Power required to drive the unit.
+\end{enumerate}
+
+\end{frame}
+
+%%%
+%%% SECTION
+%%%
+\section{Vapour-Compression Refrigeration Cycle}
+
+%%%===            ===%%%
+%%%=== SUBSECTION ===%%%
+%%%===            ===%%%
+\subsection{Introduction}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Introduction}
+
+  \scriptsize A few animations for reversed Brayton, Rankine cycles can be found in:
+\href{http://www.sfsb.unios.hr/test/testhome/vtAnimations/animations/chapter09/refrigeration/index1.html}{\scriptsize{http://www.sfsb.unios.hr/test/testhome/vtAnimations/animations/chapter09/refrigeration/index1.html}}
+
+
+  \begin{columns}
+   \begin{column}[c]{0.45\linewidth}
+    \begin{figure}%
+     \begin{center}
+      \visible<2->{\includegraphics[width=\columnwidth,clip]{./Pics/Overview_Refrig12}}
+     \end{center}
+    \end{figure}  
+   \end{column}  
+   \begin{column}[c]{0.55\linewidth}
+  \begin{enumerate}[(1)]\scriptsize
+   \item <2-> First vapour-compression refrigeration system was a closed system introduced by Jacob Perkins (1766-1849) using \textcolor{blue}{diethyl ether} as refrigerant fluid;
+   \item <2-> Ether vapour was compressed in a piston-cylinder system and condensed (i.e., turned into liquid) at a higher saturation pressure and temperature;
+   \item <2-> Liquid ether is throttled through a valve back into the low-pressure evaporator;
+   \item <2-> This process takes place beneath the vapour dome of the ether and it is a \textcolor{blue}{reversed Rankine cycle}.
+   \item <3-> In most industrial applications, vapour compression systems occur in closed cycles.
+  \end{enumerate}
+ \end{column}  
+\end{columns}
+
+\end{frame}
+
+%%%===            ===%%%
+%%%=== SUBSECTION ===%%%
+%%%===            ===%%%
+\subsection{Dry and Wet Compression Refrigeration Cycles}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Dry Compression Cycle} 
+  \begin{columns}
+   \begin{column}[c]{0.5\linewidth}
+    \begin{figure}%
+     \vbox{
+      \includegraphics[width=5.5cm,clip]{./Pics/Overview_Refrig12}
+      \vspace{-.5cm}
+      \includegraphics[width=4.5cm,clip]{./Pics/Overview_Refrig13}}
+    \end{figure}  
+   \end{column}  
+   \begin{column}[c]{0.5\linewidth}
+  \begin{enumerate}[(1)] \scriptsize
+   \item <1-> Refrigerant (in gas/vapour phase) is compressed isentropically in \textcolor{blue}{compressor from state 1 to 2}; 
+   \item <1-> \textcolor{blue}{High pressure and high temperature} fluid enters the condenser at \textcolor{blue}{state 2};
+   \item <1-> The condensed fluid (saturated liquid at high pressure, state 3) is driven into the expansion valve where an \textcolor{blue}{isenthalpic expansion} occurs.
+   \item <1-> The refrigerant fluid leaves the expansion valve (state 4) as a \textcolor{blue}{low pressure wet mixture of liquid and vapour};
+   \item <2-> This mixture is driven into the evaporator where heat is transferred from the surroundings and thereby showing refrigerant effect; 
+   \item <2-> Due to this \textcolor{blue}{heat absorption}, the liquid-vapour mixture is transformed into a \textcolor{red}{dry gaseous refrigerant} and;
+   \item <3-> This process is called \textcolor{blue}{Dry Compression} in which,
+   \item <3-> The compression of this dry refrigerant yields \textcolor{blue}{superheated state} of the fluid as shown in \textcolor{blue}{state 2}.
+  \end{enumerate}
+ \end{column}  
+\end{columns}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Wet Compression Cycle} 
+  \begin{columns}
+   \begin{column}[c]{0.5\linewidth}
+    \begin{figure}%
+     \vbox{
+      \includegraphics[width=5.5cm,clip]{./Pics/Overview_Refrig12}
+      \vspace{-.5cm}
+      \includegraphics[width=4.5cm,clip]{./Pics/Overview_Refrig13}}
+    \end{figure}  
+   \end{column}  
+   \begin{column}[c]{0.5\linewidth}
+  \begin{enumerate}[(1)] \setcounter{enumi}{8}\scriptsize
+     \item <1-> In this case, the \textcolor{blue}{liquid-vapour mixture (state 1$^{\prime}$)} is injected in the compressor;
+     \item <1-> In the compressor, the wet mixture is transformed into a \textcolor{blue}{dry refrigerant fluid} (gas phase -- state 2$^{\prime}$);
+     \item <1-> The dry refrigerant at \textcolor{blue}{high pressure and high temperature} is driven into the condenser where the fluid is turned into saturated liquid at high pressure;
+     \item <1-> The refrigerant is throttled from high to low pressure inside the expansion valve (states 3$^{\prime}$-4$^{\prime}$);
+     \item <1-> The refrigerant is then driven towards the evaporator (states 4$^{\prime}$ 1$^{\prime}$) where it absorbs heat from the surroundings and ;
+     \item <1-> Part of the liquid fraction is evaporated \textcolor{red}{but it does not become dry (gas) refrigerant} at the inlet of the compressor.
+
+  \end{enumerate}
+ \end{column}  
+\end{columns}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermodynamic Analysis} 
+  \begin{columns}
+   \begin{column}[c]{0.6\linewidth}
+     \begin{enumerate}[(1)]\scriptsize
+       \item<1-> Four Stages:
+         \begin{enumerate}[(a)]\scriptsize
+            \item <1-> 1-2 or 1$^{\prime}$-2$^{\prime}$: isentropic compression;
+            \item <1-> 2-3 or 2$^{\prime}$-3$^{\prime}$: isobaric heat rejection;
+            \item <1-> 3-4 or 3$^{\prime}$-4$^{\prime}$: isenthalpic expansion ;%process or throttling process;
+            \item <1-> 4-1 or 4$^{\prime}$-1$^{\prime}$: isobaric heat absorption.
+         \end{enumerate}
+       \item<2-> For a mass flow rate of refrigerant \blue{$\dot{m}$} (kg/s):
+         \begin{enumerate}[(a)]\scriptsize
+           \item<2-> The \blue{refrigeration capacity} (or refrigeration effect) is,\\
+               \visible<2->{\begin{displaymath}
+                Q_{\text{absorbed}}^{\text{(dry)}} = \dot{m}\left(h_{1}-h_{4}\right) \;\text{;}\; Q_{\text{absorbed}}^{\text{(wet)}} = \dot{m}\left(h_{1^{\prime}}-h_{4^{\prime}}\right)         
+             \end{displaymath}}
+           \item <3-> And the \blue{net work} (= work input) is,
+             \visible<3->{\begin{displaymath}     
+                W_{\text{compressor}}^{\text{(dry)}} = \dot{m}\left(h_{2}-h_{1}\right) \;\text{;}\; W_{\text{compressor}}^{\text{(wet)}} = \dot{m}\left(h_{2^{\prime}}-h_{1^{\prime}}\right) 
+             \end{displaymath}}
+           \item<4-> And the \blue{Coefficient of Performance (COP)} is,
+             \visible<4->{\begin{eqnarray}
+                && COP^{\text{(dry)}} = \frc{\text{Refrigeranting Capacity}}{\text{Work done}} = \frc{h_{1}-h_{4}}{h_{2}-h_{1}}   \nonumber \\ 
+                && COP^{\text{(wet)}} = \frc{h_{1^{\prime}}-h_{4^{\prime}}}{h_{2^{\prime}}-h_{1^{\prime}}} \nonumber
+             \end{eqnarray}}
+         \end{enumerate}
+     \end{enumerate}
+   \end{column}  
+   \begin{column}[c]{0.4\linewidth}
+     \vbox{
+      \hbox{\includegraphics[width=.9\columnwidth]{./Pics/Overview_Refrig12}}
+      \hbox{\includegraphics[width=.9\columnwidth]{./Pics/Overview_Refrig13}}}
+   \end{column}  
+
+\end{columns}
+\end{frame}
+ 
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermodynamic Analysis} 
+   \begin{figure}%
+     \includegraphics[width=.8\columnwidth]{./Pics/Overview_Refrig19}
+   \end{figure}
+\end{frame}
+
+
+%%%
+%%% SECTION
+%%%
+\section{Summary}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Summary}
+  After this lecture you should:
+ \begin{enumerate}[(a)]
+  \item <1-> Identify elements of gas and vapour-compressed refrigeration systems;
+  \item <2-> Link the thermo-fluid dynamics learnt in Module 2 with refrigeration cycles;
+  \item <3-> Be able to sketch $PH$ and $TS$ diagrams and perform a thermal analysis of the cycles.
+ \end{enumerate}
+\end{frame}
 
 
 \end{document}
