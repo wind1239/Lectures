@@ -1,6 +1,6 @@
 
-%\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,solutions,resit]{exam} 
-\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,resit]{exam}
+\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,solutions,resit]{exam} 
+%\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,resit]{exam}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -37,7 +37,7 @@
 %%%
 \begin{question}
 
-Refrigerant R-22 is used in a geothermal heat pump system (Fig.~\ref{Exam01_Prob4}) in an industrial facility. The heat pump uses underground water from a well to produce a heating capacity of 15 tons. Determine:
+Refrigerant R-22 is used in a geothermal heat pump system (Fig.~\ref{Exam01_Prob4}) in an industrial facility. The heat pump uses underground water from a well to produce a heating capacity of 15 tons $\left(\text{1 ton = 210 kJ.min}^{-1}\right)$. Determine:
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=12.0cm,height=9.0cm]{./Pics/Exam_Refrigeration14-15}
@@ -45,8 +45,8 @@ Refrigerant R-22 is used in a geothermal heat pump system (Fig.~\ref{Exam01_Prob
 \vspace{-1.8cm}
 \caption{Heat pump cycle.}\label{Exam01_Prob4}
 \end{figure}
-\begin{enumerate}[(a)]
- \item Enthalpies and Entropies: h$_{i}$, s$_{i}$ with $i=\left\{1,2,3,4\right\}$;~\marks{8}
+\begin{enumerate}[(i)]
+ \item Specific enthalpies and entropies, h$_{i}$, s$_{i}$ with $i=\left\{1,2,3,4\right\}$;~\marks{8}
 \solution{Calculating all properties:
 \begin{description}
 \item[1:] At P$_{1}$ =  3 bar and T$_{1}$= 21.5$^{\circ}$C $\rightarrow$  T$_{1}$ $>$ T$_{sat}$ (=-14.66$^{\circ}$C), thus the fluid is superheated vapour with \\
@@ -73,7 +73,7 @@ x_{4} = \frc{s_{4}-s_{f}}{s_{g}-s_{f}} = 0.4321 \Longrightarrow {\bf s_{4}=0.475
 }
 %
 
-\item Mass flow rate of the R-22 refrigerant fluid;~\marks{3}
+\item Mass flow rate $\left(\text{in kg.s}^{-1}\right)$ of the R-22 refrigerant fluid;~\marks{3}
 \solution{Energy balance across the condenser with $Q_{H}$ = 15 tons = 52.5 kJ.s$^{-1}$:~\solmarks{3/3}
 \begin{displaymath}
 Q_{H} = \dot{m}_{R}\left(h_{3}-h_{2}\right)\;\; \Longrightarrow \;\; {\bf \dot{m}_{R} = 0.2499 \text{ kg.s}^{-1}}
@@ -81,7 +81,7 @@ Q_{H} = \dot{m}_{R}\left(h_{3}-h_{2}\right)\;\; \Longrightarrow \;\; {\bf \dot{m
 }
 %
 
-\item Compressor power $\left(W_{C}\right)$ and heat supplied by the evaporator (in kW);~\marks{4}
+\item Compressor power $\left(W_{C}\right)$ and heat supplied $\left(Q_{C}\right)$ by the evaporator (in kW);~\marks{4}
 \solution{Energy balance across the compressor:~\solmarks{2/4}
 \begin{displaymath}
 {\bf W_{C} =} \dot{m}_{R}\left(h_{2}-h_{1}\right) = {\bf 15.84 kW}.
@@ -92,7 +92,7 @@ Energy balance across the evaporator:~\solmarks{2/4}
 \end{displaymath}
 }
 %
-\item Sketch the $Ts$ and $Ph$ diagrams of the cycle indicating all stages, isotherms and isobars.~\marks{5}
+\item Sketch the $Ts$ (temperature $\times$ specific entropy) and $Ph$ (pressure $\times$ specific enthalpy) diagrams of the cycle indicating all stages, isotherms and isobars.~\marks{5}
 \solution{$Ts$ diagram:~\solmarks{2.5/5}
 \begin{center}
 \includegraphics[width=8.0cm,height=8.0cm]{./Pics/Exam_TS_Refrig} 
@@ -112,10 +112,10 @@ $Ph$ diagram:~\solmarks{2.5/5}
 %%% QUESTION (Saphiro 9.41 and 9.28)
 %%%
 \begin{question}
-\begin{enumerate}[(i)]
-\item In an ideal air-standard Brayton cycle, air enters the compressor at 1 bar and 300 K, with a mass flow rate of 6 kg.s$^{-1}$. The compressor ratio is 10, and the turbine inlet temperature is 1400 K. 
 \begin{enumerate}[(a)]
-\item Sketch the schematics of the cycle, $Ts$ and $Pv$ diagrams. Indicate the numbering of each stage as used in your calculations;~\marks{3}
+\item In an ideal air-standard Brayton cycle, air enters the compressor at 1 bar and 300 K, with a mass flow rate of 6 kg.s$^{-1}$. The compressor ratio is 10, and the turbine inlet temperature is 1400 K. 
+\begin{enumerate}[(i)]
+\item Sketch the schematics of the cycle, $Ts$ (temperature $\times$ specific entropy) and $Pv$ (pressure $\times$ specific volume) diagrams. Indicate the numbering of each stage as used in your calculations;~\marks{3}
 \solution{\solmarks{3/3}
     \begin{center}
       \includegraphics[height=7.cm,width=8.5cm,clip]{./Pics/Brayton_cycle1}
@@ -159,7 +159,7 @@ The resulting efficiency is {\bf 48.20$\%$}.~\solmarks{1/3}
 %
 
 \item The displacement volume of an internal combustion engine is 6400 cm$^{-3}$. Each cylinder in the engine operates as an air-standard Diesel cycle with cut-off ratio of 2.4. In the beginning of the compression, the conditions are: P$_{1}$ = 0.90 bar, T$_{1}$ = 27$^{\circ}$C and V$_{1}$ = 6.8$\times$10$^{-3}$ m$^{3}$.
-\begin{enumerate}[(a)]
+\begin{enumerate}[(i)]
 \item Determine V$_{2}$, V$_{3}$ $\left(\text{in m}^{3}\right)$, P$_{2}$ and P$_{4}$ (in bar);~\marks{4}
 \solution{ Given:
 \begin{itemize}
@@ -203,7 +203,7 @@ where $r$ and $\rho$ are the compression and cut-off ratios, respectively.
 \solution{ With $r=17$ and $\rho=2.4$,\solmarks{3/3}
 \begin{eqnarray}
 {\bf W_{\text{net}}} &=& \frc{P_{1}V_{1} r^{\gamma-1}\left[\gamma\left(\rho-1\right)-r^{1-\gamma}\left(\rho^{\gamma}-1\right)\right]}{\gamma-1} \nonumber \\
-                   &=& 0.05632\text{ bar.m}^{3} = {\bf 5.63 \text{ kJ}}  
+                   &=& 0.05632\text{ bar.m}^{3} = {\bf 5.63 \text{ kJ}}  \nonumber
 \end{eqnarray}
 
 }
@@ -339,11 +339,174 @@ To solve this problem, you should assume that the saturated liquid streams are i
 \begin{displaymath}
 x_{j} = \frc{\Psi_{j}-\Psi_{f}}{\Psi_{g}-\Psi_{f}}\;\;\;\text{with }\Psi=\left\{h,s\right\}
 \end{displaymath}
-where $s$ is the entropy.
-
+where $s$ is the specific entropy.
 
 \end{question}
 
+\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Question 04       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question} 
+
+
+\begin{enumerate}[(a)]
+\item Gas flows along a pipe of constant cross section $A$\,m$^2$, in the direction of increasing $x$. By considering the rate of change of the mass of gas within a small section of pipe and the gas mass fluxes into and out of this section of pipe, show that
+\begin{align*}
+ \fracp{\rho}{t} + \fracp{}{x}\left(\rho u\right) = 0.
+\end{align*}
+Here the gas velocity $u$ and the gas density $\rho$ are functions of $x$ and time $t$. \marks{5} \\
+\solution{The total mass contained in a section of pipe of length $\Delta x$ is $\rho A \Delta x$.  \solmarks{1/5}
+
+The rate of change of mass in this section of pipe equals the mass flux entering the pipe $\rho u A$, minus the mass flux leaving the other end of the pipe section
+\begin{align*}
+ \rho u A + \Delta x \fracp{}{x}\left(\rho u A\right).
+\end{align*}
+[Obtained via a linearized Taylor expansion.] \solmarks{2/5}
+
+Hence mass conservation implies
+\begin{align*}
+ \fracp{}{t}\left(\rho A \Delta x\right) = \rho u A - \rho u A - \Delta x \fracp{}{x}\left(\rho u A\right).
+\end{align*}
+and hence dividing by $A \Delta x$ and rearranging gives the result. \solmarks{2/5}
+}
+
+%%%%%%%%%%%
+\item Explain what is meant by a steady flow and show that for steady flow in a pipe of constant cross section mass flux is equivalent to
+\begin{align*}
+ \frac{1}{\rho} \fracd{\rho}{x} + \frac{1}{u} \fracd{u}{x} = 0.
+\end{align*} \marks{4}
+\solution{The flow is steady if the density, velocity and cross section depend only on $x$ and not time $t$. In this case the result from (a) gives
+\begin{align*}
+ \fracd{}{x}\left(\rho u\right) = 0.
+\end{align*}~\solmarks{2/4}
+
+Therefore via the chain rule
+\begin{align*}
+ \rho \fracd{u}{x} + u \fracd{\rho}{x} = 0.
+\end{align*}
+Finally dividing by $\rho u$ gives the required result.\solmarks{2/4}}
+
+%%%%%%%%%%%
+\item The beginning of a pipe of constant cross section is located at $x=0$, where the gas velocity into the pipe $u=4$\,m/s. If the gas density profile along the pipe is 
+\begin{align*}
+ \rho\br{x} = (1 - 0.02x)\,\mbox{kg/m}^3,
+\end{align*}
+then determine the gas velocity at $x=2$. \marks{7}
+\solution{Substituting in the formula from the previous section
+\begin{align*}
+ \frac{1}{u} \fracd{u}{x} = -\frac{1}{\rho} \fracd{\rho}{x} = -\frac{-0.02}{1 - 0.02x} = \frac{0.02}{1 - 0.02x}.
+\end{align*}\solmarks{2/7}
+
+Integrating with respect to $x$
+\begin{align*}
+ \int_4^u \frac{\d{\tilde{u}}}{\tilde{u}} = \int_0^2 \frac{0.02 \,\d{x}}{1 - 0.02x}.
+\end{align*} \solmarks{2/7}
+
+Hence
+\begin{align*}
+ \left[\log\br{\tilde{u}}\right]_4^u = \left[-\log\br{1 - 0.02x}\right]_0^2,
+\end{align*}
+\begin{align*}
+ \log\br{\frac{u}{4}} = -\log\br{1 - 0.04} + \log\br{1} = \log\br{\frac{1}{0.96}},
+\end{align*}\solmarks{1/7}
+
+Exponentiating both sides gives $u = 4/0.96 = 4.1667$\,m/s. \solmarks{2/7}}
+
+%%%%%%%%%%%
+\item Gas flows into and out of a steady flow device at a total of three different locations. At the first location gas with density $\rho=1.4$\,kg/m$^3$ flows into the device with velocity $u=4$\,m/s  through a pipe of cross section $A=0.2$\,m$^2$. At the second location gas with density $0.9$\,k/m$^3$ flows out of the device with velocity $u=5$\,m/s through a pipe of cross section $A=0.4$\,m$^2$. At the third location, determine whether gas is flowing into or out of the device. \marks{4}
+\solution{The mass flux into the device at the first location is $\rho u A = 1.4\times 4 \times 0.2 = 1.12$\,kg/s. \solmarks{1/4}
+
+The mass flux out of the device at the second location is $\rho u A = 0.9\times 5 \times 0.4 = 1.8$\,kg/s. \solmarks{1/4} 
+
+More gas is flowing out of the device at the second location than is flowing into the device at the first location, and therefore there must be an additional mass flux into the device at the third location. \solmarks{2/4}
+}
+\end{enumerate}
+\end{question}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Question 05       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question} 
+\begin{enumerate}[(a)]
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Air in an air-conditioning system is mixed adiabatically with air from outside in a steady process. If the inlets to the mixing chamber are labelled 1 and 2, and the outlet is labelled 3, then state equations that correspond to the mass conservation of dry air, the mass conservation of water vapour and the conservation of energy in this situation. Hence show that
+\begin{align*}
+ \frac{\dot{m}_{a_1}}{\dot{m}_{a_2}} = \frac{h_3 - h_2}{h_1 - h_3} = \frac{\omega_3 - \omega_2}{\omega_1 - \omega_3},
+\end{align*}
+where $\dot{m}_a$ is a mass flux of dry air, $h$ is a specific enthalpy and $\omega$ is a specific humidity.\marks{8}
+\solution{
+In the mixing section
+\begin{align*}
+\mbox{\textit{Conservation of dry air:}} & & \dot{m}_{a_1} + \dot{m}_{a_2} = \dot{m}_{a_3}, \\
+\mbox{\textit{Conservation of water vapour:}} & & \dot{m}_{a_1} \omega_1 + \dot{m}_{a_2} \omega_2 = \dot{m}_{a_3} \omega_3, \\
+\mbox{\textit{Conservation of energy:}} & & \dot{m}_{a_1} h_1 + \dot{m}_{a_2} h_2 = \dot{m}_{a_3} h_3.
+\end{align*}~\solmarks{3/8}
+
+Using the dry air mass conservation equation to eliminate $\dot{m}_{a_3}$ from the other two expressions, gives
+\begin{align*}
+ \dot{m}_{a_1} \omega_1 + \dot{m}_{a_2} \omega_2 =& \left(\dot{m}_{a_1} + \dot{m}_{a_2}\right) \omega_3, \\
+ \dot{m}_{a_1} h_1 + \dot{m}_{a_2} h_2 =& \left(\dot{m}_{a_1} + \dot{m}_{a_2}\right) h_3.
+\end{align*}~\solmarks{2/8}
+
+Collecting all the terms involving $\dot{m}_{a_2}$ on the left-hand side and all the terms involving $\dot{m}_{a_3}$ on the right-hand side gives
+\begin{align*}
+ \dot{m}_{a_2} \omega_2 - \dot{m}_{a_2} \omega_3 =& \dot{m}_{a_1} \omega_3 - \dot{m}_{a_1} \omega_1, \\
+ \dot{m}_{a_2} h_2 - \dot{m}_{a_1} h_3 =& \dot{m}_{a_2} h_3 - \dot{m}_{a_1} h_1.
+\end{align*}~\solmarks{1/8}
+
+Rearranging
+\begin{align*}
+ \dot{m}_{a_2} \left(\omega_3 - \omega_2\right) =& \dot{m}_{a_1} \left(\omega_1 - \omega_3\right), \\
+ \dot{m}_{a_2} \left(h_3 - h_2\right) =& \dot{m}_{a_2} \left(h_1 - h_3\right).
+\end{align*}~\solmarks{1/8}
+
+Finally
+\begin{align*}
+ \frac{\dot{m}_{a_1}}{\dot{m}_{a_2}} = \frac{\omega_3 - \omega_2}{\omega_1 - \omega_3}, \quad \mbox{and} \quad \frac{\dot{m}_{a_2}}{\dot{m}_{a_2}} =& \frac{h_3 - h_2}{h_1 - h_3},
+\end{align*}
+which gives the necessary result.\solmarks{1/8}
+}
+
+\item Inlet 1 brings saturated air from the cooling section of the air conditioning system at a temperature of $5^\circ$C. Inlet 2 brings air from outside with a specific humidity of 0.025\,kg water/kg dry air. The resulting mixture is at $20^\circ$C. If liquid water is not produced in the mixing chamber, then determine the minimum temperature of air entering the system through inlet 2. \marks{4}
+\solution{Liquid water is not produced in the mixing chamber, so the relative humidity of the mixed gas is equal or less than 100\%. \solmarks{1/4}
+
+On the psychrometric chart the line linking ($T_1=5^\circ$C, $\phi_1=100\%$) and ($T_3=20^\circ$C, $\phi_3=100\%$) intersects the line $\omega_2=0.025\,$kg water/kg dry air when $T_2 = 36^\circ$C. \solmarks{1/4}
+
+Any temperature $T > T_3$ will not produce liquid water in the mixing chamber, so the minimum temperature in inlet 2 is $36^\circ$C. \solmarks{2/4}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Additionally it is known that the gas mass flux in inlet 2 is twice the gas mass flux in inlet 1.
+\begin{enumerate}[(i)]
+\item Determine the specific and relative humidity of the mixture. \marks{6}
+\solution{From the psychrometric chart the specific humidity of inlet 1 is $\omega_1 = 0.0055$\,kg water/kg dry air.
+
+Rearrange equation part (a) to give
+\begin{align*}
+ \left(1 + \frac{\dot{m}_{a_1}}{\dot{m}_{a_2}}\right)\omega_3 = \omega_1 + \frac{\dot{m}_{a_1}}{\dot{m}_{a_2}} \omega_2.
+\end{align*}\solmarks{2/6}
+
+Therefore
+\begin{align*}
+ \omega_3 = \frac{0.0055 + \left(0.5\times0.025\right)}{1 + 0.5} = 0.012 \mbox{kg water/kg dry air}.
+\end{align*}\solmarks{2/6}
+
+From the psychrometric chart, the relative humidity of the mixture is 82\%. \solmarks{2/6}
+}
+
+\item Determine the actual temperature at inlet 2; \marks{2}
+\solution{On the psychrometric chart the line linking ($T_1=5^\circ$C, $\phi_1=100\%$) and ($T_3=5^\circ$C, $\omega_3=0.012$\,kg water/kg dry air) intersects the line $\omega_2=0.025\,$kg water/kg dry air when $T_2 = 48.5^\circ$C. Therefore the temperature of the gas in inlet 2 is $48.5^\circ$C. \solmarks{2/2}}
+\end{enumerate}
+\end{enumerate}
+\end{question}
+
+
+\vfill
 
 
 \paperend
