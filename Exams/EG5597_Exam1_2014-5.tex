@@ -160,7 +160,25 @@ The sensors were placed in the same coordinates as the original simulated mesh g
 \begin{question}
 Polyisobutenyl succinic anhydride (PIBSA) is an ExxonMobil patented product used in oil additives to enhance the thermo-mechanical performance of engines. Initially polyisobutene monomer (PIB) is diluted in light mineral oil (in a stirred and jacketed reactor) and chlorinated at 200$^{\circ}$C. $Cl_{2}$ gas is injected from the bottom of reactor at a prescribed mass flow rate. After the chlorination, maleic anhydride is added into the vessel for the reaction at 250$^{\circ}$C and atmospheric pressure, releasing chlorine gas.
 \begin{enumerate}[(a)]
-\item Fluid mixing and heat transfer are key aspects in the design and control of this process, therefore 4 baffles, mechanical stirrer, external heat-jacket and continuous $Cl_{2}$ gas injection are included in the system. Key-variables for modelling this system are (spatial and temporal): velocities $\left[{\bf u}\left(\underline{x},t\right)\right]$, pressure $\left[P\left(\underline{x},t\right)\right]$, temperature $\left[T\left(\underline{x},t\right)\right]$ and concentration of species $\left[\mathcal{C}_{i}\left(\underline{x},t\right)\right]$ (where $i\in\left\{1,2,\cdots\right\}$ corresponds to the different chemical species in solution). Describe the mathematical and physical formulations for the problem with all the necessary assumptions. This must include all steps from the initial formulation, and pre-processing to the beginning of the simulation.
+\item Fluid mixing and heat transfer are key aspects in the design and control of this process, therefore 4 baffles, mechanical stirrer, external heat-jacket and continuous $Cl_{2}$ gas injection are included in the system. Key-variables for modelling this system are (spatial and temporal): velocities $\left[{\bf u}\left(\underline{x},t\right)\right]$, pressure $\left[P\left(\underline{x},t\right)\right]$, temperature $\left[T\left(\underline{x},t\right)\right]$ and concentration of species $\left[\mathcal{C}_{i}\left(\underline{x},t\right)\right]$ (where $i\in\left\{1,2,\cdots\right\}$ corresponds to the different chemical species in solution). Describe the mathematical and physical formulations for the problem with all the necessary assumptions. This must include all steps from the initial formulation, and pre-processing to the beginning of the simulation. Given the conservative equations:
+\begin{itemize}
+\item Conservation of mass:
+\begin{displaymath}
+\frc{\partial}{\partial t}\left(\rho_{i}\alpha_{i}\right) + \nabla\cdot\left(\rho_{i}\alpha_{i}\mathbf{u}_{i}\right)=\mathcal{S}_{\text{cty},i}
+\end{displaymath}
+
+\item Conservation of momentum:
+\begin{displaymath}
+\frc{\partial}{\partial t}\left(\rho_{i}\alpha_{i}\mathbf{u}_{i}\right) + \nabla\cdot\left(\rho_{i}\alpha_{i}\mathbf{u}_{i}\mathbf{u}_{i}\right) = -\alpha_{i}\nabla P_{i} + \alpha_{i}\rho_{i}\mathbf{g} + \nabla\underline{\underline{\tau}} +\beta\left(\mathbf{u}_{i}-\mathbf{u}_{j}\right) + \Gamma_{i}\mathbf{u}_{i} + \mathcal{S}_{\text{mom},i}
+\end{displaymath}
+
+\item Conservation of thermal energy:
+\begin{displaymath}
+\frc{\partial}{\partial t}\left(\rho_{i}\alpha_{i}\mathbf{u}_{i}C_{p,i}T_{i}\right) + \nabla\cdot\left(\rho_{i}\alpha_{i}C_{p,i}T_{i}\mathbf{u}_{i}\right) = -P_{i}\nabla\left(\alpha_{i}\mathbf{u}_{i}\right) + \nabla\left(\alpha_{i}\kappa_{i}\nabla T_{i}\right) + \gamma_{i}\left(T_{i}-T_{j}\right) + \Omega_{w,i} + \mathcal{S}_{\text{therm},i}
+\end{displaymath}
+
+\end{itemize}
+
 \end{enumerate}
 
 \end{question}
