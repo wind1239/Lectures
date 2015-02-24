@@ -158,28 +158,39 @@ The sensors were placed in the same coordinates as the original simulated mesh g
 %%% Question 05       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{question}
-Polyisobutenyl succinic anhydride (PIBSA) is an ExxonMobil patented product used in oil additives to enhance the thermo-mechanical performance of engines. Initially polyisobutene monomer (PIB) is diluted in light mineral oil (in a stirred and jacketed reactor) and chlorinated at 200$^{\circ}$C. $Cl_{2}$ gas is injected from the bottom of reactor at a prescribed mass flow rate. After the chlorination, maleic anhydride is added into the vessel for the reaction at 250$^{\circ}$C and atmospheric pressure, releasing chlorine gas.
-\begin{enumerate}[(a)]
-\item Fluid mixing and heat transfer are key aspects in the design and control of this process, therefore 4 baffles, mechanical stirrer, external heat-jacket and continuous $Cl_{2}$ gas injection are included in the system. Key-variables for modelling this system are (spatial and temporal): velocities $\left[{\bf u}\left(\underline{x},t\right)\right]$, pressure $\left[P\left(\underline{x},t\right)\right]$, temperature $\left[T\left(\underline{x},t\right)\right]$ and concentration of species $\left[\mathcal{C}_{i}\left(\underline{x},t\right)\right]$ (where $i\in\left\{1,2,\cdots\right\}$ corresponds to the different chemical species in solution). Describe the mathematical and physical formulations for the problem with all the necessary assumptions. This must include all steps from the initial formulation, and pre-processing to the beginning of the simulation. Given the conservative equations:
+Polyisobutenyl succinic anhydride (PIBSA) is an ExxonMobil patented product used in oil additives to enhance the thermo-mechanical performance of engines. Initially polyisobutene monomer (PIB) is diluted in light mineral oil (in a stirred and jacketed reactor) and chlorinated at 200$^{\circ}$C. $Cl_{2}$ gas is injected from the bottom of reactor at a prescribed mass flow rate. After the chlorination, maleic anhydride (MalAnh)  is added into the vessel for the reaction at 250$^{\circ}$C and atmospheric pressure, releasing chlorine gas,
+\begin{eqnarray}
+ PIB \text{ (l)} + Cl_{2} \text{ (g)} &\Longleftrightarrow& Cl \cdot PIB \cdot Cl \text{ (l)} + H_{2} \text{ (g)}\nonumber \\
+ Cl \cdot PIB \cdot Cl \text{ (l)} + H_{2} \text{ (g)} + MalAnh &\Longleftrightarrow& PIBSA \text{ (l)} + Cl_{2} \text{ (g)} + H_{2} \text{ (g)} \nonumber 
+\end{eqnarray}
+Fluid mixing and heat transfer are key aspects in the design and control of this process, therefore 4 baffles, mechanical stirrer, external heat-jacket and continuous $Cl_{2}$ gas injection are included in the system. Key-variables for modelling this system are (spatial and temporal): velocities $\left[{\bf u}\left(\underline{x},t\right)\right]$, pressure $\left[P\left(\underline{x},t\right)\right]$, temperature $\left[T\left(\underline{x},t\right)\right]$ and concentration of species $\left[\mathcal{C}_{i}\left(\underline{x},t\right)\right]$ (where $i\in\left\{1,2,\cdots\right\}$ corresponds to the different chemical species in solution). Describe the mathematical and physical formulations for the problem with all the necessary assumptions. This must include all steps from the initial formulation, and pre-processing to the beginning of the simulation. Given the conservative equations:~\marks{20}
 \begin{itemize}
 \item Conservation of mass:
 \begin{displaymath}
 \frc{\partial}{\partial t}\left(\rho_{i}\alpha_{i}\right) + \nabla\cdot\left(\rho_{i}\alpha_{i}\mathbf{u}_{i}\right)=\mathcal{S}_{\text{cty},i}
 \end{displaymath}
+where $\alpha_{i}$ is the volume fraction of phase $i$ (gas or liquid) and $\mathcal{S}_{\text{cty},i}$ is a source term for the continuity equation.
 
 \item Conservation of momentum:
 \begin{displaymath}
 \frc{\partial}{\partial t}\left(\rho_{i}\alpha_{i}\mathbf{u}_{i}\right) + \nabla\cdot\left(\rho_{i}\alpha_{i}\mathbf{u}_{i}\mathbf{u}_{i}\right) = -\alpha_{i}\nabla P_{i} + \alpha_{i}\rho_{i}\mathbf{g} + \nabla\underline{\underline{\tau}} +\beta\left(\mathbf{u}_{i}-\mathbf{u}_{j}\right) + \Gamma_{i}\mathbf{u}_{i} + \mathcal{S}_{\text{mom},i}
 \end{displaymath}
+where $\beta$, $\underline{\underline{\tau}}$ and $\Gamma$ are the iterphase momentum transfer (drag) coefficient, stress tensor, gravity body force and frictional forces between suurfaces and fluid$i$, respectively. 
 
 \item Conservation of thermal energy:
+\begin{eqnarray}
+\frc{\partial}{\partial t}\left(\rho_{i}\alpha_{i}\mathbf{u}_{i}C_{p,i}T_{i}\right) + \nabla\cdot\left(\rho_{i}\alpha_{i}C_{p,i}T_{i}\mathbf{u}_{i}\right) &=& -P_{i}\nabla\left(\alpha_{i}\mathbf{u}_{i}\right) + \nabla\left(\alpha_{i}\kappa_{i}\nabla T_{i}\right) + \nonumber \\
+&& \gamma_{i}\left(T_{i}-T_{j}\right) + \Omega_{w,i} + \mathcal{S}_{\text{therm},i} \nonumber
+\end{eqnarray}
+where $C_{p}$, $\kappa$, $\gamma$ and $\Omega$ are heat capacity at constant pressure, thermal diffusivity, interphase heat transfer coefficient and the wall-phase heat transfer, respectively.
+
+\item Conservation of species
 \begin{displaymath}
-\frc{\partial}{\partial t}\left(\rho_{i}\alpha_{i}\mathbf{u}_{i}C_{p,i}T_{i}\right) + \nabla\cdot\left(\rho_{i}\alpha_{i}C_{p,i}T_{i}\mathbf{u}_{i}\right) = -P_{i}\nabla\left(\alpha_{i}\mathbf{u}_{i}\right) + \nabla\left(\alpha_{i}\kappa_{i}\nabla T_{i}\right) + \gamma_{i}\left(T_{i}-T_{j}\right) + \Omega_{w,i} + \mathcal{S}_{\text{therm},i}
+\frc{\partial}{\partial t}\left(\rho_{i,j}\omega_{i,j}\right) + \nabla\cdot\left(\rho_{i,j}\omega_{i,j} \mathbf{u}_{i}\right) = \nabla\cdot\left(\rho_{i,j}D_{eff,i,j}\nabla\omega_{i,j}\right) + \mathcal{R}_{i,j}
 \end{displaymath}
+where $i$ and $j$ are indices for phase (liquid or gas) and chemical species, respectively. $D_{eff}$, $\omega$ and $\mathcal{R}$ are the effective mass diffusivity, mass fraction and reaction rate, respectively.
 
 \end{itemize}
-
-\end{enumerate}
 
 \end{question}
 
