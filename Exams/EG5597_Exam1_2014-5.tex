@@ -123,7 +123,7 @@ Review the arrangement, identify and describe examples of energy saving opportun
 %%% Question 04       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{question} 
-Radioisotopes are often used in industrial facilities to assess the mechanical integrity (e.g., existence of micro-fractures) of equipment and pipeline network system. A prescribed quantity of isotopes is diluted in an inert solvent $\left(\rho=\text{877.15 kg.m}^{-3}\right)$ and is continuously injected at constant mass flow rate of 200 kg.s$^{-1}$ into a pipe of 0.762 of diameter and 6.5 meters of length.  In order to better analyse the data, a system engineer needs to calculate the expected distribution of radioisotopes throughout the pipe during the first 30 seconds of the test-injection. She decides to represent the concentration of radioisotopes, $\mathcal{C}\left(x,t\right)$ $\left(\text{in }\mu\text{g.m}^{-3}\right)$, as a 1D problem using a forward discretisation scheme in space and time (FDM) resulting in,
+Radioisotopes are often used in industrial facilities to assess the mechanical integrity (e.g., existence of micro-fractures) of equipment and pipeline network system. A prescribed quantity of isotopes is diluted in an inert solvent $\left(\rho=\text{877.15 kg.m}^{-3}\right)$ and is continuously injected at constant mass flow rate of 200 kg.s$^{-1}$ into a pipe of 0.762 m of diameter and 6.5 meters of length.  In order to better analyse the data, a system engineer needs to calculate the expected distribution of radioisotopes throughout the pipe during the first 30 seconds of the test-injection. She decides to represent the concentration of radioisotopes, $\mathcal{C}\left(x,t\right)$ $\left(\text{in }\mu\text{g.m}^{-3}\right)$, as a 1D problem using a forward discretisation scheme in space and time (FDM) resulting in,
 \begin{displaymath}
 \mathcal{C}_{i}^{j+1}=\mathcal{C}_{i}^{j} - \frac{u\Delta t}{\Delta x }\left(\mathcal{C}_{i+1}^{j}-\mathcal{C}_{i}^{j}\right)
 \end{displaymath}
@@ -142,7 +142,7 @@ where $i\in\left\{1,2,...,N_{x}\right\}$ and $j\in\left\{1,...,N_{t}\right\}$ ar
 \item Dirichlet boundary condition: $\mathcal{C}\left(x=0,t\right)$=0.15 $\mu$g.m$^{-3}$
 \end{itemize}
 \begin{enumerate}[(a)]
-\item Calculate the concentration profile of the radioisotope at t = 1.5 seconds, i.e., $\mathcal{C}_{i}^{j}$ $\forall i$ and $j=3$;~\marks{12} 
+\item Calculate the concentration profile of the radioisotope at t = 1.5 seconds, i.e., $\mathcal{C}_{i}^{j}$ $\forall i$ and $j=4$;~\marks{12} 
 \item At t = 1s, the observed concentration (obtained from non-invasive sensor measurements) was:
 \begin{displaymath}
 \mathcal{C}^{\text{obs}}\left(x,t=1s\right)= \left(0.16 \;\; 2.00 \;\; 2.01 \;\; 1.15 \;\; 1.31\right)^{T}
@@ -158,12 +158,12 @@ The sensors were placed in the same coordinates as the original simulated mesh g
 %%% Question 05       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{question}
-Polyisobutenyl succinic anhydride (PIBSA) is an ExxonMobil patented product used in oil additives to enhance the thermo-mechanical performance of engines. Initially polyisobutene monomer (PIB) is diluted in light mineral oil (in a stirred and jacketed reactor) and chlorinated at 200$^{\circ}$C. $Cl_{2}$ gas is injected from the bottom of reactor at a prescribed mass flow rate. After the chlorination, maleic anhydride (MalAnh)  is added into the vessel for the reaction at 250$^{\circ}$C and atmospheric pressure, releasing chlorine gas,
+Polyisobutenyl succinic anhydride (PIBSA) is an ExxonMobil patented product used in oil additives to enhance the thermo-mechanical performance of engines. In each batch production, polyisobutene monomer (PIB) is diluted in light mineral oil (in a stirred and jacketed reactor) and chlorinated at 200$^{\circ}$C. $Cl_{2}$ gas is injected from the bottom of reactor at a prescribed mass flow rate. After the chlorination, maleic anhydride (MalAnh) is added into the vessel for the reaction at 250$^{\circ}$C and atmospheric pressure, releasing chlorine gas,
 \begin{eqnarray}
  PIB \text{ (l)} + Cl_{2} \text{ (g)} &\Longleftrightarrow& Cl \cdot PIB \cdot Cl \text{ (l)} + H_{2} \text{ (g)}\nonumber \\
- Cl \cdot PIB \cdot Cl \text{ (l)} + H_{2} \text{ (g)} + \text{MalAnh} &\Longleftrightarrow& PIBSA \text{ (l)} + Cl_{2} \text{ (g)} + H_{2} \text{ (g)} \nonumber 
+ Cl \cdot PIB \cdot Cl \text{ (l)} + H_{2} \text{ (g)} + \text{MalAnh (l)} &\Longleftrightarrow& PIBSA \text{ (l)} + Cl_{2} \text{ (g)} + H_{2} \text{ (g)} \nonumber 
 \end{eqnarray}
-Fluid mixing and heat transfer are key aspects in the design and control of this process, therefore 4 baffles, mechanical stirrer, external heat-jacket and continuous $Cl_{2}$ gas injection are included in the system. Key-variables for modelling this system are (spatial and temporal): velocities $\left[{\bf u}\left(\underline{x},t\right)\right]$, pressure $\left[P\left(\underline{x},t\right)\right]$, temperature $\left[T\left(\underline{x},t\right)\right]$ and concentration of species $\left[\mathcal{C}_{j}\left(\underline{x},t\right)\right]$ (where $j\in\left\{1,2,\cdots\right\}$ corresponds to the different chemical species in solution). Describe the mathematical and physical formulations for the problem with all the necessary assumptions. This must include all steps from the initial formulation and pre-processing to the beginning of the simulation. Given the conservative equations:~\marks{20}
+After the reaction finishes, liquid PIBSA is pumped into a tank whereas the gasses are driven towards a wet scrubber system. Fluid mixing and heat transfer are key aspects in the design and control of this process, therefore 4 baffles, mechanical stirrer, external heat-jacket and continuous $Cl_{2}$ gas injection are included in the system. Key-variables for modelling this system are (spatial and temporal): velocities $\left[{\bf u}\left(\underline{x},t\right)\right]$, pressure $\left[P\left(\underline{x},t\right)\right]$, temperature $\left[T\left(\underline{x},t\right)\right]$ and concentration of species $\left[\mathcal{C}_{j}\left(\underline{x},t\right)\right]$ (where $j\in\left\{1,2,\cdots\right\}$ corresponds to the different chemical species in solution). Describe the mathematical and physical formulations for the problem with all the necessary assumptions. This must include all steps from the initial formulation and pre-processing to the beginning of the simulation. Given the conservative equations:~\marks{20}
 \begin{itemize}
 \item Conservation of mass:
 \begin{displaymath}
