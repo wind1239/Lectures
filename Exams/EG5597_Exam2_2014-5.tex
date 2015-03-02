@@ -152,9 +152,16 @@ A new F1-car front-wing air-foil needs to be designed. The back part of the air-
 \begin{displaymath}
 \frc{\partial^{2} T}{\partial x^{2}} -\alpha T = -\alpha T_{\text{amb}}
 \end{displaymath} 
-where $\alpha=20\;^{\text{o}}$C.m$^{-2}$ and $T_{\text{amb}}$ is the temperature of the flowing air. Estimate the temperature profile at 4 nodes equally spaced in the air-foil of length $L=0.30$m. The central-difference scheme for the second-order derivative is,~\marks{20}
+where $\alpha=20\;^{\text{o}}$C.m$^{-2}$ and $T_{\text{amb}}$ is the temperature of the flowing air. Estimate the temperature profile at 4 nodes equally spaced in the air-foil of length $L=0.30$m.~\marks{20}
+
+
+Given: central-difference scheme for the second-order derivative,
 \begin{displaymath}
 \frc{\partial^{2} T}{\partial x^{2}} = \frc{T_{i+1}-2T_{i}+T_{i-1}}{\left(\Delta x\right)^{2}}
+\end{displaymath}
+and backward difference scheme for first order derivative,
+\begin{displaymath}
+\frc{\partial T}{\partial x} = \frc{T_{i}-T_{i-1}}{\Delta x}
 \end{displaymath}
 \end{question}
  
@@ -166,8 +173,7 @@ where $\alpha=20\;^{\text{o}}$C.m$^{-2}$ and $T_{\text{amb}}$ is the temperature
 %%% Question 05       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{question}
-\begin{enumerate}[(a)]
-\item A particular case of PDE's is
+ A particular case of PDE's is
 \begin{displaymath}
 u_{t}+\alpha u_{x} = \kappa u_{xx}
 \end{displaymath}
@@ -175,8 +181,7 @@ that represents advection-diffusion problems (with constant coefficients $\alpha
 \begin{displaymath}
 \frc{\partial u}{\partial x}=\frc{u_{i+1}-u_{i}}{\Delta x_{i}} + \mathcal{O}\left(\Delta x\right)
 \end{displaymath}
-using Taylor's expansion.
-\end{enumerate}
+using Taylor's expansion.~\marks{20}
 \end{question}
 
 

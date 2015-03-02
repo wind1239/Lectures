@@ -385,7 +385,7 @@ resulting in 0.1317. The obtained norm indicates a relatively large discrepancy 
 \item Solver options:
 \begin{itemize}
 \item iterative methods;
-\item direct methods as preconditioners;
+\item direct methods as pre-conditioners;
 \item tolerance;
 \end{itemize}
 \end{itemize}
@@ -397,6 +397,72 @@ resulting in 0.1317. The obtained norm indicates a relatively large discrepancy 
 \begin{flushleft}
 {\bf Question 4:}
 \end{flushleft}
+For $\alpha=20^{\circ}$C.m$^{2}$, $T_{\text{wall}}=200^{\circ}$ C, $L=0.3$ m and $T_{\text{amb}}=20^{\circ}$ C. Using central difference scheme for the second-order derivative:
+\begin{displaymath}
+\frc{T_{i+1}-2T_{i}+T_{i-1}}{\left(\Delta x\right)^{2}} - \alpha T_{i}= -\alpha T_{\text{amb}}\;\;\;i=1,2,\cdots
+\end{displaymath}
+Defining $\beta = \alpha T_{\text{amb}}$, the equation can be rearranged to
+\begin{displaymath}
+\frc{1}{\left(\Delta x\right)^{2}} T_{i-1}-\left[\frc{2}{\left(\Delta x\right)^{2}} +\alpha\right]T_{i} + \frc{1}{\left(\Delta x\right)^{2}}T_{i+1}=-\beta
+\end{displaymath}
+\begin{itemize}
+\item For node $i=2$:
+\begin{displaymath}
+\frc{1}{\left(\Delta x\right)^{2}} T_{1}-\left[\frc{2}{\left(\Delta x\right)^{2}} +\alpha\right]T_{2} + \frc{1}{\left(\Delta x\right)^{2}}T_{3}=-\beta
+\end{displaymath}
+\item For node $i=3$:
+\begin{displaymath}
+\frc{1}{\left(\Delta x\right)^{2}} T_{2}-\left[\frc{2}{\left(\Delta x\right)^{2}} +\alpha\right]T_{3} + \frc{1}{\left(\Delta x\right)^{2}}T_{4}=-\beta
+\end{displaymath}
+\item $T\left(x=0\right)=T_{1}=T_{\text{wall}}$;
+\item And for the second boundary condition:
+\begin{displaymath}
+\frc{\partial T}{\partial x}\left(x=L\right)=0
+\end{displaymath}
+that can be discretised with backward difference method
+\begin{displaymath}
+\frc{\partial T}{\partial x} = \frc{T_{i}-T_{i-1}}{\Delta x}
+\end{displaymath}
+where $i=4$:
+\begin{displaymath}
+\frc{T_{4}-T_{3}}{\Delta x} = 0 \rightarrow -\frc{1}{\Delta x}T_{3} +\frc{1}{\Delta x}T_{4} = 0 
+\end{displaymath}
+\item The system of equations can be written in matricial form as
+\begin{displaymath}
+  \begin{pmatrix}
+   -\gamma                            & \frc{1}{\left(\Delta x\right)^{2}} & 0 \\ 
+   \frc{1}{\left(\Delta x\right)^{2}}  & -\gamma & \frc{1}{\left(\Delta x\right)^{2}} \\
+   0 & -\frc{1}{\left(\Delta x\right)^{2}} & \frc{1}{\left(\Delta x\right)^{2}}
+  \end{pmatrix}
+  \begin{pmatrix}
+    T_{2} \\ T_{3} \\ T_{4}
+  \end{pmatrix}=
+  \begin{pmatrix}
+   -\beta -\frc{1}{\left(\Delta x\right)^{2}}T_{1} \\
+   -\beta \\
+   0
+  \end{pmatrix}
+\end{displaymath}
+where $\gamma =  \frc{2}{\left(\Delta x\right)^{2}} + \alpha$, leading to:
+$T_{2}=151.71^{\circ}$C, $T_{3}=129.76^{\circ}$C and $T_{4}=129.76^{\circ}$C.
+\end{itemize}
 
+\clearpage
+
+\begin{flushleft}
+{\bf Question 5:}
+\end{flushleft}
+Expanding a function $\underline{u}$ at $x_{i+1}$ about the point $x_{i}$ (assuming regular grid):
+\begin{displaymath}
+u\left(x_{i}+\Delta x_{i}\right) = u\left(x_{i}\right) + \Delta x_{i}\left.\frc{\partial u}{\partial x}\right|_{x_{i}} + \frc{\left(\Delta x_{i}\right)^{2}}{2!}\left.\frc{\partial^{2}u}{\partial x^{2}}\right|_{x_{i}} + \frc{\left(\Delta x_{i}\right)^{3}}{3!}\left.\frc{\partial^{3}u}{\partial x^{3}}\right|_{x_{i}} + \cdots 
+\end{displaymath}
+The Taylor's expansion can be rearranged as,
+\begin{displaymath}
+\frc{u\left(x_{i}+\Delta x_{i}\right)-u\left(x_{i}\right)}{\Delta x_{i}} - \left.\frc{\partial u}{\partial x}\right|_{x_{i}} = \frc{\Delta x_{i}}{2!}\left.\frc{\partial^{2}u}{\partial x^{2}}\right|_{x_{i}} + \frc{\left(\Delta x_{i}\right)^{2}}{3!}\left.\frc{\partial^{3}u}{\partial x^{3}}\right|_{x_{i}} + \cdots 
+\end{displaymath}
+The rhs of the equation is the truncation error of the series an the equation can be rewritten as
+\begin{displaymath}
+\left.\frc{\partial u}{\partial x}\right|_{x_{i}} = \frc{u_{i+1}-u_{i}}{\Delta x} + \mathcal{O}\left(\Delta x\right)
+\end{displaymath}
 
 \end{document}
