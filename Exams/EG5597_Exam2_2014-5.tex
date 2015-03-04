@@ -173,7 +173,8 @@ and backward difference scheme for first order derivative,
 %%% Question 05       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{question}
- A particular case of PDE's is
+\begin{enumerate}[(a)]
+ \item A particular case of PDE's is
 \begin{displaymath}
 u_{t}+\alpha u_{x} = \kappa u_{xx}
 \end{displaymath}
@@ -181,9 +182,28 @@ that represents advection-diffusion problems (with constant coefficients $\alpha
 \begin{displaymath}
 \frc{\partial u}{\partial x}=\frc{u_{i+1}-u_{i}}{\Delta x_{i}} + \mathcal{O}\left(\Delta x\right)
 \end{displaymath}
-using Taylor's expansion.~\marks{20}
-\end{question}
+using Taylor's expansion.~\marks{8}
 
+\item After the discretisation of a set of conservative equations, the spatial distribution of concentration of a chemical species $\left(\mathcal{C}\text{ in mg.l}^{-1}\right)$ is represented by the following system of algebraic equation:
+ \begin{displaymath}
+\begin{cases}
+2\mathcal{C}_{1} +   \mathcal{C}_{3} = 6.35 \\
+4\mathcal{C}_{2} +   \mathcal{C}_{3} + \mathcal{C}_{4} = 9.00 \\
+ \mathcal{C}_{1} +  2\mathcal{C}_{3} = 3.95 \\
+ 3\mathcal{C}_{3} + 4\mathcal{C}_{4} = 4.11 \\
+\end{cases}\label{linalg:eqnform} 
+\end{displaymath}
+or in matricial notation, $\underline{\mathcal{A}}\mathcal{C} = b$, 
+
+\begin{enumerate}[(i)]
+\item Assess the convergence of the resulting linear system;~\marks{3}
+\item Calculate $C_{i}$ via $\mathcal{C} = \underline{\mathcal{A}}^{-1}b$.~\marks{9}
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{question}
 
 \vfill
 

@@ -452,7 +452,8 @@ $T_{2}=151.71^{\circ}$C, $T_{3}=129.76^{\circ}$C and $T_{4}=129.76^{\circ}$C.
 \begin{flushleft}
 {\bf Question 5:}
 \end{flushleft}
-Expanding a function $\underline{u}$ at $x_{i+1}$ about the point $x_{i}$ (assuming regular grid):
+\begin{enumerate}
+\item  Expanding a function $\underline{u}$ at $x_{i+1}$ about the point $x_{i}$ (assuming regular grid):
 \begin{displaymath}
 u\left(x_{i}+\Delta x_{i}\right) = u\left(x_{i}\right) + \Delta x_{i}\left.\frc{\partial u}{\partial x}\right|_{x_{i}} + \frc{\left(\Delta x_{i}\right)^{2}}{2!}\left.\frc{\partial^{2}u}{\partial x^{2}}\right|_{x_{i}} + \frc{\left(\Delta x_{i}\right)^{3}}{3!}\left.\frc{\partial^{3}u}{\partial x^{3}}\right|_{x_{i}} + \cdots 
 \end{displaymath}
@@ -464,5 +465,85 @@ The rhs of the equation is the truncation error of the series and the equation c
 \begin{displaymath}
 \left.\frc{\partial u}{\partial x}\right|_{x_{i}} = \frc{u_{i+1}-u_{i}}{\Delta x} + \mathcal{O}\left(\Delta x\right)
 \end{displaymath}
+
+\item The system of algebraic equations can be represented in matricial form as
+\begin{displaymath} 
+\begin{pmatrix}
+2 & 0 & 1 & 0 \\
+0 & 4 & 1 & 1 \\
+1 & 0 & 2 & 0 \\
+0 & 0 & 3 & 4 \\
+\end{pmatrix}
+\begin{pmatrix}
+\mathcal{C}_{1} \\ \mathcal{C}_{2} \\ \mathcal{C}_{3} \\ \mathcal{C}_{4} 
+\end{pmatrix}=
+\begin{pmatrix}
+6.35 \\ 9.00 \\ 3.95 \\ 4.11 
+\end{pmatrix}
+\end{displaymath}
+i.e., $\underline{\mathcal{A}}\mathcal{C} = b$. 
+\begin{enumerate}
+\item A matrix $\mathcal{A}$ fulfill the conditions for convergence in any iterative method if any of the conditions below is true:
+\begin{enumerate}
+\item\label{diagonal} strictly diagonal dominant, i.e., 
+\begin{displaymath}
+\left|a_{ii}\right| > \sum\limits_{j=1,j\neq i}^{n} \left|a_{ij}\right|\;\; i\in\left\{1,2,\cdots,n\right\};
+\end{displaymath}
+\item symmetric, i.e., $\mathcal{A}^{T}=\mathcal{A}$ or;
+\item positive definite, i.e., $z^{T}\mathcal{A}z>0$ for any matrix-column $z$.
+\end{enumerate}
+Matrix $\mathcal{A}$ satisfies condition (i) above, therefore it will converge regardless the iterative method used. 
+
+\item In order to calculate the solution of the linear system using $\mathcal{C} = \underline{\mathcal{A}}^{-1}b$, we need to invert $\mathcal{A}$ using Gauss-Jordan method:
+\begin{displaymath}
+\begin{tabular}{| c c c c | c c c c |}
+2 & 0 & 1 & 0 & 1 & 0 & 0 & 0 \\
+0 & 4 & 1 & 1 & 0 & 1 & 0 & 0 \\
+1 & 0 & 2 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 3 & 4 & 0 & 0 & 0 & 1
+\end{tabular} \Longrightarrow
+\begin{tabular}{| c c c c | c c c c |}
+1 & 0 & 0 & 0 & 2/3  & 0    & -1/3   & 0 \\
+0 & 1 & 0 & 0 & 1/48 & 1/4  & -1/24  & -1/16 \\ 
+0 & 0 & 1 & 0 & -1/3 & 0    & 2/3    & 0  \\
+0 & 0 & 0 & 1 & 1/4  & 0    & -1/2   & 1/4
+\end{tabular} 
+\end{displaymath}
+thus,
+\begin{displaymath} 
+\mathcal{A}^{-1}=
+\begin{pmatrix}
+2/3  & 0    & -1/3   & 0 \\
+1/48 & 1/4  & -1/24  & -1/16 \\ 
+-1/3 & 0    & 2/3    & 0  \\
+1/4  & 0    & -1/2   & 1/4
+\end{pmatrix}
+\end{displaymath}
+Now calculating $\mathcal{C} = \underline{\mathcal{A}}^{-1}b$ $\left(\text{in mg.l}^{-1}\right)$
+\begin{displaymath} 
+\begin{pmatrix}
+\mathcal{C}_{1} \\ \mathcal{C}_{2} \\ \mathcal{C}_{3} \\ \mathcal{C}_{4} 
+\end{pmatrix}=
+\begin{pmatrix}
+2/3  & 0    & -1/3   & 0 \\
+1/48 & 1/4  & -1/24  & -1/16 \\ 
+-1/3 & 0    & 2/3    & 0  \\
+1/4  & 0    & -1/2   & 1/4
+\end{pmatrix}
+\begin{pmatrix}
+6.35 \\ 9.00 \\ 3.95 \\ 4.11 
+\end{pmatrix}=
+\begin{pmatrix}
+2.9167 \\ 1.9608 \\0.5167  \\ 0.70000 
+\end{pmatrix}
+\end{displaymath}
+
+\end{enumerate}
+
+
+
+
+
+\end{enumerate}
 
 \end{document}
