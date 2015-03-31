@@ -6,7 +6,7 @@ default:	EG501J_Exam1_2014-5.pdf EG501J_Exam2_2014-5.pdf \
 		EG3521_Exam1_2013-4.pdf EG3521_Exam2_2013-4.pdf \
 		EG3521_Exam1_2014-5.pdf EG3521_Exam2_2014-5.pdf \
 		EG5597_Exam1_2014-5.pdf EG5597_Exam2_2014-5.pdf \
-		EG5597_2014-5_Solution.pdf
+		EG5597_2014-5_Solution.pdf EG5597_Sample_2014-5.pdf
 
 EG501J_Exam1_2014-5.pdf:	EG501J_Exam1_2014-5.tex
 EG501J_Exam2_2014-5.pdf:	EG501J_Exam2_2014-5.tex
@@ -22,6 +22,7 @@ EG3521_Exam2_2014-5.pdf:	EG3521_Exam2_2014-5.tex
 EG5597_Exam1_2014-5.pdf:	EG5597_Exam1_2014-5.tex
 EG5597_Exam2_2014-5.pdf:	EG5597_Exam2_2014-5.tex
 EG5597_2014-5_Solution.pdf:	EG5597_2014-5_Solution.tex
+EG5597_Sample_2014-5.pdf:	EG5597_Sample_2014-5.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
