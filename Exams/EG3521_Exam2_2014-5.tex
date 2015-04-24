@@ -1,6 +1,6 @@
 
-\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,solutions,resit]{exam} 
-%\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,resit]{exam}
+%\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,solutions,resit]{exam} 
+\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,resit]{exam}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -225,10 +225,14 @@ TV^{\gamma-1}=\text{constant},\;\; TP^{\frac{1-\gamma}{\gamma}}=\text{constant a
 %%% QUESTION (Jeff's mind)
 %%%
 \begin{question}
-The ideal regenerative Rankine cycle (open feedwater heater) shown below is operated with water-steam as working fluid to produce power $\left(W_{T}\right)$. Someproperties of the cycle are shown in Table~\ref{IRRC_Table} and the mass flow rate leaving the boiler is 1 kg.s$^{-1}$.
+The ideal regenerative Rankine cycle (open feedwater heater, Fig.~\ref{exam2_Q3_rankinecycle}) shown below is operated with water-steam as working fluid to produce power $\left(W_{T}\right)$. Someproperties of the cycle are shown in Table~\ref{IRRC_Table} and the mass flow rate leaving the boiler is 1 kg.s$^{-1}$.
+      \begin{figure}[h]
       \begin{center}
       \includegraphics[width=10.cm,clip]{./Pics/Exam_Reheat_Regenerative2_Rankine_Cycle}
+      \caption{Regenerative Rankine cycle.}
+      \label{exam2_Q3_rankinecycle}
      \end{center} 
+     \end{figure}
 \begin{table}[b]
 \begin{center}
 \begin{tabular}{c | c c c c c c} 
@@ -337,9 +341,9 @@ m h_{2} + (1-m)h_{5} = 1 \times h_{6} \;\;\rightarrow \;\; m = 0.1746 \text{ kg.
 
 To solve this problem, you should assume that the saturated liquid streams are incompressible, and therefore $dh = vdP$ (where $h$, $v$ and $P$ are specific enthalpy, volume and pressure, respectively). Quality of the vapour is expressed as
 \begin{displaymath}
-x_{j} = \frc{\Psi_{j}-\Psi_{f}}{\Psi_{g}-\Psi_{f}}\;\;\;\text{with }\Psi=\left\{h,s\right\},
+x_{j} = \frc{\Psi_{j}-\Psi_{f}}{\Psi_{g}-\Psi_{f}}\;\;\;\text{with }\Psi=\left\{h,s\right\},\text{ where } s \text{ is the specific entropy.}
 \end{displaymath}
-where $s$ is the specific entropy.
+
 
 \end{question}
 
@@ -394,7 +398,7 @@ Finally dividing by $\rho u$ gives the required result.\solmarks{2/4}}
 \begin{align*}
  \rho\br{x} = (1 - 0.02x)\,\mbox{kg/m}^3,
 \end{align*}
-then determine the gas velocity at $x=2$. \marks{7}
+then determine the gas velocity at $x=2$ m. \marks{7}
 \solution{Substituting in the formula from the previous section
 \begin{align*}
  \frac{1}{u} \fracd{u}{x} = -\frac{1}{\rho} \fracd{\rho}{x} = -\frac{-0.02}{1 - 0.02x} = \frac{0.02}{1 - 0.02x}.
@@ -512,12 +516,12 @@ From the psychrometric chart, the relative humidity of the mixture is 82\%. \sol
 
 \paperend
 
-\begin{comment}
+%\begin{comment}
 {
   \includepdf[pages=-,fitpaper]{./Pics/UnitConversion}
   \includepdf[pages=-,fitpaper]{./Pics/PsychrometricChart}
   \includepdf[pages=-,fitpaper]{./Pics/H2O-R22_Table}
 }
-\end{comment}
+%\end{comment}
 
 \end{document}

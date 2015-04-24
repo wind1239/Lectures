@@ -1,6 +1,6 @@
 
-\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,solutions]{exam}
-%\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet]{exam}
+%\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,solutions]{exam}
+\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet]{exam} 
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -18,8 +18,8 @@
 %\coursecode{EG3539}% 
 %\coursetitle{Thermodynamics}%
 
-\examtime{00.00--00.00}%
-\examdate{00}{05}{2015}%
+\examtime{14.00--17.00}%
+\examdate{06}{05}{2015}%
 \examformat{Candidates must attempt \textit{all} questions.}
 
 \newcommand{\frc}{\displaystyle\frac}
@@ -182,15 +182,17 @@ TV^{\gamma-1}=\text{constant},\;\; TP^{\frac{1-\gamma}{\gamma}}=\text{constant a
 \begin{question}
 %
 \begin{enumerate}[(a)]
-\item  A geothermal power station operating with Rankine cycle uses propane $\left(\text{n-C}_{3}\right)$ as working fluid to produce power $\left(W_{T}\right)$ in a turbine with efficiency $\left(\eta_{T}\right)$ of 90$\%$. Propane is vaporised by geothermal water (i.e., brine, $A-B$ in the diagram) at 90$^{\circ}$C. After condensed, propane is driven to a heat exchanger and the cycle continues. The mass flow rate of propane $\left(\dot{m}_{C3}\right)$ is 250 kg.s$^{-1}$ and the heat capacity at constant pressure $\left(C_{p}\right)$ of brine is 3565.5 J.(kg.K)$^{-1}$. Conditions for propane and brine flows are described in the Table below.
+\item  A geothermal power station operating with Rankine cycle (Fig.~\ref{exam1_Q2_rankinecycle}) uses propane $\left(\text{n-C}_{3}\right)$ as working fluid to produce power $\left(W_{T}\right)$ in a turbine with efficiency $\left(\eta_{T}\right)$ of 90$\%$. Propane is vaporised by geothermal water (i.e., brine, $A-B$ in the diagram) at 90$^{\circ}$C. After condensed, propane is driven to a heat exchanger and the cycle continues. The mass flow rate of propane $\left(\dot{m}_{C3}\right)$ is 250 kg.s$^{-1}$ and the heat capacity at constant pressure $\left(C_{p}\right)$ of brine is 3565.5 J.(kg.K)$^{-1}$. Conditions for propane and brine flows are described in the Table~\ref{Q2_Table}.
 %\vspace{-.9cm}
+\begin{figure}[h!]
 \begin{center}
 \includegraphics[width=12.cm,height=10.cm,clip]{./Pics/RankineCycle}
-%\caption{ Reheat and regenerative Rankine cycle with 2 turbines.}
-%\label{exam_mod02_rankinecycle}
+\caption{Rankine cycle for the geothermal power station.}
+\label{exam1_Q2_rankinecycle}
 \end{center} 
+\end{figure}
 %\vspace{-1.5cm}
-\begin{table}[h]\label{Q2_Table}
+\begin{table}[h]
 \begin{center}
 \begin{tabular} {||c | c c c c c c || }
 \hline\hline
@@ -206,7 +208,7 @@ TV^{\gamma-1}=\text{constant},\;\; TP^{\frac{1-\gamma}{\gamma}}=\text{constant a
  \hline\hline
 \end{tabular}
 \end{center}
-\caption{Conditions of propane and brine in the cycle.}
+\caption{Conditions of propane and brine in the cycle.}\label{Q2_Table}
 \end{table}
 
 \begin{enumerate}[(i)]
@@ -328,7 +330,7 @@ where $h_{2s}$ is the enthalpy of stream $2$ assuming ideal turbine performance 
 \item Process 3--1: Polytropic expansion, with $PV=$ {\it constant}. %Expansion to the initial state, during which the pressure-volume relationship is $PV=$ {\it constant}.
 \end{itemize}  
 \begin{enumerate}[(i)]
-\item Calculate V$_{2}$ $\left(\text{in m}^{3}\right)$.~\marks{2} 
+\item Calculate the volume at stage 2, V$_{2}$ $\left(\text{in m}^{3}\right)$.~\marks{2} 
 \solution{
 For Process 2--3: V$_{2}$=V$_{3}$. However the expansion 3--1 follows $PV=$ constant,
 \begin{displaymath}
@@ -651,12 +653,12 @@ You may assume that $c_p = 1005$\,J/(kg K), $R_a = 287$\,J/(kg K), while the ent
 
 \paperend
 
-\begin{comment}
+%\begin{comment}
 {
   \includepdf[pages=-,fitpaper]{./Pics/UnitConversion}
   \includepdf[pages=-,fitpaper]{./Pics/PsychrometricChart}
   \includepdf[pages=-,fitpaper]{./Pics/nC3_Table}
 }
-\end{comment}
+%\end{comment}
 
 \end{document}
