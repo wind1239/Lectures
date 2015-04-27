@@ -1,0 +1,596 @@
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\usepackage{graphicx,wrapfig,pdfpages}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate,enumitem}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+
+
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{subeqnarray}
+\usepackage{ifthen}
+
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+%\usepackage{pdflscape}
+
+
+%\usepackage{booktabs}
+%\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%% 
+%%% Headers and Footers
+\lhead[] {\text{\small{MSc Projects (2014/2015)}}} 
+\rhead[]{}% {{\text{\small{(2014/15)}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+\lfoot[]{Dr Jeff Gomes}
+%\cfoot[\thepage]{\thepage}
+\rfoot[]{}%[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+\newlist{ExList}{enumerate}{1}
+\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+\newlist{ProbList}{enumerate}{1}
+\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+
+\begin{document}
+
+%\begin{description}
+
+\begin{enumerate}[label=\bfseries Project:]% \arabic*:]
+
+%%%
+%%%
+%%%
+\item {\bf Initial Design of a Reservoir Simulation Workbench: From Field Mapping to Reservoir Management}\\
+Reservoir simulator is a crucial tool for efficient and cost-eefective hydrocarbon production. It has been developed in both academia and industry for several applications, e.g., optimal production of oil and gas, to ensure safety operation of O$\&$G fields, to predict fluid flow in geological formations, etc. Flow simulations in porous media are often bounded by uncertainties associated with fluid and rock properties and averaging (densities, viscosities, stress, permeabilities, porosities etc), geological formation (data from core, well-log, seismic, geochemistry analysis, etc) and the computational methods used to solve transport equations. 
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Description and analysis of the workflow to design a reservoir simulator:
+\begin{enumerate}
+\item Initial geological assessment (well logs $\&$ tests, core analysis, production logs, seismic and geochemistry analysis);
+\item Geostatistic analysis, geological field mapping and grid generation;
+\item Upscale modelling approaches;
+\item Fluid properties allocation;
+\item Flow simulators: general structure and algorithms, commercial and academic models and software;
+\item History matching.
+\end{enumerate}
+\item Description and analysis of new HPC technologies for flow simulation in giant oil/gas fields.
+\end{enumerate}
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Review and computational (\underline{Oil and Gas Engineering}) -- 1 student;
+\item After review the whole workflow, the student {\bf must} choose one/two stage(s) and undertake an in-depth analysis and simulation (in Matlab, Python, C or Fortran) on this/these stage(s).
+\end{enumerate}
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item Chen (2007) $\lq$Reservoir Simulation – Mathematical Techniques in Oil Recovery’, SIAM;
+\item Ahmed $\&$ McKinney (2005) $\lq$Advanced Reservoir Engineering’, Elsevier;
+\item Jenny et al. (2002) $\lq$Modeling Flow in Geometrically Complex Reservoirs Using Hexahedral Multiblock Grids’, SPE 78673;
+\item DeBaun et al. (2006) $\lq$An Extensible Architecture for Next Generation Scalable Parallel Reservoir Simulation’, SPE 93274.
+\end{itemize}
+
+\clearpage
+%%%
+%%%
+%%%
+\item {\bf Advanced Reservoir Management: History-Matching (HM) Workflow} \\
+Flow simulators are widely used in O$\&$G industry to optimise and predict hydrocarbon production. A traditional reservoir simulator workflow includes: geological assessment and initial field mapping, grid/mesh generation, properties upscaling, mult-fluid flow and geo-mechanical simulations and history-matching. History-matching (HM) is often associated with flow simulator validation, i.e., it is used to ensure that field data are accurately represented by simulated solutions, and decision of the reservoir management can be made. More recently, HM has been used for short- and long-term prediction of both reservoir behaviour and O$\&$G production.
+      
+\noindent
+{\bf Objectives:} The aim of this project is to study methods currently used in HM and the applications reservoir management. Therefore the following tasks will be tackled:
+\begin{enumerate}
+\item Literature review on 
+\begin{enumerate}
+\item extended Darcy law, 
+\item reservoir simulation and 
+\item history-matching;
+\end{enumerate}
+\item Study of HM methods (gradient-based, stochastic and data assimilation) and parameters;
+\item Study of ensemble Karman filters (EnKF) and current application in reservoir management. 
+\end{enumerate}
+
+\noindent
+{\bf Specifics:} 
+\noindent
+\begin{enumerate}
+\item Theoretical/Review (Oil and Gas Engineering) -- 1 student;
+\item The student is required to develop a code (e.g., Matlab, Python etc) for EnKF and apply to synthetic data for data assimilation.
+\end{enumerate}
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item Mata-Lima (2011) $\lq$Evaluation of the Objective Function to Improve Production History Matching Performance based on Fluid Flow Behaviour’, Journal of Petroleum Science and Engineering 78:42-53;
+\item Becerra et al. (2012) $\lq$Uncertainty History Matching and Forecasting, a Field Case Application’, SPE 153176-MS;
+\item Chitralekha et al.  (2010) $\lq$Application of the EnKF for Characterization and History Matching of Unconventional Oil Reservoirs’, SPE 137480-MS;
+\item Schulze-Rigert $\&$ Ghedan (2007) $\lq$Modern Techniques for History Matching’, 9th International Forum on Reservoir Simulation;
+\item Hajizadeh et al. (2011) $\lq$Ant Colony Optimization for History Matching and Uncertainty Quantification of Reservoir Models’, Journal of Petroleum Science and Engineering 77:78-92. 
+\end{itemize}
+%
+\clearpage
+
+%%%
+%%%
+%%%
+\item {\bf Feasibility Study of CO$_{2}$ Capture and Storage}
+
+Carbon Capture and Storage (CCS) is technological process encompassing capturing CO$_{2}$ released by burning fossil-based fuel and storing it in geological formations. CCS is one of many strategies to mitigate GHG emissions from industrial plants – in 2010 approximately 24 billion cubic meters of CO$_{2}$ were generated by coal and natural gas power plants. 
+
+In industrial facilities, CO$_{2}$ is separated from flue gas and after compression (until reaching supercritical conditions, $>$ 74 bar and $>$ 305K) it is injected in geological underground formations. Saline aquifers, unmineable coal seams and depleted oil and gas reservoirs are usual candidates for CO$_{2}$ storage. Very mature oil $\&$ gas fields in the North Sea have been considered as potential candidates to store CO$_{2}$ produced by UK/EU outdated gas and coal-fired power plants, with estimated capacity of $>$ 20Gt.
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Energy and exergy analysis (and comparison) of current and last-generation gas-, coal- and biomass-fire power station and averaged CO$_{2}$ emissions (GHG budget);
+\item Critical review and analysis of state-of-the-art technologies involving CO$_{2}$ (a) capture (i.e., separation from syngas flows); (b) injection in wells; (c) reaction and thermodynamic equilibrium with the geological formation (geochemistry);
+\item Study of current technologies on integrated gasification combined cycle (IGCC) and the linkages with CCS including current international experiences;
+\item Thermodynamic and flow calculations for energy, exergy and CO$_{2}$ budget analysis in coal-fired and CHP plants;
+\item Critical review and analysis of sensor network technologies currently used to monitor CO$_{2}$ plume motion in geological formation.
+\end{enumerate}
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Computational/Theoretical/Review (Oil and Gas Engineering) -- 1 student;
+\item The student is required to develop a code (e.g., Matlab, Python etc) for CO$_{2}$-energy/exergy budget (from capture to storage).
+\end{enumerate}
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item International Energy Outlook 2013 (DoE/EIA-0484);
+\item Energy for a Sustainable Future: Reports and Recommendations (2010), The Secretary-General’s Advisory Group on Energy and Climate Change (AGECC);
+\item Pettinau et al. (2013) $\lq$Combustion vs. Gasification for a Demonstration CCS Project in Italy: A Techno-Economic Analysis’, Energy 50:160-169;
+\item Ashworth et al. (2012) $\lq$What’s in store: Lessons from Implementing CCS’, International Journal of Greenhouse Gas Control 9:402-409;
+\item Xu et al. (2007) $\lq$Numerical Modeling of Injection and Mineral Trapping of CO$_{2}$ with H2S and SO2 in a Sandstone Formation’, Chemical Geology 242:319-346.
+\end{itemize}
+
+\clearpage
+
+%%%
+%%%
+%%%
+\item {\bf Formation and Stability of Natural gas Clathrate Hydrates in Pipelines}
+
+Hydrates of alkanes in the crystalline form may appear at very mild industrial conditions of temperature and pressure (e.g. 21$^{\circ}$C and 30 MPa).  Hydrate formation, growth, transport and deposition in pipelines are hazards to the energy industry with associated high cost. Two conditions are key to hydrate formation: (a) temperature and pressure (b) presence of hydrocarbons (HC's) and H$_{2}$O.
+
+To calculate thermodynamic equilibrium for a closed system, three conditions must be met: equality of temperature and pressure in all phases, and equality of fugacity for each component in all phases, all resulting from the Gibbs energy being at a minimum. These conditions are commonly used in developing procedures for solving for thermodynamic equilibrium. 
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Study of the thermodynamic stability of hydrates; 
+\item Review and analysis of current thermodynamic formulations for hydrate formation and stability;
+\item Critical review of industry experience on mitigation and remediation of hydrates formation in subsea pipelines; 
+\item Study equations of state and optimisation methods used in the stability analysis;
+\item Develop a thermodynamic formulation that describe water, hydrocarbon and hydrate phases in equilibrium (i.e., onset of precipitation).
+\end{enumerate} 
+ 
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Computational, theoretical and review (\underline{Oil and Gas Engineering}) -- 1 student. 
+\item The student is required to develop an initial thermodynamic solid-liquid-vapour equilibrium (SLVE) formulation;
+\item This formulation will be $\lq$translated' into a code (e.g., Matlab, Python etc) and coupled with a optimisation software to assess its initial reliability/accuracy.
+\end{enumerate}
+
+{\bf References:}
+\begin{itemize}
+\item Ahmadi et al. (2007) $\lq$Natural gas production from hydrate dissociation: An axisymmetric model', Journal of Petroleum Science and Engineering, 58:245-258;
+%\item Fotland and Askvik (2008) $\lq$Some aspects of hydrate formation and wetting', Journal of Colloids and Interface Science, 321:130-141;
+%\item Callen (1985) $\lq$ Thermodynamics and an Introduction to Thermostatistics';
+\item Sloan (1998) $\lq$Clathrate Hydrates of Natural Gases', M. Dekker (Publisher);
+\item Jager et al. (2003) $\lq$The next generation of hydrate prediction - II. Dedicated aqueous phase fugacity model for hydrate prediction', Fluid Phase Equilibria, 211:85-107;
+\item Carrol (2003) $\lq$Natural Gas Hydrates: A Guide for Engineers', Gulf Professional Publishing.
+\end{itemize}
+
+\clearpage
+
+
+%%%
+%%%
+%%%
+\item {\bf Study of Multiscale Waterflooding Mechanisms in Heterogeneous Reservoir Simulations}
+
+Immiscible displacement flows has been widely studied for oil $\&$ gas production (e.g., enhanced oil recovery, heavy oil production, etc) and pollution dispersion (e.g., solute transport in aquifers, radionuclides diffusion in subsurface, etc) applications. In hydrocarbon production, a fluid (displacing fluid, water, CO$_{2}$, polymer solutions etc) is injcted into the reservoirs that is saturated with a second fluid (oil and/or gas). Both fluids can be either immiscibles, partially miscibles or fully miscibles. The displacement of a more viscous fluid by a less viscous one leads to a mechanical instability driven by the mobility ratio (MR). This instability, known as viscous fingering, and its effect in the field production has received attention from the oil $\&$ gas community worldwide.
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Critical review and analysis of state-of-the-art technologies for EOR;
+%\item Critical review of water production: mechanisms and technologies for mitigation and remediation;
+\item Theoretical study of multiscale viscous fingering: mechanisms, impact on oil production, strategies to mitigate its effects etc;
+\item Study of heterogeneity in reservoirs (technologies to identify heterogenous media and its impact in fluid flow during recovery stages);
+\item Perform numerical simulations of multiphase flows (water/oil) in heterogenous porous media with focus on formation and identification of viscous fingering.  
+\end{enumerate}
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Computational and theoretical review (Oil and Gas Engineering) -- 1 student. 
+\item Simulations will be performed in the {\it Fluidity} (open-source multi-physics simulator). 
+\item For {\it Fluidity}, the student is required to install {\it Linux} (Ubuntu distro) and {\it Fluidity} in her/his laptop. 
+\end{enumerate}
+
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item Z. Chen, G. Huan, Y. Ma (2006) $\lq$Computational Methods for Multiphase Flows in Porous Media', {\it SIAM Computational Science $\&$ Engineering}, ISBN 0-89871-606-3;
+\item M. Blunt and M.Christie (1994) $\lq$Theory of Viscous Fingering in Two Phase, Three Component Flow', {\it SPE Journal} SPE22613;
+\item M.L.R. Farias, M.S. Carvalho, A.L.S. Souza (2013) $\lq$Numerical and Experimental Investigation of Produced Water Reinjection Viscous Oil Recovery', {\it Offshore Technology Conference}, Rio de Janeiro;
+%\item P.A. Sesini, D.A.F. Souza, A.L.G. Coutinho (2010) $\lq$Finite Element Simulation of Viscous Fingering in Miscible Displacements at High Mobility-Ratios', {\it Journal of the Brazilian Society of Mechanical Science and Engineering}, 32:292-299;
+\item G.F. Teletzke, R.C. Wattenbarger, J.R. WIlkinson (2010) $\lq$Enhanced Oil Recovery Pilot Testing Best Practices', {\it SP Journal} SPE118055;
+\item D. Beliveau (2009) $\lq$Waterflooding Viscous Oil Reservoirs', {\it SPE Journal} SPE113132;
+\item M.C. Kim (2012) $\lq$Linear Stability Analysis on the Onset of the Viscous Fingering of a Miscible Slice in a Porous Media', {\it Advances in Water Resource} 35:1-9;%
+\item C.T. Miller, G. Christakos, P.T. Imhoff, J.F McBride, J.A. Pedit (1998) $\lq$Multiphase Flow and Transport Modeling in Heterogeneous Porous Media: Challenges and Approaches', {\it Advances in Water Resources} 21:77-120.
+\end{itemize}
+
+\clearpage
+
+
+%%%
+%%%
+%%%
+\item {\bf Near-Well Upscaling Techniques for Waterflooding}
+
+Numerical reservoir simulations are usually constrained by grid resolution and availability of computational resources. Detailed realisations of geological formations (i.e., models) usually contain hundredth million of cells $\left(\text{10}^{8}\right)$ that can not be effectively used by simulators due to CPU time and memory constraints.  In each cell, all fluid (e.g., density, viscosity, etc) and rock properties (e.g., porosity, permeabilities, etc) are allocated and used to solve transport equations (i.e., Darcy and saturation continuity equations) in space and time. A common strategy is to $\lq$statistically' average cells-embedded properties across regions (i.e., coarsening the initial grid into larger volumes) -- {\it upscaling}.  Although this technique has been largely used during simulations involving large fields, heterogeneities near the production well region may lead to inaccurate flow solutions. 
+
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Critical review and analysis of state-of-the-art technologies for {\it upscaling};
+\item Critical review of water production: mechanisms and technologies for mitigation and remediation;
+\item Study of heterogeneity in carbonate and sandstone reservoirs (technologies to identify heterogenous media and its impact in fluid flow during recovery stages);
+\item Perform numerical simulations of multiphase flows (water/oil) in heterogenous porous media with focus upscaling a few key-properties (e.g., permeability).  
+\end{enumerate}
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Computational and theoretical review (Oil and Gas Engineering) -- 1 student. 
+\item Simulations will be performed in the {\it Fluidity} (open-source multi-physics simulator). 
+\item For {\it Fluidity}, the student is required to install {\it Linux} (Ubuntu distro) and {\it Fluidity} in her/his laptop. 
+\end{enumerate}
+
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item Z. Chen, G. Huan, Y. Ma (2006) $\lq$Computational Methods for Multiphase Flows in Porous Media', {\it SIAM Computational Science $\&$ Engineering}, ISBN 0-89871-606-3;
+\item T. Nakashima (2009) $\lq$Near-Well Upscaling for Two- and Three-Phase Flows', {\it PhD Thesis}, Stanford University.
+\item P. Audigane, M.J. Blunt (2004) $\lq$Dual Mesh Method for Upscaling in Waterflood Simulation', {\it Transport in Porous Media} 55:71-89;
+\item G.F. Teletzke, R.C. Wattenbarger, J.R. WIlkinson (2010) $\lq$Enhanced Oil Recovery Pilot Testing Best Practices', {\it SPE Journal} SPE118055;
+\item C.T. Miller, G. Christakos, P.T. Imhoff, J.F McBride, J.A. Pedit (1998) $\lq$Multiphase Flow and Transport Modeling in Heterogeneous Porous Media: Challenges and Approaches', {\it Advances in Water Resources} 21:77-120;
+\item  Ahmed $\&$ McKinney (2005) $\lq$Advanced Reservoir Engineering’, Elsevier;
+\item Jenny et al. (2002) $\lq$Modeling Flow in Geometrically Complex Reservoirs Using Hexahedral Multiblock Grids’, SPE 78673;
+\end{itemize}
+
+
+\clearpage
+%%%
+%%%
+%%%
+\item {\bf Precipitation and Thermodynamic Stability Analysis of Asphaltenes in Crude Oils}
+
+Asphaltenes are heavy macromolecular-like species (i.e., heavy hydrocarbon) naturally found in oil reservoirs. They can precipitate due to large perturbations in temperature, pressure and composition conditions leading to well-blockage, decreasing on reservoir permeabilities and pipes blockage. Several models have been introduced to investigate the thermodynamic stability (or formation) of asphaltene precipitation based upon minimisation of the Helmholtz free energy. In equilibrium conditions (i.e., onset of precipitation) the PVT behaviour can be described by a number of equations of state, e.g., Flory-Huggins, SAFT, cubic, etc. 
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Study of the thermodynamic stability of asphaltenes (i.e., onset of precipitation); 
+\item Review and analysis of current thermodynamic formulations for asphaltenes formation; 
+\item Equations of state and optimisation methods used in the stability analysis; 
+\item Critical review and analysis of current technologies (or strategies) used to mitigate asphaltene precipitation in both wells and pipes;
+\item Implement a simplified thermodynamic formulation for solid-liquid-vapour equilibrium (SLVE) using either Python, Fortran or C.
+\end{enumerate} 
+ 
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Computational/Theoretical/Review (\underline{Oil and Gas Engineering}) -- 1 student.
+\item The student is required to develop an initial thermodynamic solid-liquid-vapour equilibrium (SLVE) formulation;
+\item This formulation will be $\lq$translated' into a code (e.g., Matlab, Python etc) and coupled with a optimisation software to assess its initial reliability/accuracy.
+\end{enumerate}
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item Mansoori (1997) $\lq$Modeling of Asphaltene and Other Heavy Organic Depositions’, Journal of Petroleum Science and Engineering 17:101-111;
+\item Hu et al. (2000) $\lq$A Study on the Application of Scaling Equation for Asphaltene Precipitation’, Fluid Phase Equilibria 171:181-185;
+\item Pazuki et al. (2007) $\lq$Application of a New Cubic EOS to Computation of Phase Behaviour of Fluids and Asphaltene Precipitation in Crude Oil’, Fluid Phase Equilibria 254:42-48;
+\item Artola et al. (2011) $\lq$Understanding the Fluid Phase Behaviour of Crude Oil: Asphaltene Precipitation’, Fluid Phase Equilibria 306:129-136;
+%\item Zendehboudi et al. (2013) $\lq$Asphaltene Precipitation and Deposition in Oil Reservoirs – Technical Aspects, Experimental and Hybrid Neural Network Predictive Tools’, Chemical Engineering Research and Design (to be published). 
+\end{itemize}
+
+
+\clearpage
+%%%
+%%%
+%%%
+\item {\bf Multi-Scale Flow, Energy and Exergy Analysis of Geothermal Systems}
+
+Geothermal energy systems can be broadly divided into two semi-independent systems: extraction of thermal energy from subsurface environment system and transformation of heat into power. The former involves injection of cold water/brine into variable depths with partial or complete vaporisation of water/brine and further extraction in production wells. 
+
+Depending on the heat source (i.e., temperature gradient, thermal energy can be directly transformed into mechanical energy (in a steam turbine) or used the vaporisation of organic Rankine fluids (low grade heat). Therefore, simulation of geothermal systems is based on the physics of (multi-)fluid flow and heat transfer, on quantitative information (petrology) about geothermal reservoir properties, and on the thermodynamics and thermophysical properties of reservoir fluids (water in particular). 
+
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+%\item Study the different geothermal energy conversion systems (dry-rock, flash-steam, binary and EGS);
+\item Assess the mass, energy and exergy balances in EGS and organic Rankine cycle fluids;
+\item Design of coupled algorithms for thermo-fluid balance of the whole system;
+%\item Investigate the challenges for EGS;
+\item Formulate strategies to assess the sensitivity of the system.% (i.e., how the generated power would oscillate with increasing/decreasing of extracted water/brine flow rate, temperature and density). 
+\end{enumerate}
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Computational and Theoretical (\underline{Renewable Energy Engineering}) -- 1 student.
+\item Simulations will be performed in the {\it Fluidity} (open-source multi-physics simulator). 
+\item For {\it Fluidity}, the student is required to install {\it Linux} (Ubuntu distro) and {\it Fluidity} in her/his laptop. 
+\item The student is requires to develop a simulation workbench using UniSim process simulator;
+\item The student is required to propose a case-study and use her/his algorithm to assess this case.
+\end{enumerate}
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item R. DiPippo (2012) $\lq$Geothermal Power Plants'; Butterworth Heinemann;
+\item E. Barbier (2002) $\lq$Geothermal Energy Technology and Current Status: An Overview', Renewable $\&$ Sustainable Energy Reviews 6:3-65;
+\item H.N. Pollack, S.J. Hurter, J.R. Johnson (1993) $\lq$Heat Flow from the Earth's Interior: Analysis of the Global Data Set', Reviews of Geophysics 31:267-280;
+\item G.S. Bodvarsson, P.A. Witherspoon (1989) $\lq$Geothermal Reservoir Engineering Part 1', Geotherm. Science and Technology 2:1-68;
+%\item H.K. Gupta (1980) $\lq$Geothermal Resources: An Energy Alternaive', {\it In} Developments in Economic Geology 12, Chapters 3-5;
+%\item K. Pruess (2002) $\lq$Mathematical Modelling of Fluid Flow and Heat Transfer in Geothermal Systems -- An Introduction in Five Lectures', United Nations University;
+%\item L. Georgsson (2010) $\lq$Geophysical Methods used in Geothermal Exploration', Short Course V on Exploration for Geothermal Resources, Kenya;
+%\item Documentation in \href{http://en.openei.org/wiki/Geothermal_Exploration_Best_Practices:_A_Guide_to_Resource_Data_Collection,_Analysis_and_Presentation_for_Geothermal_Projects}{OpenEI Report: Geothermal Exploration Best Practices: A Guide to Resource Data Collection, Analysis and Prsentation for Geothermal Projects};
+\item Z. Chen (2006) $\lq$Computational Methods for Multiphase Flows in Porous Media', SIAM, Chapters: 1-3, 11-13.
+\end{itemize}
+
+
+\end{enumerate}
+%\end{description}
+
+\end{document}
