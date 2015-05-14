@@ -1,6 +1,6 @@
 
-%\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,solutions]{exam}
-\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet]{exam} 
+\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet,solutions]{exam}
+%\documentclass[calculator,steamtables,refrigeranttables,psychrometricchart,datasheet]{exam} 
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -68,12 +68,14 @@ The first step to solve the problem is to calculate T$_{2}$, P$_{2}$, T$_{3}$, T
 \begin{displaymath}
 \frc{V_{2}}{T_{2}} = \frc{V_{3}}{T_{3}} \rightarrow T_{3} = T_{2}\frc{V_{3}}{V_{1}}\frc{V_{1}}{V_{2}} = 1823.25\text{ K }
 \end{displaymath}
+with $V_{1}=V_{4}$.
 
 \item[3-4:] adiabatic expansion:~\solmarks{1/7} 
 \begin{eqnarray}
 && T_{3}V_{3}^{\gamma-1}=T_{4}V_{4}^{\gamma-1} \rightarrow T_{4} = 814.37\; \text{K} \nonumber  \\
 && P_{3}V_{3}^{\gamma}=P_{4}V_{4}^{\gamma} \rightarrow P_{4} = 2.71\; \text{bar}  \nonumber
 \end{eqnarray}
+with $P_{3}=P_{2}$.
 \end{description}
 
 Now calculating MEP:~\solmarks{1.5/7}
@@ -84,7 +86,11 @@ MEP = \frc{W_{\text{net}}}{V_{\text{max}}-V_{\text{min}}} = \frc{m\left[C_{p}\le
 \begin{displaymath}
 m = \frc{P_{2}V_{2}}{R T_{2}} MW = 17780.98 g \approx 17.78\; kg
 \end{displaymath}
-with the mass of air, the MEP is 7.02 bar~\solmarks{2/7}
+with the mass of air, the MEP is~\solmarks{2/7}
+\begin{displaymath}
+MEP = \frc{17.78 kg\left(934.15 \frc{kJ}{kg}-369.21
+  \frc{kJ}{kg}\right)}{14.3 m^{3}} = 702.42 \frc{kJ}{m^{3}} = 7.02\; bar
+\end{displaymath}
 }
 %
  \item Cycle efficiency $\left(\eta_{\text{Diesel}}=\frc{\text{W}_{\text{net}}}{\text{Heat Supplied}}\right)$.~\marks{3}
@@ -295,7 +301,7 @@ The heat extracted by the n-C$_{3}$ $\left(\dot{Q}_{HE,nC3}\right)$ fluid in the
 Assuming all heat is transferred from the brine to the propane (i.e., no heat losses to the environment),~\solmarks{1/2} 
 \begin{eqnarray}
 && \dot{Q}_{\text{HE,nC3}} + \dot{Q}_{\text{HE,Brine}} = 0 \nonumber \\
-&& \dot{Q}_{\text{HE,Brine}} = -94367.5 = \dot{m}_{\text{Brine}} C_{p,\text{Brine}}\left(T_{B}-T_{A}\right) \;\;\rightarrow \;\; {\bf \dot{m}_{\text{Brine}}  = 441.12 \text{ kJ.kg}^{-1}} \nonumber
+&& \dot{Q}_{\text{HE,Brine}} = -94367.5 = \dot{m}_{\text{Brine}} C_{p,\text{Brine}}\left(T_{B}-T_{A}\right) \;\;\rightarrow \;\; {\bf \dot{m}_{\text{Brine}}  = 441.12 \text{ kJ.s}^{-1}} \nonumber
 \end{eqnarray}
 }
 %%%
@@ -412,8 +418,8 @@ Mass conservation:
 \hline
 Property            & Inlet 1 & Outlet 2 & Outlet 3 & Units       \\
 \hline
-Diameter, $d$       & 0.05    & 0.2      & 0.5      & m$^{2}$     \\
-Volume flux, $q$    & 1.8     & 0.5      & 20       & m$^{3}$/s   \\
+Diameter, $d$       & 0.05    & 0.2      & 0.5      & m           \\
+Volume flux, $q$    & 1.8     & 0.5      & 2.0      & m$^{3}$/s   \\
 Temperature, $T$    & 80      & 70       & 30       & $^{\circ}$C \\
 Pressure, $p$       & 200     &          & 110      & kPa         \\
 \hline 
@@ -423,27 +429,27 @@ If the gas behaves like an ideal gas with a gas specific gas constant $R=250$\,J
 \begin{enumerate}[(i)]
 \item Calculate the fluid velocity through each inlet and outlet; \marks{3}
 \solution{The area of the inlet $A = \pi d^2/4$ and therefore
-$A_1 = 7.853\times10^{-3}$\,m$^2$, $A_2 = 3.141\times10^{-2}$\,m$^2$ and $A_3 = 1.963\times10^{-1}$\,m$^2$. \solmarks{1/3}
+$A_1 = 1.963\times10^{-3}$\,m$^2$, $A_2 = 3.142\times10^{-2}$\,m$^2$ and $A_3 = 1.963\times10^{-1}$\,m$^2$. \solmarks{1/3}
 
 The velocity through each inlet and outlet $u = q/A$. \solmarks{1/3}
 
-Therefore $u_1=178.25$\,m/s, $u_2=50.930$\,m/s and $u_3=10.186$\,m/s.\solmarks{1/3}}
+Therefore $u_1=916.732$\,m/s, $u_2=15.915$\,m/s and $u_3=10.186$\,m/s.\solmarks{1/3}}
 
 %%%%%%%%%%%%%%%%%%
 \item Calculate the gas pressure at outlet 2; \marks{5}
 \solution{The density at inlet 1 and outlet 3 are
 \begin{align*}
- \rho_1 =& \frac{p_1}{R T_1} = \frac{400000}{250 \times (80 + 273.15)} = 4.5307\,\mbox{kg/m}^3, \\
- \rho_3 =& \frac{p_3}{R T_3} = \frac{120000}{250 \times (30 + 273.15)} = 1.5834\,\mbox{kg/m}^3.
+ \rho_1 =& \frac{p_1}{R T_1} = \frac{200000}{250 \times (80 + 273.15)} = 2.2653\,\mathrm{kg/m}^3, \\
+ \rho_3 =& \frac{p_3}{R T_3} = \frac{110000}{250 \times (30 + 273.15)} = 1.4514\,\mathrm{kg/m}^3.
 \end{align*} \solmarks{1/5}
 
-The mass flux at inlet 1 is $\dot{m}_1 = \rho_1 q_1 = 4.5307 \times 1.4 = 6.3429\,\mbox{kg/s}$, while the mass flux at outlet 2 is $\dot{m}_3 = \rho_3 q_3 = 1.5834 \times 2 = 3.1667\,\mbox{kg/s}$. \solmarks{1/5}
+The mass flux at inlet 1 is $\dot{m}_1 = \rho_1 q_1 = 2.2653 \times 1.4 = 4.0776\,\mathrm{kg/s}$, while the mass flux at outlet 2 is $\dot{m}_3 = \rho_3 q_3 = 1.4514 \times 2.0 = 2.9029\,\mathrm{kg/s}$. \solmarks{1/5}
 
-Mass conservation gives $\dot{m}_2 = \dot{m}_1 - \dot{m}_3 = 6.3429 - 3.1667 = 3.1762\,\mbox{kg/s}$.\solmarks{1/5}
+Mass conservation gives $\dot{m}_2 = \dot{m}_1 - \dot{m}_3 = 4.0776 - 2.9029 = 1.1747\,\mathrm{kg/s}$.\solmarks{1/5}
 
-The density at outlet 2 is $\rho_2 = \dot{m}_2/q_2 = 3.1762/1.6 = 1.9851\,\mbox{kg/m}^3$. \solmarks{1/5}
+The density at outlet 2 is $\rho_2 = \dot{m}_2/q_2 = 1.1747/0.5 = 2.3495\,\mathrm{kg/m}^3$. \solmarks{1/5}
 
-The pressure at outlet 2 is $p_2 = \rho_2 R T_2 = 1.9851 \times 250 \times (20 + 273.15) = 145500\,\mbox{Pa}$.\solmarks{1/5}
+The pressure at outlet 2 is $p_2 = \rho_2 R T_2 = 2.3495 \times 250 \times (70 + 273.15) = 201557\,\mathrm{Pa} = 202\,\mathrm{kPa}$.\solmarks{1/5}
 }
 
 %%%%%%%%%%%%%%%%%%
@@ -451,12 +457,12 @@ The pressure at outlet 2 is $p_2 = \rho_2 R T_2 = 1.9851 \times 250 \times (20 +
 \solution{Rearranging the energy equation
 \begin{align*}
  \dot{Q} =& \dot{m}_2 \left(c_p T_2 + \frac{u_2^2}{2}\right) + \dot{m}_3 \left(c_p T_3 + \frac{u_3^2}{2}\right)- \dot{m}_1 \left(c_p T_1 + \frac{u_1^2}{2}\right) + \dot{W}_{s} \\
- =& (3.1762\times294400) + (3.1667\times303200) + (6.3429\times369000) + 400000 \\
- =& 960164.279690529 + 935211.868120291 - 2340770.89614347 + 400000 \\
- =& -45394\,\mbox{W}.
+ =& (1.1747\times343277) + (2.9029\times303202) - (4.0776\times773349) + 400000 \\
+ =& 403259 + 880151 - 3153399 + 400000 \\
+ =& -1469990\,\mbox{W}.
 \end{align*}\solmarks{1/2}
 
-The rate of heat addition to the gas is $-45$\,kW and therefore the gas gives off heat to the surroundings at a rate of $45$\,kW. \solmarks{1/2}
+The rate of heat addition to the gas is $-1.5$\,MW and therefore the gas gives off heat to the surroundings at a rate of $15$\,MW. \solmarks{1/2}
 }
 \end{enumerate}
 \end{enumerate}
@@ -468,6 +474,7 @@ The rate of heat addition to the gas is $-45$\,kW and therefore the gas gives of
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Question 04       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{question} 
 \begin{enumerate}[(a)]
 \item A change in enthalpy $\d{h}$, entropy $\d{s}$ and pressure $\d{p}$ in an ideal gas are related through
@@ -539,8 +546,9 @@ Finally exponentiating both sides
 %%%%%%%%%%%%%%%%%%
 \item An ideal gas with $R=260$\,J/(kg\,K) and $c_p=900$\,J/(kg\,K) flows through a well designed compressor in which the steady flow energy equation is given by
 \begin{align*}
- \dot{W}_{s} = \dot{m} \left(h_\text{inlet} - h_\text{outlet}\right).
+ \dot{W}_{s} = \dot{m} \left(h_\text{inlet} - h_\text{outlet}\right),
 \end{align*}
+where $\dot{W}_{s}$ is the rate of shaft work done by the fluid, $\dot{m}$ is the mass flux and $h$ is a specific enthalpy.
 The compressor is doing work on the gas at a rate of $500$\,kW, while the mass flux through the compressor is $4$\,kg/s. If the compressor has an inlet with pressure $p_\text{inlet}=100$\,kPa and temperature $T_\text{inlet}=25^\circ$C, and an outlet with pressure $p_\text{outlet}=350$\,kPa, then:
 \begin{enumerate}[(i)]
 \item Calculate the actual gas temperature at the outlet. \marks{3}
@@ -550,7 +558,7 @@ The compressor is doing work on the gas at a rate of $500$\,kW, while the mass f
 \end{align*}
 and hence 
 \begin{align*}
- T_\text{outlet} = T_\text{inlet} - \frac{\dot{W}_{s}}{\dot{m} c_p} = (25 + 273.15) - \frac{-500000}{4 \times 900} = 437.04\,\mathrm{K} = 138.9^\circ\mathrm{C}.
+ T_\text{outlet} = T_\text{inlet} - \frac{\dot{W}_{s}}{\dot{m} c_p} = (25 + 273.15) - \frac{-500000}{4 \times 900} = 437.04\,\mathrm{K} = 163.9^\circ\mathrm{C}.
 \end{align*} \solmarks{3/3}
 }
 
@@ -595,7 +603,7 @@ Therefore the compressor has an isentropic efficiency of $94\%$. \solmarks{3/7}
 %%% Question 05       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{question} 
-An air stream with relative humidity of $0.01$\,kg water/kg dry air passes through a duct at the rate of $1.2$\,kg\,s$^{-1}$. In the duct the air is first heated from $5^\circ$C to $20^\circ$C by heating coils and then humidified via the injection of hot steam. Air leaves the device at $25^\circ$C with a relative humidity of $60\%$. The air pressure is $101.325$\,kPa throughout.
+An air stream with specific humidity of $0.01$\,kg water/kg dry air passes through a duct at the rate of $1.2$\,kg\,s$^{-1}$. In the duct the air is first heated from $5^\circ$C to $20^\circ$C by heating coils and then humidified via the injection of hot steam. Air leaves the device at $25^\circ$C with a relative humidity of $60\%$. The air pressure is $101.325$\,kPa throughout.
 
 \begin{enumerate}[(a)]
 \item Determine the rate of heat addition in the heating section. \marks{5}
@@ -633,7 +641,7 @@ Rearranging this expression the mass rate of steam required
 
 %%%%%%%%%%%%%%%%%%
 \item Explain why adding steam may be beneficial in this process. \marks{2}
-\solution{As temperature increases the lower limit of the humidity range acceptable for human comfort also increases. Therefore if the temperature is increased and steam is not added (to increase the humidity), then the resulting air stream may have a humidity level that is uncomfortable for humans. \solmarks{3/3}}
+\solution{As temperature increases the lower limit of the humidity range acceptable for human comfort also increases. Therefore if the temperature is increased and steam is not added (to increase the humidity), then the resulting air stream may have a humidity level that is uncomfortable for humans. \solmarks{2/2}}
 
 %%%%%%%%%%%%%%%%%%
 \item Sketch and identify the evolution of the different stages of this process on rough axes of a psychrometric chart. \marks{6}
@@ -648,17 +656,18 @@ You may assume that $c_p = 1005$\,J/(kg K), $R_a = 287$\,J/(kg K), while the ent
 \end{question}
 
 
-\vfill
+
+\vfill 
 
 
 \paperend
 
-%\begin{comment}
+\begin{comment}
 {
   \includepdf[pages=-,fitpaper]{./Pics/UnitConversion}
   \includepdf[pages=-,fitpaper]{./Pics/PsychrometricChart}
   \includepdf[pages=-,fitpaper]{./Pics/nC3_Table}
 }
-%\end{comment}
+\end{comment}
 
 \end{document}
