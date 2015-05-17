@@ -1,6 +1,6 @@
 
-%\documentclass[calculator,datasheet,solutions]{exam}
-\documentclass[calculator,datasheet]{exam}
+\documentclass[calculator,datasheet,solutions]{exam}
+%\documentclass[calculator,datasheet]{exam}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -143,11 +143,57 @@ where $i\in\left\{1,2,...,N_{x}\right\}$ and $j\in\left\{1,...,N_{t}\right\}$ ar
 \end{itemize}
 \begin{enumerate}[(a)]
 \item Calculate the concentration profile of the radioisotope at t = 1.5 seconds, i.e., $\mathcal{C}_{i}^{j}$ $\forall i$ and $j=4$;~\marks{12} 
+%%%
+\solution{
+Calculating $\Delta x$:~\solmarks{1/1}
+\begin{displaymath}
+\Delta X = \frc{X_{f}-X_{0}}{N_{x}-1} = \frc{6.5-0.0}{5-1} = {\bf 1.625}
+\end{displaymath}
+And the velocity:~\solmarks{1/1} 
+\begin{displaymath}
+u = \frc{Q}{\rho \times Area} = \frc{200}{877.15 \times \frc{\pi \times 0.762^{2}}{4}} = {\bf 0.5 \text{ m.s}^{-1}}
+\end{displaymath}
+
+The concentration at time $t = 0 $ sec (i.e., $j=0$ --  initial/boundary conditions) is:~\solmarks{5/5}
+
+\begin{tabular}{ c c c c c c }
+\hline
+   $i$       & 1       &   2     &   3    &   4    &  5     \\ 
+   $X_{i}$     & 0.000  &  1.625  & 3.250  & 4.875  & 6.500  \\
+{\bf $C_{i}^{0}$}    & {\bf 0.1500}  & {\bf 1.9085}  & {\bf 1.6570} & {\bf 1.0562} & {\bf 1.0000} \\
+\hline
+\end{tabular}
+
+We need to calculate the concentration profile at $t=1.5$ seconds -- $C_{i}^{j}$.  Using the finite difference scheme we can fill up the table:~\solmarks{5/5}
+\begin{center}
+\begin{tabular}{| c c | c c c c c|}
+\hline 
+        & time     & $\mathcal{C}_{1}$  & $\mathcal{C}_{2}$ &  $\mathcal{C}_{3}$ &  $\mathcal{C}_{4}$  & $\mathcal{C}_{5}$ \\
+\hline
+$j = 0$ & 0.0      & 0.1500            & 1.9085           & 1.6570            &  1.0562             & 1.0000            \\
+$j = 1$ & 0.5      & 0.1500            & 1.9472           & 1.7494            &  1.0648             & 1.0000            \\
+$j = 2$ & 1.0      & 0.1500            & 1.9776           & 1.8547            &  1.0748             & 1.0000            \\
+$j = 3$ & 1.5      & {\bf 0.1500}      & {\bf 1.9965}     & {\bf 1.9778}      &  {\bf 1.0863}       & {\bf 1.0000 }     \\
+$j = 4$ & 2.0      & 0.1500            & 1.9998           & 2.1114            &  1.0996             & 1.0000            \\
+\hline
+\end{tabular}
+\end{center}
+}
+%%%
+
 \item At t = 1s, the observed concentration (obtained from non-invasive sensor measurements) was:
 \begin{displaymath}
 \mathcal{C}^{\text{obs}}\left(x,t=1s\right)= \left(0.16 \;\; 2.00 \;\; 2.01 \;\; 1.15 \;\; 1.31\right)^{T}
 \end{displaymath}
 The sensors were placed in the same coordinates as the original simulated mesh grid. How would the engineer quantitatively assess the accuracy of her simulated data with respect to the measurements?~\marks{8} 
+\solution{
+The numerical solution at $t=1$ second can be compared with the experimental data via {\bf $\mathcal{L}_{2}$ norm},~\solmarks{8/8}
+\begin{displaymath}
+  {\bf \text{Norm} = \frc{\left|\left|C_{i}^{\text{num}}-C_{i}^{\text{exp}}\right|\right|_{2}}{\left|\left|C_{i}^{\text{exp}}\right|\right|_{2}} = \frc{\sum\limits_{i=1}^{N_{x}}\left(C_{i}^{j=2,\text{num}}-C_{i}^{\text{exp}}\right)} {C_{i}^{\text{exp}}} = 0.1317}
+\end{displaymath} 
+The obtained norm indicates a relatively large discrepancy between numerical and experimental data.
+}
+
 \end{enumerate}
 
 \end{question}
@@ -164,6 +210,7 @@ Polyisobutenyl succinic anhydride (PIBSA) is an ExxonMobil patented product used
  Cl \cdot PIB \cdot Cl \text{ (l)} + H_{2} \text{ (g)} + \text{MalAnh (l)} &\Longleftrightarrow& PIBSA \text{ (l)} + Cl_{2} \text{ (g)} + H_{2} \text{ (g)} \nonumber 
 \end{eqnarray}
 After the reaction finishes, liquid PIBSA is pumped into a tank whereas the gasses are driven towards a wet scrubber system. Fluid mixing and heat transfer are key aspects in the design and control of this process, therefore 4 baffles, mechanical stirrer, external heat-jacket and continuous $Cl_{2}$ gas injection are included in the system. Key-variables for modelling this system are (spatial and temporal): velocities $\left[{\bf u}\left(\underline{x},t\right)\right]$, pressure $\left[P\left(\underline{x},t\right)\right]$, temperature $\left[T\left(\underline{x},t\right)\right]$ and concentration of species $\left[\mathcal{C}_{j}\left(\underline{x},t\right)\right]$ (where $j\in\left\{1,2,\cdots\right\}$ corresponds to the different chemical species in solution). Describe the mathematical and physical formulations for the problem with all the necessary assumptions. This must include all steps from the initial formulation and pre-processing to the beginning of the simulation. Given the conservative equations:~\marks{20}
+ 
 \begin{itemize}
 \item Conservation of mass:
 \begin{displaymath}
@@ -191,6 +238,67 @@ where $C_{p}$, $\kappa$, $\gamma$ and $\Omega$ are heat capacity at constant pre
 where $i$ and $j$ are indices for phase (liquid or gas) and chemical species, respectively. $D_{eff}$, $\omega$ and $\mathcal{R}$ are the effective mass diffusivity, mass fraction and reaction rate, respectively.
 
 \end{itemize}
+%%%
+\solution{
+\begin{enumerate}
+%
+\item Initial assumptions:
+\begin{itemize}
+\item Fluids PIB, Cl$\cdot$PIB$\cdot$Cl, MalAnh and PIBSA are incompressible liquids with densities $\rho_{PIB}$, $\rho_{ClPIBCl}$, $\rho_{MalAnh}$ and $\rho_{PIBSA}$, respectively. This can be lumped into a density of a liquid phase, i.e., $\rho_{l}$;~\solmarks{1.5/5}
+\item Fluids Cl$_{2}$ and H$_{2}$ are gasses with densities defined by equations of state (EOS). This can be lumped into the density of the gaseous phase $\rho_{g}$;~\solmarks{1.5/5}
+\item Viscosities and thermal conductivities of all chemical species (lumped into phases) are known and represented by functions $\mu_{j}=\mu_{j}(T)$ and $\kappa_{j}=\kappa_{j}(T)$;~\solmarks{1/5}
+\item Geometry of the vessel, agitators and heat jackets are known and can be readily mapped;~\solmarks{1/5}
+\end{itemize}
+%
+\item Physical Formulation:
+\begin{itemize}
+\item Fluids PIB, Cl$_{2}$ and MalAnh are added into the domain via distinct entries with prescribed flow rates (i.e., velocity), whereas PIBSA, Cl$_{2}$ and H$_{2}$ are removed (also prescribed) through two pipelines after the reaction is finished;~\solmarks{1.5/5}
+\item Agitator is assumed to move in a prescribed rotation (angular momentum) -- $\mathcal{Q}_{\Omega}$;~\solmarks{2/5}
+\item The reactor is kept at a prescribed temperature through the external heat jacket;~\solmarks{1.5/5}
+\end{itemize}
+%
+\item Mathematical Formulation:
+\begin{itemize}
+\item Conservative equations are given;~\solmarks{1/7}
+\item Constitutive equations:
+\begin{itemize}
+\item fluid densities $\left(\rho_{i}\right)$: equations of state;~\solmarks{0.5/7}
+\item fluid viscosities $\left(\mu_{i}\right)$, thermal conductivities $\left(\kappa_{i}\right)$ and heat capacities $\left(C_{p,i}\right)$: algebraic expressions;~\solmarks{0.5/7}
+\item empirical and semi-empirical expressions for interphase heat transfer $\left(\gamma\right)$ wall-phase heat transfer $\left(\Omega\right)$ coefficients (as function of $Nu$, $Re$ and $Pr$ dimensionless numbers);~\solmarks{0.5/7}
+\item differential equations representing reaction rates $\left(\mathcal{R}\right)$;~\solmarks{0.5/7}
+\end{itemize}
+\item  Initial conditions: T$_{i}\left(\underline{x},t=0\right)$, P$\left(\underline{x},t=0\right)$, $\underline{u}_{i}\left(\underline{x},t=0\right)$, $\alpha_{i}\left(\underline{x},t=0\right)$, $\omega_{i,j}\left(\underline{x},t=0\right)$. ~\solmarks{1/7} 
+\item Boundary conditions:
+\begin{itemize}
+\item Dirichlet boundary conditions for velocity $\left(\underline{u}\right)$, temperature $\left(T_{i}\right)$, volume $\left(\alpha_{i}\right)$ and mass $\left(\omega_{i,j}\right)$ fractions in all fluid entries;~\solmarks{1.5/7}
+\item No flow across the walls, baffles and agitators (Robin boundary condition):~\solmarks{1.5/7}
+\begin{displaymath}
+\left(\frc{\partial \underline{u}_{i}}{\partial \underline{n}_{j}}\right)_{w,b,a}=0
+\end{displaymath}
+\end{itemize}
+\end{itemize}
+%
+\item Pre-Processing:
+\begin{itemize}
+\item Convert physical geometry into computational geometry (i.e., mesh generation), considering:
+\begin{itemize}
+\item dimensionality (2- or 3-D);~\solmarks{0.5/3}
+\item grid shape: triangular, quadrilateral, tetrahedral, hexahedral, prismatic etc;~\solmarks{0.5/3}
+\end{itemize} 
+\item Discretisation method:
+\begin{itemize}
+\item space (FDM, FEM, FVM, etc);~\solmarks{0.5/3}
+\item time (explicit, implicit or hybrid methods);~\solmarks{0.5/3}
+\end{itemize}
+\item Solver options:
+\begin{itemize}
+\item iterative methods and direct methods as pre-conditioners;~\solmarks{0.5/3}
+\item tolerance;~\solmarks{0.5/3}
+\end{itemize}
+\end{itemize}
+%
+\end{enumerate}
+} 
 
 \end{question}
 
