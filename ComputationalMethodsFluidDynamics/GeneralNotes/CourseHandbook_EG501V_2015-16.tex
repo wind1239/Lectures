@@ -1,0 +1,665 @@
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\usepackage{graphicx,wrapfig,pdfpages}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate}%,enumitem}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+
+
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{subeqnarray}
+\usepackage{ifthen}
+
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+\usepackage{lastpage}
+%\usepackage{pdflscape}
+
+
+%\usepackage{booktabs}
+%\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{Course information 2015/16}}} 
+\rhead[] {{\text{\small{EG501V}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+%\lfoot[]{Dr Jeff Gomes}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+%\cfoot[\thepage]{\thepage}
+%\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+%\newlist{ExList}{enumerate}{1}
+%\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+%\newlist{ProbList}{enumerate}{1}
+%\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+
+\begin{document}
+
+%%%
+%%% FIRST PAGE
+%%%
+\begin{center}
+{\large {\bf UNIVERSITY OF ABERDEEN, SCHOOL OF ENGINEERING}}
+\medskip
+
+{\large {\bf COURSE INFORMATION SESSION 2015/16}}
+\bigskip 
+
+{\Large {\bf EG501V Computational Fluid Dynamics}}
+\end{center}
+
+\bigskip
+\begin{flushleft}
+
+{\large {\bf CREDIT POINTS:}}\\
+\hspace{0.8cm} 15
+\medskip
+
+{\large {\bf COURSE COORDINATOR: }}\\
+\hspace{0.8cm} Dr Jefferson Gomes \href{mailto:jefferson.gomes@abdn.ac.uk}{(jefferson.gomes@abdn.ac.uk)}
+\medskip 
+
+{\large {\bf COURSE CONTRIBUTORS:}}\\
+\hspace{0.8cm} Dr Jefferson Gomes, Dr XXX and Dr XXX
+\medskip
+
+{\large {\bf SCRUTINER:}}\\
+\hspace{0.8cm} TBC
+\medskip  
+
+{\large {\bf PRE-REQUISITE:}}\\
+\hspace{0.8cm}EG3007 (Engineering, Analysis and Methods), EG3018 (Fluid Mechanics A) OR;\\
+\hspace{0.8cm}Registered for PGCert, PgDip or MSc in Process Safety OR;\\
+\hspace{0.8cm}Registered for PGCert, PgDip or MSc in Subsea Engineering.\\
+\medskip
+
+{\large {\bf CO-REQUISITE:}}\\
+\hspace{0.8cm}None
+\medskip 
+
+{\large {\bf COURSES FOR WHICH THIS COURSE IS A PRE-REQUISITE:}}\\
+\hspace{0.8cm}None
+\end{flushleft}
+
+\clearpage
+
+
+%%%
+%%% Section
+%%%
+\section{AIMS}
+The course aims to provide understanding of main principles and techniques underpinning computational fluid dynamics (CFD) combining numerical methods with practical experience using appropriate software. The course develops a foundation for understanding, developing and analysing successful simulations of fluid flows in a broad range of applications.
+
+%%%
+%%% Section
+%%%
+\section{DESCRIPTION}
+ The main objective of the course is to provide insight into physical phenomena in environmental and industrial fluid flows via numerical techniques. Whist this motivates the use of computational technologies, even advanced CFD software may lead to incorrect predictions of fluid flow behaviour if used without sufficient understanding of the underlying algorithms and methods. This course introduces the early post-graduate and advanced undergraduate students to computational methods for solving distinct type of partial differential equations (PDE) that arise in fluid dynamic studies.
+
+This course will involve basic numerical analysis, fundamentals of PDE's, introduction to computational linear algebra, discretisation techniques and numerical schemes to solve time-dependent PDE problems, error control and stability analysis, mesh-generation technology and introduction to turbulence models.
+
+%%%
+%%% Section
+%%%
+\section{LEARNING OUTCOMES}
+By the end of the course students should:
+\begin{enumerate}[{\bf A.}]
+\item {\bf have knowledge and understanding of:}
+  \begin{enumerate}
+    \item Fundamental computational fluid dynamics and applications;
+    \item Finite difference and finite volume discretisation methods of PDE's and how numerical techniques are applied to flow equations;
+    \item CFD workflow procedures including mesh generation, numerical discretisation schemes and solver methods, assignment of appropriate initial and boundary conditions, pre- and post-processing data.
+  \end{enumerate}
+%
+\item {\bf have gained intellectual skills so that they are able to:}
+  \begin{enumerate}
+    \item Select appropriate numerical methods and discretisation schemes for fluid flow applications;
+    \item Recognise terminologies used by CFD practitioners (e.g., mesh grid, boundary conditions, numerical schemes, linear solvers, quality assurance, HPC etc);
+    \item Assess the applicability of a particular model/method and its limitations;
+    \item Choose appropriate type of boundary conditions and mesh-grid types for simulations and assess grid dependence;
+    \item Set up simple CFD problems;
+    \item Analyse and interpret data obtained from the numerical simulations.
+  \end{enumerate}
+%
+\item {\bf have gained practical skills so that they are able to:}
+  \begin{enumerate}
+    \item Use programming languages to numerically solve 1- and 2-D time-dependent PDE's (e.g, advection-diffusion equations);
+    \item Use commercial CFD software to simulate fluid flow regimes relevant to engineering applications.
+  \end{enumerate}
+%
+\item {\bf have gained or improved transferable skills so that they are able to:}
+  \begin{enumerate}
+    \item Use commercial CFD software to build flow geometries, generate adequate mesh grid for an accurate solution, select appropriate solvers to obtain a flow solution and visualise the simulated data;
+    \item Use computational tools and programming languages to support data processing and manipulation; 
+    \item Perform critical analysis on data resulting from CFD simulations.
+  \end{enumerate}
+\end{enumerate}
+
+
+%%%
+%%% Section
+%%%
+\section{SYLLABUS}
+The course will provide insight into physical phenomena in environmental and industrial fluid flows via numerical simulations. Whilst this motivates the use of computational technologies, even advanced CFD software may lead to incorrect predictions of fluid flow behaviour if used without sufficient understanding of the underlying algorithms and methods. Therefore, this course introduces students to computational methods for solving distinct type of partial differential equations (PDE) that arise in fluid dynamic studies.
+
+This course involves fundamentals of numerical analysis of PDE, introduction to computational linear algebra, discretisation techniques and numerical schemes to solve time-dependent PDE problems, error control and stability analysis, mesh-generation methods and turbulence models. Hands-on sessions with industry standard software are used to develop CFD skills.
+
+\begin{enumerate}[{\bf Module 1}]
+\item {\bf Introduction to CFD and Principles of Conservation:} (2 lectures)
+   \begin{enumerate}[(a)]
+      \item Workflow for CFD design and simulation;
+      \item Overview of mass, momentum and energy conservation principles;
+      %\item Reynolds transport theorem;
+      %\item Conservation of mass, momentum and energy;
+      \item General scalar transport equation;
+      %\item Navier-Stokes equation;
+      \item Introduction to mesh generation technologies.
+   \end{enumerate}
+
+\begin{comment}
+\item {\bf Basic Programming Concepts:} (2 lectures)
+  \begin{enumerate}[(a)]
+       \item Source code, compilers and executables;
+       \item Design and implementation of algorithms;
+       \item Main programming structures: data types, operators, loops and conditionals;
+       \item Arrays and arrays processing.
+   \end{enumerate}
+\end{comment}
+
+\item {\bf Solution of Systems of Linear Algebraic Equations:} (3 lectures)
+   \begin{enumerate}[(a)]
+      \item Review of vector-space, properties of vector and matrix norms;
+      %\item Criteria for unique solution;
+      \item Direct and iterative methods (Gauss elimination, LU decomposition, Jacobi, Gauss-Seidel, SOR etc);
+      %\item Conjugate gradient methods;
+      \item Convergence analysis.
+      %\item Advanced solver techniques.
+   \end{enumerate}
+
+\item {\bf Review of Partial Differential Equations (PDE):} (2 lectures)
+   \begin{enumerate}[(a)]
+      \item Mathematical classification of PDE (elliptic, parabolic and hyperbolic);
+      \item Taylor expansion and approximate solution of PDEs;
+      \item Boundary conditions.
+   \end{enumerate}
+
+\item {\bf Fundamentals of Discretisation:} (3 lectures)
+   \begin{enumerate}[(a)]
+      \item Spatial and temporal discretisation principles with finite difference methods (FDM);
+      \item Well-posed boundary value problem;
+      \item Fundamentals of Finite Element and Finite Volume Methods (FEM and FVM);
+      \item Examples of 1D steady-state heat conduction problem.
+   \end{enumerate}
+
+\item {\bf Introduction to Mesh-based Methods:} (5 lectures)
+   \begin{enumerate}[(a)]
+      \item Numerical techniques for time discretisation (implicit, explicit and Crank-Nicolson schemes);
+      %\item Introduction of discretisation schemes of diffusion problems;%: grid- and time-independent analysis, stability analysis, schemes for parabolic and hyperbolic equations; 
+      \item Discretisation schemes for advection-diffusion problems;%: central-difference, upwind and QUICK schemes
+      \item Navier-Stokes equation: discretisation, staggered / collocated grids, SIMPLE algorithm.
+      %\item Introduction to high performance computing strategies for large numerical simulations.
+   \end{enumerate}
+
+\item {\bf Introduction to Turbulence Modeling:} (3 lectures)
+   \begin{enumerate}[(a)]
+      \item Introduction to statistical representation of turbulent flows (homogeneous and isotropic turbulence);
+      \item General properties of turbulence quantities;
+      \item Reynolds-average Navier-Stokes (RANS) equation;
+      \item Introduction to the main turbulence models ($\kappa-\varepsilon$, LES and DNS).
+   \end{enumerate}
+
+\item {\bf Numerical CFD Simulations (hands-on sessions):} (14 h of lab-activities)
+   \begin{enumerate}[(a)]
+      \item Initial training on industry standard CFD software;
+      \item Mesh generation and grid quality assessment;
+      \item Simulation of 2-D advection problem;
+      \item Simulation of 2-/3-D steady-state and time-dependent fluid flow problems (discipline specific).
+   \end{enumerate}
+
+\end{enumerate}
+
+
+\medskip
+This is a guide to the taught content of EG501V and it should be noted that this is subject to change at the discretion of the course instructor. In addition to the lectures there may be seminars given by invited external experts.
+
+
+%%%
+%%% Section
+%%%
+\section{TIMETABLE}
+\begin{itemize}
+   \item Lectures: 1 two-hours + 1 one-hour per week (over 6 weeks);
+   \item Practicals: 1 three-hours per week (over 5 weeks);
+   \item Tutorials: 1 one-hour per week.
+\end{itemize}
+Detailed times are provided during course contact time. Initial timetable is shown in Table~\ref{table:timetable}.
+
+
+%%%
+%%% Section
+%%%
+\section{ASSESSMENT}
+
+\begin{enumerate}[(i)]
+   \item 1$^{st}$ attempt: 1 two-hours written examination paper (40$\%$) and continuous assessment (60$\%$). 
+   \begin{enumerate}[(a)]
+      \item The continuous assessment will consist of 3 components:
+      \begin{itemize}
+         \item Problem solving programming exercise (Modules 1-5, 20$\%$);
+         \item Individual reports on assigned engineering problem involving CFD simulation (Module 6, 40$\%$);
+      \end{itemize}
+These activities will be based on the submission of engineering reports detailing the computational work. Detailed information relating to the format of reports will be given during course contact time.
+   \end{enumerate}
+
+   \item Resit: A two-hours resit paper may be provided for candidates who fail the course at the first attempt. 
+   \begin{enumerate}[(a)]
+      \item Candidates who fail the written examination at the first attempt will be required to pass the resit examination;
+      \item Candidates who pas the examination at the first attempt but fail to pass the continuous assessment elements will be required to pass the resit of the failed continuous assessment component(s).
+   \end{enumerate}
+
+   \item Notes on Assessment:
+   \begin{enumerate}[(a)]
+      \item {\bf Students are required to pass both the examination and the continuous assessment in order to pass the course. A fail in the exam will not be condoned by a pass in other elements of assessment. In the case of a fail in any element of assessment the overall course grade will be limited to E1.}
+      \item {\bf Penalties} for late or non-submission of in-course work are defined in the Undergraduate Student Handbook which is available on the MyAberdeen pages for each course. If you are absent on medical grounds or other good cause, the University's policy on requiring a medical or self-certificate can be found at:
+      \begin{center}
+         \href{www.abdn.ac.uk/staffnet/teaching/aqh/appendix7x5.pdf}{www.abdn.ac.uk/staffnet/teaching/aqh/appendix7x5.pdf}
+      \end{center}
+      You are strongly advised to make yourself fully aware of your responsibilities if absent due to illness or other good cause. In particular, you are asked to note when self-certification of absence is permitted or if you are required to submit a medical certificate. All absences (medical or otherwise) should be reported through MyAberdeen, where you can access a student absence form for completion. MyAberdeen will allow you to upload any required supporting documentation, such as a medical certificate. 
+     \item Please also note that the {\bf late submission penalties} for undergraduate work have now been changed to conform to the PGT penalty arrangements, as follows
+     \begin{itemize}
+        \item Up to one week late, 2 CGS points deducted
+        \item Up to two weeks late, 3 CGS point deducted
+        \item More than two weeks late no marks awarded
+     \end{itemize}
+      
+   \end{enumerate}
+
+\end{enumerate}
+
+
+%%%
+%%% Section
+%%%
+\section{FORMAT OF EXAMINATION}
+Candidates must attempt {\bf ALL FOUR} questions. All questions carry 25 marks. Candidates are permitted to use approved calculators only.
+
+\medskip
+
+{\large {\bf PLEASE NOTE THE FOLLOWING}}
+\begin{enumerate}[(a)]
+\item You must not have in your possession at the examination any material other than that expressly permitted by the examiner. Where this is permitted, such material must not be amended, annotated or modified in any way.
+\item During the course of the examination, you must not have in your possession or attempt to access any material that could be determined as  giving you an advantage in the examination.
+\item You must not attempt to communicate with any candidate during the examination, either orally or by passing written material, or by showing material to another candidate, nor must you attempt to view another candidate's work.
+\item {\bf Approved Calculators in Examinations:}  {\it Starting in academic year 2014-15, the School of Engineering list of approved calculators for use in examinations will consist of a single calculator, the Casio FX-991 ES PLUS.  So from September 2014 the only calculator that yo
+u may take to your desk in an examination is this Casio calculator.  Note that examiners will be aware of the capabilities of the machine and will assume that you are able to operate this calculator in an examination.  All students should ensure that they have such a calculator and t
+hat they are familiar with its operation.}
+\end{enumerate}
+
+\bigskip
+
+{\bf Failure to comply with the above will be regarded as cheating and may lead to disciplinary action as indicated in the Academic Quality Handbook \href{http://www.abdn.ac.uk/staffnet/teaching/academic-quality-handbook-838.php}{http://www.abdn.ac.uk/staffnet/teaching/academic-quality-handbook-838.php}.
+
+\medskip
+
+Your attention is drawn to key University policies which can be accessed via,
+\begin{center}
+\href{https://abdn.blackboard.com/bbcswebdav/institution/Policies}{https://abdn.blackboard.com/bbcswebdav/institution/Policies}.
+\end{center}
+It is important to make yourself familiar with the University's policies and procedures on the subjects covered.}
+
+
+%%%
+%%% Section
+%%%
+\section{FEEDBACK}
+\begin{enumerate}[(a)]
+\item Students can receive feedback on their progress with the Course on request at the weekly tutorial/feedback sessions.
+\item Students are given feedback through formal marking and return of practical reports.
+%\item There will be a test exam at the end of the teaching session. The test exam will be marked (but is not part of the continuous assessment) and the test exam paper questions will be discussed in the Revision week.
+\item Students requesting feedback on their exam performance should make an appointment within 2 weeks of the publication of the exam results.
+\end{enumerate}
+
+
+%%%
+%%% Section
+%%%
+\section{STUDENT MONITORING}
+Attention is drawn to Registry's guidance on student attendance and monitoring at:
+\begin{center}
+\href{http://www.abdn.ac.uk/registry/monitoring}{http://www.abdn.ac.uk/registry/monitoring}
+\end{center}
+1.1 of this guidance says that students will be reported as $\lq$at risk' if the following criteria are met. {\it Either}
+\begin{itemize}
+\item Absence for a continuous period of 10 working days or 25$\%$ of a course (whichever is less) without good cause being reported;
+\item {\it or} Absence from two small group teaching sessions for a course without good cause (e.g., tutorial, laboratory class, any other activity where attendance is  expected and can be monitored);
+\item {\it or} Failure to submit a piece of summative or a substantial piece of formative in-course assessment for a course, by the stated deadline (eg class test, formative essay).
+\end{itemize}
+For the purposes of this, course attendance will be monitored at the tutorial and lab sessions and the formative in-course assessment are the lab reports.
+
+
+%%%
+%%% Section
+%%%
+\section{RECOMMENDED READING}
+
+\begin{enumerate}[(a)]
+   \item J.H. Ferziger, M. Peric (1999) `Computational Methods for Fluid Dynamics', Springer.
+   \item R.H. Pletcher, J.C. Tannehill, D.A. Anderson (2013) `Computational Fluid Mechanics and Heat Transfer', CRC Press.
+   \item K.M. Al-Malah (2013) `MATLAB -- Numerical Methods with Chemical Engineering Applications, McGraw Hill Education.
+   \item P. Wesseling (2000) `Principles of Computational Fluid Dynamics', Springer.
+   \item S.Middleman (1998) `An Introduction to Fluid Dynamics: Principles of Analysis and Design', Wiley Press.
+   \item P.S. Bernard (2015) `Fluid Dynamics', Cambridge University Press.
+   \item K. Atkinson (1989) `An Introduction to Numerical Analysis', Wiley, 2$^{nd}$ Edition.
+   \item N.S. Asaithambi (1995) $\lq$Numerical Analysis: Theory and Practice', Harcourt College Pub.
+   \item T.J. Chung (2002) $\lq$Computational Fluid Dynamics', Cambridge University Press.
+   \item \href{http://www.cfd-online.com/Wiki/Main_Page}{CFD Online (http://www.cfd-online.com/Wiki/Main$\_$Page)}
+   \item W.H. Press, S.A. Teukolsky, W.T Vetterling, B.P. Flannery (2007) \href{http://www.nr.com/oldverswitcher.html}{`Numerical Recipes: The Art of Scientific Computing'}, 3$^{rd}$ Edition, Cambridge University Press.
+   \item K.J. Beers (2007) `Numerical Methods for Chemical Engineering -- Applications in Matlab', Cambridge University Press.
+\end{enumerate}
+
+
+\begin{center}
+{\large {\bf INSTITUTIONAL INFORMATION}}
+\end{center}
+
+
+Students are asked to make themselves familiar with the information on key institutional policies which have been made available within {\it MyAberdeen},
+\begin{center}
+\href{https://abdn.blackboard.com/bbcswebdav/institution/Policies}{(https://abdn.blackboard.com/bbcswebdav/institution/Policies)}.
+\end{center}
+These policies are relevant to all students and will be useful to you throughout your studies. They contain important information and address issues such as what to do if you are absent, how to raise an appeal or a complaint and how seriously the University takes your feedback. 
+\medskip
+
+These institutional policies should be read in conjunction with this programme and/or course handbook, in which School and College specific policies are detailed. Further information can be found on the \href{http:www.abdn.ac.uk/infohub/}{University's Infohub webpage} or by visiting the {\it Infohub}.
+
+\clearpage
+
+
+
+
+\section{Timetable}
+
+\begin{center}
+\begin{tabular}{||c||c|c|c|c|c||}
+\hline\hline
+\multicolumn{6}{||c||}{Computational Fluid Dynamics (EG501V)} \\
+\hline\hline
+\multirow{3}{*}{\color{red}{Week 7}}  & Sept XX   & 09.00-12.00 & Module 01   & JG  & FN115 \\
+                                      & Sept XX   & 09.00-11.00 & Module 02   & JG  & MR107 \\
+                                      & Sept XX   & 09.00-11.00 & Tutorial 01 & JG  & MR107 \\
+\hline
+\multirow{3}{*}{\color{red}{Week 8}}  & Sept XX   & 09.00-12.00 & Module 02   & JG  & FN115 \\
+                                      & Sept XX   & 09.00-11.00 & Module 03   & JG  & MR107 \\
+                                      & Sept XX   & 09.00-11.00 & Tutorial 02 & JG  & MR107 \\
+\hline
+\multirow{3}{*}{\color{red}{Week 9}}  & Sept XX   & 09.00-12.00 & Module 03/04 & JG  & FN115 \\
+                                      & Sept XX   & 09.00-11.00 & Module 04   & JG  & MR107 \\
+                                      & Sept XX   & 09.00-11.00 & Tutorial 03 & JG  & MR107 \\
+\hline
+\multirow{3}{*}{\color{red}{Week 10}} & Oct XX    & 09.00-12.00 & Module 04/05 & JG  & FN115 \\
+                                      & Oct XX    & 09.00-11.00 & Module 05   & JG  & MR107 \\
+                                      & Oct XX    & 09.00-11.00 & Tutorial 04 & JG  & MR107 \\
+\hline
+\multirow{3}{*}{\color{red}{Week 11}} & Oct XX    & 09.00-12.00 & Module 05   & PK  & FN115 \\
+                                      & Oct XX    & 09.00-11.00 & Module 05   & PK  & MR107 \\
+                                      & Oct XX    & 09.00-11.00 & Tutorial 05 & JG  & MR107 \\
+\hline
+\multirow{3}{*}{\color{red}{Week 12}} & Oct XX    & 09.00-12.00 & Module 06   & PK  & FN115 \\
+                                      & Oct XX    & 09.00-11.00 & Module 06   & PK  & MR107 \\
+                                      & Oct XX    & 09.00-11.00 & Tutorial 06 & JG  & MR107 \\
+\hline
+\multirow{3}{*}{\color{red}{Week 13}} & Oct XX    & 09.00-12.00 & Module 07   & PK  & FN115 \\
+                                      & Oct XX    & 09.00-11.00 & Tutorial 07 & JG  & MR107 \\
+\hline
+\multirow{3}{*}{\color{red}{Week 14}} & Nov XX    & 09.00-12.00 & Module 07   & PK  & FN115 \\
+                                      & Nov XX    & 09.00-11.00 & Tutorial 08 & PK  & MR107 \\
+\hline
+\multirow{3}{*}{\color{red}{Week 15}} & Nov XX    & 09.00-12.00 & Module 07   & TB  & FN115 \\
+                                      & Nov XX    & 09.00-11.00 & Tutorial 09 & TB  & MR107 \\
+\hline
+\multirow{3}{*}{\color{red}{Week 16}} & Nov XX    & 09.00-12.00 & Module 07   & TB  & FN115 \\
+                                      & Nov XX    & 09.00-11.00 & Tutorial 10 & TB  & MR107 \\
+\hline
+\multirow{3}{*}{\color{red}{Week 17}} & Nov XX    & 09.00-12.00 & Module 07   & TB  & FN115 \\
+                                      & Nov XX    & 09.00-11.00 & Tutorial 11 & TB  & MR107 \\
+\hline\hline
+
+\end{tabular}
+\end{center}
+
+
+\end{document}
