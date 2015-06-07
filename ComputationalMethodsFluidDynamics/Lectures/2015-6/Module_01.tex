@@ -23,7 +23,7 @@
 \newcommand{\emailaddress}{}%{jefferson.gomes@abdn.ac.uk}
 \newcommand{\logoimage}{./FigBanner/UoAHorizBanner}
 \title{Computational Fluid Dynamics (EG501V)}
-\subtitle{Module 01: Introduction to Computational Methods for Fluid Dynamics: Brief Overview of CFD Workflow}
+\subtitle{Module 01: Introduction to CFD and Principles of Conservation}
 \date[2015-16]{2015-16}
 
 
@@ -243,9 +243,9 @@
 \end{frame}
 
 % Table of contents
-%\frame{ \frametitle{Slides Outline}
-%  \tableofcontents
-%}
+\frame{ \frametitle{Slides Outline}
+  \tableofcontents
+}
 
 
 %%%%%%%%%%%%%%%%%%%% The Presentation Proper %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -255,16 +255,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
 %%%%%%%%%%%%%%%%%%%
 %%%   SECTION   %%%
 %%%%%%%%%%%%%%%%%%%
-\section{Workflow for Computational Fluid Dynamics (CFD) Simulations}
+\section{Introduction to Computational Fluid Dynamics (CFD)}
+
 
 %##################
 %%%   SUBSECTION
 %##################
 \subsection{Motivation}
+
 %%%
 %%% Slide
 %%%
@@ -308,6 +309,12 @@
 
 \end{frame}
 
+%##################
+%%%   SUBSECTION
+%##################
+\subsection{Applications}
+
+%%%
 %%%
 %%% Slide
 %%%
@@ -366,6 +373,12 @@
    \end{figure}    
 
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%   SECTION   %%%
+%%%%%%%%%%%%%%%%%%%
+\section{Workflow for CFD Simulations}
 
 
 %##################
@@ -576,7 +589,7 @@
 
 \end{frame}
 
-\subsection{A few available CFD}  
+\subsection{A few available CFD software}  
 %%%
 %%% Slide
 %%%
@@ -621,10 +634,75 @@
 
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%
+%%%   SECTION   %%%
+%%%%%%%%%%%%%%%%%%%
+\section{Principles of Conservation}
+
+%##################
+%%%   SUBSECTION
+%##################
+\subsection{Nomenclature} 
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Terms $\&$ Operators Commonly used in Fluid Conservative Equations} 
+   \begin{enumerate}
+      \item <1-> {\bf Scalar, vector, tensor} are mathematical entities used to represent properties in a point (i.e., node, element/cell) in space and time. They are commonly represented as,
+      \begin{enumerate}
+         \item<2-> {\it Vectors} are in bold: $\mathbf{u}=u_{i}$
+         \item<3-> {\bf Scalars} are often in {\it lowercase}, e.g., 
+      \end{enumerate}
+
+   \end{enumerate}
+
+
+\end{frame}
+
+
+
+%##################
+%%%   SUBSECTION
+%##################
+\subsection{Scalar Transport Equation} 
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Governing Equations commonly used in Fluid Problems} 
+   \begin{enumerate}
+      \item <1-> Scalar transport equations represent the conservation of mass, momentum and energy for fluid flows, 
+          \visible<2->{\begin{equation}
+             \frac{\partial \phi}{\partial t} + \nabla\cdot\left(\phi \mathbf{u}\right) - \nabla\cdot\left(\gamma\nabla\phi\right) = \mathcal{S}\label{eq:transport}
+          \end{equation}}
+
+   \end{enumerate}
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%   SECTION   %%%
+%%%%%%%%%%%%%%%%%%%
+\section{Suggested References}
+
+
 %%%
 %%%   REFERENCES
 %%%
-\subsection{Bibliography} 
+%\subsection{Bibliography} 
 \begin{frame}
  \frametitle{Suggested References}
   Literature relevant for this course:
