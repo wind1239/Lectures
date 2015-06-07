@@ -1,10 +1,7 @@
 
-default:	CourseHandbook_EG501V_2015-16.pdf \ 
-		EG501V_Timetable.pdf #Syllabus.pdf 
+default:	CourseHandbook_EG501V_2015-16.pdf 
 
 CourseHandbook_EG501V_2015-16.pdf: CourseHandbook_EG501V_2015-16.tex
-Syllabus.pdf:	Syllabus.tex
-EG501V_Timetable.pdf:	EG501V_Timetable.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
