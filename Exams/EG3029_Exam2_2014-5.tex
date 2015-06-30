@@ -150,10 +150,13 @@ with $a$ = 142.59 bar$\left(\frc{\text{m}^{3}}{\text{kgmol}}\right)^{2}\left(\te
 \begin{displaymath}
 {\bf \left(\frc{\partial P}{\partial T}\right)_{V} = \frc{R}{V-b} + \frc{a}{2 V\left( V + b \right)T^{\frac{3}{2}}}}
 \end{displaymath}~\solmarks{3/8}
-Now substituting the variables by their values 
-\begin{displaymath}
-{\bf \left(\frc{\partial P}{\partial T}\right)_{V} = \left(\frc{\partial S}{\partial V}\right)_{T} = 1.0043 \frc{kJ}{m^{3}.K}}
-\end{displaymath}~\solmarks{5/8}
+Now substituting the variables by their values (and with V=0.4646 m$^{3}$.kg$^{-1}$ = 2.5811$\times$10$^{-2}$ m$^{3}$.kgmol$^{-1}$)
+\begin{eqnarray}
+\mathbf{\left(\frc{\partial P}{\partial T}\right)_{V}} &=& \frc{8.314\frc{kJ}{kgmol.K}}{\left(2.5811\times 10^{-2} - 0.0211\right) \frc{m^{3}}{kgmol}} + \nonumber \\
+&& \frc{ 142.59\; bar\left(\frc{m^{3}}{kgmol}\right)^{2}.K^{1/2}} {2 \times 2.5811\times 10^{-2} \frc{m^{3}}{kgmol} \left( 2.5811\times 10^{-2} + 0.0211 \right) \frc{m^{3}}{kgmol} \left(513.15 K\right)^{3/2} } \nonumber  \\
+&=& \mathbf{\left(\frc{\partial S}{\partial V}\right)_{T}} = \mathbf{2271.30\;\frc{kJ}{m^{3}.K}}\nonumber 
+\end{eqnarray}~\solmarks{5/8}
+
 }
 %
 \end{enumerate}
@@ -255,12 +258,20 @@ The volume of the binary solution is given by
 \end{displaymath}~\solmarks{5/20}
 The partial molar properties in binary mixtures can be obtained by $\overline{M}_{1} = M + x_{2}\frc{d M}{dx_{1}}$ and $\overline{M}_{2} = M - x_{1}\frc{d M}{dx_{1}}$, thus for partial molar volumes
 \begin{displaymath}
-{\bf \overline{V}_{1}} = V + x_{2} \frc{d V}{dx_{1}} {\bf = 171.92 \frc{cm^{3}}{gmol}}
+{\bf \overline{V}_{1}} = V + x_{2} \frc{d V}{dx_{1}} {\bf = 190.28 \frc{cm^{3}}{gmol}}
 \end{displaymath}~\solmarks{5/20}
 and
 \begin{displaymath}
-{\bf \overline{V}_{2}} = V - x_{1} \frc{d V}{dx_{1}} {\bf = 61.92 \frc{cm^{3}}{gmol}}
+  {\bf \overline{V}_{2}} = V - x_{1} \frc{d V}{dx_{1}} {\bf = 49.68 \frc{cm^{3}}{gmol}}
 \end{displaymath}~\solmarks{5/20}
+where
+\begin{displaymath}
+V = V^{\text{E}} + \sum\limits_{i=1}^{n}x_{i}V_{i} = x_{1}x_{2}\left(45x_{1}+25x_{2}\right)+x_{1}V_{1}+x_{2}V_{2}
+\end{displaymath}
+and
+\begin{displaymath}
+\frc{dV}{dx_{1}} = V_{1}+x_{2}\left(45x_{1}+25x_{2}\right)+45x_{1}x_{2}
+\end{displaymath}
 }
 \end{question}
 
