@@ -12,9 +12,7 @@
 %\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
 %\documentclass[10pt,compress,handout]{beamer}
-\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
-\newcommand{\frc}{\displaystyle\frac}
-
+\documentclass[10pt,compress,handout,ignorenonframetext]{beamer} 
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
@@ -27,7 +25,8 @@
 \newcommand{\logoimage}{../FigBanner/UoAHorizBanner}
 \title{Renewable Energy 1: Solar and Geothermal (EG501J)}
 \subtitle{Module 3: Engineering Thermodynamics \\ (Power Generation from Thermal Sources)}
-\date[2014-15]{2014-15}
+%\date[2014-15]{2014-15}
+\date[]{}
 
 %%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % You shouldn't have to change below this line, unless you want to.
@@ -144,7 +143,13 @@
 \includegraphics<#1>[#3]{#4}%
 }
 
-
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\purple}{\textcolor{purple}}
+ 
+ 
 \begin{document}
 
 % Title page layout
@@ -180,7 +185,7 @@
 \section{Introduction}
 
 % SUBSECTION
- \subsection{Overview}
+ \subsection{Aims and Objectives}
 %%%
 %%% Slide
 %%%
@@ -213,9 +218,11 @@
      \end{enumerate}
 \end{frame}
 
-% SECTION
- \section{Review of Fundamentals of Thermodynamic Engineering}
 
+%%%           %%%
+%%%  SECTION  %%% 
+%%%           %%%
+ \section{Review of Fundamentals of Thermodynamic Engineering}
 
 %%%
 %%% Slide
@@ -224,13 +231,120 @@
 \begin{frame}
  \frametitle{Introduction}
   \begin{enumerate}[(a)]
-   \item <2-> Thermodynamics is the study of energy and its transformations;
-   \item <3-> It deals with overall energy and entropy changes, and their relation to direction of reactions and the position of equilibrium;
-   \item <4-> Thermodynamics embodies a macroscopic viewpoint, i.e., it focuses on properties of a system (e.g., temperature, volume and heat capacity);
-   \item <5-> Thermodynamics can be applied to systems in equilibrium and non-equilibrium;
-   \item <6-> In this course we focus on system on equilibrium thermodynamics relevant to engineering problems.   
+   \item <1-> \red{Thermodynamics is the study of energy and its transformations};
+   \item <2-> It deals with overall energy and entropy changes, and their relation to direction of reactions and the position of equilibrium;
+   \item <3-> \blue{Thermodynamics} embodies a macroscopic viewpoint, i.e., it \blue{focuses on properties of a system (e.g., temperature, volume and heat capacity)};
+   \item <4-> Thermodynamics can be applied to systems in equilibrium and non-equilibrium;
+   \item <5-> In this course we focus on \blue{system on equilibrium thermodynamics} relevant to engineering problems.     
   \end{enumerate}
 \end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{General Remarks}
+  \begin{enumerate}[(a)]
+   \item <1-> Thermodynamics {\bf does}
+     \begin{itemize}
+       \item<2-> describe a system macroscopically;
+       \item<2-> calculate the $\lq$energy' required for a physical or chemical process;
+       \item<2-> determine a system's equilibrium conditions;
+     \end{itemize}
+   \item<3-> Thermodynamics {\bf does not}
+     \begin{itemize}
+       \item<4-> allow for kinetic considerations of chemical or physical processes;
+       \item<4-> describe molecular behaviour.
+     \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+
+
+
+%%%
+%%% SUB-SECTION
+%%%
+\subsection{Dimensions and Units}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{General Remarks}
+  \begin{enumerate}[(a)]
+   \item <1-> Do always use \textcolor{blue}{SI units} for calculations:
+     \begin{itemize}
+       \item<1-> second (s), meter (m), gram (g), Kelvin (K), mole (mol);
+     \end{itemize}
+   \item<2-> Or those based on them:
+     \begin{itemize}
+       \item<4-> Newton (N), Joule (J), Pascal (Pa).
+     \end{itemize}
+   \item<3-> Prefix: 
+      \visible<4->{\begin{center}
+        \begin{tabular}{c c c | c c c}
+           \hline
+           {\it Multiple} & {\it Prefix} & {\it Symbol} & {\it Multiple} & {\it Prefix} & {\it Symbol} \\
+           \hline
+           10$^{-15}$      & femto        & f            &   10$^{2}$     &  hecto       & h            \\
+           10$^{-12}$      & pico         & p            &   10$^{3}$     &  kilo        & k            \\
+           10$^{-9}$       & nano         & n            &   10$^{6}$     &  mega        & M            \\
+           10$^{-6}$       & micro        & $\mu$        &   10$^{9}$     &  giga        & G            \\
+           10$^{-3}$       & milli        & m            &   10$^{12}$    &  tera        & T            \\
+           10$^{-2}$       & centi        & c            &   10$^{15}$    &  peta        & P            \\
+           \hline
+        \end{tabular}
+      \end{center}}
+  \end{enumerate}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Summary}
+  \begin{enumerate}[(a)]
+   \item <1-> Measures of amount or size:
+     \begin{itemize}
+       \item<1-> Mass ($m$), number of moles ($n$), total volume $\left(V^{t}\right)$;
+       \item<1-> Specific volume $\left(v=V^{t}/m\right)$;
+     \end{itemize}
+   \item<1-> Force ($F$), pressure ($P$), temperature ($T$);
+   \item<1-> Work ($W$), heat ($Q$);
+   \item<1-> Potential and kinetic energy ($E$).
+  \end{enumerate} 
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Unit Conversion}
+  \begin{enumerate}[(a)]
+   \item<1-> Most of the time, we need to convert units during our calculations. Thus if we want to convert pressure ($P$) from \blue{\it atm} to \blue{\it psi} (pounds per square inch):
+      \begin{displaymath}
+        P = 5\;\cancel{\text{atm}} \times \textcolor{red}{\displaystyle\frac{14.70\;\text{psi}}{1\;\cancel{\text{atm}}}} = 73.50\;psi
+      \end{displaymath}
+   \item<2-> Or, in a more complex example, integrating $dH=VdP$ from state 1 to 2 (with constant volume),
+      \begin{eqnarray}
+        \int\limits_{H_{1}}^{H_{2}}dH &=& \int\limits_{P_{1}}^{P_{2}}VdP \Longrightarrow H_{2} = H_{1} + V\left(P_{2}-P_{1}\right) \nonumber \\
+        %H_{2} &=& H_{1} + V_{1}\left(P_{2}-P_{1}\right) \nonumber \\
+         H_{2} &=& 706.9\textcolor{red}{\frac{kJ}{kg}} + 1.1111\times 10^{-3}\textcolor{blue}{\frac{m^{3}}{kg}}\left(210.0-7.4\right)\textcolor{blue}{bar} \nonumber \\
+              &=& 706.9\textcolor{red}{\frac{kJ}{kg}} + 1.1111\times 10^{-3}\textcolor{blue}{\frac{\cancel{m^{3}}}{\cancel{kg}}} 202.6\;\textcolor{blue}{\cancel{bar}} \textcolor{red}{\frac{10^{5}\;\frac{\cancel{kg}}{\cancel{m}.\cancel{s^{2}}}}{1\; \cancel{bar}}} \textcolor{red}{\frac{10^{-3}\; \frac{kJ}{kg}}{1\;\frac{\cancel{m^{2}}}{\cancel{s^{2}}}}} \nonumber \\
+              &=& 729.41\textcolor{red}{\frac{kJ}{kg}} \nonumber 
+      \end{eqnarray} 
+  \end{enumerate}
+\end{frame}
+
+
+
+%%%
+%%% SUB-SECTION
+%%%
+\subsection{Overall System Analysis}
+
 
 %%%
 %%% Slide
@@ -463,6 +577,163 @@
   \end{column}
  \end{columns}
 \end{frame}
+
+
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Thermodynamic Diagrams and Tables}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermodynamics Diagrams: Pressure $\times$ Enthalpy $(PH)$ for CO$_{2}$}
+  \begin{center}
+   \begin{figure}
+     \includegraphics[width=8cm,height=7.cm,clip]{./Pics/CO2col}
+   \end{figure}
+   \end{center}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermodynamics Diagrams: Pressure $\times$ Enthalpy $(PH)$}
+  \begin{center}
+   \begin{figure}
+      \includegraphics[width=8cm,height=7.9cm,clip]{./Pics/Overview_Refrig18}
+   \end{figure}
+   \end{center}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermodynamics Diagrams: Pressure $\times$ Enthalpy $(PH)$}
+  \begin{center}
+   \begin{figure} 
+      \includegraphics[width=8cm,height=7.9cm,clip]{./Pics/Overview_Refrig17}
+   \end{figure}
+   \end{center}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermodynamics Diagrams: Temperature $\times$ Entropy $(TS)$ for Water}
+  \begin{center}
+   \begin{figure}
+     \includegraphics[width=8cm,height=7.cm,clip]{./Pics/water_TS.png}
+   \end{figure}
+   \end{center}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermodynamics Diagrams: Temperature $\times$ Entropy $(TS)$}
+  \begin{center}
+   \begin{figure}
+      \includegraphics[width=8cm,height=7.9cm,clip]{./Pics/TS_Diag_Schematics}
+   \end{figure}
+   \end{center}
+\end{frame}
+
+%%% 
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Another option: (a) Saturated Tables and ...}
+\scriptsize{From Reference (d):}\vspace{-.8cm}
+   \begin{center}
+   \begin{figure}
+      \includegraphics[width=9.5cm,height=9.5cm,clip]{./Pics/WaterSatTable}
+   \end{figure}
+   \end{center}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Another option: (b) Superheated Tables}
+\scriptsize{From Reference (d):}\vspace{-.8cm}
+   \begin{center}
+   \begin{figure}
+      \includegraphics[width=9.5cm,height=9.5cm,clip]{./Pics/Water_SuperheatedTable}
+   \end{figure}
+   \end{center}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Another option: Saturated and Superheated Tables}
+\noindent
+\begin{itemize}
+\item <1-> {\bf \textcolor{red}{Example:}} At $P=1.50\;$ bar, the saturated steam has the following thermodynamic properties,
+\tiny 
+\begin{center}
+%\begin{table}[h]
+\begin{tabular}{c c|c c c|c c|c c} 
+%\hline\hline
+$P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g}$ \\ 
+\hline
+1.50 & 111.4 & 467.11 & 2226.5 & 2693.6 & 1.4336 & 7.2233 & 0.0010528 & 1.159 \\
+%\hline
+\end{tabular}
+%\caption{Carnot and Rankine Cycles: From Saturated water and steam tables.}
+%\label{Example01_01:Table2}
+%\end{table}
+\end{center}
+
+\item <3-> But the properties of superheated steam at the same pressure will depend on the temperature $\Rightarrow$ \textcolor{red}{see superheated steam table}. Thus at 1.50 bar $\left(\text{with }T_{\text{sat}}=111.4^{\circ}\text{C}\right)$:
+  \visible<3->{\begin{center}\begin{tabular}{ c | c c c}
+      $T$    & $v$    & $h$     &    $s$     \\
+\hline
+      111.4  & 1.159  & 2693.6  &  7.2233    \\
+      120.0  & 1.188  & 2711.4  &  7.2693    \\
+      160.0  & 1.317  & 2792.8  &  7.4665    \\
+      200.0  & 1.444  & 2872.9  &  7.6433    \\
+      240.0  & 1.570  & 2952.7  &  7.8052    \\ 
+     $\vdots$& $\vdots$&$\vdots$&$\vdots$ \\
+  \end{tabular}
+  \end{center}
+}
+\item <2-> {\bf Units:} [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg.K}$, [$v$]=$\frac{m^{3}}{kg}$.
+
+\end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %%%
 %%% Slide
