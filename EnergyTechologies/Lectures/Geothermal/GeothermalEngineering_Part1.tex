@@ -1080,7 +1080,341 @@ Energy sources based on thermal-cycles (YouTube videos):
  \normalsize
 \end{frame}
 
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Examples}
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1: Carnot and Rankine efficiencies (Problem 1)}
+ %\scriptsize
+    Steam (dry and saturated) is supplied by the boiler at 15 bar and the condenser pressure is 0.4 bar. Calculate the Carnot and Rankine efficiencies of the cycle. Neglect the pump work.
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 2: Ideal Rankine Cycle (Problem 5)}
+ %\scriptsize
+Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enters the turbine at 16 MPa, and the condenser pressure is 8 kPa. The mass flow rate of steam entering in the turbine is 120 kg/s. Calculate:
+\begin{enumerate}[(a)]
+\item the net power developed (in MW);
+\item rate of heat transfer to the steam passing through the boiler (in MW);
+\item thermal efficiency;
+\item mass flow rate of the condenser cooling water (in kg/s), if the cooling water undergoes a temperature increase of 18$^{\circ}$C with negligible pressure change in passing through the condenser. Assume that the heat capacity at constant pressure $\left(\text{C}_{\text{p}}\right)$ of the cooling water is 4.18 $\frac{\text{kJ}}{\text{kg.}^{\circ}\text{C}}$.
+\end{enumerate} 
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 3: Simple Steam Power Plant (Problem 2)}
+ \scriptsize
+   The table below represents the steps of an idealised steam power plant:
+    \begin{center}
+     \begin{tabular}{||c | c | c | c | c | c ||}
+      \hline\hline
+       {\bf Step} & {\bf Location}       & {\bf Pressure}  & {\bf Temperature}     & {\bf Quality /}  &{\bf Velocity}    \\
+                  &                      & {\bf (bar)}     &{\bf$\left(^{\circ}\text{C}\right)$}& {\bf State} & {\bf m/s} \\
+      \hline\hline
+          1       & Inlet to turbine     &   60            &   380                 &  --              &       --         \\
+      \hline
+          2       & Exit from turbine and&   0.1           &    --                 & 0.9              &  200             \\
+                  & inlet to condenser   &                 &                       &                  &                  \\ 
+      \hline
+          3       & Exit from condenser and&  0.09         &  --                   & Saturated        &  --              \\
+                  & inlet to pump        &                 &                       & Liquid           &   --             \\
+      \hline
+          4       & Exit from pump and   &  100            &   --                  &     --           &   --             \\
+                  & inlet to boiler      &                 &                       &                  &                  \\
+      \hline 
+          5       & Exit from boiler     &  80             &  440                  &      --          &    --            \\
+           \hline\hline
+     \end{tabular}
+    \end{center}
+    Assume that the steam mass flow rate leaving the boiler is 10$^{4}$ kg.h$^{-1}$. Sketch the cycle numbering each stage. Calculate:
+      \begin{enumerate}[(a)]
+         \item Specific enthalpies of all streams;
+         \item Power output of the turbine;
+         \item Heat transfer per hour in the boiler and condenser;
+         \item Mass rate of cooling water circulated (kg/h) in the condenser assuming inlet and outlet fluid temperatures from the condenser of 20$^{\circ}$C and 30$^{\circ}$C. Assume that the heat capacity at constant pressure $\left(\text{C}_{\text{p}}\right)$ of the cooling water is 4.18 $\frac{\text{kJ}}{\text{kg.}^{\circ}\text{C}}$.
+         \item Diameter (m) of the pipe connecting the turbine with the condenser;
+         \item Sketch the $Ts$ diagram, indicating each step of the cycle.
+    \end{enumerate}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% SECTION
+%%%
+\section{Modified Rankine Cycles}
+
+\subsection{Reheat Rankine Cycle}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Reheat Rankine Cycle}
+  \begin{columns}
+     \begin{column}[c]{0.5\linewidth}
+        \begin{enumerate}[(a)] \scriptsize
+           \item<1-> Thermal efficiency can be enhanced by increasing the boiler pressure;
+           \item<1-> However, this results in higher moisture content in the steam flow which can damage the turbine;
+           \item<2-> To overcome this problem we may:
+           \begin{enumerate}[(i)] \scriptsize
+             \item<2-> Superheat the steam before the turbine: this would improve thermal efficiency of the cycle but the very high temperature may be prohibitive as novel (and more expansive) materials would need to be used;
+             \item<2-> \blue{Expand the steam in the turbine in two stages and reheat in between}. This is an improvement on the ideal Rankine cycle as we would add a reheating process between continuous expansion.
+           \end{enumerate}
+           \item<3-> The \underline{main objective of using superheated steam} is \blue{to avoid excessive moisture in the steam} at the end of the expansion process (maximum moisture content $\sim$ 12$\%$ to avoid turbine blades' damage);
+           \item<4-> Advantages of Reheating:
+              \begin{enumerate}[(i)]\scriptsize
+                 \item<4-> Increase power output from the turbine;
+                 \item<4-> Low erosion and corrosion issues;
+                 \item<4-> Improvement of the thermal efficiency of the turbines.
+              \end{enumerate}
+        \end{enumerate}
+     \end{column}
+     \begin{column}[c]{0.5\linewidth} 
+        \visible<2->{\begin{figure}%
+           \begin{center}
+             \includegraphics[width=6.25cm,clip]{./Pics/Reheat_Rankine_Cycle}
+           \end{center}
+        \end{figure}} 
+        \begin{enumerate}[(a)]\scriptsize\setcounter{enumi}{5}
+           \item<5-> Disadvantages of Reheating:
+              \begin{enumerate}[(i)]\scriptsize
+                 \item<5->Reheating requires more maintenance;
+                 \item<5->Enhancement of thermal efficiency may not be enough to match the larger costs associated with reheating the steam.
+              \end{enumerate}
+        \end{enumerate}
+     \end{column}
+  \end{columns}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Reheat Rankine Cycle}
+  \begin{columns}
+     \begin{column}[c]{0.5\linewidth} 
+       \begin{center}
+          \begin{figure}
+             \includegraphics[width=6.25cm,clip]{./Pics/Reheat_Rankine_Cycle}
+          \end{figure}
+       \end{center}
+       \begin{enumerate}[(a)] \scriptsize\setcounter{enumi}{6}
+          \item<1-> Total heat input: 
+              \visible<1->{\begin{eqnarray}
+                  \blue{Q_{\text{total}}}&=& Q_{\text{primary}} + Q_{\text{reheat}} \nonumber \\
+                                    &=& \blue{\left(h_{1}-h_{6}\right)+\left(h_{3}-h_{2}\right)}
+              \end{eqnarray}}
+       \end{enumerate}
+     \end{column}
+     \begin{column}[c]{0.5\linewidth}
+       \begin{center}
+          \begin{figure}
+             \includegraphics[width=6.25cm,clip]{./Pics/Reheat_Rankine_Cycle_Diagram2}
+          \end{figure}
+       \end{center}
+       \begin{enumerate}[(a)] \scriptsize\setcounter{enumi}{7}
+          \item<2-> Total turbine work output:
+              \visible<2->{\begin{eqnarray}
+                  \blue{W_{\text{turbine}}^{\text{total}}} &=& W_{\text{turbine}}^{\text{high-P}} + W_{\text{turbine}}^{\text{low-P}} \nonumber \\
+                                                      &=& \blue{\left(h_{2}-h_{1}\right)+\left(h_{4}-h_{3}\right)}
+              \end{eqnarray}}
+       \end{enumerate}
+     \end{column}
+  \end{columns}
+ \normalsize
+\end{frame}
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Regenerative Rankine Cycle}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Regenerative Rankine Cycle (Open feedwater heater)}
+  \begin{columns}
+    \begin{column}[c]{0.5\linewidth}
+      \begin{enumerate}[(a)]\scriptsize
+         \item<1-> In simple RC the \blue{temperature of the working fluid entering the boiler is substantially lower than the boiler steam exiting temperature}.  This results in \red{lower thermal efficiency};
+         \item<2-> In the \blue{Regenerative Rankine Cycle} the temperature of the fluid leaving the pump ({\it feedwater}) is raised in several stages using steam extracted from the turbine;
+         \item<3-> The device where the feedwater is heated by regeneration is called a \blue{regenerator} or \blue{feedwater heater (FWH)};
+     %\item <4-> Not only improve thermal efficiency but also deaerates the feedwater that helps prevent corrosion and pump cavitation;
+         \item<4-> A FWH is a heat exchanger where heat is transferred from the steam to the feedwater either by mixing the two fluid streams (\blue{open feedwater heaters}) or without mixing them (\blue{closed feedwater heaters}).
+    \end{enumerate} 
+   \end{column}
+   \begin{column}[c]{0.5\linewidth} 
+     \begin{center}
+        \begin{figure}
+            \includegraphics[width=6.5cm,clip]{./Pics/RegenerativeOpen_RankineCycle}
+        \end{figure}
+     \end{center}
+   \end{column}
+  \end{columns}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Regenerative Rankine Cycle (Open feedwater heater)}
+  \begin{columns}
+    \begin{column}[c]{0.5\linewidth}
+     \begin{center}
+        \begin{figure}
+            \includegraphics[width=5.5cm,clip]{./Pics/RegenerativeOpen_RankineCycle}
+        \end{figure}
+     \end{center}
+     \begin{enumerate}[(a)]\setcounter{enumi}{4}\scriptsize
+         \item<1->  A fraction of the steam extracted from the turbine \blue{($y$)} leaves the FWH as {\it saturated liquid} $\left(P_{\text{FWH}}\right)$, and a second pump raises the pressure to $P_{\text{boiler}}$;
+         \item<2-> Heat balance in the cycle:
+             \visible<2->{\begin{eqnarray}
+                && \blue{Q_{\text{in}} = H_{1}-H_{7}} \\
+                && \blue{Q_{\text{out}} = \left(1 - y \right)\left(H_{4} - H_{3}\right)} 
+             \end{eqnarray}}
+     \end{enumerate}
+   \end{column}
+    \begin{column}[c]{0.5\linewidth}
+     \begin{center}
+        \begin{figure}
+            \includegraphics[width=6.cm,clip]{./Pics/RegenerativeOpen_RankineCycle_Diagram}
+        \end{figure}
+     \end{center}
+     \begin{enumerate}[(a)]\setcounter{enumi}{6}\scriptsize
+         \item<3-> Pump and turbine work:
+             \visible<3->{\begin{eqnarray}
+                \blue{W_{\text{Turbine}}^{\text{out}} = \left[y h_{2} + \left(1-y\right)h_{3}\right]-h_{1}}\\ 
+                \blue{W_{\text{Pump}}^{\text{in}} = \left(1 - y \right) W_{\text{Pump,1}}^{\text{in}} + W_{\text{Pump,2}}^{\text{in}}}
+             \end{eqnarray}}
+     \end{enumerate}
+   \end{column}
+  \end{columns}
+ \normalsize
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Ideal Regenerative Rankine Cycle (Closed feedwater heater)}
+  \begin{columns}
+    \begin{column}[c]{0.5\linewidth}
+     \begin{center}
+        \begin{figure}
+            \includegraphics[width=6.cm,clip]{./Pics/RegenerativeClosed_RankineCycle}
+        \end{figure}
+     \end{center}
+   \end{column}
+    \begin{column}[c]{0.5\linewidth}
+     \begin{center}
+        \begin{figure}
+            \includegraphics[width=6.25cm,clip]{./Pics/RegenerativeClosed_RankineCycle_Diagram}
+        \end{figure}
+     \end{center}
+   \end{column}
+  \end{columns}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Regenerative $\times$ Simple Rankine Cycles}
+  \begin{columns}
+   \begin{column}[c]{0.5\linewidth}
+    \begin{enumerate}[(a)]
+     \item<1-> Advantages of Regenerative cycle over Simple Rankine Cycle
+     \begin{enumerate} [(i)]%\scriptsize
+      \item<1-> The heating process in the boiler tends to become reversible;
+      \item<1-> Thermal stresses in boiler are minimised due to the smaller temperature ranges in the boiler;
+      \item<1-> Thermal efficiency is improved as the average temperature of heat addition to the cycle is increased;
+      \item<1-> Due to continuous steam extraction, the content of moisture is reduced and this decreases the corrosion in the turbine;
+      \item<1-> The size of the condenser is smaller (lower cost and better maintenance).
+     \end{enumerate}
+    \end{enumerate} 
+   \end{column}
+%
+   \begin{column}[c]{0.5\linewidth}  
+    \begin{enumerate}[(a)]\setcounter{enumi}{1}
+     \item<2-> Disadvantages of Regenerative cycle over Simple Rankine Cycle
+     \begin{enumerate}[(i)] %\scriptsize
+      \item<2-> Design of the power plant is more complex;
+      \item<2-> As the number of heaters is increased, the greater maintenance (larger cost) is required;
+      \item<2-> Heater are usually costly and the gain in thermal efficiency may not be enough. 
+     \end{enumerate}
+    \end{enumerate} 
+   \end{column}
+  \end{columns}
+  
+\end{frame}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%
 %%% Slide
