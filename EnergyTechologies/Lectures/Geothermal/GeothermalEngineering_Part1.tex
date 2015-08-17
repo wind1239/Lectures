@@ -9,10 +9,10 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode
-%\documentclass[10pt,compress]{beamer}
+\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
 %\documentclass[10pt,compress,handout]{beamer}
-\documentclass[10pt,compress,handout,ignorenonframetext]{beamer} 
+%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer} 
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
@@ -261,11 +261,10 @@
 
 
 
-
 %%%
 %%% SUB-SECTION
 %%%
-\subsection{Dimensions and Units}
+\subsection{Overall System Analysis}
 
 %%%
 %%% Slide
@@ -279,7 +278,7 @@
      \end{itemize}
    \item<2-> Or those based on them:
      \begin{itemize}
-       \item<4-> Newton (N), Joule (J), Pascal (Pa).
+       \item<2-> Newton (N), Joule (J), Pascal (Pa).
      \end{itemize}
    \item<3-> Prefix: 
       \visible<4->{\begin{center}
@@ -304,46 +303,22 @@
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Summary}
-  \begin{enumerate}[(a)]
-   \item <1-> Measures of amount or size:
-     \begin{itemize}
-       \item<1-> Mass ($m$), number of moles ($n$), total volume $\left(V^{t}\right)$;
-       \item<1-> Specific volume $\left(v=V^{t}/m\right)$;
-     \end{itemize}
-   \item<1-> Force ($F$), pressure ($P$), temperature ($T$);
-   \item<1-> Work ($W$), heat ($Q$);
-   \item<1-> Potential and kinetic energy ($E$).
-  \end{enumerate} 
-\end{frame}
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
  \frametitle{Unit Conversion}
   \begin{enumerate}[(a)]
    \item<1-> Most of the time, we need to convert units during our calculations. Thus if we want to convert pressure ($P$) from \blue{\it atm} to \blue{\it psi} (pounds per square inch):
       \begin{displaymath}
-        P = 5\;\cancel{\text{atm}} \times \textcolor{red}{\displaystyle\frac{14.70\;\text{psi}}{1\;\cancel{\text{atm}}}} = 73.50\;psi
+        P = 5\;\cancel{\text{atm}} \times \textcolor{red}{\displaystyle\frac{14.70\;\text{psi}}{1\;\cancel{\text{atm}}}} = 73.50\;psi 
       \end{displaymath}
-   \item<2-> Or, in a more complex example, integrating $dH=VdP$ from state 1 to 2 (with constant volume),
+   \item<2-> Or, in a more complex example, integrating $dh=vdP$ from state 1 to 2 (with constant specific volume),
       \begin{eqnarray}
-        \int\limits_{H_{1}}^{H_{2}}dH &=& \int\limits_{P_{1}}^{P_{2}}VdP \Longrightarrow H_{2} = H_{1} + V\left(P_{2}-P_{1}\right) \nonumber \\
+        \int\limits_{h_{1}}^{h_{2}}dh &=& \int\limits_{P_{1}}^{P_{2}}vdP \Longrightarrow h_{2} = h_{1} + v\left(P_{2}-P_{1}\right) \nonumber \\
         %H_{2} &=& H_{1} + V_{1}\left(P_{2}-P_{1}\right) \nonumber \\
-         H_{2} &=& 706.9\textcolor{red}{\frac{kJ}{kg}} + 1.1111\times 10^{-3}\textcolor{blue}{\frac{m^{3}}{kg}}\left(210.0-7.4\right)\textcolor{blue}{bar} \nonumber \\
+         h_{2} &=& 706.9\textcolor{red}{\frac{kJ}{kg}} + 1.1111\times 10^{-3}\textcolor{blue}{\frac{m^{3}}{kg}}\left(210.0-7.4\right)\textcolor{blue}{bar} \nonumber \\
               &=& 706.9\textcolor{red}{\frac{kJ}{kg}} + 1.1111\times 10^{-3}\textcolor{blue}{\frac{\cancel{m^{3}}}{\cancel{kg}}} 202.6\;\textcolor{blue}{\cancel{bar}} \textcolor{red}{\frac{10^{5}\;\frac{\cancel{kg}}{\cancel{m}.\cancel{s^{2}}}}{1\; \cancel{bar}}} \textcolor{red}{\frac{10^{-3}\; \frac{kJ}{kg}}{1\;\frac{\cancel{m^{2}}}{\cancel{s^{2}}}}} \nonumber \\
               &=& 729.41\textcolor{red}{\frac{kJ}{kg}} \nonumber 
       \end{eqnarray} 
   \end{enumerate}
 \end{frame}
-
-
-
-%%%
-%%% SUB-SECTION
-%%%
-\subsection{Overall System Analysis}
 
 
 %%%
@@ -359,7 +334,7 @@
        \item <3-> A \textcolor{red}{system} is defined as a quantity of matter or a region in space chosen for study;
        \item <4-> The mass or region outside the system is called the \textcolor{red}{surroundings};
        \item <5-> The real or imaginary surface that separates the system from its surroundings is called the \textcolor{red}{boundary};
-       \item <6-> Systems may be considered to be {\it closed} or {\it open}, depending on whether a fixed mass or a fixed volume in space is chosen for study; 
+       \item <6-> Systems may be considered to be \red{\it closed} or \red{\it open}, depending on whether a \blue{fixed mass} or a \blue{fixed volume} in space is chosen for study; 
       \end{itemize}
     \end{column}
     \begin{column}[l]{0.45\linewidth}\scriptsize
@@ -384,7 +359,7 @@
 \normalsize
 
 
-
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -396,7 +371,7 @@
       \begin{itemize}%\scriptsize
        \item <1-> A \textcolor{red}{closed system} (also known as a \textcolor{red}{control mass}) consists of a fixed amount of mass, and no mass can cross its boundary. However, energy (in the form of heat or work) may cross the boundary -- and the volume of a closed system does not have to be fixed; 
        \item <2-> When neither energy nor mass is allowed to cross the boundary, that system is called an \textcolor{red}{isolated system};
-       \item <3-> An open system (or \textcolor{red}{control volume}) is a properly selected region in space. It usually encloses a device that involves mass flow such as a compressor, turbine, or nozzle.
+       \item <3-> An \red{open system} (or \textcolor{red}{control volume}) is a properly selected region in space. It usually encloses a device that involves mass flow such as a compressor, turbine, or nozzle.
       \end{itemize}
     \end{column}
     \begin{column}[l]{0.45\linewidth}\scriptsize
@@ -419,7 +394,7 @@
   \end{columns}
 \end{frame}
 \normalsize
-
+\end{comment}
 
 %%%
 %%% Slide
@@ -436,7 +411,7 @@
  \end{itemize}
 \end{frame}
 
-
+\begin{comment}
 
 \subsection{Review of the Main Thermodynamic Tools}
 %%%
@@ -579,12 +554,24 @@
 \end{frame}
 
 
-
+\end{comment}
 %%%
 %%% SUBSECTION
 %%%
 \subsection{Thermodynamic Diagrams and Tables}
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{$PvT$ Thermodynamics Diagrams and Projected Surfaces}
+  \begin{center}
+   \begin{figure}
+     \includegraphics[width=8cm,height=6.cm,clip]{./Pics/PVT_Surface.jpg}
+\caption{$PVT$ diagram (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.}).}
+   \end{figure}
+   \end{center}
+\end{frame}
 %%%
 %%% Slide
 %%%
@@ -715,10 +702,6 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
 
 \end{frame}
 
-%%%
-%%% SUBSECTION
-%%%
-\subsection{Linear Interpolation}
 %%%
 %%% Slide
 %%%
@@ -1419,10 +1402,6 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
    \item <4-> Practical improvements to the Rankine cycle to enhance thermal effciency.
   \end{itemize}
 \end{frame}
-
-
-
-
 
 
 \end{document}
