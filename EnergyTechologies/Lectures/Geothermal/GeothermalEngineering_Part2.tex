@@ -387,9 +387,9 @@
 \end{frame}
 
 
-
-
+%%%
 %%% SUBSECTION
+%%%
 \subsection{Hydrothermal Convection Systems}
 
 %%%
@@ -413,8 +413,6 @@
             where $\alpha$ and $\beta$ are the expansivity and compressibility coefficients, respectively;}
     \end{enumerate}
 \end{frame}
-
-
 
 
 %%%
@@ -441,8 +439,69 @@
 
 
 
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Porous Media Flow}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Geothermal Darcy Flows}
+  \begin{columns}
+   \begin{column}[c]{0.45\linewidth}
+    \begin{enumerate}[1.]\setcounter{enumi}{5} \scriptsize
+       \item <1-> Fluid motion is due to forces, in particular pressure and gravity forces;
+       \item <2-> Henry Darcy (1986) established the correlation between fluid flow and forces based on experiments of water flowing through a sandpack;
+       \item <3-> The rate of fluid flow depends on \blue{pressure gradient, $\nabla P$},
+          \visible<3->{\begin{equation}
+             \dot{Q} = - \mathcal{K} \frc{\rho}{\mu}\nabla P
+          \end{equation}
+          where $\dot{Q}$ is the mass flow rate per cross-sectional area, $\mu$ is the fluid viscosity. $\mathcal{K}$ is the absolute permeability;}
+       \item <4-> In 3D, this equation can be expressed as, 
+          \begin{displaymath}
+            \begin{pmatrix} \dot{Q_{x}}\\ \\\dot{Q_{y}}\\ \\\dot{Q_{z}}\end{pmatrix} = - \mathcal{K} \frc{\rho}{\mu} \begin{pmatrix} \frc{\Delta P}{\Delta x} \\ \\\frc{\Delta P}{\Delta y} \\ \\\frc{\Delta P}{\Delta z}-\rho g \end{pmatrix};
+          \end{displaymath}
+    \end{enumerate}
+   \end{column}
+   \begin{column}[c]{0.55\linewidth}
+    \begin{enumerate}[1.]\setcounter{enumi}{9} \scriptsize
+       \item <5-> Or in matricial form,
+          \visible<3->{\begin{equation}
+            \underline{\dot{Q}} = - \mathcal{K} \frc{\rho}{\mu} \left(\nabla P - \rho \underline{g}\right),\label{eqn:preDarcy}
+          \end{equation}
+          with $\underline{g} = \left( 0\;\;\; 0\;\;\; g \right)^{T}$.}
+    \end{enumerate}
+     \begin{center}
+        \visible<3->{\includegraphics[width=1.1\columnwidth,clip]{./Pics/Geothermal_PorousMediaFlow.png}}
+     \end{center}
+   \end{column}  
+  \end{columns}
+\end{frame}
 
 
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Geothermal Darcy Flows}
+    \begin{enumerate}[1.]\setcounter{enumi}{10} \scriptsize
+       \item <1-> Dividing Eqn.~\ref{eqn:preDarcy} by $\rho$ leads to the volumetric flux, $\underline{u}$,
+          \visible<1->{\begin{equation}
+            \frc{\underline{\dot{Q}}}{\rho} = \red{\underline{u} = - \frc{\mathcal{K}}{\mu}\left(\nabla P - \rho \underline{g}\right)},\label{eqn:Darcy}
+          \end{equation}
+          where $\underline{u}$ is often referred as \blue{\it Darcy velocity};}
+       \item <2-> However it is not really the velocity in which the fluid flows -- this is called \blue{\it pore velocity}, $\underline{v}$. 
+       \item <3-> $\underline{u}$ and $\underline{v}$ are related as,
+          \visible<3->{\begin{displaymath}
+             \underline{u} = \phi \underline{v}
+          \end{displaymath} 
+          where $\phi$ is the rock porosity.}
+       \item <4-> A few definitions:
+    \end{enumerate}
+\end{frame}
 
 
 
