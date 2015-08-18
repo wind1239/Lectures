@@ -13,6 +13,10 @@
 %Draft or handout mode
 %\documentclass[10pt,compress,handout]{beamer}
 %\documentclass[10pt,compress,handout,ignorenonframetext]{beamer} 
+%\usepackage{graphicx}
+%\usepackage{epstopdf}
+%\DeclareGraphicsExtensions{.gif, .ps, .eps, .png} 
+%\DeclareGraphicsRule{.gif}{png}{}{`convert #1 'png:-'} 
  
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
@@ -304,6 +308,147 @@
 %%%           %%%
  \section{Geothermal Energy Science}
 
+%%% SUBSECTION
+\subsection{Natural Geothermal Gradients}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Fourier's Law: Thermal Conduction}
+  \begin{columns}
+   \begin{column}[c]{0.45\linewidth}
+    \begin{enumerate}[1.] \scriptsize
+       \item <1-> \blue{Gradient} is a vector operator (symbol: $\nabla$) used to represent the slope of function with respect to a variable, i.e., 
+          \begin{displaymath}
+             \nabla \phi \left(x, y, z\right) = \left( \frc{\partial \phi}{\partial x}, \frc{\partial \phi}{\partial y}, \frc{\partial \phi}{\partial z}\right)
+          \end{displaymath} 
+       \item <2-> Temperature rises approximately 2.5$^{\circ}$C at every 100 meters (we may consider negligible oscillations in radial and axial directions),
+          \begin{eqnarray}
+             \nabla T  &=& \frc{\partial T}{\partial x} = \frc{\Delta T}{\Delta x} \approx \frc{2.5}{100} \frc{^{\circ}\text{C}}{m}  \nonumber \\
+                       &=& 0.025 \frc{^{\circ}\text{C}}{m} = 0.025 \frc{K}{m} \nonumber
+          \end{eqnarray} 
+       \item <3-> This means that to reach \blue{125$^{\circ}$C}, we would need to drill wells at a \blue{depth of 5 km}
+       \item <4-> Geothermal gradients can be enhanced through special geologic conditions, e.g., regions where molten rock has raised to shallower depths or;
+       \item <4-> In regions with \blue{deep fluid circulation}.
+    \end{enumerate}
+   \end{column}
+   \begin{column}[c]{0.55\linewidth}
+     \vbox{
+        \hbox{\hspace{1cm}\includegraphics[width=5.cm,clip]{./Pics/geothermal_gradient.png}}
+        \hbox{\includegraphics[width=3.5cm,clip]{./Pics/geothermalgradient.jpg}
+              \includegraphics[width=3.3cm,clip]{./Pics/geotherms.png}}
+     }
+   \end{column}  
+  \end{columns}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Fourier's Law: Thermal Conduction}
+  \begin{columns}
+    \begin{column}[c]{0.45\linewidth}
+      \begin{enumerate}[1.]\setcounter{enumi}{5} \scriptsize
+        \item <1-> The fundamental law of {\it heat conduction} states that heat flows in a \underline{continuous} rock due to temperature differences throughout the medium;
+        \item <2-> The transfer of energy occurs from zones of higher temperature to zones of lower temperature ({\it Zeroth Law of Thermodynamics});
+        \item <3-> The Fourier's law states that the energy flow (i.e., heat flux, $q$) is proportional to the temperature gradient, $q\propto \nabla T$,
+           \visible<3->{\begin{equation}
+              q = - \kappa\nabla T
+           \end{equation}
+           where $\kappa$ is the constant of proportionality and is called \blue{thermal conductivity coefficient};}
+        \item <4-> $\kappa \left[\text{in }W.\left(m.K\right)^{-1}\right]$ is a parameter obtained experimentally that may vary in space, i.e., $\kappa = \kappa\left(x, y, z\right)$ and is also a function of temperature -- $\kappa = \kappa\left(x, y, z, T\right)$;
+        \item <5-> For an averaged rock thermal conductivity, $\kappa_{\text{rock}}\approx 2.0\;\frc{W}{m.K}\rightarrow q=-0.05\frc{W}{m^{2}}$;
+        \item <6-> Thus over an area of 1 km$^{2}$, the crustal \blue{heat flow rate} would be of \blue{50 kW};
+      \end{enumerate}
+    \end{column}
+    \begin{column}[c]{0.55\linewidth}
+          \href{http://www.springer.com/cda/content/document/cda_downloaddocument/9783642340222-c2.pdf?SGWID=0-0-45-1456221-p174676272}{\hspace{-1.cm}\includegraphics[width=1.2\columnwidth]{./Pics/ListRocksConductivity.png}\\
+          \scriptsize From L. Eppelbaum, I. Kutasov, A. Pilchin, Applied Geothermics, Chapter 2.}
+    \end{column}  
+  \end{columns}
+\end{frame} 
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Fourier's Law: Thermal Conduction}
+    \begin{enumerate}[1.]\setcounter{enumi}{11} \scriptsize
+       \item <1-> This is very \underline{small} if compared with common \blue{heat extraction rates} in geothermal fields of \red{10-10$^{2}$ MW};
+       \item <2-> Therefore \underline{\blue{Thermal Conduction}} is \red{not the only} heat transfer mechanism.
+    \end{enumerate}
+
+    \visible<3->{\begin{center}
+       \href{http://www.gly.uga.edu/railsback/PGSG/PGSGmain.html}{\includegraphics[width=8.cm, height=6.5cm,clip]{./Pics/ThermalCond_Geothermal02.jpg}\\
+             \scriptsize From L.B. Railsback (Georgia, USA), Petroleum Geoscience and Subsurface Geology.}
+    \end{center}}
+\end{frame}
+
+
+
+
+%%% SUBSECTION
+\subsection{Hydrothermal Convection Systems}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermal Convection}
+    \begin{enumerate}[1.] \scriptsize
+       \item <1-> Let's consider a reservoir containing a geothermal fluid of density $\rho$; 
+       \item <2-> Under static conditions (i.e., no flow), the pressure is expressed as the weight of the fluid column per unit area, and increases with depth $z$ as,
+            \visible<2->{\begin{equation}
+                \int\limits_{P_{0}}^{P}dP = \int\limits_{z_{0}}^{z}\rho g dz \Longrightarrow \blue{P(z) = P_{0} + \rho g z},
+            \end{equation} 
+            where $g$ is the gravity acceleration. Here we assume that pressure does not change in axial and radial directions;}
+       \item <3-> Densities of geothermal fluids can be expressed as functions of temperature, pressure (and therefore depth) and salinity $\left(\mathcal{C}_{S}\right)$, i.e., $\rho=\rho\left(T,P,\mathcal{C}_{S}\right)$
+       \item <4-> Algebraic expressions that correlate pressure, temperature and specific volume (PvT) are commonly called \underline{\it Equations of State} (EOS);
+       \item <5-> An example of EOS that represents the impact of pressure, temperature in the fluid density is, 
+            \visible<5->{\begin{equation}
+                \rho = \rho_{0}\left[1 - \alpha\left(T-T_{0}\right)+\beta\left(P-P_{0}\right)\right]
+            \end{equation}
+            where $\alpha$ and $\beta$ are the expansivity and compressibility coefficients, respectively;}
+    \end{enumerate}
+\end{frame}
+
+
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermal Convection}
+  \begin{columns}
+   \begin{column}[c]{0.45\linewidth}
+    \begin{enumerate}[1.]\setcounter{enumi}{5} \scriptsize
+       \item <1-> As warmer geothermal fluid (e.g., brine) is less dense than cold fluid, thus 
+    \end{enumerate}
+   \end{column}
+   \begin{column}[c]{0.55\linewidth}
+     \begin{center}
+        \includegraphics[width=5.cm,clip]{./Pics/GeothermalConvection.png}
+     \end{center}
+   \end{column}  
+  \end{columns}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -489,7 +634,7 @@
              \item<2-> (Re)Size the development;
              \item<2-> \blue{Secure power purchase agreement (PPA) to help the financial (including risk analysis) model};
           \end{enumerate}
-       \item <3-> The updated numerical reservoir and financial models will allow the feasibility analysis of:
+       \item <3-> The \blue{updated} \underline{numerical reservoir and financial models} will allow the feasibility analysis of:
           \begin{enumerate}[(a)]\scriptsize
              \item<3-> Location and design of drilling pads ;
              \item<3-> Design of development wells;
