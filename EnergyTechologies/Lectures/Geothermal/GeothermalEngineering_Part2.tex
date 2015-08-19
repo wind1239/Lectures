@@ -481,7 +481,6 @@
 \end{frame}
 
 
-
 %%%
 %%% Slide
 %%%
@@ -503,18 +502,18 @@
                where $\phi$ is the rock porosity.}
             \item <4-> Before we continue, we need to establish a few very important definitions:
                \begin{enumerate}[(a)]\scriptsize
-                  \item <4-> \blue{(Absolute) Porosity $\left(\phi\right)$} is the ratio between total volume of voidage in the rock pore and the volume of the rock,
+                  \item <4-> \blue{(Absolute) Porosity $\left(\phi,\text{ dimensionless}\right)$} is the ratio between total volume of voidage in the rock pore and the volume of the rock,
                      \begin{equation}
                         \phi = \frc{V_{\text{void}}}{V_{\text{total}}};
                      \end{equation}
-                  \item <5-> \blue{Saturation $\left(S\right)$} is a variable relevant \underline{only} when \underline{more than one} fluid (or phase) is present
+                  \item <5-> \blue{Saturation $\left(S,\text{ dimensionless}\right)$} is a variable relevant \underline{only} when \underline{more than one} fluid 
                \end{enumerate}
          \end{enumerate}  
       \end{column}
       \begin{column}[c]{0.5\linewidth}
          %\begin{enumerate}[(a)]\setcounter{enumi}{1} \scriptsize
              %\item <5-> 
-           \visible<5->{\scriptsize (multiphase systems). Saturation can be  defined as the volume fraction of the occupied pores by fluids,  
+           \visible<5->{\scriptsize (or phase) is present (multiphase systems). Saturation can be  defined as the volume fraction of the occupied pores by fluid $\alpha$,  
                      \begin{equation}
                         S_{\alpha} = \frc{V_{\alpha}}{V_{\text{void}}}
                      \end{equation}}
@@ -522,8 +521,8 @@
          \begin{figure}%
             \vspace{-.5cm}
             \vbox{
-                  \visible<4->{\includegraphics[width=3.cm,clip]{./Pics/two-phase-method-flow-in-grain-pack-e1262722458668.jpg}}
-                  \visible<5->{\includegraphics[width=3.cm,clip]{./Pics/Unsat1.jpg}}
+                  \visible<4->{\includegraphics[width=3.5cm,clip]{./Pics/two-phase-method-flow-in-grain-pack-e1262722458668.jpg}}
+                  \visible<5->{\includegraphics[width=3.5cm,clip]{./Pics/Unsat1.jpg}}
             }
          \end{figure}
       \end{column}
@@ -531,6 +530,93 @@
 \end{frame}
 
 
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+ \frametitle{Geothermal Darcy Flows}
+    \begin{enumerate}[(a)]\setcounter{enumi}{2} \scriptsize
+       \item <1-> \blue{Absolute Permeability $\left(\mathcal{K}\right)$} is a \underline{rock property} that indicates the ability to flow or transmit fluids through rocks. Absolute permeability is often measured in units of {\it darcy} or {\it milidarcy} $\Longrightarrow$ 1 darcy = 9.869233$\times$10$^{−13}$ m$^{2}$;
+       \item <2-> Effective Permeability $\left(\mathcal{K}_{\alpha},\text{ darcy or milidarcy}\right)$ is a \underline{rock-fluid property} that measures the conductance of the porous medium for one fluid phase when the medium is saturated with another fluid(s);
+       \item <3->  \blue{Relative Permeability $\left(\mathcal{K}_{r\alpha},\text{ dimensionless}\right)$} is the ratio of the effective permeability of a fluid at a given saturation to the absolute permeability,  
+          \begin{equation}
+             \mathcal{K}_{r\alpha} = \frc{\mathcal{K}_{\alpha}}{\mathcal{K}};
+          \end{equation}
+    \end{enumerate}
+
+    \begin{enumerate}[1.]\setcounter{enumi}{14} \scriptsize
+       \item <4-> The Darcy law represented by Eqn.~\ref{eqn:preDarcy} for a \underline{single phase} can be extended to represent the flow of an arbitrary number of phases,
+          \visible<4->{\begin{equation}
+            \underline{\dot{Q}}_{\alpha} = - \mathcal{K} \frc{\mathcal{K}_{r\alpha}\rho_{\alpha}}{\mu_{\alpha}} \left(\nabla P_{\alpha} - \rho_{\alpha} \underline{g}\right);\label{eqn:ExtendedDarcy}
+          \end{equation}}
+    \end{enumerate}
+
+\end{frame}
+
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Mass, Momentum and Energy Conservation}
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+ \frametitle{Mass Transport}
+    \begin{enumerate}[1.]\scriptsize
+       \item <1-> Hydrothermal fluids are {\bf \underline{not}} pure fluids;
+       \item <2-> Aqueous phase is mixture of a number of components, $\mathcal{N}_{c}$:
+          \begin{enumerate}[(a)]\scriptsize
+             \item <2-> Water;
+             \item <2-> Sodium chloride $\left(NaCl\right)$;
+             \item <2-> Carbonates $\left(Na_{2}CO_{3}, K_{2}CO_{3}, CaCO_{3}\right)$ and other salts and;
+             \item <3-> Dissolved non-condensable gases: $CO_{2}$, $H_{2}S$, N$_{2}$, noble gases, and;
+             \item <4-> Constituents of rocks $\left(\text{e.g., }SiO_{2}\right)$;
+          \end{enumerate}
+       \item <5-> Hydrothermal fluids may coexist in $\mathcal{N}_{p}$ phases (e.g., gaseous, liquid), in thermodynamic equilibrium; 
+       \item <6-> The \blue{total mass flux} of component $i$ split into $\mathcal{N}_{p}$ phases $\left(\underline{\mathcal{F}}_{i}\right)$ is defined as
+          \visible<6->{\begin{equation}
+              \underline{\mathcal{F}}_{i} = \sum\limits_{j=1}^{\mathcal{N}_{p}} x_{i}^{j}\mathcal{F}_{i} = x_{j}^{g}\mathcal{F}^{g} + x_{j}^{l}\mathcal{F}^{l}\label{eqn:advectionlike}
+          \end{equation}
+          where $x_{i}^{j}$ is the mass fraction of component $i\left(\in\left\{1,2,\cdots,\mathcal{N}_{c}\right\}\right)$ in phase $j\left(\in\left\{1,2,\cdots,\mathcal{N}_{p}\right\}\right)$;}
+       \item <7-> In addition to the advection-like contribution, Eqn.~\ref{eqn:advectionlike}, mass transport of the components also occur due to molecular diffusion. The \blue{diffusive mass flux} $\left(\underline{f}_{i}^{j}\right)$ is expressed as,
+          \visible<7->{\begin{equation}
+              \underline{f}_{i}^{j} = -\Phi\rho^{j}\kappa_{i}^{j}\nabla x_{i}^{j}\label{eqn:moleculardiffusion}
+          \end{equation}
+          where $\kappa$ is the mass diffusivity coefficient and $\Phi=\phi\tau_{i}$. $\tau$ is the tortuousity coefficient and is the defined as the reduction of diffusivity rate due to tortuous paths taken by the species during transport;}
+       \item <8-> Under geothermal reservoir conditions, $\kappa\left(\text{aqueous solutes}\right) = 10^{-9}-10^{-10}\;m^{2}.s^{-1}$ and $\kappa\left(\text{gasses}\right) = 10^{-8}\;m^{2}.s^{-1}$.
+    \end{enumerate}
+
+\end{frame}
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+ \frametitle{Modelling Fluid Flows in Geothermal Porous Media}
+    \begin{enumerate}[1.]\scriptsize
+       \item <1-> The first step on modelling $\&$ simulation of fluid flows in porous media is to gather the conservative equations (where $\alpha$ refers to phases):
+          \begin{enumerate}[(a)]\scriptsize
+             \item <2-> Mass conservation (or continuity):
+                \begin{equation}
+                   \frc{\partial}{\partial t} \left(\phi\rho_{\alpha}S_{\alpha}\right) + \nabla\cdot\left(\underline{u}_{\alpha}\rho_{\alpha}S_{\alpha}\right) = \mathcal{S}_{\text{cty},\alpha};
+                \end{equation}
+             \item <3-> Momentum conservation (or extended Darcy equation or force-balance):
+                \begin{equation}
+                   \underline{u}_{\alpha} = - \frc{\mathcal{K}\mathcal{K}_{r\alpha}}{\mu_{\alpha}S_{\alpha}}\left(\nabla P_{\alpha} - \rho_{\alpha}\underline{g} + \mathcal{S}_{\text{mom},\alpha}\right);
+                \end{equation}
+             \item <4-> Thermal energy conservation:
+                \begin{equation}
+                   \frc{\partial}{\partial t} \left(C_{p,\alpha}\rho_{\alpha}S_{\alpha}T_{\alpha}\right) + \nabla\cdot\left(\underline{u}_{\alpha}C_{p,\alpha}\rho_{\alpha}S_{\alpha}T_{\alpha}\right) = \nabla\cdot\left(S_{\alpha}\kappa_{\alpha}\nabla T_{\alpha}\right) + \mathcal{H}\left(T_{\alpha}-T_{\alpha'}\right) + \mathcal{S}_{\text{thermal},\alpha};
+                \end{equation}
+              \visible<4->{where $C_{p}$, $\kappa$ and $\mathcal{H}$ are heat capacity at constant pressure, thermal conductivity coefficient and volumetric interphase (or convective) heat transfer coefficient, respectively. $\mathcal{S}$ is a source and/or sink term;}
+             \item <5-> Conservative equations for species and;
+             \item <5-> Constitutive equations, i.e., expressions for individual components of the equations above. Example: equations of state are used for individual component and phases to determine density as a function of pressure, temperature, salinity etc. Relative permeability $\left(\mathcal{K}_{r\alpha}\right)$, thermal conductivity $\left(\kappa_{\alpha}\right)$ and interphase heat transfer $\left(\mathcal{H}\right)$ coefficients are often obtained through either experimental or empirical relations;
+          \end{enumerate}
+    \end{enumerate}
+
+\end{frame}
 
 
 
