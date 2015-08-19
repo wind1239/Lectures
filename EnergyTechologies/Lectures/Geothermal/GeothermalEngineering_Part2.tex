@@ -487,26 +487,47 @@
 %%%
 \begin{frame}
  \frametitle{Geothermal Darcy Flows}
-    \begin{enumerate}[1.]\setcounter{enumi}{10} \scriptsize
-       \item <1-> Dividing Eqn.~\ref{eqn:preDarcy} by $\rho$ leads to the volumetric flux, $\underline{u}$,
-          \visible<1->{\begin{equation}
-            \frc{\underline{\dot{Q}}}{\rho} = \red{\underline{u} = - \frc{\mathcal{K}}{\mu}\left(\nabla P - \rho \underline{g}\right)},\label{eqn:Darcy}
-          \end{equation}
-          where $\underline{u}$ is often referred as \blue{\it Darcy velocity};}
-       \item <2-> However it is not really the velocity in which the fluid flows -- this is called \blue{\it pore velocity}, $\underline{v}$. 
-       \item <3-> $\underline{u}$ and $\underline{v}$ are related as,
-          \visible<3->{\begin{displaymath}
-             \underline{u} = \phi \underline{v}
-          \end{displaymath} 
-          where $\phi$ is the rock porosity.}
-       \item <4-> A few definitions:
-          \begin{enumerate}[(a)]\scriptsize
-             \item <4-> \blue{(Absolute) Porosity $\left(\phi\right)$} is the ratio between total volume of voidage in the rock pore and the volume of the rock,
-                \begin{equation}
-                   \phi = \frc{V_{\text{void}}}{V_{\text{total}}}
-                \end{equation}
-          \end{enumerate}
-    \end{enumerate}
+   \begin{columns}
+      \begin{column}[c]{0.5\linewidth}
+         \begin{enumerate}[1.]\setcounter{enumi}{10} \scriptsize
+            \item <1-> Dividing Eqn.~\ref{eqn:preDarcy} by $\rho$ leads to the volumetric flux, $\underline{u}$,
+               \visible<1->{\begin{equation}
+                  \frc{\underline{\dot{Q}}}{\rho} = \red{\underline{u} = - \frc{\mathcal{K}}{\mu}\left(\nabla P - \rho \underline{g}\right)},\label{eqn:Darcy}
+               \end{equation}
+               where $\underline{u}$ is often referred as \blue{\it Darcy velocity};}
+            \item <2-> However this is not really the velocity in which the fluid flows -- which is called \blue{\it pore velocity}, \blue{$\underline{v}$}; 
+            \item <3-> $\underline{u}$ and $\underline{v}$ are related by the following relationship,
+               \visible<3->{\begin{displaymath}
+                  \underline{u} = \phi \underline{v}
+               \end{displaymath} 
+               where $\phi$ is the rock porosity.}
+            \item <4-> Before we continue, we need to establish a few very important definitions:
+               \begin{enumerate}[(a)]\scriptsize
+                  \item <4-> \blue{(Absolute) Porosity $\left(\phi\right)$} is the ratio between total volume of voidage in the rock pore and the volume of the rock,
+                     \begin{equation}
+                        \phi = \frc{V_{\text{void}}}{V_{\text{total}}};
+                     \end{equation}
+                  \item <5-> \blue{Saturation $\left(S\right)$} is a variable relevant \underline{only} when \underline{more than one} fluid (or phase) is present
+               \end{enumerate}
+         \end{enumerate}  
+      \end{column}
+      \begin{column}[c]{0.5\linewidth}
+         %\begin{enumerate}[(a)]\setcounter{enumi}{1} \scriptsize
+             %\item <5-> 
+           \visible<5->{\scriptsize (multiphase systems). Saturation can be  defined as the volume fraction of the occupied pores by fluids,  
+                     \begin{equation}
+                        S_{\alpha} = \frc{V_{\alpha}}{V_{\text{void}}}
+                     \end{equation}}
+         %\end{enumerate}  
+         \begin{figure}%
+            \vspace{-.5cm}
+            \vbox{
+                  \visible<4->{\includegraphics[width=3.cm,clip]{./Pics/two-phase-method-flow-in-grain-pack-e1262722458668.jpg}}
+                  \visible<5->{\includegraphics[width=3.cm,clip]{./Pics/Unsat1.jpg}}
+            }
+         \end{figure}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 
@@ -517,9 +538,9 @@
 
 
 
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%           %%%
