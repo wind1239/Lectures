@@ -600,15 +600,15 @@
           \begin{enumerate}[(a)]\scriptsize
              \item <2-> Mass conservation (or continuity):
                 \begin{equation}
-                   \frc{\partial}{\partial t} \left(\phi\rho_{\alpha}S_{\alpha}\right) + \nabla\cdot\left(\underline{u}_{\alpha}\rho_{\alpha}S_{\alpha}\right) = \mathcal{S}_{\text{cty},\alpha};
+                   \frc{\partial}{\partial t} \left(\phi\rho_{\alpha}S_{\alpha}\right) + \nabla\cdot\left(\underline{u}_{\alpha}\rho_{\alpha}S_{\alpha}\right) = \mathcal{S}_{\text{cty},\alpha};\label{eqn:continuity}
                 \end{equation}
              \item <3-> Momentum conservation (or extended Darcy equation or force-balance):
                 \begin{equation}
-                   \underline{u}_{\alpha} = - \frc{\mathcal{K}\mathcal{K}_{r\alpha}}{\mu_{\alpha}S_{\alpha}}\left(\nabla P_{\alpha} - \rho_{\alpha}\underline{g} + \mathcal{S}_{\text{mom},\alpha}\right);
+                   \underline{u}_{\alpha} = - \frc{\mathcal{K}\mathcal{K}_{r\alpha}}{\mu_{\alpha}S_{\alpha}}\left(\nabla P_{\alpha} - \rho_{\alpha}\underline{g} + \mathcal{S}_{\text{mom},\alpha}\right);\label{eqn:momentum}
                 \end{equation}
              \item <4-> Thermal energy conservation:
                 \begin{equation}
-                   \frc{\partial}{\partial t} \left(C_{p,\alpha}\rho_{\alpha}S_{\alpha}T_{\alpha}\right) + \nabla\cdot\left(\underline{u}_{\alpha}C_{p,\alpha}\rho_{\alpha}S_{\alpha}T_{\alpha}\right) = \nabla\cdot\left(S_{\alpha}\kappa_{\alpha}\nabla T_{\alpha}\right) + \mathcal{H}\left(T_{\alpha}-T_{\alpha'}\right) + \mathcal{S}_{\text{thermal},\alpha};
+                   \frc{\partial}{\partial t} \left(C_{p,\alpha}\rho_{\alpha}S_{\alpha}T_{\alpha}\right) + \nabla\cdot\left(\underline{u}_{\alpha}C_{p,\alpha}\rho_{\alpha}S_{\alpha}T_{\alpha}\right) = \nabla\cdot\left(S_{\alpha}\kappa_{\alpha}\nabla T_{\alpha}\right) + \mathcal{H}\left(T_{\alpha}-T_{\alpha'}\right) + \mathcal{S}_{\text{thermal},\alpha};\label{eqn:energy}
                 \end{equation}
               \visible<4->{where $C_{p}$, $\kappa$ and $\mathcal{H}$ are heat capacity at constant pressure, thermal conductivity coefficient and volumetric interphase (or convective) heat transfer coefficient, respectively. $\mathcal{S}$ is a source and/or sink term;}
              \item <5-> Conservative equations for species and;
@@ -617,6 +617,48 @@
     \end{enumerate}
 
 \end{frame}
+
+
+
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+ \frametitle{Modelling Fluid Flows in Geothermal Porous Media}
+         \begin{enumerate}[1.]\setcounter{enumi}{1}\scriptsize
+            \item <1-> The system above can lead to a number of possible configurations, from the simple \blue{single phase and single component} (e.g., just water) to complex \blue{multiple phases and multiple components} (e.g., acidic brine with dissolved gasses and precipitates);
+            \item <2-> We can solve this set of differential equations (Eqns.~\ref{eqn:continuity}-\ref{eqn:energy}) to help in the design and commissioning of power units;
+            \item <3-> Reservoir simulators (e.g., \href{http://esd1.lbl.gov/research/projects/tough/software/tough2.html}{TOUGH2}, \href{http://www.software.slb.com/products/foundation/pages/eclipse.aspx}{ECLIPSE}, \href{http://www.uk.comsol.com/}{COMSOL}, \href{http://www.openfoam.com/} {OpenFoam}, etc) are computational tools commonly used in energy industry:
+               \begin{enumerate}[(a)]\scriptsize
+                   \item <4-> Critical Questions $\&$ Answers:
+                       \begin{enumerate}[{a.}i)]\scriptsize
+                          \item <4-> {\bf Input data:} number of phases, initial pressure and temperature conditions, properties of fluids and rocks (e.g., $\mathcal{K}$, $\phi$, $\rho$, C$_{p}$, $\mu$, etc.) and initial $\lq$geometry' of the geothermal reservoir field;
+                          \item <5-> {\bf Output data:} spatial- and time-distribution of pressure $\left(P_{\alpha}\left(\underline{x},t\right)\right)$, saturation $\left(S_{\alpha}\left(\underline{x},t\right)\right)$, velocity $\left(u_{\alpha}\left(\underline{x},t\right)\right)$ and  temperature $\left(T_{\alpha}\left(\underline{x},t\right)\right)$, and geothermal fluid production rate;
+                       \end{enumerate}
+                   \item <6-> Criteria for simulations:
+                       \begin{enumerate}[{b.}i)]\scriptsize
+                          \item <6-> Geometry
+                       \end{enumerate}
+               \end{enumerate}
+         \end{enumerate}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Overview: Mesh Grid Classification}
+
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=12.cm, height=7.8cm, clip]{./Pics/MeshGrid_Examples.pdf}\label{xx}
+    \end{center}
+%\caption{XX}
+   \end{figure}  
+
+
 
 
 
