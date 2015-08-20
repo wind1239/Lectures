@@ -13,11 +13,13 @@
 %Draft or handout mode
 %\documentclass[10pt,compress,handout]{beamer}
 %\documentclass[10pt,compress,handout,ignorenonframetext]{beamer} 
-%\usepackage{graphicx}
-%\usepackage{epstopdf}
-%\DeclareGraphicsExtensions{.gif, .ps, .eps, .png} 
-%\DeclareGraphicsRule{.gif}{png}{}{`convert #1 'png:-'} 
- 
+
+
+%\usepackage{hyperref}
+%\hypersetup{colorlinks = true, citecolor = blue,}
+%\hypersetup{colorlinks = true, urlcolor=blue, citecolor = blue, linkcolor = blue,}}
+
+
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -590,6 +592,24 @@
 
 \end{frame}
 
+
+%%% SUBSECTION
+\subsection{Overview of Geothermal Reservoir}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Overview of Geothermal Reservoir}
+   \begin{figure}%
+     \includegraphics[width=12.cm, height=7.5cm, clip]{./Pics/GeothermalOverviewDiagram}
+   \end{figure}  
+\end{frame}
+
+
+%%% SUBSECTION
+\subsection{Modelling and Simulation}
+
 %%%
 %%% Slide 
 %%%
@@ -627,23 +647,25 @@
 \begin{frame}
  \frametitle{Modelling Fluid Flows in Geothermal Porous Media}
          \begin{enumerate}[1.]\setcounter{enumi}{1}\scriptsize
-            \item <1-> The system above can lead to a number of possible configurations, from the simple \blue{single phase and single component} (e.g., just water) to complex \blue{multiple phases and multiple components} (e.g., acidic brine with dissolved gasses and precipitates);
-            \item <2-> We can solve this set of differential equations (Eqns.~\ref{eqn:continuity}-\ref{eqn:energy}) to help in the design and commissioning of power units;
-            \item <3-> Reservoir simulators (e.g., \href{http://esd1.lbl.gov/research/projects/tough/software/tough2.html}{TOUGH2}, \href{http://www.software.slb.com/products/foundation/pages/eclipse.aspx}{ECLIPSE}, \href{http://www.uk.comsol.com/}{COMSOL}, \href{http://www.openfoam.com/} {OpenFoam}, etc) are computational tools commonly used in energy industry:
+            \item <1-> This set of differential equations (Eqns.~\ref{eqn:continuity}-\ref{eqn:energy}) need to be solved to help in the design and commissioning of power units;
+            \item <2-> Reservoir simulators (e.g., \href{http://esd1.lbl.gov/research/projects/tough/software/tough2.html}{TOUGH2}, \href{http://www.software.slb.com/products/foundation/pages/eclipse.aspx}{ECLIPSE}, \href{http://www.uk.comsol.com/}{COMSOL}, \href{http://www.openfoam.com/} {OpenFoam}, etc) are computational tools commonly used in energy industry:
                \begin{enumerate}[(a)]\scriptsize
-                   \item <4-> Critical Questions $\&$ Answers:
+                   \item <3-> Critical Questions $\&$ Answers:
                        \begin{enumerate}[{a.}i)]\scriptsize
                           \item <4-> {\bf Input data:} number of phases, initial pressure and temperature conditions, properties of fluids and rocks (e.g., $\mathcal{K}$, $\phi$, $\rho$, C$_{p}$, $\mu$, etc.) and initial $\lq$geometry' of the geothermal reservoir field;
                           \item <5-> {\bf Output data:} spatial- and time-distribution of pressure $\left(P_{\alpha}\left(\underline{x},t\right)\right)$, saturation $\left(S_{\alpha}\left(\underline{x},t\right)\right)$, velocity $\left(u_{\alpha}\left(\underline{x},t\right)\right)$ and  temperature $\left(T_{\alpha}\left(\underline{x},t\right)\right)$, and geothermal fluid production rate;
                        \end{enumerate}
-                   \item <6-> Criteria for simulations:
+                   \item <6-> Geometry:
                        \begin{enumerate}[{b.}i)]\scriptsize
-                          \item <6-> Geometry:
-                              \begin{itemize}
-                                 \item <6-> Dimension: 1-, 2- or 3-D;
-                                 \item <7-> Cell shape: 1-D (line), 2-D (triangular and quadrilateral) and 3-D (tetrahedron, hexahedron, pyramid, prism with triangular base, etc ), Fig.~\ref{xx};
-                              \end{itemize}
+                          \item <6-> Dimension: 1-, 2- or 3-D;
+                          \item <6-> Cell/Mesh Shape: 1-D (line), 2-D (triangular and quadrilateral) and 3-D (tetrahedron, hexahedron, pyramid, prism with triangular base, etc );
+                          \item <6-> Cell/Mesh Grid: structured or unstructured;
                        \end{enumerate}
+                   \item <7-> Geological formation parameters: morphology (porous (e.g., sandstone) or fractured (e.g., carbonates) media), $\phi$, $\mathcal{K}$, $\mathcal{K}_{r\alpha}$, $P_{\text{capillary}}$, C$_{p,\alpha}$, $\kappa_{\alpha}$, etc;
+                   \item <8-> Initial Conditions: $T_{\text{reservoir}}$, $P_{\text{reservoir}}$, $S_{\alpha}$, $x_{\alpha}$, homogeneous / heterogeneous (i.e., $\mathcal{K}$ spatial distribution);
+                   \item <9-> Boundary Conditions: prescribed (i) mass and heat flows, (ii) injection pressure and temperature conditions;
+                   \item <10-> Sink and Sources: (i) mass $\&$ heat, (ii) steady-state or transient (i.e., time-dependent), (iii) injection, (iv) production;
+                   \item <11-> Computational Parameters: (i) time-step, (ii) convergence criteria, (iii) linear solvers and pre-conditioners, (iv) etc
                \end{enumerate}
          \end{enumerate}
 \end{frame}
@@ -656,17 +678,26 @@
  \frametitle{Modelling Fluid Flows in Geothermal Porous Media: Mesh Grid Classification}
 
    \begin{figure}%
-    \begin{center}
-     \includegraphics[width=12.cm, height=7.8cm, clip]{./Pics/MeshGrid_Examples.pdf}\label{xx}
-    \end{center}
-    %\caption{XX}
+     \includegraphics[width=9.cm, height=6.5cm, clip]{./Pics/MeshGrid_Examples.pdf}\label{xx}
+    %\caption{Main geometrical elements in reservoir simulators}
    \end{figure}  
 
+\end{frame}
 
 
 
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Modelling Fluid Flows in Geothermal Porous Media: Numerical Simulation Algorithm}
 
+   \begin{figure}%
+     \includegraphics[width=10.cm, height=7.cm, clip]{./Pics/NumericalSimulation_Fluxogram}
+   \end{figure}  
+
+\end{frame}
 
 
 
