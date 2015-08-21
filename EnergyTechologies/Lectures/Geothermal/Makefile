@@ -1,12 +1,16 @@
 
 default:	GeothermalEngineering_Part1.pdf GeothermalEngineering_Part2.pdf \
-		GeothermalEngineering_ReviewThermodinamics.pdf \
+		Tutorial1.pdf Tutorial2.pdf Tutorial3.pdf
+		#GeothermalEngineering_ReviewThermodinamics.pdf \
 		GeothermalEngineering_Part3.pdf
 
 GeothermalEngineering_Part1.pdf:		GeothermalEngineering_Part1.tex
 GeothermalEngineering_Part2.pdf:		GeothermalEngineering_Part2.tex
-GeothermalEngineering_ReviewThermodinamics.pdf:	GeothermalEngineering_ReviewThermodinamics.tex
-GeothermalEngineering_Part3.pdf:		GeothermalEngineering_Part3.tex
+Tutorial1.pdf:					Tutorial1.tex
+Tutorial2.pdf:					Tutorial2.tex
+Tutorial3.pdf:					Tutorial3.tex
+#GeothermalEngineering_ReviewThermodinamics.pdf:	GeothermalEngineering_ReviewThermodinamics.tex
+#GeothermalEngineering_Part3.pdf:		GeothermalEngineering_Part3.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
