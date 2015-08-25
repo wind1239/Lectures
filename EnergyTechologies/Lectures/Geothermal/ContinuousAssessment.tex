@@ -1,0 +1,324 @@
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+%\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{report}%{article}%{report}%{book}
+\documentclass[12pts,a4paper]{report}%{article}%{report}%{book}
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate,enumitem}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{color}
+\usepackage{units}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+%\usepackage{pdflscape}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{EG501J -- Geothermal Energy}}}
+\rhead[] {{\text{\small{Continuous Assessment (2015/16)}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+\lfoot[]{Continuous Assessment}
+%\cfoot[\thepage]{\thepage}
+\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+\newlist{ExList}{enumerate}{1}
+\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+\newlist{ProbList}{enumerate}{1}
+\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+
+
+
+\begin{document}
+
+\begin{center}
+{\Large Continuous Assessment -- Group Work}
+\end{center}
+
+\begin{enumerate}
+%
+\item {\bf XX Groups of 2 students};
+%
+\item Choose one of the Manuscripts in the list below and assign yourselves in the {\it MyAberdeen}'s Groups -- Deadline: September XX$^{th}$.
+%
+\item Written Report containing (5-7 pages):
+  \begin{enumerate}
+   \item Summary of the manuscript;
+   \item Relevance (i.e., main motivation for the work, applications etc);
+   \item Discussion.
+  \end{enumerate}
+%
+\item Criteria of assessment:
+  \begin{enumerate}
+    \item Presentation $\&$ style of writing (20$\%$): general appearance, structure and organisation, style of writing, etc;
+    \item Technical content (50$\%$): abstract (comprehensiveness and conciseness), technical description, approach, conclusions, etc;
+    \item Evidence of critical reasoning (30$\%$): methodology and analysis (relationship between the manuscript content and the course work), discussion of the main results, etc.
+  \end{enumerate}
+  {\bf Prepare the report as PDF file and submit it through {\it Turnitin} by Monday, September XXth, 23:59 at the latest.}
+ \item Feedback will be given before XX October;
+\end{enumerate}
+%
+
+
+\clearpage
+
+\begin{center}
+{\Large List of Groups / Manuscripts}
+\end{center}
+
+
+\begin{enumerate}[label=\bfseries Group \arabic*:]
+%
+\item K. Pruess (2006) \href{http://dx.doi.org/10.1016/j.geothermics.2006.08.002}{`Enhanced geothermal systems (EGS) using CO$_{2}$ as working fluid — A novel approach for generating renewable energy with simultaneous sequestration of carbon'}, {\it Geothermics} 35:351-367.
+%
+\item H. Hofmann, G. Blocher, N. Borsing, N. Maronde, N. Pastrik, G. Zimmermann (2014) \href{http://dx.doi.org/10.1016/j.geothermics.2014.03.003}{`Potential for enhanced geothermal systems in low permeability limestones – stimulation strategies for the Western Malm karst (Bavaria)'}, {\it Geothermics} 51:351-367.
+%
+\item M. Finster, C. Clark, J. Schroeder, L. Martino (2015) \href{http://dx.doi.org/10.1016/j.rser.2015.05.059}{`Geothermal produced fluids: Characteristics, treatment technologies, and management options'}, {\it Renewable and Sustainable Energy Reviews} 50:952-966.
+%
+\item J-A. R. Sarr, F. Mathieu-Potvin (2015) \href{http://dx.doi.org/10.1016/j.geothermics.2014.12.002}{`Improvement of Double-Flash geothermal power plant design: A comparison of six interstage heating processes'}, {\it Geothermics} 54:82-95.
+%
+\item A. Franco, M. Vaccaro (2012) \href{http://dx.doi.org/10.1016/j.energy.2011.11.029}{`An integrated “Reservoir-Plant” strategy for a sustainable and efficient use of geothermal resources'}, {\it Energy} 37:299-310.
+%
+\item M. Zeyghami (2015) \href{http://dx.doi.org/10.1016/j.energy.2015.05.092}{`Performance analysis and binary working fluid selection of combined flash-binary geothermal cycle'}, {\it Energy} (In press).
+%
+\item T. Li, J. Zhu, S. Xin, W. Zhang (2014) \href{http://dx.doi.org/10.1016/j.geothermics.2014.03.009}{`A novel geothermal system combined power generation, gathering heat tracing, heating/domestic hot water and oil recovery in an oilfield'}, {\it Geothermics} 51:388-396.
+%
+\item A. Casasso, R. Sethi (2014) \href{http://dx.doi.org/10.1016/j.renene.2013.08.019}{`Efficiency of closed loop geothermal heat pumps: A sensitivity analysis'}, {\it Renewable Energy} 62:737-746.
+%
+\item R. Shortall, B. Davidsdottir, G. Axelsson (2015) \href{http://dx.doi.org/10.1016/j.esd.2015.02.004}{`Development of a sustainability assessment framework for geothermal energy projects'}, {\it Energy for Sustainable Development} 27:28-45.
+%
+\item R. Shortall, B. Davidsdottir, G. Axelsson (2015) \href{http://dx.doi.org/10.1016/j.rser.2015.04.175}{`A sustainability assessment framework for geothermal energy projects: Development in Iceland, New Zealand and Kenya'}, {\it Renewable and Sustainable Energy Reviews} 50:372-402.
+%
+\item D, Budisulistyo, S. Krumdieck (2015) \href{http://dx.doi.org/10.1016/j.enconman.2015.06.069}{`Thermodynamic and economic analysis for the pre-feasibility study of a binary geothermal power plant'}, {\it Energy Conversion and Management} 103:639-649.
+%
+\end{enumerate}
+
+
+
+
+%{
+%  \includepdf[pages=-,fitpaper]{EG3521_OralPresentationAssessmentSheet.pdf}
+%}
+
+\end{document}
