@@ -1,0 +1,41 @@
+module getall
+
+contains
+
+  real function activ( x )
+    implicit none
+    real :: x
+
+    activ = exp ( 0.64 * x**2 )
+
+    return
+  end function activ
+
+  real function Psat( A, B, C, T )
+    implicit none
+    real :: A, B, C, T 
+
+    Psat = exp( A - B /( T + C ) )
+
+    return
+  end function Psat
+
+
+  real function dPsat( A, B, C, T )
+    implicit none
+    real :: A, B, C, T 
+
+    dPsat = B * exp( A - B /( T + C ) ) / ( T + C )** 2
+
+    return
+  end function dPsat
+
+
+end module getall
+
+
+program flash2
+implicit none
+
+
+end program flash2

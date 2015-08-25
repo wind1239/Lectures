@@ -1,0 +1,48 @@
+module VaporPressure
+
+contains
+
+  real function Antoine_Psat( A, B, C, T )
+    implicit none
+    real :: A, B, C, T
+    real :: Psat
+
+    Psat = A - B / ( T + C )
+    Antoine_Psat = exp( Psat )
+
+  end function Antoine_Psat
+
+  real function Psat( A, B, T )
+    implicit none
+    real,parameter :: R = 8.314
+    real :: A, B, T
+    real :: Psat
+
+    Psat = A - B / (R*T)
+    Psat = exp( Psat )
+
+  end function Psat
+
+end module VaporPressure
+
+program vle1
+  use VaporPressure
+  implicit none
+  integer, parameter :: n = 10, ncomp = 3
+  real, dimension( n ) :: x, y
+  real, dimension( ncomp ) :: A, B, C
+  real :: T, P, z0
+  integer :: i, j
+
+  A(1) = 10.422 ; B(1) = 26799.; A(2) = 11.431 ; B(2) = 35200.
+
+  z0 = 0.
+  do i = 1, n
+     x( i ) = z0 + real( ( j - 1 ) / n )
+  end do
+
+  
+
+
+  return
+end program vle1
