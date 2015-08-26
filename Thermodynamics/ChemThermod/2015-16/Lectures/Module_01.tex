@@ -45,12 +45,12 @@
 
 
 %At the start of every section, put a slide indicating the contents of the current section.
-%\AtBeginSection[] {
-%  \begin{frame}
-%    \frametitle{Section Outline}
-%    \tableofcontents[currentsection]
-%  \end{frame}
-%}
+\AtBeginSection[] {
+  \begin{frame}
+    \frametitle{Section Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
 
 % Allow the inclusion of movies into the Presentation! At present,
 % only the Okular program is capable of playing the movies *IN* the
@@ -169,26 +169,31 @@
 % verbatim environment.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Module 1: Introduction and Principles} 
+%%%
+%%% SECTION
+%%%
+\section{Introduction} 
 
+
+%%% SUBSECTION
+\subsection{Objectives}
 
 %%%
 %%% Slide
 %%%
-\subsection{Motivation}
 \begin{frame}
  \frametitle{Aims and Objectives}
   \begin{columns}
     \begin{column}[l]{0.6\linewidth}
      \begin{enumerate}[(a)]
-      \item <2-> We aim to understand how energy evolves or is consumed in industrial- or environmental-based processes.
-      \item <3-> In order to achieve this, we first must define the thermodynamic system and review the definition of:
+      \item <1-> We aim to understand how energy evolves or is consumed in industrial- or environmental-based processes.
+      \item <2-> In order to achieve this, we first must define the thermodynamic system and review the definition of:
        \begin{enumerate}[(i)]
-        \item  Intensive and extensive properties;
-        \item  Laws of thermodynamics;
-        \item  Reversible and irreversible processes;
+        \item <2-> Intensive and extensive properties;
+        \item <2-> Laws of thermodynamics;
+        \item <2-> Reversible and irreversible processes;
        \end{enumerate}
-      \item <4->Finally, we should review applications of the \textcolor{red}{{\it First Law}}. 
+      \item <3->Finally, we should review applications of the \textcolor{red}{{\it First Law}}. 
      \end{enumerate}
     \end{column}
      \begin{column}[l]{0.4\linewidth}
@@ -202,10 +207,15 @@
   \end{columns}
 \end{frame}
 
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Bibliography} 
+
 %%%
 %%% Slide
 %%%
-\subsection{Bibliography} 
 \begin{frame}
  \frametitle{Suggested References}
   Literature relevant for this module:
@@ -218,11 +228,15 @@
 \end{frame}
 
 %%%
+%%% SUBSECTION
+%%%
+\section{Background} 
+
+%%%
 %%% Slide
 %%%
-\subsection{An {\it Extremely Short History} of Thermodynamics}
 \begin{frame}
- \frametitle{Introduction}
+ \frametitle{An `Extremely Short History' of Thermodynamics}
 
    \begin{block}{1650s: $\lq$Birth' of the scientific discipline:}
    \textcolor{blue}{Boyle and Hooke found the classic relationship between pressure, temperature and volume.}
@@ -249,46 +263,68 @@
 \end{frame}
 
 %%%
+%%% SUBSECTION
+%%%
+\subsection{A Few Definitions} 
+
+%%%
 %%% Slide
 %%%
-\subsection{The Thermodynamic System}
 \begin{frame}
- \frametitle{Introduction}
-  \begin{enumerate}[(a)]
-   \item <2-> Thermodynamics is the study of energy and its transformations;
-   \item <3-> It deals with overall energy and entropy changes, and their relation to direction of reactions and the position of equilibrium;
-   \item <4-> Thermodynamics embodies a macroscopic viewpoint, i.e., it focuses on properties of a system (e.g., temperature, volume and heat capacity);
-   \item <5-> Thermodynamics can be applied to systems in equilibrium and non-equilibrium;
-   \item <6-> In this course we focus on system on equilibrium thermodynamics relevant to engineering problems.   
+ \frametitle{The Thermodynamic System}
+  \begin{enumerate}[(1)]\scriptsize
+   \item <1-> Thermodynamics is the study of energy and its transformations;
+   \item <2-> It deals with overall energy and entropy changes, and their relation to direction of reactions and the position of equilibrium;
+   \item <3-> Thermodynamics embodies a macroscopic viewpoint, i.e., it focuses on properties of a system (e.g., temperature, volume and heat capacity);
+   \item <4-> Thermodynamics can be applied to systems in equilibrium and non-equilibrium;
+   \item <5-> In this course we focus on system on equilibrium thermodynamics relevant to engineering problems.   
   \end{enumerate}
+  \visible<6->{\begin{block}{\begin{center}\scriptsize Thermodynamics {\bf does}:\end{center}}
+     \begin{enumerate}[(a)]\scriptsize
+       \item<6-> describe a system macroscopically;
+       \item<6-> calculate the $\lq$energy' required for a physical or chemical process;
+       \item<6-> determine a system's equilibrium conditions;
+     \end{enumerate} 
+  \end{block}  }
+  \visible<7->{\begin{block}{\begin{center}\scriptsize Thermodynamics {\bf does not}:\end{center}}
+     \begin{enumerate}[(a)]\scriptsize
+       \item<7-> allow for kinetic considerations of chemical or physical processes;
+       \item<7-> describe molecular behaviour.
+     \end{enumerate} 
+  \end{block}  }
 \end{frame}
 
 
 %%%
 %%% Slide
 %%%
-\subsection{The Thermodynamic System}
 \begin{frame}
- \frametitle{General Remarks}
-  \begin{enumerate}[(a)]
+ \frametitle{The Thermodynamic System}
+  \begin{enumerate}[(1)]\setcounter{enumi}{5}
    \item <1-> Thermodynamics {\bf does}
-     \begin{itemize}
+     \begin{enumerate}[(a)]
        \item<1-> describe a system macroscopically;
        \item<1-> calculate the $\lq$energy' required for a physical or chemical process;
        \item<1-> determine a system's equilibrium conditions;
-     \end{itemize}
+     \end{enumerate}
    \item<2-> Thermodynamics {\bf does not}
-     \begin{itemize}
+     \begin{enumerate}[(a)]
        \item<2-> allow for kinetic considerations of chemical or physical processes;
        \item<2-> describe molecular behaviour.
-     \end{itemize}
+     \end{enumerate}
   \end{enumerate}
 \end{frame}
+
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Dimensions and Units} 
+
 
 %%%
 %%% Slide
 %%%
-\subsection{Dimensions and Units}
 \begin{frame}
  \frametitle{General Remarks}
   \begin{enumerate}[(a)]
@@ -298,12 +334,12 @@
      \end{itemize}
    \item<2-> Or those based on them:
      \begin{itemize}
-       \item<4-> Newton (N), Joule (J), Pascal (Pa).
+       \item<2-> Newton (N), Joule (J), Pascal (Pa).
      \end{itemize}
   \end{enumerate}
 
   \begin{center}
-    \begin{tabular}{c c c | c c c}
+    \visible<2->{\begin{tabular}{c c c | c c c}
       \hline
       {\it Multiple} & {\it Prefix} & {\it Symbol} & {\it Multiple} & {\it Prefix} & {\it Symbol} \\
       \hline
@@ -314,11 +350,11 @@
       10$^{-3}$       & milli        & m            &   10$^{12}$    &  tera        & T            \\
       10$^{-2}$       & centi        & c            &   10$^{15}$    &  peta        & P            \\
       \hline
-    \end{tabular}
+    \end{tabular}}
   \end{center}
 \end{frame}
 
-
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -336,13 +372,13 @@
    \item<1-> Energy ($E$)potential and kinetic.
   \end{enumerate} 
 \end{frame}
+\end{comment}
 
 %%%
 %%% Slide
 %%%
-\subsection{Dimensions and Units}
 \begin{frame}
- \frametitle{Unit Converter}
+ \frametitle{Unit Convertion}
   \begin{enumerate}[(a)]
    \item<1-> Most of the time, we need to convert units during our calculations. Thus if we want to convert pressure ($P$) from {\it atm} to {\it psi} (pounds per square inch):
       \begin{displaymath}
@@ -350,7 +386,7 @@
       \end{displaymath}
    \item<2-> Or, in a more complex example:
       \begin{eqnarray}
-        H_{7} &=& H_{6} + V_{6}\left(P_{7}-P_{6}\right) \nonumber \\
+        h_{7} &=& h_{6} + v_{6}\left(P_{7}-P_{6}\right) \nonumber \\
               &=& 706.9\textcolor{red}{\frac{kJ}{kg}} + 1.1111\times 10^{-3}\textcolor{blue}{\frac{m^{3}}{kg}}\left(210.0-7.4\right)\textcolor{blue}{bar} \nonumber \\
               &=& 706.9\textcolor{red}{\frac{kJ}{kg}} + 1.1111\times 10^{-3}\textcolor{blue}{\frac{\cancel{m^{3}}}{\cancel{kg}}} 202.6\;\textcolor{blue}{\cancel{bar}} \textcolor{red}{\frac{10^{5}\;\frac{\cancel{kg}}{\cancel{m}.\cancel{s^{2}}}}{1\; \cancel{bar}}} \textcolor{red}{\frac{10^{-3}\; \frac{kJ}{kg}}{1\;\frac{\cancel{m^{2}}}{\cancel{s^{2}}}}} \nonumber \\
               &=& 729.41\textcolor{red}{\frac{kJ}{kg}} \nonumber 
@@ -360,6 +396,11 @@
 
 
 %%%
+%%% SUBSECTION
+%%%
+\subsection{System and Control Volumes} 
+
+%%%
 %%% Slide
 %%%
 \scriptsize
@@ -367,13 +408,16 @@
  \frametitle{System and Control Volumes}
   \begin{columns}
     \begin{column}[l]{0.6\linewidth}
-      \begin{itemize}%\scriptsize
-       \item <2-> The thermodynamic system is the part of the universe we are considering. We are free to choose boundary conditions.
-       \item <3-> A \textcolor{red}{system} is defined as a quantity of matter or a region in space chosen for study;
-       \item <4-> The mass or region outside the system is called the \textcolor{red}{surroundings};
-       \item <5-> The real or imaginary surface that separates the system from its surroundings is called the \textcolor{red}{boundary};
-       \item <6-> Systems may be considered to be {\it closed} or {\it open}, depending on whether a fixed mass or a fixed volume in space is chosen for study; 
-      \end{itemize}
+      \begin{enumerate}%\scriptsize
+       \item <1-> The thermodynamic system is the part of the universe we are considering. We are free to choose boundary conditions.
+       \item <2-> A \textcolor{red}{system} is defined as a quantity of matter or a region in space chosen for study;
+       \item <3-> The mass or region outside the system is called the \textcolor{red}{surroundings};
+       \item <4-> The real or imaginary surface that separates the system from its surroundings is called the \textcolor{red}{boundary};
+       \item <5-> Systems may be considered to be {\it closed} or {\it open}, depending on whether a fixed mass or a fixed volume in space is chosen for study; 
+       \item <6-> A \textcolor{red}{closed system} (also known as a \textcolor{red}{control mass}) consists of a fixed amount of mass, and no mass can cross its boundary. However, energy (in the form of heat or work) may cross the boundary -- and the volume of a closed system does not have to be fixed; 
+       \item <7-> When neither energy nor mass is allowed to cross the boundary, that system is called an \textcolor{red}{isolated system};
+       \item <8-> An open system (or \textcolor{red}{control volume}) is a properly selected region in space. It usually encloses a device that involves mass flow such as a compressor, turbine, or nozzle.
+      \end{enumerate} 
     \end{column}
     \begin{column}[l]{0.4\linewidth}\scriptsize
       \begin{figure}%
@@ -396,42 +440,6 @@
 \end{frame}
 \normalsize
 
-
-
-%%%
-%%% Slide
-%%%
-\scriptsize
-\begin{frame}
- \frametitle{System and Control Volumes}
-  \begin{columns}
-    \begin{column}[l]{0.6\linewidth}
-      \begin{itemize}%\scriptsize
-       \item <1-> A \textcolor{red}{closed system} (also known as a \textcolor{red}{control mass}) consists of a fixed amount of mass, and no mass can cross its boundary. However, energy (in the form of heat or work) may cross the boundary -- and the volume of a closed system does not have to be fixed; 
-       \item <2-> When neither energy nor mass is allowed to cross the boundary, that system is called an \textcolor{red}{isolated system};
-       \item <3-> An open system (or \textcolor{red}{control volume}) is a properly selected region in space. It usually encloses a device that involves mass flow such as a compressor, turbine, or nozzle.
-      \end{itemize}
-    \end{column}
-    \begin{column}[l]{0.4\linewidth}\scriptsize
-      \begin{figure}%
-        \begin{center}
-          \includegraphics[width=\columnwidth,clip]{./Pics/Fig_SystemDefinition}
-        \end{center}
-      \end{figure}
-      \begin{tabular}{|c|c|c|}
-         \hline
-                      & {\bf Mass} & {\bf Energy} \\
-                      & {\bf Exchange} & {\bf Exchange} \\
-         \hline
-         {\bf Open}   & {\it yes}  & {\it yes}    \\
-         {\bf Closed} & {\it no}   & {\it yes}    \\
-         {\bf Isolated}&{\it no}   & {\it no}     \\
-         \hline 
-      \end{tabular}    
-    \end{column}
-  \end{columns}
-\end{frame}
-\normalsize
 
 
 %%%
@@ -452,11 +460,20 @@
 
 
 
-\subsection{Review of the Main Tools for the Course}
+%%%
+%%% SECTION
+%%%
+\section{Review of the Main Tools for the Course}
+
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{PVT Relations}
+
 %%%
 %%% Slide
 %%%
-
 \begin{frame}
  \frametitle{PVT Behaviour of Pure Substances}
  \begin{columns}
@@ -482,7 +499,6 @@
 %%%
 %%% Slide
 %%%
-
 \begin{frame}
  \frametitle{PVT Behaviour of Pure Substances}
  \begin{columns}
@@ -510,7 +526,6 @@
 %%%
 %%% Slide
 %%%
-
 \begin{frame}
  \frametitle{PVT Behaviour of Pure Substances}
  \begin{columns}
@@ -539,7 +554,6 @@
 %%%
 %%% Slide
 %%%
-
 \begin{frame}
  \frametitle{PVT Behaviour of Pure Substances}
  \begin{columns}
@@ -567,7 +581,6 @@
 %%%
 %%% Slide
 %%%
-
 \begin{frame}
  \frametitle{PVT Behaviour of Pure Substances}
  \begin{columns}
@@ -592,10 +605,15 @@
  \end{columns}
 \end{frame}
 
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Thermodynamics Diagrams}
+
 %%%
 %%% Slide
 %%%
-
 \begin{frame}
  \frametitle{Thermodynamics Diagrams: $PH$ and $TS$}
    \begin{figure}%
@@ -616,7 +634,6 @@
 %%%
 %%% Slide
 %%%
-
 \begin{frame}
   \frametitle{Another option: Saturated and Superheated Steam Tables}
    \begin{figure}%
@@ -631,8 +648,7 @@
 
 %%%
 %%% Slide
-%%%
- 
+%%% 
 \begin{frame}
   \frametitle{Another option: Saturated and Superheated Steam Tables}
 \noindent
@@ -664,7 +680,6 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 %%%
 %%% Slide
 %%%
-
 \begin{frame}
   \frametitle{Linear Interpolation}
 \noindent
@@ -681,7 +696,6 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 %%%
 %%% Slide
 %%%
-
 \begin{frame}
   \frametitle{Linear Interpolation}
 \noindent
@@ -699,11 +713,21 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 \end{frame}
 
 
+
 %%%
-%%% Slide
+%%% SECTION
+%%%
+\section{Laws of Thermodynamics}
+
+
+%%%
+%%% SUBSECTION
 %%%
 \subsection{Zeroth Law of Thermodynamics}
 
+%%%
+%%% Slide
+%%%
 \begin{frame}
  \frametitle{Zeroth Law of Thermodynamics (Thermal Equilibrium)}
 
@@ -734,9 +758,13 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 
 
 %%%
-%%% Slide
+%%% SUBSECTION
 %%%
 \subsection{First Law of Thermodynamics}
+
+%%%
+%%% Slide
+%%%
 \begin{frame}
  \frametitle{First Law of Thermodynamics (Conservation of Work)}
  %\scriptsize
@@ -761,7 +789,6 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 %%%
 %%% Slide
 %%%
-\subsection{First Law of Thermodynamics}
 \begin{frame}
  \frametitle{First Law of Thermodynamics (Conservation of Energy)}
  %\scriptsize
@@ -789,7 +816,6 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 %%%
 %%% Slide
 %%%
-\subsection{First Law of Thermodynamics}
 \begin{frame}
  \frametitle{First Law of Thermodynamics (Conservation of Energy in Closed Systems)}
  %\scriptsize
@@ -1254,7 +1280,15 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 \end{frame}
 
 
-\subsection{Ideal Gas}
+%%%
+%%% SECTION
+%%%
+\section{Ideal Gas}
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Introduction}
 
 %%%
 %%% Slides
@@ -1285,6 +1319,10 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 \end{frame}
 
 
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Processes}
 %%%
 %%% Slides
 %%%
@@ -1351,7 +1389,7 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 \end{frame}
 
 
-\subsection{Summary}
+\section{Summary}
 %%%
 %%% Slides
 %%%
