@@ -146,6 +146,12 @@
 \includegraphics<#1>[#3]{#4}%
 }
 
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\purple}{\textcolor{purple}} 
+
 \begin{document}
 
 % Title page layout
@@ -219,15 +225,15 @@
 \begin{frame}
  \frametitle{Suggested References}
   Literature relevant for this module:
-  \begin{enumerate}[(a)]
+  \begin{enumerate}[{[}1{]}]
    \item J.M. Smith, H.C. Van Ness, M.M. Abbott, $\lq$Introduction to Chemical Engineering Thermodynamics', 6$^{th}$ Edition: Chapters 2.1-5, 2.8-11 and 5;
    \item A.B. Pippard, $\lq$Elements of Classical Thermodynamics' (1966): Chapters 2, 3 and 4;
    \item H. Devoe, $\lq$Thermodynamics and Chemistry', 2$^{nd}$ Edition: Chapters 2.5-6, 3.1,2,4,5,9,10;
    \item M.J. Moran, H.N. Saphiro, D.D. Boettner, M.B. Bailey, $\lq$Principles of Engineering Thermodynamics', 7$^{th}$ Edition: Chapters 1.2-8, 2, 3.1-8, 5.1-7, 6.1.
   \end{enumerate}
 \end{frame}
-
-%%%
+ 
+%%% 
 %%% SUBSECTION
 %%%
 \section{Background} 
@@ -333,7 +339,7 @@
 %%%
 \begin{frame}
  \frametitle{General Remarks}
-  \begin{enumerate}[(a)]
+  \begin{enumerate}
    \item <1-> Do always use \textcolor{blue}{SI units} for calculations:
      \begin{itemize}
        \item<1-> second (s), meter (m), gram (g), Kelvin (K), mole (mol);
@@ -342,10 +348,9 @@
      \begin{itemize}
        \item<2-> Newton (N), Joule (J), Pascal (Pa).
      \end{itemize}
-  \end{enumerate}
-
+   \item<3->  And the appropriated prefix:
   \begin{center}
-    \visible<2->{\begin{tabular}{c c c | c c c}
+    \visible<3->{\begin{tabular}{c c c | c c c}
       \hline
       {\it Multiple} & {\it Prefix} & {\it Symbol} & {\it Multiple} & {\it Prefix} & {\it Symbol} \\
       \hline
@@ -358,6 +363,8 @@
       \hline
     \end{tabular}}
   \end{center}
+  \end{enumerate}
+
 \end{frame}
 
 \begin{comment}
@@ -367,7 +374,7 @@
 \subsection{Dimensions and Units}
 \begin{frame}
  \frametitle{Summary}
-  \begin{enumerate}[(a)]
+  \begin{enumerate}
    \item <1-> Measures of amount or size:
      \begin{itemize}
        \item<1-> Mass ($m$), number of moles ($n$), total volume $\left(V^{t}\right)$;
@@ -385,7 +392,7 @@
 %%%
 \begin{frame}
  \frametitle{Unit Convertion}
-  \begin{enumerate}[(a)]
+  \begin{enumerate}\setcounter{enumi}{3}
    \item<1-> Most of the time, we need to convert units during our calculations. Thus if we want to convert pressure ($P$) from {\it atm} to {\it psi} (pounds per square inch):
       \begin{displaymath}
         P = 5\;\cancel{\text{atm}} \times \textcolor{red}{\displaystyle\frac{14.70\;\text{psi}}{1\;\cancel{\text{atm}}}} = 73.50\;psi
@@ -453,14 +460,35 @@
 %%%
 \begin{frame}
  \frametitle{System and Control Volumes}
- \begin{itemize}
-  \item <2-> The \textcolor{red}{material} in a system is composed of phases (e.g., solid, liquid, gas) with distinct physical and chemical properties;
-  \item <3-> The \textcolor{red}{composition} of each phase is described by a series of discrete chemical formula units (i.e., chemical components) -- e.g., water/steam $\left(\right.$H$_{2}$O$\left.\right)$, ammonia $\left(\right.$NH$_{3}\left.\right)$, carbon dioxide $\left(\right.$CO$_{2}\left.\right)$, etc;
-  \item <4-> Any characteristic of a system is called a \textcolor{red}{property} -- e.g., pressure, temperature, mass, etc;
-  \item <5-> Properties can be classified as \textcolor{red}{intensive} or \textcolor{red}{extensive};
-  \item <6-> \textcolor{red}{Intensive properties} are those that are {\bf independent} of the mass of a system -- e.g., temperature, pressure, density, viscosity, etc;
-  \item <7-> \textcolor{red}{Extensive properties} are those whose values {\bf depend} on the size (or extent) of the system -- e.g., mass, volume, number of moles, internal energy, enthalpy, entropy, etc.  
- \end{itemize}
+  \begin{columns}
+    \begin{column}[l]{0.6\linewidth}
+      \begin{enumerate}\setcounter{enumi}{8}\scriptsize
+         \item <1-> The \textcolor{red}{material} in a system is composed of phases (e.g., solid, liquid, gas) with distinct physical and chemical properties;
+         \item <2-> The \textcolor{red}{composition} of each phase is described by a series of discrete chemical formula units (i.e., chemical components) -- e.g., water/steam $\left(\right.$H$_{2}$O$\left.\right)$, ammonia $\left(\right.$NH$_{3}\left.\right)$, carbon dioxide $\left(\right.$CO$_{2}\left.\right)$, etc;
+         \item <3-> Any characteristic of a system is called a \textcolor{red}{property} -- e.g., pressure, temperature, mass, etc;
+         \item <4-> Properties can be classified as \textcolor{red}{intensive} or \textcolor{red}{extensive};
+         \item <5-> \textcolor{red}{Intensive properties} are those that are {\bf independent} of the mass of a system -- e.g., temperature, pressure, density, viscosity, etc;
+         \item <6-> \textcolor{red}{Extensive properties} are those whose values {\bf depend} on the size (or extent) of the system -- e.g., mass, volume, number of moles, internal energy, enthalpy, entropy, etc.  
+      \end{enumerate} 
+    \end{column}
+    \begin{column}[l]{0.4\linewidth}\scriptsize
+      \begin{figure}%
+        \begin{center}
+          \includegraphics[width=\columnwidth,clip]{./Pics/Fig_SystemDefinition}
+        \end{center}
+      \end{figure}
+      \begin{tabular}{|c|c|c|}
+         \hline
+                      & {\bf Mass} & {\bf Energy} \\
+                      & {\bf Exchange} & {\bf Exchange} \\
+         \hline
+         {\bf Open}   & {\it yes}  & {\it yes}    \\
+         {\bf Closed} & {\it no}   & {\it yes}    \\
+         {\bf Isolated}&{\it no}   & {\it no}     \\
+         \hline 
+      \end{tabular}    
+    \end{column}
+  \end{columns}
 \end{frame}
 
 
@@ -484,23 +512,26 @@
  \frametitle{PVT Behaviour of Pure Substances}
  \begin{columns}
   \begin{column}[l]{0.5\linewidth}
-\begin{itemize}
-\item <1-> This surface represents the \textcolor{red}{Pressure} - \textcolor{red}{specific volume} - \textcolor{red}{Temperature} -- $PVT$, relation in a pure substance;
-\item <2-> Any given coordinate in both, the surface plot and diagrams (projections), will represent values of pressure, specific volume and temperature when the substance is at equilibrium;
-\end{itemize}
+    \begin{enumerate}\scriptsize
+    \item <1-> This surface represents the \textcolor{red}{Pressure} - \textcolor{red}{specific volume} - \textcolor{red}{Temperature} -- $PVT$, relation in a pure substance;
+    \item <2-> Any given coordinate in both, the surface plot and diagrams (projections), will represent values of pressure, specific volume and temperature when the substance is at equilibrium;
+    \item <3-> The \textcolor{red}{Gibbs phase rule},
+       \visible<3->{\begin{equation}
+          \Psi = 2 + \mathcal{C} - \mathcal{P}
+       \end{equation} 
+       describes the number of degrees of freedom (dof), $\Psi$ (\underline{intensive variables}, e.g., temperature, pressure), in a closed system at equilibrium as a function of the number of phases ($\mathcal{P}$ = solid, liquid and vapour) and components, $\mathcal{C}$ (e.g., water, CO$_{2}$, N$_{2}$, etc). }
+\end{enumerate}
   \end{column}
   \begin{column}[l]{0.5\linewidth}
    \begin{figure}%
     \begin{center}
      \includegraphics[width=4.cm,clip]{./Pics/PVT_Surface.jpg}
     \end{center}
-\caption{$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
+    \scriptsize\caption{\scriptsize$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from [4]).}
    \end{figure}    
   \end{column}
  \end{columns}
 \end{frame}
-
-
 
 %%%
 %%% Slide
@@ -508,26 +539,34 @@
 \begin{frame}
  \frametitle{PVT Behaviour of Pure Substances}
  \begin{columns}
-  \begin{column}[l]{0.5\linewidth}
-\begin{itemize}
-\item <1-> The \textcolor{red}{Gibbs phase rule},
-\begin{equation}
-\Psi = 2 + \mathcal{C} - \mathcal{P}
-\end{equation} 
-\item <2-> describes the number of degrees of freedom (dof), $\Psi$ (intensive variables, e.g., temperature, pressure), in a closed system at equilibrium as a function of the number of phases ($\mathcal{P}$ = solid, liquid and vapour) and components, $\mathcal{C}$ (e.g., water, CO$_{2}$, N$_{2}$, etc). 
-\end{itemize}
+   \begin{column}[l]{0.5\linewidth}
+     \begin{enumerate}\setcounter{enumi}{3}\scriptsize
+        \item <1-> {\bf Example 1:} In the $PT$ diagram (b) for one hypothetical component -- $\textcolor{red}{\mathcal{C}=1}$, within each phase region -- $\textcolor{blue}{\mathcal{P}=1}$ (i.e., as either solid, liquid or vapour phases),
+          \visible<1->{\begin{displaymath}
+            \Psi = 2 + \textcolor{red}{1} - \textcolor{blue}{1} = 2
+          \end{displaymath}
+          \begin{enumerate}[(a)]\scriptsize
+             \item  In this case, the number of degrees of freedom correspond to temperature and pressure;
+             \item  Thus, within the vapour phase, temperature and pressure can readily be changed without explicit phase change or composition of the vapour phase.
+          \end{enumerate}}
+        \item <2-> {\bf Example 2:} However, along with the \textcolor{red}{phase-line boundary}, two phases are in equilibrium, i.e., $\textcolor{blue}{\mathcal{P}=2}$,%
+          \visible<2->{\begin{displaymath}
+            \Psi = 2 + \textcolor{red}{1} - \textcolor{blue}{2} = 1
+          \end{displaymath}
+          When the vapour and liquid phases are in equilibrium, any change in temperature {\bf leads} to change in pressure for the system remains in equilibrium;}
+     \end{enumerate}
   \end{column}
   \begin{column}[l]{0.5\linewidth}
    \begin{figure}%
     \begin{center}
      \includegraphics[width=4.cm,clip]{./Pics/PVT_Surface.jpg}
     \end{center}
-\caption{$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
+    \scriptsize\caption{\scriptsize$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from [4]).}
    \end{figure}    
   \end{column}
  \end{columns}
 \end{frame}
-
+ 
 
 %%%
 %%% Slide
@@ -535,77 +574,24 @@
 \begin{frame}
  \frametitle{PVT Behaviour of Pure Substances}
  \begin{columns}
-  \begin{column}[l]{0.5\linewidth}
-\begin{itemize}
-\item <1-> {\bf Example:} In the $PT$ diagram (b) for one hypothetical component -- $\textcolor{red}{\mathcal{C}=1}$, within each phase region -- $\textcolor{blue}{\mathcal{P}=1}$ (i.e., as either solid, liquid or vapour phases),
-\begin{displaymath}
-\Psi = 2 + \textcolor{red}{1} - \textcolor{blue}{1} = 2
-\end{displaymath}
-\item <2-> In this case, the number of degrees of freedom correspond to temperature and pressure;
-\item <3-> Thus, within (e.g.) the vapour phase, temperature and pressure can readily be changed without explicit phase change or composition of the vapour phase.
-\end{itemize}
+    \begin{column}[l]{0.5\linewidth}
+      \begin{enumerate}\setcounter{enumi}{5}\scriptsize
+         \item <1-> {\bf Example 3:} Similarly, for the \textcolor{blue}{\underline{\bf triple point}} -- $\textcolor{blue}{\mathcal{P}=3}$, all three phases are in equilibrium
+           \visible<1->{\begin{displaymath}
+             \Psi = 2 + \textcolor{red}{1} - \textcolor{blue}{3} = 0
+           \end{displaymath}}
+           \begin{enumerate}[(a)]\scriptsize
+              \item <1-> Here there is {\bf no degrees of freedom} -- i.e., there is {\bf just} one value for pressure and temperature that make the {\bf three phases to coexist}.
+              \item <2-> Any change in either intensive properties will drive the system away from the {\it triple point}.
+           \end{enumerate}
+     \end{enumerate}
   \end{column}
   \begin{column}[l]{0.5\linewidth}
    \begin{figure}%
     \begin{center}
      \includegraphics[width=4.cm,clip]{./Pics/PVT_Surface.jpg}
     \end{center}
-\caption{$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
-   \end{figure}    
-  \end{column}
- \end{columns}
-\end{frame}
-
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{PVT Behaviour of Pure Substances}
- \begin{columns}
-  \begin{column}[l]{0.5\linewidth}
-\begin{itemize}
-\item <1-> However, along with the \textcolor{red}{phase-line boundary}, two phases are in equilibrium, i.e., $\textcolor{blue}{\mathcal{P}=2}$,%
-\begin{displaymath}
-\Psi = 2 + \textcolor{red}{1} - \textcolor{blue}{2} = 1
-\end{displaymath}
-\item <2-> When the vapour and liquid phases are in equilibrium, any change in temperature {\bf leads} to change in pressure for the system remains in equilibrium;
-\end{itemize}
-  \end{column}
-  \begin{column}[l]{0.5\linewidth}
-   \begin{figure}%
-    \begin{center}
-     \includegraphics[width=4.cm,clip]{./Pics/PVT_Surface.jpg}
-    \end{center}
-\caption{$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
-   \end{figure}    
-  \end{column}
- \end{columns}
-\end{frame}
-
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{PVT Behaviour of Pure Substances}
- \begin{columns}
-  \begin{column}[l]{0.5\linewidth}
-\begin{itemize}
-\item <1-> Similarly, for the {\bf triple point} -- $\textcolor{blue}{\mathcal{P}=3}$, all three phases are in equilibrium
-\begin{displaymath}
-\Psi = 2 + \textcolor{red}{1} - \textcolor{blue}{3} = 0
-\end{displaymath}
-\item <2-> Here there is {\bf no degrees of freedom} -- i.e., there is {\bf just} one value for pressure and temperature that make the {\bf three phases to coexist}.
-\item <3-> Any change in either intensive properties will drive the system away from the {\it triple point}.
-\end{itemize}
-  \end{column}
-  \begin{column}[l]{0.5\linewidth}
-   \begin{figure}%
-    \begin{center}
-     \includegraphics[width=4.cm,clip]{./Pics/PVT_Surface.jpg}
-    \end{center}
-\caption{$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
+    \scriptsize\caption{\scriptsize$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from [4]).}
    \end{figure}    
   \end{column}
  \end{columns}
@@ -615,25 +601,79 @@
 %%%
 %%% SUBSECTION
 %%%
-\subsection{Thermodynamics Diagrams}
+\subsection{Thermodynamics Diagrams and Tables}
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+ \frametitle{Thermodynamics Diagrams: Pressure $\times$ Specific Enthalpy $(Ph)$ for CO$_{2}$}
+  \begin{center}
+   \begin{figure}
+     \includegraphics[width=8cm,height=7.cm,clip]{./Pics/CO2col}
+   \end{figure}
+   \end{center}
+\end{frame}
 
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Thermodynamics Diagrams: $PH$ and $TS$}
-   \begin{figure}%
-     \vbox{
-      \hbox{\hspace{.8cm}
-      \includegraphics[width=4.6cm,height=3.8cm,clip]{./Pics/Overview_Refrig18}
-      \hspace{.1cm}
-      \includegraphics[width=4.6cm,height=3.8cm,clip]{./Pics/Overview_Refrig17}}
-      \vspace{-.1cm}
-      \hbox{\hspace{.8cm}
-      \includegraphics[width=4.9cm,height=4.cm,clip]{./Pics/CO2col}
-      \hspace{.1cm}
-      \includegraphics[width=4.6cm,height=3.87cm,clip]{./Pics/water_TS.png}}}
+ \frametitle{Thermodynamics Diagrams: Pressure $\times$ Specific Enthalpy $(Ph)$}
+  \begin{center}
+   \begin{figure}
+      \includegraphics[width=8cm,height=7.cm,clip]{./Pics/Overview_Refrig18}
    \end{figure}
+   \end{center}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermodynamics Diagrams: Pressure $\times$ Specific Enthalpy $(Ph)$}
+  \begin{center}
+   \begin{figure}
+      \includegraphics[width=8cm,height=7.cm,clip]{./Pics/Overview_Refrig17}
+   \end{figure}
+   \end{center}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermodynamics Diagrams: Temperature $\times$ Specific Entropy $(Ts)$ for Water}
+  \begin{center}
+   \begin{figure}
+     \includegraphics[width=8cm,height=7.cm,clip]{./Pics/water_TS.png}
+   \end{figure}
+   \end{center}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermodynamics Diagrams: Temperature $\times$ Specific Entropy $(Ts)$}
+  \begin{center}
+   \begin{figure}
+      \includegraphics[width=8cm,height=7.cm,clip]{./Pics/TS_Diag_Schematics}
+   \end{figure}
+   \end{center}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Another option: (a) Saturated Tables and ...}
+\scriptsize{From Reference [4]:}\vspace{-.8cm}
+   \begin{center}
+   \begin{figure}
+      \includegraphics[width=9.cm,height=9.5cm,clip]{./Pics/WaterSatTable}
+   \end{figure}
+   \end{center}
 \end{frame}
 
 
@@ -641,45 +681,43 @@
 %%% Slide
 %%%
 \begin{frame}
-  \frametitle{Another option: Saturated and Superheated Steam Tables}
-   \begin{figure}%
-   \vbox{
-      \hbox{\hspace{-1.cm}
-      \includegraphics[width=8.cm,height=8.5cm,clip]{./Pics/Sample_SteamTablePg}
-      \hspace{-2cm}
-      \includegraphics[width=8.cm,height=8.5cm,clip]{./Pics/Sample_SteamTablePg2}}}
-   \end{figure}
-\end{frame}
-
-
-%%%
-%%% Slide
-%%% 
-\begin{frame}
-  \frametitle{Another option: Saturated and Superheated Steam Tables}
+  \frametitle{Another option: Saturated and Superheated Tables $\&$ Linear Interpolation}
 \noindent
-\begin{itemize}
-\item <2-> {\bf \textcolor{red}{Example:}} At $P=1.50\;$ bar, the saturated steam has the following thermodynamic properties,
-\tiny
+\begin{enumerate}\scriptsize
+\item <1-> {\bf \textcolor{red}{Example:}} At $P=1.50\;$ bar, the saturated steam has the following thermodynamic properties,
+%\tiny 
 \begin{center}
 %\begin{table}[h]
-\begin{tabular}{||c|c|c c c|c c c|c c||} 
-\hline\hline
-$P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_{f}$ & $V_{g}$ \\ 
+\visible<2->{\begin{tabular}{c c|c c c|c c|c c} 
+%\hline\hline
+$P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g}$ \\ 
 \hline
-1.50 & 111.3 & 467.1 & 2226.2 & 2693.4 & 1.4336 & 5.7898 & 7.2334 & 0.001053 & 1.159 \\
-\hline
+1.50 & 111.4 & 467.11 & 2226.5 & 2693.6 & 1.4336 & 7.2233 & 0.0010528 & 1.159 \\
+%\hline
 \end{tabular}
-%\caption{Carnot and Rankine Cycles: From Saturated water and steam tables.}
-%\label{Example01_01:Table2}
-%\end{table}
+where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg.K}$, [$v$]=$\frac{m^{3}}{kg}$.}
 \end{center}
 
-\item <3-> But the properties of superheated steam at the same pressure will depend on the temperature $\Rightarrow$ \textcolor{red}{see superheated steam table}.
+\item <3-> But the properties of superheated steam at the same pressure will depend on the temperature $\Rightarrow$ \textcolor{red}{see superheated steam table}. Thus at 1.50 bar $\left(\text{with }T_{\text{sat}}=111.4^{\circ}\text{C}\right)$:
+  \visible<3->{\begin{center}\begin{tabular}{ c | c c c}
+      $T$    & $v$    & $h$     &    $s$     \\
+\hline
+      111.4  & 1.159  & 2693.6  &  7.2233    \\
+      120.0  & 1.188  & 2711.4  &  7.2693    \\
+      160.0  & 1.317  & 2792.8  &  7.4665    \\
+      200.0  & 1.444  & 2872.9  &  7.6433    \\
+      240.0  & 1.570  & 2952.7  &  7.8052    \\ 
+     $\vdots$& $\vdots$&$\vdots$&$\vdots$ \\
+  \end{tabular}
+  \end{center}
+}
+\item <4-> Some of the problems in this course involves extracting values from the thermodynamic tables;
+\item <5-> And although the tables are very extensive (for most of the materials), sometimes we need values that can not be directly found on them;
+\item <6-> In this case, we just operate a {\bf linear interpolation} between neighbour fields;
+\item <7-> For example, \underline{water-steam at 1.50 bar and 212$^{o}$C};
+\item <8-> At this pressure, the {\bf saturation temperature} is 111.3$^{o}$C, therefore we know that the fluid (water/steam) is at \textcolor{red}{superheated state};
 
-\item <2-> {\bf Units:} [$P$] = bar, [$T$] = $^{o}$C, [$H$]= $\frac{kJ}{kg}$, [$S$]=$\frac{kJ}{kg.K}$, [$V$]=$\frac{m^{3}}{kg}$.
-
-\end{itemize}
+\end{enumerate}
 
 \end{frame}
 
@@ -687,34 +725,26 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 %%% Slide
 %%%
 \begin{frame}
-  \frametitle{Linear Interpolation}
+  \frametitle{Another option: Saturated and Superheated Tables $\&$ Linear Interpolation}
 \noindent
-\begin{itemize}
-\item <2-> Some of the problems in this course involves extracting values from the thermodynamic tables;
-\item <3-> And although the tables are very extensive (for most of the materials), sometimes we need values that can not be directly found on them;
-\item <4-> In this case, we just operate a {\bf linear interpolation} between neighbour fields;
-\item <5-> For example, water-steam at 1.5 bar and 212$^{o}$C;
-\item <6-> At this pressure, the {\bf saturation temperature} is 111.3$^{o}$C, therefore we know that the fluid (water/steam) is at \textcolor{red}{superheated state};
-\end{itemize}
-
-\end{frame}
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
-  \frametitle{Linear Interpolation}
-\noindent
-\begin{itemize}
-\item <2-> Thus at 1.5 bar, the enthalpies at 200 and 250$^{o}$C are $H_{1}=2872.9\frac{kJ}{kg}$ and $H_{2}=2972.7\frac{kJ}{kg}$, respectively.
-\item <3-> The enthalpy at 212$^{o}$C,
-\begin{tabular}{ l l }
-\scriptsize $\Delta T=T_{2}-T_{1}=250-200^{o}$C   & \scriptsize $\longleftrightarrow$  $\Delta H=H_{2}-H_{1}=2972.7-2872.9=99.8\frac{kJ}{kg}$ \\
-\scriptsize $\Delta T^{\star} = T_{2} - T^{\star}= 250 - 212^{\circ}$C & \scriptsize $\longleftrightarrow$  $\Delta H^{\star}= H_{2} - H^{\star}= 2972.7 - H^{\star}$\\    
-\end{tabular}
-\item <4-> $\Delta H^{\star}=75.848\frac{kJ}{kg}$ 
-\item <5-> Thus $\Delta H^{\star}= H_{2}-H^{\star} \longrightarrow H^{\star}=2896.85\frac{kJ}{kg}$
-\end{itemize}
+\begin{enumerate}\setcounter{enumi}{7}\scriptsize
+\item <1-> Thus at 1.50 bar and 212$^{\circ}$C, enthalpy and entropy of superheated steam are within the following interval:
+  \visible<1->{\begin{center}\begin{tabular}{ c | c c c}
+      $T$    & $v$    & $h$     &    $s$     \\
+      \textcolor{red}{200.0}  & 1.444  & \textcolor{red}{2872.9}  &  7.6433    \\
+      \textcolor{red}{240.0}  & 1.570  & \textcolor{red}{2952.7}  &  7.8052    \\ 
+  \end{tabular}
+  \end{center}
+}
+\item<2-> The enthalpy at 212$^{o}$C can be calculated as,
+\visible<3->{\begin{tabular}{ l l }
+\scriptsize $\Delta T=T_{2}-T_{1}=240-200^{o}$C   & \scriptsize $\longleftrightarrow$  $\Delta h=h_{2}-h_{1}=2952.7-2872.9=79.8\frac{kJ}{kg}$ \\
+\scriptsize $\Delta T^{\star} = T_{2} - T^{\star}= 240 - 212^{\circ}$C & \scriptsize $\longleftrightarrow$  $\Delta h^{\star}= h_{2} - h^{\star}= 2952.7 - h^{\star}$\\    
+\end{tabular}}
+\item <4-> $\Delta h^{\star}=55.86\frac{kJ}{kg}$ 
+\item <4-> Thus $\Delta h^{\star}= h_{2}-h^{\star} \longrightarrow h\left(T=212^{\circ}C\right)=h^{\star}=2896.84\frac{kJ}{kg}$.
+\item<5-> Similarly for entropy: $s\left(T=212^{\circ}C\right)=s^{\star}=7.6919\frac{kJ}{kg.K}$.
+\end{enumerate}
 
 \end{frame}
 
@@ -1289,12 +1319,7 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 %%%
 %%% SECTION
 %%%
-\section{Ideal Gas}
-
-%%%
-%%% SUBSECTION
-%%%
-\subsection{Introduction}
+\subsection{Ideal Gas}
 
 %%%
 %%% Slides
@@ -1318,17 +1343,12 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
            \end{displaymath}} 
         \item<5-> Relationship between $C_{P}(T)$ and $C_{V}(T)$:
            \visible<5->{\begin{displaymath}
-              C_{P}=\frac{d H(T)}{d T} = \frac{d U(T)}{d T} + \frac{d(RT)}{d T} = C_{V} + R
+              \textcolor{red}{C_{P}}=\frac{d H(T)}{d T} = \frac{d U(T)}{d T} + \frac{d(RT)}{d T} = \textcolor{red}{C_{V} + R}
            \end{displaymath}}           
      \end{enumerate} 
   \normalsize
 \end{frame}
 
-
-%%%
-%%% SUBSECTION
-%%%
-\subsection{Processes}
 %%%
 %%% Slides
 %%%
@@ -1395,6 +1415,300 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 \end{frame}
 
 
+
+%%%
+%%%  SUBSECTION
+%%%
+\subsection{Statements of the Second Law}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Second Law of Thermodynamics}
+ %\scriptsize
+ \begin{itemize}
+   \item <2->The second law of thermodynamics is an expression of the tendency that over time, differences in temperature, pressure and chemical potential will reach an equilibrium state in an isolated physical system;
+   \item <3->From the state of thermodynamic equilibrium, the law deduced the principle of the increase of entropy and explains the phenomenon of irreversibility.
+ \end{itemize}
+
+ \visible<4->{\begin{block}{R. Clausius  (1854)}
+  \begin{center}
+  \textcolor{blue}{$\lq$It is impossible to devise an engine which, working in a cycle, shall produce no effect other than the transfer of heat from a colder to hotter body.'}
+  \end{center}
+ \end{block}}
+
+ \visible<5->{\begin{block}{Kelvin (1951) and Planck (1897)}
+  \begin{center}
+  \textcolor{blue}{$\lq$It is impossible to devise an engine which, working in a cycle, shall produce no effect other than the extraction of heat from a reservoir and the performance of an equal amount of mechanical work.'}
+  \end{center}
+ \end{block}}
+
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Second Law of Thermodynamics}
+ 
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm,clip]{./Pics/2ndLaw_Schem}
+    \end{center}
+   \end{figure} 
+
+   \begin{center}
+     All spontaneous processes are irreversible -- heat flows from hot to cold spontaneously and irreversibly.
+   \end{center}
+   
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Second Law of Thermodynamics}
+     \begin{block}{\begin{center}Mathematical Representation of the 2$^{\text{nd}}$ Law\end{center}}
+        \visible<1->{\begin{eqnarray}
+            \textcolor{blue}{\displaystyle\oint \displaystyle\frac{d Q}{T} < 0 \;\;\; \text{for irreversible processes}} \nonumber \\
+            \textcolor{blue}{\displaystyle\oint \displaystyle\frac{d Q}{T} = 0 \;\;\;\;\; \text{for reversible processes}} \nonumber 
+        \end{eqnarray}}
+     \end{block}
+
+\visible<2->{\begin{block}{\begin{center}{\bf Entropy} \end{center}}
+           \begin{displaymath}
+              dS = \left( \frc{d Q}{T}\right)_{\text{int. rev.}}\hspace{3cm}\left(\frc{J}{kg.K}\right)
+           \end{displaymath}
+\end{block}}
+   
+\end{frame}
+
+%%%
+%%% COMMENTS
+%%%
+\begin{comment}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+ %\scriptsize
+ \begin{columns}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{itemize}
+    \item <2-> In the schematics (rhs), an infinitesimal amount of heat, $\delta Q^{\prime}$, is transferred from the thermal reservoir (with temperature $T_{res}$) to a reversible cyclic engine (1). 
+    \item <3-> The engine produces a small amount of work, $\delta W^{\prime}$, and releases an infinitesimal amount of heat, $\delta Q$ to another reservoir at variable temperature $T$. 
+    \item <4-> The second reservoir (2) also releases work $\left(\delta W\right)$ to the surroundings.
+   \end{itemize}
+
+
+  \end{column}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=1.1\columnwidth,clip]{./Pics/2ndLaw_Schem2}
+    \end{center}
+   \end{figure} 
+  \end{column}
+ \end{columns}
+
+
+ \normalsize
+    
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+ %\scriptsize
+ \begin{columns}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{itemize}
+    \item <1-> Using the analogy of heat transfer ratio and temperature ratio (see power cycle systems), \\
+                $\displaystyle\frac{\delta Q^{\prime}}{\delta Q} = \displaystyle\frac{T_{res}}{T} \;\; \Longrightarrow \displaystyle\frac{\delta Q^{\prime}}{T_{res}} = \displaystyle\frac{\delta Q}{T}$
+  \item <2-> The first law in differential form for the combined cycle (within the dotted box) is \\
+                $dU= \delta Q^{\prime} - \left(\delta W + \delta W^{\prime}\right) \Longrightarrow \delta W + \delta W^{\prime} = \delta Q^{\prime} - dU$
+  \item <3-> The process is not required to be cyclic and the heat transfer $\delta Q$ is internal and do not cross the boundary of the combined system;
+   \end{itemize}
+
+
+  \end{column}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=1.1\columnwidth,clip]{./Pics/2ndLaw_Schem2}
+    \end{center}
+   \end{figure} 
+  \end{column}
+ \end{columns}
+ \normalsize
+    
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+ %\scriptsize
+ \begin{columns}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{itemize}
+    \item <1-> And eliminating $\delta Q^{\prime}$, \\
+                $\delta W + \delta W^{\prime} = T_{res}\displaystyle\frac{\delta Q}{T} - dU$
+     \item <2-> If the configuration shown in the previous slide undergoes a cyclic process, \\
+             $\displaystyle\oint \delta W + \displaystyle\oint \delta W^{\prime} = \displaystyle\oint T_{res}\displaystyle\frac{\delta Q}{T} - \displaystyle\oint dU$
+     \item <3-> as $U$ is a thermodynamic property, the cyclic integral is equal to zero.  Integrating the equation above, and assuming that $T_{res}$ is (by definition) constant:\\
+             $W + W^{\prime} = T_{res} \displaystyle\oint \displaystyle\frac{\delta Q}{T}$
+   \end{itemize}
+  \end{column}
+
+  \begin{column}[c]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=1.1\columnwidth,clip]{./Pics/2ndLaw_Schem2}
+    \end{center}
+   \end{figure} 
+  \end{column}
+ \end{columns}
+ \normalsize
+    
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+    \item <1-> Thus from Kelvin-Plancks statement of the Second Law -- \textcolor{blue}{$\lq$we cannot convert all the heat to work, but we can convert all the work to heat'}:\\
+             $W + W^{\prime} \leq 0$
+    \item <2-> And therefore,\\
+             $T_{res} \displaystyle\displaystyle\oint \displaystyle\frac{\delta Q}{T} \leq 0$
+    \item <3->  Since $T_{res} > 0$, we can divide the previous equation without changing the meaning of the inequality to obtain the mathematical representation of the Second Law:
+             \begin{eqnarray}
+             \textcolor{blue}{\displaystyle\oint \displaystyle\frac{\delta Q}{T} < 0 \;\;\; \text{for irreversible processes}} \nonumber \\
+             \textcolor{blue}{\displaystyle\oint \displaystyle\frac{\delta Q}{T} = 0 \;\;\;\;\; \text{for reversible processes}} \nonumber 
+             \end{eqnarray}
+   \end{itemize}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+    \item <1-> In a reversible process, from state 1 to 2, via path {\it A}, and returning to state 2 from either path {\it B} or {\it C}. The cyclic integral $\displaystyle\oint\displaystyle\frac{\delta Q}{T} = 0$ can be split as,
+         \textcolor{blue}{\begin{eqnarray}
+          \left( \displaystyle\int\limits_{1}^{2} \displaystyle\frac{\delta Q}{T} \right)_{A} + \left( \displaystyle\int\limits_{2}^{1} \displaystyle\frac{\delta Q}{T} \right)_{B} = 0 \nonumber \\
+          \left( \displaystyle\int\limits_{1}^{2} \displaystyle\frac{\delta Q}{T} \right)_{A} + \left( \displaystyle\int\limits_{2}^{1} \displaystyle\frac{\delta Q}{T} \right)_{C} = 0 \nonumber 
+         \end{eqnarray}}
+   \end{itemize}
+ \normalsize
+    
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+    \item <2-> Leading to:
+          $\left( \displaystyle\int\limits_{1}^{2} \displaystyle\frac{\delta Q}{T} \right)_{B} = \left( \displaystyle\int\limits_{2}^{1} \displaystyle\frac{\delta Q}{T} \right)_{C} $
+    \item <3-> Since paths {\it B} and {\it C} are different and arbitrary, but $\displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$ is the same on either paths -- therefore \textcolor{blue}{the integral is path-independent};
+    \item <4-> This defines another (extensive) thermodynamic property -- \textcolor{red}{entropy (S)}, \\
+          $S_{2} - S_{1} = \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$
+    \item <5-> Assuming constant mass ($m$), the intensive property entropy $\left(s=S/m\right)$, the differential form is, \\
+          $ds = \displaystyle\frac{\delta q}{T} \;\;\;\; \Longrightarrow \;\;\;\; \delta q = Tds$
+    \item <6-> Integrating from state 1 to 2: $q_{1}^{2} = \displaystyle\int_{1}^{2} Tds$    
+   \end{itemize}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+  \item <1-> This is the heat transfer equivalent of $w_{1}^{2}=\displaystyle\int_{1}^{2}PdV$
+  \item <2-> Thus for a reversible process, \\
+       $S_{2} - S_{1} = \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$ and $S_{1} - S_{2} = \displaystyle\int\limits_{2}^{1}\displaystyle\frac{\delta Q}{T}$;
+  \item <3-> From the Second Law, \\
+       $0 \geq \left( \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T} \right)_{A} + \left( \displaystyle\int\limits_{2}^{1}\displaystyle\frac{\delta Q}{T} \right)_{B}$ 
+  \item <4-> Combinig the equations above to eliminate the path {\it B}, \\
+        $S_{2}-S_{1} \geq \displaystyle\int\limits_{1}^{2}\displaystyle\frac{\delta Q}{T}$
+ \end{itemize}
+ \normalsize
+\end{frame}
+
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Derivation of the Mathematical Statement of the Second Law}
+   \begin{itemize}
+  \item <1-> If path {\it A} is reversible, the equality holds, however if {\it A} is irreversible, the inequality holds;
+  \item <2-> If the system is isolated $\left(\delta Q = 0\right)$ then\\
+    $S_{2}-S_{1}\geq 0$
+   \end{itemize}
+ \normalsize
+    
+\end{frame}
+
+%%%
+%%% END OF COMMENTED TEXT
+%%%
+\end{comment}
+
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Entropy} 
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Ideal Gas}
+   \begin{enumerate}
+     \item<1-> Mechanically reversible process of closed system
+        \visible<1->{\begin{displaymath}
+           dU = dQ_{\text{rev}} - PdV
+        \end{displaymath}}
+     \item<2-> Applying the definition of entropy and enthalpy,
+        \visible<2->{\begin{displaymath}
+           \displaystyle\frac{\Delta S}{R} = \int\limits_{T_{0}}^{T}\displaystyle\frac{C_{p}^{\text{ig}}}{R}\displaystyle\frac{d T}{T} - \ln\displaystyle\frac{P}{P_{0}}
+        \end{displaymath}}
+     \item<2-> This relates {\bf only} to \textcolor{blue}{properties}, i.e., \textcolor{blue}{independent of the process}.
+   \end{enumerate}
+ \normalsize
+\end{frame}
+
+
+
+
+
 \section{Summary}
 %%%
 %%% Slides
@@ -1402,13 +1716,13 @@ $P$ & $T$ & $H_{f}$ &  $H_{fg}$ & $H_{g}$ & $S_{f}$ &  $S_{fg}$ &  $S_{g}$ & $V_
 \begin{frame}
  \frametitle{Summary}
 After these set of lectures you should know the fundamentals of thermodynamics which will be relevant to understand heat-engine cycles. This includes knowledge of: 
- \begin{itemize}
+ \begin{enumerate}[(a)]
   \item <2-> Phase diagram and steam tables;
   \item <3-> Zeroth and First laws;
   \item <4-> Reversibility and its impact on thermodynamics formulation;
   \item <5-> Definition of the key thermodynamic properties, e.g., work, heat, temperature, internal energy, enthalpy, entropy, etc;
   \item <6-> Mass and energy balances in open and closed systems.
- \end{itemize}
+ \end{enumerate}
 \end{frame}
 
  
