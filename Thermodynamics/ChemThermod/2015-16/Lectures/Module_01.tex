@@ -9,10 +9,10 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-\documentclass[10pt,compress]{beamer}
+%\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
 %\documentclass[10pt,compress,handout]{beamer}
-%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
+\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
@@ -60,7 +60,87 @@
 
 %% Handsout -- comment out the lines below to create handstout with 4 slides in a page with space for comments
 \usepackage{handoutWithNotes}
-%\pgfpagesuselayout{2 on 1 with notes}[a4paper,border shrink=10mm]
+
+\mode<handout>
+{
+\usepackage{pgf,pgfpages}
+
+\pgfpagesdeclarelayout{2 on 1 boxed with notes}
+{
+\edef\pgfpageoptionheight{\the\paperheight} 
+\edef\pgfpageoptionwidth{\the\paperwidth}
+\edef\pgfpageoptionborder{0pt}
+}
+{
+\setkeys{pgfpagesuselayoutoption}{landscape}
+\pgfpagesphysicalpageoptions
+    {%
+        logical pages=4,%
+        physical height=\pgfpageoptionheight,%
+        physical width=\pgfpageoptionwidth,%
+        last logical shipout=2%
+    } 
+\pgfpageslogicalpageoptions{1}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{2}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{3}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.29\pgfphysicalheight},%
+    copy from=3
+    }%
+\pgfpageslogicalpageoptions{4}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.79\pgfphysicalheight},%
+    copy from=4
+    }%
+
+\AtBeginDocument
+    {
+    \newbox\notesbox
+    \setbox\notesbox=\vbox
+        {
+            \hsize=\paperwidth
+            \vskip-1in\hskip-1in\vbox
+            {
+                \vskip1cm
+                Notes\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth
+            }
+        }
+        \pgfpagesshipoutlogicalpage{3}\copy\notesbox
+        \pgfpagesshipoutlogicalpage{4}\copy\notesbox
+    }
+}
+}
+
+\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+
+
+
 %%%%% Color settings
 \usepackage{color}
 %% The background color for code listings (i.e. example programs)
@@ -667,11 +747,24 @@
 %%% Slide
 %%%
 \begin{frame}
-  \frametitle{Another option: (a) Saturated Tables and ...}
+  \frametitle{Another option: (a) \red{Saturated} and (b) Superheated Tables with (c) Linear Interpolation}
 \scriptsize{From Reference [4]:}\vspace{-.8cm}
    \begin{center}
    \begin{figure}
       \includegraphics[width=9.cm,height=9.5cm,clip]{./Pics/WaterSatTable}
+   \end{figure}
+   \end{center}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Another option: (a) Saturated and (b) \red{Superheated Tables} with (c) Linear Interpolation}
+\scriptsize{From Reference (d):}\vspace{-.8cm}
+   \begin{center}
+   \begin{figure}
+      \includegraphics[width=9.5cm,height=8.5cm,clip]{./Pics/Water_SuperheatedTable} 
    \end{figure}
    \end{center}
 \end{frame}
@@ -681,7 +774,7 @@
 %%% Slide
 %%%
 \begin{frame}
-  \frametitle{Another option: Saturated and Superheated Tables $\&$ Linear Interpolation}
+  \frametitle{Another option: (a) Saturated and (b) Superheated Tables with (c) Linear Interpolation}
 \noindent
 \begin{enumerate}\scriptsize
 \item <1-> {\bf \textcolor{red}{Example:}} At $P=1.50\;$ bar, the saturated steam has the following thermodynamic properties,
