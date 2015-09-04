@@ -1,7 +1,8 @@
 
-default:	CourseHandbook_EG501V_2015-16.pdf 
+default:	CourseHandbook_EG501V_2015-16.pdf EG501V_2015-16_PracticalActivities.pdf
 
-CourseHandbook_EG501V_2015-16.pdf: CourseHandbook_EG501V_2015-16.tex
+CourseHandbook_EG501V_2015-16.pdf: 	CourseHandbook_EG501V_2015-16.tex
+EG501V_2015-16_PracticalActivities.pdf:	EG501V_2015-16_PracticalActivities.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf

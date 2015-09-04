@@ -1,0 +1,501 @@
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\usepackage{graphicx,wrapfig,pdfpages}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate}%,enumitem}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+
+
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{subeqnarray}
+\usepackage{ifthen}
+
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+\usepackage{lastpage}
+%\usepackage{pdflscape}
+
+
+%\usepackage{booktabs}
+%\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{ChemEng / SafProcEng Practicals 2015/16}}} 
+\rhead[] {{\text{\small{EG501V}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+%\lfoot[]{Dr Jeff Gomes}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+%\cfoot[\thepage]{\thepage}
+%\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+%\newlist{ExList}{enumerate}{1}
+%\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+%\newlist{ProbList}{enumerate}{1}
+%\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+
+\begin{document}
+
+%%%
+%%% FIRST PAGE
+%%%
+\begin{center}
+{\large {\bf UNIVERSITY OF ABERDEEN, SCHOOL OF ENGINEERING}}
+\medskip
+
+{\large {\bf COURSE INFORMATION SESSION 2015/16}}
+\bigskip 
+
+{\Large {\bf EG501V Computational Fluid Dynamics}}
+\end{center}
+
+\bigskip
+\begin{flushleft}
+
+{\large {\bf CREDIT POINTS:}}\\
+\hspace{0.8cm} 15
+\medskip
+
+{\large {\bf COURSE COORDINATOR: }}\\
+\hspace{0.8cm} Prof Jos Derksen
+\medskip 
+
+{\large {\bf COURSE CONTRIBUTORS:}}\\
+\hspace{0.8cm} Prof Dubravka Pokrajac, Dr Dominic Van der A, Dr Jefferson Gomes
+\medskip
+
+{\large {\bf DISCPLINES:}}\\
+\hspace{0.8cm} MEng in Chemical Engineering and MSc in Safety Processing Engineering
+\medskip  
+\end{flushleft} 
+
+\clearpage
+
+%%%
+%%% Section
+%%%
+\section{SYLLABUS}
+
+\begin{enumerate}[{\bf Module 1}]
+\item {\bf Introduction to CFD and Principles of Conservation:} (2 lectures)\label{Mod:Intro}
+   \begin{enumerate}[(a)]
+      \item Workflow for CFD design and simulation;
+      \item Overview of mass, momentum and energy conservation principles;
+      %\item Reynolds transport theorem;
+      %\item Conservation of mass, momentum and energy;
+      \item General scalar transport equation;
+      %\item Navier-Stokes equation;
+      \item Introduction to mesh generation technologies.
+   \end{enumerate}
+
+\begin{comment}
+\item {\bf Basic Programming Concepts:} (2 lectures)\label{Mod:Programming}
+  \begin{enumerate}[(a)]
+       \item Source code, compilers and executables;
+       \item Design and implementation of algorithms;
+       \item Main programming structures: data types, operators, loops and conditionals;
+       \item Arrays and arrays processing.
+   \end{enumerate}
+\end{comment}
+
+\item {\bf Solution of Systems of Linear Algebraic Equations:} (3 lectures)\label{Mod:LinAlg}
+   \begin{enumerate}[(a)]
+      \item Review of vector-space, properties of vector and matrix norms;
+      %\item Criteria for unique solution;
+      \item Direct and iterative methods (Gauss elimination, LU decomposition, Jacobi, Gauss-Seidel, SOR etc);
+      %\item Conjugate gradient methods;
+      \item Convergence analysis.
+      %\item Advanced solver techniques.
+   \end{enumerate}
+
+\item {\bf Review of Partial Differential Equations (PDE):} (2 lectures)\label{Mod:ReviewPDE}
+   \begin{enumerate}[(a)]
+      \item Mathematical classification of PDE (elliptic, parabolic and hyperbolic);
+      \item Taylor expansion and approximate solution of PDEs;
+      \item Boundary conditions.
+   \end{enumerate}
+
+\item {\bf Fundamentals of Discretisation:} (3 lectures)\label{Mod:Discretisation}
+   \begin{enumerate}[(a)]
+      \item Spatial and temporal discretisation principles with finite difference methods (FDM);
+      \item Well-posed boundary value problem;
+      \item Fundamentals of Finite Element and Finite Volume Methods (FEM and FVM);
+      \item Examples of 1D steady-state heat conduction problem.
+   \end{enumerate}
+
+\item {\bf Introduction to Mesh-based Methods:} (5 lectures)\label{Mod:AdvDiffMethods}
+   \begin{enumerate}[(a)]
+      \item Numerical techniques for time discretisation (implicit, explicit and Crank-Nicolson schemes);
+      %\item Introduction of discretisation schemes of diffusion problems;%: grid- and time-independent analysis, stability analysis, schemes for parabolic and hyperbolic equations; 
+      \item Discretisation schemes for advection-diffusion problems;%: central-difference, upwind and QUICK schemes
+      \item Navier-Stokes equation: discretisation, staggered / collocated grids, SIMPLE algorithm.
+      %\item Introduction to high performance computing strategies for large numerical simulations.
+   \end{enumerate}
+
+\item {\bf Introduction to Turbulence Modeling:} (3 lectures)\label{Mod:Turbulence}
+   \begin{enumerate}[(a)]
+      \item Introduction to statistical representation of turbulent flows (homogeneous and isotropic turbulence);
+      \item General properties of turbulence quantities;
+      \item Reynolds-average Navier-Stokes (RANS) equation;
+      \item Introduction to the main turbulence models ($\kappa-\varepsilon$, LES and DNS).
+   \end{enumerate}
+
+\item {\bf Numerical CFD Simulations (hands-on sessions):} (14 h of lab-activities)\label{Mod:Fluent}
+   \begin{enumerate}[(a)]
+      \item Initial training on industry standard CFD software;
+      \item Mesh generation and grid quality assessment;
+      \item Simulation of 2-D advection problem;
+      \item Simulation of 2-/3-D steady-state and time-dependent fluid flow problems (discipline specific).
+   \end{enumerate}
+
+\end{enumerate}
+
+
+\pagebreak
+
+
+\section{Timetable}%\scriptsize
+
+\begin{center}
+\begin{tabular}{||c||c|c|c|c|c||}
+\hline\hline
+\multicolumn{5}{||c||}{Computational Fluid Dynamics (EG501V) --  Module~\ref{Mod:Fluent}} \\
+\hline\hline
+\multirow{5}{*}{\color{red}{Week 13}} & Oct 26    & 09.00-11.00 & Practical 01 & Edward Wright B. (Comp F81)       \\
+                                      & Oct 26    & 14.00-16.00 & Lecture 01   & Auris Lecture Theatre Cruickshank \\
+                                      & Oct 26    & 16.00-17.00 & Tutorial 01  & Fraser Noble (FN2)                \\
+                                      & Oct 26    & 17.00-18.00 & Lecture 02   & Meston Building (MT1)             \\
+                                      & Oct 30    & 16.00-18.00 & Practical 01 & MacRobert Building (Comp MR117)   \\
+\hline
+\multirow{5}{*}{\color{red}{Week 14}} & Nov 02    & 09.00-11.00 & Practical 02 & Edward Wright B. (Comp F81)       \\
+                                      & Nov 02    & 14.00-16.00 & Lecture 03   & Auris Lecture Theatre Cruickshank \\
+                                      & Nov 02    & 16.00-17.00 & Tutorial 02  & Fraser Noble (FN2)                \\
+                                      & Nov 02    & 17.00-18.00 & Lecture 04  & Meston Building (MT1)              \\
+                                      & Nov 06    & 16.00-18.00 & Practical 02 & MacRobert Building (Comp MR117)   \\
+\hline
+\multirow{2}{*}{\color{red}{Week 15}} & Nov 09    & 09.00-11.00 & Practical 03 & Edward Wright B. (Comp F81)       \\
+                                      & Nov 13    & 16.00-18.00 & Practical 03 & MacRobert Building (Comp MR117)   \\
+\hline
+\multirow{2}{*}{\color{red}{Week 16}} & Nov 16    & 09.00-11.00 & Practical 04 & Edward Wright B. (Comp F81)       \\
+                                      & Nov 20    & 16.00-18.00 & Practical 04 & MacRobert Building (Comp MR117)   \\
+\hline
+\multirow{2}{*}{\color{red}{Week 17}} & Nov 23    & 09.00-11.00 & Practical 05 & Edward Wright B. (Comp F81)       \\
+                                      & Nov 27    & 16.00-18.00 & Practical 05 & MacRobert Building (Comp MR117)   \\
+\hline\hline
+
+\end{tabular}
+\end{center}
+
+\pagebreak
+
+\section{Course Structure}
+
+\begin{enumerate}[{\bf Week}]
+   \item {\bf 13 $\left(\text{Oct 26}^{\text{th}}\text{/30}^{\text{th}}\right)$}: Introduction to Fluent (Fluent Tutorial Chapter 1)
+      \begin{enumerate}[1]
+         \item Main elements of numerical simulation (from pre- to post-processing);
+         \item Introduction to mesh generation in Fluent:
+             \begin{enumerate}[(a)]
+                \item Main definitions: dimensionality, shape, accuracy (?) and quality;
+                \item Fluent module/tool for mesh generation and linkage with engineering design tools; 
+             \end{enumerate}
+         \item Simple advection example -- single phase flow in a (bended) pipe:
+             \begin{enumerate}[(a)]
+                \item Understanding pre-processing activities: 
+                   \begin{enumerate}[(i)]
+                      \item Importing geometry;
+                      \item Set up initial and boundary conditions and prognostic fields solvers (linkage with Modules~\ref{Mod:Discretisation}-\ref{Mod:AdvDiffMethods});
+                   \end{enumerate}
+                \item Understanding post-processing activities:  
+                   \begin{enumerate}[(i)]
+                      \item 2- and 3-D domain plots of prognostic and diagnostic fields using Fluent tool;
+                      \item Time-series 2- and 3-D plots using Fluent tools;
+                      \item Analysis and discussion of the results;
+                   \end{enumerate}
+             \end{enumerate} 
+      \end{enumerate}
+%
+   \item {\bf 14 $\left(\text{Nov 2}^{\text{nd}}\text{/6}^{\text{th}}\right)$}: Transient Compressible Flows (Fluent Tutorial Chapter 6)
+      \begin{enumerate}[1]
+         \item Structure log-mesh generation:
+         \item Transient flows in a nozzle:
+             \begin{enumerate}[(a)]
+                \item Understanding pre-processing activities: 
+                   \begin{enumerate}[(i)]
+                      \item Importing geometry;
+                      \item Set up initial and boundary conditions and prognostic fields solvers (linkage with Modules~\ref{Mod:Discretisation}-\ref{Mod:AdvDiffMethods});
+                      \item Set up turbulence submodel options (linkage with Modules~\ref{Mod:Turbulence});
+                   \end{enumerate}
+                \item Understanding post-processing activities:  
+                   \begin{enumerate}[(i)]
+                      \item 2- and 3-D domain plots of prognostic and diagnostic fields using Fluent tool;
+                      \item Time-series 2- and 3-D plots using Fluent tools;
+                      \item Analysis and discussion of the results;
+                   \end{enumerate}
+             \end{enumerate} 
+      \end{enumerate}
+%
+   \item {\bf 15 $\left(\text{Nov 9}^{\text{nd}}\text{/13}^{\text{th}}\right)$}: Modeling Species Transport and Gaseous Combustion (Fluent Tutorial Chapter 16)
+      \begin{enumerate}[1]
+         \item Reaction chemistry and generation of PDF tables \textcolor{red}{(maybe?)}:
+         \item Advection-diffusion-reaction problem of methane combustion in a furnace:
+             \begin{enumerate}[(a)]
+                \item Understanding pre-processing activities: 
+                   \begin{enumerate}[(i)]
+                      \item Importing geometry;
+                      \item Set up initial and boundary conditions and prognostic fields solvers (linkage with Modules~\ref{Mod:Discretisation}-\ref{Mod:Turbulence});
+                      \item Set up reaction tables for the species; 
+                   \end{enumerate}
+                \item Understanding post-processing activities:  
+                   \begin{enumerate}[(i)]
+                      \item 2- and 3-D domain plots of prognostic and diagnostic fields using Fluent tool;
+                      \item Time-series 2- and 3-D plots using Fluent tools;
+                      \item Analysis and discussion of the results;
+                   \end{enumerate}
+             \end{enumerate} 
+      \end{enumerate}
+%
+   \item {\bf 16/17 $\left(\text{Nov 16}^{\text{nd}}\text{/20}^{\text{th}}\text{/23}^{\text{th}}\text{/27}^{\text{th}}\right)$}: Assignment 
+      \begin{enumerate}[1]
+         \item To be decided ...
+      \end{enumerate}
+
+
+
+\end{enumerate}
+
+
+\end{document}
