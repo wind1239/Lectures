@@ -1,38 +1,9 @@
 
-default:	Module_01-Full.pdf Module_01.pdf \
-		Tutorial_01.pdf    Tutorial_02.pdf \
-		Module_02_01.pdf   Tutorial_03.pdf \
-		Module_02_02.pdf   Tutorial_04.pdf 
-		Module_03.pdf 	   Tutorial_05.pdf \
-		#Practical_01.pdf \
-		#Module_04.pdf Tutorial_04.pdf \
-		#Practical_02.pdf \
-		#Module_05.pdf Tutorial_05.pdf \
-		#Module_06.pdf Tutorial_06.pdf \
-		#Module_07.pdf Tutorial_07.pdf \
-		#EquationsList.pdf
+default:	Module_TransientHT.pdf Tutorial_01.pdf
 
 
-Module_01-Full.pdf:	Module_01-Full.tex
-Module_01.pdf:		Module_01.tex
+Module_TransientHT.pdf: Module_TransientHT.tex
 Tutorial_01.pdf:	Tutorial_01.tex
-Tutorial_02.pdf:	Tutorial_02.tex
-Module_02_01.pdf:	Module_02_01.tex
-Tutorial_03.pdf:	Tutorial_03.tex
-Module_02_02.pdf:	Module_02_02.tex
-Tutorial_04.pdf:	Tutorial_04.tex
-Module_03.pdf:		Module_03.tex
-Tutorial_05.pdf:	Tutorial_05.tex
-#Practical_01.pdf:	Practical_01.tex
-#Module_04.pdf:		Module_04.tex
-#Practical_02.pdf:	Practical_02.tex
-#EquationsList.pdf:	EquationsList.tex
-#Module_05.pdf:		Module_05.tex
-#Tutorial_05.pdf:	Tutorial_05.tex
-#Module_06.pdf:		Module_06.tex
-#Tutorial_06.pdf:	Tutorial_06.tex
-#Module_07.pdf:		Module_07.tex
-#Tutorial_07.pdf:	Tutorial_07.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
