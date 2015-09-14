@@ -1,10 +1,13 @@
 
 default:	Topics_2014_15.pdf Topics_MSc-2014_15.pdf \
-		Topics_2015-16.pdf
+		Topics_2015-16.pdf UG_Topics_2015_16.pdf \
+		UG_MSc_Topics.pdf
 
+UG_MSc_Topics.pdf:	UG_MSc_Topics.tex
 Topics_2014_15.pdf:	Topics_2014_15.tex
 Topics_MSc-2014_15.pdf:	Topics_MSc-2014_15.tex
 Topics_2015-16.pdf:	Topics_2015-16.tex
+UG_Topics_2015_16.pdf:	UG_Topics_2015_16.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
