@@ -1,0 +1,528 @@
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\usepackage{graphicx,wrapfig,pdfpages}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate,enumitem}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+
+
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{subeqnarray}
+\usepackage{ifthen}
+
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+%\usepackage{pdflscape}
+
+
+%\usepackage{booktabs}
+%\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{List of Available Projects}}} 
+\rhead[] {{\text{\small{(2015/16)}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+\lfoot[]{Dr Jeff Gomes}
+%\cfoot[\thepage]{\thepage}
+\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+\newlist{ExList}{enumerate}{1}
+\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+\newlist{ProbList}{enumerate}{1}
+\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+
+
+
+
+\begin{document}
+
+%\begin{description}
+
+\begin{enumerate}[label=\bfseries Project \arabic*:]
+
+%%%
+%%%
+%%%
+\item {\bf Initial Design of a Reservoir Simulation Workbench: From Field Mapping to Reservoir Management}
+
+Reservoir simulator is a crucial tool for efficient and cost-eefective hydrocarbon production. It has been developed in both academia and industry for several applications, e.g., optimal production of oil and gas, to ensure safety operation of O$\&$G fields, to predict fluid flow in geological formations (e.g., transport of CO$_{2}$ plumes in repositories), etc. Flow simulations in porous media are often bounded by uncertainties associated with fluid and rock properties and averaging (densities, viscosities, stress, permeabilities, porosities etc), geological formation (data from core, well-log, seismic, geochemistry analysis, etc) and the computational methods used to solve transport equations. 
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Description and analysis of the workflow to design a reservoir simulator:
+\begin{enumerate}
+\item Initial geological assessment (well logs $\&$ tests, core analysis, production logs, seismic and geochemistry analysis);
+\item Geostatistic analysis, geological field mapping and grid generation;
+\item Upscale modelling approaches;
+\item Flow simulators: general structure and algorithms, commercial and academic models and software;
+\item History matching.
+\end{enumerate}
+\item Description and analysis of new HPC technologies for flow simulation in giant oil/gas fields.
+\end{enumerate}
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Chemical Engineering;
+\item Computational/Theoretical/Review;
+\item After review the whole workflow the student {\bf must} choose one/two stage(s) and undertake an in-depth analysis and simulation on this/these stage(s);
+\item The student should perform a black-oil simulation (using any reservoir simulator) for heterogenous media using sinthetic data.
+\end{enumerate}
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item Chen (2007) $\lq$Reservoir Simulation – Mathematical Techniques in Oil Recovery’, SIAM;
+\item Ahmed $\&$ McKinney (2005) $\lq$Advanced Reservoir Engineering’, Elsevier;
+\item Jenny et al. (2002) $\lq$Modeling Flow in Geometrically Complex Reservoirs Using Hexahedral Multiblock Grids’, SPE 78673;
+\item DeBaun et al. (2006) $\lq$An Extensible Architecture for Next Generation Scalable Parallel Reservoir Simulation’, SPE 93274.
+\end{itemize}
+
+\clearpage
+
+%%%
+%%%
+%%%
+\item {\bf Optimisation of Energy Systems in $\lq$Smart Cities}
+
+Overpopulation of urban areas is one of the keys issues faced by humanity today, with a primary concern being the associated increased air pollution (due to intense traffic, home and industrial emissions) and the continuous reduction of open spaces. The term $\lq$Smart City’ was firstly used  in the early 2000’s to address efforts to introduce new ICT, environmental, energy, mobility, housing (etc) technologies and policies aiming for sustainability in urban areas.
+
+Combined cooling, heat and power (CCHP or trigeneration) is a technology derived from the CHP and has been widely used as an integrated energy system with relatively good efficiency. Novel turbines, combustion processes, refrigerant fluids, energy storage technologies have been developed to: (a) aid mitigating green-house gas emissions, (b) enhance thermal and energy efficiencies and (c) inhibit solid/liquid waste production.
+
+\noindent
+{\bf Objectives:} The aim of this project is to study current (C)CHP technologies and their integration with the $\lq$smart city’ energy-related grid. Therefore the following tasks will be tackled:
+\begin{enumerate}
+\item Literature review on thermodynamic steam, gas and refrigeration cycles;
+\item Study of co-/tri-generation technologies;
+\item Energy and exergy analysis for process integration (including pinch analysis);
+\item Optimisation methods often used in energy/exergy process integration and;
+\item Design a system (in Matlab, Python, Fortran or C) for optimisation process of an integrated CCHP with manufactured data;
+\item Analysis of CO$_{2}$ emissions in (C)CHP processes and the environmental impact in $\lq$Smart Cities';
+\item Case study: Sheffield and Masdar City.
+\end{enumerate}
+
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Chemical Engineering;
+\item Computational/Theoretical/Review;
+\item The student is required to develop a code (e.g., Matlab, Python etc) for CO2-energy/exergy budget (from capture to storage).
+\end{enumerate} 
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item Bracco et al. (2013) $\lq$Economic and Environmental Optimization Model for the Design and the Operation of a Combined Heat and Power Distributed Generation System in Urban Area’, Energy 55:1014-1024;
+\item Smith et al. (2013) $\lq$Benefits of Thermal Enerfy Storage Option combined with CHP System for Different Commercial Building Types’, Sustainable Energy Technologies and Assessments 1:3-12;
+\item Wu and Wang (2008) $\lq$Combined Cooling, Heating and Power: A Review’, Progress in Energy and Combustion Science 32:459-495.
+\item Finey et al. (2013) $\lq$Modelling and Mapping Sustainable Heating for Cities’, Applied Thermal Engineering 53: 246-255;
+\item Kaviri et al. (2012) $\lq$Modeling and Multi-Objective Exergy Based Optimization of a Combined Power Plant using GA’, Energy Conversion and Management 58: 94-103.
+\end{itemize}
+
+\clearpage
+
+%%%
+%%%
+%%%
+\item {\bf Implementing a Particle-Swarm Optimisation (PSO) Algorithm for Global Minimum Thermodynamic Problems} 
+
+In engineering and physical sciences, qualitative and quantitative decision makings are frequently aided by optimization tools. The modeller typically wants to find the $\lq$absolutely best’ decision which corresponds to the extrema of an objective function, while it satisfies a given collection of feasibility constraints. The objective function expresses the overall system performance, such as profit, utility, loss, risk or error, whilst constraints naturally rise from the problem.
+
+A large number of such models belong to the realm of $\lq$traditional' local scope continuous optimisation (e.g. linear and convex programming). However, most real-world problems are highly nonlinear and multi-modal, under various complex constraints. In general, finding an optimal solution (or/and sub-optimal solutions) is not an easy task. There are many optimisation algorithms which can be classified in different ways, depending on the goals. If the derivative or gradient of a function is the focus, then optimisation can be classified as either gradient-based or derivative-free (or gradient-free) algorithms. Other form of classification includes deterministic or stochastic.
+
+Virtual prototyping and virtual testing has been increasingly used in engineering problems to aid in the design, evaluation, and testing of new hardware and eventually entire systems. This new modelling paradigm is driven by the dual high cost and time that are required for testing laboratory or field components, as well as complete systems. Furthermore, safety aspects of the product or system represent an important and sometimes dominant element for testing or validating numerical simulations.
+
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Chemical Engineering;
+\item Computational/Theoretical/Review;
+\item The student is required to develop a code (e.g., Python, Fortran, C etc) for the optimisation problem.
+\end{enumerate} 
+
+
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Study deterministic and stochastic optimisation methods;
+\item Implement (Fortran90 or Python) the PSO algorithm in the current Global Optimiser model framework and test against the set of benchmark test-cases;
+\item Comparison of the PSO against benchmark solutions from Cuckoo-Search and Simulated Annealing methods;
+\item Same as before, but in this case comparing against the VLE problem for polymer solutions.  
+\end{enumerate}
+
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item Corana et al. (1987) $\lq$Minimising multi-modal functions of continuous variables with the simulated annealing algorithm', ACM -- Transactions on Mathematical Software, 13:262-289;
+\item Gandomi et al. (2013) $\lq$Cuckoo search algorithm: a meta heuristic approach to solve structural optimisation problems', Engineering with Computers, 29:17-35;
+\item Ghodrati et al. (2012) $\lq$A Hybrid CS/PSO Algorithm for Global Optimization', ACIIDS 2012, Part III, 89–98;
+%\item Goffe et al. (1994) $\lq$Global optimization of statistical functions with simulated annealing', Journal of Econometrics 60:65-69;
+\item Gomes et al. (2001) $\lq$Modelling the Vapour-Liquid Equilibrium of Polymer Solutions Using a Cubic Equation of State', Macromolecular Theory and Simulations, 10:816-826;
+%\item Glover (1986) $\lq$Future paths for integer programming and links to artificial intelligence', Computers and Operations Research, 13:533-549.
+\end{itemize}
+
+\clearpage
+
+%\begin{comment}
+%%%
+%%%
+%%%
+\item {\bf Study of Multiscale Waterflooding Mechanisms in Heterogeneous Reservoir Simulations}
+
+Immiscible displacement flows has been widely studied for oil $\&$ gas production (e.g., enhanced oil recovery, heavy oil production, etc) and pollution dispersion (e.g., solute transport in aquifers, radionuclides diffusion in subsurface, etc) applications. In hydrocarbon production, a fluid (displacing fluid, water, CO$_{2}$, polymer solutions etc) is injcted into the reservoirs that is saturated with a second fluid (oil and/or gas). Both fluids can be either immiscibles, partially miscibles or fully miscibles. The displacement of a more viscous fluid by a less viscous one leads to a mechanical instability driven by the mobility ratio (MR). This instability, known as viscous fingering, and its effect in the field production has received attention from the oil $\&$ gas community worldwide.
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Critical review and analysis of state-of-the-art technologies for EOR;
+%\item Critical review of water production: mechanisms and technologies for mitigation and remediation;
+\item Theoretical study of multiscale viscous fingering: mechanisms, impact on oil production, strategies to mitigate its effects etc;
+\item Study of heterogeneity in reservoirs (technologies to identify heterogenous media and its impact in fluid flow during recovery stages);
+\item Perform numerical simulations of multiphase flows (water/oil) in heterogenous porous media with focus on formation and identification of viscous fingering.  
+\end{enumerate}
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Chemical Engineering;
+\item Computational/Theoretical/Review;
+\item Simulations will be performed in the {\it Fluidity} model (open-source multi-physics simulator). 
+\item For {\it Fluidity}, the student is required to install {\it Linux} (Ubuntu distro) and {\it Fluidity} in her/his laptop. 
+\end{enumerate}
+
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item Z. Chen, G. Huan, Y. Ma (2006) $\lq$Computational Methods for Multiphase Flows in Porous Media', {\it SIAM Computational Science $\&$ Engineering}, ISBN 0-89871-606-3;
+\item M. Blunt and M.Christie (1994) $\lq$Theory of Viscous Fingering in Two Phase, Three Component Flow', {\it SPE Journal} SPE22613;
+\item M.L.R. Farias, M.S. Carvalho, A.L.S. Souza (2013) $\lq$Numerical and Experimental Investigation of Produced Water Reinjection Viscous Oil Recovery', {\it Offshore Technology Conference}, Rio de Janeiro;
+%\item P.A. Sesini, D.A.F. Souza, A.L.G. Coutinho (2010) $\lq$Finite Element Simulation of Viscous Fingering in Miscible Displacements at High Mobility-Ratios', {\it Journal of the Brazilian Society of Mechanical Science and Engineering}, 32:292-299;
+\item G.F. Teletzke, R.C. Wattenbarger, J.R. WIlkinson (2010) $\lq$Enhanced Oil Recovery Pilot Testing Best Practices', {\it SP Journal} SPE118055;
+\item D. Beliveau (2009) $\lq$Waterflooding Viscous Oil Reservoirs', {\it SPE Journal} SPE113132;
+\item M.C. Kim (2012) $\lq$Linear Stability Analysis on the Onset of the Viscous Fingering of a Miscible Slice in a Porous Media', {\it Advances in Water Resource} 35:1-9;%
+\item C.T. Miller, G. Christakos, P.T. Imhoff, J.F McBride, J.A. Pedit (1998) $\lq$Multiphase Flow and Transport Modeling in Heterogeneous Porous Media: Challenges and Approaches', {\it Advances in Water Resources} 21:77-120.
+\end{itemize}
+%\end{comment}
+
+\clearpage
+%%%
+%%%
+%%%
+\item {\bf Multi-Scale Flow, Energy and Exergy Analysis of Geothermal Systems}
+
+Geothermal energy systems can be broadly divided into two semi-independent systems: extraction of thermal energy from subsurface environment system and transformation of heat into power. The former involves injection of cold water/brine into variable depths with partial or complete vaporisation of water/brine and further extraction in production wells. 
+
+Depending on the heat source (i.e.,temperature gradient $\left(\nabla T=\frac{\partial T}{\partial z}\right)$, thermal energy can be directly transformed into mechanical energy (in a steam turbine) or used the vaporisation of organic Rankine fluids (low grade heat). Therefore, simulation of geothermal systems is based on the physics of (multi-)fluid flow and heat transfer, on quantitative information (petrology) about geothermal reservoir properties, and on the thermodynamics and thermophysical properties of reservoir fluids (water in particular). 
+
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Study the different geothermal energy conversion systems (dry-rock, flash-steam, binary and EGS);
+\item Assess the mass, energy and exergy balances in the groundwater system;
+\item Assess the energy and exergy balances in organic Rankine cycle fluids;
+\item Design of coupled algorithms for thermo-fluid balance of the whole system;
+\item Formulate strategies to assess the sensitivity of the system (i.e., how the generated power would oscillate with increasing/decreasing of extracted water/brine flow rate, temperature and density). 
+\end{enumerate}
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Chemical Engineering;
+\item Computational/Theoretical/Review;
+\item The student is required to develop algorithms to solve PDE equations for subsurface flows and differential-algebraic equations for the power cycle;;
+\item The student is required to propose a case-study and use her/his algorithm to assess this case.
+\end{enumerate}
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item R. DiPippo (2012) $\lq$Geothermal Power Plants'; Butterworth Heinemann;
+\item E. Barbier (2002) $\lq$Geothermal Energy Technology and Current Status: An Overview', Renewable $\&$ Sustainable Energy Reviews 6:3-65;
+\item H.N. Pollack, S.J. Hurter, J.R. Johnson (1993) $\lq$Heat Flow from the Earth's Interior: Analysis of the Global Data Set', Reviews of Geophysics 31:267-280;
+\item G.S. Bodvarsson, P.A. Witherspoon (1989) $\lq$Geothermal Reservoir Engineering Part 1', Geotherm. Science and Technology 2:1-68;
+\item H.K. Gupta (1980) $\lq$Geothermal Resources: An Energy Alternaive', {\it In} Developments in Economic Geology 12, Chapters 3-5;
+\item K. Pruess (2002) $\lq$Mathematical Modelling of Fluid Flow and Heat Transfer in Geothermal Systems -- An Introduction in Five Lectures', United Nations University;
+\item L. Georgsson (2010) $\lq$Geophysical Methods used in Geothermal Exploration', Short Course V on Exploration for Geothermal Resources, Kenya;
+\item Documentation in \href{http://en.openei.org/wiki/Geothermal_Exploration_Best_Practices:_A_Guide_to_Resource_Data_Collection,_Analysis_and_Presentation_for_Geothermal_Projects}{OpenEI Report: Geothermal Exploration Best Practices: A Guide to Resource Data Collection, Analysis and Prsentation for Geothermal Projects};
+\item Z. Chen (2006) $\lq$Computational Methods for Multiphase Flows in Porous Media', SIAM, Chapters: 1-3, 11-13.
+\end{itemize}
+
+\clearpage
+%%%
+%%%
+%%%
+\item {\bf Assessment of {\it In Situ Adaptive Tabulation} (ISAT) Algorithms for Modelling and Simulation of Reactive Flows}
+
+Most industrial and environmental processes involves several multi-scale physical phenomena over a large range of time-scales. Such multi-physics (or fully-coupled) processes can involve, for example, transport of quantities (e.g., advection and diffusion of active/passive tracers, dispersion of pollutants in atmospheric or water systems), scattering of neutrons, chemical reactions, biological processes, solid mechanics (structure dynamics) etc. 
+
+In rapid chemistry processes, such as combustion, kinetics mechanisms are represented by a system of stiff ordinary differential equations (ODE) that need to be balanced and solved simultaneously. When such processes are coupled with transport equations (advection and diffusion processes), time- and spatial-scales need to be taken into account to accurately preserve mass conservation. 
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Study of algorithms that efficiently represent fast chemistry kinetics;
+\item Assessment of computational methods to solve ODEs;
+\item Review and analysis of ISAT algorithms;
+\item Design of a prototype code (in Matlab, Python, Fortran or C) for serial ISAT algorithm.
+\end{enumerate} 
+ 
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Computational and Theoretical (Chemical/Mechanical Engineering) -- 1 student.
+\item The student is required to develop an algorithm to solve advective-diffusion-reacive equations;
+\item The student is required to develop a code for the ISAT algorithm.
+\end{enumerate}
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item L.Lu and S.B. Pope (2009) $\lq$An Improved Algorithm for {\it in situ adaptive tabulation}’, Journal of Computational Physics 228:361-386;
+\item L.Petzold (1983) $\lq$Automatics Selection of Methods for Solving Stiff and Nonstiff Systems of Ordinary Differential Equations', SIAM Journal of Scientific Statistical Computation 4:136-148;
+\item S.B. Pope (1985)  $\lq$PDF Methods for Turbulent Reactive Flows',  Prog. Energy Combust. Sci. 11:119-192.
+\end{itemize}
+
+\end{enumerate} 
+%\end{description}
+
+\end{document}
