@@ -9,10 +9,10 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-%\documentclass[10pt,compress]{beamer}
+\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
 %\documentclass[10pt,compress,handout]{beamer}
-\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
@@ -1197,7 +1197,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
 \begin{frame}
  \frametitle{Representations of the First Law -- Process}
  \begin{block}{Another way to state the First Law} 
-  For a system undergoing a process, the change in energy is equal to the heat added to the system minus the work done by the system.
+  For a system undergoing a process, the change in energy is equal to the \underline{heat added to the system} \red{and} the \underline{work done by the system}.
   \begin{displaymath}
    dU =\delta Q - \delta W 
   \end{displaymath}
@@ -1218,27 +1218,33 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
      \includegraphics[width=\columnwidth,clip]{./Pics/First_Law_1}
     \end{center}
    \end{figure}
+   \visible<1->{When a system is taken from state \textcolor{blue}{a} to state \textcolor{blue}{b} along path \textcolor{blue}{acb}, 100 J of heat flows into the system and the system does 40 J of work.}
   \end{column}
   \begin{column}[r]{0.5\linewidth}
-   When a system is taken from state \textcolor{blue}{a} to state \textcolor{blue}{b} along path \textcolor{blue}{acb}, 100 J of heat flows into the system and the system does 40 J of work. 
-   \begin{itemize}
-    \item<2-> How much heat flows into the system along path \textcolor{blue}{aeb} if the work done by the system is 20 J?\\
-          For path \textcolor{blue}{acb}:
-          \begin{displaymath}
-           \Delta U_{ab} = Q_{acb}-W_{acb} = 100 - 40 = 60 J
-          \end{displaymath}
-          For path \textcolor{blue}{aeb}:
-          \begin{eqnarray}
-           &&\Delta U_{ab} = Q_{aeb}-W_{aeb} = 60 J \nonumber \\
-           &&\Delta U_{ab} = Q_{aeb}-20 \therefore Q_{aeb} = 80 J \nonumber
-          \end{eqnarray}
-    \item<3-> The system returns from \textcolor{blue}{b} to \textcolor{blue}{a} along path \textcolor{blue}{bda}. If the work done on the system is 30 J, does the system absorb or liberate heat? How much? \\
-           For path \textcolor{blue}{bda}: 
+   \begin{enumerate}
+    \item<2-> How much heat flows into the system along path \textcolor{blue}{aeb} if the work done by the system is 20 J?
+       \begin{itemize}\scriptsize
+         \item<3-> For path \textcolor{blue}{acb}:
+           \begin{displaymath}
+             \Delta U_{ab} = Q_{acb}-W_{acb} = 100 - 40 = 60 J
+            \end{displaymath}
+          \item<4-> For path \textcolor{blue}{aeb}:
+            \begin{eqnarray}
+              &&\Delta U_{ab} = Q_{aeb}-W_{aeb} = 60 J \nonumber \\
+              &&\Delta U_{ab} = Q_{aeb}-20 \therefore Q_{aeb} = 80 J \nonumber
+            \end{eqnarray}
+       \end{itemize}
+
+    \item<5-> The system returns from \textcolor{blue}{b} to \textcolor{blue}{a} along path \textcolor{blue}{bda}. If the \red{work done on the system} is 30 J, does the system absorb or liberate heat? How much? 
+       \begin{itemize}\scriptsize
+         \item<6-> For path \textcolor{blue}{bda}:
            \begin{eqnarray}
-            &&\Delta U_{ba} = -60 J = Q_{bda}-W_{bda} \nonumber \\
-            &&\Delta U_{ba} = Q_{bda} + 30 \therefore Q_{bda} = -90 J \nonumber
+            &&\visible<7->{\Delta U_{ba} = -60 J = Q_{bda}-W_{bda}} \nonumber \\
+            &&\visible<8->{\Delta U_{ba} = Q_{bda} \red{+ 30}} \visible<9->{\therefore Q_{bda} = -90 J} \nonumber
            \end{eqnarray}
-   \end{itemize}
+         \item<10-> Thus, 90J of heat is \bf{released from the systems to the surroundings}.
+       \end{itemize}
+   \end{enumerate}
   \end{column}
  \end{columns}
 \normalsize
