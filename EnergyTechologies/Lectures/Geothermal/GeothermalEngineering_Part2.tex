@@ -11,8 +11,8 @@
 %Normal document mode
 %\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
-%\documentclass[10pt,compress,handout]{beamer}
-\documentclass[10pt,compress,handout,ignorenonframetext]{beamer} 
+\documentclass[10pt,compress,handout]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer} 
 
 
 %\usepackage{hyperref}
@@ -30,7 +30,7 @@
 \newcommand{\emailaddress}{jefferson.gomes@abdn.ac.uk}
 \newcommand{\logoimage}{../FigBanner/UoAHorizBanner}
 \title{Renewable Energy 1: Solar and Geothermal (EG501J)}
-\subtitle{Module 4: Introduction to Porous Media Fluid Flow $\&$ Heat Transfer in Geothermal Systems}
+\subtitle{Module 3: Introduction to Porous Media Fluid Flow $\&$ Heat Transfer in Geothermal Systems}
 %\date[2014-15]{2014-15}
 \date[]{}
 
@@ -235,7 +235,7 @@
 }
 }
 
-\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
 %\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
  
 \begin{document}
@@ -277,13 +277,13 @@
 %%%
    \begin{frame}
      \frametitle{Aims and Objectives} 
-     \begin{enumerate}[A.]\scriptsize
-       \item <1-> In {\bf Module 1}, we introduced the role of geothermal power in the world's energy mix;
-       \item <2-> The different geothermal-based power plant configurations are presented in {\bf Module 2};
-       \item <3-> {\bf Module 3} summarises thermodynamic cycles that represent the heat and power conversion in geothermal plants;
+     \begin{enumerate}[A.]%\scriptsize
+       \item <1-> In {\bf Module 1}, we introduced the role of geothermal power in the world's energy mix and;
+       \item <2-> The different geothermal-based power plant configurations;
+       \item <3-> {\bf Module 2} summarised thermodynamic cycles that represent the heat and power conversion in geothermal plants;
        \item <4-> In this \blue{Module}, we will focus on subsurface dynamics;
        \item <5-> Thus, the aims of this Module are:
-          \begin{enumerate}[i)]\scriptsize
+          \begin{enumerate}[i)]%\scriptsize
                \item <6-> Identify fluid flow and heat transfer mechanisms from the mantle to geological formations, involving injection and production of geothermal fluids used in the thermodynamic cycles;
                \item <7-> Identify the main stages of geothermal project developments.
           \end{enumerate} 
@@ -352,14 +352,34 @@
   \end{columns}
 \end{frame}
 
+
+
+
 %%%
 %%% Slide
 %%%
 \begin{frame}
  \frametitle{Fourier's Law: Thermal Conduction}
   \begin{columns}
-    \begin{column}[c]{0.45\linewidth}
-      \begin{enumerate}[1.]\setcounter{enumi}{5} \scriptsize
+   \begin{column}[c]{0.5\linewidth}
+       \includegraphics[width=\linewidth,clip]{./Pics/geothermal_gradient.png}
+   \end{column}
+   \begin{column}[c]{0.5\linewidth}
+     \vbox{
+        \hbox{\includegraphics[width=\linewidth,clip]{./Pics/geothermalgradient.jpg}}
+        \hbox{\includegraphics[width=0.8\linewidth,clip]{./Pics/geotherms.png}}
+     }
+   \end{column}  
+  \end{columns}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Fourier's Law: Thermal Conduction}
+      \begin{enumerate}[1.]\setcounter{enumi}{5}% \scriptsize
         \item <1-> The fundamental law of {\it heat conduction} states that heat flows in a \underline{continuous} rock due to temperature differences throughout the medium;
         \item <2-> The transfer of energy occurs from zones of higher temperature to zones of lower temperature ({\it Zeroth Law of Thermodynamics});
         \item <3-> The Fourier's law states that the energy flow (i.e., heat flux, $q$) is proportional to the temperature gradient, $q\propto \nabla T$,
@@ -368,16 +388,35 @@
            \end{equation}
            where $\kappa$ is the constant of proportionality and is called \blue{thermal conductivity coefficient};}
         \item <4-> $\kappa \left[\text{in }W.\left(m.K\right)^{-1}\right]$ is a parameter obtained experimentally that may vary in space, i.e., $\kappa = \kappa\left(x, y, z\right)$ and is also a function of temperature -- $\kappa = \kappa\left(x, y, z, T\right)$;
-        \item <5-> For an averaged rock thermal conductivity, $\kappa_{\text{rock}}\approx 2.0\;\frc{W}{m.K}\rightarrow q=-0.05\frc{W}{m^{2}}$;
-        \item <6-> Thus over an area of 1 km$^{2}$, the crustal \blue{heat flow rate} would be of \blue{50 kW};
+        %\item <5-> For an averaged rock thermal conductivity, $\kappa_{\text{rock}}\approx 2.0\;\frc{W}{m.K}\rightarrow q=-0.05\frc{W}{m^{2}}$;
+        %\item <6-> Thus over an area of 1 km$^{2}$, the crustal \blue{heat flow rate} would be of \blue{50 kW};
+      \end{enumerate}
+\end{frame}
+
+
+
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Fourier's Law: Thermal Conduction}
+  \begin{columns}
+    \begin{column}[c]{0.4\linewidth}
+      \begin{enumerate}[1.]\setcounter{enumi}{9}% \scriptsize
+        \item <1-> For an averaged rock thermal conductivity, $\kappa_{\text{rock}}\approx 2.0\;\frc{W}{m.K}\rightarrow q=-0.05\frc{W}{m^{2}}$;
+        \item <2-> Thus over an area of 1 km$^{2}$, the crustal \blue{heat flow rate} would be of \blue{50 kW};
       \end{enumerate}
     \end{column}
-    \begin{column}[c]{0.55\linewidth}
+    \begin{column}[c]{0.6\linewidth}
           \href{http://www.springer.com/cda/content/document/cda_downloaddocument/9783642340222-c2.pdf?SGWID=0-0-45-1456221-p174676272}{\hspace{-1.cm}\includegraphics[width=1.2\columnwidth]{./Pics/ListRocksConductivity.png}\\
           \scriptsize From L. Eppelbaum, I. Kutasov, A. Pilchin, Applied Geothermics, Chapter 2.}
     \end{column}  
   \end{columns}
 \end{frame} 
+
+
 
 %%%
 %%% Slide
@@ -475,7 +514,7 @@
     \end{enumerate}
    \end{column}
    \begin{column}[c]{0.55\linewidth}
-    \begin{enumerate}[1.]\setcounter{enumi}{9} \scriptsize
+    \begin{enumerate}[1.]\setcounter{enumi}{4} \scriptsize
        \item <5-> Or in matricial form,
           \visible<3->{\begin{equation}
             \underline{\dot{Q}} = - \mathcal{K} \frc{\rho}{\mu} \left(\nabla P - \rho \underline{g}\right),\label{eqn:preDarcy}
@@ -545,7 +584,7 @@
 \begin{frame}
  \frametitle{Geothermal Darcy Flows}
     \begin{enumerate}[(a)]\setcounter{enumi}{2} \scriptsize
-       \item <1-> \blue{Absolute Permeability $\left(\mathcal{K}\right)$} is a \underline{rock property} that indicates the ability to flow or transmit fluids through rocks. Absolute permeability is often measured in units of {\it darcy} or {\it milidarcy} $\Longrightarrow$ 1 darcy = 9.869233$\times$10$^{−13}$ m$^{2}$;
+       \item <1-> \blue{Absolute Permeability $\left(\mathcal{K}\right)$} is a \underline{rock property} that indicates the ability to flow or transmit fluids through rocks. Absolute permeability is often measured in units of {\it darcy} or {\it milidarcy} $\Longrightarrow$ 1 darcy = 9.869233$\times$10$^{-13}$ m$^{2}$;
        \item <2-> Effective Permeability $\left(\mathcal{K}_{\alpha},\text{ darcy or milidarcy}\right)$ is a \underline{rock-fluid property} that measures the conductance of the porous medium for one fluid phase when the medium is saturated with another fluid(s);
        \item <3->  \blue{Relative Permeability $\left(\mathcal{K}_{r\alpha},\text{ dimensionless}\right)$} is the ratio of the effective permeability of a fluid at a given saturation to the absolute permeability,  
           \begin{equation}
@@ -586,14 +625,14 @@
        \item <5-> Hydrothermal fluids may coexist in $\mathcal{N}_{p}$ phases (e.g., gaseous, liquid), in thermodynamic equilibrium; 
        \item <6-> The \blue{total mass flux} of component $i$ split into $\mathcal{N}_{p}$ phases $\left(\underline{\mathcal{F}}_{i}\right)$ is defined as
           \visible<6->{\begin{equation}
-              \underline{\mathcal{F}}_{i} = \sum\limits_{j=1}^{\mathcal{N}_{p}} x_{i}^{j}\mathcal{F}_{i} = x_{j}^{g}\mathcal{F}^{g} + x_{j}^{l}\mathcal{F}^{l}\label{eqn:advectionlike}
+              \underline{\mathcal{F}}_{i} = \sum\limits_{j=1}^{\mathcal{N}_{p}} x_{i}^{j}\mathcal{F}_{i} \label{eqn:advectionlike}
           \end{equation}
           where $x_{i}^{j}$ is the mass fraction of component $i\left(\in\left\{1,2,\cdots,\mathcal{N}_{c}\right\}\right)$ in phase $j\left(\in\left\{1,2,\cdots,\mathcal{N}_{p}\right\}\right)$;}
-       \item <7-> In addition to the advection-like contribution, Eqn.~\ref{eqn:advectionlike}, mass transport of the components also occur due to molecular diffusion. The \blue{diffusive mass flux} $\left(\underline{f}_{i}^{j}\right)$ is expressed as,
+       \item <7-> In addition to the advection-like contribution, Eqn.~\ref{eqn:advectionlike}, mass transport of individual components also occurs due to molecular diffusion. The \blue{diffusive mass flux} $\left(\underline{f}_{i}^{j}\right)$ is expressed as,
           \visible<7->{\begin{equation}
               \underline{f}_{i}^{j} = -\Phi\rho^{j}\kappa_{i}^{j}\nabla x_{i}^{j}\label{eqn:moleculardiffusion}
           \end{equation}
-          where $\kappa$ is the mass diffusivity coefficient and $\Phi=\phi\tau_{i}$. $\tau$ is the tortuousity coefficient and is the defined as the reduction of diffusivity rate due to tortuous paths taken by the species during transport;}
+          where $\kappa$ is the mass diffusivity coefficient and $\Phi=\phi\tau_{i}$. $\tau$ is the tortuousity coefficient and is defined as the reduction of diffusivity rate due to tortuous paths taken by the species during transport;}
        \item <8-> Under geothermal reservoir conditions, $\kappa\left(\text{aqueous solutes}\right) = 10^{-9}-10^{-10}\;m^{2}.s^{-1}$ and $\kappa\left(\text{gasses}\right) = 10^{-8}\;m^{2}.s^{-1}$.
     \end{enumerate}
 
@@ -723,7 +762,7 @@
 %%%
 \begin{frame}
  \frametitle{Phases for Geothermal Project Developments} 
-    There is usually 7 phases for any \blue{geothermal} (or subsurface) \blue{project development}: 
+    There are (usually) 7 phases for any \blue{geothermal} (or subsurface) \blue{project development}: 
     \begin{enumerate}[1.]
        \item <1-> \blue{Preliminary Survey;}
        \item <1-> Exploration; 
