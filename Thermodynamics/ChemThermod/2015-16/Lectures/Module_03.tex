@@ -9,9 +9,9 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-\documentclass[10pt,compress]{beamer}
+%\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
-%\documentclass[10pt,compress,handout]{beamer}
+\documentclass[10pt,compress,handout]{beamer}
 %\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
@@ -23,7 +23,7 @@
 \newcommand{\emailaddress}{}%jefferson.gomes@abdn.ac.uk}
 \newcommand{\logoimage}{../../FigBanner/UoAHorizBanner}
 \title{Chemical Thermodynamics (EX3029)}
-\subtitle{Module 3: Volumetric Properties of Pure Fluids}
+\subtitle{Module 2: Volumetric Properties of Pure Fluids}
 \date[ ]{ }
 
 %%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,6 +96,88 @@
 \usepackage{cancel}
 
 \usepackage{comment} 
+
+%% Handsout -- comment out the lines below to create handstout with 4 slides in a page with space for comments
+\usepackage{handoutWithNotes}
+
+\mode<handout>
+{
+\usepackage{pgf,pgfpages}
+
+\pgfpagesdeclarelayout{2 on 1 boxed with notes}
+{
+\edef\pgfpageoptionheight{\the\paperheight} 
+\edef\pgfpageoptionwidth{\the\paperwidth}
+\edef\pgfpageoptionborder{0pt}
+}
+{
+\setkeys{pgfpagesuselayoutoption}{landscape}
+\pgfpagesphysicalpageoptions
+    {%
+        logical pages=4,%
+        physical height=\pgfpageoptionheight,%
+        physical width=\pgfpageoptionwidth,%
+        last logical shipout=2%
+    } 
+\pgfpageslogicalpageoptions{1}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{2}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{3}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.29\pgfphysicalheight},%
+    copy from=3
+    }%
+\pgfpageslogicalpageoptions{4}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.79\pgfphysicalheight},%
+    copy from=4
+    }%
+
+\AtBeginDocument
+    {
+    \newbox\notesbox
+    \setbox\notesbox=\vbox
+        {
+            \hsize=\paperwidth
+            \vskip-1in\hskip-1in\vbox
+            {
+                \vskip1cm
+                Notes\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth
+            }
+        }
+        \pgfpagesshipoutlogicalpage{3}\copy\notesbox
+        \pgfpagesshipoutlogicalpage{4}\copy\notesbox
+    }
+}
+}
+
+%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+
 
 % Get rid of font warnings as modern LaTaX installations have scalable
 % fonts
@@ -186,11 +268,11 @@
 \begin{frame}
  \frametitle{Aims and Objectives}
    \begin{enumerate}
-     \item<1-> In Modules 1 and 2, we learnt:
+     \item<1-> In Module 1, we learnt:
        \begin{enumerate}
          \item<1-> the laws of Thermodynamics and how they describe thermal equilibrium of species in closed and opened systems.
          \item<1-> how to obtain and calculate relevant thermodynamics properties for chemical species.
-         \item<1-> spontaneity of processes.
+         \item<1-> reversibility  of processes.
        \end{enumerate} 
      \item<2-> This Module focuses on 
          \begin{enumerate}
@@ -320,16 +402,16 @@
 \begin{frame}
  \frametitle{Single Phase region}
     \begin{enumerate}\scriptsize
-      \item<1-> \textcolor{blue}{Equations of State (EOS)} relates pressure (P), molar or specific volume $\left(V: \overline{V},\; v\right)$ and temperature of any \textcolor{blue}{pure homogeneous fluid} in equilibrium states;
+      \item<1-> \textcolor{blue}{Equations of State (EOS)} relates pressure, molar or specific volume and temperature of any \textcolor{blue}{pure homogeneous fluid} in equilibrium states;
       \item<2-> We can express it as a general functional,
           \visible<2->{\begin{displaymath}
               f\left(P, V, T\right) = 0
           \end{displaymath} 
           where $P$, $V$ or $T$ can be expressed as a function of two of this properties.}
       \item<3-> For example, we can represent the volume as $V=V\left(T,P\right)$, thus
-          \visible<3->{\begin{displaymath}
-              dV = \left(\frc{\partial V}{\partial T}\right)_{P} dT + \left(\frc{\partial V}{\partial P}\right)_{T} dP \;\;\Longrightarrow \;\; \textcolor{blue}{\frc{dV}{V} = \beta dT - \kappa dP} 
-          \end{displaymath} 
+          \visible<3->{\begin{equation}
+              dV = \left(\frc{\partial V}{\partial T}\right)_{P} dT + \left(\frc{\partial V}{\partial P}\right)_{T} dP \;\;\Longrightarrow \;\; \textcolor{blue}{\frc{dV}{V} = \beta dT - \kappa dP} \label{genericV}
+          \end{equation} 
             with $\beta  =  \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P}$ (volume expansivity) and $\kappa = -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{V}$ (isothermal compressibility).
            }
       \item<4-> A few useful remarks:
@@ -337,7 +419,7 @@
           \item<4-> For \textcolor{blue}{incompressible fluids}: $\beta$ and $\kappa$ are zero;
           \item<4-> For liquids: $\beta>0$ (except for liquid H$_{2}$O at $0\leq T\leq 4^{\circ}$C) and $\kappa>0$  
         \end{itemize}
-      \item<5-> Close to the critical point, $\beta$ and $\kappa$ are assumed constant, thus \textcolor{blue}{equation above} becomes, 
+      \item<5-> Close to the critical point, $\beta$ and $\kappa$ are assumed constant, thus \blue{Eqn.~\ref{genericV}} becomes, 
         \visible<5->{\begin{displaymath}
             \ln\frc{V_{2}}{V_{1}} = \beta\left(T_{2}-T_{1}\right) - \kappa\left(P_{2}-P_{1}\right)
         \end{displaymath}}
