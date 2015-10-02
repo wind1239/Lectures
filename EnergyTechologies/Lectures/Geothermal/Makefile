@@ -1,6 +1,6 @@
 
 default:	GeothermalEngineering_Part1.pdf GeothermalEngineering_Part2.pdf \
-		Tutorial1.pdf Tutorial2.pdf Tutorial3.pdf \
+		Tutorial1.pdf Tutorial2.pdf Tutorial2b.pdf Tutorial3.pdf \
 		ContinuousAssessment.pdf
 		#GeothermalEngineering_ReviewThermodinamics.pdf \
 		GeothermalEngineering_Part3.pdf
@@ -9,6 +9,7 @@ GeothermalEngineering_Part1.pdf:		GeothermalEngineering_Part1.tex
 GeothermalEngineering_Part2.pdf:		GeothermalEngineering_Part2.tex
 Tutorial1.pdf:					Tutorial1.tex
 Tutorial2.pdf:					Tutorial2.tex
+Tutorial2b.pdf:					Tutorial2b.tex
 Tutorial3.pdf:					Tutorial3.tex
 ContinuousAssessment.pdf:			ContinuousAssessment.tex
 #GeothermalEngineering_ReviewThermodinamics.pdf:	GeothermalEngineering_ReviewThermodinamics.tex
