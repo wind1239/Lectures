@@ -242,7 +242,8 @@
 \newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
 
 \newcommand{\frc}{\displaystyle\frac}
-
+\newcommand{\red}{\textcolor{red}}
+ 
 \newlist{ExList}{enumerate}{1}
 \setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
 
@@ -266,17 +267,99 @@
 
 \begin{document}
 
-A geothermal power plant operates under binary cycle using propane $\left(\text{mass flow rate of 50 kg.s}^{-1}\right)$ as working fluid. The geothermal fluid is driven $\left(\text{mass flow rate of 35 kg.s}^{-1}\right)$ through the production well ($A$) at 120$^{\circ}$C and heat is transferred into the propane internal flow at XX bar and XX $^{\circ}$C 
-
+A geothermal power plant operates under binary cycle technology with propane, C$_{3}$, as working fluid $\left(\text{with mass flow rate of 10 kg.s}^{-1}\right)$. The geothermal fluid is extracted  from the production well ($A$) at 35 kg.s$^{-1}$ and 120$^{\circ}$C. Thermal energy from the geothermal stream is transferred into the propane flow in the heat exchanger operating at 18 bar, resulting in a temperature of 70 $^{\circ}$C. A turbine isentropically expands the propane fluid to 0.75 bar. Calculate:
+\begin{enumerate}
+  \item Net work produced by the cycle;
+  \item Heat removed from the working fluid through the condenser;
+  \item Temperature of the geothermal fluid ($B$) before reinjection; 
+\end{enumerate}
+Assume that the heat capacity at constant pressure $\left(C_{p,w}\right)$ of the geothermal fluid is $4.18$ kJ.$\left(\text{kg.}^{\circ}\text{C}\right)^{-1}$.
 
 
 \begin{center}
-\includegraphics[width=12.0cm,height=9.0cm]{./Pics/GeothermalPowerGeneration}
+\includegraphics[width=15.0cm,height=12.0cm]{./Pics/GeothermalPowerGeneration}
 \end{center}
 
 
-
 \clearpage
+
+\begin{center}
+{\large {\bf Solution}}
+\end{center}
+
+Before we solve (1-3), we need to calculate the enthalpies of propane at each stage of the cycle:
+
+\begin{enumerate}[label=\bfseries Stage \arabic*:]
+%
+
+\item At $P_{1}=18\text{ bar} \longrightarrow T_{\text{sat}}=52.3^{\circ}\text{C} < T_{1}\left(=70^{\circ}\text{C}\right)$, therefore, we can conclude that propane is at {\it superheated} state. From the superheated fluid table:
+\begin{itemize}
+  \item \red{$h_{1} = 561.8$ kJ.kg$^{-1}$};
+  \item $s_{1} = 1.834$ kJ.$\left(\text{kg.K}\right)^{-1}$
+\end{itemize}
+%
+
+\item In the turbine, propane is {\it isentropically} $\left(\text{i.e., } s_{2} = s_{1}\right)$ expanded from $P_{1}=18\text{ bar}$ to $P_{2}=0.75\text{ bar}$. During the expansion, the fluid is cooled and may undertake phase change (i.e., part of the vapour may be condensed producing droplets of liquid propane), and we need to assess the {\it quality} $\left(x_{2}\right)$ of the stream,
+\begin{displaymath}
+  x_{2} = \frc{s_{2}-s_{f}}{s_{g}-s_{f}} = \frc{1.834-(-0.085)}{1.841-(-0.085)} = 0.9964
+\end{displaymath}
+
+This indicates that the fluid is almost fully vaporised (99.64$\%$ of vapour). With the quality we can finally calculate the enthalpy of this stream,
+\begin{displaymath}
+  x_{2} = 0.9964 = \frc{h_{2}-h_{f}}{h_{g}-h_{f}} = \frc{h_{2} - (-19.5)}{412.8 - (-19.5)} \Longrightarrow \red{h_{2} = 411.24\; \text{kJ.kg}^{-1}} 
+\end{displaymath} 
+%
+\item Propane is then {\bf fully condensated} (phase change from vapour to liquid) at {\it constant pressure} at the condenser, i.e., $P_{2}=P_{3}=0.75\text{ bar}$. Therefore, from the saturated fluid property table,
+\begin{itemize}
+   \item \red{$h_{3}$} = $h_{f}$ \red{$= -19.5 \text{ kJ.kg}^{-1}$};
+   \item $s_{3} = s_{f} = -0.085\text{ kJ.}\left(\text{kg.K}\right)^{-1}$;
+   \item $v_{3} = v_{f} = 1.698\times 10^{-3}\text{ m}^{3}\text{.kg}^{-1}$;
+\end{itemize}
+%
+
+\item After being fully condensated, liquid propane is {\it isentropically compressed} in a pump and driven towards the heat exchanger. Assuming that there is \underline{no pressure drop} in the heat exchanger, we can conclude that $P_{4}=P_{1}=18\text{ bar}$. We can also assume that the liquid propane is incompressible (i.e., no change in volume as pressure is modified) and integrating the fundamental thermodynamic relation $dh = vdP$ from stage 3 to stage 4,
+\begin{eqnarray}
+   \red{h_{4}} &=& h_{3} + v_{3}\left(P_{4}-P_{3}\right) = -19.5\frc{kJ}{kg} + 1.698\times 10^{-3}\frc{m^{3}}{kg}\left(18-0.75\right)\text{bar}\times \frc{10^{5}\frc{kg}{m.s^{2}}}{1\text{ bar}} \times \frc{10^{-3}\frc{kJ}{kg}}{1\frc{m^{2}}{s^{2}}}
+ \nonumber \\
+              &=& \red{-16.57\frc{kJ}{kg}} \nonumber
+\end{eqnarray} 
+%
+\end{enumerate}
+
+Now that we obtained all enthalpies of the cycle, we can solve (1-3):
+\begin{enumerate}
+%
+\item Net work:
+\begin{eqnarray}
+\red{\dot{W}_{\text{net}}} &=& \dot{W}_{\text{turbine}} + \dot{W}_{\text{pump}} = \dot{m}_{C_{3}}\left[\left(h_{2}-h_{1}\right) + \left(h_{4}-h_{3}\right)\right] \nonumber \\
+                        &=& 10\frc{kg}{s}\left[\left(411.24-561.8\right) + \left(-16.57-(-19.50)\right)\right]\frc{kJ}{kg} = \red{-1476.3\;\frc{kJ}{s}} \nonumber
+\end{eqnarray}
+Thus \red{$\sim$ 1.48 MW} of power were \underline{produced by the cycle}.
+%
+\item The thermal energy that can be (potentially) used in district heating (or in industrial facilities or waste in the environment) is,
+\begin{eqnarray}
+ \red{\dot{Q}_{\text{condenser}}} &=& \dot{m}_{C_{3}}\left(h_{3}-h_{2}\right) = 10\frc{kg}{s}\left(-19.5-411.24\right)\frc{kJ}{kg} \nonumber \\
+                             &=& \red{-4307.4\;\frc{kJ}{s}} \nonumber
+\end{eqnarray}
+Thus the cycle generated \red{$\sim$4.3 MW} of heating that can be effectively used.
+%
+
+\item In order to calculate the temperature of the geothermal fluid before reinjection, we first need to calculate the {\it heat absorbed by propane in the heat exchanger},
+\begin{eqnarray}
+\dot{Q}_{\text{absorbed}} &=& \dot{m}_{C_{3}}\left(h_{1}-h_{4}\right) = 10\frc{kg}{s}\left(561.8-(-16.57)\right)\frc{kJ}{kg} \nonumber \\
+                      &=& 5783.7\; \frc{kJ}{s} \nonumber 
+\end{eqnarray}
+Assuming that no heat is lost in the heat exchanger through the boundaries to the surroundings, the total energy balance is $\dot{Q}_{\text{absorbed}}+\dot{Q}_{\text{released}} = 0$, thus
+\begin{eqnarray}
+ \dot{Q}_{\text{released}} &=& \dot{m}_{w}C_{p,w}\left(T_{w}^{\text{out}}-T_{w}^{\text{in}}\right) \nonumber \\
+ -5783.7 \frc{kJ}{s}    &=& 35\;\frc{kg}{s} \times 4.18\;\frc{kJ}{kg.^{\circ}C}\times \left(T_{w}^{\text{out}}-120\right)^{\circ}C \nonumber \\
+ \red{T_{w}^{\text{out}}}   &=& \red{80.47^{\circ}C} \nonumber
+\end{eqnarray}
+The geothermal fluid will need to be cooled before reinjection as the temperature is probably too large to comply with environmental laws.   
+%
+\end{enumerate} 
+
+
 
 %{
 %\includepdf[pages=-,fitpaper, angle=0]{./HuntSelect.pdf}
