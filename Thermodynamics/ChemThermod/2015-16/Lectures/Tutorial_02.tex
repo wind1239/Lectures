@@ -79,7 +79,7 @@
 %%%
 %%% Headers and Footers
 \lhead[] {\text{\small{EX3029 -- Chemical Thermodynamics}}} 
-\rhead[] {{\text{\small{Tutorial 02 (2014/15)}}}}
+\rhead[] {{\text{\small{Tutorial 02}}}}
 %\chead[] {\text{\small{Session 2012/13}}} 
 \lfoot[]{Dr Jeff Gomes}
 %\cfoot[\thepage]{\thepage}
@@ -269,7 +269,7 @@
 
 
 \begin{enumerate}[label=\bfseries Problem \arabic*:]
-
+\begin{comment}
 %%%
 %%% Johannes T2Q1
 %%%
@@ -279,7 +279,7 @@
 \item What is the pressure of the gas? 
 \item The gas in the cylinder is heated and expands pushing the piston and weight upward. Calculate the work done by the gas if the piston and weight are raised 0.83 m. What is the change in potential energy of the piston and weight?
 \end{enumerate}
-
+\end{comment}
 %%%
 %%% Johannes T2Q2
 %%%
@@ -308,7 +308,7 @@ Process 3$\rightarrow$4: & Isobaric heating, T$_{4}$ = 600 K \\
 %%%
 %%% Johannes T2Q3
 %%%
-\item\label{Tut02:IdealGas2} One mole of an ideal gas with C$_{P}$ = (7/2)R and C$_{V}$ = (5/2)R expands form P$_{1}$ = 8 bar and T$_{1}$ = 600 K to P$_{2}$ = 1 bar by each of the following paths:
+\item\label{Tut02:IdealGas2} One mole of an ideal gas with C$_{P}$ = (7/2)R and C$_{V}$ = (5/2)R expands from P$_{1}$ = 8 bar and T$_{1}$ = 600 K to P$_{2}$ = 1 bar by each of the following paths:
 \begin{enumerate}
 \item Constant volume.% (0 kJ, -10.91 kJ, -15.28 kJ)
 \item Constant temperature.% (-10.37 kJ, 0 kJ)
@@ -316,7 +316,7 @@ Process 3$\rightarrow$4: & Isobaric heating, T$_{4}$ = 600 K \\
 \end{enumerate}
 Assuming mechanical reversibility, calculate $W$, $Q$, $\Delta U$, $\Delta H$ for each process. Sketch each path on a single PV diagram.
 
-
+\begin{comment}
 %%%
 %%% Johannes T3Q1
 %%%
@@ -335,7 +335,7 @@ Assuming mechanical reversibility, calculate $W$, $Q$, $\Delta U$, $\Delta H$ fo
 \begin{displaymath}
 \displaystyle\frac{\d V}{V} = \beta \d T - \kappa \d P
 \end{displaymath}
-
+\end{comment}
 
 %%%
 %%% Johannes T3Q4
@@ -355,7 +355,7 @@ Prove that
 %%%
 \item\label{Tut02:LNG} Large quantities of liquefied natural gas (LNG) are shipped by ocean tanker. At the unloading port provision is made for vaporisation of the LNG so that it may be delivered to pipelines as gas. The LNG arrives in the tanker at atmospheric pressure and 113.7 K, and represents a possible heat sink for use as the cold reservoir of a heat engine. For unloading of LNG as a vapour at the rate of 9000 $m^{3}.s^{-1}$, as measured at 298.15 K and 1.0133 bar, and assuming the availability of an adequate heat source at 303.15 K, what is the maximum possible power obtainable and what is the rate of heat transfer from the heat source? Assume that LNG at 298.15 K and 1.0133 bar is an ideal gas with the molar mass of 17. Also assume that the LNG vaporises only, absorbing only its latent heat of 512 kJ/kg at 113.7 K.
 
-
+\begin{comment}
 %%%
 %%% Problem 8.3 (Power Lectures Notes)
 %%%
@@ -375,7 +375,48 @@ $T$ & $P_{sat}$ & $v_{f}$ &  $v_{g}$ & $u_{f}$ & $u_{g}$ &  $h_{f}$ &  $h_{g}$ &
 
 with
 [$T$]= $^{o}$C; [$P$]= kPa; [$v$]=$\frac{m^{3}}{kg}$; [$u$] = [$h$] = $\frac{kJ}{kg}$, [$s$] = $\frac{kJ}{kg.K}$ 
+\end{comment}
 
+
+
+%%%
+%%% Johannes T4Q2
+%%%
+\item\label{Tut03:EOS1} Calculate $V$ and $Z$ for sulphur hexafluoride at 75$^{\circ}$C and 15 bar through the following equations of state:
+\begin{enumerate}
+\item truncated virial equation,
+\begin{displaymath}
+Z = \frc{PV}{RT} = 1 + \frc{B}{V} + \frc{C}{V^{2}}
+\end{displaymath}
+with B = -194 cm$^{3}$.gmol$^{-1}$ and C = 15300 cm$^{6}$.gmol$^{-2}$;
+\item Redlich-Kwong;
+\item Soave-Redlich-Kwong;
+\item Peng-Robinson.
+\end{enumerate}
+Sulfur hexafluoride: P$_{c}$ = 37.6 bar, T$_{c}$ = 318.7 K, V$_{c}$ = 198 cm$^{3}$.gmol$^{-1}$, $\omega$ = 0.286.
+
+%%%
+%%% Cengel Example 3.13
+%%%
+\item\label{Tut03:EOS2}Predict the pressure of N$_{2}$ gas at 175 K and $V$ = 3.75$\times$10$^{-3}$ m$^{3}$.kg$^{-1}$ through the following equations of state:
+\begin{enumerate}
+\item Ideal gas equation;
+\item van der Waals;
+\item Benedict-Webb-Rubin,
+\begin{displaymath}
+P = \frc{R T}{V} + \left(B_{0} R T - A_{0} - \frc{C_{0}}{T^{2}}\right) V^{-2} + \frc{ b R T - a}{V^{3}} + \frc{a \alpha}{V^{6}} + \frc{c}{V^{3}T^{2}}\left(1 + \frc{\gamma}{V^{2}}\right) e^{-\gamma/V^{2}} 
+\end{displaymath}
+with [P] = kPa, [V] = m$^{3}$.kgmol$^{-1}$, [T] = K and $R$ = 8.314 $\frc{\text{kPa.m}^{3}}{kgmol.K}$ 
+\begin{center}
+\begin{tabular}{ l l l l }
+%\hline
+a = 2.54 & b = 2.328$\times$10$^{-3}$ & c = 7.379$\times$10$^{4}$ & $\alpha$ = 1.272$\times$10$^{-4}$ \\
+A$_{0}$ = 106.73 & B$_{0}$ = 0.04074 & C$_{0}$ = 8.164$\times$10$^{5}$ & $\gamma$ = 0.0053 \\ 
+%\hline
+\end{tabular}
+\end{center}
+Compare the values obtained to the experimentally determined value of 10$^{4}$ kPa.
+\end{enumerate}
 
 
 \end{enumerate}
