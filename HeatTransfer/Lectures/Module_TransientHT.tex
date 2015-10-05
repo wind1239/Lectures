@@ -553,18 +553,77 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
 \begin{frame}
  \frametitle{Plane Wall: 1-D Transient Heat Conduction at \red{$0\leq x\leq L$} }
    \begin{enumerate}[(a)]\setcounter{enumi}{5}%\scriptsize
-     \item<1-> In order to solve Eqn.~\ref{Eqn:GlobalThermalEqn} with the associated boundary and initial conditions, we first need to {\it adimensionalise} the PDE 
-In most transient heat transfer problems, the \blue{\it Biot} dimensionless number is larger than \blue{0.1} and the \blue{lumped-capacity method} and Eqn.~\ref{eqn:CharacteristicTime} can not be used.
-     \item<2-> In such cases, it is necessary to calculate the temperature distribution throught spatial and time domains, i.e., \red{$T\left(\underline{x},t\right)$}, where $\underline{x}$ is the spatial-coordinate in 1-, 2- and 3-D;
-   \end{enumerate}
+     \item<1-> In order to solve Eqn.~\ref{Eqn:GlobalThermalEqn} with the associated boundary and initial conditions, we first need to {\it adimensionalise} this partial differential equation (PDE) with
+        \begin{displaymath}
+             \theta = \frc{T - T_{\infty}}{T_{i} - T_{\infty}}
+        \end{displaymath}    
+     \item<2-> Leading to (in non-dimensional form):
+           \visible<2->{\begin{equation}
+              \frc{\partial^{2} \theta}{\partial X^{2}} = \frc{\partial \theta}{\partial \tau}\label{Eqn:GlobalThermalEqn_NonDimensional}
+           \end{equation}
+           where $X = x/L$ and $\tau = \alpha t / L^{2}$.}
+     \item<3-> With {\it boundary conditions}:
+           \visible<3->{\begin{eqnarray}
+              \frc{\partial \theta}{\partial X} = 0\;\;\;        &&\text{ at } X=0\text{ and } \tau > 0 \nonumber \\
+              \frc{\partial \theta}{\partial X} = -Bi\cdot\theta && \text{ at } X=L \text{ and } \tau > 0 \nonumber
+           \end{eqnarray}}
+      \item<3-> And {\it initial conditions}:
+           \visible<3->{\begin{displaymath}
+               \theta\left(X,\tau=0\right) = 1
+           \end{displaymath}}
+   \end{enumerate} 
+\end{frame}
 
-   \begin{center}
-      \includegraphics[width=0.55\columnwidth,height=0.45\columnwidth,clip]{./Pics/HT_All}
-   \end{center}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Plane Wall: 1-D Transient Heat Conduction at \red{$0\leq x\leq L$} }
+   \begin{enumerate}[(a)]\setcounter{enumi}{9}%\scriptsize
+     \item<1-> The solution of Eqn.~\ref{Eqn:GlobalThermalEqn_NonDimensional} involves infinite series method,
+          \visible<1->{\begin{displaymath}
+             \theta = \sum\limits_{n=1}^{\infty} A_{n}\exp\left(-\lambda^{2}_{n}\tau\right)\cos{\left(\lambda_{n}X\right)}
+          \end{displaymath}}
+          with
+          \begin{displaymath}
+            A_{n} = \frc{4\sin{\lambda_{n}}}{2\lambda_{n}+\sin{2\lambda_{n}}}\text{ and } \lambda_{n}\tan{\lambda_{n}} = Bi
+          \end{displaymath}
+     \item<2-> The solution for this infinite series converges rapidly with increasing time and for $\tau > 0.2$. We can use the first term and neglect the remaining terms; 
+     \item<3-> Solution for $\tau>0.2$ can be found in the next slide for the 3 geometries considered here.
+
+   \end{enumerate} 
 \end{frame}
 
 
 
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{1-D Transient Heat Conduction (with $\tau > 0.2$)}
+   \begin{enumerate}[(a)]%\setcounter{enumi}{9}%\scriptsize
+     \item<1-> Plane Wall:
+        \begin{equation}
+           \tau_{\text{wall}} = \frc{T(x,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\cos{\left(\frc{\lambda_{1}x}{L}\right)}
+        \end{equation}
+     \item<2-> Cylinder:
+        \begin{equation}
+           \tau_{\text{cyl}} = \frc{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\mathbf{J_{0}}\left(\frc{\lambda_{1}r}{r_{0}}\right)
+        \end{equation}
+     \item<3-> Sphere:
+        \begin{equation}
+           \tau_{\text{sph}} = \frc{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\frc{\sin{\left(\frc{\lambda_{1}r}{r_{0}}\right)}}{\frc{\lambda_{1}r}{r_{0}}}
+        \end{equation}
+
+     \item<4-> At the centre of the geometry ($x=0$ or $r=0$),
+         \begin{equation}
+             \theta_{0,\text{wall}} = \theta_{0,\text{cyl}} = \theta_{0,\text{sph}} = \frc{T_{0}-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}e^{-\lambda_{1}^{2}\tau}
+         \end{equation}
+
+   \end{enumerate} 
+\end{frame}
 
 
 %%%
