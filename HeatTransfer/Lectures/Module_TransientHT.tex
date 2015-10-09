@@ -581,7 +581,7 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
 \begin{frame}
  \frametitle{Plane Wall: 1-D Transient Heat Conduction at \red{$0\leq x\leq L$} }
    \begin{enumerate}[(a)]\setcounter{enumi}{9}%\scriptsize
-     \item<1-> The solution of Eqn.~\ref{Eqn:GlobalThermalEqn_NonDimensional} involves infinite series method,
+     \item<1-> The solution of Eqn.~\ref{Eqn:GlobalThermalEqn_NonDimensional} involves Fourier series expansion,
           \visible<1->{\begin{displaymath}
              \theta = \sum\limits_{n=1}^{\infty} A_{n}\exp\left(-\lambda^{2}_{n}\tau\right)\cos{\left(\lambda_{n}X\right)}
           \end{displaymath}}
@@ -596,8 +596,6 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
 \end{frame}
 
 
-
-
 %%%
 %%% Slide
 %%%
@@ -606,24 +604,76 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
    \begin{enumerate}[(a)]%\setcounter{enumi}{9}%\scriptsize
      \item<1-> Plane Wall:
         \begin{equation}
-           \tau_{\text{wall}} = \frc{T(x,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\cos{\left(\frc{\lambda_{1}x}{L}\right)}
+           \theta_{\text{wall}} = \frc{T(x,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\cos{\left(\frc{\lambda_{1}x}{L}\right)}
         \end{equation}
      \item<2-> Cylinder:
         \begin{equation}
-           \tau_{\text{cyl}} = \frc{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\mathbf{J_{0}}\left(\frc{\lambda_{1}r}{r_{0}}\right)
+           \theta_{\text{cyl}} = \frc{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\mathbf{J_{0}}\left(\frc{\lambda_{1}r}{r_{0}}\right)
         \end{equation}
      \item<3-> Sphere:
         \begin{equation}
-           \tau_{\text{sph}} = \frc{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\frc{\sin{\left(\frc{\lambda_{1}r}{r_{0}}\right)}}{\frc{\lambda_{1}r}{r_{0}}}
+           \theta_{\text{sph}} = \frc{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\frc{\sin{\left(\frc{\lambda_{1}r}{r_{0}}\right)}}{\frc{\lambda_{1}r}{r_{0}}}
         \end{equation}
 
-     \item<4-> At the centre of the geometry ($x=0$ or $r=0$),
+     \item<4-> At the centre of the geometry: $\cos{0}=1=\mathbf{J_{0}}(0)=1$ and the limit of $\frac{sin{x}}{x}$ is 1.
          \begin{equation}
              \theta_{0,\text{wall}} = \theta_{0,\text{cyl}} = \theta_{0,\text{sph}} = \frc{T_{0}-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}e^{-\lambda_{1}^{2}\tau}
          \end{equation}
+   \end{enumerate} 
+   \visible<1->{$A_{1}$ and $\lambda_{1}$ are functions of the $Bi$ dimensioneless number. Function $J_{0}$ is the zeroth-order Bessel function of the first kind.}
 
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Coefficients and Bessel Functions}
+        \begin{center}
+          \includegraphics[width=.9\columnwidth,height=.65\columnwidth,clip]{./Pics/BaselFunctionTable}
+        \end{center}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Energy Balance}
+   \begin{enumerate}[(a)]%\setcounter{enumi}{9}%\scriptsize
+     \item<1-> The maximum amount of heat that can be transferred \red{from/to} a body occurs when the temperature of the body changes from the \blue{initial temperature, $T_{i}$} to \red{ambient temperature, $T_{\infty}$},
+         \begin{displaymath}
+             \visible<1->{\mathcal{Q}_{\text{max}} = m C_{p}\left(T_{\infty}-T_{i}\right)} \visible<2->{= \rho V C_{p}\left(T_{\infty}-T_{i}\right)} 
+         \end{displaymath}
+     \item<3-> The amount of heat \blue{$\mathcal{Q}$} transferred at a time \blue{$t$} is,
+              \visible<3->{\begin{displaymath}
+                 \mathcal{Q} = \int\limits_{V} \rho C_{p}\left[T\left(x,t\right)-T_{i}\right]dV
+              \end{displaymath}}
+     \item<4-> Assuming that $\rho C_{p}$ remains constant,
+              \visible<4->{\begin{displaymath}
+                 \frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}} = \frc{\int\limits_{V} \rho C_{p}\left[T\left(x,t\right)-T_{i}\right]dV}{\rho V C_{p}\left(T_{\infty}-T_{i}\right)} = \frc{1}{V}\int\limits_{V}\left(1-\theta\right)dV
+              \end{displaymath}}
    \end{enumerate} 
 \end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Energy Balance}
+   \begin{enumerate}[(a)]\setcounter{enumi}{3}%\scriptsize
+     \item<1-> We can perform the integration for all three  studied geometries:
+          \begin{eqnarray}
+            \text{Plane wall:} && \left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{wall}} = 1 - \theta_{0,\text{wall}}\frc{\sin{\lambda_{1}}}{\lambda_{1}} \\
+            \text{Cylinder:} && \left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{cyl}} = 1- 2\theta_{0,\text{cyl}}\frc{\mathbf{J_{1}}}{\lambda_{1}} \\
+            \text{Sphere:} && \left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{sph}} = 1 - 3\theta_{0,\text{sph}}\frc{\sin{\lambda_{1}}-\lambda_{1}\cos{\lambda_{1}}}{\lambda_{1}^{3}}
+          \end{eqnarray}
+   \end{enumerate} 
+\end{frame}
+
+
+
 
 
 %%%
