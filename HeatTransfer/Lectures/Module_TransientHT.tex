@@ -225,6 +225,22 @@
 \phantom{\includegraphics<#2|handout:0>[#3]{#4}}%
 \includegraphics<#1>[#3]{#4}%
 }
+\usepackage{xcolor}
+
+\newlength{\overwritelength}
+\newlength{\minimumoverwritelength}
+\setlength{\minimumoverwritelength}{1cm}
+\newcommand{\overwrite}[3][red]{%
+  \settowidth{\overwritelength}{$#2$}%
+  \ifdim\overwritelength<\minimumoverwritelength%
+    \setlength{\overwritelength}{\minimumoverwritelength}\fi%
+  \stackrel
+    {%
+      \begin{minipage}{\overwritelength}%
+        \color{#1}\centering\small #3\\%
+        \rule{1pt}{9pt}%
+      \end{minipage}}
+    {\colorbox{#1!50}{\color{black}$\displaystyle#2$}}} 
 
 \newcommand{\frc}{\displaystyle\frac}
 \newcommand{\red}{\textcolor{red}}
@@ -604,15 +620,15 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
    \begin{enumerate}[(a)]%\setcounter{enumi}{9}%\scriptsize
      \item<1-> Plane Wall:
         \begin{equation}
-           \theta_{\text{wall}} = \frc{T(x,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\cos{\left(\frc{\lambda_{1}x}{L}\right)}
+           \theta_{\text{wall}} = \frc{T(x,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\cos{\left(\frc{\lambda_{1}x}{L}\right)}\label{analytical:wall}
         \end{equation}
      \item<2-> Cylinder:
         \begin{equation}
-           \theta_{\text{cyl}} = \frc{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\mathbf{J_{0}}\left(\frc{\lambda_{1}r}{r_{0}}\right)
+           \theta_{\text{cyl}} = \frc{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\mathbf{J_{0}}\left(\frc{\lambda_{1}r}{r_{0}}\right)\label{analytical:cylinder}
         \end{equation}
      \item<3-> Sphere:
         \begin{equation}
-           \theta_{\text{sph}} = \frc{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\frc{\sin{\left(\frc{\lambda_{1}r}{r_{0}}\right)}}{\frc{\lambda_{1}r}{r_{0}}}
+           \theta_{\text{sph}} = \frc{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\frc{\sin{\left(\frc{\lambda_{1}r}{r_{0}}\right)}}{\frc{\lambda_{1}r}{r_{0}}}\label{analytical:sphere}
         \end{equation}
 
      \item<4-> At the centre of the geometry: $\cos{0}=1=\mathbf{J_{0}}(0)=1$ and the limit of $\frac{sin{x}}{x}$ is 1.
@@ -620,20 +636,10 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
              \theta_{0,\text{wall}} = \theta_{0,\text{cyl}} = \theta_{0,\text{sph}} = \frc{T_{0}-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}e^{-\lambda_{1}^{2}\tau}
          \end{equation}
    \end{enumerate} 
-   \visible<1->{$A_{1}$ and $\lambda_{1}$ are functions of the $Bi$ dimensioneless number. Function $J_{0}$ is the zeroth-order Bessel function of the first kind (see Tables in the next slide).}
+   \visible<1->{$A_{1}$ and $\lambda_{1}$ are functions of the $Bi$ dimensioneless number. Function $J_{0}$ is the zeroth-order Bessel function of the first kind (see Tables in Appendix 1).}
 
 \end{frame}
 
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Coefficients and Bessel Functions}
-        \begin{center}
-          \includegraphics[width=.9\columnwidth,height=.65\columnwidth,clip]{./Pics/BaselFunctionTable}
-        \end{center}
-\end{frame}
 
 %%%
 %%% Slide
@@ -670,21 +676,8 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
             \text{Sphere:} && \left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{sph}} = 1 - 3\theta_{0,\text{sph}}\frc{\sin{\lambda_{1}}-\lambda_{1}\cos{\lambda_{1}}}{\lambda_{1}^{3}}
           \end{eqnarray}
       \item<2-> Heisler and Gr\"ober charts were developed for these geometries to {\it easily} obtain temperature distribution and heat transfer in prescribed geometries. 
-      \item<3-> A sample for Heisler and Gr\"ober charts for plane wall is available in the next slide. This can also be obtained in most heat transfer text-books.      
+      \item<3-> Heisler and Gr\"ober charts are available in Appendix 2. They can also be obtained in most heat transfer text-books.      
    \end{enumerate} 
-\end{frame}
-
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Heisler and Gr\"ober Charts for Plane Wall}
-    \begin{figure}
-        \begin{center}
-          \includegraphics[width=.9\columnwidth,height=.65\columnwidth,clip]{./Pics/HeislerCharts}
-        \end{center}
-    \end{figure}
 \end{frame}
 
 %%%
@@ -700,9 +693,133 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
            \item<2-> Convective heat transfer coefficient is constant and uniform;
            \item<2-> No heat generation in the body.
         \end{enumerate}
-     \item<2-> The \red{Fourier dimensionless number (Fo)} helps to better understand the main physical mechanisms 
+     \item<3-> The \red{Fourier dimensionless number (Fo)} helps to better understand the main heat flux mechanisms. It is defined as the ratio of rates of heat diffusion and heat stored in a body of volume $L^{3}$, i.e.,
+        \visible<3->{\begin{equation}
+               Fo = \frc{\alpha t}{L^{2}}
+        \end{equation}} 
    \end{enumerate} 
 \end{frame}
+
+
+%%%
+%%% Slide (Example 4.5)
+%%%
+\begin{frame}
+ \frametitle{Example}
+A long 20-cm-diameter cylindrical shaft made of stainless steel 304 comes out of an oven at a uniform temperature of 600$^{\circ}$C. The shaft is then allowed to cool slowly in an environment chamber at 200$^{\circ}$C with an average heat transfer coefficient of ($h$) of 80 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Determine the temperature at the center of the shaft 45 min after the start of the cooling process. Also, determine the heat transfer per unit length of the shaft during this time period. Given, for stainless steel 304 at room temperature: \\
+\begin{tabular}{l c l l}
+$\kappa$ & = & 14.9 & W/$\left(\text{m.}^{\circ}\text{C}\right)$ \\
+$\rho$   & = & 7900 & kg/m$^{3}$ \\
+$C_{p}$   & = & 477 & J/(kg.$^{\circ}$C) \\
+$\alpha$ & = & 3.95$\times$10$^{-6}$ & m$^{2}$/s 
+\end{tabular}
+
+\end{frame}
+
+
+%%%
+%%%  SUBSECTION
+%%%
+\subsection{Numerical Solution for Transient Heat Conduction Problems}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Introduction to Finite Difference Methods (FDM)}
+  \begin{enumerate}
+     \item<1-> The \red{analytical methods} introduced in the previous section are easy to apply thorugh either Eqns.~\ref{analytical:wall}-~\ref{analytical:sphere} or the Heisler $\&$ Gr\"ober charts;
+     \item<1-> These methods are however constraint to 1-D and simple geometries;
+     \item<2-> Numerical methods offer a great alternative to solve \blue{partial differential equations (PDE)} by replacing differential equations by algebraic equations. In \blue{FDM}, derivatives are replaced by differences; 
+     \item<3-> In \blue{FDM}, the derivatives are approximated using \blue{Taylor series expansions} truncated at (relativeley) low-order;
+     \item<3-> For example, if we consider the 1D transport equation with constant diffusion coefficient and no unsteady or advective terms,
+        \visible<3->{\begin{equation}
+           \textcolor{red}{\cancelto{0}{\frac{\partial}{\partial t}\left(\rho\phi\right)}} + \textcolor{red}{\cancelto{0}{\frac{\partial}{\partial x}\left(\rho\bm{v}\phi\right)}}= \nabla\cdot\left(\Gamma\nabla\phi\right) + \mathcal{S} \Longrightarrow \textcolor{blue}{\Gamma\frac{d^{2}\phi}{dx^{2}} +\mathcal{S} = 0}\label{eq:1Dtransport_simplified}
+        \end{equation}
+     where $\phi$ is a scalar (e.g., temperature, concentration etc) and $\mathcal{S}$ is a source or sink term.}
+  \end{enumerate}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Introduction to Finite Difference Methods (FDM)}
+  \begin{enumerate}
+    \setcounter{enumi}{2}
+      \item <2-> The diffusion term can be discretised using the Taylor series expansion:
+        \visible<2->{
+          \begin{eqnarray}
+            \phi_{i-1} = \phi_{i} - \Delta x\left(\frac{d\phi}{d x}\right)_{i} + \frac{\left(\Delta x\right)^{2}}{2!}\left(\frac{d^{2}\phi}{dx^{2}}\right)_{i} + \overwrite{\mathcal{O}\left[\left(\Delta x\right)^{3}\right]}{truncation order} \label{Eqn:FDMDisc1}\\ 
+            \phi_{i+1} = \phi_{i} + \Delta x\left(\frac{d\phi}{d x}\right)_{i} + \frac{\left(\Delta x\right)^{2}}{2!}\left(\frac{d^{2}\phi}{dx^{2}}\right)_{i} + \mathcal{O}\left[\left(\Delta x\right)^{3}\right]\label{Eqn:FDMDisc2}
+          \end{eqnarray}}
+      \item <3-> If we subtract Eqn.~\ref{Eqn:FDMDisc2} from~\ref{Eqn:FDMDisc1}, and sum them up:
+       \visible<3->{
+         \begin{displaymath}
+            \left(\frac{d\phi}{d x}\right)_{i} = \frac{\phi_{i+1}-\phi_{i-1}}{2\Delta x} \;\;\text{ and }\;\; \left(\frac{d^{2}\phi}{d x^{2}}\right)_{i} = \frac{\phi_{i-1}+\phi_{i+1}-2\phi_{i}}{\left(\Delta x\right)^{2}}
+         \end{displaymath}}
+  \end{enumerate}  
+     \visible<1->{ 
+       \begin{center}
+         \includegraphics[width=11.5cm, height=1.5cm, clip]{./Pics/SchetchFDM.pdf}
+       \end{center}}
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%% 
+\begin{frame}
+  \frametitle{Introduction to Finite Difference Methods (FDM)}
+\begin{enumerate}
+   \setcounter{enumi}{4}
+  \item <1-> Thus, the diffusion term can be redefined as,
+     \visible<1->{
+     \begin{equation}
+         \Gamma\left(\frac{d^{2}\phi}{dx^{2}}\right)_{2}=\Gamma\frac{\phi_{i-1}+\phi_{i+1}-2\phi_{i}}{\left(\Delta x\right)^{2}}\label{DiffusionEqn}
+     \end{equation}}
+  \item <2-> And the source term can be evaluated at point $i$, i.e., $\mathcal{S}_{i}=\mathcal{S}\left(\phi_{i}\right)$. Thus the discrete form of Eqn~\ref{eq:1Dtransport_simplified} is,
+     \visible<2->{
+     \begin{equation}
+         \Gamma\frac{\partial^{2}\phi}{\partial x^{2}} +\mathcal{S} = \Gamma\frac{\phi_{i-1}+\phi_{i+1}-2\phi_{i}}{\left(\Delta x\right)^{2}} + \mathcal{S}\left(\phi_{i}\right)
+     \end{equation} }
+  \item <3-> Here, we have a system of algebraic equations (for each point of the mesh) that can determine discrete values for $\phi$;
+  \item <4-> The resulting system of equations can be solved by any (direct or iterative) method;
+  \item <5-> The FDM is not inherently conservative, and can only be used in relatively simple geometries as it relies on structured grids.
+\end{enumerate}  
+ 
+\end{frame}
+
+
+%%%
+%%% Slide
+%%% 
+\begin{frame}
+  \frametitle{Solving 1D Transient HT Problems with FDM}
+     \begin{columns}
+        \begin{column}[c]{0.45\linewidth}
+           \includegraphics[width=1.2\columnwidth,height=1.3\columnwidth,clip]{./Pics/FDM_1DTransient}
+        \end{column}
+        \begin{column}[l]{0.55\linewidth}
+           \begin{enumerate}
+              \item<1-> The 1D transient heat conduction problem in a slab $L$ with constant properties is represented by Eqn.~\ref{Eqn:GlobalThermalEqn},
+                  \visible<1->{\begin{displaymath}
+                     \frc{\partial^{2} T}{\partial x^{2}} = \frc{1}{\alpha}\frc{\partial T}{\partial t}\label{Eqn:GlobalThermalEqn}
+                  \end{displaymath}
+                  subjected to prescribed \blue{boundary and initial conditions} for $T(x,t)$. }
+              \item<2-> In FDM, the spatial- and time-domains are divided into mesh grid. The points in both coordinates are separated by constant spacing, $\Delta x$ and $\Delta t$;
+              \item<2-> Nodes $x_{1}$ and $x_{n}$ are \blue{boundaries nodes} whereas all other nodes are \blue{interior nodes};
+              \item<3-> Node $t_{1}$ represents the \blue{initial condition} of the system.
+%                    can be described as (see Eqn.~\ref{DiffusionEqn})
+           \end{enumerate}
+        \end{column}
+     \end{columns}
+\end{frame}
+
+
+
+
 
 %%%
 %%%  SECTION
@@ -730,19 +847,26 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
 %%%
 %%% Appendix
 %%%
-%\subsection{Appendix}
-%\begin{frame}
-%\begin{itemize}
-%\item Saturated Water and Steam Tables;
-%\item Superheated Steam at Various Pressure and Temperatures;
-%\item Units Conversion.
-%\end{itemize}
-%\end{frame}
+\section{Appendices}
+
+\subsection{Appendix 1: Coefficients and Bessel Functions}\label{appendix1}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Coefficients and Bessel Functions}
+        \begin{center}
+          \includegraphics[width=.9\columnwidth,height=.65\columnwidth,clip]{./Pics/BaselFunctionTable}
+        \end{center}
+\end{frame}
 
 
-%{
-%  \includepdf[pages=-,fitpaper]{./Pics/Roschke.pdf}
-%}
+
+
+\subsection{Appendix 2: Heisler and Gr\"ober Charts}\label{appendix2}
+{
+  \includepdf[pages=-,fitpaper]{./Pics/HeislerCharts_All.pdf}
+}
 
 
 \end{document}
