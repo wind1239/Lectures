@@ -705,7 +705,7 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
 %%% Slide (Example 4.5)
 %%%
 \begin{frame}
- \frametitle{Example}
+ \frametitle{Analytical Methods: Example3}
 A long 20-cm-diameter cylindrical shaft made of stainless steel 304 comes out of an oven at a uniform temperature of 600$^{\circ}$C. The shaft is then allowed to cool slowly in an environment chamber at 200$^{\circ}$C with an average heat transfer coefficient of ($h$) of 80 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Determine the temperature at the center of the shaft 45 min after the start of the cooling process. Also, determine the heat transfer per unit length of the shaft during this time period. Given, for stainless steel 304 at room temperature: \\
 \begin{tabular}{l c l l}
 $\kappa$ & = & 14.9 & W/$\left(\text{m.}^{\circ}\text{C}\right)$ \\
@@ -811,31 +811,105 @@ $\alpha$ & = & 3.95$\times$10$^{-6}$ & m$^{2}$/s
               \item<2-> In FDM, the spatial- and time-domains are divided into mesh grid. The points in both coordinates are separated by constant spacing, $\Delta x$ and $\Delta t$;
               \item<2-> Nodes $x_{1}$ and $x_{n}$ are \blue{boundaries nodes} whereas all other nodes are \blue{interior nodes};
               \item<3-> Node $t_{1}$ represents the \blue{initial condition} of the system.
-%                    can be described as (see Eqn.~\ref{DiffusionEqn})
            \end{enumerate}
         \end{column}
      \end{columns}
 \end{frame}
 
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Solving 1D Transient HT Problems with FDM}
+    \begin{enumerate}\setcounter{enumi}{4}
+      \item<1-> The diffusion term, 
+         \visible<1->{\begin{displaymath}
+             \nabla\cdot\left(\alpha \nabla T\right) = \frc{\partial}{\partial x}\left(\alpha\frc{\partial T}{\partial x}\right) = \alpha\frc{\partial^{2} T}{\partial x^{2}}
+         \end{displaymath}
+         can be discretised in space (following Eqn.~\ref{DiffusionEqn}),}
+         \visible<2->{\begin{equation}
+            \alpha\frc{\partial^{2} T}{\partial x^{2}} = \alpha \frc{T_{i+1} - 2T_{i} + T_{i-1}}{\left(\Delta x\right)^{2}}\label{eqn:spatial_term}
+         \end{equation}
+         where $\Delta x = x_{i+1}-x_{i} = x(i+1)-x(i)$ and $T_{i}=T\left(x_{i}\right)$;}
+      \item<3-> The time term, $\frc{\partial T}{\partial t}$ can be discretised using Taylor expansion (Eqn.~\ref{Eqn:FDMDisc2}) but truncated at lower order,
+         \visible<3->{\begin{equation}
+             \frc{\partial T}{\partial t} = \frc{T^{j+1}-T^{j}}{\Delta t}\label{eqn:time_term}
+         \end{equation}
+         where $\Delta t = t_{j+1}-t_{j}$ is the \blue{time-step size};}
+    \end{enumerate}
+\end{frame}
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Solving 1D Transient HT Problems with FDM}
+    \begin{enumerate}\setcounter{enumi}{6}
+      \item<1-> Now substituting and arranging Eqns.~\ref{eqn:spatial_term}-~\ref{eqn:time_term} in Eqn.~\ref{DiffusionEqn}, with subscript $i$ and superscript $j$ representing spatial- and time-discretisation, respectively,
+         \visible<1->{\begin{equation}
+            T_{i}^{j+1} = T_{i}^{j} + \frc{\alpha\Delta t}{\left(\Delta x\right)^{2}}\left(T_{i+1}^{j}-2T_{i}^{j}+T_{i-1}^{j}\right)\label{ExplicitScheme}
+         \end{equation}}
+      \item<2-> The transient problem may be subject to \blue{boundary conditions} of the following types:
+         \begin{enumerate}
+            \item<2-> Dirichlet BC: 
+                 \visible<2->{\begin{eqnarray}
+                      && T\left(x=0,t_{j}\right) = T_{1}^{j} = \Psi_{1} \;\;\; \text{ and/or } \nonumber \\
+                      && T\left(x=L,t_{j}\right) = T_{n}^{j} = \Psi_{2} \nonumber 
+                 \end{eqnarray}
+                 where $\Psi_{1}$ and $\Psi_{2}$ are either constants or functions;}
+            \item<3-> Robin BC: prescribed flux, 
+                \visible<3->{\begin{eqnarray}
+                   &&-\kappa\frc{\partial}{\partial x}T\left(x_{n},t_{j}\right) = h\left[T\left(x_{n},t_{j}\right)-T_{\infty}\right] \text{or in indices notation,}\nonumber \\
+                   &&-\kappa\frc{\partial T_{n}^{j}}{\partial x} = h\left(T_{n}^{j}-T_{\infty}\right) \nonumber
+                \end{eqnarray}}
+         \end{enumerate}
+
+    \end{enumerate}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Solving 1D Transient HT Problems with FDM}
+    \begin{enumerate}\setcounter{enumi}{8}
+      \item<1-> In Eqn.~\ref{ExplicitScheme}, the new temperature (i.e., at \blue{time-step} $t_{j+1}$) is obtained from the old temperature  (i.e., at \blue{time-step} $t_{j}$). This is known as \red{explicit method}; 
+      \item<2-> The explicit method is easy to use, however it suffers from an undesirable feature that severely restricts its utility -- {\bf it is not unconditionally stable}, i.e., its use is restricted by the time-step size, $\Delta t$;
+      \item<3-> If the time-step is not sufficiently small, the solutions obtained by the explicit method may oscillate and diverge from the actual solution;
+      \item<4-> In order to avoid these numerical oscillations, $\Delta t$ must be kept ed below a certain upper limit established by the \blue{stability criterion}, based on the \red{Fourier number},
+           \visible<4->{\begin{equation}
+               Fo = \frc{\alpha \Delta t}{\left(\Delta x\right)^{2}} \leq \frc{1}{2}
+           \end{equation}} 
+
+    \end{enumerate}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Numerical Methods: Example 4}
+    Solve Example 3 with FDM.
+\end{frame}
 
 
 %%%
 %%%  SECTION
 %%%
-\section{Design of Heat Exchangers}
-
-%%% SUBSECTION
-\subsection{Introduction}
-
-%%% SUBSECTION
-\subsection{Overall Heat Transfer Coefficient Calculations}
-
-%%% SUBSECTION
-\subsection{Transient Response of Thermal Energy Storage System}
+\section{Summary}
 
 
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Summary}
+    \begin{enumerate}
+       \item bbb
+    \end{enumerate}
+\end{frame}
 
 
 

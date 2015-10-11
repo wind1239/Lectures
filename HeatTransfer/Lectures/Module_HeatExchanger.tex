@@ -1,0 +1,366 @@
+% Aberdeen style guide should be followed when using this
+% layout. Their template powerpoint slide is used to extract the
+% Aberdeen color and logo but is otherwise ignored (it has little or
+% no formatting in it anyway).
+%
+% http://www.abdn.ac.uk/documents/style-guide.pdf
+
+%%%%%%%%%%%%%%%%%%%% Document Class Settings %%%%%%%%%%%%%%%%%%%%%%%%%
+% Pick if you want slides, or draft slides (no animations)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Normal document mode%
+\documentclass[10pt,compress]{beamer}
+%Draft or handout mode
+%\documentclass[10pt,compress,handout]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
+
+%%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
+% These settings must be set for each presentation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\shortname}{jefferson.gomes@abdn.ac.uk}
+\newcommand{\fullname}{Dr Jeff Gomes}
+\institute{School of Engineering}
+\newcommand{\emailaddress}{}%jefferson.gomes@abdn.ac.uk}
+\newcommand{\logoimage}{../FigBanner/UoAHorizBanner}
+\title{Heat, Mass and Momentum Conservation -- Thermodynamics2 (EX3030/EM40JK)}
+\subtitle{Transient Heat Transfer}
+%\subtitle{Module 1.1: Review of Thermodynamics}
+\date[ ]{ }
+
+%%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% You shouldn't have to change below this line, unless you want to.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usecolortheme{whale}
+\useoutertheme{infolines}
+
+% Use the fading effect for items that are covered on the current
+% slide.
+\beamertemplatetransparentcovered
+
+% We abuse the author command to place all of the slide information on
+% the title page.
+\author[\shortname]{%
+  \fullname\\\ttfamily{\emailaddress}
+}
+
+
+%At the start of every section, put a slide indicating the contents of the current section.
+\AtBeginSection[] {
+  \begin{frame}
+    \frametitle{Section Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% Allow the inclusion of movies into the Presentation! At present,
+% only the Okular program is capable of playing the movies *IN* the
+% presentation.
+\usepackage{multimedia}
+\usepackage{animate}
+
+%% Handsout -- comment out the lines below to create handstout with 4 slides in a page with space for comments
+\usepackage{handoutWithNotes}
+
+\mode<handout>
+{
+\usepackage{pgf,pgfpages}
+
+\pgfpagesdeclarelayout{2 on 1 boxed with notes}
+{
+\edef\pgfpageoptionheight{\the\paperheight} 
+\edef\pgfpageoptionwidth{\the\paperwidth}
+\edef\pgfpageoptionborder{0pt}
+}
+{
+\setkeys{pgfpagesuselayoutoption}{landscape}
+\pgfpagesphysicalpageoptions
+    {%
+        logical pages=4,%
+        physical height=\pgfpageoptionheight,%
+        physical width=\pgfpageoptionwidth,%
+        last logical shipout=2%
+    } 
+\pgfpageslogicalpageoptions{1}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{2}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{3}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.29\pgfphysicalheight},%
+    copy from=3
+    }%
+\pgfpageslogicalpageoptions{4}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.79\pgfphysicalheight},%
+    copy from=4
+    }%
+
+\AtBeginDocument
+    {
+    \newbox\notesbox
+    \setbox\notesbox=\vbox
+        {
+            \hsize=\paperwidth
+            \vskip-1in\hskip-1in\vbox
+            {
+                \vskip1cm
+                Notes\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth
+            }
+        }
+        \pgfpagesshipoutlogicalpage{3}\copy\notesbox
+        \pgfpagesshipoutlogicalpage{4}\copy\notesbox
+    }
+}
+}
+
+%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+
+
+
+%%%%% Color settings
+\usepackage{color}
+%% The background color for code listings (i.e. example programs)
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}%
+\definecolor{UoARed}{rgb}{0.64706, 0.0, 0.12941}
+\definecolor{UoALight}{rgb}{0.85, 0.85, 0.85}
+\definecolor{UoALighter}{rgb}{0.92, 0.92, 0.92}
+\setbeamercolor{structure}{fg=UoARed} % General background and higlight color
+\setbeamercolor{frametitle}{bg=black} % General color
+\setbeamercolor{frametitle right}{bg=black} % General color
+\setbeamercolor{block body}{bg=UoALighter} % For blocks
+\setbeamercolor{structure}{bg=UoALight} % For blocks
+% Rounded boxes for blocks
+\setbeamertemplate{blocks}[rounded]
+
+%%%%% Font settings
+% Aberdeen requires the use of Arial in slides. We can use the
+% Helvetica font as its widely available like so
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+% But beamer already uses a sans font, so we will stick with that.
+
+% The size of the font used for the code listings.
+\newcommand{\goodsize}{\fontsize{6}{7}\selectfont}
+
+% Extra math packages, symbols and colors. If you're using Latex you
+% must be using it for formatting the math!
+\usepackage{amscd,amssymb} \usepackage{amsfonts}
+\usepackage[mathscr]{eucal} \usepackage{mathrsfs}
+\usepackage{latexsym} \usepackage{amsmath} \usepackage{bm}
+\usepackage{amsthm} \usepackage{textcomp} \usepackage{eurosym}
+% This package provides \cancel{a} and \cancelto{a}{b} to "cancel"
+% expressions in math.
+\usepackage{cancel}
+
+\usepackage{comment} 
+
+% Get rid of font warnings as modern LaTaX installations have scalable
+% fonts
+\usepackage{type1cm} 
+
+%\usepackage{enumitem} % continuous numbering throughout enumerate commands
+
+% For exact placement of images/text on the cover page
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}%sets the textpos unit
+\setlength{\TPVertModule}{\TPHorizModule} 
+
+% Source code formatting package
+\usepackage{listings}%
+\lstset{ backgroundcolor=\color{lbcolor}, tabsize=4,
+  numberstyle=\tiny, rulecolor=, language=C++, basicstyle=\goodsize,
+  upquote=true, aboveskip={1.5\baselineskip}, columns=fixed,
+  showstringspaces=false, extendedchars=true, breaklines=false,
+  prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+  frame=single, showtabs=false, showspaces=false,
+  showstringspaces=false, identifierstyle=\ttfamily,
+  keywordstyle=\color[rgb]{0,0,1},
+  commentstyle=\color[rgb]{0.133,0.545,0.133},
+  stringstyle=\color[rgb]{0.627,0.126,0.941}}
+
+% Allows the inclusion of other PDF's into the final PDF. Great for
+% attaching tutorial sheets etc.
+\usepackage{pdfpages}
+\setbeamercolor{background canvas}{bg=}  
+
+% Remove foot note horizontal rules, they occupy too much space on the slide
+\renewcommand{\footnoterule}{}
+
+% Force the driver to fix the colors on PDF's which include mixed
+% colorspaces and transparency.
+\pdfpageattr {/Group << /S /Transparency /I true /CS /DeviceRGB>>}
+
+% Include a graphics, reserve space for it but
+% show it on the next frame.
+% Parameters:
+% #1 Which slide you want it on
+% #2 Previous slides
+% #3 Options to \includegraphics (optional)
+% #4 Name of graphic
+\newcommand{\reserveandshow}[4]{%
+\phantom{\includegraphics<#2|handout:0>[#3]{#4}}%
+\includegraphics<#1>[#3]{#4}%
+}
+\usepackage{xcolor}
+
+\newlength{\overwritelength}
+\newlength{\minimumoverwritelength}
+\setlength{\minimumoverwritelength}{1cm}
+\newcommand{\overwrite}[3][red]{%
+  \settowidth{\overwritelength}{$#2$}%
+  \ifdim\overwritelength<\minimumoverwritelength%
+    \setlength{\overwritelength}{\minimumoverwritelength}\fi%
+  \stackrel
+    {%
+      \begin{minipage}{\overwritelength}%
+        \color{#1}\centering\small #3\\%
+        \rule{1pt}{9pt}%
+      \end{minipage}}
+    {\colorbox{#1!50}{\color{black}$\displaystyle#2$}}} 
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\purple}{\textcolor{purple}} 
+
+\begin{document}
+
+% Title page layout
+\begin{frame}
+  \titlepage
+  \vfill%
+  \begin{center}
+    \includegraphics[clip,width=0.8\textwidth]{\logoimage}
+  \end{center}
+\end{frame}
+
+% Table of contents
+%\frame{ \frametitle{Slides Outline}
+%  \tableofcontents
+%}
+
+
+%%%%%%%%%%%%%%%%%%%% The Presentation Proper %%%%%%%%%%%%%%%%%%%%%%%%%
+% Fill below this line with \begin{frame} commands! It's best to
+% always add the fragile option incase you're going to use the
+% verbatim environment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%% SECTION
+%%%
+\section{Introduction} 
+
+
+%%% SUBSECTION
+\subsection{Objectives}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Aims and Objectives}
+   \begin{enumerate}
+     \item Lumped system analysis
+     \item Transient heat conduction
+%• Assess when the spatial variation of temperature is negligible, and temperature varies nearly uniformly with time, making the simplified lumped system analysis applicable,
+% • Obtain analytical solutions for transient one-dimensional conduction problems in rectangular, cylindrical, and spherical geometries using the method of separation of variables, and understand why a one-term solution is usually a reasonable approximation,
+% • Solve the transient conduction problem in large mediums using the similarity variable, and predict the variation of temperature with time and distance from the exposed surface, and
+% • Construct solutions for multi-dimensional transient conduction problems using the product solution approach.
+   \end{enumerate}
+\end{frame}
+
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Bibliography} 
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Suggested References}
+  Literature relevant for this module:
+  \begin{enumerate}[{[}1{]}]
+    \item J.P. Holman, `Heat Transfer', 10$^{th}$ Edition (McGraw-Hill): Chapters 4 and 10;
+    \item F.P. Incropera, D.P. DeWitt, T.L.Bergman, A.S. Lavine, `introduction to Heat Transfer' (John Willey $\&$ Sons): Chapters 5 and 11.
+    \item L. Theodore, `Essential Engineering Calculations Series: Heat Transfer Applications for the Practicing Engineer' (John Willey $\&$ Sons): Chapters 8 and 14.
+  \end{enumerate}
+\end{frame}
+ 
+
+%%%
+%%%  SECTION
+%%%
+\section{Design of Heat Exchangers}
+
+%%% SUBSECTION
+\subsection{Introduction}
+
+%%% SUBSECTION
+\subsection{Overall Heat Transfer Coefficient Calculations}
+
+%%% SUBSECTION
+\subsection{Transient Response of Thermal Energy Storage System}
+
+
+
+
+
+
+
+
+
+
+%%%
+%%% Appendix
+%%%
+\section{Appendices}
+
+\subsection{Appendix 1: Coefficients and Bessel Functions}\label{appendix1}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Coefficients and Bessel Functions}
+        \begin{center}
+          \includegraphics[width=.9\columnwidth,height=.65\columnwidth,clip]{./Pics/BaselFunctionTable}
+        \end{center}
+\end{frame}
+
+
+
+
+\subsection{Appendix 2: Heisler and Gr\"ober Charts}\label{appendix2}
+{
+  \includepdf[pages=-,fitpaper]{./Pics/HeislerCharts_All.pdf}
+}
+
+
+\end{document}
