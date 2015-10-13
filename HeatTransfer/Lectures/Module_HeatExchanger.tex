@@ -403,29 +403,67 @@
 \begin{frame}
   \frametitle{Overall Heat Transfer Coefficient Calculations}
     \begin{columns}
-       \begin{column}[l]{0.4\linewidth}
+       \begin{column}[l]{0.5\linewidth}
          \includegraphics[width=1.1\columnwidth,clip]{./Pics/HeatExchangers_Flow}
-       \end{column}
-       \begin{column}[l]{0.6\linewidth}
          \begin{enumerate}\scriptsize
             \item<1-> In concentric tube HE, the heat exchange rate is
                \visible<1->{\begin{displaymath}
                   \dot{\mathcal{Q}} = \dot{m}_{c}C_{p,c}\left(T_{c,\text{out}}-T_{c,\text{in}}\right) = \dot{m}_{h}C_{p,h}\left(T_{h,\text{in}}-T_{h,\text{out}}\right) 
                \end{displaymath}
                where $\dot{m}$ is the mass flow rate.}
+         \end{enumerate}
+       \end{column}
+       \begin{column}[l]{0.5\linewidth}
+         \begin{enumerate}\setcounter{enumi}{1}\scriptsize
             %\item<2-> In \blue{condensers} and \blue{boilers}, fluids undertake a phase change with heat transfer rate of
             %   \visible<2->{\begin{displaymath}
             %     \dot{\mathcal{Q}} = \dot{m}h_{fg}
             %   \end{displaymath}   
             %   where $\dot{m}$ and $h_{fg}$ are the rate of vaporisation (or condensation) and the specific enthalpy of vaporisation.
-            \item<2-> Assuming internal and outer superficial areas of $A_{i}=\pi D_{i}L$ and $A_{o}=\pi D_{o}L$, respectively, the \blue{thermal resistance} of the tube wall is
-               \visible<2->{\begin{displaymath}
+            \item<2-> Assuming internal and outer superficial areas of $A_{i}=\pi D_{i}L$ and $A_{o}=\pi D_{o}L$, respectively, the \blue{thermal resistance} of the tube wall of length $L$ is
+               \visible<2->{\begin{equation}
                   R_{\text{wall}} = \frc{\ln{D_{o}/D_{i}}}{2\pi \kappa L}
-               \end{displaymath}}   
+               \end{equation}}   
+            \item<3-> The \blue{total thermal resistance}, \blue{$\mathcal{R}$} from the outer to the inner fluids is,
+               \visible<3->{\begin{equation}
+                  \mathcal{R} = R_{i} + R_{\text{wall}} + R_{o} = \frc{1}{h_{i}A_{i}} + \frc{\ln{D_{o}/D_{i}}}{2\pi \kappa L} + \frc{1}{h_{o}A_{o}} 
+               \end{equation}}     
+            \item<4-> Thus the heat transfer rate between the hot to the cold fluids can be expressed as,
+               \visible<4->{\begin{displaymath}
+                  \blue{\dot{\mathcal{Q}} =} \frc{\Delta T}{\mathcal{R}} = \blue{U A \Delta T} = U_{i}A_{i}\Delta T = U_{o}A_{o}\Delta T
+               \end{displaymath}
+               where \blue{$U$} is the \blue{overall heat transfer coefficient $\left(\text{W.m}^{-2}.^{\circ}\text{C}^{-1}\right)$}.}     
+
          \end{enumerate}
        \end{column}      
     \end{columns}
 \end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Overall Heat Transfer Coefficient Calculations}
+     \begin{enumerate}\setcounter{enumi}{4}\scriptsize
+        \item<1-> Eliminating $\Delta T$ and inverting $\dot{\mathcal{Q}}$,
+          \visible<1->{\begin{equation}
+             \frc{1}{U_{i}A_{i}} = \frc{1}{U_{o}A_{o}} = \mathcal{R} \left(=\frc{1}{U A_{s}}\right) = \frc{1}{h_{i}A_{i}} + R_{\text{wall}} + \frc{1}{h_{o}A_{o}} 
+          \end{equation}}
+        \item<2-> If the wall thickness is small (in comparison with the length of the HE) with a large thermal conductivity, then the \blue{thermal wall resistance} is negligible $\left(\text{i.e., }R_{\text{wall}} \approx 0\right)$;
+        \item<3-> Also, if $A_{i}\approx A_{o} \approx A_{s}$ (i.e., inner and outer diameters are very similar -- \blue{thin wall}),
+          \visible<1->{\begin{equation}
+             \frc{1}{U} \approx  \frc{1}{h_{i}} +  \frc{1}{h_{o}} 
+          \end{equation}}
+ 
+     \end{enumerate}
+\end{frame}
+
+
+
+
+
+
 
 %%% SUBSECTION
 \subsection{Transient Response of Thermal Energy Storage System}
