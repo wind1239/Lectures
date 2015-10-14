@@ -27,36 +27,10 @@
 \DeclareOption{steamtables}
 {\@steamtablesallowedtrue}
 
-\newif\if@refrigeranttablesallowed
-\@refrigeranttablesallowedfalse
-\DeclareOption{refrigeranttables}
-{\@refrigeranttablesallowedtrue}
-
-\newif\if@psychrometricchartallowed
-\@psychrometricchartallowedfalse
-\DeclareOption{psychrometricchart}
-{\@psychrometricchartallowedtrue}
-
-\newif\if@airtablesallowed
-\@airtablesallowedfalse
-\DeclareOption{airtables}
-{\@airtablesallowedtrue}
-
-\newif\if@fluidstablesallowed
-\@fluidstablesallowedfalse
-\DeclareOption{fluidstables}
-{\@fluidstablesallowedtrue}
-
 \newif\if@datasheetattached
 \@datasheetattachedfalse
 \DeclareOption{datasheet}
 {\@datasheetattachedtrue}
-
-\newif\if@allquestions
-\@allquestionsfalse
-\DeclareOption{allquestions}
-{\@allquestionstrue}
-
 
 \newif\if@wsolutions
 \@wsolutionsfalse
@@ -86,11 +60,14 @@
 
 %%%%%%%%%%% Packages
 %%%% Load the math packages we always use
-\RequirePackage[margin=1in]{geometry}
 \RequirePackage{amsmath}
 \RequirePackage{bm}
 \RequirePackage[makeroom]{cancel}
 \RequirePackage{url}
+
+%%%%%%%%%%% Notes function
+\RequirePackage{mdframed}
+\newcommand{\note}[1]{\begin{mdframed}[linewidth=1pt]{\bf Note:} {#1}\end{mdframed}}
 
 %%%% Formatting of dates for the exam
 \RequirePackage{datetime}
@@ -105,10 +82,11 @@
 \RequirePackage{fmtcount}
 \RequirePackage{enumerate}
 \RequirePackage{marginnote}
+\usepackage{ragged2e}
 \reversemarginpar
-%\RequirePackage{background}
-%% Must be before fancyhdr as the \pagestyle command affects it.
-%\RequirePackage{fullpage}
+\RequirePackage{background}
+% Must be before fancyhdr as the \pagestyle command affects it.
+\RequirePackage{fullpage}
 
 %%%%%%%%%%%%%% Header and footer
 \RequirePackage{fancyhdr}
@@ -137,20 +115,15 @@
 \parindent=0.0cm%
 \parskip=0.4cm%
 
-\renewcommand{\marks}[1]{\unskip\linebreak[0]\mbox{}~\hfill\mbox{[#1 marks]}}
+\renewcommand{\marks}[1]{\addtocounter{questiontotalmarks}{#1}\addtocounter{papertotalmarks}{#1}\unskip\linebreak[0]\mbox{}~\hfill\mbox{[#1 marks]}}
 
 %% frontmatter page
 \makeatletter
 \def \@frontmatter{%
+  \RaggedRight
   \if@samplepaper\lhead{SAMPLE PAPER}\lfoot{SAMPLE PAPER}\rfoot{SAMPLE PAPER}\fi
   \newcounter{lastyear}
   \setcounter{lastyear}{\getdateyear{ExamDateSaved}}
-
-%%
-%% Change here for Exam or Resit
-%%
-%  \addtocounter{lastyear}{+1}
-%  {\large \textbf{UNIVERSITY OF ABERDEEN\hspace{0.25in}SESSION \getdateyear{ExamDateSaved}--\arabic{lastyear}}
   \addtocounter{lastyear}{-1}
   {\large \textbf{UNIVERSITY OF ABERDEEN\hspace{0.25in}SESSION \arabic{lastyear}--\getdateyear{ExamDateSaved}}
 
@@ -170,38 +143,18 @@
       \item Candidates %
         \if@calculatorallowed{ARE}\else{ARE NOT}\fi\ 
         %
-        permitted to use the approved calculator.
-        \if@handbookallowed
+        permitted to use an approved calculator.
       \item Candidates %
-        {ARE} permitted to use the Engineering Mathematics Handbook.
-        \fi
+        \if@handbookallowed{ARE}\else{ARE NOT}\fi\ 
+        %
+        permitted to use the Engineering Mathematics Handbook.
         \if@steamtablesallowed
       \item Candidates %
         {ARE} permitted to use steam tables, which will be provided.
         \fi 
-        \if@airtablesallowed
-      \item Candidates %
-        {ARE} permitted to use ideal-gas properties of air tables, which will be provided.
-        \fi 
-        \if@fluidstablesallowed
-      \item Candidates %
-        {ARE} permitted to use tables of thermodynamic properties of saturated and superheated propane, which will be provided.
-        \fi 
-        \if@refrigeranttablesallowed
-      \item Candidates %
-        {ARE} permitted to use refrigerant tables, which will be provided.
-        \fi 
-        \if@psychrometricchartallowed
-      \item Candidates %
-        {ARE} permitted to use psychrometric chart, which will be provided.
-        \fi 
         \if@datasheetattached%
       \item Data sheets are attached to the paper.%
-        \fi 
-        \if@allquestions%
-      \item Answer all five questions (20 marks each). 100 marks in total for the paper.%
         \fi
-
       \end{enumerate}
     }
   \end{minipage}
@@ -244,6 +197,7 @@
   \FloatBarrier\begin{center}%
     {\large\textbf{END OF PAPER}}%
   \end{center}%
+  \ifelsesolutions{\begin{center}{\bf Total Paper Marks:\thepapertotalmarks}\end{center}}{}
 }
 
 % This command ensures that the END OF PAPER text is only printed at
@@ -256,17 +210,27 @@
   \global\def\paperenddone={done}%
 }
 
+\newcommand{\ifelsesolutions}[2]{\if@wsolutions{#1}\else{#2}\fi}
+
+
 %%% Solutions
 % A blank solution command if solutions are disabled
 \if@wsolutions
 \newcommand{\solution}[1]{
-  \newline{\bf{}Solution:}\begin{itshape}\nopagebreak\\*\nopagebreak{#1}\end{itshape}}
+  \mbox{}\newline{\bf{}Solution:}\begin{itshape}\nopagebreak\\*\nopagebreak{#1}\end{itshape}}
 \newcommand{\solmarks}[1]{\marginpar{\rm\bf [#1]}}
-\newcommand{\qsidemark}{\marginpar{\bf Q.\arabic{questioncounter}}}
+\newcommand{\qsidemark}{\marginpar{\bf Q.\thequestioncounter}}
+\SetBgScale{1}
+\SetBgColor{black}
+\SetBgAngle{0}
+\SetBgHshift{-0.52\textwidth}
+\SetBgVshift{-1mm}
+\SetBgContents{\rule{1pt}{\textheight}}
 \else
 \newcommand{\solution}[1]{}
 \newcommand{\solmarks}[1]{}
 \newcommand{\qsidemark}{}
+\SetBgContents{}
 \fi
 \makeatother
 
@@ -276,10 +240,18 @@
 % The question environment makes sure that all figures are grouped
 % with the corresponding question.
 \newcounter{questioncounter}
-\setcounter{questioncounter}{1}
-\newenvironment{question}{
-\pagebreak[2]{\bf {Question}~\arabic{questioncounter}}\qsidemark\nopagebreak\\*%
-}{\FloatBarrier\refstepcounter{questioncounter}}
+\newcounter{questiontotalmarks}
+\newcounter{papertotalmarks}
+\setcounter{questioncounter}{0}
+\setcounter{papertotalmarks}{0}
+\renewcommand{\thequestioncounter}{\arabic{questioncounter}}
+
+\newenvironment{question}{%
+  \setcounter{questiontotalmarks}{0}\pagebreak[2]\refstepcounter{questioncounter}{\bf{Question}~\thequestioncounter}\qsidemark\newline%
+}{%
+  \FloatBarrier%
+  \ifelsesolutions{\begin{center}{\bf Total Question Marks:\thequestiontotalmarks}\end{center}}{}
+}
 
 \newenvironment{datasheet}{%
   \paperend%
