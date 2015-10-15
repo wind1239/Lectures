@@ -71,14 +71,41 @@ Thus
    \begin{displaymath}
        A_{2} = \frc{\dot{Q}}{{U_{2}\Delta T_{lm}}} = {\bf 0.88\text{ m}^{2}} < A_{\text{HE2}}\left(=0.94\text{ m}^{2}\right) 
    \end{displaymath}
+\end{itemize}
 Thus, {\bf the engineer should use Heat Exchanger 2 as the designed superficial is smaller than the area of the available HE. With this area, the engineer should recalculate the heat transfer rate and the output oil temperature, and adjust the oil mass flow rates.} ~\solmarks{2/10} 
  
-\end{itemize}
+%==============
 }
 %
 
 %Holman (4.40)
-\item\label{Transient_Exam1b} A plate of stainless steel (18$\%$ Cr, 8$\%$ Ni) has a thickness of 3.0 cm and is initially uniform in temperature at 500$^{\circ}$C. The plate is suddenly exposed to a convection environment on both sides at 40$^{\circ}$C with h = 150 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Calculate the times for the centre and face temperatures to reach 120$^{\circ}$C. Given: (a) thermal conductivity coefficient: 16.3 W/$\left(\text{m}.^{\circ}\text{C}\right)$; thermal diffusivity: 0.44$\times$10$^{-5}$ m$^{2}$/s.
+\item\label{Transient_Exam1b} A plate of stainless steel (18$\%$ Cr, 8$\%$ Ni) has a thickness of 3.0 cm and is initially uniform in temperature at 500$^{\circ}$C. The plate is suddenly exposed to a convection environment on both sides at 40$^{\circ}$C with h = 150 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Calculate the times for the centre and face temperatures to reach 120$^{\circ}$C. Given: (a) thermal conductivity coefficient: 16.3 W/$\left(\text{m}.^{\circ}\text{C}\right)$; thermal diffusivity: 0.44$\times$10$^{-5}$ m$^{2}$/s. Also, the analytical solution for the 1-D transient heat conduction for plane wall is
+\begin{displaymath}
+ \theta = \frc{T\left(x,t\right)-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}\exp{\left(-\lambda_{1}^{2}\tau\right)}\cos{\frc{\lambda_{1}x}{L}}
+\end{displaymath}
+where $\tau$ is the Fourier number, $\lambda_{1}$ and $A_{1}$ are coefficient constants of the transient 1-D heat conduction equation.~\marks{10}
+\solution{Given: thickness of plate: 0.03 m; $L$ = 0.015 m; $T_{i}$ = 500$^{\circ}$C; $T_{\infty}$ = 40$^{\circ}$C; $T_{i}$ = 120$^{\circ}$C; $h$ = 150 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$; $\kappa$ = 16.3 W/$\left(\text{m}.^{\circ}\text{C}\right)$; $\alpha$ = 0.44 $\times$10$^{-5}$ m$^{2}$/s.
+
+First, we need to calculate the $Bi$ number,~\solmarks{2/10}
+\begin{displaymath}
+  Bi = \frc{h L}{\kappa} = {\bf 0.1380} > 0.1 \text{ thus we cannot apply lumped capacity method}
+\end{displaymath}
+With $Bi$ (through linear interpolation in the coefficients table) we determine {\bf $\lambda_{1}=0.3573$} and {\bf $A_{1}=1.0150$}~\solmarks{2/10}. At the plate face, $x/L=1$,
+\begin{displaymath}
+\frc{T\left(x,t\right)-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}\exp{\left(-\lambda_{1}^{2}\tau\right)}\cos{\frc{\lambda_{1}x}{L}}
+\end{displaymath}
+with $T\left(L,t\right) = 120^{\circ}C$ $\Longrightarrow$  ${\bf\tau = 13.8187}$~\solmarks{2/10}. As~\solmarks{2/10}
+\begin{displaymath}
+\tau = \frc{\alpha t}{L^{2}} \Longrightarrow {\bf t=706.64\; s}
+\end{displaymath}
+At the centre of the plate, $x/L=0$,~\solmarks{2/10}
+\begin{displaymath}
+\frc{T\left(0,t\right)-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}\exp{\left(-\lambda_{1}^{2}\tau\right)} \Longrightarrow  {\bf \tau = 13.8189}
+\end{displaymath}
+and ${\bf t = 706.65\; s}$.~\solmarks{2/10}
+
+}
+
 
 
 % Holman (4.21)
