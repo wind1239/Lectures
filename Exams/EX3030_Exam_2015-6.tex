@@ -1,6 +1,6 @@
 
-%\documentclass[calculator,steamtables,datasheet,solutions]{exam_newMarcus}
-\documentclass[calculator,fluidstables,allquestions,datasheet]{exam}
+\documentclass[calculator,steamtables,datasheet,solutions]{exam}
+%\documentclass[calculator,fluidstables,allquestions,datasheet]{exam}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -13,8 +13,8 @@
 \usepackage{pdfpages} 
 %\usepackage{lscape,comment}
  
-\coursecode{EX3029}%%
-
+\coursecode{EX3030}%%
+ 
 \examtime{09.00--12.00}%
 \examdate{03}{12}{2015}% 
 \examformat{Candidates must attempt \textit{all} questions.}
@@ -40,14 +40,42 @@
 %
 % (Holman 10.23)
 \item\label{HE_Exam1} An engineer is designing a new system in which 230 kg/h of water is heated from 35$^{\circ}$C to 93$^{\circ}$C by oil initially at 175$^{\circ}$C. The mass flow rate of oil is also 230 kg/h. Two double-pipe heat exchangers are available:
-\begin{itemize}
-   \item Heat Exchanger 1: Overall heat transfer coefficient $\left(U_{1}\right)$ of 570 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$ with superficial area $\left(A_{1}\right)$ of 0.47 m$^{2}$, and;
-   \item Heat Exchanger 2: $U_{2}$ = 370 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$ and $A_{2}$ = of 0.94 m$^{2}$.
-\end{itemize}
+   \begin{itemize}
+      \item Heat Exchanger 1: Overall heat transfer coefficient $\left(U_{1}\right)$ of 570 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$ with superficial area $\left(A_{1}\right)$ of 0.47 m$^{2}$, and;
+      \item Heat Exchanger 2: $U_{2}$ = 370 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$ and $A_{2}$ = of 0.94 m$^{2}$.
+   \end{itemize}
 Which exchanger should be used? Why?
-Given C$_{p,\text{oil}}$ = 2.10 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$ and C$_{p,\text{water}}$ = 4.18 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$
+Given C$_{p,\text{oil}}$ = 2.10 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$ and C$_{p,\text{water}}$ = 4.18 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$. Assume that there is no heat losses.~\marks{10}
+%==============
+      \solution{ Given: $\dot{m}_{w} = \dot{m}_{o}$ = 230 kg/h, $T_{w}^{in}$ = 35$^{\circ}$C, $T_{w}^{out}$ = 93$^{\circ}$C, $T_{o}^{in}$ = 175$^{\circ}$C, $C_{p,w}$ = 4.18 kJ/(kg.$^{\circ}$C), $C_{p,o}$ = 2.10 kJ/(kg.$^{\circ}$C).\\
+The energy balance of the water and oil stream within the heat exchanger (HE) is~\solmarks{2/10}
+\begin{eqnarray}
+&& \dot{Q}_{w} + \dot{Q}_{o} = 0 \nonumber \\
+&& \dot{m}_{w}C_{p,w}\left(T_{w}^{out}-T_{w}^{in}\right) + \dot{m}_{o}C_{p,o}\left(T_{o}^{out}-T_{o}^{in}\right)  = 0 \Longrightarrow {\bf T_{o}^{out} = 59.55^{\circ}\text{C}} \nonumber
+\end{eqnarray} 
+The {\it log mean-temperature difference}, $\Delta T_{lm}$ is~\solmarks{3/10}
+\begin{displaymath}
+\Delta T_{lm} = \frc{\left(T_{h2}-T_{c2}\right)-\left(T_{h1}-T_{c1}\right)}{\ln\frc{T_{h2}-T_{c2}}{T_{h1}-T_{c1}}} = {\bf 47.60^{\circ}\text{C}}
+\end{displaymath}
+The heat transfer rate for the water stream is,~\solmarks{1/10}
+\begin{displaymath}
+\dot{Q}_{w} = \dot{m}_{w}C_{p,w}\left(T_{w}^{out}-T_{w}^{in}\right) = {\bf 15489.22 W}
+\end{displaymath}
+Thus
+\begin{itemize}
+ \item HE1:~\solmarks{1/10} 
+   \begin{displaymath}
+       A_{1} = \frc{\dot{Q}}{{U_{1}\Delta T_{lm}}} = {\bf 0.57\text{ m}^{2}} > A_{\text{HE1}}\left(=0.47\text{ m}^{2}\right)
+   \end{displaymath}
+ \item HE2:~\solmarks{1/10}
+   \begin{displaymath}
+       A_{2} = \frc{\dot{Q}}{{U_{2}\Delta T_{lm}}} = {\bf 0.88\text{ m}^{2}} < A_{\text{HE2}}\left(=0.94\text{ m}^{2}\right) 
+   \end{displaymath}
+Thus, {\bf the engineer should use Heat Exchanger 2 as the designed superficial is smaller than the area of the available HE. With this area, the engineer should recalculate the heat transfer rate and the output oil temperature, and adjust the oil mass flow rates.} ~\solmarks{2/10} 
+ 
+\end{itemize}
+}
 %
-\solution{hjhj} 
 
 %Holman (4.40)
 \item\label{Transient_Exam1b} A plate of stainless steel (18$\%$ Cr, 8$\%$ Ni) has a thickness of 3.0 cm and is initially uniform in temperature at 500$^{\circ}$C. The plate is suddenly exposed to a convection environment on both sides at 40$^{\circ}$C with h = 150 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Calculate the times for the centre and face temperatures to reach 120$^{\circ}$C. Given: (a) thermal conductivity coefficient: 16.3 W/$\left(\text{m}.^{\circ}\text{C}\right)$; thermal diffusivity: 0.44$\times$10$^{-5}$ m$^{2}$/s.
@@ -56,12 +84,24 @@ Given C$_{p,\text{oil}}$ = 2.10 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$ and
 % Holman (4.21)
 %\item\label{Transient_Exam1} A thick concrete wall having a uniform temperature of 54$^{\circ}$C is suddenly subjected to an airstream at 10$^{\circ}$C. The convective heat transfer coefficient is 10 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Calculate the temperature in the concrete slab at a depth of 7 cm after 30 min. Given the conductive heat transfer coefficient of concrete $\left(\kappa_{\text{concrete}}\right)$ of 1.37 W/$\left(\text{m.}^{\circ}\text{C}\right)$.
 
-% Jeff
-\item\label{Transient_Exam2_FDM} Heavy oil at 150$^{\circ}$C is pumped into a storage tank before being transported to distillation columns. The tank is insulated with a layer of polyisocyanurate of 10 cm thick. The tank's wall is at 150$^{\circ}$C and the initial temperature of the insulation layer is 20$^{\circ}$C. Assuming that the problem can be considered as 1-D, calculate the temperature profile of the insulated layer, $T\left(\underline{x},t\right)$, at $t = 2$ seconds with $\underline{x}=\left[0.0, 2.5, 5.0, 7.5, 10.0\right]$. The outer layer of the insulation material is subjected to the environment with temperature of 15$^{\circ}$C and convective heat transfer coefficient of 10 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Given for polyisocyanurate insulation layer: (a) conductive heat transfer coefficient: 0.054 W/$\left(\text{m.}^{\circ}\text{C}\right)$; (b) heat capacity at constant pressure: 1 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$; (c) density: 550 kg/m$^{3}$.
 
+\end{enumerate}
+
+\end{question}
+
+\clearpage
+
+%%%
+%%% Question 02 (Resit) 
+%%%
+\begin{question}
+%
+\begin{enumerate}
 % Holman (10.36)
 \item\label{HE_Exam2} A shell-and-tube heat exchanger has condensing steam at 100$^{\circ}$C in the shell side with one shell pass. Two tube passes are used with air in the tubes entering at 10$^{\circ}$C. The total surface area of the heat exchanger is 30 m$^{2}$ and the overall heat transfer coefficient may be taken as 150 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. If the effectiveness of the heat exchanger is 85$\%$, calculate the total heat transfer rate?
 
+% Jeff
+\item\label{Transient_Exam2_FDM} Heavy oil at 150$^{\circ}$C is pumped into a storage tank before being transported to distillation columns. The tank is insulated with a layer of polyisocyanurate of 10 cm thick. The tank's wall is at 150$^{\circ}$C and the initial temperature of the insulation layer is 20$^{\circ}$C. Assuming that the problem can be considered as 1-D, calculate the temperature profile of the insulated layer, $T\left(\underline{x},t\right)$, at $t = 2$ seconds with $\underline{x}=\left[0.0, 2.5, 5.0, 7.5, 10.0\right]$. The outer layer of the insulation material is subjected to the environment with temperature of 15$^{\circ}$C and convective heat transfer coefficient of 10 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Given for polyisocyanurate insulation layer: (a) conductive heat transfer coefficient: 0.054 W/$\left(\text{m.}^{\circ}\text{C}\right)$; (b) heat capacity at constant pressure: 1 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$; (c) density: 550 kg/m$^{3}$.
 
 \end{enumerate}
 
