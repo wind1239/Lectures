@@ -153,7 +153,7 @@ And the heat transfer rate is~\solmarks{4/10}
 \end{displaymath}
 where $\alpha$ is the thermal diffusivity, $\Delta x$ and $\Delta t$ are the spatial-interval and time-step size, respectively. $i$ and $j$ are the spatial- and time-indices. For this problem, use $\Delta t = 5$ seconds.
 %=============
-\solution{Calculating the thermal diffusivity,
+\solution{Calculating the thermal diffusivity,~\solmarks{1/10}
 \begin{displaymath}
  \alpha = \frc{\kappa}{\rho C_{p}} = 1.9636\times10^{-5} m^{2}/s
 \end{displaymath}
@@ -166,7 +166,7 @@ with $\Delta t$ = 5 and $\Delta x$ = 2.5. We need to solve
 \begin{displaymath}
     T_{i}^{j+1} = T_{i}^{j} + C_{t}\left(T_{i+1}^{j}-2T_{i}^{j}+T_{i-1}^{j}\right)
 \end{displaymath}
-Thus for j = 0~\solmarks{1/10}
+Thus for j = 0~\solmarks{2/10}
 \begin{eqnarray}
     i=1 && T_{1}^{1} = T_{1}^{0} + Ct\left(T_{2}^{0}-2T_{1}^{0}+T_{0}^{0}\right) \nonumber \\
      \vdots && \hspace{3cm} \vdots \nonumber \\
@@ -176,7 +176,7 @@ with $T_{0}^{0}$ = 150$^{\circ}$C (ghost-cell) and $T_{5}^{j}$ calculated from t
 \begin{displaymath}
 -\kappa\frc{\partial T}{\partial x} = h\left(T-T_{amb}\right)\Longrightarrow -\kappa \frc{T^{j}_{5}-T^{j}_{4}}{\Delta x} = h\left(T_{5}^{j}-T_{amb}\right)
 \end{displaymath}
-Thus~\solmarks{3/10}
+Thus~\solmarks{4/10}
 {\bf \begin{eqnarray}
    T\left(\underline{x},t=5\right)  &=& \left[ 149.9796\;\; 20.0102 \;\; 20.0000\;\; 19.9997\;\; 15.8889\right]^{T}\; ^{\circ}C \nonumber \\
    T\left(\underline{x},t=10\right) &=& \left[ 149.9592\;\; 20.0204 \;\; 20.0000\;\; 19.9993\;\; 15.8887\right]^{T}\; ^{\circ}C \nonumber \\
