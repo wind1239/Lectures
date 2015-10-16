@@ -47,7 +47,19 @@ Prove that
 \d S = \frc{C_{V}}{T}\left(\frc{\partial T}{\partial P}\right)_{V}\d P + \frc{C_{P}}{T}\left(\frc{\partial T}{\partial V}\right)_{P}\d V
 \end{displaymath}~\marks{7}
 %
-\solution{hjhj}
+\solution{As entropy is expressed as a function of pressure and molar volume, we can write it in differenctial form as,~\solmarks{1/7}
+\begin{displaymath}
+  dS = \left(\frc{\partial S}{\partial P}\right)_{V}dP + \left(\frc{\partial S}{\partial V}\right)_{p}dV 
+\end{displaymath}
+We can rewrite this equation as~\solmarks{3/7}
+\begin{displaymath}
+dS = \left(\frc{\partial S}{\partial T}\right)_{V}\left(\frc{\partial T}{\partial P}\right)_{V}dP + \left(\frc{\partial S}{\partial T}\right)_{p}\left(\frc{\partial T}{\partial V}\right)_{p}dV
+\end{displaymath}
+As $\left(\frc{\partial S}{\partial T}\right)_{V}=\frc{C_{v}}{T}$ and $\left(\frc{\partial S}{\partial T}\right)_{P}=\frc{C_{P}}{T}$, ~\solmarks{4/7}
+\begin{displaymath}
+dS = \frc{C_{v}}{T}\left(\frc{\partial T}{\partial P}\right)_{V}dP + \frc{C_{P}}{T}\left(\frc{\partial T}{\partial V}\right)_{p}dV
+\end{displaymath}
+}
 
 
 % (Shapiro 2.34) 
@@ -171,8 +183,39 @@ $\cdots \cdots \cdots $ \\
 \begin{displaymath}
 CH_{3}COOH + C_{2}H_{5}OH  \Longleftrightarrow  CH_{3}COOC_{2}H_{5} + H_{2}O,
 \end{displaymath}
-calculate the mass fraction of ethyl acetate given that initially there was 1 mole of acetic acid and ethanol. The reaction enthalpy and Gibbs energy at standard state (25$^{\circ}$C and 1 atm) are $\Delta H_{298}^{\circ}=-3640$ J and $\Delta G_{298}^{\circ}=-4650$ J.~\marks{7}
-\solution{ iio }
+calculate the mass fraction of ethyl acetate given that initially there was 1 mole of acetic acid and ethanol. The reaction enthalpy and Gibbs energy at standard state (25$^{\circ}$C and 1 atm) are $\Delta H_{298}^{\circ}=-3640$ J and $\Delta G_{298}^{\circ}=-4650$ J. Given the van't Hoff equation,~\marks{7}
+\begin{displaymath}
+\frc{d}{dT}\left(\ln{K}\right) = - \frc{\Delta H_{298}^{o}}{RT^{2}}
+\end{displaymath}
+
+%==========================
+\solution{ Initially we have 1 mol of acetic acid (HAc) and 1 mol of ethanol (EtOH). We can calculate the mole fractions for all species as a function of the reaction coordinate, $\epsilon$
+\begin{eqnarray}
+ x_{\text{EtAc}} &=& \frc{\epsilon}{2+0.\epsilon} = \frc{\epsilon}{2} = x_{H_{2}O}  \nonumber \\
+ x_{\text{HAc}} &=& \frc{1-\epsilon}{2} = x_{\text{EtOH}} \nonumber
+\end{eqnarray}
+Assuming ideal solution,~\solmarks{1/7}
+\begin{displaymath}
+  \prod\limits_{i=1}^{c=4} x_{i}^{\nu} = K = x_{\text{HAc}}^{-1}\;x_{\text{EtOH}}^{-1}\;x_{\text{EtAc}}\;x_{H_{2}O} \Longrightarrow K = \frc{\epsilon^{2}}{\left(1-\epsilon\right)^{2}}
+\end{displaymath} 
+Thus, by calculating $K$, we can obtain $\epsilon$ and then $x_{\text{EtAc}}$. $K$ (temperature-dependent) can be obtained from the Gibbs free energy,~\solmarks{2/7}
+\begin{displaymath}
+   \ln{K_{298}} = -\frc{\Delta G_{298}^{o}}{RT} = \frc{4650.0}{8.314\times 298.15} = 1.8759
+\end{displaymath}
+Now, in order to calculate $K$ at 373.15 K, we can integrate the van't Hoff equation from 298.15 K to 373.15 K~\solmarks{2/7}
+\begin{displaymath}
+\int\limits_{K_{298}}^{K_{373}} d\left(\ln{K}\right) = - \int\limits_{298.15}^{373.15}\frc{\Delta H_{298}^{o}}{RT^{2}} dT \Longrightarrow K_{373} = 4.8586
+\end{displaymath}
+Now we can calculate the reaction coordinate,
+\begin{displaymath}
+   K_{373} = \frc{\epsilon^{2}}{\left(1-\epsilon\right)^{2}} \Longrightarrow \epsilon= 0.6879
+\end{displaymath} 
+Thus ~\solmarks{2/7}
+\begin{displaymath}
+x_{\text{EtAc}} = \frc{\epsilon}{2} = 0.3440
+\end{displaymath}
+
+ }
 
 %%%
 %%% Johannes T0902
