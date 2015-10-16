@@ -84,6 +84,8 @@ Thus, {\bf the engineer should use Heat Exchanger 2 as the designed superficial 
  \theta = \frc{T\left(x,t\right)-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}\exp{\left(-\lambda_{1}^{2}\tau\right)}\cos{\frc{\lambda_{1}x}{L}}
 \end{displaymath}
 where $\tau$ is the Fourier number, $\lambda_{1}$ and $A_{1}$ are coefficient constants of the transient 1-D heat conduction equation.~\marks{10}
+
+%==============
 \solution{Given: thickness of plate: 0.03 m; $L$ = 0.015 m; $T_{i}$ = 500$^{\circ}$C; $T_{\infty}$ = 40$^{\circ}$C; $T_{i}$ = 120$^{\circ}$C; $h$ = 150 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$; $\kappa$ = 16.3 W/$\left(\text{m}.^{\circ}\text{C}\right)$; $\alpha$ = 0.44 $\times$10$^{-5}$ m$^{2}$/s.
 
 First, we need to calculate the $Bi$ number,~\solmarks{2/10}
@@ -103,10 +105,8 @@ At the centre of the plate, $x/L=0$,~\solmarks{2/10}
 \frc{T\left(0,t\right)-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}\exp{\left(-\lambda_{1}^{2}\tau\right)} \Longrightarrow  {\bf \tau = 13.8189}
 \end{displaymath}
 and ${\bf t = 706.65\; s}$.~\solmarks{2/10}
-
 }
-
-
+%==============
 
 % Holman (4.21)
 %\item\label{Transient_Exam1} A thick concrete wall having a uniform temperature of 54$^{\circ}$C is suddenly subjected to an airstream at 10$^{\circ}$C. The convective heat transfer coefficient is 10 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Calculate the temperature in the concrete slab at a depth of 7 cm after 30 min. Given the conductive heat transfer coefficient of concrete $\left(\kappa_{\text{concrete}}\right)$ of 1.37 W/$\left(\text{m.}^{\circ}\text{C}\right)$.
@@ -126,8 +126,28 @@ and ${\bf t = 706.65\; s}$.~\solmarks{2/10}
 \begin{enumerate}
 % Holman (10.36)
 \item\label{HE_Exam2} A shell-and-tube heat exchanger has condensing steam at 100$^{\circ}$C in the shell side with one shell pass. Two tube passes are used with air in the tubes entering at 10$^{\circ}$C. The total surface area of the heat exchanger is 30 m$^{2}$ and the overall heat transfer coefficient may be taken as 150 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. If the effectiveness of the heat exchanger is 85$\%$, calculate the total heat transfer rate?
+%==============
+\solution{Given $T^{in}_{\text{air}}$ = 10$^{\circ}$C; $A_{HE}$ = 30 m$^{2}$; $U$ = 150 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$; $T_{w}$ = 100$^{\circ}$C; and $\epsilon$ = 0.85. \\
 
-% Jeff
+Steam: $T^{in}_{w}=T^{out}_{w}$ = 100$^{\circ}$C (phase change $\rightarrow$ constant temperature). From the efficiency, $\epsilon$, we can obtain $T^{out}_{\text{air}}$~\solmarks{3/10}
+\begin{eqnarray}
+  && \epsilon = \frc{\Delta T\;\left(\text{minimum fluid}\right)}{\text{Max temp difference in the HE}} = \frc{\Delta T_{\text{min}}}{100 -10} = 0.85 \nonumber \\
+  && \Delta T_{\text{min}} = 76.5^{\circ}\text{C} = T^{out}_{\text{air}} - T^{in}_{\text{air}} \Longrightarrow {\bf T^{out}_{\text{air}} = 86.5^{\circ}\text{C}} \nonumber
+\end{eqnarray}
+
+The {\it log mean-temperature difference}, $\Delta T_{lm}$ is~\solmarks{3/10}
+\begin{displaymath}
+  \Delta T_{lm} = \frc{\left(100-10\right)-\left(100-86.5\right)}{\ln\left(\frc{100-10}{100-86.5}\right)}={\bf 40.32^{\circ}\text{C}}
+\end{displaymath}
+And the heat transfer rate is~\solmarks{4/10}
+\begin{displaymath}
+\dot{Q} = U A \Delta T_{lm} = {\bf 181440\; W = 1.81\times10^{2}\; MW}
+\end{displaymath}
+}
+%=============
+
+
+% Jeff 
 \item\label{Transient_Exam2_FDM} Heavy oil at 150$^{\circ}$C is pumped into a storage tank before being transported to distillation columns. The tank is insulated with a layer of polyisocyanurate of 10 cm thick. The tank's wall is at 150$^{\circ}$C and the initial temperature of the insulation layer is 20$^{\circ}$C. Assuming that the problem can be considered as 1-D, calculate the temperature profile of the insulated layer, $T\left(\underline{x},t\right)$, at $t = 2$ seconds with $\underline{x}=\left[0.0, 2.5, 5.0, 7.5, 10.0\right]$. The outer layer of the insulation material is subjected to the environment with temperature of 15$^{\circ}$C and convective heat transfer coefficient of 10 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Given for polyisocyanurate insulation layer: (a) conductive heat transfer coefficient: 0.054 W/$\left(\text{m.}^{\circ}\text{C}\right)$; (b) heat capacity at constant pressure: 1 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$; (c) density: 550 kg/m$^{3}$.
 
 \end{enumerate}
