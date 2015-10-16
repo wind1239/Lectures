@@ -214,6 +214,7 @@ Thus ~\solmarks{2/7}
 \begin{displaymath}
 x_{\text{EtAc}} = \frc{\epsilon}{2} = 0.3440
 \end{displaymath}
+%==========================
 
  }
 
@@ -224,8 +225,36 @@ x_{\text{EtAc}} = \frc{\epsilon}{2} = 0.3440
 \begin{displaymath}
 H_{2} + CO_{2} \Longleftrightarrow H_{2}O + CO
 \end{displaymath}
+Calculate the reaction coordinate, $\epsilon$, in the equilibrium.
 Given $\Delta G_{f}^{\circ}$ $\left(\text{J.gmol}^{-1}\right)$ at 1000K: (a) H$_{2}$O: -192420, (b) CO: -200240 and (c) CO$_{2}$: -395790.~\marks{13}
-\solution{ hjhu }
+
+%==========================
+\solution{ The Gibbs energy can be expressed as~\solmarks{1/13}
+\begin{eqnarray}
+G &=& \sum y_{i}G_{i} + RT\sum y_{i}\ln{y_{i}} \nonumber \\
+G &=& \sum y_{i}\Delta G^{o}_{f,i} + RT\sum y_{i}\ln{y_{i}} \nonumber 
+\end{eqnarray}
+We can differentiate the total Gibbs energy as,
+\begin{displaymath}
+dG^{t} = d\left(n G\right) = n\frc{dG}{d\epsilon} + G\frc{d n}{d\epsilon} 
+\end{displaymath} 
+Assuming the system is closed and in equilibrium: $dn = 0$ and $\frc{dG}{d\epsilon}=0$. For 1 mole of H$_{2}$ and CO$_{2}$, the mole fraction of the gaseous species are~\solmarks{1/13}
+\begin{displaymath}
+y_{\text{H}_{2}}=\frc{1-\epsilon}{2} =y_{\text{CO}_{2}}\;\;\text{ and }\;\; y_{\text{H}_{2}\text{O}}=\frc{\epsilon}{2} =y_{\text{CO}}\
+\end{displaymath}
+Thus,~\solmarks{5/13}
+\begin{eqnarray}
+ G &=& \left(y_{H_{2}}\Delta G^{o}_{f,H_{2}} + y_{CO_{2}}\Delta G^{o}_{f,CO_{2}} + y_{H_{2}O}\Delta G^{o}_{f,H_{2}O} + y_{CO}\Delta G^{o}_{f,CO}\right) + \nonumber \\
+    && RT\left(y_{H_{2}}\ln{y_{H_{2}}} + y_{CO_{2}}\ln{y_{CO_{2}}} + y_{H_{2}O}\ln{y_{H_{2}O}} + y_{CO}\ln{y_{CO}}\right) \nonumber \\
+   &=&\left[\frc{1-\epsilon}{2}\Delta G^{o}_{f,CO_{2}} + \frc{\epsilon}{2}\left(\Delta G^{o}_{f,H_{2}O}+\Delta G^{o}_{f,CO}\right)\right] + RT\left[\left(1-\epsilon\right)\ln{\frc{1-\epsilon}{2}} + \epsilon\ln{\frc{\epsilon}{2}}\right]\nonumber
+\end{eqnarray}
+for $\Delta G^{o}_{f,H_{2}} = 0$. In the equilibrium $\frc{dG}{d\epsilon}=0$~\solmarks{1/13}, therefore~\solmarks{5/13}
+\begin{displaymath}
+\frc{dG}{d\epsilon} = B-A + RT\left[\ln{\frc{\epsilon}{2}} - \ln{\frc{1-\epsilon}{2}}\right] = 0 \Longrightarrow \epsilon = 0.4531 
+\end{displaymath}
+with $A=\frc{-395790}{2}$ and $B=\frc{-192420-200240}{2}$.
+}
+%==========================
 %
 \end{enumerate}
 %
