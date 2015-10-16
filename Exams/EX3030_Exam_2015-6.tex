@@ -88,11 +88,11 @@ where $\tau$ is the Fourier number, $\lambda_{1}$ and $A_{1}$ are coefficient co
 %==============
 \solution{Given: thickness of plate: 0.03 m; $L$ = 0.015 m; $T_{i}$ = 500$^{\circ}$C; $T_{\infty}$ = 40$^{\circ}$C; $T_{i}$ = 120$^{\circ}$C; $h$ = 150 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$; $\kappa$ = 16.3 W/$\left(\text{m}.^{\circ}\text{C}\right)$; $\alpha$ = 0.44 $\times$10$^{-5}$ m$^{2}$/s.
 
-First, we need to calculate the $Bi$ number,~\solmarks{2/10}
+First, we need to calculate the $Bi$ number,
 \begin{displaymath}
   Bi = \frc{h L}{\kappa} = {\bf 0.1380} > 0.1 \text{ thus we cannot apply lumped capacity method}
 \end{displaymath}
-With $Bi$ (through linear interpolation in the coefficients table) we determine {\bf $\lambda_{1}=0.3573$} and {\bf $A_{1}=1.0150$}~\solmarks{2/10}. At the plate face, $x/L=1$,
+With $Bi$ (through linear interpolation in the coefficients table) we determine ${\bf \lambda_{1}=0.3573}$ and ${\bf A_{1}=1.0150}$~\solmarks{2/10}. At the plate face, $x/L=1$,
 \begin{displaymath}
 \frc{T\left(x,t\right)-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}\exp{\left(-\lambda_{1}^{2}\tau\right)}\cos{\frc{\lambda_{1}x}{L}}
 \end{displaymath}
@@ -104,8 +104,7 @@ At the centre of the plate, $x/L=0$,~\solmarks{2/10}
 \begin{displaymath}
 \frc{T\left(0,t\right)-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}\exp{\left(-\lambda_{1}^{2}\tau\right)} \Longrightarrow  {\bf \tau = 13.8189}
 \end{displaymath}
-and ${\bf t = 706.65\; s}$.~\solmarks{2/10}
-}
+and ${\bf t = 706.65\; s}$.~\solmarks{2/10} } 
 %==============
 
 % Holman (4.21)
@@ -143,12 +142,48 @@ And the heat transfer rate is~\solmarks{4/10}
 \begin{displaymath}
 \dot{Q} = U A \Delta T_{lm} = {\bf 181440\; W = 1.81\times10^{2}\; MW}
 \end{displaymath}
-}
+} 
 %=============
 
 
 % Jeff 
-\item\label{Transient_Exam2_FDM} Heavy oil at 150$^{\circ}$C is pumped into a storage tank before being transported to distillation columns. The tank is insulated with a layer of polyisocyanurate of 10 cm thick. The tank's wall is at 150$^{\circ}$C and the initial temperature of the insulation layer is 20$^{\circ}$C. Assuming that the problem can be considered as 1-D, calculate the temperature profile of the insulated layer, $T\left(\underline{x},t\right)$, at $t = 2$ seconds with $\underline{x}=\left[0.0, 2.5, 5.0, 7.5, 10.0\right]$. The outer layer of the insulation material is subjected to the environment with temperature of 15$^{\circ}$C and convective heat transfer coefficient of 10 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Given for polyisocyanurate insulation layer: (a) conductive heat transfer coefficient: 0.054 W/$\left(\text{m.}^{\circ}\text{C}\right)$; (b) heat capacity at constant pressure: 1 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$; (c) density: 550 kg/m$^{3}$.
+\item\label{Transient_Exam2_FDM} Heavy oil at 150$^{\circ}$C is pumped into a storage tank before being transported to distillation columns. The tank is insulated with a layer of polyisocyanurate of 10 cm thick. The tank's wall is at 150$^{\circ}$C and the initial temperature of the insulation layer is 20$^{\circ}$C. Assuming that the tank wall-insulation layer-environment system can be modelled as a 1-D finite difference method (FDM) problem,  calculate the temperature profile of the insulated layer, $T\left(\underline{x},t\right)$, at $t = 10$ seconds with $\underline{x}=\left[0.0, 2.5, 5.0, 7.5, 10.0\right]$. The outer layer of the insulation material is subjected to the environment with temperature of 15$^{\circ}$C and convective heat transfer coefficient of 10 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Given for polyisocyanurate insulation layer: (a) conductive heat transfer coefficient: 5.40 W/$\left(\text{m.}^{\circ}\text{C}\right)$; (b) heat capacity at constant pressure: 0.1 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$; (c) density: 550 kg/m$^{3}$. The discretised thermal equation is
+\begin{displaymath}
+    T_{i}^{j+1} = T_{i}^{j} + \alpha\frc{\Delta t}{\left(\Delta x\right)^{2}}\left(T_{i+1}^{j}-2T_{i}^{j}+T_{i-1}^{j}\right)
+\end{displaymath}
+where $alpha$ is the thermal diffusivity, $\Delta x$ and $\Delta t$ are the spatial-interval and time-step size, respectively. $i$ and $j$ are the spatial- and time-indices. For this problem, use $\Delta t = 5$ seconds.
+%=============
+\solution{Calculating the thermal diffusivity,
+\begin{displaymath}
+ \alpha = \frc{\kappa}{\rho C_{p}} = 1.9636\times10^{-5} m^{2}/s
+\end{displaymath}
+
+The Courant number ($C_{t}$) for this problem is then~\solmarks{1/10}
+\begin{displaymath}
+   C_{t} = \frc{\alpha \Delta t}{\left(\Delta x\right)^{2}} = {\bf 7.8545\times 10^{-5}}
+\end{displaymath}
+with $\Delta t$ = 5 and $\Delta x$ = 2.5. We need to solve
+\begin{displaymath}
+    T_{i}^{j+1} = T_{i}^{j} + C_{t}\left(T_{i+1}^{j}-2T_{i}^{j}+T_{i-1}^{j}\right)
+\end{displaymath}
+Thus for j = 0~\solmarks{1/10}
+\begin{eqnarray}
+    i=1 && T_{1}^{1} = T_{1}^{0} + Ct\left(T_{2}^{0}-2T_{1}^{0}+T_{0}^{0}\right) \nonumber \\
+     \vdots && \hspace{3cm} \vdots \nonumber \\
+    i=4 && T_{4}^{1} = T_{4}^{0} + Ct\left(T_{5}^{0}-2T_{4}^{0}+T_{3}^{0}\right) \nonumber
+\end{eqnarray}
+with $T_{0}^{0}$ = 150$^{\circ}$C (ghost-cell) and $T_{5}^{j}$ calculated from the boundary conditions:~\solmarks{2/10}
+\begin{displaymath}
+-\kappa\frc{\partial T}{\partial x} = h\left(T-T_{amb}\right)\Longrightarrow -\kappa \frc{T^{j}_{5}-T^{j}_{4}}{\Delta x} = h\left(T_{5}^{j}-T_{amb}\right)
+\end{displaymath}
+Thus~\solmarks{3/10}
+{\bf \begin{eqnarray}
+   T\left(\underline{x},t=5\right)  &=& \left[ 149.9796\;\; 20.0102 \;\; 20.0000\;\; 19.9997\;\; 15.8889\right]^{T}\; ^{\circ}C \nonumber \\
+   T\left(\underline{x},t=10\right) &=& \left[ 149.9592\;\; 20.0204 \;\; 20.0000\;\; 19.9993\;\; 15.8887\right]^{T}\; ^{\circ}C \nonumber \\
+\end{eqnarray}}
+
+}
+%=============
 
 \end{enumerate}
 
