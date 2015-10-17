@@ -16,7 +16,7 @@
 \coursecode{EX3029}%%
 
 \examtime{09.00--12.00}%
-\examdate{03}{03}{2015}% 
+\examdate{03}{06}{2016}% 
 \examformat{Candidates must attempt \textit{all} questions.}
 
 \newcommand{\frc}{\displaystyle\frac}
@@ -45,152 +45,63 @@
 Prove that 
 \begin{displaymath}
 \d S = \frc{C_{V}}{T}\left(\frc{\partial T}{\partial P}\right)_{V}\d P + \frc{C_{P}}{T}\left(\frc{\partial T}{\partial V}\right)_{P}\d V
-\end{displaymath}~\marks{8}
+\end{displaymath}~\marks{7}
 %
-\solution{As entropy is expressed as a function of pressure and molar volume, we can write it in differenctial form as,~\solmarks{2/8}
+\solution{As entropy is expressed as a function of pressure and molar volume, we can write it in differenctial form as,~\solmarks{1/7}
 \begin{displaymath}
   dS = \left(\frc{\partial S}{\partial P}\right)_{V}dP + \left(\frc{\partial S}{\partial V}\right)_{p}dV 
 \end{displaymath}
-We can rewrite this equation as~\solmarks{3/8}
+We can rewrite this equation as~\solmarks{3/7}
 \begin{displaymath}
 dS = \left(\frc{\partial S}{\partial T}\right)_{V}\left(\frc{\partial T}{\partial P}\right)_{V}dP + \left(\frc{\partial S}{\partial T}\right)_{p}\left(\frc{\partial T}{\partial V}\right)_{p}dV
 \end{displaymath}
-As $\left(\frc{\partial S}{\partial T}\right)_{V}=\frc{C_{v}}{T}$ and $\left(\frc{\partial S}{\partial T}\right)_{P}=\frc{C_{P}}{T}$, ~\solmarks{3/8}
+As $\left(\frc{\partial S}{\partial T}\right)_{V}=\frc{C_{v}}{T}$ and $\left(\frc{\partial S}{\partial T}\right)_{P}=\frc{C_{P}}{T}$, ~\solmarks{4/7}
 \begin{displaymath}
 dS = \frc{C_{v}}{T}\left(\frc{\partial T}{\partial P}\right)_{V}dP + \frc{C_{P}}{T}\left(\frc{\partial T}{\partial V}\right)_{p}dV
 \end{displaymath}
 }
 
-%%%
-%%% Johannes Lecture Example
-%%%
-\item\label{LectExample} In the esterification reaction of acetic acid with ethanol at 100$^{\circ}$C,
-\begin{displaymath}
-CH_{3}COOH + C_{2}H_{5}OH  \Longleftrightarrow  CH_{3}COOC_{2}H_{5} + H_{2}O,
-\end{displaymath}
-calculate the mass fraction of ethyl acetate given that initially there was 1 mole of acetic acid and ethanol. The reaction enthalpy and Gibbs energy at standard state (25$^{\circ}$C and 1 atm) are $\Delta H_{298}^{\circ}=-3640$ J and $\Delta G_{298}^{\circ}=-4650$ J. Given the van't Hoff equation,~\marks{12}
-\begin{displaymath}
-\frc{d}{dT}\left(\ln{K}\right) = - \frc{\Delta H_{298}^{o}}{RT^{2}}
-\end{displaymath}
 
-%==========================
-\solution{ Initially we have 1 mol of acetic acid (HAc) and 1 mol of ethanol (EtOH). We can calculate the mole fractions for all species as a function of the reaction coordinate, $\epsilon$~\solmarks{4/12}
-\begin{eqnarray}
- x_{\text{EtAc}} &=& \frc{\epsilon}{2+0.\epsilon} = \frc{\epsilon}{2} = x_{H_{2}O}  \nonumber \\
- x_{\text{HAc}} &=& \frc{1-\epsilon}{2} = x_{\text{EtOH}} \nonumber
-\end{eqnarray}
-Assuming ideal solution,~\solmarks{2/12}
+% (Shapiro 2.34) 
+\item Air contained in a piston-cylinder system undergoes three consecutive processes,
+\begin{itemize} 
+\item Process 1--2: Isobaric cooling with P$_{1}$=69 kPa and V$_{1}$=0.11 m$^{3}$;
+\item Process 2--3: Isochoric heating with P$_{3}$=345 kPa;
+\item Process 3--1: Polytropic expansion, with $PV=$ {\it constant}. %Expansion to the initial state, during which the pressure-volume relationship is $PV=$ {\it constant}.
+\end{itemize}  
+\begin{enumerate}[(i)]
+\item Calculate V$_{2}$ $\left(\text{in m}^{3}\right)$.~\marks{3} 
+\solution{
+For Process 2--3: V$_{2}$=V$_{3}$. However the expansion 3--1 follows $PV=$ constant,
 \begin{displaymath}
-  \prod\limits_{i=1}^{c=4} x_{i}^{\nu} = K = x_{\text{HAc}}^{-1}\;x_{\text{EtOH}}^{-1}\;x_{\text{EtAc}}\;x_{H_{2}O} \Longrightarrow K = \frc{\epsilon^{2}}{\left(1-\epsilon\right)^{2}}
-\end{displaymath} 
-Thus, by calculating $K$, we can obtain $\epsilon$ and then $x_{\text{EtAc}}$. $K$ (temperature-dependent) can be obtained from the Gibbs free energy,~\solmarks{2/12}
+P_{1}V_{1}=P_{3}V_{3} \Longrightarrow V_{3} = \frc{P_{1}V_{1}}{P_{3}} = {\bf 0.022\;\text{m}^{3} = V_{2}}
+\end{displaymath}~\solmarks{3/3}
+}
+\item Calculate the work (in $kJ$) for each process.~\marks{6}
+\solution{\noindent
+Process 1--2: 
 \begin{displaymath}
-   \ln{K_{298}} = -\frc{\Delta G_{298}^{o}}{RT} = \frc{4650.0}{8.314\times 298.15} = 1.8759
-\end{displaymath}
-Now, in order to calculate $K$ at 373.15 K, we can integrate the van't Hoff equation from 298.15 K to 373.15 K~\solmarks{2/12}
-\begin{displaymath}
-\int\limits_{K_{298}}^{K_{373}} d\left(\ln{K}\right) = - \int\limits_{298.15}^{373.15}\frc{\Delta H_{298}^{o}}{RT^{2}} dT \Longrightarrow K_{373} = 4.8586
-\end{displaymath}
-Now we can calculate the reaction coordinate,
-\begin{displaymath}
-   K_{373} = \frc{\epsilon^{2}}{\left(1-\epsilon\right)^{2}} \Longrightarrow \epsilon= 0.6879
-\end{displaymath} 
-Thus ~\solmarks{2/12}
-\begin{displaymath}
-x_{\text{EtAc}} = \frc{\epsilon}{2} = 0.3440
-\end{displaymath}
-%==========================
- }
+{\bf W_{1-2}} = \int\limits_{V_{1}}^{V_{2}} P dV = P\left(V_{2}-V_{1}\right) = -6072 J \Rightarrow {\bf -6.072 kJ}
+\end{displaymath}~\solmarks{2/6}
+\noindent
+Process 2--3: V$_{2}$=V$_{3}$ $\Longrightarrow$ {\bf W$_{2-3}$ = 0}~\solmarks{2/6} \\
+\noindent
+Process 3--1: $PV = C$
+\begin{displaymath} 
+{\bf W_{31}} = \int\limits_{V_{3}}^{V_{1}}P dV = \int\limits_{V_{3}}^{V_{1}}\frc{C}{V} dV = P_{1}V_{1}\ln\frc{V_{1}}{V_{3}} = 12220 J \Rightarrow {\bf 12.22 kJ} 
+\end{displaymath}~\solmarks{2/6}
+}
+\item Sketch the $PV$ diagram for these processes.~\marks{4}
+\solution{\solmarks{4/4}
+\begin{center}
+\includegraphics[width=10.cm,height=8.cm,clip]{./Pics/Exam_PV_Diagram}
+\end{center}
+}
 %
 \end{enumerate}
 %
 \end{question}
 \clearpage
-
-
-%%%
-%%% Question 02
-%%%
-\begin{question}
-\begin{enumerate}[(a)]
-% LectureNotes_Nguyen (pg 89)
-\item Show that the van der Waals equation of state (vdW EOS),
-\begin{displaymath}
-  P = \frc{RT}{V-b} - \frc{a}{V^{2}}
-\end{displaymath} 
-can be expressed as a cubic polynomial expression in $Z$ (compressibility coefficient),
-\begin{displaymath}
-Z^{3} -(1+B)Z^{2} +AZ -AB = 0 
-\end{displaymath}
-with $B=bP/(RT)$ and $A=aP/(RT)^{2}$.~\marks{7}
-
-%==========================
-\solution{We can rearrange the vdW EOS,~\solmarks{3/7}
-\begin{eqnarray}
- && P = \frc{RT}{V-b} - \frc{a}{V^{2}} \Longrightarrow \frc{PV}{RT} = \frc{V}{V-b} - \frc{a}{RTV} \nonumber \\
- && Z = \frc{1}{1-\frc{b}{V}} - \frc{a}{RTV}\;\;\text{ since } V=\frc{ZRT}{P}  \nonumber \\
-&& Z = \left(1-\frc{bP}{ZRT}\right)^{-1} - \frc{aP}{Z\left(RT\right)^{2}} \nonumber
-\end{eqnarray}
-Defining $B=bP/(RT)$ and $A=aP/(RT)^{2}$~\solmarks{2/7} and replacing in the above expression leads to,~\solmarks{2/7}
-\begin{displaymath}
-Z^{3} -(1+B)Z^{2} +AZ -AB = 0 
-\end{displaymath}
-}
-%==========================
-
-\item Calculate the fugacity of CO$_{2}$ at 310 K and 1.4$\times$10$^{6}$ Pa using the van der Waals equation of state (EOS), with $a=$ 0.3658 Pa.m$^{6}$/mol$^{2}$, $b=$ 4.286$\times$10$^{-5}$ m$^{3}$/mol. Given,~\marks{13}
-\begin{displaymath}
-\ln{\left(\frc{f}{P}\right)} = -\ln{\left(1-\frc{b}{V}\right)} - \frc{a}{RTV} - \ln{Z} +\left(Z-1\right).
-\end{displaymath}
-
-%====================
-\solution{Solving the cubic polynomial in $Z$, with $B=bP/(RT)$ and $A=aP/(RT)^{2}$,~\solmarks{5/13}
-\begin{eqnarray}
-Z^{3} -(1+B)Z^{2} +AZ -AB = 0 & \Longrightarrow& A = 7.7095\times 10^{-2}\; ;\; B = 2.3281\times 10^{-2} \nonumber \\ 
- &\Longrightarrow& Z = 0.9436 \nonumber
-\end{eqnarray}
-Now for the fugacity equation:~\solmarks{8/13}
-\begin{eqnarray}
-&& \ln{\left(\frc{f}{P}\right)} = -\ln{\left(1-\frc{b}{V}\right)} - \frc{a}{RTV} - \ln{Z} +\left(Z-1\right) \nonumber \\
-&&  \ln{\left(\frc{f}{P}\right)} = -\ln{\left(1-\frc{B}{Z}\right)} - \frc{A}{Z} - \ln{Z} +\left(Z-1\right) \Longrightarrow f = 1.26\times 10^{6}\;\text{Pa}\nonumber
-\end{eqnarray}
-
-}
-%====================
-
-%
-\item Calculate the fugacity of steam at 300$^{\circ}$C and 80 bar. For your calculations, you should use $h=$ 2785 kJ/kg, $s=$ 5.791 kJ/(kg.K) for steam at 300$^{\circ}$C and 80 bar, and $h^{\text{IG}}=$ 3077 kJ/kg, $s^{\text{IG}}=$ 9.281 kJ/(kg.K) for ideal at 300$^{\circ}$C and 0.1 bar. Given,~\marks{6}
-\begin{displaymath}
- d\mu = dG = RTd\left(\ln{f}\right).
-\end{displaymath} 
-Also, the molar mass of water is 18 g/mol.~\marks{6}
-
-%=======================
-\solution{ We can integrate this equation from low pressure so that fugacity is similar to pressure and the system can be considered an ideal gas,\solmarks{2/6}
-\begin{displaymath}
-\int\limits_{G^{\text{IG}}}^{G}dG = RT\int\limits_{P}^{f}d\left(\ln{f}\right) \Longrightarrow f = P\exp{\left(\frc{G-G^{\text{IG}}}{RT}\right)}
-\end{displaymath}
-The specific gibbs free energy of ideal gas (at low pressure, e.g., 0.1 bar)~\solmarks{1/6}
-\begin{displaymath}
-g^{\text{IG}} = h^{\text{IG}}-Ts^{\text{IG}} = -2242.41 kJ/kg \Longrightarrow G^{\text{IG}} = -40.36 kJ/mol
-\end{displaymath}
-Now at 300$^{\circ}$C and 80 bar,~\solmarks{1/6}
-\begin{displaymath}
-g = h - Ts = -534.11 kJ/kg \Longrightarrow G = -9.61 kJ/mol
-\end{displaymath}
-Now calculating the fugacity,~\solmarks{2/6}
-\begin{displaymath}
-f = P\exp{\left(\frc{G-G^{\text{IG}}}{RT}\right)} = 63.47 bar
-\end{displaymath}
-}
-%=======================
-%
-\end{enumerate}
-%
-\end{question}
-\clearpage
-
-
 
 %%%
 %%% Question 02
@@ -265,6 +176,47 @@ $\cdots \cdots \cdots $ \\
 \begin{question}
 %
 \begin{enumerate}[(a)]
+%%%
+%%% Johannes Lecture Example
+%%%
+\item\label{LectExample} In the esterification reaction of acetic acid with ethanol at 100$^{\circ}$C,
+\begin{displaymath}
+CH_{3}COOH + C_{2}H_{5}OH  \Longleftrightarrow  CH_{3}COOC_{2}H_{5} + H_{2}O,
+\end{displaymath}
+calculate the mass fraction of ethyl acetate given that initially there was 1 mole of acetic acid and ethanol. The reaction enthalpy and Gibbs energy at standard state (25$^{\circ}$C and 1 atm) are $\Delta H_{298}^{\circ}=-3640$ J and $\Delta G_{298}^{\circ}=-4650$ J. Given the van't Hoff equation,~\marks{7}
+\begin{displaymath}
+\frc{d}{dT}\left(\ln{K}\right) = - \frc{\Delta H_{298}^{o}}{RT^{2}}
+\end{displaymath}
+
+%==========================
+\solution{ Initially we have 1 mol of acetic acid (HAc) and 1 mol of ethanol (EtOH). We can calculate the mole fractions for all species as a function of the reaction coordinate, $\epsilon$
+\begin{eqnarray}
+ x_{\text{EtAc}} &=& \frc{\epsilon}{2+0.\epsilon} = \frc{\epsilon}{2} = x_{H_{2}O}  \nonumber \\
+ x_{\text{HAc}} &=& \frc{1-\epsilon}{2} = x_{\text{EtOH}} \nonumber
+\end{eqnarray}
+Assuming ideal solution,~\solmarks{1/7}
+\begin{displaymath}
+  \prod\limits_{i=1}^{c=4} x_{i}^{\nu} = K = x_{\text{HAc}}^{-1}\;x_{\text{EtOH}}^{-1}\;x_{\text{EtAc}}\;x_{H_{2}O} \Longrightarrow K = \frc{\epsilon^{2}}{\left(1-\epsilon\right)^{2}}
+\end{displaymath} 
+Thus, by calculating $K$, we can obtain $\epsilon$ and then $x_{\text{EtAc}}$. $K$ (temperature-dependent) can be obtained from the Gibbs free energy,~\solmarks{2/7}
+\begin{displaymath}
+   \ln{K_{298}} = -\frc{\Delta G_{298}^{o}}{RT} = \frc{4650.0}{8.314\times 298.15} = 1.8759
+\end{displaymath}
+Now, in order to calculate $K$ at 373.15 K, we can integrate the van't Hoff equation from 298.15 K to 373.15 K~\solmarks{2/7}
+\begin{displaymath}
+\int\limits_{K_{298}}^{K_{373}} d\left(\ln{K}\right) = - \int\limits_{298.15}^{373.15}\frc{\Delta H_{298}^{o}}{RT^{2}} dT \Longrightarrow K_{373} = 4.8586
+\end{displaymath}
+Now we can calculate the reaction coordinate,
+\begin{displaymath}
+   K_{373} = \frc{\epsilon^{2}}{\left(1-\epsilon\right)^{2}} \Longrightarrow \epsilon= 0.6879
+\end{displaymath} 
+Thus ~\solmarks{2/7}
+\begin{displaymath}
+x_{\text{EtAc}} = \frc{\epsilon}{2} = 0.3440
+\end{displaymath}
+%==========================
+
+ }
 
 %%%
 %%% Johannes T0902
