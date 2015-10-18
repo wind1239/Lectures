@@ -37,30 +37,6 @@
 \begin{question}
 %
 \begin{enumerate}[(a)]
-%%% Johannes T3Q4
-\item Assuming $S = S\left(P,V\right)$ and taking into consideration that,
-\begin{displaymath}
-\left(\frc{\partial S}{\partial T}\right)_{V} = \frc{C_{V}}{T}\;\;\;\text{ and }\;\;\; \left(\frc{\partial S}{\partial T}\right)_{P} = \frc{C_{P}}{T}
-\end{displaymath}
-Prove that 
-\begin{displaymath}
-\d S = \frc{C_{V}}{T}\left(\frc{\partial T}{\partial P}\right)_{V}\d P + \frc{C_{P}}{T}\left(\frc{\partial T}{\partial V}\right)_{P}\d V
-\end{displaymath}~\marks{7}
-%
-\solution{As entropy is expressed as a function of pressure and molar volume, we can write it in differenctial form as,~\solmarks{1/7}
-\begin{displaymath}
-  dS = \left(\frc{\partial S}{\partial P}\right)_{V}dP + \left(\frc{\partial S}{\partial V}\right)_{p}dV 
-\end{displaymath}
-We can rewrite this equation as~\solmarks{3/7}
-\begin{displaymath}
-dS = \left(\frc{\partial S}{\partial T}\right)_{V}\left(\frc{\partial T}{\partial P}\right)_{V}dP + \left(\frc{\partial S}{\partial T}\right)_{p}\left(\frc{\partial T}{\partial V}\right)_{p}dV
-\end{displaymath}
-As $\left(\frc{\partial S}{\partial T}\right)_{V}=\frc{C_{v}}{T}$ and $\left(\frc{\partial S}{\partial T}\right)_{P}=\frc{C_{P}}{T}$, ~\solmarks{4/7}
-\begin{displaymath}
-dS = \frc{C_{v}}{T}\left(\frc{\partial T}{\partial P}\right)_{V}dP + \frc{C_{P}}{T}\left(\frc{\partial T}{\partial V}\right)_{p}dV
-\end{displaymath}
-}
-
 
 % (Shapiro 2.34) 
 \item Air contained in a piston-cylinder system undergoes three consecutive processes,
@@ -97,6 +73,38 @@ Process 3--1: $PV = C$
 \includegraphics[width=10.cm,height=8.cm,clip]{./Pics/Exam_PV_Diagram}
 \end{center}
 }
+
+
+%
+\item Calculate the fugacity of steam at 300$^{\circ}$C and 80 bar. For your calculations, you should use $h=$ 2785 kJ/kg, $s=$ 5.791 kJ/(kg.K) for steam at 300$^{\circ}$C and 80 bar, and $h^{\text{IG}}=$ 3077 kJ/kg, $s^{\text{IG}}=$ 9.281 kJ/(kg.K) for ideal at 300$^{\circ}$C and 0.1 bar. Given,
+\begin{displaymath}
+ d\mu = dG = RTd\left(\ln{f}\right).
+\end{displaymath} 
+Also, the molar mass of water is 18 g/mol.~\marks{7}
+
+%=======================
+\solution{ We can integrate this equation from low pressure so that fugacity is similar to pressure and the system can be considered an ideal gas,\solmarks{2/7}
+\begin{displaymath}
+\int\limits_{G^{\text{IG}}}^{G}dG = RT\int\limits_{P}^{f}d\left(\ln{f}\right) \Longrightarrow f = P\exp{\left(\frc{G-G^{\text{IG}}}{RT}\right)}
+\end{displaymath}
+The specific gibbs free energy of ideal gas (at low pressure, e.g., 0.1 bar)~\solmarks{1/7}
+\begin{displaymath}
+g^{\text{IG}} = h^{\text{IG}}-Ts^{\text{IG}} = -2242.41 kJ/kg \Longrightarrow G^{\text{IG}} = -40.36 kJ/mol
+\end{displaymath}
+Now at 300$^{\circ}$C and 80 bar,~\solmarks{1/7}
+\begin{displaymath}
+g = h - Ts = -534.11 kJ/kg \Longrightarrow G = -9.61 kJ/mol
+\end{displaymath}
+Now calculating the fugacity,~\solmarks{3/7}
+\begin{displaymath}
+f = P\exp{\left(\frc{G-G^{\text{IG}}}{RT}\right)} = 63.47 bar
+\end{displaymath}
+}
+%=======================
+
+
+
+
 %
 \end{enumerate}
 %
