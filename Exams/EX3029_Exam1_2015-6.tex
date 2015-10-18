@@ -1,6 +1,6 @@
 
-\documentclass[calculator,steamtables,datasheet,solutions]{exam}
-%\documentclass[calculator,fluidstables,allquestions,datasheet]{exam}
+%\documentclass[calculator,steamtables,datasheet,solutions]{exam}
+\documentclass[calculator,allquestions,datasheet]{exam}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -16,7 +16,7 @@
 \coursecode{EX3029}%%
 
 \examtime{09.00--12.00}%
-\examdate{03}{03}{2015}% 
+\examdate{03}{12}{2015}% 
 \examformat{Candidates must attempt \textit{all} questions.}
 
 \newcommand{\frc}{\displaystyle\frac}
@@ -289,16 +289,22 @@ Toluene    & 14.2514    &  3242.38    & -47.1806 \\
 
 %=================
 \solution{From Raoult's law, 
-\begin[displaymath}
+\begin{displaymath}
 y_{i} = \frc{x_{i}P_{i}^{sat}}{P}
 \end{displaymath}
 with benzene (1) and toluene (2),~\solmarks{1/7}
 \begin{displaymath}
 P = x_{1}P_{1}^{sat} + x_{2}P_{2}^{sat}
 \end{displaymath}
-
-
-
+leading to the bubble point temperature of the mixture benzene-toluene~\solmarks{3/7}
+\begin{displaymath}
+P = x_{1}\exp{\left(A_{1}-\frc{B_{1}}{T+C_{1}}\right)} + x_{2}\exp{\left(A_{2}-\frc{B_{2}}{T+C_{2}}\right)} \;\Longrightarrow\; T= 391.73\text{ K}
+\end{displaymath}
+Calculating the saturation pressure and mole fraction of benzene in the vapour phase,~\solmarks{3/7}
+\begin{eqnarray}
+&& P_{1}^{sat} = \exp{\left(A_{1}-\frc{B_{1}}{T - C_{1}}\right)} = 289.01\text{ kPa} \nonumber \\
+&& y_{1} = \frc{x_{1}P_{1}^{sat}}{P} = 0.6503 \;\text { and } y_{2}=1-y_{1} = 0.3497 \nonumber
+\end{eqnarray}
 }
 %=================
 
@@ -315,80 +321,83 @@ P = x_{1}P_{1}^{sat} + x_{2}P_{2}^{sat}
 %%%
 \begin{question}
 %
-\begin{enumerate}[(a)]
-
-%%% Johannes T0602
-%%%
-\item\label{T0602} What is the change in entropy when 700 litres of CO$_{2}$ and 300 litres of N$_{2}$, each at 1 bar and 25$^{\circ}$C blend to form a gas mixture at the same conditions? Assume ideal gases, and given~\marks{6}
-\begin{displaymath}
-\Delta S = - nR\sum\limits_{i=1}^{n}y_{i}\ln{y_{i}}
-\end{displaymath}
 
 
 %%%
-%%% SM &VN 11.13
+%%% SM &VN 11.13 (Tutorial 6, prob 5)
 %%%
-\item\label{Ex2} The molar volume $\left(\text{in cm}^{3}\text{.gmol}^{-1}\right)$ of a binary liquid mixture at $T$ and $P$ is given by:
+ The molar volume $\left(\text{in cm}^{3}\text{.mol}^{-1}\right)$ of a binary liquid mixture at $T$ and $P$ is given by:
 \begin{displaymath}
 V = 120 x_{1} + 70 x_{2} + \left( 15x_{1} + 8x_{2}\right)x_{1}x_{2} 
 \end{displaymath}
-\begin{enumerate}
-\item\label{first} Find expressions for the partial molar volumes of species 1 and 2 at $T$ and $P$.
-\item Show that when these expressions are combined in accord with $M=\sum\limits_{i}x_{i}\overline{M}_{i}$, the given equation for $V$ is recovered;
-\item Show that these expressions satisfy the Gibbs-Duhem equation, $\sum\limits_{i}x_{i}d\overline{M}_{i}=0$;
-\item Show that 
-   \begin{displaymath}
-        \left(\frc{d\overline{V}_{1}}{dx_{1}}\right)_{x_{1}=1} = \left(\frc{d\overline{V}_{2}}{dx_{1}}\right)_{x_{1}=0} = 0
-   \end{displaymath}
- \item Plot values of $V$, $\overline{V}_{1}$ and $\overline{V}_{2}$ calculated by the given equation for $V$ and by the equations developed in (a) {\it vs} $x_{1}$. Label points $\overline{V}_{1}^{\infty}$ and $\overline{V}_{2}^{\infty}$ and show their values.~\marks{14}
-\end{enumerate}
-\end{question}
-
-
-\clearpage
-
-%%%
-%%% Question 07
-%%%
-\begin{question}
-%
 \begin{enumerate}[(a)]
-% Nguyen pg.5-25
-\item Calculate the bubble point pressur and vapour composition for a liquid mixture of 41.2 mol$\%$ ethanol (1) and n-hexane (2) at 331K. Given:
+\item\label{first} Find expressions for the partial molar volumes of species 1 and 2 at $T$ and $P$.~\marks{7}
+%===================
+\solution{ Eliminating $x_{2}=1-x_{1}$ in the molar volume expression,~\solmarks{1/7}
+\begin{eqnarray}
+V &=& 120 x_{1} + 70 x_{2} + \left( 15x_{1} + 8x_{2}\right)x_{1}x_{2} \nonumber \\
+  &=& 70 + 58x_{1}-x_{1}^{2}-7x_{1}^{3} \nonumber
+\end{eqnarray}
+The Gibbs-Duhen equation at constant $T$ and $P$ can be expressed as,
 \begin{displaymath}
-\ln{\gamma_{1}} = \frac{A}{\left[1+\left(Ax_{1} / Bx_{2}\right)\right]^{2}} \;\;\text{ and }\;\; \ln{\gamma_{2}} = \frac{B}{\left[1+\left(Bx_{2} / Ax_{1}\right)\right]^{2}}
+\overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}} \;\text{ and }\; \overline{M}_{2} = M + x_{1}\frc{dM}{dx_{1}}
 \end{displaymath}
-with $A=2.409$ and $B=1.970$. Also,
+and are used to obtain $\overline{V}_{1}$ and $\overline{V}_{2}$. However we first need to calculate~\solmarks{2/7}
 \begin{displaymath}
-\ln{P_{1}^{\text{sat}}} = 16.1952 - \frac{3423.53}{T-55.7152} \;\;\text{ and }\;\; \ln{P_{2}^{\text{sat}}} = 14.0568 - \frac{1825.42}{T-42.7089}
+\frc{dV}{dx_{1}} = 58 - 2x_{1} - 21x_{1}^{2}4\end{displaymath}
+Thus~\solmarks{4/7}
+\begin{eqnarray}
+\overline{V}_{1} &=& 128 - 2x_{1} - 20x_{1}^{2} + 14x_{1}^{3} \nonumber \\
+\overline{V}_{2} &=& 70  + x_{1}^{2} + 14x_{1}^{3} \nonumber 
+\end{eqnarray}
+}
+%===================
+
+\item Show that these expressions satisfy the Gibbs-Duhem equation, $\sum\limits_{i}x_{i}d\overline{M}_{i}=0$, where $M$ is an intensive thermodynamic property.~\marks{5}
+
+%=========================
+\solution{From this relation,~\solmarks{1/5}
+\begin{displaymath}
+   x_{1}d\overline{V}_{1} + x_{2}d\overline{V}_{2} = 0\;\Longrightarrow \; x_{1}\frc{d\overline{V}_{1}}{dx_{1}} + x_{2}\frc{d\overline{V}_{2}}{dx_{1}} = 0
 \end{displaymath}
-with $P_{i}^{\text{sat}}$ in $kPa$ and $T$ in $K$ 
+Differentiating $\overline{V}_{i}$ with repect to $x_{1}$,~\solmarks{2/5}
+\begin{displaymath}
+\frc{d\overline{V}_{1}}{dx_{1}} = -2-40x_{1}+42x_{1}^{2} \;\text{ and }\; \frc{d\overline{V}_{2}}{dx_{1}}= 2x_{1}+42x_{1}^{2}
+\end{displaymath}
+Now applying it into the original equation,~\solmarks{2/5}
+\begin{eqnarray}
+x_{1} \left(-2-40x_{1}+42x_{1}^{2}\right) &=& \left(1-x_{1}\right)\left(2x_{1}+42x_{1}^{2}\right) \nonumber \\
+0&=&0
+\end{eqnarray}
+This demonstrates the validity of the Gibbs-Duhen equation.
+}
+%=========================
 
-
+ \item Plot values of $V$, $\overline{V}_{1}$ and $\overline{V}_{2}$ calculated by the given equation for $V$ and by the equations developed in (a) {\it vs} $x_{1}$. Label points $\overline{V}_{1}^{\infty}$ and $\overline{V}_{2}^{\infty}$ and show their values.~\marks{8}
+%=============
+\solution{The plot is~\solmarks{2/8}
+\begin{center}
+\includegraphics[width=15.cm,height=13.cm,clip]{./Pics/Vxplot}
+\end{center}
+where~\solmarks{6/8}
+\begin{center}
+\begin{tabular}{c c c}
+\hline
+              &  ${\bf x_{1}=0.0}$ & ${\bf x_{1}=1.0}$ \\
+\hline
+${\bf V}$     &     70            & 120              \\
+${\bf \overline{V}_{1}}$ & 128   & 120               \\
+${\bf \overline{V}_{2}}$ & 70   & 85               \\
+\hline
+\end{tabular}
+\end{center}
+}
+%=============
 \end{enumerate}
 \end{question}
+
 
 \clearpage
-
-%%%
-%%% Question 08
-%%%
-\begin{question}
-
-%%%
-%%% Problem 8.3 (Power Lectures Notes)
-%%%
-Given saturated ammonia $\left(\text{NH}_{3}\right)$ vapour at $P_{1} = 200 kPa$ compressed by a piston to $P_{2} = 1.6 MPa$ in a reversible adiabatic process,
-\begin{enumerate}
-\item Find the work done per unit mass; 
-\item Sketch the $T-s$ and $P-v$ diagrams.
-\end{enumerate}
-Given the following critical conditions for ammonia: T$_{c}$ = 132.4$^{\circ}$C and P$_{c}$ = 112.8 bar.
-
-
-\end{question}
-
-
 
 
 \end{document}
