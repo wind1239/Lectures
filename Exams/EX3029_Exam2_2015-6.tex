@@ -1,6 +1,6 @@
 
-\documentclass[calculator,steamtables,datasheet,solutions]{exam}
-%\documentclass[calculator,fluidstables,allquestions,datasheet]{exam}
+%\documentclass[calculator,steamtables,datasheet,solutions]{exam_newMarcus2}
+\documentclass[calculator,steamtables,allquestions,datasheet]{exam_newMarcus2}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -10,7 +10,7 @@
 % sample : Adds conspicuous SAMPLE markings to the paper
 % solutions : Uses the contents of \solution commands (and \solmarks) to generate a solution file
 
-\usepackage{pdfpages} 
+\usepackage{pdfpages}  
 \usepackage{lscape,comment}
  
 \coursecode{EX3029}%%
@@ -73,14 +73,14 @@ Process 3--1: $PV = C$
 \includegraphics[width=10.cm,height=8.cm,clip]{./Pics/Exam_PV_Diagram}
 \end{center}
 }
-
+\end{enumerate}
 
 %
-\item Calculate the fugacity of steam at 300$^{\circ}$C and 80 bar. For your calculations, you should use $h=$ 2785 kJ/kg, $s=$ 5.791 kJ/(kg.K) for steam at 300$^{\circ}$C and 80 bar, and $h^{\text{IG}}=$ 3077 kJ/kg, $s^{\text{IG}}=$ 9.281 kJ/(kg.K) for ideal at 300$^{\circ}$C and 0.1 bar. Given,
+\item Calculate the fugacity of steam at 300$^{\circ}$C and 80 bar. For your calculations, you should use $h=$ 2785 kJ/kg, $s=$ 5.791 kJ/(kg.K) for steam at 300$^{\circ}$C and 80 bar. Specific enthalpy and entropy of ideal gas at 300$^{\circ}$C and 0.1 bar are $h^{\text{IG}}=$ 3077 kJ/kg and $s^{\text{IG}}=$ 9.281 kJ/(kg.K), respectively. Given,
 \begin{displaymath}
  d\mu = dG = RTd\left(\ln{f}\right).
 \end{displaymath} 
-Also, the molar mass of water is 18 g/mol.~\marks{7}
+Also, molar mass of water is 18 g/mol.~\marks{7}
 
 %=======================
 \solution{ We can integrate this equation from low pressure so that fugacity is similar to pressure and the system can be considered an ideal gas,\solmarks{2/7}
@@ -101,10 +101,6 @@ f = P\exp{\left(\frc{G-G^{\text{IG}}}{RT}\right)} = 63.47 bar
 \end{displaymath}
 }
 %=======================
-
-
-
-
 %
 \end{enumerate}
 %
@@ -185,48 +181,6 @@ $\cdots \cdots \cdots $ \\
 %
 \begin{enumerate}[(a)]
 %%%
-%%% Johannes Lecture Example
-%%%
-\item\label{LectExample} In the esterification reaction of acetic acid with ethanol at 100$^{\circ}$C,
-\begin{displaymath}
-CH_{3}COOH + C_{2}H_{5}OH  \Longleftrightarrow  CH_{3}COOC_{2}H_{5} + H_{2}O,
-\end{displaymath}
-calculate the mass fraction of ethyl acetate given that initially there was 1 mole of acetic acid and ethanol. The reaction enthalpy and Gibbs energy at standard state (25$^{\circ}$C and 1 atm) are $\Delta H_{298}^{\circ}=-3640$ J and $\Delta G_{298}^{\circ}=-4650$ J. Given the van't Hoff equation,~\marks{7}
-\begin{displaymath}
-\frc{d}{dT}\left(\ln{K}\right) = - \frc{\Delta H_{298}^{o}}{RT^{2}}
-\end{displaymath}
-
-%==========================
-\solution{ Initially we have 1 mol of acetic acid (HAc) and 1 mol of ethanol (EtOH). We can calculate the mole fractions for all species as a function of the reaction coordinate, $\epsilon$
-\begin{eqnarray}
- x_{\text{EtAc}} &=& \frc{\epsilon}{2+0.\epsilon} = \frc{\epsilon}{2} = x_{H_{2}O}  \nonumber \\
- x_{\text{HAc}} &=& \frc{1-\epsilon}{2} = x_{\text{EtOH}} \nonumber
-\end{eqnarray}
-Assuming ideal solution,~\solmarks{1/7}
-\begin{displaymath}
-  \prod\limits_{i=1}^{c=4} x_{i}^{\nu} = K = x_{\text{HAc}}^{-1}\;x_{\text{EtOH}}^{-1}\;x_{\text{EtAc}}\;x_{H_{2}O} \Longrightarrow K = \frc{\epsilon^{2}}{\left(1-\epsilon\right)^{2}}
-\end{displaymath} 
-Thus, by calculating $K$, we can obtain $\epsilon$ and then $x_{\text{EtAc}}$. $K$ (temperature-dependent) can be obtained from the Gibbs free energy,~\solmarks{2/7}
-\begin{displaymath}
-   \ln{K_{298}} = -\frc{\Delta G_{298}^{o}}{RT} = \frc{4650.0}{8.314\times 298.15} = 1.8759
-\end{displaymath}
-Now, in order to calculate $K$ at 373.15 K, we can integrate the van't Hoff equation from 298.15 K to 373.15 K~\solmarks{2/7}
-\begin{displaymath}
-\int\limits_{K_{298}}^{K_{373}} d\left(\ln{K}\right) = - \int\limits_{298.15}^{373.15}\frc{\Delta H_{298}^{o}}{RT^{2}} dT \Longrightarrow K_{373} = 4.8586
-\end{displaymath}
-Now we can calculate the reaction coordinate,
-\begin{displaymath}
-   K_{373} = \frc{\epsilon^{2}}{\left(1-\epsilon\right)^{2}} \Longrightarrow \epsilon= 0.6879
-\end{displaymath} 
-Thus ~\solmarks{2/7}
-\begin{displaymath}
-x_{\text{EtAc}} = \frc{\epsilon}{2} = 0.3440
-\end{displaymath}
-%==========================
-
- }
-
-%%%
 %%% Johannes T0902
 %%%
 \item\label{T0902} Assuming that all species and their mixtures are ideal gases, derive an equation for the Gibbs energy as a function of the reaction coordinate for the reaction below at 1000K.
@@ -264,6 +218,38 @@ with $A=\frc{-395790}{2}$ and $B=\frc{-192420-200240}{2}$.
 }
 %==========================
 %
+
+%%%
+%%% Problem 8.3 (Power Lectures Notes)
+%%%
+\item Saturated ammonia $\left(\text{NH}_{3}\right)$ vapour at $P_{1} = 200$ kPa is compressed by a piston to $P_{2} = 1.6$ MPa in a reversible adiabatic process. Calculate the work done per unit mass.~\marks{7}
+
+%=========================
+\solution{At 200 kPa (2 bar), from the saturated tables:~\solmarks{2/7}
+\begin{center}
+\begin{tabular}{c c } 
+ $v_{1}=0.5946\;m^{3}/kg$ &$T_{1}=-18.86^{\circ}C$ \\
+ $s_{1}=5.5969\;kJ/(kg.K)$ & $u_{1}=1300.39\;kJ/kg$\\
+\end{tabular}
+\end{center}
+Reversible and adiabatic compresion implied in isentropic process, therefore $s_{2}=s_{1}$. At  $P_{2}=1.6\text{ MPa}=16\text{ bar}$, the specific entropy of saturated ammonia vapour is 4.8542 kJ/(kg.K), which is smaller than $s_{1}$, indicating that the fluid is at superheated state. With $P_{2}$ and $s_{2}$, in the superheated fluid table we can obtain (through linear interpolation),~\solmarks{2/7}
+\begin{center}
+\begin{tabular}{c c } 
+ $v_{2}=0.1180\;m^{3}/kg$ &$T_{2}=135.16^{\circ}C$ \\
+ $s_{2}=5.5969\;kJ/(kg.K)$ & $u_{2}=1546.50\;kJ/kg$\\
+\end{tabular}
+\end{center}
+From the First Law,~\solmarks{3/7}
+\begin{eqnarray}
+   && \Delta u = q + w \text{ with } q=0 \text{ because the process is adiabatic} \nonumber \\
+   && w = u_{2}-u_{1} = 246.11 \text{kJ/kg (positive because work is given to the system).}\nonumber
+\end{eqnarray}
+
+
+}
+%=========================
+
+
 \end{enumerate}
 %
 \end{question}
@@ -274,21 +260,9 @@ with $A=\frc{-395790}{2}$ and $B=\frc{-192420-200240}{2}$.
 %%% Question 04
 %%%
 \begin{question}
-%
-\begin{enumerate}[(a)]
-%%%
-%%% Jeff Solved Example 3 ==> Sandler Example 10.1.4 (page 504)
-%%%
-\item\label{Example_03} An ideal liquid mixture of 25 mol-$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol-$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol-$\%$ n-heptane $\left(nC_{7}\right)$, initially at 69$^{\circ}$C and high pressure, is partially vaporised by isothermically lowering the pressure to 1.013 bar. Calculate the relative amounts of vapour and liquid in equilibrium and their compositions.~\marks{10}
-\solution{90k}
 
-%%%
-%%% Jeff Solved Example 2 ==> Sandler Example 10.1.2 (page 501)
-%%%
-\item Estimate the bubble point temperature of a 25 mol-$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol-$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol-$\%$ n-heptane $\left(nC_{7}\right)$ mixture at 1.013 bar.~\marks{10}
-\solution{ iouh} 
-%
-\end{enumerate}
+ Estimate the bubble and dew point temperatures of a 25 mol-$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol-$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol-$\%$ n-heptane $\left(nC_{7}\right)$ mixture at 1.013 bar. Also calculate the compositions at dew and bubble points. ~\marks{20}
+\solution{ iouh}
 
 For This problem, use 
 \begin{displaymath}
@@ -301,6 +275,27 @@ with [P] = bar and [T] = K, and
           $B_{nC_{5}}=26799$  & $B_{nC_{6}}=29676$  & $B_{nC_{7}}=35200$  
        \end{tabular}
     \end{center}
+If you are using an iterative method to solve this problem, do stop at the 5$^{th}$ iteration.
+
+%=======================
+\solution{For the bubble point, we need to solve~\solmarks{2/20}
+\begin{displaymath}
+\sum\limits_{i=1}^{3} y_{i} = 1 = \frc{x_{C5}P_{C5}^{sat}}{P} + \frc{x_{C6}P_{C6}^{sat}}{P} + \frc{x_{C7}P_{C7}^{sat}}{P}  
+\end{displaymath}
+for $T$, with 
+\begin{displaymath}
+   \ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{RT}.
+\end{displaymath} 
+Leading to $T=334.94$ K (at the 5$^{th}$ iteration)~\solmarks{5/20} with composition $y = \left[0.5483\; 0.0883\; 0.3634\right]$ for n-pentane, n-hexane and n-heptane, respectively.~\solmarks{3/20}.
+
+For the dew point, we need to  solve~\solmarks{2/20}
+\begin{displaymath}
+\sum\limits_{i=1}^{3} x_{i} = 1 = \frc{y_{C5}P}{P_{C5}^{sat}} + \frc{y_{C6}P}{P_{C6}^{sat}} + \frc{y_{C7}P}{P_{C7}^{sat}}  
+\end{displaymath}
+for $T$, leading to $T=350.58$ K (at the 5$^{th}$ iteration)~\solmarks{5/20} with composition $x = \left[0.0742\; 0.3463\; 0.5795\right]$.~\solmarks{3/20}
+
+}
+%=======================
 %
 \end{question}
 
@@ -313,67 +308,79 @@ with [P] = bar and [T] = K, and
 %
 \begin{enumerate}[(a)]
 
-%%%
-%%% Johannes Problem 2 (Tutorial 5)
-%%%
-\item\label{Tut05P2} A process stream contains light species 1 and heavy species 2. A relatively pure liquid stream containing mostly 2 is obtained through a single-stage liquid/vapour separator. Specifications on the equilibrium composition are: $x_{1}$ = 0.002 and $y_{1}$ = 0.950. Assuming that the modified Raoult's law applies, 
-\begin{displaymath}
-  y_{i} P = x_{i}\gamma_{i}P_{i}^{\text{sat}}
-\end{displaymath} 
-Determine $T$ and $P$ for the separator. Given the activity coefficients for the liquid phase,~\marks{20}
-\begin{displaymath}
-\ln\gamma_{1} = 0.93x_{2}^{2} \;\;\;\;\;\text{ and }\;\;\;\;\;\ln\gamma_{2}=0.93x_{1}^{2}
-\end{displaymath}
-\begin{displaymath}
-\ln P^{\text{sat}} = A - \frc{B}{T}\;\;\;\text{with [P] = bar and [T] = K}
-\end{displaymath} 
-$A_{1}$ =10.08, $B_{1}$ = 2572.0, $A_{2}$ = 11.63 and $B_{2}=6254.0$.
-
-\end{enumerate}
-
-\end{question}
-
-
-
-\clearpage
-
-%%%
-%%% Question 06
-%%%
-\begin{question}
-%
-\begin{enumerate}[(a)]
-
 %%% Johannes T0602
 %%%
-\item\label{T0602} What is the change in entropy when 700 litres of CO$_{2}$ and 300 litres of N$_{2}$, each at 1 bar and 25$^{\circ}$C blend to form a gas mixture at the same conditions? Assume ideal gases, and given~\marks{6}
+\item\label{T0602} What is the change in entropy when 700 litres of CO$_{2}$ and 300 litres of N$_{2}$, each at 1 bar and 25$^{\circ}$C, blend to form a gas mixture at the same conditions? Assume ideal gases, and given
 \begin{displaymath}
-\Delta S = - nR\sum\limits_{i=1}^{n}y_{i}\ln{y_{i}}
+\Delta S = - nR\sum\limits_{i=1}^{n}y_{i}\ln{y_{i}},
 \end{displaymath}
+where $S$, $n$ and $y$ are entropy, number of moles and mole fraction, respectively.~\marks{10}
+
+%===========================
+\solution{ For CO$_{2}$ (1) and N$_{2}$ (2) at 1 bar and 25$^{\circ}$C with ideal gas behaviour, {\it mole fraction (x$_{i}$) = volume fraction (y$_{i}$)} as,~\solmarks{2/10}
+\begin{eqnarray}
+ &&x_{i} = \frc{n_{i}}{n}, \text{ and }  y_{i}=\frc{V_{i}}{V} \nonumber \\
+ && x_{i} = \frc{n_{i}}{n} = \frc{PV_{i}/(RT)}{PV/(RT)} = \frc{V_{i}}{V} \nonumber 
+\end{eqnarray}
+Therefore,~\solmarks{2/10}
+\begin{eqnarray}
+y_{1} = 0.7 \;\;\Longrightarrow V_{1}^{t} = 0.7\;cm^{3} \nonumber \\
+y_{2} = 0.3 \;\;\Longrightarrow V_{2}^{t} = 0.3\;cm^{3} \nonumber
+\end{eqnarray}
+At $P=1$ bar and $T=298.15$ K, the number of moles, $n$, is~\solmarks{2/10}
+\begin{displaymath}
+n = \frc{P}{RT}\sum V_{i}^{t} = 40.34 \text{moles}
+\end{displaymath}
+The entropy change is~\solmarks{4/10}
+\begin{displaymath}
+\Delta S = - nR\sum\limits_{i=1}^{n}y_{i}\ln{y_{i}} = 204.88\text{ J/K}
+\end{displaymath}
+
+}
+%===========================
 
 
 %%%
-%%% SM &VN 11.13
+%%% Nguyen (pg 128, Ex 5.3-1)
 %%%
-\item\label{Ex2} The molar volume $\left(\text{in cm}^{3}\text{.gmol}^{-1}\right)$ of a binary liquid mixture at $T$ and $P$ is given by:
+\item Calculate the bubble point pressure and vapour composition for a liquid mixture of 41.2 mol-$\%$ of ethanol (1) and n-hexane (2) at 331 K. Given,
+\begin{eqnarray}
+&& \ln{\gamma_{1}} = \frc{A}{\left(1+\frc{Ax_{1}}{Bx_{2}}\right)^{2}},\;\;\ln{\gamma_{2}} = \frc{A}{\left(1+\frc{Bx_{2}}{Ax_{1}}\right)^{2}} \nonumber \\
+&& \ln{P_{1}^{sat}} = C_{1} + \frc{D_{1}}{T+E_{1}},\;\; \ln{P_{2}^{sat}} = C_{2} + \frc{D_{2}}{T+E_{2}} \nonumber 
+\end{eqnarray}
+where $A=$ 2.409, $B=$ 1.970, $C_{1}$ = 16.1952, $C_{2}=$ 14.0568, $D_{1}=$ -3423.53, $D_{2}=$ -2825.42, $E_{1}=$ -55.7152, $E_{2}=$ -42.7089. [P] = kPa and [T] = K.~\marks{10}
+
+%========================
+\solution{ At 331 K, the saturation pressures are $P_{1}^{sat}=$ 42.90 kPa and $P_{2}^{sat}=$ 7054 kPa.~\solmarks{2/10}
+
+The liquid solution with $x_{1}=0.412$ and $x_{2}=0.588$ results in the following activity coefficient $\gamma_{1}=2.011$ and $\gamma_{2}=1.521$.~\solmarks{2/10}
+
+The partial pressure of ethanol and n-hexane are,~\solmarks{2/10}
+\begin{eqnarray}
+P_{1} = x_{1}\gamma_{1}P_{1}^{sat} = 35.55\text{ kPa} \nonumber \\
+P_{2} = x_{2}\gamma_{2}P_{2}^{sat} = 63.09\text{ kPa} \nonumber 
+\end{eqnarray}
+The bubble pressure is~\solmarks{2/10}
 \begin{displaymath}
-V = 120 x_{1} + 70 x_{2} + \left( 15x_{1} + 8x_{2}\right)x_{1}x_{2} 
+P =P_{1} + P_{2} = 98.64\text{ kPa}
 \end{displaymath}
-\begin{enumerate}
-\item\label{first} Find expressions for the partial molar volumes of species 1 and 2 at $T$ and $P$.
-\item Show that when these expressions are combined in accord with $M=\sum\limits_{i}x_{i}\overline{M}_{i}$, the given equation for $V$ is recovered;
-\item Show that these expressions satisfy the Gibbs-Duhem equation, $\sum\limits_{i}x_{i}d\overline{M}_{i}=0$;
-\item Show that 
-   \begin{displaymath}
-        \left(\frc{d\overline{V}_{1}}{dx_{1}}\right)_{x_{1}=1} = \left(\frc{d\overline{V}_{2}}{dx_{1}}\right)_{x_{1}=0} = 0
-   \end{displaymath}
- \item Plot values of $V$, $\overline{V}_{1}$ and $\overline{V}_{2}$ calculated by the given equation for $V$ and by the equations developed in (a) {\it vs} $x_{1}$. Label points $\overline{V}_{1}^{\infty}$ and $\overline{V}_{2}^{\infty}$ and show their values.~\marks{14}
+And the composition of the vapour phase is~\solmarks{2/10}
+\begin{displaymath}
+y_{1} = \frc{P_{1}}{P} = 0.360\;\;\text{ and } \;\; y_{2} = 0.640
+\end{displaymath}
+
+
+
+
+}
+%========================
+
 \end{enumerate}
 \end{question}
 
 
-\clearpage
-
+%\clearpage
+\begin{comment}
 %%%
 %%% Question 07
 %%%
@@ -381,7 +388,7 @@ V = 120 x_{1} + 70 x_{2} + \left( 15x_{1} + 8x_{2}\right)x_{1}x_{2}
 %
 \begin{enumerate}[(a)]
 % Nguyen pg.5-25
-\item Calculate the bubble point pressur and vapour composition for a liquid mixture of 41.2 mol$\%$ ethanol (1) and n-hexane (2) at 331K. Given:
+\item Calculate the bubble point pressure and vapour composition for a liquid mixture of 41.2 mol$\%$ ethanol (1) and n-hexane (2) at 331K. Given:
 \begin{displaymath}
 \ln{\gamma_{1}} = \frac{A}{\left[1+\left(Ax_{1} / Bx_{2}\right)\right]^{2}} \;\;\text{ and }\;\; \ln{\gamma_{2}} = \frac{B}{\left[1+\left(Bx_{2} / Ax_{1}\right)\right]^{2}}
 \end{displaymath}
@@ -396,26 +403,95 @@ with $P_{i}^{\text{sat}}$ in $kPa$ and $T$ in $K$
 \end{question}
 
 \clearpage
+\end{comment}
+
+
+\vfill
+\paperend
+
+\clearpage
+
+\begin{center}
+\Large{List of Equations}
+\end{center}
+
+\begin{itemize}
+%%%
+\item Generic cubic equation of state:
+\begin{eqnarray}
+&& Z= 1 + \beta - q\beta \frc{Z - \beta} {\left(Z+\varepsilon\beta\right)\left(Z+\sigma\beta\right)}  \;\;\text{(vapour and vapour-like roots)}\nonumber\\
+&& Z= 1 + \beta + \left(Z + \epsilon\beta\right)\left(Z+\sigma\beta\right)\left(\frc{1+\beta-Z}{q\beta}\right)  \;\;\text{(liquid and liquid-like roots)}\nonumber\\
+&& \text{with }\; \beta=\Omega\frc{P_{r}}{T_{r}} \;\;\text{ and } \;\; q=\frc{\Psi\alpha\left(T_{r}\right)}{\Omega T_{r}}  \nonumber \\
+&&\alpha_{\text{SRK}} = \left[ 1 + \left( 0.480 + 1.574 \omega - 0.176\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}  \nonumber \\
+&&\alpha_{\text{PR}} = \left[ 1 + \left( 0.37464 + 1.54226 \omega - 0.26992\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2} \nonumber
+\end{eqnarray} 
+    \begin{center}
+       \begin{tabular}{| l | c c c c c| }
+       \hline
+          {\bf EOS}  & {\bf $\alpha$} & {\bf $\sigma$}  & {\bf $\varepsilon$} & {\bf $\Omega$} & {\bf $\Psi$ } \\
+       \hline
+            vdW      & 1              & 0               & 0                  & 1/8            & 27/64          \\
+            RK       & T$_{r}^{-1/2}$  & 1                & 0                  & 0.08664       & 0.42748        \\
+           SRK       &$\alpha_{\text{SRK}}$& 1            & 0                   & 0.08664       & 0.42748        \\
+            PR       &$\alpha_{\text{PR}}$& 1+$\sqrt{2}$   & 1-$\sqrt{2}$        & 0.07780        & 0.45724  \\
+       \hline
+       \end{tabular}
+    \end{center}
 
 %%%
-%%% Question 08
-%%%
-\begin{question}
+\item Newton-Raphson (root-finder) method: $X_{i} = X_{i-1} - \frc{\mathcal{F}\left(X_{i-1}\right)}{d\mathcal{F}/dX\left(X_{i-1}\right)}$
 
 %%%
-%%% Problem 8.3 (Power Lectures Notes)
+\item Fundamental thermodynamic equations:\\
+\begin{tabular}{c c c c}
+$dU = dQ + dW$;  & $dH = dU + d(PV)$; & $dA = dU -d(TS)$; & $dG=dH-d(TS)$ \\
+$dU = TdS - PdV$;& $dH = TdS + VdP$;  & $dA = -SdT - PdV$;& $dG = -SdT + VdP$ \\ 
+\end{tabular}\\
+\begin{tabular} {c c}
+$dH = C_{p}dT + \left[ V - T\left(\frc{\partial V}{\partial T}\right)_{P}\right]dP$; &  $dS=C_{p}\frc{dT}{T} - \left(\frc{\partial V}{\partial T}\right)_{P}dP$ \\
+$dU = C_{v}dT + \left[T\left(\frc{\partial P}{\partial T}\right)_{V} - P\right]dV$;  & $dS = C_{v}\frc{dT}{T} - \left(\frc{\partial P}{\partial T}\right)_{V}dV$
+\end{tabular}
+
+%%% 
+\item Polytropic Relations:\\
+\begin{displaymath} 
+\frc{T_{2}}{T_{1}} =\left(\frc{P_{2}}{P_{1}}\right)^{\frac{\gamma-1}{\gamma}} = \left(\frc{V_{1}}{V_{2}}\right)^{\gamma-1}\;\; ; 
+TV^{\gamma-1} =\text{ const};\; TP^{\frac{1-\gamma}{\gamma}}=\text{ const};\; PV^{\gamma}=\text{ const} 
+\end{displaymath}
+
 %%%
-Given saturated ammonia $\left(\text{NH}_{3}\right)$ vapour at $P_{1} = 200 kPa$ compressed by a piston to $P_{2} = 1.6 MPa$ in a reversible adiabatic process,
-\begin{enumerate}
-\item Find the work done per unit mass; 
-\item Sketch the $T-s$ and $P-v$ diagrams.
-\end{enumerate}
-Given the following critical conditions for ammonia: T$_{c}$ = 132.4$^{\circ}$C and P$_{c}$ = 112.8 bar.
+\item Raoult's Law:\\
+\begin{displaymath}
+y_{i}P = x_{i}P_{i}^{\text{sat}}\;\;\;\text{ and } \;\;\; y_{i}P = x_{i}\gamma_{i}P_{i}^{\text{sat}}\;\;\;\text{ with } i=1,2,\cdots N
+\end{displaymath}
+
+%%%
+\item Henry's Law:\\
+\begin{displaymath}
+x_{i}\mathcal{H}_{i} = y_{i}P\;\;\;\text{ with } i=1,2,\cdots N
+\end{displaymath}
+
+%%%
+\item Antoine Equation:\\
+\begin{displaymath}
+\log_{10} P^{\star} = A-\frc{B}{T+C}\;\;\;\text{ with P}^{\star}\text{ in mm-Hg and T in }^{\circ}\text{C}
+\end{displaymath}
+
+%%%
+\item Solutions:\\
+\begin{displaymath}
+M^{\text{E}} = M - \sum\limits_{i=1}^{N} x_{i}M_{i}; \; \overline{M}_{1}=M+x_{2}\frc{d M}{dx_{1}};\; \overline{M}_{2} = M - x_{1}\frc{d M}{dx_{1}}
+\end{displaymath}
+
+\end{itemize}
 
 
-\end{question}
+\vfill 
 
-
+{
+  \includepdf[pages=-,fitpaper]{./Pics/ChemEng_UnitConv}
+  \includepdf[pages=-,fitpaper]{./Pics/ChemEng_NH3Tables}
+}
 
 
 \end{document}

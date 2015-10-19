@@ -9,9 +9,9 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-\documentclass[10pt,compress]{beamer}
+%\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
-%\documentclass[10pt,compress,handout]{beamer}
+\documentclass[10pt,compress,handout]{beamer}
 %\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
@@ -23,7 +23,7 @@
 \newcommand{\emailaddress}{}%jefferson.gomes@abdn.ac.uk}
 \newcommand{\logoimage}{../../FigBanner/UoAHorizBanner}
 \title{Chemical Thermodynamics (EX3029)}
-\subtitle{Module 5: Vapour-Liquid Equilibrium of Mixtures}
+\subtitle{Module 4: Vapour-Liquid Equilibrium of Mixtures}
 \date[ ]{ }
 
 %%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -135,7 +135,7 @@
 }
 }
 
-%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
 
 %%%%% Color settings
 \usepackage{color}
@@ -262,7 +262,7 @@
 \begin{frame}
  \frametitle{Aims and Objectives}
    \begin{enumerate}
-     \item<1-> In Modules 3-4, we focused on 
+     \item<1-> In Modules 2-3, we focused on 
        \begin{enumerate}
          \item<1-> Evaluating partial derivatives of thermodynamic variables and derive fundamental thermodynamic relations;
          \item<1-> Obtaining volumetric EOS parameters from critical properties;
@@ -307,14 +307,14 @@
 \begin{frame}
   \frametitle{Introduction}
   \begin{enumerate}
-    \item<1-> In most technical processes there are no pure substances but mixture of various species in
+    \item<1-> In most technical processes there are no pure substances but a mixture of various species in
         \begin{enumerate}
           \item<1-> industrial reactors and pressure vessels $\&$ tanks;
           \item<1-> separation process facilities (e.g., distillation, absorption, extraction etc);
           \item<1-> subsurface transport processes (e.g., groundwater pollutant contamination, hydrocarbon exploration etc).     
         \end{enumerate}
     \item<2-> It is necessary \textcolor{blue}{to identify how the concentration of species will change during the process};
-    \item<3-> During \textcolor{blue}{phase equilibrium} we need to be able to effectively quantify variations in the thermodynamic properties \textcolor{blue}{in particular, concentration}. This quantitative analysis is crucial in the design of processes and equipment;
+    \item<3-> During \textcolor{blue}{phase equilibrium} we need to be able to effectively quantify variations in the thermodynamic properties, \textcolor{blue}{in particular, concentration}. This quantitative analysis is crucial in the design of processes and equipment;
     \item<4-> \textcolor{blue}{Equilibria} of industrial interest:
         \begin{enumerate}
           \item<5-> \textcolor{blue}{Vapour-Liquid (VLE)}: distillation;
@@ -352,9 +352,9 @@
          where $\dot{q}$ is the volumetric flow rate.}
     \item<3-> (Average) Molar mass of mixtures:
          \visible<3->{\begin{displaymath}
-            \overline{MW} = \sum\limits_{i} \left(x_{i} \; MW_{i}\right) 
+            \overline{MW} = \sum\limits_{i} \left(x_{i} \cdot MW_{i}\right) 
          \end{displaymath}
-         where $MW_{i}$ is the molecular weight of species $i$.}
+         where $MW_{i}$ is the molecular weight (or molar mass) of species $i$.}
   \end{enumerate}
 \end{frame}
 \normalsize
@@ -379,7 +379,7 @@ $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive the
      M^{\text{id}} = \sum\limits_{i} x_{i} M_{i}
   \end{displaymath}}
   \medskip\noindent
-  \visible<3->{As we saw in the Lab-work for \textcolor{blue}{excess volume} for two components --  water (1) and DMSO (2):
+  \visible<3->{For two components,
       \begin{displaymath}
          \textcolor{blue}{V^{\text{E}}} = V - V^{\text{id}} = V - \sum\limits_{i} x_{i} V_{i} = \textcolor{blue}{V - \left(x_{1}V_{1} + x_{2}V_{2}\right)}
       \end{displaymath}} 
@@ -773,7 +773,7 @@ $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive the
 \begin{frame}
   \frametitle{Generalised Relation for VLE in Ideal Mixtures}
   \begin{enumerate}
-      \item<1-> Raoult's law is a particular case of a more general relation involving \textcolor{blue}{vapour-liquid mixtures} (that we will see with more details on Module 6),
+      \item<1-> Raoult's law is a particular case of a more general relation involving \textcolor{blue}{vapour-liquid mixtures} (that we will see with more details on Module 5),
            \visible<2->{\begin{displaymath}
               f_{i}^{\left(L\right)}\left(T,P,\underline{x}\right) = f_{i}^{\left(V\right)}\left(T,P,\underline{y}\right)
            \end{displaymath}
@@ -795,7 +795,7 @@ $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive the
   \begin{enumerate}
       \item<1-> Raoult's law requires vapour pressure data $\left(\text{i.e., }P_{i}^{\text{sat}}\right)$, thus:
         \begin{enumerate}
-            \item<1-> It is not applicable if $T\leq T_{c,i}$;
+            \item<1-> It is not applicable if $T\geq T_{c,i}$;
             \item<1-> Does not take into account gasses dissolved in the liquid.
         \end{enumerate}
       \item<2-> Henry's law:
@@ -866,7 +866,7 @@ $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive the
      \end{column}
      \begin{column}[l]{0.5\linewidth}
         \begin{enumerate}
-           \item<1-> If a fluid mixture is at liquid state with pressure larger than the associated bubble point pressure $\left(\text{i.e., }P \leq P_{\text{BP}}\right)$;
+           \item<1-> If a fluid mixture is at liquid state with pressure larger than the associated bubble point pressure; % $\left(\text{i.e., }P \leq P_{\text{BP}}\right)$;
            \item<2-> Part of the fluid evaporates \textcolor{blue}{(or {\it flashes})} when the pressure is reduced leading to a two-phase system -- vapour and liquid in equilibrium;
             \item<3-> This phenomenon is often called \textcolor{blue}{\it flash} and is the most important application of VLE;
             \item<4-> Thus, a feeding stream $F$ with overall composition $z_{i}$ is separated into vapour ($V$) and liquid ($L$) streams with compositions $y_{i}$ and $x_{i}$, respectively. 

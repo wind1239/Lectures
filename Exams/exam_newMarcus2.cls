@@ -189,7 +189,7 @@
         permitted to use the Engineering Mathematics Handbook.
         \if@steamtablesallowed
       \item Candidates %
-        {ARE} permitted to use steam tables, which will be provided.
+        {ARE} permitted to use thermodynamic tables with saturated fluid properties, which will be provided.
         \fi 
         \if@datasheetattached%
       \item Data sheets are attached to the paper.%

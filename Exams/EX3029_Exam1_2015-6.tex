@@ -1,6 +1,6 @@
 
-%\documentclass[calculator,steamtables,datasheet,solutions]{exam}
-\documentclass[calculator,allquestions,datasheet]{exam}
+%\documentclass[calculator,steamtables,datasheet,solutions]{exam_newMarcus2}
+\documentclass[calculator,allquestions,datasheet]{exam_newMarcus2}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -396,8 +396,97 @@ ${\bf \overline{V}_{2}}$ & 70   & 85               \\
 \end{enumerate}
 \end{question}
 
+\vfill
+\paperend
 
 \clearpage
+
+\begin{center}
+\Large{List of Equations}
+\end{center}
+
+\begin{itemize}
+%%%
+\item Generic cubic equation of state:
+\begin{eqnarray}
+&& Z= 1 + \beta - q\beta \frc{Z - \beta} {\left(Z+\varepsilon\beta\right)\left(Z+\sigma\beta\right)}  \;\;\text{(vapour and vapour-like roots)}\nonumber\\
+&& Z= 1 + \beta + \left(Z + \epsilon\beta\right)\left(Z+\sigma\beta\right)\left(\frc{1+\beta-Z}{q\beta}\right)  \;\;\text{(liquid and liquid-like roots)}\nonumber\\
+&& \text{with }\; \beta=\Omega\frc{P_{r}}{T_{r}} \;\;\text{ and } \;\; q=\frc{\Psi\alpha\left(T_{r}\right)}{\Omega T_{r}}  \nonumber \\
+&&\alpha_{\text{SRK}} = \left[ 1 + \left( 0.480 + 1.574 \omega - 0.176\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}  \nonumber \\
+&&\alpha_{\text{PR}} = \left[ 1 + \left( 0.37464 + 1.54226 \omega - 0.26992\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2} \nonumber
+\end{eqnarray} 
+    \begin{center}
+       \begin{tabular}{| l | c c c c c| }
+       \hline
+          {\bf EOS}  & {\bf $\alpha$} & {\bf $\sigma$}  & {\bf $\varepsilon$} & {\bf $\Omega$} & {\bf $\Psi$ } \\
+       \hline
+            vdW      & 1              & 0               & 0                  & 1/8            & 27/64          \\
+            RK       & T$_{r}^{-1/2}$  & 1                & 0                  & 0.08664       & 0.42748        \\
+           SRK       &$\alpha_{\text{SRK}}$& 1            & 0                   & 0.08664       & 0.42748        \\
+            PR       &$\alpha_{\text{PR}}$& 1+$\sqrt{2}$   & 1-$\sqrt{2}$        & 0.07780        & 0.45724  \\
+       \hline
+       \end{tabular}
+    \end{center}
+
+%%%
+\item Newton-Raphson (root-finder) method: $X_{i} = X_{i-1} - \frc{\mathcal{F}\left(X_{i-1}\right)}{d\mathcal{F}/dX\left(X_{i-1}\right)}$
+
+%%%
+\item Fundamental thermodynamic equations:\\
+\begin{tabular}{c c c c}
+$dU = dQ + dW$;  & $dH = dU + d(PV)$; & $dA = dU -d(TS)$; & $dG=dH-d(TS)$ \\
+$dU = TdS - PdV$;& $dH = TdS + VdP$;  & $dA = -SdT - PdV$;& $dG = -SdT + VdP$ \\ 
+\end{tabular}\\
+\begin{tabular} {c c}
+$dH = C_{p}dT + \left[ V - T\left(\frc{\partial V}{\partial T}\right)_{P}\right]dP$; &  $dS=C_{p}\frc{dT}{T} - \left(\frc{\partial V}{\partial T}\right)_{P}dP$ \\
+$dU = C_{v}dT + \left[T\left(\frc{\partial P}{\partial T}\right)_{V} - P\right]dV$;  & $dS = C_{v}\frc{dT}{T} - \left(\frc{\partial P}{\partial T}\right)_{V}dV$
+\end{tabular}
+
+%%% 
+\item Polytropic Relations:\\
+\begin{displaymath} 
+\frc{T_{2}}{T_{1}} =\left(\frc{P_{2}}{P_{1}}\right)^{\frac{\gamma-1}{\gamma}} = \left(\frc{V_{1}}{V_{2}}\right)^{\gamma-1}\;\; ; 
+TV^{\gamma-1} =\text{ const};\; TP^{\frac{1-\gamma}{\gamma}}=\text{ const};\; PV^{\gamma}=\text{ const} 
+\end{displaymath}
+
+%%%
+\item Raoult's Law:\\
+\begin{displaymath}
+y_{i}P = x_{i}P_{i}^{\text{sat}}\;\;\;\text{ and } \;\;\; y_{i}P = x_{i}\gamma_{i}P_{i}^{\text{sat}}\;\;\;\text{ with } i=1,2,\cdots N
+\end{displaymath}
+
+%%%
+\item Henry's Law:\\
+\begin{displaymath}
+x_{i}\mathcal{H}_{i} = y_{i}P\;\;\;\text{ with } i=1,2,\cdots N
+\end{displaymath}
+
+%%%
+\item Antoine Equation:\\
+\begin{displaymath}
+\log_{10} P^{\star} = A-\frc{B}{T+C}\;\;\;\text{ with P}^{\star}\text{ in mm-Hg and T in }^{\circ}\text{C}
+\end{displaymath}
+
+%%%
+\item Solutions:\\
+\begin{displaymath}
+M^{\text{E}} = M - \sum\limits_{i=1}^{N} x_{i}M_{i}; \; \overline{M}_{1}=M+x_{2}\frc{d M}{dx_{1}};\; \overline{M}_{2} = M - x_{1}\frc{d M}{dx_{1}}
+\end{displaymath}
+
+\end{itemize}
+
+
+\vfill 
+
+
+
+%\begin{comment}
+{
+%  \includepdf[pages=-,fitpaper]{./Pics/EquationsList}
+  \includepdf[pages=-,fitpaper]{./Pics/ChemEng_UnitConv}
+}
+%\end{comment}
+
 
 
 \end{document}
