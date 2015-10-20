@@ -429,9 +429,9 @@
                   \mathcal{R} = R_{i} + R_{\text{wall}} + R_{o} = \frc{1}{h_{i}A_{i}} + \frc{\ln{D_{o}/D_{i}}}{2\pi \kappa L} + \frc{1}{h_{o}A_{o}} 
                \end{equation}}     
             \item<4-> Thus the heat transfer rate between the hot to the cold fluids can be expressed as,
-               \visible<4->{\begin{displaymath}
+               \visible<4->{\begin{equation}\label{HE:NewtonEqn}
                   \blue{\dot{\mathcal{Q}} =} \frc{\Delta T}{\mathcal{R}} = \blue{U A \Delta T} = U_{i}A_{i}\Delta T = U_{o}A_{o}\Delta T
-               \end{displaymath}
+               \end{equation}
                where \blue{$U$} is the \blue{overall heat transfer coefficient $\left(\text{W.m}^{-2}.^{\circ}\text{C}^{-1}\right)$}.}     
 
          \end{enumerate}
@@ -448,29 +448,29 @@
      \begin{enumerate}\setcounter{enumi}{4}\scriptsize
         \item<1-> Eliminating $\Delta T$ and inverting $\dot{\mathcal{Q}}$,
           \visible<1->{\begin{equation}
-             \frc{1}{U_{i}A_{i}} = \frc{1}{U_{o}A_{o}} = \mathcal{R} \left(=\frc{1}{U A_{s}}\right) = \frc{1}{h_{i}A_{i}} + R_{\text{wall}} + \frc{1}{h_{o}A_{o}} 
+             \frc{1}{U_{i}A_{i}} = \frc{1}{U_{o}A_{o}} = \mathcal{R} \left(=\frc{1}{U A_{s}}\right) = \frc{1}{h_{i}A_{i}} + R_{\text{wall}} + \frc{1}{h_{o}A_{o}} \label{HE:Ucalc1}
           \end{equation}}
         \item<2-> If the wall thickness is small (in comparison with the length of the HE) with a large thermal conductivity, then the \blue{thermal wall resistance} is negligible $\left(\text{i.e., }R_{\text{wall}} \approx 0\right)$;
         \item<3-> Also, if $A_{i}\approx A_{o} \approx A_{s}$ (i.e., inner and outer diameters are very similar -- \blue{thin wall}),
           \visible<1->{\begin{equation}
-             \frc{1}{U} \approx  \frc{1}{h_{i}} +  \frc{1}{h_{o}} 
+             \frc{1}{U} \approx  \frc{1}{h_{i}} +  \frc{1}{h_{o}} \label{HE:Ucalc2}
           \end{equation}} 
      \end{enumerate}
 
      \visible<4->{\begin{block}{\begin{center}\scriptsize Fouling Factor\end{center}}\scriptsize
-          \begin{displaymath}\scriptsize
-             \frc{1}{U_{i}A_{i}} = \frc{1}{U_{o}A_{o}} = \mathcal{R} \left(=\frc{1}{U A_{s}}\right) = \frc{1}{h_{i}A_{i}} + \blue{\frc{R_{\text{f,i}}}{A_{i}}} + R_{\text{wall}} + \blue{\frc{R_{\text{f,o}}}{A_{o}}} + \frc{1}{h_{o}A_{o}} 
-          \end{displaymath}
+          \begin{equation}\scriptsize
+             \frc{1}{U_{i}A_{i}} = \frc{1}{U_{o}A_{o}} = \mathcal{R} \left(=\frc{1}{U A_{s}}\right) = \frc{1}{h_{i}A_{i}} + \blue{\frc{R_{\text{f,i}}}{A_{i}}} + R_{\text{wall}} + \blue{\frc{R_{\text{f,o}}}{A_{o}}} + \frc{1}{h_{o}A_{o}} \label{HE:Ucalc3}
+          \end{equation}
      \end{block}}
 
 \end{frame}
 
 
 %%%
-%%% Slide
+%%% Slide (Cengel Example 13.1)
 %%%
 \begin{frame}
-  \frametitle{Overall Heat Transfer Coefficient Calculations -- Example}
+  \frametitle{Overall Heat Transfer Coefficient Calculations -- Example 1}
      \begin{enumerate}
           \item Hot oil is to be cooled in a double-tube counter-flow HE. The copper inner tubes have diameter of 2cm and negligible thickness. The inner diameter of the outer tube (shell) is 3cm. Water flows through the tube at a rate of 0.5 kg/s, and the oil through the shell at a rate of 0.8 kg/s. Taking the average temperatures of the water and the oil to be 45$^{\circ}$C and 80$^{\circ}$C, respectively, determine the overall heat transfer coefficient of this HE. Given, 
        \begin{enumerate}[(a)]
@@ -482,10 +482,84 @@
 \end{frame}
 
 
+%%%
+%%% Slide (Cengel Example 13.2)
+%%%
+\begin{frame}
+  \frametitle{Overall Heat Transfer Coefficient Calculations -- Example 2}
+     \begin{enumerate}\setcounter{enumi}{1}
+          \item A double-pipe (shell-and-tube) heat exchanger is constructed of a stainless steel ($\kappa=$ 15.1 W/(m.$^{\circ}$C) inner tube of inner diameter D$_{i}=$ 1.5 cm and outer diameter D$_{o}=$ 1.9 cm and an outer shell of inner diameter 3.2 cm. The convective heat transfer coefficient is h$_{i}=$ 800 W/(m$^{2}.^{\circ}$C) on the inner surface of the tube and h$_{o}=$ 1200 W/(m$^{2}.^{\circ}$C) on the outer surface. For a fouling factor R$_{f,i}=$ 0.0004 m$^{2}.^{\circ}$C/W on the tube side and R$_{f,o}=$ 0.0001 m$^{2}.^{\circ}$C/W on the shell side, determine:
+              \begin{enumerate}
+                  \item The thermal resistance of the heat exchanger per unit length and; 
+                  \item The overall heat transfer coefficients, U$_{i}$ and U$_{o}$ based on the inner and outer surface areas of the tube, respectively.
+              \end{enumerate}
 
+     \end{enumerate}
 
+\end{frame}
 
+%%%
 %%% SUBSECTION
+%%%
+
+\subsection{Analysis Heat Exchangers}
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+  \frametitle{Introduction}
+     \begin{enumerate}%\setcounter{enumi}{1}
+          \item<1-> From energy conservation, the heat transfer rate in HE for the two fluid streams can be defined as
+             \visible<1->{\begin{eqnarray}
+               &&\dot{\mathcal{Q}}_{\text{hot}} + \dot{\mathcal{Q}}_{\text{cold}} = 0 \nonumber \\
+               && \dot{m}_{\text{hot}}C_{p,\text{hot}}\left(T_{\text{hot,out}}-T_{\text{hot,in}}\right) + \dot{m}_{\text{cold}}C_{p,\text{cold}}\left(T_{\text{cold,out}}-T_{\text{cold,in}}\right) = 0 \label{HE:energyconservation}
+             \end{eqnarray}}
+          \item<2-> The product $\dot{m}_{i}C_{p,i}$ is called as {\it heat capacity rate} and represents the rate of heat transfer needed to change the temperature of the fluid by 1$^{\circ}$C as it flows through the HE;
+          %\item<2-> Thus fluids with large {\it heat capacity rate} will produce {\it small temperature change};
+          \item<2-> In the heat transfer rate equation in Eqn.~\ref{HE:NewtonEqn},
+            \visible<2->{\begin{displaymath}
+                \dot{Q} = U A \Delta T_{m}
+            \end{displaymath}
+            $\Delta T_{m}$ is an \blue{averaged} temperaterature difference between two fluids.}
+          \item<3-> However $\Delta T_{m}$ and $U$ are not constants and vary along the HE. We can average $U$ by using the relations Eqns.~\ref{HE:Ucalc1}-\ref{HE:Ucalc3} and an average convective heat transfer coefficient for each fluid;
+          \item<4-> For $\Delta T_{m}$, two methods are comonly used in thermal engineering systems:
+             \begin{enumerate}
+                \item<4-> Log-mean temperature difference method (or \blue{LMTD});
+                \item<4-> Effectiveness-NTU method.
+             \end{enumerate}
+     \end{enumerate}
+
+\end{frame}
+
+
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+  \frametitle{Log-mean Temperature Difference (LMTD) Method}
+     \begin{enumerate}%\setcounter{enumi}{1}
+          \item<1-> The energy conservation, Eqn.~\ref{HE:energyconservation} in differential form,
+             \visible<1->{\begin{eqnarray}
+               &&d\dot{\mathcal{Q}}_{\text{hot}} + d\dot{\mathcal{Q}}_{\text{cold}} = 0 \Longrightarrow d\dot{\mathcal{Q}}_{\text{cold}} = -d\dot{\mathcal{Q}}_{\text{hot}}\nonumber \\
+               && \dot{m}_{\text{cold}}C_{p,\text{cold}}dT_{\text{cold,in}} =  -\dot{m}_{\text{hot}}C_{p,\text{hot}}dT_{\text{hot}}\nonumber
+             \end{eqnarray}}
+          \item<2-> After rearranging this equation and applying it into Eqn.~\ref{HE:NewtonEqn},
+             \visible<2->{\begin{block}{\begin{center} LMTD Method\end{center}}
+               \begin{equation}
+                   \dot{\mathcal{Q}} = U A_{s} \Delta T_{\text{lm}}\;\text{ with }\;  \Delta T_{\text{lm}} = \frc{\Delta T_{1}-\Delta T_{2}}{\ln{\frc{\Delta T_{1}}{\Delta T_{2}}}}
+               \end{equation}
+             \end{block} }
+          \item<2-> Where $\Delta T_{1}$ and $\Delta T_{2}$ are the temperature difference between the two fluids at inlet and outlet of the HE.
+     \end{enumerate}
+
+\end{frame}
+
+
+%%%
+%%% SUBSECTION
+%%%
 \subsection{Transient Response of Thermal Energy Storage System}
 
 
