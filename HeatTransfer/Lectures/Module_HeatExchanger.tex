@@ -280,21 +280,6 @@
 %%% SUBSECTION
 \subsection{Objectives}
 
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Aims and Objectives}
-   \begin{enumerate}
-     \item Lumped system analysis
-     \item Transient heat conduction
-%• Assess when the spatial variation of temperature is negligible, and temperature varies nearly uniformly with time, making the simplified lumped system analysis applicable,
-% • Obtain analytical solutions for transient one-dimensional conduction problems in rectangular, cylindrical, and spherical geometries using the method of separation of variables, and understand why a one-term solution is usually a reasonable approximation,
-% • Solve the transient conduction problem in large mediums using the similarity variable, and predict the variation of temperature with time and distance from the exposed surface, and
-% • Construct solutions for multi-dimensional transient conduction problems using the product solution approach.
-   \end{enumerate}
-\end{frame}
-
 
 %%%
 %%% Slide
@@ -334,8 +319,8 @@
  \frametitle{Suggested References}
   Literature relevant for this module:
   \begin{enumerate}[{[}1{]}]
+    \item F.P. Incropera, D.P. DeWitt, T.L.Bergman, A.S. Lavine, `Introduction to Heat Transfer' (John Willey $\&$ Sons): Chapter 11.
     \item J.P. Holman, `Heat Transfer', 10$^{th}$ Edition (McGraw-Hill): Chapter 10;
-    \item F.P. Incropera, D.P. DeWitt, T.L.Bergman, A.S. Lavine, `introduction to Heat Transfer' (John Willey $\&$ Sons): Chapter 11.
     \item Y.A. Cengel, `Heat Transfer: A Practical Approach', 2$^{nd}$ Edition (McGraw-Hill): Chapter 13;
     \item L. Theodore, `Essential Engineering Calculations Series: Heat Transfer Applications for the Practicing Engineer' (John Willey $\&$ Sons): Chapter 14.
   \end{enumerate}
@@ -533,7 +518,6 @@
 \end{frame}
 
 
-
 %%%
 %%% Slide 
 %%%
@@ -541,28 +525,152 @@
   \frametitle{Log-mean Temperature Difference (LMTD) Method}
      \begin{enumerate}%\setcounter{enumi}{1}
           \item<1-> The energy conservation, Eqn.~\ref{HE:energyconservation} in differential form,
-             \visible<1->{\begin{eqnarray}
-               &&d\dot{\mathcal{Q}}_{\text{hot}} + d\dot{\mathcal{Q}}_{\text{cold}} = 0 \Longrightarrow d\dot{\mathcal{Q}}_{\text{cold}} = -d\dot{\mathcal{Q}}_{\text{hot}}\nonumber \\
-               && \dot{m}_{\text{cold}}C_{p,\text{cold}}dT_{\text{cold,in}} =  -\dot{m}_{\text{hot}}C_{p,\text{hot}}dT_{\text{hot}}\nonumber
-             \end{eqnarray}}
+             \visible<1->{\begin{displaymath}
+               d\dot{\mathcal{Q}}_{\text{hot}} + d\dot{\mathcal{Q}}_{\text{cold}} = 0 \Longrightarrow \dot{m}_{\text{cold}}C_{p,\text{cold}}dT_{\text{cold}} =  -\dot{m}_{\text{hot}}C_{p,\text{hot}}dT_{\text{hot}}.
+             \end{displaymath}}
           \item<2-> After rearranging this equation and applying it into Eqn.~\ref{HE:NewtonEqn},
              \visible<2->{\begin{block}{\begin{center} LMTD Method\end{center}}
                \begin{equation}
-                   \dot{\mathcal{Q}} = U A_{s} \Delta T_{\text{lm}}\;\text{ with }\;  \Delta T_{\text{lm}} = \frc{\Delta T_{1}-\Delta T_{2}}{\ln{\frc{\Delta T_{1}}{\Delta T_{2}}}}
+                   \dot{\mathcal{Q}} = U A_{s} \Delta T_{\text{lm}}\;\text{ with }\;  \Delta T_{\text{lm}} = \frc{\left(T_{\text{hot,out}} - T_{\text{cold,out}}\right)-\left(T_{\text{hot,in}} - T_{\text{cold,in}}\right)}{\ln{\left(\frc{T_{\text{hot,out}} - T_{\text{cold,out}}}{T_{\text{hot,in}} - T_{\text{cold,in}}}\right)}}.
                \end{equation}
              \end{block} }
-          \item<2-> Where $\Delta T_{1}$ and $\Delta T_{2}$ are the temperature difference between the two fluids at inlet and outlet of the HE.
+          \item<2-> For \blue{cross-flow and multipass shell-and-tube HE}, we need to use a correction factor, 
+               \visible<2->{\begin{equation}
+                   \dot{\mathcal{Q}} = U A_{s} F \Delta T_{\text{lm}},
+               \end{equation}
+               where the \blue{correction factor F} for different geometries can be found in {\it Appendix 1}.}
+     \end{enumerate}
+
+\end{frame}
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+  \frametitle{Log-mean Temperature Difference (LMTD) Method -- Example 3}
+     \begin{enumerate}\setcounter{enumi}{2}
+         \item Water at the rate of 68 kg/min is heated from 35 to 75$^{\circ}$C by an oil having a specific heat of 1.9 kJ/(kg.$^{\circ}$C). The fluids are used in a counterflow double-pipe HE, and the oil enters the exchanger at 110$^{\circ}$C and leaves at 75$^{\circ}$C. The overall heat-transfer coefficient is 320 W/(m$^{2}.^{\circ}$C). Given heat capacity of water (at constant pressure) of 4.18 kJ/(kg.$^{\circ}$C),
+            \begin{enumerate}
+               \item Calculate the HE area;
+               \item Now assume that the HE is a shell-and-tube with water making one shell pass and the oil making two tube passes. Calculate the new HE. Assume that the overall heat-transfer coefficient remains the same.
+            \end{enumerate}
+     \end{enumerate}
+\end{frame}
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+  \frametitle{The Effectiveness-NTU Method}
+     \begin{enumerate}%\setcounter{enumi}{3}
+          \item<1-> Given $T_{\text{i,j}}$, $\dot{m}_{i}$ (where $i = \left\{\text{hot,cold}\right\}$ and $j = \left\{\text{in,out}\right\}$) and $U$, we can readily determine the size (i.e., $A_{s}$) of the HE;
+          \item<1-> The simplified algorithm is,
+             \begin{enumerate}
+                 \item<2-> Select the type of HE suitable for the process;
+                 \item<2-> Determine any unknown inlet or outlet temperature and $\dot{\mathcal{Q}}$ through energy balance;
+                 \item<2-> Calculate $\Delta T_{\text{lm}}$ (and $F$, if necessary);
+                 \item<2-> Obtain \red{$U$};
+                 \item<2-> Calculate \blue{$A_{s}$}. 
+             \end{enumerate}
+             \visible<3->{The selected HE has heat transfer surface area \blue{equal or larger than the calculated $A_{s}$}.}
+          \item<4-> However, in most process designs we specify \blue{type} and \blue{size} of the HE, and determine some of the temperatures and mass flow rates for a prescribed \blue{heat transfer performance} of the HE;
+          \item<5-> This would require intensive iterative methods;
      \end{enumerate}
 
 \end{frame}
 
 
 %%%
-%%% SUBSECTION
+%%% Slide 
 %%%
-\subsection{Transient Response of Thermal Energy Storage System}
+\begin{frame}
+  \frametitle{The Effectiveness-NTU Method}
+     \begin{enumerate}\setcounter{enumi}{4}
+          \item<1-> The \blue{effectiveness-NTU method} was designed to simplify such HE analysis;
+          \item<2-> The \blue{heat transfer effectiveness, $\epsilon$} is defined as
+              \visible<2->{\begin{equation}
+                \epsilon = \frc{\dot{\mathcal{Q}}}{\dot{\mathcal{Q}}_{\text{max}}} = \frc{\text{Actual heat transfer rate}}{\text{Maximum possible heat transfer rate}}
+              \end{equation}}
+          \item<2-> The {\it actual heat transfer rate} can be determined through energy balance;
+          \item<3-> The {\it maximum possible heat transfer rate} is
+              \visible<3->{\begin{equation}
+                \dot{\mathcal{Q}}_{\text{max}} = \mathcal{C}_{\text{min}}\left(T_{\text{hot,in}}-T_{\text{cold,in}}\right)
+              \end{equation}
+              where $\mathcal{C}_{\text{min}} = Min\left\{\dot{m}_{\text{hot}}C_{p,\text{hot}}, \dot{m}_{\text{cold}}C_{p,\text{cold}}\right\}$}
+          \item<4-> Effectiveness relations of HE often involve the dimensionless group $UA_{s}/C_{\text{min}}$, called \blue{number of transfer units (NTU)},
+              \visible<4->{\begin{equation}
+                \text{NTU} = \frc{UA_{s}}{C_{\text{min}}} = \frc{UA_{s}}{\left(\dot{m}C_{p}\right)_{\text{min}}}
+              \end{equation}}         
+     \end{enumerate}
+
+\end{frame}
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+  \frametitle{The Effectiveness-NTU Method}
+     \begin{enumerate}\setcounter{enumi}{9}
+          \item<1-> Another important dimensionless quantity is the capacity ratio,
+              \visible<1->{\begin{displaymath}
+                 c = \frc{\mathcal{C}_{\text{min}}}{\mathcal{C}_{\text{max}}}
+              \end{displaymath}}
+          \item<2-> Therefore \blue{heat transfer effectiveness, $\epsilon$} can be expressed as a function of
+              \visible<2->{\begin{displaymath}
+                 \epsilon = \epsilon\left(UA_{s}/\mathcal{C}_{\text{min}}, \mathcal{C}_{\text{min}}/\mathcal{C}_{\text{max}}\right) = \epsilon\left(\text{NTU}, c\right)
+              \end{displaymath}}
+         
+     \end{enumerate}
+
+\end{frame}
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+  \frametitle{ The Effectiveness-NTU Method -- Example 4}
+      \begin{enumerate}\setcounter{enumi}{3}
+         \item For the HE of Example 3 with the same entering-fluid temperatures, calculate the exit water temperature when only 40 kg/min of water is heated but the same quantity of oil is used. Also calculate the total heat transfer under these new conditions.
+      \end{enumerate}
+\end{frame}
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+  \frametitle{ The Effectiveness-NTU Method -- Example 5}
+    \begin{columns}
+       \begin{column}[l]{0.58\linewidth}
+         \includegraphics[width=1.1\columnwidth,clip]{./Pics/CrossFlowHE_UnmixedFluids_Example}
+       \end{column}
+       \begin{column}[l]{0.42\linewidth}
+          \begin{enumerate}\setcounter{enumi}{4}
+              \item A finned-tube heat exchanger is used to heat 2.36 m$^{3}$/s of air at 1 atm from 15.55 to 29.44$^{\circ}$C. Hot water enters the tubes at 82.22$^{\circ}$C, and the air flows across the tubes, producing an average overall heat-transfer coefficient of 227 W/(m$^{2}$.$^{\circ}$C). The total surface area of the exchanger 9.29 m$^{2}$. Calculate the exit water temperature and the heat-transfer rate.
+          \end{enumerate}
+       \end{column}      
+    \end{columns}
+\end{frame}
 
 
+
+%%%
+%%%  SECTION
+%%%
+\section{Summary}
+
+
+%%% Slide 
+%%%
+\begin{frame}
+  \frametitle{Summary}
+    \begin{enumerate}
+       \item Main elements and types of heat exchangers;
+       \item Main heat transfer mechanisms (fluid-solid-fluid) in HE of common design;
+       \item Study of overall heat transfer coefficient;
+       \item LMTD method for HE design;
+       \item $\epsilon$-NTU methods for HE design.
+    \end{enumerate}
+\end{frame}
 
 
 
@@ -576,24 +684,32 @@
 %%%
 \section{Appendices}
 
-\subsection{Appendix 1: Coefficients and Bessel Functions}\label{appendix1}
+\subsection{Appendix 1: Correction-factor plot for LMTD Method}\label{appendix1}
+
+
+{
+  \includepdf[pages=-,fitpaper]{./Pics/LMTD_Plot.pdf}
+}
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Coefficients and Bessel Functions}
+ \frametitle{Correction-factor plot for LMTD Method}
         \begin{center}
-          \includegraphics[width=.9\columnwidth,height=.65\columnwidth,clip]{./Pics/BaselFunctionTable}
+          \includegraphics[width=.9\columnwidth,height=.65\columnwidth,clip]{./Pics/LMTD_Plot2}
         \end{center}
 \end{frame}
+ 
 
 
+%%%
+%%% Appendix
+%%%
+\subsection{Appendix 2: Effectiveness-NTU plots and Expressions}\label{appendix2}
 
 
-\subsection{Appendix 2: Heisler and Gr\"ober Charts}\label{appendix2}
 {
-  \includepdf[pages=-,fitpaper]{./Pics/HeislerCharts_All.pdf}
+  \includepdf[pages=-,fitpaper]{./Pics/NTU.pdf}
 }
-
 
 \end{document}
