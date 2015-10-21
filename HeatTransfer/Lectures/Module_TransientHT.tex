@@ -286,12 +286,14 @@
 \begin{frame}
  \frametitle{Aims and Objectives}
    \begin{enumerate}
-     \item Lumped system analysis
-     \item Transient heat conduction
-%• Assess when the spatial variation of temperature is negligible, and temperature varies nearly uniformly with time, making the simplified lumped system analysis applicable,
-% • Obtain analytical solutions for transient one-dimensional conduction problems in rectangular, cylindrical, and spherical geometries using the method of separation of variables, and understand why a one-term solution is usually a reasonable approximation,
-% • Solve the transient conduction problem in large mediums using the similarity variable, and predict the variation of temperature with time and distance from the exposed surface, and
-% • Construct solutions for multi-dimensional transient conduction problems using the product solution approach.
+     \item<1-> In previous lectures, the main focus was on methods to calculate heat transfer flux under steady-state conditions;
+     \item<1-> However, several environmental and industrial applications require understanding of transient (or unsteady) heat transfer mechanisms;
+     \item<2-> In this module we will study two main heat transfer scenarios,
+         \begin{enumerate}
+            \item<2-> The simplest case when the spatial variation of temperature is negligible, and temperature varies nearly uniformly with time ({\it lumped capacity method}) -- $T=T\left(t\right)$;
+            \item<3-> The most common case is when temperature varies in space and time -- $T=T\left(x, t\right)$;
+            \item<3-> For this, we will study two classes of methods, analytical and numerical methods for 1D. 
+         \end{enumerate}
    \end{enumerate}
 \end{frame}
 
@@ -677,7 +679,7 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
             \text{Sphere:} && \left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{sph}} = 1 - 3\theta_{0,\text{sph}}\frc{\sin{\lambda_{1}}-\lambda_{1}\cos{\lambda_{1}}}{\lambda_{1}^{3}}
           \end{eqnarray}
       \item<2-> Heisler and Gr\"ober charts were developed for these geometries to {\it easily} obtain temperature distribution and heat transfer in prescribed geometries. 
-      \item<3-> Heisler and Gr\"ober charts are available in Appendix 2. They can also be obtained in most heat transfer text-books.      
+      \item<3-> Heisler and Gr\"ober charts are available in Appendix 2. They can also be obtained from most heat transfer text-books.      
    \end{enumerate} 
 \end{frame}
 
@@ -729,7 +731,7 @@ $\alpha$ & = & 3.95$\times$10$^{-6}$ & m$^{2}$/s
 \begin{frame}
   \frametitle{Introduction to Finite Difference Methods (FDM)}
   \begin{enumerate}
-     \item<1-> The \red{analytical methods} introduced in the previous section are easy to apply thorugh either Eqns.~\ref{analytical:wall}-~\ref{analytical:sphere} or the Heisler $\&$ Gr\"ober charts;
+     \item<1-> The \red{analytical methods} introduced in the previous section are easy to apply through either Eqns.~\ref{analytical:wall}-~\ref{analytical:sphere} or the Heisler $\&$ Gr\"ober charts;
      \item<1-> These methods are however constraint to 1-D and simple geometries;
      \item<2-> Numerical methods offer a great alternative to solve \blue{partial differential equations (PDE)} by replacing differential equations by algebraic equations. In \blue{FDM}, derivatives are replaced by differences; 
      \item<3-> In \blue{FDM}, the derivatives are approximated using \blue{Taylor series expansions} truncated at (relativeley) low-order;
@@ -879,7 +881,7 @@ $\alpha$ & = & 3.95$\times$10$^{-6}$ & m$^{2}$/s
       \item<1-> In Eqn.~\ref{ExplicitScheme}, the new temperature (i.e., at \blue{time-step} $t_{j+1}$) is obtained from the old temperature  (i.e., at \blue{time-step} $t_{j}$). This is known as \red{explicit method}; 
       \item<2-> The explicit method is easy to use, however it suffers from an undesirable feature that severely restricts its utility -- {\bf it is not unconditionally stable}, i.e., its use is restricted by the time-step size, $\Delta t$;
       \item<3-> If the time-step is not sufficiently small, the solutions obtained by the explicit method may oscillate and diverge from the actual solution;
-      \item<4-> In order to avoid these numerical oscillations, $\Delta t$ must be kept ed below a certain upper limit established by the \blue{stability criterion}, based on the \red{Fourier number},
+      \item<4-> In order to avoid these numerical oscillations, $\Delta t$ must be kept below a certain upper limit established by the \blue{stability criterion}, based on the \red{Fourier number},
            \visible<4->{\begin{equation}
                Fo = \frc{\alpha \Delta t}{\left(\Delta x\right)^{2}} \leq \frc{1}{2}
            \end{equation}} 
@@ -900,15 +902,17 @@ $\alpha$ & = & 3.95$\times$10$^{-6}$ & m$^{2}$/s
 %%%
 %%%  SECTION
 %%%
-\section{Summary}
+\section{Summary} 
 
 
 %%% Slide
 %%%
 \begin{frame}
   \frametitle{Summary}
-    \begin{enumerate}
-       \item bbb
+    \begin{enumerate}  
+       \item Lumped capacity methods;  
+       \item Analytical methods using Heisler and Gr\"ober charts;
+       \item Finite-difference methods for 1D heat conduction problems.
     \end{enumerate}
 \end{frame}
 
