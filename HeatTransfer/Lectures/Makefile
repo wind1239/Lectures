@@ -1,11 +1,12 @@
 
 default:	Module_TransientHT.pdf Module_HeatExchanger.pdf \
-		Tutorial.pdf
+		Tutorial.pdf Tests.pdf
 
 
 Module_TransientHT.pdf:		Module_TransientHT.tex
 Module_HeatExchanger.pdf:	Module_HeatExchanger.tex
 Tutorial.pdf:			Tutorial.tex
+Tests.pdf:			Tests.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
