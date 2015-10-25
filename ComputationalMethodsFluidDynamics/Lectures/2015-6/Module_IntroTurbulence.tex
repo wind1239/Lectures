@@ -9,10 +9,27 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode
-%\documentclass[10pt,compress]{beamer}
+\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
 %\documentclass[10pt,compress,handout]{beamer}
-\documentclass[10pt,compress,handout,ignorenonframetext]{beamer} 
+%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer} 
+\usepackage{xcolor}
+
+\newlength{\overwritelength}
+\newlength{\minimumoverwritelength}
+\setlength{\minimumoverwritelength}{1cm}
+\newcommand{\overwrite}[3][red]{%
+  \settowidth{\overwritelength}{$#2$}%
+  \ifdim\overwritelength<\minimumoverwritelength%
+    \setlength{\overwritelength}{\minimumoverwritelength}\fi%
+  \stackrel
+    {%
+      \begin{minipage}{\overwritelength}%
+        \color{#1}\centering\small #3\\%
+        \rule{1pt}{9pt}%
+      \end{minipage}}
+    {\colorbox{#1!50}{\color{black}$\displaystyle#2$}}}
+
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
@@ -268,278 +285,66 @@
 
    \begin{figure}%
     \begin{center}
-     \includegraphics[width=12.cm, height=7.8cm, clip]{./Figs/EnvironmentallApplications2.pdf}
+     \includegraphics[width=12.cm, height=7.8cm, clip]{./Figs/SpecificIndustrialEnvironmentalApplication2}
     \end{center}
 %\caption{XX}
    \end{figure}    
 
-
-\end{enumerate}
- 
 \end{frame}
-
+ 
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Field Observation, Experiments and Numerical Simulations} 
+ \frametitle{Motivation}
 
    \begin{figure}%
     \begin{center}
-     \includegraphics[width=12.cm, height=7.8cm, clip]{./Figs/Dapple.pdf}
+     \includegraphics[width=12.cm, height=7.8cm, clip]{./Figs/PostProcessingExamples2.pdf}
     \end{center}
 %\caption{XX}
    \end{figure}    
 
 \end{frame}
 
-%##################
-%%%   SUBSECTION
-%##################
-\subsection{Applications}
 
-%%%
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Main Applications} 
-\begin{enumerate}
-\item <1-> Environmental Flows:
-  \begin{enumerate}
-    \item <2-> Flow circulation (and cycles) in ocean, rivers, lakes etc;
-    \item <3-> Weather forecasting;
-    \item <4-> Pyroclastic flows (volcanoes), avalanches, landslides, etc;
-    \item <5-> Floodings, fire (e.g., forests), aquifers etc.
-  \end{enumerate}
-\item <6-> Industrial Flows:
-  \begin{enumerate}
-    \item <7-> Aerospace;
-    \item <8-> Chemical processing;
-    \item <9-> Power generation (eg.g., nuclear reactors, NG and coal-fire power stations, wind turbines, etc);
-    \item <10-> Automotive;
-    \item <11-> Oil and gas, etc. 
-  \end{enumerate}
-\item <12-> Biomedical engineering (e.g., cardiovascular systems);
-\item <13-> etc.
+ \frametitle{Objective}
   
-\end{enumerate}
 
-\end{frame}
-
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Environmental Flows} 
+   \begin{enumerate}\scriptsize
+       \item<1-> From the Navier-Stokes equations for incompressible fluids, we have defined the {\it Reynolds number},
+          \visible<1->{\begin{displaymath}
+               Re = \frc{\rho \left|u_{ref}\right| L_{ref}}{\mu}
+          \end{displaymath}
+          that measures the importance of convection and diffusion flow mechanisms.} 
+   \end{enumerate}
 
    \begin{figure}%
     \begin{center}
-     \includegraphics[width=12.cm, height=7.8cm, clip]{./Figs/EnvironmentallApplications.pdf}
+     \includegraphics[width=10.cm, height=6.5cm, clip]{./Figs/Transition2Turbulence}
     \end{center}
 %\caption{XX}
-   \end{figure}    
-
-\end{frame}
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Industrial Flows} 
-
-   \begin{figure}%
-    \begin{center}
-     \includegraphics[width=12.cm, height=7.8cm, clip]{./Figs/IndustrialApplications.pdf}
-    \end{center}
-%\caption{XX}
-   \end{figure}    
-
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%
-%%%   SECTION   %%%
-%%%%%%%%%%%%%%%%%%%
-\section{Workflow for CFD Simulations}
-
-
-%##################
-%%%   SUBSECTION
-%##################
-\subsection{CFD Workflow}
- 
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Overview: Preprocessing} 
-\begin{enumerate}
-  \item <1-> We start with a mathematical model that represents a physical system, via:
-    \begin{enumerate}
-      \item <2-> Mass, momentum and energy conservative equations (e.g., Navier-Stokes, Stokes, Darcy, Richards equations, etc);
-      \item <3-> Parametrisation of system properties (e.g., equations of state to define fluid densities, algebraic expressions for viscosities, thermal conductivity, etc);
-      \item <4-> General simplifying assumptions (e.g., inviscid / viscous, steady-state / transient, laminar / turbulent, 1-/2-/3-D, compressible/incompressible, etc); 
-      \item <5-> Appropriate set of boundary and initial conditions.
-    \end{enumerate}
-  \item <6-> Discretise the geometry (mathematical domain) with mesh/grids containing cells (or elements or control volumes): 
-    \begin{enumerate}
-      \item <7-> 2-D: Triangle and quadrilateral;
-      \item <8-> 3-D: Tetrahedron, hexahedron, pyramid, prism with triangular base, etc 
-    \end{enumerate}
-\end{enumerate} 
-\begin{itemize}
-   \item <9-> The mesh/grid can either be structured (i.e., regular connectivity), unstructured (i.e., irregular connectivity) and hybrid;
-   \item <10-> The stage of: (a) designing the geometry that represents the physical problem, (b) meshing the designed geometry; (c) input initial and boundary conditions; (d) prescribed operation conditions and (e) solver options \textcolor{red}{$\Longrightarrow$} is also called \textcolor{blue}{\underline{Preprocessing}}.
-\end{itemize}  
-
-\end{frame} 
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Overview: Mesh Grid Classification}
-
-   \begin{figure}%
-    \begin{center}
-     \includegraphics[width=12.cm, height=7.8cm, clip]{./Figs/MeshGrid_Examples.pdf}\label{xx}
-    \end{center}
-%\caption{XX}
-   \end{figure}    
-
-\end{frame}
-
-%%%
-%%% Slide
-%%% 
-\begin{frame}
- \frametitle{Overview: Discretisation Methods} 
-\begin{enumerate}
-  \setcounter{enumi}{2}
-  \item <1-> Discretisation of the governing equations splitting into:
-    \begin{enumerate}
-      \item <2-> Space discretisation:
-        \begin{enumerate}
-          \item <4-> Finite difference methods (FDM); 
-          \item <5-> Finite element methods (FEM); 
-          \item <6-> Finite volume methods (FVM); 
-          \item <7-> Boundary element methods (BEM); 
-          \item <8-> Spectral element methods (SEM); 
-          \item <9-> Spectral finite element methods (SFEM); 
-          \item <10-> etc. 
-        \end{enumerate}
-      \item <3-> Time discretisation:
-        \begin{enumerate}
-          \item <11-> Explicit Methods: Forward-Euler, Leapfrog, etc;
-          \item <12-> Implicit Methods: Backward-Euler, Crank-Nicolson, etc;
-          \item <13-> Hybrid Methods: $\lq$family' of Runge-Kutta methods.
-        \end{enumerate}
-    \end{enumerate}
-\end{enumerate}
+   \end{figure}  
 \end{frame}
 
 
 %%%
 %%% Slide
-%%% 
-\begin{frame}
- \frametitle{Overview: Discretisation Methods} 
-\begin{enumerate}
-  \setcounter{enumi}{3}
-  \item <1-> The conservative partial differential equations after the coupled time- and spatial-discretisation become algebraic equations;
-  \item <2-> This set of algebraic linear equations are manipulated to become, in the matricial form:
-    \visible<2->{
-      \begin{equation}
-         \underline{\underline{A}}\;\underline{x}=\underline{b}\label{Eq:LinearEqns}
-      \end{equation}}
-      \begin{enumerate}
-         \item<3-> The components of matrix \textcolor{blue}{$\underline{\underline{A}}$ $\left(a_{ij}\right)$} are related to nodes and elements/cells for all conservative equations (i.e., continuity, momentum and energy) and constitutive relations (i.e., EOS, viscosity correlations etc);
-         \item<4-> \textcolor{blue}{$\underline{x}$} is solution-vector of the system of linear equations (e.g., velocity, pressure, temperature, concentration etc);
-         \item <5-> The vector \textcolor{blue}{$\underline{b}$} corresponds to the remaining terms of the right-hand side of the conservative equations.
-      \end{enumerate}
-\end{enumerate}
-
-\end{frame}
-
-
-%%%
-%%% Slide
-%%% 
-\begin{frame}
- \frametitle{Overview: Linear Solvers} 
-\begin{enumerate}
-  \setcounter{enumi}{5}
-  \item <1-> The system of linear equations (Eqn.~\ref{Eq:LinearEqns}) are solved simultaneously to obtain \textcolor{blue}{$\underline{x}$};
-  \item <2-> Several methods were developed to solve this system of equations, e.g.,
-    \begin{enumerate}
-       \item<3-> Direct Methods: 
-          \begin{enumerate}
-             \item <5-> Gauss-Elimination;
-             \item <6-> Lower-Upper (LU) decomposition / factorisation;
-             \item <7-> Tridiagonal matrix algorithm (TDMA);
-             \item <8-> etc. 
-          \end{enumerate}
-       \item<4-> Iterative Methods:
-          \begin{enumerate}
-             \item <9-> Jacobi;
-             \item <10-> Gauss-Seidel;
-             \item <11-> Successive Over-Relaxation (SOR);
-             \item <12-> Conjugate Gradient methods;
-             \item <13-> Multigrid Methods;
-             \item <14-> etc.
-          \end{enumerate}
-    \end{enumerate}
-  \item <15-> For realistic (i.e., large) CFD calculations, iterative methods are {\bf always} used. However, direct methods can also be used as $\lq$preconditioning methods' for the system of equations;
-   \item <16-> A large number of iterations are often required to reach a converged solution, i.e., changes in the \textcolor{blue}{solution-vector $\left(\underline{x}\right)$} between two continuous iterations are smaller than prescribed \underline{tolerances}.
-\end{enumerate}
-
-\end{frame}
- 
-
-%%%
-%%% Slide
-%%% 
-\begin{frame}
- \frametitle{Overview: Post-Processing} 
-\begin{enumerate}
-  \setcounter{enumi}{9}
-  \item <1-> Visualisation (snapshots and time-series) can help to:
-      \begin{enumerate}
-         \item <2-> Identify flow patterns (e.g., bubbles, flow regimes, temperature profiles etc);
-         \item <3-> Investigate how specific calculated fields evolves in time and space (e.g., temperature, velocities pressure etc);
-         \item <4-> Ensure that initial and boundary conditions are correctly imposed;
-         \item <5-> Investigate diagnostic fields, i.e., variables that are calculated from or along with field-solutions. E.g., local and averaged drag, lift and heat transfer coefficients, mass/volumetric fluxes etc;
-      \end{enumerate}
-  \item <6-> Most CFD software have (either as native or third-party) embedded diagnostic tools for:
-      \begin{enumerate}
-         \item <7-> Grid, contour, vector plots;
-         \item <8-> Pathline trajectory and XY plots;
-         \item <9-> Animations;
-         \item <10-> Surface and volume integrals and averages;
-         \item <11-> Power spectral density (PSD), Fast Fourier transform (FFT) and other statistical tools;
-         \item <12-> Forces and moments;
-         \item <13-> etc.
-      \end{enumerate}
-
-\end{enumerate}
-
-\end{frame}
- 
-%%%
-%%% Slide
 %%%
 \begin{frame}
- \frametitle{Overview: Post-Processing}
-
-   \begin{figure}%
-    \begin{center}
-     \includegraphics[width=12.cm, height=7.8cm, clip]{./Figs/PostProcessingExamples.pdf}
-    \end{center}
-%\caption{XX}
-   \end{figure}    
-
+ \frametitle{Objective}
+     \begin{enumerate}\setcounter{enumi}{1}%\scriptsize
+       \item<1-> All flows become unstable above a prescribed $Re$;
+       \item<1-> At low $Re$ flows are laminar and for high $Re$ flows are turbulent;
+       \item<1-> The transition occurs between 2000$\leq Re \leq$ 10$^{6}$;
+       \item<2-> Laminar flow problems can be solved using the conservation equations developed previously;
+       \item<2-> However, for turbulent flows, the computational effort involved in solving those for {\it all time and length scales} is prohibitive;
+       \item<3-> Thus we need an engineering approach to calculate time-averaged flow fields for turbulent flows.
+     \end{enumerate} 
 \end{frame}
 
 %%%
@@ -554,125 +359,403 @@
     \end{center}
 %\caption{XX}
    \end{figure}    
-
 \end{frame}
 
+
+%%%%
+%%%%  SECTION
+%%%%
+
+\section{Introduction to Turbulence}
 
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Overview: Workflow}
-
+ \frametitle{Laminar $\times$ Turbulent Flows}
    \begin{figure}%
     \begin{center}
-     \includegraphics[width=12.cm, height=7.8cm, clip]{./Figs/CFD_Schematics2.pdf}
+     \includegraphics[width=9.cm, height=7cm, clip]{./Figs/Transition2Turbulence2b}
     \end{center}
-%\caption{XX}
    \end{figure}    
+  \vspace{-5cm}
+  \begin{columns}
+    \begin{column}[l]{0.5\linewidth}
+        The flow is dominated by the object shape and dimension (large scale).
+    \end{column}
+    \begin{column}[l]{0.5\linewidth}
+      The flow is dominated by the object shape and dimension (large scale) and by the motion and evolution of \blue{small eddies} (small scales).
+    \end{column}
+  \end{columns}
 
 \end{frame}
 
-\subsection{A few available CFD software}  
+
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Common Flow Simulators}
-\begin{center}
-\begin{tabular}{||c|| c | c | c | c ||}
-\hline\hline
-                   & {\bf Type}  & 
-{\bf Mesh}\footnote{S: Structured, U: Unstructured, T: Triangle / Tetrahedral, Q: Quadrilateral / Hexahedral, H: Hybrids, A: All.} & 
-{\bf Problem}\footnote{Single phase and multiphase fluid flows.} & 
-{\bf Solution}\footnote{ebFVM: Element-based finite volume method, a hybrid FEM and FVM; CVFEM: Control volume finite element method; FEMDEM: Coupled finite element/discrete methods.} \\
-                   &             &            &               & {\bf Method}   \\
-\hline\hline
-\href{http://www.ansys.com/Products/Simulation+Technology/Fluid+Dynamics/Fluid+Dynamics+Products/ANSYS+CFX}
-{Ansys CFX}          & Commercial  &  S/U, A    &   SP/MP  & ebFVM \\
-\hline
-\href{http://www.ansys.com/Products/Simulation+Technology/Fluid+Dynamics/Fluid+Dynamics+Products/ANSYS+Fluent}
-{Ansys Fluent}       & Commercial  & S/U, A    &   SP/MP     & FVM           \\
-\hline
-\href{http://www.cd-adapco.com}
-{StarCD}             & Commercial  & S/U, A    &   SP/MP     & FVM  \\ 
-\hline
-\href{http://www.uk.comsol.com/}
-{COMSOL}            & Commercial   & S/U, A    &  Multi-physics & FEM \\
-\hline
-\href{http://www.openfoam.com/} 
-{OpenFoam} & Open-source & S/U, A & SP/MP & FVM \\
-\hline
-\href{http://www.software.slb.com/products/foundation/pages/eclipse.aspx}
-{Eclipse}  & Commercial & S/U T/Q    & Reservoir  &FDM/FVM \\
-(Schlumberger)&         &            & simulator  &        \\
-\hline
-\href{http://www3.imperial.ac.uk/earthscienceandengineering/research/amcg/fluidity}
-{Fluidity}             & Open-source & S/U, T/Q   & Multi-physics & FEM, CVFEM \\
-                        &            &            &               & and FEMDEM \\
+ \frametitle{Introduction to Turbulence}
+   \begin{enumerate}
+      \item<1-> Turbulence is an unsteady, aperiodic fluid motion in which \blue{all three velocity components} \red{fluctuate}, mixing matter, momentum, and energy;
+      \item<1-> Fluid properties under turbulent flows exhibit {\it random} 3-D spatial variations;
+      \item<1-> As such, it does present a {\bf strong dependence on initial conditions};
+      \item<1-> Turbulent flows contain a wide range of scales (i.e., \blue{edges}).
+      \item<2-> Velocity field can be decomposed into \blue{mean} (or average) and \blue{fluctuating} parts (also called {\it Reynolds decomposition}):
+         \visible<2->{\begin{equation}
+             u_{i} \equiv U_{i} + u^{\prime}_{i}
+         \end{equation}
+         where $i\in\left\{x, y, z\right\}$. A similar operation can be done for pressure, temperature, concentration etc.}
+   \end{enumerate}
+\end{frame}
 
-\hline\hline
-\end{tabular}
- 
-\end{center}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Transition in Boundary-Layer Flow over Flat Plate}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=12.cm, height=5cm, clip]{./Figs/Transition2Turbulence3b}
+    \end{center}
+   \end{figure}  
+  \vspace{-1cm}  
+  \begin{columns}
+    \begin{column}[l]{0.5\linewidth}
+       \begin{enumerate}%\scriptsize
+           \item<1-> Below $Re_{\text{crit}}$, the flow is laminar and adjacent fluid layers smoothly slide past each other;
+           \item<1-> The flow is stable and viscous effects may lead to small disturbances being dissipated;
+
+       \end{enumerate}
+    \end{column}
+    \begin{column}[l]{0.5\linewidth}
+       \begin{enumerate}\setcounter{enumi}{2}%\scriptsize
+           \item<1-> Beyond the transition point, $Re_{\text{crit}}$, small disturbances in the flow start to grow.
+       \end{enumerate} 
+    \end{column}
+  \end{columns}
 
 \end{frame}
 
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Transition in Channel Flows}
+     \begin{enumerate}%\scriptsize
+        \item<1-> Instability and turbulence is also seen in internal flows (e.g., channels and ducts).
+        \item<1-> $Re$ may be considered constant throughout the pipe as a function of the fluid properties, flow rare and characteristic diameter;
+        \item<2-> Three flow regimes may be found:
+            \begin{enumerate}
+                \item<2-> $Re < 2200$: Laminar flow;
+                \item<2-> $Re = 2200$: Flow alternates between laminar and turbulent;
+                \item<2-> $Re > 2200$: Fully turbulent flow.
+            \end{enumerate}
+       \end{enumerate}
+
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%
 %%%   SECTION   %%%
 %%%%%%%%%%%%%%%%%%%
-\section{Principles of Conservation}
+\section{Turbulence Modelling}
 
-%##################
-%%%   SUBSECTION
-%##################
-\subsection{Nomenclature} 
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Characteristics}
 
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Terms $\&$ Operators Commonly used in Fluid Conservative Equations} 
+ \frametitle{Characteristics of Turbulent Flows}
    \begin{enumerate}
-      \item <1-> {\bf Scalar, vector, tensor} are mathematical entities used to represent properties in a point (i.e., node, element/cell) in space and time. They are commonly represented as,
-      \begin{enumerate}
-         \item<2-> {\it Vectors} are in bold: $\mathbf{u}=u_{i}$
-         \item<3-> {\bf Scalars} are often in {\it lowercase}, e.g., 
-      \end{enumerate}
-
+      \item<1-> Irregularity or randomness: Turbulent flows are often described statistically;
+      \item<1-> Turbulent flows are always {\it chaotic};
+      \item<1-> The \blue{diffusivity} of turbulence causes rapid mixing and increased rates of momentum, heat, and mass transfer. %A flow that looks random but does not exhibit the spreading of velocity fluctuations through the surrounding fluid is not turbulent. If a flow is chaotic, but not diffusive, it is not turbulent. The trail left behind a jet plane that seems chaotic, but does not diffuse for miles is then not turbulent.
+      \item<1-> Turbulent flows always occur at high $Re$; they are caused by the {\it complex interaction between the viscous terms and the inertia terms in the momentum equations};
+      \item<1-> Turbulent flows are \blue{rotational}, i.e., they have non-zero \blue{vorticity}. Mechanisms such as the stretching of three-dimensional vortices play a key role in turbulence;
+      \item<2-> Turbulent flows are \blue{dissipative}, i.e., kinetic energy is converted into heat due to viscous shear stresses; %Turbulent flows die out quickly when no energy is supplied. Random motions that have insignificant viscous losses, such as random sound waves, are not turbulent.
+      \item<2-> Turbulence is a \blue{continuum phenomenon} -- even the smallest eddies are significantly larger than the molecular scales; 
+      \item<2-> Turbulence is thus governed by the fluid mechanics equations;
+      \item<2-> Turbulence \blue{is not a characteristic of the fluid} but rather of the \blue{flow}.
    \end{enumerate}
-
-
 \end{frame}
 
-
-
-%##################
-%%%   SUBSECTION
-%##################
-\subsection{Scalar Transport Equation} 
 
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Governing Equations commonly used in Fluid Problems} 
-   \begin{enumerate}
-      \item <1-> Scalar transport equations represent the conservation of mass, momentum and energy for fluid flows, 
-          \visible<2->{\begin{equation}
-             \frac{\partial \phi}{\partial t} + \nabla\cdot\left(\phi \mathbf{u}\right) - \nabla\cdot\left(\gamma\nabla\phi\right) = \mathcal{S}\label{eq:transport}
-          \end{equation}}
+ \frametitle{Characteristics of Turbulent Flows -- Examples}
 
-   \end{enumerate}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=12.cm, height=7.8cm, clip]{./Figs/Turbulence_Examples}
+    \end{center}
+%\caption{XX}
+   \end{figure}    
+\end{frame}
+
+%%%
+%%% SUBSECTION 
+%%%
+
+\subsection{Length-Scale and Vortex}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Kolmogorov Length-Scale}
+  \begin{columns}
+    \begin{column}[l]{0.5\linewidth}
+       \begin{enumerate}%\scriptsize
+           \item<1-> $E$ is the energy contained in eddied of wavelength \blue{$\lambda$};
+           \item<1-> The energy cascades randomly from large to small scales;
+           \item<2-> Length scales:
+              \begin{enumerate}%\scriptsize
+                  \item<2-> Largest eddies: integral length scale, $k^{3/2}/\epsilon$;
+                  \item<2-> Length scales in which turbulence is isotropic: Taylor micro-scale, $\left(15\nu u^{\prime 2}/\epsilon\right)^{1/2}$;
+                  \item<2-> Smallest eddies: \blue{Kolmogorov length scale} $\left(\nu^{3}/\epsilon\right)^{1/4}$.
+              \end{enumerate}
+       \end{enumerate} 
+    \end{column}
+    \begin{column}[l]{0.5\linewidth}
+      \begin{center}
+        \includegraphics[width=7.cm, height=5cm, clip]{./Figs/Kolmogorov1}
+      \end{center}
+    \end{column}
+
+  \end{columns}
+
+\end{frame}
 
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Vortices}
+    \begin{enumerate}%\scriptsize
+       \item<1-> Existence of eddies means  \blue{vorticity} (or \blue{rotation}) along contorted vortex lines;
+       \item<1-> As end points of a vortex line move randomly further apart the vortex line increases in length but decreases in diameter;
+       \item<1-> Vorticity increases as angular momentum is nearly conserved. Kinetic energy increases at rate equivalent to the work done by large-scale motion that stretches the bundle;
+       \item<2-> Viscous dissipation in the smallest eddies converts kinetic energy into thermal energy;
+       \item<2-> Vortex-stretching cascade process maintains the turbulence and dissipation is approximately equal to the rate of production of turbulent kinetic energy;
+       %\item<2-> Typically energy gets transferred from the large eddies to the smaller eddies. However, sometimes smaller eddies can interact with each other and transfer energy to the (i.e. form) larger eddies, a process known as backscatter.
+       \end{enumerate} 
+\end{frame}
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Reynolds Decomposition}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Flow Properties Decomposition}
+    \begin{enumerate}%\scriptsize
+       \item<1-> A flow property $\phi$ has a {\it average} $\Phi$ defined as,
+          \visible<1->{\begin{displaymath}
+            \Phi = \frc{1}{\Delta t}\int\limits_{0}^{\Delta}\phi\left(t\right)dt,
+          \end{displaymath}
+          where $\Delta t$ is larger than the time-scale of the slowest fluctuation;}
+       \item<1-> Leading to           
+          \visible<1->{\begin{displaymath}
+            \phi = \Phi + \phi^{\prime}
+          \end{displaymath}
+          where $\phi^{\prime}$ is the fluctuation of $\phi$;}
+       \item<2-> Velocity and pressure decomposition:
+          \visible<2->{\begin{displaymath}
+              u = U + u^{\prime}\hspace{1cm}\text{ and }\hspace{1cm} p = P + p^{\prime},
+          \end{displaymath}
+          where the average of the fluctuations of are zero, i.e., $\overline{u}^{\prime}=\overline{p}^{\prime}=0$. The {\it overbar} represents time-average quantities, thus $\overline{u}=U$.}
+       \item<2-> Turbulent kinetic energy, $k$ is defined as,
+          \begin{displaymath}
+             k = \frc{1}{2}\left(\overline{u_{x}^{\prime 2}} + \overline{u_{y}^{\prime 2}} + \overline{u_{z}^{\prime 2}}\right)
+          \end{displaymath}
+       \end{enumerate} 
+\end{frame}
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{RANS Equations}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Direct Numerical Simulation (DNS)}
+      \begin{center}
+        \includegraphics[width=9.cm, height=8cm, clip]{./Figs/DNS_Exampleb}
+      \end{center}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Direct Numerical Simulation (DNS)}
+    \begin{enumerate}
+       \item<1-> The DNS aims to solve the time-dependent NS equations resolving {\bf ALL} scales (i.e., eddies) for a prescribed time-interval so that fluid properties reach a statistical equilibrium. Thus for a flow with $Re_{\tau}=800$,
+          \begin{enumerate}
+            \item<1-> Grid requirement: $N\sim\left(Re_{\tau}\right)^{9/4}\sim 10^{7}$;
+            \item<1-> Time-step requirement: $\Delta t\sim \left(Re_{\tau}\right)^{1/2}\sim 10^{-5}$;
+          \end{enumerate}
+          \visible<1->{where $Re_{\tau}=\rho y u_{\tau}/\mu$ and $u_{\tau}=\sqrt{\sigma/\rho}$.}
+       \item<2-> DNS can only be used for {\it relatively low $Re$ and simple geometries};
+    \end{enumerate} 
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Reynolds-Averaged Navier-Stokes (RANS) Equations}
+    \begin{enumerate}
+       \item<1-> The NS equations,
+          \visible<1->{\begin{eqnarray}
+              && \frc{\partial u_{i}}{\partial x_{i}} = 0 \nonumber \\
+              && \frc{\partial u_{i}}{\partial t} + u_{j}\frc{\partial u_{i}}{\partial x_{j}} = - \frc{1}{\rho}\frc{\partial p}{\partial x_{i}} + \frc{\partial}{\partial x_{j}}\left(\frc{\mu}{\rho}\frc{\partial u_{i}}{\partial x_{j}}\right) = 0 \nonumber
+          \end{eqnarray}}
+       \item<2-> Defining Reynolds-averaged quantities,
+           \visible<2->{\begin{eqnarray}
+              && u_{i}\left(x_{k},t\right) = U_{i}\left(x_{k},t\right) + u^{\prime}\left(x_{k},t\right) \nonumber \\      
+              && U_{i}\left(x_{k}\right) = \lim\limits_{T\rightarrow\infty}\frc{1}{T}\int\limits_{0}^{T}u_{i}\left(x_{k},t\right)dt \nonumber
+           \end{eqnarray}
+           Replacing in the NS equations and averaging,}
+    \end{enumerate} 
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Reynolds-Averaged Navier-Stokes (RANS) Equations}
+    \begin{enumerate}\setcounter{enumi}{2}%
+       \item<1-> Leading to
+         \visible<1->{\begin{eqnarray}
+               && \frc{\partial U_{i}}{\partial x_{i}} = 0 \label{RANS:Conty} \\
+               && \cancelto{0}{\frc{\partial U_{i}}{\partial t}} + U_{j}\frc{\partial U_{i}}{\partial x_{j}} = -\frc{1}{\rho}\frc{\partial P}{\partial x_{i}} + \frc{\partial }{\partial x_{j}}\left(\frc{\mu}{\rho}\frc{\partial U_{i}}{\partial x_{j}}\right)+ \overwrite{\frc{\partial\left(-\overline{u_{i}^{\prime}u_{j}^{\prime}}\right)}{\partial x_{j}}}{Closure problem} \label{RANS:Momentum}
+         \end{eqnarray}}
+       \item<2-> The transformed momentum equation contain a stress tensor called \blue{Reynolds stress},
+          \visible<2->{\begin{displaymath}
+              \mathbf{\sigma} = 
+              \begin{pmatrix}
+                  \sigma_{xx} & \sigma_{xy} & \sigma_{xz} \\
+                  \sigma_{yx} & \sigma_{yy} & \sigma_{yz} \\
+                  \sigma_{zx} & \sigma_{zy} & \sigma_{zz} \\
+              \end{pmatrix} =
+              \begin{pmatrix}
+                 -\rho\overline{u_{x}^{\prime 2}} & -\rho\overline{u_{x}^{\prime}u_{y}^{\prime}} & - \rho\overline{u_{x}^{\prime}u_{z}^{\prime}} \\ 
+                 -\rho\overline{u_{x}^{\prime}u_{y}^{\prime}} & -\rho\overline{u_{y}^{\prime 2}} & - \rho\overline{u_{y}^{\prime}u_{z}^{\prime}} \\ 
+                 -\rho\overline{u_{x}^{\prime}u_{z}^{\prime}} & -\rho\overline{u_{y}^{\prime}u_{z}^{\prime}} & - \rho\overline{u_{z}^{\prime 2}} \\ 
+              \end{pmatrix}
+          \end{displaymath}
+          }
+    \end{enumerate} 
 \end{frame}
 
 
 
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Reynolds-Averaged Navier-Stokes (RANS) Equations}
+    \begin{enumerate}\setcounter{enumi}{4}%
+       \item<1-> In turbulence flows, the Reynolds stresses are often larger than viscous stress;
+       \item<1-> Normal stresses are always non-zero as they contain squared velocity fluctuations;
+       \item<1-> Shear stresses would be zero if the fluctuations were statistically independent;
+       \item<1-> However, if the fluctuations are correlated (due to continuity), the shear stresses will be non-zero;
+       \item<2-> The main aim of \blue{turbulence models} is to develop computational framework for accurately predict Reynolds stresses and the scalar transport terms;
+       \item<2-> This allows the computation of time-averaged flow quantities without calculating the actual quantities over long time periods (or several time-steps);
+       \item<3-> \blue{Turbulence models} is able to define the Reynolds stresses through:
+           \begin{enumerate}
+                \item<3-> Bousinessq hypothesis: based on the relationship between Reynolds stresses and velocity gradients through the \blue{eddy viscosity} (similar to molecular viscosity). Assumes isotropic;
+                \item<3-> Reynolds Stress Transport Models: equations are derived from the NS equations with no isotropy assumption. More expensive to solve; 
+                \item<3-> Algebraic Reynolds Stress Models: based on non-linear eddy viscosity submodels.
+                 
+           \end{enumerate}
+    \end{enumerate} 
+\end{frame}
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Reynolds-Averaged Navier-Stokes (RANS) Equations}
+    \begin{enumerate}\setcounter{enumi}{11}%
+       \item<1-> In the \blue{Eddy viscosity models}
+                \visible<1->{\begin{eqnarray}
+                    && -\overline{u_{i}^{\prime}u_{j}^{\prime}} = 2\frc{\mu_{e}}{\rho}S_{ij}\;\;\text{ with }\;\; S_{ij} = \frc{1}{2}\left(\frc{\partial U_{i}}{\partial x_{j}}+\frc{\partial U_{j}}{\partial x_{i}}\right) \nonumber \\
+                   && \frc{\partial U_{i}}{\partial t} + U_{j}\frc{\partial U_{i}}{\partial x_{j}} = -\frc{1}{\rho}\frc{\partial P}{\partial x_{i}} + \frc{\partial}{\partial x_{j}}\left[\frc{\mu+\mu_{e}}{\rho}\frc{\partial U_{i}}{\partial x_{j}}\right] \nonumber
+                \end{eqnarray}}
+       \item<2-> Thus
+          \visible<2->{\begin{displaymath}
+              \begin{pmatrix}
+                 -\rho\overline{u_{x}^{\prime 2}} & -\rho\overline{u_{x}^{\prime}u_{y}^{\prime}} & - \rho\overline{u_{x}^{\prime}u_{z}^{\prime}} \\ 
+                 -\rho\overline{u_{x}^{\prime}u_{y}^{\prime}} & -\rho\overline{u_{y}^{\prime 2}} & - \rho\overline{u_{y}^{\prime}u_{z}^{\prime}} \\ 
+                 -\rho\overline{u_{x}^{\prime}u_{z}^{\prime}} & -\rho\overline{u_{y}^{\prime}u_{z}^{\prime}} & - \rho\overline{u_{z}^{\prime 2}} \\ 
+              \end{pmatrix}=
+              \begin{pmatrix} 
+                  \mu_{e}S_{xx}-\frc{2}{3}\rho k  & \mu_{e}S_{xy} & 0 \\
+                  \mu_{e}S_{yx}                   & \mu_{e}S_{yy} - \frc{2}{3}\rho k & 0 \\
+                  0                             &  0                              & -\frc{2}{3}\rho k \\
+              \end{pmatrix}
+          \end{displaymath}
+          where $\mu_{e}$ is the eddy viscosity and $S_{ij}$ is the deformation tensor. $k$ is the turbulent kinetic energy,
+          \begin{displaymath}
+               k = \frc{1}{2}\left(\overline{u_{x}^{\prime}u_{x}^{\prime}} + \overline{u_{y}^{\prime}u_{y}^{\prime}} + \overline{u_{z}^{\prime}u_{z}^{\prime}}\right)
+          \end{displaymath}}
+    \end{enumerate} 
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Reynolds-Averaged Navier-Stokes (RANS) Equations}
+    \begin{enumerate}\setcounter{enumi}{13}%
+       \item<1-> Several eddy viscosity models have been developed to be used along with RANS equations:
+            \begin{enumerate}
+               \item<1-> Zero-equation/algebraic models: Mixing Length, Cebeci-Smith etc;
+               \item<1-> One-equation models: Wolfsttein, Spalart-Allmaras, k-model, etc;
+               \item<2-> Two-equation models: \blue{$k-\epsilon$}, $k-\omega$, $k-\tau$, etc;
+               \item<3-> Three-equation models: $k-\epsilon-A$, etc;
+               \item<3-> etc.
+            \end{enumerate}          
+    \end{enumerate} 
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{$k-\epsilon$ Model}
+    \begin{enumerate}%\setcounter{enumi}{13}%
+       \item<1-> $k$ equation:
+            \visible<1->{\begin{equation}
+               \frc{\partial k}{\partial t} + U_{j}\frc{\partial k}{\partial x_{j}} = \frc{\mu_{e}}{\rho}S^{2} - \epsilon + \frc{\partial}{\partial x_{j}}\left[\frc{1}{\rho}\left(\mu+\frc{mu_{e}}{\sigma_{k}}\right)\frc{\partial k}{\partial x_{j}}\right]
+            \end{equation}}
+            \begin{enumerate}
+               \item<1-> Zero-equation/algebraic models: Mixing Length, Cebeci-Smith etc;
+               \item<1-> One-equation models: Wolfsttein, Spalart-Allmaras, k-model, etc;
+               \item<2-> Two-equation models: \blue{$k-\epsilon$}, $k-\omega$, $k-\tau$, etc;
+               \item<3-> Three-equation models: $k-\epsilon-A$, etc;
+               \item<3-> etc.
+            \end{enumerate}          
+    \end{enumerate} 
+\end{frame}
 
 
 
