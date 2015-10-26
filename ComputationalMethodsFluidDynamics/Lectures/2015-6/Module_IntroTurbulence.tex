@@ -610,7 +610,7 @@
             \item<1-> Time-step requirement: $\Delta t\sim \left(Re_{\tau}\right)^{1/2}\sim 10^{-5}$;
           \end{enumerate}
           \visible<1->{where $Re_{\tau}=\rho y u_{\tau}/\mu$ and $u_{\tau}=\sqrt{\sigma/\rho}$.}
-       \item<2-> DNS can only be used for {\it relatively low $Re$ and simple geometries};
+       \item<2-> DNS can only be used for \underline{\blue{\it relatively low $Re$ and simple geometries}}.
     \end{enumerate} 
 \end{frame}
 
@@ -641,7 +641,7 @@
 \begin{frame}
  \frametitle{Reynolds-Averaged Navier-Stokes (RANS) Equations}
     \begin{enumerate}\setcounter{enumi}{2}%
-       \item<1-> Leading to
+       \item<1-> Leads to
          \visible<1->{\begin{eqnarray}
                && \frc{\partial U_{i}}{\partial x_{i}} = 0 \label{RANS:Conty} \\
                && \cancelto{0}{\frc{\partial U_{i}}{\partial t}} + U_{j}\frc{\partial U_{i}}{\partial x_{j}} = -\frc{1}{\rho}\frc{\partial P}{\partial x_{i}} + \frc{\partial }{\partial x_{j}}\left(\frc{\mu}{\rho}\frc{\partial U_{i}}{\partial x_{j}}\right)+ \overwrite{\frc{\partial\left(-\overline{u_{i}^{\prime}u_{j}^{\prime}}\right)}{\partial x_{j}}}{Closure problem} \label{RANS:Momentum}
@@ -679,7 +679,7 @@
        \item<1-> However, if the fluctuations are correlated (due to continuity), the shear stresses will be non-zero;
        \item<2-> The main aim of \blue{turbulence models} is to develop computational framework for accurately predict Reynolds stresses and the scalar transport terms;
        \item<2-> This allows the computation of time-averaged flow quantities without calculating the actual quantities over long time periods (or several time-steps);
-       \item<3-> \blue{Turbulence models} is able to define the Reynolds stresses through:
+       \item<3-> \blue{Turbulence models} are able to define the \blue{Reynolds stresses} through:
            \begin{enumerate}
                 \item<3-> Bousinessq hypothesis: based on the relationship between Reynolds stresses and velocity gradients through the \blue{eddy viscosity} (similar to molecular viscosity). Assumes isotropic;
                 \item<3-> Reynolds Stress Transport Models: equations are derived from the NS equations with no isotropy assumption. More expensive to solve; 
@@ -730,7 +730,7 @@
             \begin{enumerate}
                \item<1-> Zero-equation/algebraic models: Mixing Length, Cebeci-Smith etc;
                \item<1-> One-equation models: Wolfsttein, Spalart-Allmaras, k-model, etc;
-               \item<2-> Two-equation models: \blue{$k-\epsilon$}, $k-\omega$, $k-\tau$, etc;
+               \item<2-> Two-equation models: \red{$k-\epsilon$}, $k-\omega$, $k-\tau$, etc;
                \item<3-> Three-equation models: $k-\epsilon-A$, etc;
                \item<3-> etc.
             \end{enumerate}          
@@ -747,10 +747,15 @@
             \visible<1->{\begin{equation}
                \frc{\partial k}{\partial t} + U_{j}\frc{\partial k}{\partial x_{j}} = \frc{\mu_{e}}{\rho}S^{2} - \epsilon + \frc{\partial}{\partial x_{j}}\left[\frc{1}{\rho}\left(\mu+\frc{mu_{e}}{\sigma_{k}}\right)\frc{\partial k}{\partial x_{j}}\right]
             \end{equation}}
-       \item<2-> The $\epsilon$ equation can be obtained from NS equations     
+       \item<2-> $\epsilon$ equation:     
             \visible<2->{\begin{equation}
                \frc{\partial \epsilon}{\partial t} + U_{j}\frc{\partial \epsilon}{\partial x_{j}} = \frc{\epsilon}{k}\left(C_{1\epsilon}\frc{\mu_{e}}{\rho}S^{2}-C_{2\epsilon}\right) + \frc{\partial}{\partial x_{j}}\left[\frc{1}{\rho}\left(\mu+\frc{\mu_{e}}{\sigma_{\epsilon}}\right)\frc{\partial \epsilon}{\partial x_{j}}\right]
-            \end{equation}}  
+            \end{equation}}
+       \item<2-> where 
+               \visible<2->{\begin{displaymath}
+                     \mu_{e} = \rho C_{\mu} \frc{k^{2}}{\epsilon}.
+               \end{displaymath}}  
+      \item<2-> with 5 constants: $\sigma_{k}$, $\sigma_{\epsilon}$, $C_{1\epsilon}$, $C_{2\epsilon}$ and $C_{\mu}$.
     \end{enumerate} 
 \end{frame}
 
@@ -769,20 +774,12 @@
 %\subsection{Bibliography} 
 \begin{frame}
  \frametitle{Suggested References}
-  Literature relevant for this course:
-  \begin{enumerate}[(a)]\scriptsize
-   \item J.H. Ferziger, M. Peric (1999) `Computational Methods for Fluid Dynamics', Springer.
-   \item R.H. Pletcher, J.C. Tannehill, D.A. Anderson (2013) `Computational Fluid Mechanics and Heat Transfer', CRC Press.
-   \item K.M. Al-Malah (2013) `MATLAB -- Numerical Methods with Chemical Engineering Applications, McGraw Hill Education.
-   \item P. Wesseling (2000) `Principles of Computational Fluid Dynamics', Springer.
-   \item S.Middleman (1998) `An Introduction to Fluid Dynamics: Principles of Analysis and Design', Wiley Press.
-   \item P.S. Bernard (2015) `Fluid Dynamics', Cambridge University Press.
-   \item K. Atkinson (1989) `An Introduction to Numerical Analysis', Wiley, 2$^{nd}$ Edition.
-   \item N.S. Asaithambi (1995) $\lq$Numerical Analysis: Theory and Practice', Harcourt College Pub.
-   \item T.J. Chung (2002) $\lq$Computational Fluid Dynamics', Cambridge University Press.
-   \item \href{http://www.cfd-online.com/Wiki/Main_Page}{CFD Online (http://www.cfd-online.com/Wiki/Main$\_$Page)}
-   \item W.H. Press, S.A. Teukolsky, W.T Vetterling, B.P. Flannery (2007) \href{http://www.nr.com/oldverswitcher.html}{`Numerical Recipes: The Art of Scientific Computing'}, 3$^{rd}$ Edition, Cambridge University Press.
-   \item K.J. Beers (2007) `Numerical Methods for Chemical Engineering -- Applications in Matlab', Cambridge University Press.
+  Literature relevant for this Lecture:
+  \begin{enumerate}[(a)]%\scriptsize
+   \item S.B. Pope (2000) `Turbulent Flows', Cambridge University Press.
+   \item J.L. Lumley and H. Tennekes (1999) `A First Course in Turbulence', MIT Press.
+   \item H. Schlichting and K. Gersten (2000)`Boundary Layer Theory', Springer.
+   \item P.A. Davidson (2004) `Turbulence: An Introduction for Scientists and Engineers', Oxford University Press.
   \end{enumerate}
 \end{frame}
 
