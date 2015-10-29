@@ -11,8 +11,8 @@
 %Normal document mode%
 %\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
-\documentclass[10pt,compress,handout]{beamer}
-%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
+%\documentclass[10pt,compress,handout]{beamer}
+\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
 
 \renewcommand{\insertframenumber}{\theframenumber}
 \renewcommand{\theframenumber}{\thesection-\arabic{framenumber}}
@@ -143,7 +143,7 @@
 }
 
 %\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
-%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
 
 %%%%% Color settings
 \usepackage{color}
@@ -546,9 +546,9 @@
 \begin{frame}
   \frametitle{Fugacity and Fugacity Coefficient in Pure Species}
   \begin{enumerate}%\setcounter{enumi}{2}
-      \item<1-> In Module we derived \blue{chemical potential, $\mu$} and \blue{fugacity, $f$} for pure species and mixtures,
+      \item<1-> In Module 4 we derived \blue{chemical potential, $\mu$} and \blue{fugacity, $f$} for pure species and mixtures,
           \visible<1->{\begin{displaymath}
-             G_{i} = \Gamma_{i}\left(T\right)+ RT\ln f_{i}, \;\;\;\; f^{\text{ig}}_{i} = P 
+             \frc{G_{i}}{n} = \mu_{i} = RT\ln f_{i} + \mathcal{C}_{i}, \;\;\;\; f^{\text{ig}}_{i} = P 
           \end{displaymath}} 
       \item<2-> The fugacity coefficient is defined as \blue{$\phi_{i}=\frc{f_{i}}{P}$};
       \item<3-> Now we can re-define the \blue{residual Gibbs energy}:
@@ -571,7 +571,7 @@
   \begin{enumerate}%\setcounter{enumi}{2}
       \item<1-> Saturated vapour and saturated liquid in equilibrium:
           \visible<1->{\begin{displaymath}
-             G_{i}^{k} = \Gamma_{i}\left(T\right)+ RT\ln f_{i}^{k}\;\;\;\left(\text{ with } k=\text{liquid, vapour}\right)\;\;\text{ and } f_{i}^{\text{v}}=f_{i}^{\text{l}}=f_{i}^{\text{sat}}
+             G_{i}^{k} = \mathcal{C}_{i}\left(T\right)+ RT\ln f_{i}^{k}\;\;\;\left(\text{ with } k=\text{liquid, vapour}\right)\;\;\text{ and } f_{i}^{\text{v}}=f_{i}^{\text{l}}=f_{i}^{\text{sat}}
           \end{displaymath}} 
           \visible<2->{\blue{The vapour and liquid phases of pure chemical species are in equilibrium when both phases have the same temperature, pressure and} \red{fugacity}.} 
       \item<3-> Fugacity of pure liquid:
@@ -593,7 +593,7 @@
   \begin{enumerate}%\setcounter{enumi}{2}
       \item<1-> For species $i$ in a mixture of \blue{real gases} or \blue{liquids (solution)}:
           \visible<1->{\begin{displaymath}
-             \mu_{i} = \Gamma_{i}\left(T\right) + RT\ln\overline{f}_{i}
+             \mu_{i} = \mathcal{C}_{i}\left(T\right) + RT\ln\overline{f}_{i}
           \end{displaymath}
           where $\overline{f}_{i}$ represents the fugacity of component $i$ in the mixture.} 
       \item<2-> Therefore, for an arbitrary number of phases $\left(\mathcal{P}=\alpha,\beta,\cdots,\pi\right)$ in equilibrium:
@@ -629,7 +629,7 @@
           \end{eqnarray}}
       \item<3-> From last module, \blue{Lewis-Randall rule}:
           \visible<3->{\begin{displaymath}
-             \mu_{i}=\Gamma_{i}\left(T\right)+RT\ln\overline{f}_{i} \;\;\text{ and } \;\; G_{i}=\Gamma_{i}\left(T\right)+RT\ln f_{i}
+             \mu_{i}=\mathcal{C}_{i}\left(T\right)+RT\ln\overline{f}_{i} \;\;\text{ and } \;\; G_{i}=\mathcal{C}_{i}\left(T\right)+RT\ln f_{i}
           \end{displaymath}
           led to 
           \begin{displaymath}
@@ -833,7 +833,7 @@
    \begin{enumerate}[(i)]
      \item Excess molar properties;
      \item Definition of activity,activity coefficient, fugacity, fugacity coefficient and chemical potential for pure species and mixtures;
-     \item Brief description of activity coefficient models currently used in simulator.
+     \item Brief description of activity coefficient models currently used in simulators.
    \end{enumerate}
 \end{frame}
 
