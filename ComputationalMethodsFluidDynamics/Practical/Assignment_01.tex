@@ -241,7 +241,11 @@
 \newcommand{\HT}{{\it Heat Transfer}}   
 \newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
 
-\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\frc}{\displaystyle\frac} 
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\purple}{\textcolor{purple}}
 
 \newlist{ExList}{enumerate}{1}
 \setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
@@ -276,8 +280,8 @@ In this assignment, laminar and turbulent jets will be simulated in a prescribed
 
           Air is injected through a narrow region of the left-hand side border (AB) with a prescribed inlet velocity. Boundary conditions can be summarised as (a) no flux is allowed across borders AD and BC and (b) Dirichlet radial fluid velocity at border (AB),
          \[ u_{x}( x=0, y, t) = \begin{cases}
-             u_{i} & \text{ if } \;\;\;0\leq y\leq 0.005 \text{ m}; \\
-             0 & \text{ elsewhere.}
+             1 m/s & \text{ if } \;\;\;0\leq y\leq 0.005 \text{ m}; \\
+             0 m/s & \text{ elsewhere.}
          \end{cases}\]  
          We can consider that, initially, the domain contains air at rest, i.e., $\underline{u}\left(\underline{x},t=0\right)=0$. Two case-scenarios will be analysed here, laminar and turbulent jets. Initial mesh and simulation setup can be downloaded from either MyAberdeen or \href{https://www.dropbox.com/s/d732xcpmyfkfqgy/FreeJet_Initial_Files.zip?dl=0}{{\bf here}}.
 
@@ -294,8 +298,8 @@ In this assignment, laminar and turbulent jets will be simulated in a prescribed
 %%% Task 1
 \item\label{Practical1:Task1} {\bf Laminar Free Jet}
   \begin{enumerate} 
-     \item Modify the fluid inlet velocity $\left(u_{i}\right)$ to 1 m.s$^{-1}$. Check if the flow is laminar;
-     \item Check for mesh-independence:
+     \item Check if the flow is laminar;
+     \item\label{Task1:MeshIndependenceCriteria} Check for mesh-independence:
         \begin{itemize}
             \item Perform the simulation with the current setup and plot {\it velocity magnitude} $\times$ {\it x-position} $\left(\mathbf{u}\times\mathbf{X}\right)$ along the centreline;
             \item Smoothly increase the mesh resolution (i.e., refine the mesh), rerun the simulation and plot the resulting $\mathbf{u}\times\mathbf{X}$;
@@ -303,14 +307,24 @@ In this assignment, laminar and turbulent jets will be simulated in a prescribed
             \item The solution is considered to be mesh-independent when there is no change in calculated fields as the grid is refined, i.e., no changes in the $\mathbf{u}\times\mathbf{X}$ plot;
         \end{itemize}
      \item From the simulation performed with the final mesh, plot $\left(\frc{\mathbf{u}}{\mathbf{u}_{\text{max}}}\times \frc{\mathbf{X}}{\mathbf{L}}\right)$, where $\mathbf{u}_{\text{max}}$ and $\mathbf{L}$ are the maximum velocity and total length of the domain, respectively;
-     \item Repeat the simulation using 1$^{\text{st}}$-order accurate scheme for the momentum equation.
+     \item\label{Task1:StreamFunction} Also, obtain the contour plot of the stream function;
+     \item Repeat the simulation using 1$^{\text{st}}$-order accurate scheme for the momentum equation and compare the plots.
   \end{enumerate}
-  
-  \begin{enumerate}
-     \item Mesh quality
-     \item flow profiles
-     \item plots etc
+
+%%% Task 2
+\item\label{Practical1:Task2} {\bf Turbulent Free Jet}
+  \begin{enumerate} 
+     \item Using the same initial simulation set-up used in~\ref{Practical1:Task1} (including fluid density, inlet velocity and diameter), modify the simulation conditions to ensure Reynolds number of 10$^{5}$;
+     \item Use the standard $\kappa-\epsilon$ turbulence model. The $\kappa-\epsilon$ terms must be specified on all boundaries; 
+     \item In {\it Solution Setup} $\rightarrow$ {\it Boundary Conditions}, edit both {\it Farfield} and {\it Inlet boundaries}. Select {\it `Intensity and Hydraulic Diameter'} as the turbulence specification method;
+     \item At the {\it Inlet 1} windows, modify the {\it Specification Method} for {\it Turbulence} to \blue{\it Intensity and Hydraulic Diameter}. The intensity should be $I=0.037942$, and the hydraulic diameter should be $d_{H}=0.01 m$;
+     \item At the {\it Inlet 2} and {\it Farfield} boundaries windows, modify the {\it Specification Method} for {\it Turbulence} to \blue{\it Intensity and Hydraulic Diameter}. Both should be zero;
+     \item In the {\it `Monitors'}, edit the residual monitors and ensure that the residual criteria for both $\kappa$ and $\epsilon$ are 10$^{-6}$;
+     \item Repeat steps \red{(ii)}-\red{(iv)} from~\ref{Practical1:Task1};
+     \item Plot the turbulent kinetic energy along the centreline, i.e., $\kappa\times\mathbf{X}$;
+     \item Plot $\left(\frc{\mathbf{u}}{\mathbf{u}_{\text{max}}}\times \frc{\mathbf{X}}{\mathbf{L}}\right)$ for $Re=\left[ 10^{2}\; 10^{3}\; 10^{4}\; 10^{5}\; 10^{6}\right]$.
   \end{enumerate}
+
 \end{enumerate}  
 
 
@@ -349,15 +363,15 @@ In this assignment, laminar and turbulent jets will be simulated in a prescribed
   \begin{enumerate} 
     \item A brief introduction of
        \begin{enumerate}%[(a)]
-          \item Flow conservative and constitutive equations used in the model developed here;
-          \item Summary of finite volume methods;
-          \item Turbulence models including the $\kappa$-$\epsilon$ model used here.   
+          \item Flow conservative and constitutive equations used in the performed simulations;
+          \item Summary of finite volume methods and solution methods used in the simulations;
+          \item Overview of Turbulence models including the $\kappa$-$\epsilon$ model;    
        \end{enumerate}
-    \item Summary of simulation set-up including,
+    \item Summary of all simulation set-ups including,
        \begin{enumerate}% [(a)]
           \item Initial and boundary conditions;
           \item Mesh information/quality;
-          \item Numerical scheme and sub-models used.
+          \item Numerical schemes and sub-models used.
        \end{enumerate}
     \item Summary of the numerical results (incl. figures displaying the data), findings, interpretation and analysis along with concluding remarks.
   \end{enumerate}
