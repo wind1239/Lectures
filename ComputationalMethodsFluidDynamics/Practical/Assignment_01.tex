@@ -283,11 +283,13 @@ In this problem, laminar and turbulent jets will be simulated in a prescribed 2-
              1 m/s & \text{ if } \;\;\;0\leq y\leq 0.005 \text{ m}; \\
              0 m/s & \text{ elsewhere.}
          \end{cases}\]  
-         We can consider that, initially, the domain contains air at rest, i.e., $\underline{u}\left(\underline{x},t=0\right)=0$. Two case-scenarios will be analysed here, laminar and turbulent jets. Initial mesh and simulation setup can be downloaded from either MyAberdeen or \href{https://www.dropbox.com/s/d732xcpmyfkfqgy/FreeJet_Initial_Files.zip?dl=0}{{\bf here}}.
+         We can consider that, initially, the domain contains air at rest, i.e., $\underline{u}\left(\underline{x},t=0\right)=0$. Two case-scenarios will be analysed here, laminar and turbulent jets. Initial mesh and simulation setup can be downloaded from either {\it MyAberdeen}.
+
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=15.cm,height=8.cm,clip]{./Pics/Sketch_Prob1b}
+%\includegraphics[width=15.cm,height=8.cm,clip]{./Pics/Sketch_Prob1b}
+\includegraphics[width=15.cm,height=8.cm,clip]{./Pics/mesh.png}
 \caption{Initial sketch of the free jet simulation problem. }
 \label{EG501V_Assignment:Sketch1}
 \end{center}
@@ -315,13 +317,13 @@ In this problem, laminar and turbulent jets will be simulated in a prescribed 2-
 \item\label{Practical1:Task2} {\bf Turbulent Free Jet}
   \begin{enumerate} 
      \item Using the same initial simulation set-up used in~\ref{Practical1:Task1} (including fluid density, inlet velocity and diameter), modify the simulation conditions to ensure Reynolds number of 10$^{5}$;
-     \item Use the standard $\kappa-\epsilon$ turbulence model. The $\kappa-\epsilon$ terms must be specified on all boundaries; 
+     \item Use the standard $k-\epsilon$ turbulence model. The $k-\epsilon$ terms must be specified on all boundaries; 
      \item In {\it Solution Setup} $\rightarrow$ {\it Boundary Conditions}, edit both {\it Farfield} and {\it Inlet boundaries}. Select {\it `Intensity and Hydraulic Diameter'} as the turbulence specification method;
-     \item At the {\it Inlet 1} windows, modify the {\it Specification Method} for {\it Turbulence} to \blue{\it Intensity and Hydraulic Diameter}. The intensity should be $I=0.037942$, and the hydraulic diameter should be $d_{H}=0.01 m$;
+     \item At the {\it Inlet 1} windows, modify the {\it Specification Method} for {\it Turbulence} to \blue{\it Intensity and Hydraulic Diameter}. The intensity should be $I=5\%$, and the hydraulic diameter should be $d_{H}=0.01 m$;
      \item At the {\it Inlet 2} and {\it Farfield} boundaries windows, modify the {\it Specification Method} for {\it Turbulence} to \blue{\it Intensity and Hydraulic Diameter}. Both should be zero;
-     \item In the {\it `Monitors'}, edit the residual monitors and ensure that the residual criteria for both $\kappa$ and $\epsilon$ are 10$^{-6}$;
+     \item In the {\it `Monitors'}, edit the residual monitors and ensure that the residual criteria for both $k$ and $\epsilon$ are 10$^{-6}$;
      \item Repeat steps \red{(ii)}-\red{(iv)} from~\ref{Practical1:Task1};
-     \item Plot the turbulent kinetic energy along the centreline, i.e., $\kappa\times\mathbf{X}$;
+     \item Plot the turbulent kinetic energy along the centreline, i.e., $k\times\mathbf{X}$;
      \item Plot $\left(\frc{\mathbf{u}}{\mathbf{u}_{\text{max}}}\times \frc{\mathbf{X}}{\mathbf{L}}\right)$ for $Re=\left[ 10^{2}\; 10^{3}\; 10^{4}\; 10^{5}\; 10^{6}\right]$.
   \end{enumerate}
 
@@ -334,30 +336,78 @@ In this problem, laminar and turbulent jets will be simulated in a prescribed 2-
 %%% 
    \item\label{Problem2} {\bf Simulation of Idealised 2-D Waste Flow Discharge}
 
-A group of engineers and consultants are designing a new industrial unit near the coast. Cold sea water is used as cooling fluid for all heat exchangers and condensers of the unit, and then returned back to the sea through a pipeline of XXX of diameter ($\overline{EF}$ in Fig.~\ref{EG501V_Assignment:Sketch2}) at XXX kg/s (properties of wasted and sea water are assumed the same, $\rho=$ XXX kg/m$^{3}$, $\mu=$ XXX cP). 
+A team of engineers and consultants are designing a new industrial unit near the coast. Cold sea water is used as cooling fluid for main process and all heat exchangers and condensers of the unit, and then returned back to the sea through a pipeline of 0.5 m of diameter ($\overline{EF}$ in Fig.~\ref{EG501V_Assignment:Sketch2}) at 700 m$^{3}$/h (properties of wasted and sea water are assumed the same, $\rho=$ 1000 kg/m$^{3}$, $\mu=$ 0.001 kg/(m.s)). The seabed consists of sand with `roughness height' (mean diameter, $D_{50}$) of 0.001 m.
  
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=15.cm,height=8.cm,clip]{./Pics/Sketch_Prob2b}
-\caption{Initial sketch of the waste flow discharge simulation problem. }
-\label{EG501V_Assignment:Sketch2}
+\includegraphics[width=13.cm,height=8.cm,clip]{./Pics/Sketch_Prob2b}\vspace{-1.5cm}
+\caption{Initial sketch of the waste flow discharge simulation problem. The dimensions are: $\overline{AB}=$ 50.0 m, $\overline{BC}=$ 8.0 m, $\overline{DE}=$ 7.5 m, $\overline{EF}=$ 0.5 m and $\overline{AF}=$ 0.0 m.} \label{EG501V_Assignment:Sketch2}
 \end{center}
 \end{figure}
 
+The team decided to simplify the problem assuming that the wasted water is introduced through $\overline{\text{EF}}$ as fully developed turbulent flow with $Re=$ 5$\times$10$^{5}$. Boundary conditions may be summarised as, 
+\begin{itemize}
+  \item Non-slip (wall) condition in $\overline{\text{AB}}$;
+  \item Outflow (pressure) condition in  $\overline{\text{BC}}$;
+  \item Free inflow condition in  $\overline{\text{CD}}$, $\overline{\text{AF}}$ and $\overline{\text{ED}}$;
+  \item Inlet velocity profile in $\overline{\text{EF}}$ of
+    \begin{equation}
+        \left.u_{x}\right|_{\overline{\text{EF}}} = 1.1437 u^{\text{aver}} \left(1 - \sqrt{y^{2}}\right)^{1/n} \label{Prob2:TurbVelProfileEqn}
+    \end{equation}
+    where $u^{\text{aver}}$ is the time-average velocity calculated from the volumetric flow rate and $n=7$. You can include this velocity profile through the {\it User-Defined Function} (UDF) functionality within {\it ANSYS}. {\it UDF}'s allow user to prescribe spatial- and/or time-dependent flow parameter conditions:
+    \begin{itemize}
+        \item Download and open the {\it C}-based code available in {\it MyAberdeen} -- {\it UDF$\_$turbulent$\_$velocity$\_$profile.c}. The code describes the imposed velocity profile, Eqn.~\ref{Prob2:TurbVelProfileEqn};
+        \item Modify the code to take into account the time-averaged velocity (currently, $U$ is defined as `{\it xxx}');
+        \item In {\it Fluent} Toolbar, select: {\it Define} $\rightarrow$ {\it User-Defined} $\rightarrow$ {\it Functions} $\rightarrow$ {\it Interpreted};
+        \item In the {\it `Source File Name'} (within the {\it Interpreted UDFs} windows), browse and select the C-based code file. {\it `CPP Command Name'} and {\it `Stack Size'}  should be kept as {\it cpp} and 10000, respectively. Keep the two remaining box-options un-ticked;
+        \item Click on 'Interpret'. Messages will be displayed in the {\it Fluent} terminal. Make sure that there are {\bf \underline{no error messages}}.
+        \item When setting up the inlet velocity (within {\it `Boundary Conditions'}) to the appropriate {\it `zone'} name, select {\it Momentum} $\rightarrow$ {\it Velocity Specification Method: Magnitude and Direction} $\rightarrow$ {\it Velocity Magnitude}. Change from {\it `constant'} to {\it `udf inlet$\_$x$\_$velocity'}.
+    \end{itemize}
+\end{itemize} 
+The team also assumed that the fluid in the simulated domain was at rest, i.e., $\underline{u}=0$.
+  
+
+
 \begin{enumerate}[label=\bfseries Task \arabic*]
 
-\item\label{Practical2:Task1} {\bf Assessing the impact of waste flow discharge in seabed}
+\item\label{Practical2:Task1} {\bf Assessing the Impact of Waste Flow Discharge in the Seabed}
   \begin{enumerate}
-     \item Mesh quality
-     \item flow profiles
-     \item Energy dissipation analysis
-     \item plots etc
+  \item Build up the simulation suite (geometry, mesh, boundary and initial conditions, and solution methods) for the domain sketched in Fig.~\ref{EG501V_Assignment:Sketch2};
+     \item Investigate the grid resolution that leads to mesh-independent solution. How many cells and nodes have you used?
+     \item From the simulation performed with this mesh,
+         \begin{enumerate}
+            \item Plot {\it velocity magnitude} $\times$ {\it x-position} along $y =\frc{1}{2}\cdot$ ({\it pipe diameter});
+            \item Obtain the contour plot of the stream function;
+            \item Plot $y \;\times$ {\it velocity magnitude};
+            \item Plot $y^{+}\;\times$ {\it x-position};
+            \item Plot {\it wall shear stress} $\times$ {\it x-position} along $\overline{\text{AB}}$;
+         \end{enumerate}
   \end{enumerate}
 
 
-\item\label{Practical2:Task2} {\bf Design the discharge}
+\item\label{Practical2:Task2} {\bf Design the Discharge Flow}
+
+In addition to the boundary and initial conditions described previously, assume that the fluid in the main domain, $T\left(\underline{x}\right)$, is at uniform temperature of 12$^{\circ}$C, and the inlet flow (waste water) is at 80$^{\circ}$C. Thermal equations are solved in {\it Fluent} by enabling {\it `Energy'} in {\it `Models'} and adding the appropriate boundary and initial conditions in {\it `Boundary Conditions'} and {\it 'Solution Initialization'} options.
+
+Due to environmental laws, any flow discharge in body water should be constraint to avoid damage to the seabed. Two main conditions are:
+   \begin{itemize}
+        \item Turbulent shear stress, $\tau$, along the seabed should be smaller than a critical shear stress for the sediment, $\tau_{\text{crit}}$,
+            \begin{displaymath}
+               \theta_{\text{crit}} = \frc{\tau_{\text{crit}}}{\left(\rho_{s}-\rho\right)g D_{50}} = 0.05,
+            \end{displaymath}
+             where $\rho_{s}=$ 2650 kg/m$^{3}$ is the density of the sand particles;
+        \item Sea water temperature distribution at a distance $L$ from the discharge coordinates,
+         \[ T \begin{cases}
+             \leq 30^{\circ}C & \text{ at } \;\;\; 20 \leq L \leq 25 m; \\
+             \leq 25^{\circ}C & \text{ at } \;\;\; 35 \leq L \leq 40 m.
+         \end{cases}\]  
+   \end{itemize}
+
+Using the simulation set-up developed in~\ref{Practical2:Task1}, modify the design of the waste water discharge system  to ensure that the conditions above are met. A few potential candidates are 
    \begin{enumerate}
-      \item temperature and/or flow rate in a  pipe extension to produce a required temperature/u
+      \item Pipe diameter $\left(\overline{\text{EF}}\right)$;
+      \item Pipe height $\left(\overline{\text{AF}} > 0\right)$;
+      \item Inlet temperature may be reduced to up to 45$^{\circ}$C by pre-cooling the flow stream before discharge. Also, thermal boundary conditions can be changed;
    \end{enumerate}
 
 \end{enumerate}
@@ -367,21 +417,21 @@ A group of engineers and consultants are designing a new industrial unit near th
 
 {\bf Deliverables:}
 \begin{enumerate}
-  \item Write a report containing:
+  \item Write a report containing (\underline{maximum of 20 pages} including cover page, table of contents, bibliography and appendices) and :
   \begin{enumerate} 
     \item A brief introduction of
        \begin{enumerate}%[(a)]
           \item Flow conservative and constitutive equations used in the performed simulations;
           \item Summary of finite volume methods and solution methods used in the simulations;
-          \item Overview of Turbulence models including the $\kappa$-$\epsilon$ model;    
+          \item Overview of Turbulence models including the $k$-$\epsilon$ model;    
        \end{enumerate}
     \item Summary of all simulation set-ups including,
        \begin{enumerate}% [(a)]
           \item Initial and boundary conditions;
           \item Mesh information/quality;
-          \item Numerical schemes and sub-models used.
+          \item Numerical schemes (i.e., solution methods) and sub-models used.
        \end{enumerate}
-    \item Summary of the numerical results (incl. figures displaying the data), findings, interpretation and analysis along with concluding remarks.
+    \item {\bf Summary of the numerical results (incl. figures displaying the data), findings, interpretation and \underline{analysis} along with concluding remarks.}
   \end{enumerate}
 %
 \item {\bf Prepare the report as \underline{PDF file} and submit it through {\it Turnitin} (with the appropriate plagiarism cover sheet) by Sunday, November 29$^{th}$ 2015, 23:59h at the latest. Also, submit a hard-copy of the report to the UG office by November 30$^{th}$, 15.00h.}
