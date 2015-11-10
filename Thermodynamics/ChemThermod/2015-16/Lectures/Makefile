@@ -8,7 +8,8 @@ default:	Module_01.pdf Tutorial_01.pdf \
 		Module_05.pdf Tutorial_05.pdf \
 		Module_06.pdf Tutorial_06.pdf \
 		Module_07.pdf Tutorial_07.pdf \
-		EquationsList.pdf FeedBack_2015-16.pdf
+		EquationsList.pdf FeedBack_2015-16.pdf \
+		Extra_Examples.pdf
 
 Module_01.pdf:		Module_01.tex
 Tutorial_01.pdf:	Tutorial_01.tex
@@ -28,6 +29,7 @@ Tutorial_06.pdf:	Tutorial_06.tex
 Module_07.pdf:		Module_07.tex
 Tutorial_07.pdf:	Tutorial_07.tex
 FeedBack_2015-16.pdf:	FeedBack_2015-16.tex
+Extra_Examples.pdf:	Extra_Examples.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
