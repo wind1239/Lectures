@@ -79,7 +79,7 @@
 %%%
 %%% Headers and Footers
 \lhead[] {\text{\small{EX3029 -- Chemical Thermodynamics}}} 
-\rhead[] {{\text{\small{Tutorial 06}}}}
+\rhead[] {{\text{\small{Extra-Examples - Module 06}}}}
 %\chead[] {\text{\small{Session 2012/13}}} 
 \lfoot[]{Dr Jeff Gomes}
 %\cfoot[\thepage]{\thepage}
@@ -268,71 +268,111 @@
 
 
 
-\begin{enumerate}[label=\bfseries Problem \arabic*:]
+\begin{enumerate}[label=\bfseries Example \arabic*]
 
 %%%
-%%% Johannes T08E01
+%%% Nguyen (Ex 5.3.1)  
 %%%
-\item\label{T08E01}Develop expressions for the mole fractions of reacting species as function of the reaction coordinate, $\varepsilon$, for:
-\begin{enumerate}
-\item A system initially containing 2 moles of NH$_{3}$ and 5 moles of O$_{2}$:
-\begin{center}
-$4 NH_{3} + 5 O_{2} \Longleftrightarrow 4 NO + 6 H_{2}O$
-\end{center}
-\item A system initially containing 3 moles of H$_{2}$S and 5 moles of O$_{2}$:
-\begin{center}
-$2 H_{2}S + 3 O_{2} \Longleftrightarrow 2 H_{2}O + 2 SO_{2}$
-\end{center}
-\item A system initially containing 3 moles of NO$_{2}$, 4 moles of NH$_{3}$ and 1 mole of N$_{2}$:
-\begin{center}
-$6 NO_{2} + 8 NH_{3} \Longleftrightarrow 7 N_{2} + 12 H_{2}O$
-\end{center}
-\end{enumerate}
-
-%%%
-%%% Johannes Lecture Example
-%%%
-\item\label{LectExample} In the esterification reaction of acetic acid with ethanol at 100$^{\circ}$C,
+\item\label{Example:1} Find the bubble point pressure and vapor composition for a liquid mixture of 41.2 mol-$\%$ ethanol (1) and n-hexane (2) at 331 K. Given the Van Laar activity model equations:
 \begin{displaymath}
-CH_{3}COOH + C_{2}H_{5}OH  \Longleftrightarrow  CH_{3}COOC_{2}H_{5} + H_{2}O,
+\ln\gamma_{1} = \frc{A}{\left[1+\frc{A x_{1}}{B x_{2}}\right]^{2}}\;\;\;\; \ln\gamma_{2} = \frc{B}{\left[1+\frc{B x_{2}}{A x_{1}}\right]^{2}}\
 \end{displaymath}
-calculate the mass fraction of ethyl acetate given that initially there was 1 mole of acetic acid and ethanol. The reaction enthalpy and Gibbs energy at standard state (25$^{\circ}$C and 1 atm) are $\Delta H_{298}^{\circ}=-3640$ J and $\Delta G_{298}^{\circ}=-4650$ J.
-
-%%%
-%%% Johannes T0802
-%%%
-\item\label{T0802} Give the equation for the stoichiometric combustion of 1 mole of general hydrocarbons, C$_{x}$H$_{y}$ with O$_{2}$ producing CO$_{2}$ and water. Develop expressions for gas phase mole fractions of each species as a function of the reaction coordinate. Assume that initially 1 mole of hydrocarbon and the stoichiometric amount of oxygen for complete conversion are present. 
-
-%%%
-%%% Johannes T0803
-%%%
-\item\label{T0803} In a reactor, 2 moles of CO$_{2}$, 5 moles of H$_{2}$ and 1 mole of CO are mixed and start to undergo the following reactions:
-\begin{eqnarray}
-CO_{2} + 3 H_{2} &\Longleftrightarrow& CH_{3}OH + H_{2}O \nonumber \\
-CO_{2} + H_{2} &\Longleftrightarrow& CO + H_{2}O\nonumber
-\end{eqnarray}
-Develop expressions for the mole fractions of the reacting species as functions of the reaction coordinates for the two reactions.
-
-%%%
-%%% Johannes T0901
-%%%
-\item\label{T0901} For the ammonia synthesis reaction,
+with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i}^{\text{sat}}\text{ in kPa and } T\text{ in K}\right)$ can be expressed as,
 \begin{displaymath}
-\frc{1}{2} N_{2}+ \frc{3}{2} H_{2} \Longleftrightarrow NH_{3}
-\end{displaymath}
-with 0.5 mole of N$_{2}$ and 1.5 moles of H$_{2}$ as the initial amounts of reactants and with the assumption that the equilibrium mixture is an ideal gas, show that
-\begin{displaymath}
-\varepsilon_{e} = 1 \pm \left( 1 + 1.299 K \frc{P}{P^{\circ}}\right)^{-0.5}
+   \ln P_{1}^{\text{sat}} = 16.1952 - \frc{3423.53}{T-55.7152} \;\;\;\; \ln P_{2}^{\text{sat}} = 14.0568 - \frc{2825.42}{T-42.7089}
 \end{displaymath}
 
+\bigskip
+
+{\large{\bf Solution:}}
+
+   \begin{itemize}
+      \item At 331 K,  $P_{1}^{\text{sat}}=$ 42.90 kPa and $P_{1}^{\text{sat}}=$ 70.54 kPa.
+      \item For the liquid solution with $x_{1}=0.412$ and $x_{2}=1-x_{1}=0.588$, the Van Laar equation,
+         \begin{eqnarray}
+            \ln\gamma_{1} = \frc{2.409}{\left[1+\frc{2.409 x_{1}}{1.970 x_{2}}\right]^{2}} & \Longrightarrow & \gamma_{1} = 2.0111 \nonumber \\
+            \ln\gamma_{2} = \frc{1.790}{\left[1+\frc{1.790 x_{1}}{2.409 x_{1}}\right]^{2}} & \Longrightarrow & \gamma_{2} = 1.5244 \nonumber
+         \end{eqnarray}
+      \item Partial pressure of ethanol and n-hexane are obtained from,
+         \begin{displaymath}
+             P_{1} = x_{1}\gamma_{1}P_{1}^{\text{sat}} = 35.55 kPa,\;\;\;P_{2} = x_{2}\gamma_{2}P_{2}^{\text{sat}} = 63.22 kPa
+         \end{displaymath}
+      \item The bubble point pressure is
+         \begin{displaymath}
+             {\bf P = P_{1} + P_{2} = 98.77 kPa}
+         \end{displaymath}
+      \item The composition of the vapour phase is
+         \begin{displaymath}
+            {\bf y_{1} = \frc{P_{1}}{P} = 0.3599}\;\;\text{ and }\;\; {\bf y_{2} = \frc{P_{2}}{P} = 0.6401}
+         \end{displaymath}
+   \end{itemize}
+\clearpage
+
+
 %%%
-%%% Johannes T0902
+%%% Nguyen (Ex 5.3.2)  
 %%%
-\item\label{T0902} Assuming that all species and their mixtures are ideal gases, derive an equation for the Gibbs energy as a function of the reaction coordinate for the reaction below at 1000K.
+\item\label{Example:2} Calculate the bubble point temperature and vapor composition for a liquid mixture of 1 mol-$\%$ acetone (1) and water (2) at 101.3 KPa. Given the Wilson activity model:
+   \begin{eqnarray}
+       &&\ln\gamma_{1} = -\ln\left(x_{1}+x_{2}C_{12}\right) + x_{2}\left(\frc{C_{12}}{x_{1}+x_{2}C_{12}}-\frc{C_{21}}{x_{2}+x_{1}C_{21}}\right) \nonumber \\
+       &&\ln\gamma_{2} = -\ln\left(x_{2}+x_{1}C_{21}\right) + x_{1}\left(\frc{C_{21}}{x_{2}+x_{1}C_{21}}-\frc{C_{12}}{x_{1}+x_{2}C_{12}}\right) \nonumber
+   \end{eqnarray}
+   with $C_{12}=$0.1173 and $C_{21}=$0.4227. Also, the vapour pressure $\left(\text{with } P_{i}^{\text{sat}}\text{ in kPa and } T\text{ in K}\right)$ is given by,
 \begin{displaymath}
-H_{2} + CO_{2} \Longleftrightarrow H_{2}O + CO
+   \ln P_{1}^{\text{sat}} = 14.71712 - \frc{2975.95}{T-34.5228} \;\;\;\; \ln P_{2}^{\text{sat}} = 16.5362 - \frc{3985.44}{T-38.9974}
 \end{displaymath}
-Given $\Delta G_{f}^{\circ}$ $\left(\text{J.gmol}^{-1}\right)$ at 1000K: (a) H$_{2}$O: -192420, (b) CO: -200240 and (c) CO$_{2}$: -395790.
+
+
+\bigskip
+
+{\large{\bf Solution:}}
+
+   \begin{itemize}
+      \item Since the vapour mole fractions are unknown, we should start from the main composition constraint, $\sum\limits_{i=1}^{2}y_{i} = 1$.  
+      \item Replacing $y_{i}=x_{i}\gamma_{i}P_{1}^{\text{sat}}/P$,
+         \begin{displaymath}
+            x_{1}\gamma_{1}P_{1}^{\text{sat}} + x_{2}\gamma_{2}P_{2}^{\text{sat}} = P
+         \end{displaymath}
+      \item For $x_{1} = 0.01$, $x_{2}=0.99$, $C_{12}=$0.1173 and $C_{21}=$0.4227, $\gamma_{1}=$ 13.0695 and $\gamma_{2}=$ 1.0007
+      \item With these numerical values, we can replace into the equation above,
+         \begin{displaymath}
+            (0.01)(13.0695)\exp\left[14.71712 - \frc{2975.95}{T-34.5228}\right] + (0.99)(1.007)\exp\left[16.5362 - \frc{3985.44}{T-38.9974}\right] =  101.3
+         \end{displaymath}
+         Resulting in {\bf $T=$ 361.71 K} -- the bubble point temperature of this acetone-water mixture.
+      \item At this temperature, the saturation pressure of acetone and water are $P_{1}^{\text{sat}}=$ 276.32 kPa and $P_{2}^{\text{sat}}=$ 65.78 kPa, respectively.
+      \item The vapour composition is
+         \begin{displaymath}
+             \mathbf{y_{1} =\frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P} = 0.3565}\;\;\;\text{ and }\;\;\;\; \mathbf{y_{2} = 0.6435}
+         \end{displaymath} 
+   \end{itemize}
+\clearpage
+
+%%%
+%%% Nguyen (Ex 5.3.2)  
+%%%
+\item\label{Example:3} Calculate the dew point temperature and liquid composition for a vapour mixture of 40 mol-$\%$ acetone (1) and water (2) at 101.3 KPa. Use the Wilson model parameters from \ref{Example:2}.
+
+
+\bigskip
+
+{\large{\bf Solution:}}
+
+   \begin{itemize}
+      \item Now, the mole fraction of the liquid phase is unknown, with constraint $\sum\limits_{i=1}^{2} x_{i}=1$, and similar to the previous problem
+          \begin{displaymath}
+             \sum\limits_{i=1}^{2} = x_{1} + x_{2} = \frc{y_{1}P}{\gamma_{1}P_{1}^{\text{sat}}} +\frc{y_{2}P}{\gamma_{2}P_{2}^{\text{sat}}} = 1  
+          \end{displaymath}
+      \item However, as the {\bf activity coefficient does depend on the composition of the liquid phase}, we do need to use an iterative method;
+      \item As a first estimative, let's assume $x_{1}=0.10$ and $x_{2}=0.90$. Replacing in the Wilson model leads to $\gamma_{1}=5.4291$ and $\gamma_{2}=1.0484$. 
+      \item Solving
+         \begin{eqnarray}
+            && y_{1} + y_{2} = 1 \Longrightarrow \frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P} + \frc{x_{2}\gamma_{2}P_{2}^{\text{sat}}}{P} = 1 \nonumber \\
+            && (0.1)(5.4291)\exp\left[14.71712 - \frc{2975.95}{T-34.5228}\right] + (0.9)(1.0484)\exp\left[16.5362 - \frc{3985.44}{T-38.9974}\right] = 101.3
+         \end{eqnarray}
+      \item  
+
+   \end{itemize}
+
 \end{enumerate} 
 
 %{
