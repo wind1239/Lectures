@@ -242,7 +242,11 @@
 \newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
 
 \newcommand{\frc}{\displaystyle\frac}
-
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\purple}{\textcolor{purple}}
+ 
 \newlist{ExList}{enumerate}{1}
 \setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
 
@@ -287,11 +291,11 @@ with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i
 {\large{\bf Solution:}}
 
    \begin{itemize}
-      \item At 331 K,  $P_{1}^{\text{sat}}=$ 42.90 kPa and $P_{1}^{\text{sat}}=$ 70.54 kPa.
+      \item At 331 K,  $P_{1}^{\text{sat}}=$ 42.90 kPa and $P_{2}^{\text{sat}}=$ 70.54 kPa.
       \item For the liquid solution with $x_{1}=0.412$ and $x_{2}=1-x_{1}=0.588$, the Van Laar equation,
          \begin{eqnarray}
             \ln\gamma_{1} = \frc{2.409}{\left[1+\frc{2.409 x_{1}}{1.970 x_{2}}\right]^{2}} & \Longrightarrow & \gamma_{1} = 2.0111 \nonumber \\
-            \ln\gamma_{2} = \frc{1.790}{\left[1+\frc{1.790 x_{1}}{2.409 x_{1}}\right]^{2}} & \Longrightarrow & \gamma_{2} = 1.5244 \nonumber
+            \ln\gamma_{2} = \frc{1.970}{\left[1+\frc{1.970 x_{1}}{2.409 x_{1}}\right]^{2}} & \Longrightarrow & \gamma_{2} = 1.5244 \nonumber
          \end{eqnarray}
       \item Partial pressure of ethanol and n-hexane are obtained from,
          \begin{displaymath}
@@ -329,7 +333,7 @@ with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i
 
    \begin{itemize}
       \item Since the vapour mole fractions are unknown, we should start from the main composition constraint, $\sum\limits_{i=1}^{2}y_{i} = 1$.  
-      \item Replacing $y_{i}=x_{i}\gamma_{i}P_{1}^{\text{sat}}/P$,
+      \item Replacing $y_{i}=x_{i}\gamma_{i}P_{i}^{\text{sat}}/P$,
          \begin{displaymath}
             x_{1}\gamma_{1}P_{1}^{\text{sat}} + x_{2}\gamma_{2}P_{2}^{\text{sat}} = P
          \end{displaymath}
@@ -348,30 +352,171 @@ with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i
 \clearpage
 
 %%%
-%%% Nguyen (Ex 5.3.2)  
+%%% Nguyen (Ex 4.2.2)  
 %%%
-\item\label{Example:3} Calculate the dew point temperature and liquid composition for a vapour mixture of 40 mol-$\%$ acetone (1) and water (2) at 101.3 KPa. Use the Wilson model parameters from \ref{Example:2}.
-
+\item\label{Example:3} Determine the fugacity of CO$_{2}$ at 310K and 1.4$\times$10$^{6}$ Pa using the van der Waals (vdW) EOS,
+       \begin{displaymath}
+          P = \frc{RT}{V-b} - \frc{a}{V^{2}},
+       \end{displaymath}
+where $V$ is the molar volume. Given: $a=$ 0.3658 Pa.m$^{6}$/gmol$^{2}$ and $b=$ 4.286$\times$10$^{-5}$ m$^{3}$/gmol. 
+{\bf Hint 1:} Start solving the problem from 
+      \begin{displaymath}
+           d\mu = RTd\left(\ln f\right) = VdP
+      \end{displaymath}
+{\bf Hint 2:} Solving the vdW EOS leads to a polynomial of order 3. Use the largest root of the polynomial to represent the gaseous phase.
 
 \bigskip
 
-{\large{\bf Solution:}}
+{\bf Solution:}
+\begin{itemize}
+  \item From the definition of fugacity,
+      \begin{equation}
+           d\mu = RTd\left(\ln f\right) = VdP;\label{example3:eqn1}
+      \end{equation}
+  \item As the vdW EOS is explicitly expressed in terms of $P$, it is more convenient to rearrange Eqn.~\ref{example3:eqn1} to ensure that the $VdP$ term is easily integrated;
+  \item For the ideal gas, Eqn.~\ref{example3:eqn1} can be rewritten as,
+      \begin{equation}
+           RTd\left(\ln P\right) = VdP = \frc{RT}{P}dP;\label{example3:eqn2}
+      \end{equation}
+  \item Now subtracting Eqn.~\ref{example3:eqn1} from Eqn.~\ref{example3:eqn2},
+      \begin{displaymath}
+           RTd\left[\ln\left(\frc{f}{P}\right)\right] = \left(V-\frc{RT}{P}\right)dP, 
+      \end{displaymath}
+      and integrating from $0$ to $P$,
+      \begin{eqnarray}
+           && RT\int\limits_{1}^{f/P}d\left[\ln\left(\frc{f}{P}\right)\right] = \int\limits_{0}^{P}\left(V-\frc{RT}{P}\right)dP \nonumber \\
+           && \ln\left(\frc{f}{P}\right) = \frc{1}{RT} \int\limits_{0}^{P}\left(V-\frc{RT}{P}\right)dP.\label{example3:eqn3}
+      \end{eqnarray}
+   \item Now, we want to change the \underline{integrating variable} from $P$ to $V$,
+      \begin{displaymath}
+         d(PV) = PdV + VdP \Longrightarrow dP = \frc{1}{V}d(PV) - \frc{P}{V}dV;
+      \end{displaymath}
+   \item And using the definition of compressibiity factor, $Z=\frc{PV}{RT}$,
+       \begin{displaymath}
+          d(PV) = RT dZ \Longrightarrow dP = \frc{RT}{V}dZ - \frc{P}{V}dV = \frc{P}{Z}dZ - \frc{P}{V}dV;
+       \end{displaymath}
+   \item Replacing $dP$ in Eqn.~\ref{example3:eqn3}
+       \begin{equation}
+          \ln\left(\frc{f}{P}\right) = \frc{1}{RT} \int\limits_{V=\infty}^{V}\left(V-\frc{RT}{P}\right)\left(\frc{P}{Z}dZ-\frc{P}{V}dV\right)\label{example3:eqn4};
+       \end{equation}
+    \item Expanding the r.h.s., 
+       \begin{equation}
+          \ln\left(\frc{f}{P}\right) = \frc{1}{RT} \int\limits_{V=\infty}^{V}\left(\frc{RT}{V}-P\right)dV + \frc{1}{RT}\int\limits_{Z=1}^{Z}\left(\frc{PV}{Z}-\frc{RT}{Z}\right)dZ;\label{example3:eqn5};
+       \end{equation}
+    \item Integrating the second term of the r.h.s. of Eqn.~\ref{example3:eqn5},
+       \begin{displaymath}
+           \frc{1}{RT}\int\limits_{Z=1}^{Z}\left(\frc{PV}{Z}-\frc{RT}{Z}\right)dZ = \int\limits_{1}^{Z}\left(\frc{PV}{RT}\frc{1}{Z}-\frc{1}{Z}\right)dZ = \int\limits_{1}^{Z}\left(1 -\frc{1}{Z}\right)dZ = \left.\left(Z - \ln Z\right)\right|_{1}^{Z} = Z- \ln Z - 1
+       \end{displaymath}
+    \item Therefore,
+       \begin{equation}
+          \ln\left(\frc{f}{P}\right) = \frc{1}{RT} \int\limits_{V=\infty}^{V}\left(\frc{RT}{V}-P\right)dV - \ln Z + \left(Z - 1\right);\label{example3:eqn6}
+       \end{equation}
+    \item Equation~\ref{example3:eqn6} is general equation for fugacity as function of molar volume and compressibility factor, and is valid for any real gas. The problem requires that we use the vdW EOS, therefore we need to manipulate it in order to be able to integrate with respect to V,
+        \begin{displaymath}
+            P = \frc{RT}{V-b} - \frc{a}{V^{2}} \Longleftrightarrow \frc{RT}{V}-P = \frc{RT}{V}-\frc{RT}{V-b}+\frc{a}{V^{2}}
+        \end{displaymath}
+        \begin{eqnarray}
+           \frc{1}{RT}\int\limits_{V=\infty}^{V}\left(\frc{RT}{V}-P\right)dV &=& \int\limits_{V=\infty}^{V}\frc{dV}{V} - \int\limits_{V=\infty}^{V} \frc{dV}{V-b} + \int\limits_{V=\infty}^{V} \frc{adV}{RTV^{2}} \nonumber \\
+           &=& \left.\ln\frc{V}{V-b}\right|_{V^{\infty}}^{V} - \left.\frc{a}{RTV}\right|_{V^{\infty}}^{V} \nonumber \\
+           &=& \ln\frc{V}{V-b} - \ln\frc{V^{\infty}}{V^{\infty}-b} - \left( \frc{a}{RTV} - \frc{a}{RTV^{\infty}}\right) \nonumber \\
+           & & \blue{\left(\text{ as } \ln\frc{\infty}{\infty} = 0\;\;\; \text{ and } \frc{1}{\infty} \approx 0\right)} \nonumber \\ 
+           &=& -\ln\frc{V-b}{V} - \frc{a}{RTV} = -\ln\left(1-\frc{b}{V}\right) - \frc{a}{RTV}; \nonumber
+        \end{eqnarray}
+     \item Therefore, replacing in Eqn.~\ref{example3:eqn6}
+        \begin{equation}
+           \red{\ln\left(\frc{f}{P}\right) = -\ln\left(1-\frc{b}{V}\right) - \frc{a}{RTV} - \ln Z + \left(Z - 1\right);}\label{example3:eqn7}
+        \end{equation}
+        this is the fugacity equation for the vdW EOS model.
+     \item Now we need to calculate $Z$ from the vdW EOS:           
+        \begin{eqnarray}
+           && P = \frc{RT}{V-b} - \frc{a}{V^{2}} \hspace{1cm} \red{\times \frc{V}{RT} } \nonumber \\
+           && \frc{PV}{RT} = \frc{V}{V-b} - \frc{a}{RTV} \Longrightarrow Z=\frc{1}{1- b/V} - \frc{a}{RTV} \nonumber \\
+           && \blue{\left(\text{as }\;\; V=\frc{ZRT}{P} \right)} \nonumber \\
+           && Z = \frc{1}{1-\frc{bP}{ZRT}} - \frc{aP}{Z\left(RT\right)^{2}}  \nonumber \\
+           && \blue{\left(\text{defining } B=\frc{bP}{RT} \text{ and } A=\frc{aP}{(RT)^{2}}\right)} \nonumber \\
+           && Z = \frc{1}{1-\frc{B}{Z}}-\frc{A}{Z} \nonumber \\
+           && \blue{\text{Now rearranging into a polynomial form}} \nonumber \\
+           && \red{ Z^{3}-\left(1+B\right)Z^{2} + AZ -AB = 0}\label{example3:eqn8}
+        \end{eqnarray}
+      \item Using the recently defined $A$ and $B$ into Eqn.~\ref{example3:eqn7},
+           \begin{equation}
+              \red{\ln\left(\frc{f}{P}\right) = \left(Z-1\right) -\frc{A}{Z}-\ln\left(Z-B\right)}\label{example3:eqn7b}
+           \end{equation}
+      \item Calculating $A$ and $B$:
+           \begin{eqnarray}
+              A &=& \frc{aP}{\left(RT\right)^{2}}=0.3658\;\frc{Pa.m^{6}}{gmol} 1.4\times 10^{6}\;Pa \left(0.08314 \frc{bar.m^{3}}{kgmol.K}\cdot 310\;K\cdot \red{\frc{10^{5}\;Pa}{1\; bar} \cdot \frc{1\; kgmol}{1000\; gmol}}\right)^{-2} \nonumber \\
+                &=& 7.7095\times 10^{-2} \nonumber \\
+              B &=& \frc{bP}{RT} = 4.286\times 10^{-5} \frc{m^{3}}{gmol}\cdot \frc{1.4\times 10^{6}\;Pa}{0.08314 \frc{bar.m^{3}}{kgmol.K}\cdot 310\;K}\red{\cdot \frc{1\;bar}{10^{5}\;Pa}\cdot\frc{1000\; gmol}{1\; kgmol}} \nonumber \\
+                &=& 2.3281\times 10^{-2} \nonumber
+           \end{eqnarray}
+      \item The cubic equation (Eqn.~\ref{example3:eqn8}) becomes
+           \begin{displaymath}
+              Z^{3} - 1.023281 Z^{2} + 7.7095\times 10^{-2} Z - 1.7948\times 10^{-3} = 0
+           \end{displaymath}
+           Solving this polynomial of order 3 results in 3 roots:
+           \begin{eqnarray}
+               &&Z_{1} = 3.9844\times 10^{-2} \nonumber\\
+               &&Z_{2} = 3.9844\times 10^{-2} - i \nonumber\\
+               &&\red{Z_{3} = 0.9436} \nonumber
+           \end{eqnarray}
+      \item Replacing $Z$ in Eqn.~\ref{example3:eqn7b}, leads to ${\bf f= 1.3250\times 10^{6}\text{ Pa}}$.
+   
+\end{itemize}
 
-   \begin{itemize}
-      \item Now, the mole fraction of the liquid phase is unknown, with constraint $\sum\limits_{i=1}^{2} x_{i}=1$, and similar to the previous problem
-          \begin{displaymath}
-             \sum\limits_{i=1}^{2} = x_{1} + x_{2} = \frc{y_{1}P}{\gamma_{1}P_{1}^{\text{sat}}} +\frc{y_{2}P}{\gamma_{2}P_{2}^{\text{sat}}} = 1  
-          \end{displaymath}
-      \item However, as the {\bf activity coefficient does depend on the composition of the liquid phase}, we do need to use an iterative method;
-      \item As a first estimative, let's assume $x_{1}=0.10$ and $x_{2}=0.90$. Replacing in the Wilson model leads to $\gamma_{1}=5.4291$ and $\gamma_{2}=1.0484$. 
-      \item Solving
-         \begin{eqnarray}
-            && y_{1} + y_{2} = 1 \Longrightarrow \frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P} + \frc{x_{2}\gamma_{2}P_{2}^{\text{sat}}}{P} = 1 \nonumber \\
-            && (0.1)(5.4291)\exp\left[14.71712 - \frc{2975.95}{T-34.5228}\right] + (0.9)(1.0484)\exp\left[16.5362 - \frc{3985.44}{T-38.9974}\right] = 101.3
-         \end{eqnarray}
-      \item  
+\clearpage
 
-   \end{itemize}
+%%%
+%%% http://people.cst.cmich.edu/teckl1mm/PChemI/Chm351Ch7aF01.htm
+%%%
+\item\label{Example:4} The experimental value of the partial molar volume $\left(\text{cm}^{3}/\text{gmol}\right)$ of a aqueous solution of K$_{2}$SO$_{4}$ is given by
+                \begin{displaymath}
+                   \overline{V}_{A} = 32.280 + 18.216 m^{1/2},
+                \end{displaymath} 
+ where $m$ is the molality (= number of moles per kg of water) of the K$_{2}$SO$_{4}$ . Use the Gibbs-Duhem equation to derive an equation for the partial molar volume of water in the solution. Plot $\overline{V}_{i}\;\;\times m$. The molar volume of pure water at 298.15 K is 18.079 cm$^{3}$/gmol and the molar mass of pure water is 18 kg/kgmol.
+
+\bigskip
+
+{\bf Solution:} For an easy notation, let's take K$_{2}$SO$_{4}$: $A$ and Water: $w$.
+\begin{itemize}
+  \item The Gibbs-Duhem equation for the partial molar volumes can be expressed as,
+     \begin{displaymath}
+        \sum\limits x_{i}d\overline{V}_{i} = x_{A} d\overline{V}_{A} + x_{w} d\overline{V}_{w} = 0,
+     \end{displaymath}
+     that after rearranging and integrating,
+     \begin{displaymath}
+        \int\limits_{\overline{V}_{w}=V_{w}^{\circ}}^{\overline{V}_{w}} = \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{x_{A}}{x_{w}} d\overline{V}_{A},
+     \end{displaymath}
+     where $V_{w}^{\circ}$ is the molar volume of pure water at reference conditions (at $T=$ 25$^{\circ}$C).
+
+  \item We can change the integration variable from $\overline{V}_{A}$ to $m$,
+      \begin{displaymath}
+         \overline{V}_{A} = 32.280 + 18.216 m^{1/2} \rightarrow \frc{\overline{V}_{A}}{dm} = \frc{1}{2}\cdot 18.216 m^{-1/2} 
+      \end{displaymath} 
+  
+  \item Now, replacing it into the integral above,
+       \begin{eqnarray}
+          && \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{x_{A}}{x_{w}} \frc{1}{2}\cdot 18.216 m^{-1/2} dm \hspace{1cm} \red{\cdot\frc{n}{n}} \nonumber \\
+          && \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{n_{A}}{n_{w}} \frc{1}{2}\cdot 18.216 m^{-1/2} dm, \label{example4:eqn1}
+       \end{eqnarray}
+       where $n$ is the total number of moles in the solution.
+
+  \item From the definition of molality, i.e., number of moles of K$_{2}$SO$_{4}$ per kg of water,
+       \begin{displaymath}
+           m = \frc{n_{A}}{n_{w}M_{w}} \Longrightarrow m\cdot M_{w} = \frc{n_{A}}{n_{w}},
+       \end{displaymath}
+       where $n_{A}$, $n_{w}$ are the number of moles of K$_{2}$SO$_{4}$ and water, respectively. $M_{w}$ is the molar mass of water.
+
+  \item Replacing in Eqn.~\ref{example4:eqn1}, 
+      \begin{eqnarray}
+         \overline{V}_{w} - V_{w}^{\circ} &=& -\int\limits_{0}^{m} m\cdot M_{w} \frc{1}{2}\cdot 18.216 m^{-1/2} dm \nonumber \\
+                                       &=& -9.108\; M_{w} \left. \frc{2}{3} m^{3/2}\right|_{0}^{m} \nonumber \\
+         \blue{\left(\text{where }\right.}&& \blue{\left. M_{w} = 18 \frc{kg}{kgmol} = 0.018 \frc{kg}{gmol}\right)} \nonumber \\
+         {\bf \overline{V}_{w}} &=& {\bf 18.079 - 0.1093 m^{3/2}} \nonumber 
+      \end{eqnarray}
+
+
+
+\end{itemize}
 
 \end{enumerate} 
 
