@@ -1,0 +1,316 @@
+% Aberdeen style guide should be followed when using this
+% layout. Their template powerpoint slide is used to extract the
+% Aberdeen color and logo but is otherwise ignored (it has little or
+% no formatting in it anyway).
+%
+% http://www.abdn.ac.uk/documents/style-guide.pdf
+
+%%%%%%%%%%%%%%%%%%%% Document Class Settings %%%%%%%%%%%%%%%%%%%%%%%%%
+% Pick if you want slides, or draft slides (no animations)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Normal document mode%
+\documentclass[10pt,compress]{beamer}
+%Draft or handout mode
+%\documentclass[10pt,compress,handout]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
+
+\renewcommand{\insertframenumber}{\theframenumber}
+\renewcommand{\theframenumber}{\thesection-\arabic{framenumber}}
+\renewcommand{\thesubsectionslide}{\thesection-\arabic{framenumber}}
+\setbeamertemplate{headline}[text line]{This is frame: \insertframenumber}
+\AtBeginSection{\setcounter{framenumber}{0}}
+
+
+%%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
+% These settings must be set for each presentation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\shortname}{jefferson.gomes@abdn.ac.uk}
+\newcommand{\fullname}{Dr Jeff Gomes}
+\institute{School of Engineering}
+\newcommand{\emailaddress}{}%jefferson.gomes@abdn.ac.uk}
+\newcommand{\logoimage}{../../FigBanner/UoAHorizBanner}
+\title{Chemical Thermodynamics (EX3029)}
+\subtitle{Module 6: Chemical Reaction Equilibrium}
+\date[ ]{ }
+
+%%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% You shouldn't have to change below this line, unless you want to.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usecolortheme{whale}
+\useoutertheme{infolines}
+
+% Use the fading effect for items that are covered on the current
+% slide.
+\beamertemplatetransparentcovered
+
+% We abuse the author command to place all of the slide information on
+% the title page.
+\author[\shortname]{%
+  \fullname\\\ttfamily{\emailaddress}
+}
+
+
+%At the start of every section, put a slide indicating the contents of the current section.
+\AtBeginSection[] {
+  \begin{frame}
+    \frametitle{Section Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% Allow the inclusion of movies into the Presentation! At present,
+% only the Okular program is capable of playing the movies *IN* the
+% presentation.
+\usepackage{multimedia}
+\usepackage{animate}
+
+%% Handsout -- comment out the lines below to create handstout with 4 slides in a page with space for comments
+\usepackage{handoutWithNotes}
+
+\mode<handout>
+{
+\usepackage{pgf,pgfpages}
+
+\pgfpagesdeclarelayout{2 on 1 boxed with notes}
+{
+\edef\pgfpageoptionheight{\the\paperheight} 
+\edef\pgfpageoptionwidth{\the\paperwidth}
+\edef\pgfpageoptionborder{0pt}
+}
+{
+\setkeys{pgfpagesuselayoutoption}{landscape}
+\pgfpagesphysicalpageoptions
+    {%
+        logical pages=4,%
+        physical height=\pgfpageoptionheight,%
+        physical width=\pgfpageoptionwidth,%
+        last logical shipout=2%
+    } 
+\pgfpageslogicalpageoptions{1}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{2}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{3}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.29\pgfphysicalheight},%
+    copy from=3
+    }%
+\pgfpageslogicalpageoptions{4}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.79\pgfphysicalheight},%
+    copy from=4
+    }%
+
+\AtBeginDocument
+    {
+    \newbox\notesbox
+    \setbox\notesbox=\vbox
+        {
+            \hsize=\paperwidth
+            \vskip-1in\hskip-1in\vbox
+            {
+                \vskip1cm
+                Notes\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth
+            }
+        }
+        \pgfpagesshipoutlogicalpage{3}\copy\notesbox
+        \pgfpagesshipoutlogicalpage{4}\copy\notesbox
+    }
+}
+}
+
+%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+
+
+%%%%%%%%%% Chemical Reactions %%%%%%%%%%%%%%%%
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[version=3]{mhchem}
+\makeatletter
+\newcounter{reaction}
+%%% >> for article <<
+%\renewcommand\thereaction{C\,\arabic{reaction}}
+%%% << for article <<
+%%% >> for report and book >>
+%\renewcommand\thereaction{C\,\thechapter.\arabic{reaction}}
+%\@addtoreset{reaction}{chapter}
+%%% << for report and book <<
+\newcommand\reactiontag{\refstepcounter{reaction}\tag{\thereaction}}
+\newcommand\reaction@[2][]{\begin{equation}\ce{#2}%
+\ifx\@empty#1\@empty\else\label{#1}\fi%
+\reactiontag\end{equation}}
+\newcommand\reaction@nonumber[1]{\begin{equation*}\ce{#1}%
+\end{equation*}}
+\newcommand\reaction{\@ifstar{\reaction@nonumber}{\reaction@}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%% Color settings
+\usepackage{color}
+%% The background color for code listings (i.e. example programs)
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}%
+\definecolor{UoARed}{rgb}{0.64706, 0.0, 0.12941}
+\definecolor{UoALight}{rgb}{0.85, 0.85, 0.85}
+\definecolor{UoALighter}{rgb}{0.92, 0.92, 0.92}
+\setbeamercolor{structure}{fg=UoARed} % General background and higlight color
+\setbeamercolor{frametitle}{bg=black} % General color
+\setbeamercolor{frametitle right}{bg=black} % General color
+\setbeamercolor{block body}{bg=UoALighter} % For blocks
+\setbeamercolor{structure}{bg=UoALight} % For blocks
+% Rounded boxes for blocks
+\setbeamertemplate{blocks}[rounded]
+
+%%%%% Font settings
+% Aberdeen requires the use of Arial in slides. We can use the
+% Helvetica font as its widely available like so
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+% But beamer already uses a sans font, so we will stick with that.
+
+% The size of the font used for the code listings.
+\newcommand{\goodsize}{\fontsize{6}{7}\selectfont}
+
+% Extra math packages, symbols and colors. If you're using Latex you
+% must be using it for formatting the math!
+\usepackage{amscd,amssymb} \usepackage{amsfonts}
+\usepackage[mathscr]{eucal} \usepackage{mathrsfs}
+\usepackage{latexsym} \usepackage{amsmath} \usepackage{bm}
+\usepackage{amsthm} \usepackage{textcomp} \usepackage{eurosym}
+% This package provides \cancel{a} and \cancelto{a}{b} to "cancel"
+% expressions in math.
+\usepackage{cancel}
+
+\usepackage{comment} 
+
+% Get rid of font warnings as modern LaTaX installations have scalable
+% fonts
+\usepackage{type1cm} 
+
+%\usepackage{enumitem} % continuous numbering throughout enumerate commands
+
+% For exact placement of images/text on the cover page
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}%sets the textpos unit
+\setlength{\TPVertModule}{\TPHorizModule} 
+
+% Source code formatting package
+\usepackage{listings}%
+\lstset{ backgroundcolor=\color{lbcolor}, tabsize=4,
+  numberstyle=\tiny, rulecolor=, language=C++, basicstyle=\goodsize,
+  upquote=true, aboveskip={1.5\baselineskip}, columns=fixed,
+  showstringspaces=false, extendedchars=true, breaklines=false,
+  prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+  frame=single, showtabs=false, showspaces=false,
+  showstringspaces=false, identifierstyle=\ttfamily,
+  keywordstyle=\color[rgb]{0,0,1},
+  commentstyle=\color[rgb]{0.133,0.545,0.133},
+  stringstyle=\color[rgb]{0.627,0.126,0.941}}
+
+% Allows the inclusion of other PDF's into the final PDF. Great for
+% attaching tutorial sheets etc.
+\usepackage{pdfpages}
+\setbeamercolor{background canvas}{bg=}  
+
+% Remove foot note horizontal rules, they occupy too much space on the slide
+\renewcommand{\footnoterule}{}
+
+% Force the driver to fix the colors on PDF's which include mixed
+% colorspaces and transparency.
+\pdfpageattr {/Group << /S /Transparency /I true /CS /DeviceRGB>>}
+
+% Include a graphics, reserve space for it but
+% show it on the next frame.
+% Parameters:
+% #1 Which slide you want it on
+% #2 Previous slides
+% #3 Options to \includegraphics (optional)
+% #4 Name of graphic
+\newcommand{\reserveandshow}[4]{%
+\phantom{\includegraphics<#2|handout:0>[#3]{#4}}%
+\includegraphics<#1>[#3]{#4}%
+}
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\purple}{\textcolor{purple}}
+ 
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%% The Presentation Proper %%%%%%%%%%%%%%%%%%%%%%%%%
+% Fill below this line with \begin{frame} commands! It's best to
+% always add the fragile option incase you're going to use the
+% verbatim environment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 1}
+Find the bubble point pressure and vapor composition for a liquid mixture of 41.2 mol-$\%$ ethanol (1) and n-hexane (2) at 331 K. Given the Van Laar activity model equations:
+\begin{displaymath}
+\ln\gamma_{1} = \frc{A}{\left[1+\frc{A x_{1}}{B x_{2}}\right]^{2}}\;\;\;\; \ln\gamma_{2} = \frc{B}{\left[1+\frc{B x_{2}}{A x_{1}}\right]^{2}}\
+\end{displaymath}
+with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i}^{\text{sat}}\text{ in kPa and } T\text{ in K}\right)$ can be expressed as,
+\begin{displaymath}
+   \ln P_{1}^{\text{sat}} = 16.1952 - \frc{3423.53}{T-55.7152} \;\;\;\; \ln P_{2}^{\text{sat}} = 14.0568 - \frc{2825.42}{T-42.7089}
+\end{displaymath}
+
+\end{frame}
+
+
+%%%
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 2}
+
+Calculate the bubble point temperature and vapor composition for a liquid mixture of 1 mol-$\%$ acetone (1) and water (2) at 101.3 KPa. Given the Wilson activity model:
+   \begin{eqnarray}
+       &&\ln\gamma_{1} = -\ln\left(x_{1}+x_{2}C_{12}\right) + x_{2}\left(\frc{C_{12}}{x_{1}+x_{2}C_{12}}-\frc{C_{21}}{x_{2}+x_{1}C_{21}}\right) \nonumber \\
+       &&\ln\gamma_{2} = -\ln\left(x_{2}+x_{1}C_{21}\right) + x_{1}\left(\frc{C_{21}}{x_{2}+x_{1}C_{21}}-\frc{C_{12}}{x_{1}+x_{2}C_{12}}\right) \nonumber
+   \end{eqnarray}
+   with $C_{12}=$0.1173 and $C_{21}=$0.4227. Also, the vapour pressure $\left(\text{with } P_{i}^{\text{sat}}\text{ in kPa and } T\text{ in K}\right)$ is given by,
+\begin{displaymath}
+   \ln P_{1}^{\text{sat}} = 14.71712 - \frc{2975.95}{T-34.5228} \;\;\;\; \ln P_{2}^{\text{sat}} = 16.5362 - \frc{3985.44}{T-38.9974}
+\end{displaymath}
+
+\end{frame}
+
+
+
+\end{document}
+ 
