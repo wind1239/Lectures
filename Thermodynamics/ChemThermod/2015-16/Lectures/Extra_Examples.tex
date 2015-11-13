@@ -340,7 +340,7 @@ with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i
       \item For $x_{1} = 0.01$, $x_{2}=0.99$, $C_{12}=$0.1173 and $C_{21}=$0.4227, $\gamma_{1}=$ 13.0695 and $\gamma_{2}=$ 1.0007
       \item With these numerical values, we can replace into the equation above,
          \begin{displaymath}
-            (0.01)(13.0695)\exp\left[14.71712 - \frc{2975.95}{T-34.5228}\right] + (0.99)(1.007)\exp\left[16.5362 - \frc{3985.44}{T-38.9974}\right] =  101.3
+            (0.01)(13.0695)\exp\left[14.71712 - \frc{2975.95}{T-34.5228}\right] + (0.99)(1.000)\exp\left[16.5362 - \frc{3985.44}{T-38.9974}\right] =  101.3
          \end{displaymath}
          Resulting in {\bf $T=$ 361.71 K} -- the bubble point temperature of this acetone-water mixture.
       \item At this temperature, the saturation pressure of acetone and water are $P_{1}^{\text{sat}}=$ 276.32 kPa and $P_{2}^{\text{sat}}=$ 65.78 kPa, respectively.
@@ -354,18 +354,26 @@ with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i
 %%%
 %%% Nguyen (Ex 4.2.2)  
 %%%
-\item\label{Example:3} Determine the fugacity of CO$_{2}$ at 310K and 1.4$\times$10$^{6}$ Pa using the van der Waals (vdW) EOS,
-       \begin{displaymath}
-          P = \frc{RT}{V-b} - \frc{a}{V^{2}},
-       \end{displaymath}
-where $V$ is the molar volume. Given: $a=$ 0.3658 Pa.m$^{6}$/gmol$^{2}$ and $b=$ 4.286$\times$10$^{-5}$ m$^{3}$/gmol. 
-{\bf Hint 1:} Start solving the problem from 
+\item\label{Example:3} Fugacity and chemical potential of a fluid are related through the following differential equation,
       \begin{displaymath}
-           d\mu = RTd\left(\ln f\right) = VdP
+           d\mu = RTd\left(\ln f\right) = VdP,
       \end{displaymath}
-{\bf Hint 2:} Solving the vdW EOS leads to a polynomial of order 3. Use the largest root of the polynomial to represent the gaseous phase.
+      where $V$ is the molar volume.
+      \begin{enumerate}
+        \item Show that the fugacity of a fluid represented by the van der Waals (vdW) EOS can be calculated from the following equation
+           \begin{displaymath}
+             \ln\left(\frc{f}{P}\right) = -\ln\left(1-\frc{b}{V}\right) - \frc{a}{RTV} - \ln Z + \left(Z - 1\right),
+           \end{displaymath}
+           where $Z$ is the compressibility factor.
+        \item Determine the fugacity of gaseous CO$_{2}$ at 310K and 1.4$\times$10$^{6}$ Pa using the vdW  EOS,
+               \begin{displaymath}
+                  P = \frc{RT}{V-b} - \frc{a}{V^{2}},
+               \end{displaymath}
+               Given: $a=$ 0.3658 Pa.m$^{6}$/gmol$^{2}$ and $b=$ 4.286$\times$10$^{-5}$ m$^{3}$/gmol. 
+     \end{enumerate}
+{\bf Hint:} Solving the vdW EOS leads to a polynomial of order 3. Use the largest real root of the polynomial to represent the gaseous phase.
 
-\bigskip
+\bigskip 
 
 {\bf Solution:}
 \begin{itemize}
@@ -378,7 +386,7 @@ where $V$ is the molar volume. Given: $a=$ 0.3658 Pa.m$^{6}$/gmol$^{2}$ and $b=$
       \begin{equation}
            RTd\left(\ln P\right) = VdP = \frc{RT}{P}dP;\label{example3:eqn2}
       \end{equation}
-  \item Now subtracting Eqn.~\ref{example3:eqn1} from Eqn.~\ref{example3:eqn2},
+  \item Now subtracting Eqn.~\ref{example3:eqn2} from Eqn.~\ref{example3:eqn1},
       \begin{displaymath}
            RTd\left[\ln\left(\frc{f}{P}\right)\right] = \left(V-\frc{RT}{P}\right)dP, 
       \end{displaymath}
@@ -455,9 +463,9 @@ where $V$ is the molar volume. Given: $a=$ 0.3658 Pa.m$^{6}$/gmol$^{2}$ and $b=$
            \end{displaymath}
            Solving this polynomial of order 3 results in 3 roots:
            \begin{eqnarray}
-               &&Z_{1} = 3.9844\times 10^{-2} \nonumber\\
-               &&Z_{2} = 3.9844\times 10^{-2} - i \nonumber\\
-               &&\red{Z_{3} = 0.9436} \nonumber
+               &&Z_{1} = 3.9844\times 10^{-2} \;\;\;\text{(smallest real root)} \nonumber\\
+               &&Z_{2} = 3.9844\times 10^{-2} - i \;\;\;\text{(root with imaginary component)} \nonumber\\
+               &&\red{Z_{3} = 0.9436} \;\;\;\text{(largest real root)}\nonumber
            \end{eqnarray}
       \item Replacing $Z$ in Eqn.~\ref{example3:eqn7b}, leads to ${\bf f= 1.3250\times 10^{6}\text{ Pa}}$.
    
@@ -484,13 +492,13 @@ where $V$ is the molar volume. Given: $a=$ 0.3658 Pa.m$^{6}$/gmol$^{2}$ and $b=$
      \end{displaymath}
      that after rearranging and integrating,
      \begin{displaymath}
-        \int\limits_{\overline{V}_{w}=V_{w}^{\circ}}^{\overline{V}_{w}} = \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{x_{A}}{x_{w}} d\overline{V}_{A},
+        \int\limits_{\overline{V}_{w}=V_{w}^{\circ}}^{\overline{V}_{w}}d\overline{V}_{w} = \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{x_{A}}{x_{w}} d\overline{V}_{A},
      \end{displaymath}
      where $V_{w}^{\circ}$ is the molar volume of pure water at reference conditions (at $T=$ 25$^{\circ}$C).
 
   \item We can change the integration variable from $\overline{V}_{A}$ to $m$,
       \begin{displaymath}
-         \overline{V}_{A} = 32.280 + 18.216 m^{1/2} \rightarrow \frc{\overline{V}_{A}}{dm} = \frc{1}{2}\cdot 18.216 m^{-1/2} 
+         \overline{V}_{A} = 32.280 + 18.216 m^{1/2} \rightarrow \frc{d\overline{V}_{A}}{dm} = \frc{1}{2}\cdot 18.216 m^{-1/2} 
       \end{displaymath} 
   
   \item Now, replacing it into the integral above,
