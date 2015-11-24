@@ -278,15 +278,72 @@
 %%% Slides
 %%%
 \begin{frame}
- \frametitle{Example 1}
-Find the bubble point pressure and vapor composition for a liquid mixture of 41.2 mol-$\%$ ethanol (1) and n-hexane (2) at 331 K. Given the Van Laar activity model equations:
-\begin{displaymath}
-\ln\gamma_{1} = \frc{A}{\left[1+\frc{A x_{1}}{B x_{2}}\right]^{2}}\;\;\;\; \ln\gamma_{2} = \frc{B}{\left[1+\frc{B x_{2}}{A x_{1}}\right]^{2}}\
-\end{displaymath}
-with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i}^{\text{sat}}\text{ in kPa and } T\text{ in K}\right)$ can be expressed as,
-\begin{displaymath}
-   \ln P_{1}^{\text{sat}} = 16.1952 - \frc{3423.53}{T-55.7152} \;\;\;\; \ln P_{2}^{\text{sat}} = 14.0568 - \frc{2825.42}{T-42.7089}
-\end{displaymath}
+ \frametitle{Example 1}\scriptsize
+Five moles of hydrogen, two moles of CO and 1.5 moles of CH$_{3}$OH vapour are combined in a closed system methanol synthesis reactor at 500 K and 1 MPa. Develop expressions for the mole fractions of the species in terms of the reaction coordinate. The components are known to reacto with the following stoichiometry:
+  \begin{displaymath}
+      2 H_{2} (g) + CO (g) \Longleftrightarrow CH_{3}OH (g).
+  \end{displaymath}
+
+\visible<1->{{\bf Solution} }
+\begin{enumerate}
+      \item<2-> We need to develop expressions for each species in the gaseous form. In the equilibrium, the molar stoichiometric coefficient and the initial number of moles are:
+         \visible<2->{\begin{displaymath}
+            \nu = \sum\limits_{i}\nu_{i}= (-2)+(-1)+(+1)= -2 \;\;\text{ and }\;\; n_{0} = \sum\limits_{i}n_{i,0}= 5 + 2 + 1.5 = 8.5,
+         \end{displaymath} 
+         respectively.}
+      \item<3-> The mole fraction of each species is given by
+         \visible<3->{\begin{displaymath}
+           y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0}+\nu_{i}\epsilon}{n_{0}+\nu\epsilon}.
+         \end{displaymath}
+         with the total number of moles in equilibrium given by $n=8.5-2\epsilon$.}
+         \begin{displaymath}
+           \visible<4->{y_{\text{H}_{2}} = \frc{5-2\epsilon}{8.5-2\epsilon},}\;\;\; \visible<5->{y_{\text{CO}} = \frc{2-\epsilon}{8.5-2\epsilon}\;\;\text{ and }}\;\; \visible<6->{y_{\text{CH}_{3}\text{OH}}=\frc{1.5+\epsilon}{8.5-2\epsilon}}
+         \end{displaymath}
+   \end{enumerate}
+
+
+
+\end{frame}
+
+
+%%%
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 2}\scriptsize 
+Ethylene is produced from the decomposition of ethane,
+       \begin{displaymath}
+          C_{2}H_{6} (g) \Longleftrightarrow C_{2}H_{4} (g) + H_{2} (g) 
+       \end{displaymath} 
+       Determine the equilibrium composition at 1000$^{\circ}$C and 1 bar. Assume that, initially, there is 1 mol of ethane. Given,
+       \begin{center}
+           \begin{tabular}{|c c c c|}
+           \hline
+                                        &  C$_{2}$H$_{6}$ (g) & C$_{2}$H$_{4}$ (g) &  H$_{2}$ (g)  \\ 
+           \hline
+             $\Delta G^{0}_{\text{f,298}}$  &  -32.84            &  68.15           & 0.0           \\
+                   (kJ/mol)             &                    &                  &               \\
+           \hline
+             $\Delta H^{0}_{\text{f,298}}$  &  -84.68            &  52.26           & 0.0           \\
+                   (kJ/mol)             &                    &                  &               \\
+           \hline 
+           \end{tabular}
+       \end{center}
+       where $\Delta G^{0}_{\text{f,298}}$ and $\Delta H^{0}_{\text{f,298}}$ are the standard state Gibbs energy and enthalpy of formation. 
+
+\visible<2->{{\bf Solution:} }
+\begin{enumerate}\scriptsize 
+      \item<2->{ First we need to determine the standard state Gibbs energy of reaction,}
+         \visible<2->{\begin{eqnarray}
+             \Delta G^{0}_{\text{r,298}} &=& \sum\limits_{i}\nu_{i}\left(\Delta G^{0}_{\text{f,298}}\right)_{i} \nonumber \\
+                                     &=& (+1).(68.15)+ (1).(0.0) + (-1).(-32.84) = 100.99\; \text{kJ/mol} \nonumber
+         \end{eqnarray}}
+      \item<3-> The equilibrium constant can be calculated from,
+         \visible<3->{\begin{displaymath}
+            K = \exp\left(-\frc{\Delta G^{0}_{\text{r,298}}}{RT}\right) = exp\left(-\frc{100.99\times 10^{3}}{(8.314).(298.15)}\right) = 2.0246\times 10^{-18}
+         \end{displaymath}}
+   \end{enumerate} 
 
 \end{frame}
 
@@ -297,43 +354,79 @@ with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i
 %%%
 \begin{frame}
  \frametitle{Example 2}
+\begin{enumerate}\scriptsize \setcounter{enumi}{2}
+      \item<1-> The Van't Hoff equation can be used to calculate the equilibrium constant at temperature $T$,
+         \visible<1->{\begin{displaymath}
+            \frc{\partial\left(\ln K\right)}{\partial T} = \frc{\Delta H^{0}_{\text{r}}}{RT^{2}}
+         \end{displaymath}}
+      \item<2-> Before we can integrate the Van't Hoff equation, we first need to determine the standard heat of reaction, $\Delta H^{0}_{\text{r}}$,
+         \visible<2->{\begin{eqnarray}
+            \Delta H^{0}_{\text{r}} &=& \sum\limits_{i} \nu_{i}\left(\Delta H^{0}_{\text{f,298}}\right)_{i} \nonumber \\
+                                 &=& (+1).(52.26) + (+1).(0.0) + (-1).(-84.68) = 136.94\;\text{kJ/mol}\nonumber
+         \end{eqnarray}}
 
-Calculate the bubble point temperature and vapor composition for a liquid mixture of 1 mol-$\%$ acetone (1) and water (2) at 101.3 KPa. Given the Wilson activity model:
-   \begin{eqnarray}
-       &&\ln\gamma_{1} = -\ln\left(x_{1}+x_{2}C_{12}\right) + x_{2}\left(\frc{C_{12}}{x_{1}+x_{2}C_{12}}-\frc{C_{21}}{x_{2}+x_{1}C_{21}}\right) \nonumber \\
-       &&\ln\gamma_{2} = -\ln\left(x_{2}+x_{1}C_{21}\right) + x_{1}\left(\frc{C_{21}}{x_{2}+x_{1}C_{21}}-\frc{C_{12}}{x_{1}+x_{2}C_{12}}\right) \nonumber
-   \end{eqnarray}
-   with $C_{12}=$0.1173 and $C_{21}=$0.4227. Also, the vapour pressure $\left(\text{with } P_{i}^{\text{sat}}\text{ in kPa and } T\text{ in K}\right)$ is given by,
-\begin{displaymath}
-   \ln P_{1}^{\text{sat}} = 14.71712 - \frc{2975.95}{T-34.5228} \;\;\;\; \ln P_{2}^{\text{sat}} = 16.5362 - \frc{3985.44}{T-38.9974}
-\end{displaymath}
+      \item<3-> Now integrating the Van't Hoff equation from 298.15 K to 1273.15 K,
+         \visible<3->{\begin{eqnarray}
+            \ln\frc{K_{1273}}{K_{298}} &=& -\frc{\Delta H^{0}_{\text{r}}}{R}\left(\frc{1}{T}-\frc{1}{298.15}\right) \nonumber \\
+            \ln\frc{K_{1273}}{2.0246\times 10^{-18}} &=& -\frc{136.94\times 10^{3}}{8.314}\left(\frc{1}{1273.15}-\frc{1}{298.15}\right) \nonumber \\
+            K_{1273} &=& 4.7859 \nonumber
+         \end{eqnarray}}
 
+\end{enumerate} 
 \end{frame}
-
 
 %%%
 %%%
 %%% Slides
 %%%
 \begin{frame}
- \frametitle{Example 3}Fugacity and chemical potential of a fluid are related through the following differential equation,
-      \begin{displaymath}
-           d\mu = RTd\left(\ln f\right) = VdP,
-      \end{displaymath}
-      where $V$ is the molar volume.
-      \begin{enumerate}
-        \item Show that the fugacity of a fluid represented by the van der Waals (vdW) EOS can be calculated from the following equation
-           \begin{displaymath}
-             \ln\left(\frc{f}{P}\right) = -\ln\left(1-\frc{b}{V}\right) - \frc{a}{RTV} - \ln Z + \left(Z - 1\right),
-           \end{displaymath}
-           where $Z$ is the compressibility factor.
-        \item Determine the fugacity of gaseous CO$_{2}$ at 310K and 1.4$\times$10$^{6}$ Pa using the vdW  EOS,
-               \begin{displaymath}
-                  P = \frc{RT}{V-b} - \frc{a}{V^{2}},
-               \end{displaymath}
-               Given: $a=$ 0.3658 Pa.m$^{6}$/gmol$^{2}$ and $b=$ 4.286$\times$10$^{-5}$ m$^{3}$/gmol. 
-     \end{enumerate}
-{\bf Hint:} Solving the vdW EOS leads to a polynomial of order 3. Use the largest real root of the polynomial to represent the gaseous phase.
+ \frametitle{Example 2}
+\begin{enumerate}\scriptsize \setcounter{enumi}{5}
+      \item<1-> The equilibrium constant $K$ can also be expressed as a function of the components' activities,
+         \visible<1->{\begin{displaymath}
+            K = \frc{a_{\text{C}_{2}\text{H}_{4}}a_{\text{H}_{2}}}{a_{\text{C}_{2}\text{H}_{6}}} = \frc{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{4}}}{f^{0}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{\overline{f}_{\text{H}_{2}}}{f^{0}_{\text{H}_{2}}}\right)}{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{6}}}{f^{0}_{\text{C}_{2}\text{H}_{6}}}\right)}
+         \end{displaymath}}
+         \visible<2->{Assuming ideal gas behaviour, $\overline{f}_{i}=P_{i}$, $f_{i}^{0}=P^{0}_{\text{C}_{2}\text{H}_{6}}=P^{0}_{\text{C}_{2}\text{H}_{4}}=P^{0}_{\text{H}_{2}}=$ 1 bar. Thus,
+         \begin{displaymath}
+            K = \frc{a_{\text{C}_{2}\text{H}_{4}}a_{\text{H}_{2}}}{a_{\text{C}_{2}\text{H}_{6}}} = \frc{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{4}}}{f^{0}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{\overline{f}_{\text{H}_{2}}}{f^{0}_{\text{H}_{2}}}\right)}{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{6}}}{f^{0}_{\text{C}_{2}\text{H}_{6}}}\right)} = \frc{\left(\frc{P_{\text{C}_{2}\text{H}_{4}}}{P^{0}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{P_{\text{H}_{2}}}{P^{0}_{\text{H}_{2}}}\right)}{\left(\frc{P_{\text{C}_{2}\text{H}_{6}}}{P^{0}_{\text{C}_{2}\text{H}_{6}}}\right)} = \frc{\left(\frc{y_{\text{C}_{2}\text{H}_{4}}P}{1\text{ bar}}\right)\left(\frc{y_{\text{H}_{2}}P}{1\text{ bar}}\right)}{\left(\frc{y_{\text{C}_{2}\text{H}_{6}}P}{1\text{ bar}}\right)}          
+         \end{displaymath}}
+         \visible<3->{Since $P=$ 1 bar,
+         \begin{displaymath}
+            K = \frc{\left(\frc{y_{\text{C}_{2}\text{H}_{4}}P}{1\text{ bar}}\right)\left(\frc{y_{\text{H}_{2}}P}{1\text{ bar}}\right)}{\left(\frc{y_{\text{C}_{2}\text{H}_{6}}P}{1\text{ bar}}\right)} = \frc{y_{\text{C}_{2}\text{H}_{4}} y_{\text{H}_{2}}}{y_{\text{C}_{2}\text{H}_{6}}} = 4.7859
+         \end{displaymath}} 
+
+
+\end{enumerate} 
+\end{frame}
+
+%%%
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 2}
+\begin{enumerate}\scriptsize \setcounter{enumi}{6}
+      \item<1-> The composition of each species in equilibrium is given by,
+         \begin{displaymath}
+           y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0}+\nu_{i}\epsilon}{n_{0}+\nu\epsilon}.
+         \end{displaymath}
+         with 
+         \begin{displaymath}
+            \nu = \sum\limits_{i}\nu_{i}= (-1)+(+1)+(+1)= 1 \;\;\text{ and }\;\; n_{0} = \sum\limits_{i}n_{i,0}= 1 + 0 + 0 = 1,
+         \end{displaymath}
+      \item<2-> Thus,
+         \visible<2->{\begin{displaymath}
+             y_{\text{C}_{2}\text{H}_{6}} = \frc{1-\epsilon}{1+\epsilon},\;\;y_{\text{C}_{2}\text{H}_{4}} = \frc{\epsilon}{1+\epsilon}\;\text{ and }\;y_{\text{H}_{2}} = \frc{\epsilon}{1+\epsilon}
+         \end{displaymath}}
+      \item<3-> Replacing the compositions in the expression for $K$,
+         \begin{eqnarray}
+            K  &=& \frc{y_{\text{C}_{2}\text{H}_{4}} y_{\text{H}_{2}}}{y_{\text{C}_{2}\text{H}_{6}}} = 4.7859 \nonumber \\
+               &&  \frc{\left(\frc{\epsilon}{1+\epsilon}\right)^{2}}{\left(\frc{1-\epsilon}{1+\epsilon}\right)} =4.7859 \nonumber \\
+            &&\epsilon = 0.9095 \nonumber
+         \end{eqnarray}
+        The equilibrium concentration of C$_{2}$H$_{4}$(g) is $y_{\text{C}_{2}\text{H}_{4}} =$ 0.4763.
+
+\end{enumerate} 
 
 \end{frame}
 
