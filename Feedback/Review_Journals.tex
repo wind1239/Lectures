@@ -1,0 +1,392 @@
+\documentclass[14pt,twoside]{report}
+
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{natbib}
+\usepackage{pdfpages,enumerate}% ,enumitem}
+ 
+%%% Rotating Page
+\usepackage{pdflscape}
+\usepackage{afterpage}
+%\usepackage{capt-of}% or use the larger `caption` package
+%\usepackage{lipsum}% dummy text
+
+
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+
+%\usepackage{fancyhdr} %%%%
+%\pagestyle{fancy}%%%%
+\pagestyle{empty}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+
+%%%
+%%% space between lines
+%%%
+\renewcommand {\baselinestretch}{1.5}
+
+\begin{document}
+
+%%%
+%%% \lipsum % Text before
+%%%
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+        \vfill
+    \end{landscape}
+    \clearpage% Flush page
+}
+\vfill
+\clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+
+\begin{center}
+  {\Large Review of the Manuscript PNUCENE-D-15-00347 `Evaluation the effects of steam state equation, spray and multi-cell subdivisions on Containment pressurization modelling in a LB-LOCA' by Noori-Kalkhoran $\&$ Matajy-Kojouri}
+\end{center}
+
+\medskip
+
+The manuscript summarises a global system methodology to assess a few safety parameters during a LB-LOCA event. It briefly describes two strategies to model heat flux and pressure oscillations in reactor containments: (a) single (or one-volume) cell and, (b) multi-cell models. Both methods assume mass conservation in a cell (or across cells) and attempt to calculate heat flux and phase change with imposed initial conditions (severe accident condition).
+
+The manuscript is relatively well-written with a number of typos and unrevised sentences (see the attached scanned document). A few sentences are confusing and disconnected with no clear objectives. However, the manuscript is comprehensive and introduces an insightful (but superficial) review of the methods used to model heat and mass flux (thermo-hydraulic) in reactor containments.  I would expect a short literature review on the main subject areas of the paper (e.g., transient heat transfer with phase change, volume system models, etc). The manuscript also briefly reviewed the main equations used to model these phenomena. In fact, my main concern is that the equations were not fully explained, i.e., main constraints and range of applicability. And also, it is not clear if the authors developed the models using these equations or if they used an industry-standard system code/software. A few comments:
+\begin{enumerate}[(a)] 
+%
+\item Several terms use different symbols throughout the manuscript, making the reading more difficult, e.g., specific enthalpy ($i$, $h$ and $H$), mass flow ($\dot{M}$ and $G$), spray (subscripts $sp$ and $\text{\it spray}$). Also some indices have changed throughout the sections, e.g., $k$ and $K$ from Eqn. 42 onwards;
+%
+\item The authors should consider adding more descriptive (and self-contained) figure captions;
+%
+\item Some terms were used before being defined, e.g., IRIS, FSAR, LB-LOCA etc;
+%
+\item Section 2.1 was very confusing and not well explained -re the validity of the equations;
+%
+\item Section 2.2:
+   \begin{enumerate}[(i)]
+      \item Eqn. 9 should read as,
+        \begin{displaymath} 
+           M_{D}\left(t+\Delta t\right) = \int\limits_{t}^{t+\Delta t} \left(\dot{M}_{DB}-\dot{M}_{SC}-\dot{M}_{WC}\right)dt + M_{D}(t)
+        \end{displaymath}
+      \item The term `{\it flash}' in the first line of this section (also throughout the text), does it refer to isothermal (or isenthalpic) flash or just to fluid flow into/out of the containment?
+      \item In Eqn. 12, how are $P_{\text{max}}$ and $P_{\text{min}}$ calculated/obtained? 
+   \end{enumerate}
+%
+\item Equations of state for the water/steam-air system are briefly described in Section 2.3.1. Why do the authors assumed that air should behave as an ideal gas? Properties of saturated water and superheated steam were obtained from water/steam thermodynamic tables. Are these tabulated or calculated `{\it on the fly}' (i.e., online)?
+%
+\item In Section 3.1, it seems that the author assume all fluids incompressible (Eqn 27), why?
+%
+\item Section 5:
+   \begin{enumerate}[(i)]
+      \item Could the authors explain the DECL accident scenario? I guess this would be useful for the PNE readers. Why was this accident scenario chosen?
+      \item Results were shown in Figs 9-18 (with and without spray). However no reason was given for the best performance of the multi-cells system (in comparison with the single-cell). Also, why is there large discrepancy (pressure and temperature fields) between FSAR and the calculated models in the beginning of the transient?  
+   \end{enumerate}   
+%
+\end{enumerate}
+
+In summary, the subject of the manuscript is very relevant for nuclear technology community, however the paper still needs to be largely improved before being considered for publication. The results, although interesting (but poorly described and discussed), does not bring much novelty to the field -- or at least the authors failed to explicitly demonstrate it. 
+
+
+
+In the scanned copy,
+\begin{itemize}
+\item PE: Poor English. The authors should consider revise the sentence(s);
+\item SC: Sentence(s) is/are very confusing and do(es) not make any/much sense. The authors should revise the sentence(s).
+\end{itemize}
+
+
+%%%
+%%% Appendix
+%%%
+{
+  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_PNUCENE-D-15-00347.pdf}
+
+%%%
+%%% \lipsum % Text before
+%%%
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+           \Huge{2015}
+        \vfill
+    \end{landscape}
+    \clearpage% Flush page
+}
+\vfill
+\clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+
+\begin{center}
+  {\Large Review of the Manuscript AMC-D-15-01974 `A New Metropolis Optimization Method, the Cross-Section Particle Collision Algorithm' by Sacco $\&$ Henderson}
+\end{center}
+
+\medskip
+
+The manuscript introduces a modified PCA optimisation algorithm, based on the phase-space search-acceptance strategy within the scattering stage. The performance of the CSPCA algorithm was assessed through 5 optimisation test-case problems.
+
+ 
+The manuscript is well-written with a small number of typos and unrevised sentences (see the attached scanned document). A few sentences are confusing and disconnected with no clear objectives. 
+
+The method and benchmarks introduced in the manuscript are very challenging, however reading the manuscript is difficult to identify the authors' original contribution. It is clear that CSPCA is a more complex algorithm than the original PCA -- and also more efficient for the set of non-linear benchmark test-cases. The weighted acceptance Monte Carlo-based criteria has some resemblance with the cross-section generation, so how important the scattering stage is within the PCA family of methods? The overall performance of the CSPCA, highlighted in Tables 1-4, does not seem to differ that much from the traditional PCA, if we consider both SR and average NFE. Why? May it be a problem in the scattering stage implementation (maybe in the way the probabilistic function is defined)?  
+
+%%%
+%%% Appendix
+%%%
+{
+  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_AMC-D-15-01974_Review.pdf}
+
+
+%%%
+%%% \lipsum % Text before
+%%%
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+        \vfill
+    \end{landscape}
+    \clearpage% Flush page
+}
+\vfill
+\clearpage
+
+
+
+
+\begin{center}
+{\Large Review of the Manuscript ADWR-15-232 `An Implicit Numerical Model for Multicomponent Compressible Two-Phase Flow in Porous Media' by A. Zidane and A. Firoozabadi}
+\end{center}
+
+\medskip
+
+The manuscript describes an implicit model for compressible multiphase and multi-componet flows in porous media. Numerical simulations were performed using the new model approach with initial comparison against commercial model software under a number conditions. 
+
+The manuscript is relatively well-written with a small number of typos and unrevised sentences (see the attached scanned document). A few sentences are confusing and disconnected with no clear objectives. However, the manuscript is comprehensive and introduces an insightful (although superficial) literature review on the main subject areas. In fact, as the manuscript mainly focuses on an implicit formulation for compressible flows, I would expect a short literature review on this subject. There is a good number of manuscripts on the fluid dynamics open literature on compressible (including shock-capturing and high-order accurate schemes), multi-component and implicit-/explicit-DG formulations. A few comments:
+\begin{enumerate}[(a)] 
+%
+\item I understand that the authors do not want to reveal the commercial flow simulator software used for model validation, referred as CM-1/2/3. However, in order to properly appreciate the validation exercise it is necessary to know some info of this set of software, are they FEM- or FVM-based (or hybrid, CVFEM, EbFVM)? What sort of element/volume and formulation (spatial- and time-discretisation) they use?
+%
+\item In Eqn. 7, what does $\beta$ represent? Does it refer to the remaining phases?
+%
+\item The last two sentences of page 11: `The coefficient $c_{\alpha}x_{i,\alpha}$, (...) without considering higher-order spatial approximations. This is due to the fact that the pressure is a smooth function of space in the scope of this work'. What do the authors mean here? Pressure and phase velocities are coupled via the Darcy equation (Eqn. 3), thus a similar high-order approximation should be used in both velocity and pressure fields.
+%
+\item In the last sentence of pages 11-12, the authors stated that the upwind scheme used in the scalar transport equation can not be used in the pressure equation. Why not? So what is done in the proposed formulation?
+%
+\item A major issue in numerical modelling of compressible multiphase flows is the transition between incompressible (e.g., liquids) and compressible fluids due to the strong non-linear coupling between densities and pressure (i.e., speed of sound in fluids $\left(\eta^{2}=\left[\frac{\partial p}{\partial \rho}\right]\right)$. How does the formulation treat such discontinuities?
+%
+\item Simulations were performed in Section 4, where numerical solutions obtained from the formulation were qualitatively validated against commercial models (cross-code validation) and against an explicit DG model. The path for validation chosen by the authors seems consistent with much of the porous media open literature, however I wonder why didn't the authors try to quantitatively validate the model against simple 1D analytic solution (3-4 components) and then qualitatively validate against other models.
+%
+\item Last sentence of page 13, does the average number of Newton iteration refer to the convergence of the VLE sub-model (based on the PR EOS) or the actual Picard method (or non-linear iteration) of the whole set of conservative equations (pressure, saturation and compositional)? I believe the authors refers to the later, in this case, in the formulation are all fields are lumped together and solved in a single operation or in field-based stages (e.g., velocity-pressure $\rightarrow$ saturation $\rightarrow$ mass/mole fraction etc).
+%
+\end{enumerate}
+
+%%%
+%%% Appendix
+%%%
+{
+  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_ADWR-15-232_Review.pdf}
+}
+
+
+%%%
+%%% \lipsum % Text before
+%%%
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+        \vfill
+    \end{landscape}
+    \clearpage% Flush page
+}
+\vfill
+\clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+
+\begin{center}
+{\Large Review of the Manuscript PNUCENE-D-15-00085 $\lq$A Comparative Study of Pool and Dry-Cask Storage System PRAs for Spent Nuclear Fuel' by {\it S. Zhang et al.}}
+\end{center}
+
+\medskip
+
+The manuscript describes the procedure for preliminary risk assessment in nuclear fuel storage systems. The work is based on pilot studies in two nuclear power plants in China operating with distinct storage systems: pool and dry-cask. The paper is well-written with a small number of typos, a few sentences are confusing and disconnected with no clear objectives. 
+
+In general, the manuscript is comprehensive and introduces best-practive procedures for PRA analysis for spent nuclear fuel storage.  However, my main concern is that there is no clear indication of neither scientific objectives of the paper nor novelties that the authors are bringing. In fact, the paper focuses on the main conclusions of PRA analysis, without any indication of a new methodology.  
+
+
+%%%
+%%% \lipsum % Text before
+%%%
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+        \vfill
+    \end{landscape}
+    \clearpage% Flush page
+}
+\vfill
+\clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+\begin{center}
+  {\Large Review of the Manuscript BJCE-2015-0011 $\lq$3D Compositional Reservoir Simulation in Conjunction with Unstructured Grids' by Ara\'ujo {\it et al.}}
+\end{center}
+
+\medskip
+
+The manuscript aims to demonstrate the functionalities of a compositional model formulation embedded in the UTCOMP flow simulator. The model is based on the element-based finite volume method (EbFVM) and benchmarks were performed with a number of element/cell types. The authors presented a brief (and limited) literature review on the current state-of-the-art of flow simulator methods and formulations and performed a set of numerical simulations. 
+
+The manuscript is relatively well-written with a small number of typos and unrevised sentences (see the attached scanned document). A few sentences are very confusing and disconnected with no clear objectives. The method and benchmarks introduced in the manuscript are very interesting, however reading the manuscript is difficult to identify the authors' original contribution. What novelties do the manuscript bring? A few notes/questions:
+\begin{enumerate}
+%
+\item Some terms were used before being defined, e.g., $\lq$PEBI' in the Abstract;
+\item Page 4 (lines 34-47): one of the main features in the model is the use of the EbFVM instead of more traditional (for flow simulators) FEM, FDM and CVFEM. However, no specific explanation of the method is given, except $\lq$(...) The main difference between CVFEM and EbFVM techniques lies in the assumption of multiphase/multicomponent flow of the EbFVM approach in order to obtain the approximated solution (...)'. It is not clear the difference between the methods, surely neither FEM nor CVFEM are not bounded by single/multi-phase/component nature of flows. Thus I guess the author possibly meant some scalar field conservation aspect;
+\item Indices in Eqn 1 and the text following it seems to be messed up; 
+\item Is Eqn 2 correct? A quick dimension analysis indicates a mismatch -re $\gamma_{i}D$ term, assuming that $\gamma$ is molar weight (or molar mass, g/mol) and $D$ is reservoir depth (m);
+\item Does the formulation take into account anisotropy of permeability tensors? In the tables, the diagonal components of permeability are given, thus I am assuming the synthetic geological formation is rather homogeneous, is it correct?
+\item Was there any study on the convergence test performed for the formulation presented in the manuscript? 
+%
+\end{enumerate}
+In the scanned copy,
+\begin{itemize}
+\item PE: Poor English. The authors should consider revise the sentence(s);
+\item SC: Sentence(s) is/are very confusing and do(es) not make any/much sense. The authors should revise the sentence(s).
+\end{itemize}
+
+%%%
+%%% Appendix
+%%%
+{
+  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_BJCE_2015-0011.pdf}
+
+
+%%%
+%%% \lipsum % Text before
+%%%
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+        \vfill
+    \end{landscape}
+    \clearpage% Flush page
+}
+\vfill
+\clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+
+\begin{center}
+{\Large Review of the Manuscript PNUCENE-D-14-00301 $\lq$CFD Study of an air-water flow inside helically coiled pipes' by {\it M. Colombo et al.}}
+\end{center}
+
+\medskip
+
+The manuscript investigates multiphase (air-water) flow dynamics in helical pipes with a two-fluids model formulation.  Numerical simulations were performed using the FLUENT model software using a number of mesh grids and flow conditions. 
+
+The manuscript is relatively well-written with a small number of typos and unrevised sentences (see the attached scanned document). A few sentences are confusing and disconnected with no clear objectives. However, the manuscript is comprehensive and introduces an insightful although very superficial literature review on the main subject areas. In fact, as the manuscript mainly focuses on multi-fluid dynamics in confined domains, I would expect a short literature review on this subject. There is a good number of manuscripts on the nuclear and non-nuclear open literature on both internal and external (single- and multiphase) flows and heat transfer in and around helically coiled pipes (see Y.J. Chung 2013 and 2014, Buchan 2012, all in {\it Annals}). A few comments:
+\begin{enumerate}[(a)]
+%
+\item  The main objective of the paper (lines 27-38 of the {\it Abstract}) is to investigate flow dynamic parameters (pressure drop and void volume fraction) in helicoidal pipes. As these parameters are strongly dependent on the geometry (e.g., pipe diameter, coil pitch and curvature etc) and thermo-physical properties of the fluid (e.g., fluids' density, viscosity, velocity) I would suggest the authors to include a schematic of the helicoidal pipes. This would help understand the system the authors are simulating.
+%
+\item Also, as coil pitch and curvature play  crucial roles in the flow dynamics (in particular bubble formation and growth), I would expect an in-depth sensitivity analysis of these parameters.
+%
+\item Most of plots shown in the manuscript are functions of the {\it $\lq$quality'}, $x$. The authors have not defined this term. I am aware that flow quality is often associated with quantity of vapour phase in the two phases dome region, 
+\begin{displaymath}
+x_{i} = \frac{\Psi_{i} - \Psi_{\text{liq}}}{\Psi_{\text{vap}}-\Psi_{\text{liq}}}
+\end{displaymath}
+where $\Psi$ is any extensive thermodynamic property (e.g., specific enthalpy, entropy etc) and $i$ refers to flow conditions (i.e., pressure and temperature). Thus, in Figs. 1 and 2 (air and water experimental flow), which component does the quality refer to ? I have not read the reference paper, but I would guess that the quality refers to the amount of air in the mixture (assuming that air does not get dissolved in water), therefore the authors actually refer to the gas volume fraction. The authors should make it clear.
+%
+\item Last sentence of the first paragraph of Section 2. Why did the authors choose this specific experimental data set to validate their model/simulations?
+%
+\item In Section 3, the authors summarised the numerical options used in the simulations. As some of the readers (including myself) are not familiar with ANSYS FLUENT framework I would really suggest the authors to describe in (some) depth the methods, discretisation, schemes and solvers options used by the authors as this may explain the reason why some of the results presented seems to be slightly dissipative. 
+%
+\item Also, as the study focuses on pressure drop in the gas-liquid mixture (and the relationship with drag), authors should shown the equations used to represent drag and bulk density and viscosity linearisation, as they may play a significant role in the momentum conservation.
+%
+\item Figures 3,13 and 17 are low resolution (poor quality) and should be improved.
+%
+\item In Section 4, the authors performed a grid sensitivity analysis that led to the choice of mesh used in the remaining of the work. However, their procedure to choose the mesh is very random and does not make any sense. Three distinct mesh grids, three distinct inlet velocities for the gas and liquid phases and three distinct initial gas volume fraction. The resulting pressure drop {\it versus} number of cross-section cells did not shown any convergence that would indicate a grid independent solution. The authors should ensure that the mesh used in the simulations is the optimal mesh, i.e., solution is not dependent on the grid. 
+%
+\item Section 5: 
+\begin{enumerate}[(i)]
+%
+\item 2$^{\text{nd}}$ paragraph: Bubble / droplet diameter are not imposed in CFD calculations (this is clear from the set of conservative equations you are solving for, where volume fraction of phases will increase/decrease depending on the flow but are also naturally constraint), however they are used as threshold in the constitutive equations to induce bubble formation, drag increase (Eqn. 5) etc.
+%
+\item Are the profile figures time-averaged and time-snapshots fields? I would guess the later, if this is the case, the authors should indicate the position in the helical coil and the time-stamp.
+%
+\item As this section investigate the influence of $d_{p}$ in the dynamics, and more specifically in the inter-phase momentum transfer, I would expect a more thorough discussion on the used drag formulation instead of just a set of simulations with different initial conditions. I believe the authors are not resolving the inter-phase momentum transfer, but rather relying on drag correlations -- so which correlation were used in the simulations?
+%
+\end{enumerate}
+%
+\item Section 6: A few CFD models treat the centrifugal term as part of gravitational term but implicitly embedded into the pressure term in the momentum equation. How is centrifugal force treated in Fluent? I would guess that this is part of the rotational reference framework in Fluent, is it correct? Please explain.
+%
+\item Section 7.1: The authors should explain (preferentially with the relevant equations) the wall function and the enhanced wall treatment formulations in the Fluent model. Also, was the new finer grid close to the walls regular- or exponential-based?  
+%
+\end{enumerate}
+
+
+%%%
+%%% Appendix
+%%%
+{
+  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_PNUCENE_D14_00301.pdf}
+}
+
+%%%
+%%% \lipsum % Text before
+%%%
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+        \vfill
+    \end{landscape}
+    \clearpage% Flush page
+}
+\vfill
+\clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+
+
+   
+\end{document}
