@@ -1,10 +1,12 @@
 
 default:	CourseHandbook_EX3029_2015-16.pdf \
-		CourseHandbook_EG3029_2014-15.pdf EG501J_Syllabus_and_InitialTimetable_2014-15.pdf
+		CourseHandbook_EG3029_2014-15.pdf EG501J_Syllabus_and_InitialTimetable_2014-15.pdf \
+		FormativeAssessment_LearningOutcomes.pdf
 
 CourseHandbook_EX501V_2015-16.pdf: CourseHandbook_EX501V_2015-16.tex
 CourseHandbook_EG501V_2014-15.pdf: CourseHandbook_EG501V_2014-15.tex
 EG501J_Syllabus_and_InitialTimetable_2014-15.pdf: EG501J_Syllabus_and_InitialTimetable_2014-15.tex
+FormativeAssessment_LearningOutcomes.pdf:	FormativeAssessment_LearningOutcomes.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
