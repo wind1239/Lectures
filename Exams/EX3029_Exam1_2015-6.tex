@@ -17,8 +17,8 @@
 \coursetitle{Chemical Thermodynamics}
 
 \examtime{09.00--12.00}%
-\examdate{03}{12}{2015}% 
-\examformat{Candidates must attempt \textit{all} questions.}
+\examdate{14}{12}{2015}% 
+\examformat{Candidates must attempt \textit{all} questions, each of which carries equal (20) marks.  All thermodynamic symbols have their usual meanings unless otherwise stated.}
 
 \newcommand{\frc}{\displaystyle\frac}
 \newcommand{\br}[1]{\!\left( #1 \right)}
@@ -65,13 +65,13 @@ dS = \frc{C_{v}}{T}\left(\frc{\partial T}{\partial P}\right)_{V}dP + \frc{C_{P}}
 %%%
 %%% Johannes Lecture Example
 %%%
-\item\label{LectExample} In the esterification reaction of acetic acid with ethanol at 100$^{\circ}$C,
+\item\label{LectExample} The liquid phase esterification of acetic acid with ethanol is given by,
 \begin{displaymath}
-CH_{3}COOH + C_{2}H_{5}OH  \Longleftrightarrow  CH_{3}COOC_{2}H_{5} + H_{2}O,
+CH_{3}COOH + C_{2}H_{5}OH  \Longleftrightarrow  CH_{3}COOC_{2}H_{5} + H_{2}O.
 \end{displaymath}
-calculate the mass fraction of ethyl acetate given that initially there was 1 mole of acetic acid and ethanol. The reaction enthalpy and Gibbs energy at standard state (25$^{\circ}$C and 1 atm) are $\Delta H_{298}^{\circ}=-3640$ J and $\Delta G_{298}^{\circ}=-4650$ J. Given the van't Hoff equation,~\marks{12}
+Calculate the equilibrium mole fraction of ethyl acetate at 100$^{\circ}$C, given that initially there were 1 mole of acetic acid and 1 mole of ethanol. The standard enthalpy and Gibbs free energy of the reaction at 25$^{\circ}$C are -3.64 kJ.mol$^{-1}$ and -4.65 kJ.mol$^{-1}$, respectively. The van't Hoff equation is given by~\marks{12}
 \begin{displaymath}
-\frc{d}{dT}\left(\ln{K}\right) = - \frc{\Delta H_{298}^{o}}{RT^{2}}
+\frc{d}{dT}\left(\ln{K}\right) = - \frc{\Delta H_{298}^{o}}{RT^{2}}.
 \end{displaymath}
 
 %==========================
@@ -139,10 +139,11 @@ Z^{3} -(1+B)Z^{2} +AZ -AB = 0
 }
 %==========================
 
-\item Calculate the fugacity of CO$_{2}$ at 310 K and 1.4$\times$10$^{6}$ Pa using the van der Waals equation of state (EOS), with $a=$ 0.3658 Pa.m$^{6}$/mol$^{2}$, $b=$ 4.286$\times$10$^{-5}$ m$^{3}$/mol. Given,~\marks{13}
+\item Calculate the fugacity of gaseous CO$_{2}$ at 310 K and 1.4$\times$10$^{6}$ Pa using the van der Waals equation of state (EOS), with $a=$ 0.3658 Pa.m$^{6}$/mol$^{2}$, $b=$ 4.286$\times$10$^{-5}$ m$^{3}$/mol. Given,~\marks{13}
 \begin{displaymath}
 \ln{\left(\frc{f}{P}\right)} = -\ln{\left(1-\frc{b}{V}\right)} - \frc{a}{RTV} - \ln{Z} +\left(Z-1\right).
 \end{displaymath}
+Use the largest real root of the cubic polynomial in $Z$ to represent the gaseous phase.
 
 %====================
 \solution{Solving the cubic polynomial in $Z$, with $B=bP/(RT)$ and $A=aP/(RT)^{2}$,~\solmarks{5/13}
@@ -173,7 +174,7 @@ Now for the fugacity equation:~\solmarks{8/13}
 %%%
 %%% Jeff Solved Example 3 ==> Sandler Example 10.1.4 (page 504)
 %%%
- An ideal liquid mixture of 25 mol-$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol-$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol-$\%$ n-heptane $\left(nC_{7}\right)$, initially at 69$^{\circ}$C and high pressure, is partially vaporised by isothermically lowering the pressure to 1.013 bar. Calculate the relative amounts of vapour and liquid in equilibrium and their compositions.~\marks{20}
+ An ideal liquid mixture of 25 mol$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol$\%$ n-heptane $\left(nC_{7}\right)$, initially at 69$^{\circ}$C and high pressure, is partially vaporised by isothermically lowering the pressure to 1.013 bar. Calculate the relative amounts of vapour and liquid in equilibrium and their compositions.~\marks{20}
 %======================
 \solution{ From the Antoine equation, we can calculate the saturation pressure of the species $P_{\text{C}_{5}}^{sat}=$ 2.721 bar, $P_{\text{C}_{6}}^{sat}=$ 1.024 bar, $P_{\text{C}_{7}}^{sat}=$ 0.389 bar.~\solmarks{3/20} Assuming ideal solution,
 \begin{displaymath}
@@ -213,7 +214,7 @@ For this problem, use
 \begin{displaymath}
    \ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{RT}
 \end{displaymath} 
-with [P] = bar and [T] = K, and
+with [P] = bar, [T] = K and $\left[\text{B}_{i}\right]$ = J.mol$^{-1}$ and
     \begin{center}
        \begin{tabular}{l l l} 
           $A_{nC_{5}}=10.422$ & $A_{nC_{6}}=10.456$ & $A_{nC_{7}}=11.431$ \\
@@ -235,18 +236,19 @@ with [P] = bar and [T] = K, and
 %%%
 %%% Johannes Problem 2 (Tutorial 5)
 %%%
-\item\label{Tut05P2} A process stream contains light species 1 and heavy species 2. A relatively pure liquid stream containing mostly 2 is obtained through a single-stage liquid/vapour separator. Specifications on the equilibrium composition are: $x_{1}$ = 0.002 and $y_{1}$ = 0.950. Assuming that the modified Raoult's law applies, 
+\item\label{Tut05P2} A process stream contains light species 1 and heavy species 2. A relatively pure liquid stream containing mostly 2 is obtained through a single-stage liquid/vapour separator. Equilibrium mole fractions are $x_{1}$ = 0.002 and $y_{1}$ = 0.950. Assuming that the modified Raoult's law applies, 
 \begin{displaymath}
-  y_{i} P = x_{i}\gamma_{i}P_{i}^{\text{sat}}
+  y_{i} P = x_{i}\gamma_{i}P_{i}^{\text{sat}},
 \end{displaymath} 
-Determine $T$ and $P$ for the separator. Given the activity coefficients for the liquid phase,
+determine $T$ and $P$ for the separator. The activity coefficients for the liquid phase are given by,
 \begin{displaymath}
 \ln\gamma_{1} = 0.93x_{2}^{2} \;\;\;\;\;\text{ and }\;\;\;\;\;\ln\gamma_{2}=0.93x_{1}^{2},
 \end{displaymath}
+and the saturated vapour pressure is given by,
 \begin{displaymath}
-\ln P^{\text{sat}} = A - \frc{B}{T}\;\;\;\text{with [P] = bar and [T] = K},
+\ln P^{\text{sat}} = A - \frc{B}{T}\;\;\;\text{with [P] = bar and [T] = [B] = K},
 \end{displaymath} 
-with $A_{1}$ =10.08, $B_{1}$ = 2572.0, $A_{2}$ = 11.63 and $B_{2}=6254.0$.~\marks{13}
+with $A_{1}=$ 10.08, $B_{1}=$ 2572.0, $A_{2}=$  11.63 and $B_{2}=$ 6254.0.~\marks{13}
 
 %===================
 \solution{Given,
@@ -272,11 +274,11 @@ Solving this equation results in $T=376.45$ K~\solmarks{3/13}. The pressure can 
 %==================
 
 % Nguyen (page 106, Ex 5.1-1)
-\item Determine the temperature and composition of the first bubble created from a saturated liquid mixture of benzene and toluene containing 45 mole percent of benzene at 200 kPa. Benzene and toluene mixtures may be considered as ideal. Given
+\item Determine the temperature and composition of the first bubble created from a saturated liquid mixture of benzene and toluene containing 45 mol$\%$ percent of benzene at 200 kPa. Benzene and toluene mixtures may be considered as ideal. Given,~\marks{7}
 \begin{displaymath}
-\ln{P^{sat}} = A - \frc{B}{T+C}\;\;\text{ with [P] = kPa and  [T] = K}.
+\ln{P^{sat}} = A - \frc{B}{T+C}\;\;\text{ with [P] = kPa and  [T] = [B] = [C] = K},
 \end{displaymath}
-And~\marks{7}
+and
 \begin{center}
 \begin{tabular}{ c  c  c  c }
 \hline
@@ -374,7 +376,7 @@ This demonstrates the validity of the Gibbs-Duhen equation.
 }
 %=========================
 
- \item Plot values of $V$, $\overline{V}_{1}$ and $\overline{V}_{2}$ calculated by the given equation for $V$ and by the equations developed in (a) {\it vs} $x_{1}$. Label points $\overline{V}_{1}^{\infty}$ and $\overline{V}_{2}^{\infty}$ and show their values.~\marks{8}
+ \item Plot values of $V$, $\overline{V}_{1}$ and $\overline{V}_{2}$ calculated by the given equation for $V$ and by the equations developed in (a) {\it vs} $x_{1}$. Label points $\overline{V}_{1}^{\infty}$ and $\overline{V}_{2}^{\infty}$ and show their values.~\marks{8} 
 %=============
 \solution{The plot is~\solmarks{2/8}
 \begin{center}
