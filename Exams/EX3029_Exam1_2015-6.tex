@@ -86,17 +86,18 @@ Assuming ideal solution,~\solmarks{2/12}
 \end{displaymath} 
 Thus, by calculating $K$, we can obtain $\epsilon$ and then $x_{\text{EtAc}}$. $K$ (temperature-dependent) can be obtained from the Gibbs free energy,~\solmarks{2/12}
 \begin{displaymath}
-   \ln{K_{298}} = -\frc{\Delta G_{298}^{o}}{RT} = \frc{4650.0}{8.314\times 298.15} = 1.8759
+   \ln{K_{298}} = -\frc{\Delta G_{298}^{o}}{RT} = \frc{4650.0}{8.314\times 298.15} = 1.8759 \Longrightarrow K_{298} = 6.5267
 \end{displaymath}
 Now, in order to calculate $K$ at 373.15 K, we can integrate the van't Hoff equation from 298.15 K to 373.15 K~\solmarks{2/12}
-\begin{displaymath}
-\int\limits_{K_{298}}^{K_{373}} d\left(\ln{K}\right) = - \int\limits_{298.15}^{373.15}\frc{\Delta H_{298}^{o}}{RT^{2}} dT \Longrightarrow K_{373} = 4.8586
-\end{displaymath}
+\begin{eqnarray}
+   && \int\limits_{K_{298}}^{K_{373}} d\left(\ln{K}\right) = - \int\limits_{298.15}^{373.15}\frc{\Delta H_{298}^{o}}{RT^{2}} dT \nonumber \\
+   && \ln\left(\frc{K_{373}}{K_{298}}\right) = - \frc{-3640.0}{8.314}\left(\frc{1}{373.15}-\frc{1}{298.15}\right) \Longrightarrow K_{373} = 4.8586 \nonumber
+\end{eqnarray}
 Now we can calculate the reaction coordinate,
 \begin{displaymath}
    K_{373} = \frc{\epsilon^{2}}{\left(1-\epsilon\right)^{2}} \Longrightarrow \epsilon= 0.6879
 \end{displaymath} 
-Thus ~\solmarks{2/12}
+Thus ~\solmarks{2/12}  
 \begin{displaymath}
 x_{\text{EtAc}} = \frc{\epsilon}{2} = 0.3440
 \end{displaymath}
@@ -126,13 +127,20 @@ Z^{3} -(1+B)Z^{2} +AZ -AB = 0
 with $B=bP/(RT)$ and $A=aP/(RT)^{2}$.~\marks{7}
 
 %==========================
-\solution{We can rearrange the vdW EOS,~\solmarks{3/7}
+\solution{We can rearrange the vdW EOS,~\solmarks{2/7}
+\begin{displaymath}
+   P = \frc{RT}{V-b} - \frc{a}{V^{2}} \Longrightarrow \frc{PV}{RT} = \frc{V}{V-b} - \frc{a}{RTV} = \frc{1}{1-\frc{b}{V}} - \frc{a}{RTV}
+\end{displaymath}
+Eliminating $V$ as $V=ZRT/P$,~\solmarks{1/7}
+\begin{displaymath}
+   Z = \left(1-\frc{bP}{ZRT}\right)^{-1} - \frc{aP}{Z\left(RT\right)^{2}} = \frc{ZRT}{ZRT-bP}-\frc{aP}{Z\left(RT\right)^{2}}
+\end{displaymath}
+Manipulating this expression,~\solmarks{3/7}
 \begin{eqnarray}
- && P = \frc{RT}{V-b} - \frc{a}{V^{2}} \Longrightarrow \frc{PV}{RT} = \frc{V}{V-b} - \frc{a}{RTV} \nonumber \\
- && Z = \frc{1}{1-\frc{b}{V}} - \frc{a}{RTV}\;\;\text{ since } V=\frc{ZRT}{P}  \nonumber \\
-&& Z = \left(1-\frc{bP}{ZRT}\right)^{-1} - \frc{aP}{Z\left(RT\right)^{2}} \nonumber
+   && Z^{2}R^{2}T^{2}\left(ZRT-bP\right) = Z^{2}\left(RT\right)^{3} - aP\left(ZRT-bP\right) \nonumber \\
+   && Z^{3} - \frc{bP}{RT}Z^{2} - Z^{2} -\frc{aP}{\left(RT\right)^{2}}Z + ab\frc{P^{2}}{\left(RT\right)^{3}} = 0 \nonumber
 \end{eqnarray}
-Defining $B=bP/(RT)$ and $A=aP/(RT)^{2}$~\solmarks{2/7} and replacing in the above expression leads to,~\solmarks{2/7}
+with $B=bP/(RT)$, $A=aP/(RT)^{2}$ and $AB=ab\frc{P^{2}}{\left(RT\right)^{3}}$,~\solmarks{1/7}
 \begin{displaymath}
 Z^{3} -(1+B)Z^{2} +AZ -AB = 0 
 \end{displaymath}
@@ -151,11 +159,13 @@ Use the largest real root of the cubic polynomial in $Z$ to represent the gaseou
 Z^{3} -(1+B)Z^{2} +AZ -AB = 0 & \Longrightarrow& A = 7.7095\times 10^{-2}\; ;\; B = 2.3281\times 10^{-2} \nonumber \\ 
  &\Longrightarrow& Z = 0.9436 \nonumber
 \end{eqnarray}
-Now for the fugacity equation:~\solmarks{8/13}
+Now for the fugacity equation, either
 \begin{eqnarray}
 && \ln{\left(\frc{f}{P}\right)} = -\ln{\left(1-\frc{b}{V}\right)} - \frc{a}{RTV} - \ln{Z} +\left(Z-1\right) \nonumber \\
-&&  \ln{\left(\frc{f}{P}\right)} = -\ln{\left(1-\frc{B}{Z}\right)} - \frc{A}{Z} - \ln{Z} +\left(Z-1\right) \Longrightarrow f = 1.26\times 10^{6}\;\text{Pa}\nonumber
+&& \text{or} \nonumber \\
+&&  \ln{\left(\frc{f}{P}\right)} = -\ln{\left(1-\frc{B}{Z}\right)} - \frc{A}{Z} - \ln{Z} +\left(Z-1\right) \nonumber
 \end{eqnarray}
+leads to $f =\; 1.32\times 10^{6}$ Pa.~\solmarks{8/13}
 
 }
 %====================
@@ -343,11 +353,12 @@ V &=& 120 x_{1} + 70 x_{2} + \left( 15x_{1} + 8x_{2}\right)x_{1}x_{2} \nonumber 
 \end{eqnarray}
 The Gibbs-Duhen equation at constant $T$ and $P$ can be expressed as,
 \begin{displaymath}
-\overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}} \;\text{ and }\; \overline{M}_{2} = M + x_{1}\frc{dM}{dx_{1}}
+\overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}} \;\text{ and }\; \overline{M}_{2} = M - x_{1}\frc{dM}{dx_{1}}
 \end{displaymath}
 and are used to obtain $\overline{V}_{1}$ and $\overline{V}_{2}$. However we first need to calculate~\solmarks{2/7}
 \begin{displaymath}
-\frc{dV}{dx_{1}} = 58 - 2x_{1} - 21x_{1}^{2}4\end{displaymath}
+\frc{dV}{dx_{1}} = 58 - 2x_{1} - 21x_{1}^{2}
+\end{displaymath}
 Thus~\solmarks{4/7}
 \begin{eqnarray}
 \overline{V}_{1} &=& 128 - 2x_{1} - 20x_{1}^{2} + 14x_{1}^{3} \nonumber \\
