@@ -1,5 +1,6 @@
 
-\documentclass[calculator,steamtables,datasheet,solutions]{exam}
+\documentclass[calculator,steamtables,datasheet,solutions]{exam_newMarcus2}
+%{exam}
 %\documentclass[calculator,fluidstables,allquestions,datasheet]{exam}
 
 % The full list of class options are
@@ -48,18 +49,19 @@ Which exchanger should be used? Why?
 Given C$_{p,\text{oil}}$ = 2.10 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$ and C$_{p,\text{water}}$ = 4.18 kJ/$\left(\text{kg.}^{\circ}\text{C}\right)$. Assume that there is no heat losses.~\marks{10}
 %==============
       \solution{ Given: $\dot{m}_{w} = \dot{m}_{o}$ = 230 kg/h, $T_{w}^{in}$ = 35$^{\circ}$C, $T_{w}^{out}$ = 93$^{\circ}$C, $T_{o}^{in}$ = 175$^{\circ}$C, $C_{p,w}$ = 4.18 kJ/(kg.$^{\circ}$C), $C_{p,o}$ = 2.10 kJ/(kg.$^{\circ}$C).\\
-The energy balance of the water and oil stream within the heat exchanger (HE) is~\solmarks{2/10}
+\begin{itemize}
+\item {\bf Method 1:} The energy balance of the water and oil stream within the heat exchanger (HE) is~\solmarks{3/10}
 \begin{eqnarray}
 && \dot{Q}_{w} + \dot{Q}_{o} = 0 \nonumber \\
 && \dot{m}_{w}C_{p,w}\left(T_{w}^{out}-T_{w}^{in}\right) + \dot{m}_{o}C_{p,o}\left(T_{o}^{out}-T_{o}^{in}\right)  = 0 \Longrightarrow {\bf T_{o}^{out} = 59.55^{\circ}\text{C}} \nonumber
 \end{eqnarray} 
 The {\it log mean-temperature difference}, $\Delta T_{lm}$ is~\solmarks{3/10}
 \begin{displaymath}
-\Delta T_{lm} = \frc{\left(T_{h2}-T_{c2}\right)-\left(T_{h1}-T_{c1}\right)}{\ln\frc{T_{h2}-T_{c2}}{T_{h1}-T_{c1}}} = {\bf 47.60^{\circ}\text{C}}
+\Delta T_{lm} = \frc{\left(T_{h2}-T_{c2}\right)-\left(T_{h1}-T_{c1}\right)}{\ln\frc{T_{h2}-T_{c2}}{T_{h1}-T_{c1}}} = {\bf 47.64^{\circ}\text{C}}
 \end{displaymath}
 The heat transfer rate for the water stream is,~\solmarks{1/10}
 \begin{displaymath}
-\dot{Q}_{w} = \dot{m}_{w}C_{p,w}\left(T_{w}^{out}-T_{w}^{in}\right) = {\bf 15489.22 W}
+\dot{Q}_{w} = \dot{m}_{w}C_{p,w}\left(T_{w}^{out}-T_{w}^{in}\right) = {\bf 15491.92 W}
 \end{displaymath}
 Thus
 \begin{itemize}
@@ -72,10 +74,34 @@ Thus
        A_{2} = \frc{\dot{Q}}{{U_{2}\Delta T_{lm}}} = {\bf 0.88\text{ m}^{2}} < A_{\text{HE2}}\left(=0.94\text{ m}^{2}\right) 
    \end{displaymath}
 \end{itemize}
-Thus, {\bf the engineer should use Heat Exchanger 2 as the designed superficial is smaller than the area of the available HE. With this area, the engineer should recalculate the heat transfer rate and the output oil temperature, and adjust the oil mass flow rates.} ~\solmarks{2/10} 
+Thus, the engineer should use {\bf Heat Exchanger 2}~\solmarks{1/10} as the designed superficial area is smaller than the area of the available HE. With this area, the engineer should recalculate the heat transfer rate and the output oil temperature, and adjust the oil mass flow rates.
+
+
+\item {\bf Method 2:} We can also solve this problem via NTU analysis. With the mass flow rate of water and oil streams of {\bf 6.39$\times$10$^{-2}$ kg/s}~\solmarks{1/10}, we can calculate the C$_{\text{min}}$ and C$_{\text{max}}$,~\solmarks{1/10}
+\begin{displaymath}
+\phi = \frac{\dot{m}_{o}C_{p,o}}{\dot{m}_{w}C_{p,w}}= \frc{6.39\times 10^{-2} \cdot 2.1\times 10^{3}}{6.39\times 10^{-2} \cdot 4.18\times 10^{3}} = \frac{134.19}{267.10} = 0.5024
+\end{displaymath} 
+Now calculating  the NTU for both heat exchangers,~\solmarks{2/10}
+\begin{eqnarray}
+&& \left(\text{NTU}\right)_{1} = \frac{U_{1}A_{1}}{C_{\text{min}}} = \frac{570\cdot 0.47}{134.19} = 1.9964 \nonumber \\
+&& \left(\text{NTU}\right)_{2} = \frac{U_{2}A_{2}}{C_{\text{min}}} = \frac{370\cdot 0.94}{134.19} = 2.5918 \nonumber \\
+\end{eqnarray}
+The efficiency of double-pipe HE is given by,
+\begin{eqnarray}
+\epsilon_{p} &=& \frac{1-\exp\left[-\text{NTU}\left(1+\phi\right)\right]}{1+\phi}\;\;\;\text{(parallel-flow)} \nonumber \\
+\epsilon_{c} &=& \frac{1-\exp\left[-\text{NTU}\left(1-\phi\right)\right]}{1+\phi\exp\left[-\text{NTU}\left(1-\phi\right)\right]}\;\;\;\text{(counter-flow)} \nonumber \\
+\end{eqnarray}
+Leading to~\solmarks{4/10}
+\begin{eqnarray}
+\left(\epsilon_{p}\right)_{HE1} = 0.6324 \;\;&\;\;&\;\; \left(\epsilon_{p}\right)_{HE2} = 0.6520 \nonumber \\
+\left(\epsilon_{c}\right)_{HE1} = 0.5309 \;\;&\;\;&\;\; \left(\epsilon_{c}\right)_{HE2} = 0.6366 \nonumber
+\end{eqnarray}
+It is clear that regardless of the the flow design, the {\bf Heat Exchanger 2}~\solmarks{2/10} yields a higher efficiency.
+
  
 %==============
 }
+\end{itemize}
 %
 
 %Holman (4.40)
@@ -86,25 +112,25 @@ Thus, {\bf the engineer should use Heat Exchanger 2 as the designed superficial 
 where $\tau$ is the Fourier number, $\lambda_{1}$ and $A_{1}$ are coefficient constants of the transient 1-D heat conduction equation.~\marks{10}
 
 %==============
-\solution{Given: thickness of plate: 0.03 m; $L$ = 0.015 m; $T_{i}$ = 500$^{\circ}$C; $T_{\infty}$ = 40$^{\circ}$C; $T_{i}$ = 120$^{\circ}$C; $h$ = 150 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$; $\kappa$ = 16.3 W/$\left(\text{m}.^{\circ}\text{C}\right)$; $\alpha$ = 0.44 $\times$10$^{-5}$ m$^{2}$/s.
+\solution{Given: thickness of plate (2L): 0.03 m; $L$ = 0.015 m; $T_{i}$ = 500$^{\circ}$C; $T_{\infty}$ = 40$^{\circ}$C; $T_{i}$ = 120$^{\circ}$C; $h$ = 150 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$; $\kappa$ = 16.3 W/$\left(\text{m}.^{\circ}\text{C}\right)$; $\alpha$ = 0.44 $\times$10$^{-5}$ m$^{2}$/s.
 
 First, we need to calculate the $Bi$ number,
 \begin{displaymath}
   Bi = \frc{h L}{\kappa} = {\bf 0.1380} > 0.1 \text{ thus we cannot apply lumped capacity method}
 \end{displaymath}
-With $Bi$ (through linear interpolation in the coefficients table) we determine ${\bf \lambda_{1}=0.3573}$ and ${\bf A_{1}=1.0150}$~\solmarks{2/10}. At the plate face, $x/L=1$,
+With $Bi$ (through linear interpolation in the coefficients table) we determine ${\bf \lambda_{1}=0.3573}$ and ${\bf A_{1}=1.0218}$~\solmarks{2/10}. At the plate face, $x/L=1$,
 \begin{displaymath}
 \frc{T\left(x,t\right)-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}\exp{\left(-\lambda_{1}^{2}\tau\right)}\cos{\frc{\lambda_{1}x}{L}}
 \end{displaymath}
-with $T\left(L,t\right) = 120^{\circ}C$ $\Longrightarrow$  ${\bf\tau = 13.8187}$~\solmarks{2/10}. As~\solmarks{2/10}
+with $T\left(L,t\right) = 120^{\circ}C$ $\Longrightarrow$  ${\bf\tau = 13.3602}$~\solmarks{2/10}. As~\solmarks{2/10}
 \begin{displaymath}
-\tau = \frc{\alpha t}{L^{2}} \Longrightarrow {\bf t=706.64\; s}
+\tau = \frc{\alpha t}{L^{2}} \Longrightarrow {\bf t=683.19\; s}
 \end{displaymath}
 At the centre of the plate, $x/L=0$,~\solmarks{2/10}
 \begin{displaymath}
-\frc{T\left(0,t\right)-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}\exp{\left(-\lambda_{1}^{2}\tau\right)} \Longrightarrow  {\bf \tau = 13.8189}
+\frc{T\left(0,t\right)-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}\exp{\left(-\lambda_{1}^{2}\tau\right)} \Longrightarrow  {\bf \tau = 13.8712}
 \end{displaymath}
-and ${\bf t = 706.65\; s}$.~\solmarks{2/10} } 
+and ${\bf t = 709.32\; s}$.~\solmarks{2/10} } 
 %==============
 
 % Holman (4.21)
