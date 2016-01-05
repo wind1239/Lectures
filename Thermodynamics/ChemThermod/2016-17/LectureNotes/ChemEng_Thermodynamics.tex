@@ -1,12 +1,15 @@
-\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{book}%{article}%{report}%{book}
+\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{book}
+
+%\usepackage[gather]{chapterbib}
+
 \usepackage{graphicx,wrapfig}% Include figure files
 %\usepackage{dcolumn,enumerate}% Align table columns on decimal point
 \usepackage{enumerate}% Align table columns on decimal point
 \usepackage{bm,dpfloat}% bold math
 \usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
-\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
-\usepackage{times,psfrag}
-\usepackage{natbib}
+\usepackage{amsfonts,amsmath,amsthm,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag,pdfpages}
+%\usepackage{natbib} 
 \usepackage{color}
 \usepackage{units}
 \usepackage{rotating}
@@ -29,6 +32,10 @@
 \MakeSorted{figure}
 %\usepackage{pdflscape}
 
+% Appendix allows the inclusion of a line for "appendices", which otherwise won't get the right page number. You must
+% use the [toc] option.
+%\usepackage[toc]{appendix}
+
 \definecolor{rltblue}{rgb}{0,0,0.75}
 
 %\usepackage{natbib}
@@ -39,7 +46,8 @@
 %%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 \fancyhf{} %delete the current section for header and footer
-\fancyhead[LE,RO]{\bfseries\thepage}
+%\fancyhead[LE,RO]{\bfseries\thepage}
+%\fancyfoot[LE,RO]{\bfseries\thepage}
 \fancyhead[LO]{\bfseries\rightmark}
 \fancyhead[RE]{\bfseries\leftmark}
 \renewcommand{\headrulewidth}{0.5pt}
@@ -51,6 +59,9 @@
 
 \def\newblock{\hskip .11em plus .33em minus .07em}
 \usepackage{color}
+
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[chapter]
 
 \usepackage{makeidx}
 \makeindex
@@ -72,7 +83,7 @@
 %-\lhead[] {\text{\small{ICON/AMCG}}} 
 %-\chead[\text{\small{FETCH Manual}}]  {\text{\small{FETCH Manual}}} %{\text{\small{JAERI Analysis Report Issue}}}
 %-\rhead[\text{\small{Commercial-in Confidence}}]{}
-%-\cfoot[\thepage]{\thepage}
+\cfoot[\thepage]{\thepage}
 %-\rfoot[]{}%{\text{\small{\today}}}
 %\cfoot[\text{\small{\today}}]{}% {\text{\small{\today}}}
 %\cfoot[\text{\small{January 2006}}] {\text{\small{January 2006}}}
@@ -138,7 +149,6 @@
 \renewcommand\ge{\geqslant}
 \renewcommand\epsilon{\varepsilon}
 \newcommand\eps{\varepsilon}
-\renewcommand\phi{\varphi}
 \newcommand{\bmF}{\vec{F}}
 \newcommand{\bmphi}{\vec{\phi}}
 \newcommand{\bmn}{\vec{n}}
@@ -249,7 +259,9 @@
 \newcommand{\blue}{\textcolor{blue}}
 \newcommand{\green}{\textcolor{green}}
 \newcommand{\purple}{\textcolor{purple}}
-
+\newcommand{\PNDG}[3][error]{P$_{#1}$DG-P$_{#2}$DG$_{#3}$}
+\newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
+%{P$_{#1}$DG-P$_{#2}$DG}%$_{#3}$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%                              %%%%%%%
@@ -264,6 +276,7 @@
 \setcounter{secnumdepth}{4}%
 \setcounter{tocdepth}{4}%
 
+\newcounter{qcounter}
 \includeonly{Module_01, Module_02}
 %\includeonly{model_introduction, model_reservoir_equations, model_description}
 \DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
@@ -281,7 +294,7 @@
 \bigskip
 \vspace{3.5cm}
 
-   {\bf{\Huge EX3029: Chemical Thermodynamics }}
+   {\bf{\Huge Fundamentals of Applied Thermodynamics }}
 
 \bigskip
    {\bf{\huge Lecture Notes}}
@@ -291,12 +304,15 @@
 \end{center}
 
 \begin{tabular}{l c l}
-{\bf{\large Date:}}                            &     &   \today\\
-                                               &     &         \\
 {\bf{\large Author:}}                          &     & J.L.M.A. Gomes \\
 %                                               &     & Environmental and Industrial Fluid Mechanics Group \\
                                                &     & School of Engineering \\
                                                &     & University of Aberdeen \\
+\bigskip
+{\bf{\large Date:}}                            &     &   \today\\
+                                               &     &         \\
+{\bf{\large Revision 1:}}                      &     &   \today\\
+                                               &     &         \\
 \end{tabular}
 \vspace{3.5cm}
 
@@ -313,6 +329,7 @@
 
 \tableofcontents
 \vfill
+
 \pagebreak
 \listoftables
 \vfill
@@ -321,25 +338,39 @@
 \vfill
 \pagebreak
 
-
+\part{Introduction and Review of Basic Concepts}
 \input{Module_01} % Introduction and Review of Thermodynamics
+
+\part{Thermodynamic Properties of Fluids}
 \input{Module_02} % Volumetric Properties of Pure Fluids
+
+\part{Power and Refrigeration}
+
+\part{Liquid Solutions}
+
+\part{Fundamental Chemical Reactions}
+
 \pagebreak
 
 \cleardoublepage
 
-%\part{Appendix}
-\pagebreak
-%\begin{appendix}
-%\input{code_user_guide}
-%\input{appendix_BL_eqn_description}
-%\end{appendix}
+%\part{Appendices}
+
+  \begin{appendix}
+     \input{Appendix_ConversionTable}
+     \input{Appendix_SaturatedTables}
+     \input{Appendix_LogTable}
+     \input{Appendix_Calculus1}
+     \input{Appendix_Examples}
+  \end{appendix}
 
 \cleardoublepage
 
 \pagebreak
+
+\bibliographystyle{plain}
 \bibliography{refbib}
-\bibliographystyle{unsrt}
+%\bibliographystyle{unsrt}
 
 \cleardoublepage
 \phantomsection

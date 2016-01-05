@@ -4,9 +4,6 @@ default:	ChemEng_Thermodynamics.pdf
 ChemEng_Thermodynamics.pdf:	ChemEng_Thermodynamics.tex
 ChemEng_Thermodynamics.idx:	ChemEng_Thermodynamics.idx
 
-Model_Documentation.pdf:	Model_Documentation.tex
-Model_Documentation.idx:	Model_Documentation.idx
-
 %.pdf:	%.tex
 	rm -f $*.pdf
 	pdflatex $<
@@ -21,6 +18,9 @@ endif
 
 %.idx:	%.idx
 	makeindex $<
+
+%.aux:	%.aux
+	bibtex $<
 
 .PHONY: clean clean-pdf
 

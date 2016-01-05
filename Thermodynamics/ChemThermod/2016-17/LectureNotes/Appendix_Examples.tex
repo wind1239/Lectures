@@ -1,0 +1,65 @@
+
+\chapter{A Few Examples}
+
+  \begin{list}{\bf Example \arabic{qcounter}:~}{\usecounter{qcounter}}
+%
+     %%% EXAMPLE 1:
+     \item\label{example1} Using the cyclic rule (Appendix~\ref{Appendix_Calculus:Properties}) and the definitions,
+    \begin{displaymath}
+        \alpha = \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P} \hspace{1cm}\text{ and }\hspace{1cm} \beta = -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T},
+    \end{displaymath}
+    \noindent show that 
+    \begin{displaymath}
+      \left(\frc{\partial P}{\partial T}\right)_{V} = \frc{\alpha}{\beta}.
+    \end{displaymath}
+%%
+\medskip
+     {\bf Solution:} From the cyclic rule,
+       \begin{displaymath}
+          \left(\frc{\partial P}{\partial T}\right)_{V}\left(\frc{\partial V}{\partial P}\right)_{T}\left(\frc{\partial T}{\partial V}\right)_{T} = -1.
+       \end{displaymath}
+     Thus,
+       \begin{displaymath}
+          \left(\frc{\partial P}{\partial T}\right)_{V} = \frc{-1}{\left(\frc{\partial V}{\partial P}\right)_{T}\left(\frc{\partial T}{\partial V}\right)_{T}} = \frc{-\left(\frc{\partial V}{\partial T}\right)_{P}}{\left(\frc{\partial V}{\partial P}\right)_{T}} = \frc{-V\alpha}{-V\beta} = \frc{\alpha}{\beta}
+       \end{displaymath}
+      
+%
+     %%% EXAMPLE 2:
+     \item\label{example2} For a van der Waals gas, the pressure $P$ and the internal energy $U$ can be expressed as functions of the number of mols ($n$), total volume ($V$) and temperature ($T$),
+       \begin{displaymath}
+         P = \frc{n R T}{V-nb} - \frc{n^{2}a}{V^{2}} \hspace{1cm}\text{ and }\hspace{1cm} U = \frc{3}{2}n R T - \frc{n^{2}a}{V},
+       \end{displaymath}
+       respectively, where $a$ and $b$ are constants. Use these equations and the chain rule to derive an equation for $\left(\frc{\partial U}{\partial P}\right)_{n,T}$ in terms of $n$, $V$ and $T$.
+
+%%
+\medskip
+{\bf Solution:}
+   \begin{eqnarray}
+      \Partial[U]{P}{n,T} &=& \Partial[U]{V}{n,T}\Partial[V]{P}{n,T} = \frc{\Partial[U]{V}{n,T}}{\Partial[P]{V}{n,T}} \nonumber \\
+                          &=& \frc{\frc{n^{2}a}{V^{2}}}{\frc{2n^{2}a}{V^{3}}-\frc{n R T}{\left(V-nb\right)^{2}}} = \frc{n a}{\frc{2 n a}{V}-\frc{R T V^{2}}{\left(V-nb\right)^{2}}}\nonumber
+   \end{eqnarray}
+      
+%
+     %%% EXAMPLE 3:
+     \item\label{example3} The heat capacity at constant volume is defined as $C_{v}\equiv \Partial[U]{T}{V}$. Show that
+       \begin{displaymath}
+          \Partial[U]{T}{P} = C_{v} + \alpha V\Partial[U]{V}{T},
+       \end{displaymath}
+       with $\alpha=\frc{1}{V}\Partial[V]{T}{P}$.
+
+%
+\medskip
+       {\bf Solution:}
+          \begin{displaymath}
+            \Partial[U]{T}{P} = \Partial[U]{T}{V} + \Partial[U]{V}{T}\Partial[V]{T}{P},
+          \end{displaymath}
+          however $\Partial[U]{T}{V}=C_{v}$ and $\Partial[V]{T}{P}=V\alpha$. Thus,
+          \begin{displaymath}
+             \Partial[U]{T}{P} = C_{v} + \alpha V\Partial[U]{V}{T}.
+          \end{displaymath}
+
+%
+     %%% EXAMPLE 4:
+     \item\label{example4} h
+%
+\end{list}

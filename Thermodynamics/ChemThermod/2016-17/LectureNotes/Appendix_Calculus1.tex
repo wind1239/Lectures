@@ -1,0 +1,230 @@
+
+\chapter{Calculus' Background for Thermodynamics}\label{Appendix_Calculus}
+{\it This is not examinable} -- it is here so that you can see where some of the notations, operations and results of earlier sections come from. Details of the contents of this Appendix can be found in \cite{Leithold_Book,Kallo_1955} or in any {\it Calculus} text-book.
+\bigskip
+
+%%%
+%%% SECTION
+%%%
+\section{Vector Calculus}
+
+The operator {\it del} (or {\it nabla}),\index{{\it del} ($\nabla$) operator}\index{{\it nabla} ($\nabla$) operator}\index{$\nabla$}
+\begin{displaymath}
+  \nabla \equiv \left(\frc{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}\right)
+\end{displaymath} 
+is both a vector and a differential operator and can be used to define,
+\begin{enumerate}
+%
+  \item Gradient: operates on a scalar field $\phi$, e.g., $T$, $\rho$, $\cdots$\index{Gradient}
+     \begin{displaymath}
+        \text{grad}\phi \equiv \nabla\phi \equiv \left(\frc{\partial\phi}{\partial x}, \frac{\partial\phi}{\partial y}, \frac{\partial\phi}{\partial z}\right)
+     \end{displaymath}
+%
+  \item Divergence: operates on a vector field  $\theta = \left(\theta_{x}, \theta_{y}, \theta_{z}\right) $, e.g., velocity field.\index{Divergence}
+     \begin{displaymath}
+        \text{div}\theta \equiv \nabla\cdot\theta \equiv \frc{\partial\theta_{x}}{\partial x} + \frac{\partial\theta_{y}}{\partial y} + \frac{\partial\theta_{z}}{\partial z}
+     \end{displaymath}
+%
+  \item Curl: operates on a vector field  $\theta = \left(\theta_{x}, \theta_{y}, \theta_{z}\right)$,\index{Curl}
+     \begin{displaymath}
+        \text{curl}\theta \equiv \nabla\times\theta \equiv \begin{pmatrix} i & j & k \\ \frc{\partial}{\partial x} & \frc{\partial}{\partial y} & \frc{\partial}{\partial z} \\ \theta_{x} & \theta_{y} & \theta_{z} \end{pmatrix}
+     \end{displaymath}
+%
+   \item Laplacian: operates on a scalar field $\phi$,\index{Laplacian}
+      \begin{displaymath}
+         \text{div}\left(\text{grad}\phi\right) \equiv \nabla\cdot\nabla\phi \equiv \nabla^{2}\phi \equiv \frc{\partial^{2}\phi}{\partial x^{2}} + \frc{\partial^{2}\phi}{\partial y^{2}} + \frc{\partial^{2}\phi}{\partial z^{2}}
+      \end{displaymath}
+%
+\end{enumerate}
+
+
+%%%
+%%% SECTION
+%%%
+\section{Some Basic Derivatives/Integration Operations}
+
+\begin{center}
+  \begin{tabular}{|| l l | l l ||}
+    \hline\hline
+       {\bf f(x)}  & {\bf f'(x)}  & {\bf f(x)}  & {\bf f'(x)}  \\
+    \hline\hline
+       $x^{n}$      &  $nx^{n-1}$   & $\ln{x}$    & $x^{-1}$      \\
+       $e^{x}$      &  $e^{x}$      & $sin(x)$   & $cos(x)$     \\
+       $cos(x)$    &  $-sin(x)$   & $tan(x)$    & $sec^{2}(x)$  \\
+    \hline\hline
+       {\bf f(x)}  &  {\bf $\int$f(x)dx} & {\bf f(x)}  &  {\bf $\int$f(x)dx} \\
+    \hline\hline
+       $e^{x}$      & $e^{x}+\mathcal{C}$& $x^{n}$ for $n\neq -1$ & $\frc{x^{n+1}}{n+1}+\mathcal{C}$ \\
+                    &                  &                        & \\
+       $1/x$ for $x\neq 0$& $\ln{|x|}+\mathcal{C}$ & $a^{x}$ for $a\neq 1$, $a>0$ & $\frc{a^{x}}{\ln{a}}+\mathcal{C}$\\
+                   &                  &                         & \\
+       $e^{ax}$ for $a\neq 0$  & $\frc{e^{ax}}{a}+\mathcal{C}$ & $cos(ax)$ for $a\neq0$ & $\frc{1}{a}sin(ax)+\mathcal{C}$\\
+                   &                  &                        & \\
+       $sin(ax)$ for $a\neq 0$ & $-\frc{1}{a}cos(ax)+\mathcal{C}$& & \\
+    \hline\hline
+  \end{tabular}
+\end{center}
+
+\begin{itemize}
+%
+  \item Derivative of a sum:
+    \begin{displaymath}
+       \frc{d}{dx}\left[f(x)+g(x)\right] = \frc{d}{dx}f(x) + \frc{d}{dx}g(x) = f'(x)+g'(x) 
+    \end{displaymath}
+%
+  \item Derivative with a constant factor $c$:
+    \begin{displaymath}
+       \frc{d}{dx}\left[c f(x)\right] = c\frc{d}{dx}f(x) = cf'(x)
+    \end{displaymath}
+%
+  \item Derivative of a product:
+    \begin{displaymath}
+       \frc{d}{dx}\left[f(x)g(x)\right] = f(x)g'(x) + f'(x)g(x)
+    \end{displaymath}
+%
+  \item Derivative of a quotient:
+    \begin{displaymath}
+      \frc{d}{dx}\left[\frc{f(x)}{g(x)}\right] = \frc{g(x)f'(x)-f(x)g'(x)}{g^{2}(x)}
+    \end{displaymath}
+%
+  \item Chain rule (or function of a function):
+    \begin{displaymath}
+      \frc{d}{dx}f\left[g(x)\right] = f'\left[g(x)\right]g'(x)
+    \end{displaymath}
+%
+  \item Chain rule of a linear function:
+    \begin{displaymath}
+      \frc{d}{dx} \left[f(ax+b)\right] = a f'(ax+b)
+    \end{displaymath}
+%
+  \item Integral of a function of a linear function:
+    \begin{displaymath}
+       \int\left[f'(ax+b)\right]dx = \frc{1}{a}f(ax+b) + \mathcal{C}
+    \end{displaymath}
+%
+  \item Integral of a chain rule derivative:
+    \begin{displaymath}
+       \int\left\{f'\left[g(x)\right]g'(x)\right\}dx = f\left[g(x)\right] + \mathcal{C}
+    \end{displaymath}
+%
+  \item Integral of a sum:
+    \begin{displaymath}
+      \int\left[f(x)+g(x)\right]dx = \int f(x)dx + \int g(x)dx
+    \end{displaymath}
+%
+  \item Integral with a constant function:
+    \begin{displaymath}
+       \int c f(x)dx = c\int f(x)dx
+    \end{displaymath}
+%
+  \item Integration by parts:
+    \begin{displaymath}
+       \int\left[f(x)g'(x)\right]dx = f(x)g(x) - \int\left[f'(x)g(x)\right]dx
+    \end{displaymath}
+%
+  \item Definite integral (if $f'(x)$ is continuous at $a<x<b$):
+    \begin{eqnarray}
+       && \int\limits_{a}^{b}f(x)dx = - \int\limits_{b}^{a}f(x)dx \nonumber \\
+       && \int\limits_{a}^{b}f'(x)dx = \left.f(x)\right|_{a}^{b} = \lim_{x\rightarrow b^{-}}f(x)-\lim_{x\rightarrow a^{+}}f(x)\nonumber
+    \end{eqnarray}
+%
+  \item Substitution:
+    \begin{eqnarray}
+        \int f(x)dx = \int f(x(u))\frc{dx}{du}du && \text{(indefinite integral)} \nonumber \\
+        \int\limits_{a}^{b} f(x) = \int\limits_{u(a)}^{u(b)}f(x(u))\frc{dx}{du}du  && \text{(definite integral)} \nonumber
+    \end{eqnarray}
+%
+  \item Integration by parts:
+    \begin{eqnarray}
+       \int f(x)g'(x)dx = f(x)g(x) - \int f'(x)g(x) && \text{(indefinite integral)} \nonumber \\
+       \int\limits_{a}^{b} f(x)g'(x)dx = \left.f(x)g(x)\right|_{a}^{b} - \int\limits_{a}^{b} f'(x)g(x) && \text{(definite integral)} \nonumber        
+    \end{eqnarray}
+%
+\end{itemize}
+
+
+%%%
+%%% SECTION
+%%%
+\section{Partial Derivatives and Total Differentials}
+
+%%% SUBSECTION
+\subsection{Partial Derivatives:} Given a function $\phi\left(x_{1},x_{2},x_{3},\cdots,x_{n-1},x_{n}\right)$ of $n$ independent variables, the partial derivative of $\phi$ with respect to $x_{i}$, holding the other $n-1$ independent variables constant, is defined as,
+  \begin{displaymath}
+    \left(\frc{\partial\phi}{\partial x_{i}}\right)_{x_{j\neq i}} = \lim_{\Delta x_{i}\rightarrow 0}\left\{\frc{\phi\left(x_{1},x_{2},\cdots,x_{i}+\Delta x_{i},\cdots,x_{n}\right)-\phi\left(x_{1},x_{2},\cdots,x_{i},\cdots,x_{n}\right)}{\Delta x_{i}}\right\}
+  \end{displaymath}
+
+{\bf Example:} A pure fluid with ideal gas behaviour, the pressure can be expressed as a function of the number of mols ($n$), volume ($V$) and temperature ($T$),
+  \begin{displaymath}
+     P(n,V,T) = \frc{n R T}{V},
+  \end{displaymath}
+thus,
+  \begin{displaymath}
+     \left(\frc{\partial P}{\partial n}\right)_{V,T} = \frc{RT}{V}\hspace{1cm} \left(\frc{\partial P}{\partial V}\right)_{n,T} = -\frc{n R T}{V^{2}} \hspace{1cm} \left(\frc{\partial P}{\partial T}\right)_{n,V} = \frc{n R}{V}\d{T}
+  \end{displaymath}
+
+
+%%% SUBSECTION
+\subsection{Total Differentials:} Given a function $\phi\left(x_{1},x_{2},x_{3},\cdots,x_{n-1},x_{n}\right)$ of $n$ independent variables, the {\it total differential} of $\phi$, $d\phi$, is defined as
+  \begin{eqnarray}
+     \d{\phi} &=& \sum\limits_{i=1}^{n}\left(\frc{\partial \phi}{\partial x_{i}}\right)_{x_{j\neq i}}\d{x_{i}} \nonumber \\
+     &=& \left(\frc{\partial\phi}{\partial x_{1}}\right)_{x_{2},\cdots,x_{n}}\d{x_{1}} + \left(\frc{\partial\phi}{\partial x_{2}}\right)_{x_{1},x_{3},\cdots,x_{n}}\d{x_{2}} + \cdots +  \left(\frc{\partial\phi}{\partial x_{n}}\right)_{x_{1},x_{2},\cdots,x_{n-1}}\d{x_{n}} \nonumber 
+  \end{eqnarray}
+where $\d{x_{i}}$ is an infinitesimal small increment in $x_{i}$.
+
+\noindent
+{\bf Example:} Infinitesimal changes in the indeal gas pressure are expressed as,
+  \begin{eqnarray}
+     \d{P} &=& \left(\frc{\partial P}{\partial n}\right)_{V,T}\d{n} + \left(\frc{\partial P}{\partial V}\right)_{n,T}\d{V} + \left(\frc{\partial P}{\partial T}\right)_{n,V}\d{T} \nonumber \\
+     &=& \frc{R T}{V}\d{n} - \frc{n R T}{V^{2}}\d{V} + \frc{n R}{V}\d{T}. \nonumber 
+  \end{eqnarray}
+
+%%% SUBSECTION
+\subsection{Properties of Partial Derivatives}\label{Appendix_Calculus:Properties}
+  \begin{enumerate}[(i)]
+%
+     \item The order of differentiation in mixed second derivatives is immaterial, i.e.,
+        \begin{displaymath}
+           \left[\frc{\partial}{\partial y}\left(\frc{\partial\phi}{\partial x}\right)_{y}\right]_{x} = \left[\frc{\partial}{\partial x}\left(\frc{\partial\phi}{\partial y}\right)_{x}\right]_{y} \hspace{1cm}\Longleftrightarrow\hspace{1cm} \frc{\partial^{2}\phi}{\partial x\partial y} = \frc{\partial^{2}\phi}{\partial y\partial x}
+        \end{displaymath}
+%
+     \item Cyclic rule:
+        \begin{displaymath}
+           \left(\frc{\partial\phi}{\partial x}\right)_{y}\left(\frc{\partial y}{\partial \phi}\right)_{x}\left(\frc{\partial x}{\partial y}\right)_{\phi} = -1
+        \end{displaymath}
+%
+     \item Given $\phi(x,y)$ and $\varphi(x,y)$:
+        \begin{enumerate}[(a)]
+           \item $\left(\frc{\partial\phi}{\partial\varphi}\right)_{x} = \left(\frc{\partial\phi}{\partial y}\right)_{x}\left(\frc{\partial y}{\partial\varphi}\right)_{x}$  (chain rule);
+           \item $\left(\frc{\partial\phi}{\partial x}\right)_{\varphi} = \left(\frc{\partial\phi}{\partial x}\right)_{y} + \left(\frc{\partial\phi}{\partial y}\right)_{x}\left(\frc{\partial y}{\partial x}\right)_{\varphi} $
+        \end{enumerate}  
+%
+  \end{enumerate}
+
+%%%
+%%% SECTION
+%%%
+\section{Line Integrals}\index{Line integral}
+
+Consider that $\mathbf{\Psi}$ is a function of the independent variables $x_{j}$ (with $j=1,2,\cdots,n$),  $\Psi_{i}=\Psi_{i}\left(x_{1},x_{2},\cdots,x_{n}\right)$. An infinitesimal quantity,
+   \begin{displaymath}
+      dz = \sum\limits_{i=1}^{n} \Psi_{i}\left(x_{1},x_{2},\cdots,x_{n}\right)\d{x_{i}} =  \Psi_{1}\d{x_{1}} + \Psi_{2}\d{x_{2}} +\cdots + \Psi_{n}\d{x_{n}},
+   \end{displaymath}
+is called {\it linear differential}\index{Linear differential}. If we focus on a two-dimensional problem, i.e., $\mathbf{\Psi}=\left\{M(x,y),N(x,y)\right\}$,
+   \begin{equation}
+      dz = M\d{x} + N\d{y}\label{Appendix_Calculus:Eqn:ExactLinearDifferential}
+   \end{equation}
+
+\medskip
+Equation~\ref{Appendix_Calculus:Eqn:ExactLinearDifferential} is an {\it exact differential}\index{Exact differential} if, and only if, there is a function of $x$ and $y$, $\Phi(x,y)$, such that $\d{\Phi}=\d{z}$ for all values of $x$ and $y$. This is equivalent to
+   \begin{displaymath}
+        \Partial[M]{y}{x} = \Partial[N]{x}{y}.
+   \end{displaymath}
+The equation
+   \begin{equation}
+      dw = M^{\prime}\d{x} + N^{\prime}\d{y},\label{Appendix_Calculus:Eqn:InexactLinearDifferential}
+   \end{equation}
+ is an {\it inexact differential}\index{Inexact differential} if, and only if, there is no function $\Phi(x,y)$, such that $\d{\Phi}=\d{w}$ for all values of $x$ and $y$, thus,
+   \begin{displaymath}
+        \Partial[M^{\prime}]{y}{x} \neq \Partial[N^{\prime}]{x}{y}.
+   \end{displaymath}
