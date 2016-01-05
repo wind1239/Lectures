@@ -1,6 +1,6 @@
 
 \chapter{Calculus' Background for Thermodynamics}\label{Appendix_Calculus}
-{\it This is not examinable} -- it is here so that you can see where some of the notations, operations and results of earlier sections come from. Details of the contents of this Appendix can be found in \cite{Leithold_Book,Kallo_1955} or in any {\it Calculus} text-book.
+{\it This is not examinable} -- it is here so that you can see where some of the notations, operations and results of earlier sections come from. Details of the contents of this Appendix can be found in \cite{Leithold_Book,Kallo_1955,Strang_Book} or in any {\it Calculus} text-book.
 \bigskip
 
 %%%
@@ -204,8 +204,34 @@ where $\d{x_{i}}$ is an infinitesimal small increment in $x_{i}$.
 %%%
 %%% SECTION
 %%%
+\section{The Mean Value Theorem and l'H\^opital's Rule}\label{Appendix:lHopital}
+
+\begin{theorem}[Mean value]
+Suppose $f(x)$ is continuous in the closed interval $a\leq x\leq b$ and has derivatives everywhere in the open interval $a<x<b$. Then,
+     \begin{equation}
+       \frc{f(a)-f(b)}{b-a} = f'(c)\;\;\;\text{ at some point } a<c<b.
+     \end{equation}
+\end{theorem}
+
+\begin{theorem}[Rolle's theorem, i.e., extrema of a function]
+   Suppose $f(a) = f(b) = 0$ (zero at endpoints). Then $f'(c) = 0$ at some ppoint with $a<c<b$.
+\end{theorem}
+
+\begin{theorem}[l'H\^opital rule]
+   Suppose $f(x)$ and $g(x)$ both approach zero as $x\rightarrow a$. Then $\frc{f(x)}{g(x)}$ approaches the same limit as $\frc{f'(x)}{g'(x)}$, if this second limit exists,
+    \begin{equation}
+        \lim_{x\rightarrow a}\frc{f(x)}{g(x)} = \lim_{x\rightarrow a}\frc{f'(x)}{g'(x)}.
+    \end{equation}
+   This limit often is $\frc{f'(a)}{g'(a)}$.
+\end{theorem}
+
+%%%
+%%% SECTION
+%%%
 \section{Line Integrals}\index{Line integral}
 
+%%%
+\subsection{Exact and Inexact Differential}\index{Line integral!Exact differential}\index{Line integral!Inexact differential}
 Consider that $\mathbf{\Psi}$ is a function of the independent variables $x_{j}$ (with $j=1,2,\cdots,n$),  $\Psi_{i}=\Psi_{i}\left(x_{1},x_{2},\cdots,x_{n}\right)$. An infinitesimal quantity,
    \begin{displaymath}
       dz = \sum\limits_{i=1}^{n} \Psi_{i}\left(x_{1},x_{2},\cdots,x_{n}\right)\d{x_{i}} =  \Psi_{1}\d{x_{1}} + \Psi_{2}\d{x_{2}} +\cdots + \Psi_{n}\d{x_{n}},
@@ -228,3 +254,22 @@ The equation
    \begin{displaymath}
         \Partial[M^{\prime}]{y}{x} \neq \Partial[N^{\prime}]{x}{y}.
    \end{displaymath}
+
+%%%
+\subsection{Fundamental Theorem for Line Integrals}\index{Line integral!Fundamental theorem}
+
+\begin{theorem}
+   If {\bf F} is a gradient or conservative vector field, i.e., $\mathbf{F}=\mathbf{\nabla}f(x,y)=\langle f_{x}, f_{y}\rangle$ for a {\it potential function} $f$ for the field, and $\mathcal{C}$ is a curve with endpoints $P_{0}=\left(x_{0},y_{0}\right)$ and $P_{1}=\left(x_{1},y_{1}\right)$,
+      \begin{eqnarray}
+         \int\limits_{\mathcal{C}}\mathbf{F}\cdot\d{\mathbf{r}} &=& \int\limits_{\mathcal{C}}\mathbf{\nabla}f\d{\mathbf{r}} = \left.f(x,y)\right|_{P_{0}}^{P_{1}}\\
+                                                           &=& f\left(P_{1}\right)-f\left(P_{0}\right) = f\left(x_{1},y_{1}\right) - f\left(x_{0},y_{0}\right)\nonumber.
+      \end{eqnarray}
+\end{theorem} 
+That is, for gradient fields the line integral is independent of the path taken, i.e., it depends only on the endpoints of $\mathcal{C}$. We call such a line integral {\it path independent}.
+\medskip
+
+The line integral of a vector field over a {\it simple} (i.e., non-intersecting) {\it closed} (i.e., no endpoints) curve $\mathcal{C}$ is denoted as,\index{Line integral}
+        \begin{equation}
+           \oint_{\mathcal{C}}\mathbf{F}\cdot\d{\mathbf{r}} = 0,
+        \end{equation}
+i.e., the line integral around all closed paths is 0 $\leftrightarrow$ -- {\it path independence},
