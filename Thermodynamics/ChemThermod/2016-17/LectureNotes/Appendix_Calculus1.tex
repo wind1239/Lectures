@@ -206,23 +206,53 @@ where $\d{x_{i}}$ is an infinitesimal small increment in $x_{i}$.
 %%%
 \section{The Mean Value Theorem and l'H\^opital's Rule}\label{Appendix:lHopital}
 
-\begin{theorem}[Mean value]
+\begin{theorem}[Mean value]\index{Mean value theorem}
 Suppose $f(x)$ is continuous in the closed interval $a\leq x\leq b$ and has derivatives everywhere in the open interval $a<x<b$. Then,
      \begin{equation}
        \frc{f(a)-f(b)}{b-a} = f'(c)\;\;\;\text{ at some point } a<c<b.
      \end{equation}
 \end{theorem}
 
-\begin{theorem}[Rolle's theorem, i.e., extrema of a function]
-   Suppose $f(a) = f(b) = 0$ (zero at endpoints). Then $f'(c) = 0$ at some ppoint with $a<c<b$.
+\begin{theorem}[Rolle's theorem, i.e., extrema of a function]\index{Mean value theorem ! Rolle's theorem}
+   Suppose $f(a) = f(b) = 0$ (zero at endpoints). Then $f'(c) = 0$ at some point within $a<c<b$.
 \end{theorem}
 
-\begin{theorem}[l'H\^opital rule]
-   Suppose $f(x)$ and $g(x)$ both approach zero as $x\rightarrow a$. Then $\frc{f(x)}{g(x)}$ approaches the same limit as $\frc{f'(x)}{g'(x)}$, if this second limit exists,
+\begin{theorem}[l'H\^opital rule]\index{Mean value theorem ! L'H\^opital rule}\index{L'H\^opital rule}
+   Suppose $f(x)$ and $g(x)$ are differentiable and $g'(x)\neq 0$ near a point $a$ (except possibly at $a$). Suppose that
+    \begin{displaymath}
+      \lim_{x\rightarrow a} f(x) = 0 \;\;\text{ and }\;\; \lim_{x\rightarrow a} g(x) = 0,
+    \end{displaymath}
+or that
+    \begin{displaymath}
+      \lim_{x\rightarrow a} f(x) = \pm\infty \;\;\text{ and }\;\; \lim_{x\rightarrow a} g(x) = \pm\infty,
+    \end{displaymath}
+$\left(\text{i.e., an indeterminate quotient, }\frc{0}{0} \text{ or }\frc{\infty}{\infty}\right)$. Then
     \begin{equation}
-        \lim_{x\rightarrow a}\frc{f(x)}{g(x)} = \lim_{x\rightarrow a}\frc{f'(x)}{g'(x)}.
+        \lim_{x\rightarrow a}\frc{f(x)}{g(x)} = \lim_{x\rightarrow a}\frc{f'(x)}{g'(x)},
     \end{equation}
-   This limit often is $\frc{f'(a)}{g'(a)}$.
+if the limit on the right side exists (or is $\infty$ or $-\infty$).
+%both approach zero as $x\rightarrow a$. Then $\frc{f(x)}{g(x)}$ approaches the same limit as $\frc{f'(x)}{g'(x)}$, if this second limit exists,
+%    \begin{equation}
+%        \lim_{x\rightarrow a}\frc{f(x)}{g(x)} = \lim_{x\rightarrow a}\frc{f'(x)}{g'(x)}.
+%    \end{equation}
+%   This limit often is $\frc{f'(a)}{g'(a)}$.
+    \begin{list}{\bf Example \arabic{qcounter}:~}{\usecounter{qcounter}}
+%       
+       \item Find $\lim\limits_{x\rightarrow\infty} \frc{5x-2}{7x+3}$.
+           \begin{eqnarray}
+              \lim_{x\rightarrow\infty}\frc{5x-2}{7x+3} &=& \frc{\infty}{\infty} \nonumber \\
+                                                   &=& \lim_{x\rightarrow\infty}\frc{\left[5x-2\right]'}{\left[7x+3\right]'} = \lim_{x\rightarrow\infty} \frc{5}{7} = \frc{5}{7}\nonumber
+           \end{eqnarray}
+%
+      \item Find $\lim\limits_{x\rightarrow -2}\frc{x+2}{\ln{(x+3)}}$. 
+           \begin{eqnarray}
+              \lim_{x\rightarrow -2}\frc{x+2}{\ln{(x+3)}} &=& \frc{0}{0} \nonumber \\                                                   &=& \lim_{x\rightarrow -2}\frc{\left[x+2\right]'}{\left[\ln{(x+3)}\right]} = \lim_{x\rightarrow -2} \frc{1}{\frc{1}{x+3}} = \lim_{x\rightarrow -2} \left(x+3\right) = 1 \nonumber
+           \end{eqnarray}
+         
+%
+    \end{list}
+
+
 \end{theorem}
 
 %%%
@@ -272,4 +302,4 @@ The line integral of a vector field over a {\it simple} (i.e., non-intersecting)
         \begin{equation}
            \oint_{\mathcal{C}}\mathbf{F}\cdot\d{\mathbf{r}} = 0,
         \end{equation}
-i.e., the line integral around all closed paths is 0 $\leftrightarrow$ -- {\it path independence},
+i.e., the line integral around all closed paths is 0 $\leftrightarrow$ -- {\it path independence}. \cite{NumericalRecipes,Atkinson_Book}
