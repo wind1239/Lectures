@@ -9,17 +9,31 @@
 Given a continuous and unknown function $f(x)$, defined at a set of points  $x_{1} < \cdots < x_{i} < \cdots < x_{N}$. Interpolation is the process of determining a polynomial expression to calculate the pair $\left[x_{k}, f\left(x_{k}\right)\right]$ based on neighbours discrete coordinates $\left\{\left[x_{1},f\left(x_{1}\right)\right], \cdots, \left[x_{N},f\left(x_{N}\right)\right]\right\}$. 
 
 Consider a set of discrete data points,
+  \begin{center}
+    \begin{tabular}{c | c }
+        $\mathbf{x}$   & $\mathbf{f\left(x_{i}\right)}$ \\
+        \hline
+           $x_{1}$ &  $f\left(x_{1}\right)$ \\
+           $x_{2}$ &  $f\left(x_{2}\right)$ \\
+           $x_{3}$ &  $f\left(x_{3}\right)$ \\
+           $x_{4}$ &  $f\left(x_{4}\right)$ \\
+    \end{tabular}
+  \end{center}
+that are a subset of a continuous and smooth function $y=f(x)$ (Fig.~\ref{Appendix:Fig:Interpolation}). Polynomials of order $n\ge 1$ can be generated to represent this function. High-order polynomials can more accurately fit the discrete coordinatess than low-order polynomials. In Fig.~\ref{Appendix:Fig:Interpolation}, let's assume the discrete pairs 
+  \begin{displaymath}
+     \left\{\left[x_{1},f\left(x_{1}\right)\right], \left[x_{2},f\left(x_{2}\right)\right],\left[x_{3},f\left(x_{3}\right)\right], \left[x_{4},f\left(x_{4}\right)\right]\right\}
+  \end{displaymath}
+are known, and one wants to determine the value of the function $f$ at $x_{2} < x_{k} < x_{3}$. If the interval $\Delta x= x_{3}-x_{2}$ is sufficiently small, a linear function can be used to fit these coordinates,
+   \begin{equation}
+       f\left(x_{k}\right) = f\left(x_{2}\right) + m\left(x_{k}-x_{2}\right),\label{LinearInterpolation:Eqn1}
+   \end{equation}
+where 
+   \begin{displaymath}
+      m = \frc{f\left(x_{3}\right)-f\left(x_{2}\right)}{x_{3}-x_{2}}.
+   \end{displaymath}
+If $m$ is replaced in Eqn.~\ref{LinearInterpolation:Eqn1},
 
-  \begin{tabular}{c | c }
-      {\bf x}   & {\bf f(x)} \\
-       \hline
-         $x_{1}$ &  $y_{1}$ \\
-         $x_{2}$ &  $y_{2}$ \\
-         $x_{3}$ &  $y_{3}$ \\
-         $x_{4}$ &  $y_{4}$ \\
-  \end{tabular}
-that are a subset of a continuous and smooth function $y=f(x)$ (Fig.~\ref{Appendix:Fig:Interpolation}). Polynomials can be generated to represent this functions, a high-order polynomial can more accurately fit the points than a low-order one.   
-
+%%% Figure
      \begin{figure}\label{Appendix:Fig:Interpolation}%
         \begin{center}
           \includegraphics[width=\columnwidth,clip]{./Pics/Interpolation}
