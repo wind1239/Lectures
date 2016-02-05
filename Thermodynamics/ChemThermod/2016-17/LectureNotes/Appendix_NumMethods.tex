@@ -56,15 +56,34 @@ If $m$ is replaced in Eqn.~\ref{LinearInterpolation:Eqn1},
          \item Given a table of values for $f(x)=\tan{x}$ for a few values of $x$,
             \begin{center}
                \begin{tabular}{c | c c c c}
-                   $x$        & 1.0 & 1.1 & 1.2 & 1.3 \\
+                   $x$        & 1.00   & 1.10   & 1.20   & 1.30   \\
                    \hline
-                   $\tan{x}$  & 1.5574 & 1.9648 & 2.5722 & 3.6021\\
+                   $\tan{x}$  & 1.5574 & 1.9648 & 2.5722 & 3.6021 \\
                \end{tabular}
             \end{center}
             Estimate $\tan{1.15}$ and $\tan{1.23}$.
 
-            {\bf Solution:} For $x_{k}=1.15$,
+            {\bf Solution:} For $\left(x_{a}=1.10\right) < \left(x_{k}=1.15\right) < \left(x_{b}=1.20\right)$,
+               \begin{eqnarray}
+                  f\left(x_{k}\right) &=& \frc{f\left(x_{a}\right)\left(x_{b}-x_{k}\right) + f\left(x_{b}\right)\left(x_{k}-x_{a}\right)}{x_{b}-x_{a}} \nonumber \\
+                                     &=& \frc{1.9648\times(1.20-1.15) + 2.5722\times(1.15-1.10)}{1.20-1.10} = 2.2685 \nonumber
+               \end{eqnarray}
+
+For  $\left(x_{a}=1.20\right) < \left(x_{k}=1.23\right) < \left(x_{b}=1.30\right)$,
+               \begin{eqnarray}
+                  f\left(x_{k}\right) &=& \frc{f\left(x_{a}\right)\left(x_{b}-x_{k}\right) + f\left(x_{b}\right)\left(x_{k}-x_{a}\right)}{x_{b}-x_{a}} \nonumber \\
+                                     &=& \frc{2.5722\times(1.30-1.23) + 3.6021\times(1.23-1.20)}{1.30-1.20} = 2.8812 \nonumber
+               \end{eqnarray}
 %
+         \item Calculate specific volume $\left(\text{in m}^{3}\text{.kg}^{-1}\right)$ enthalpy $\left(\text{in kJ.kg}^{-1}\right)$ and entropy $\left(\text{in kJ.(kg.K)}^{-1}\right)$ of saturated water vapour at 133.45$^{\circ}$C.
+
+           {\bf Solution:} From Appendix~\ref{Appendix:Saturated_SH_Tables} (Table A-2), for $T_{a}(=130.0) < T_{k} (= 133.45) < T_{b} (=140.0)^{\circ}C$, thus:
+               \begin{eqnarray}
+                  v\left(T_{k}\right) &=& \frc{v\left(T_{a}\right)\left(T_{b}-T_{k}\right) + v\left(T_{b}\right)\left(T_{k}-T_{a}\right)}{T_{b}-T_{a}} \nonumber \\
+                                     &=& \frc{0.6685\times(140.0-133.45) + 0.5089\times(133.45-130.0)}{140.0-130.0} = 2.8812 \nonumber
+               \end{eqnarray}
+
+
     \end{list}
 
 %%%
