@@ -52,6 +52,136 @@
 \vfill
 \clearpage
 
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+
+\begin{center}
+  {\Large Review of the Manuscript BMSE-D-15-01072 `Numerical Study to Investigate the Effect of Inlet Velocity on Thermal-Fluid Phenomena in the Supercritical CO$_{2}$ cooled Pebble Bed Reactor' by Latifi and Setayeshi}
+\end{center}
+
+\medskip
+
+The manuscript describes thermal fluid dynamic simulations in a pebble-bed reactor using a commercial CFD software. The manuscript briefly described the main conservative equations along with a short summary of the solution methods used. The aim of the paper is to `investigate the effect of inlet fluid velocity' in the temperature field under steady-state conditions.
+
+The manuscript is relatively well-written with a small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives.  However, the manuscript is comprehensive although it introduced a very superficial literature review on the main subject areas (i.e., PBMR, thermalised reactors, VHTR, turbulence models, heat transfer models for granular flows, CFD methods etc). In fact, as the manuscript mainly focuses on simulations' results, I would expect a short literature review on any (if not all) of these subjects. There is a good number of manuscripts on the nuclear and non-nuclear open literature on both internal (single- and multiphase) flows and heat transfer in PBMR (e.g., see Boer {\it et al.}, 2010, Nuclear Engineering and Design 240:2384-2391; Jiang {\it et al.}, 2006, Annals Nuclear Engineering 33:1039-1057; Nouri-Borujerdi and Ghomsheh, 2015, Annals Nuclear Engineering 78:485-492; Pavlidis and Lathouwers, 2013, Nuclear Engineering and Design 264:161-167; etc).
+
+The manuscript also fails to clearly state the novelty of the work -- as already mentioned, pebble-bed (nuclear) reactors have been widely studied, and it would interesting if the authors could highlight their contribution to science and/or technology on fluid dynamics and/or heat transfer involving flows in pebble beds.A few comments:
+\begin{enumerate}[(a)] 
+%
+\item  The main objective of the paper is to investigate steady-state heat transfer under prescribed fluid velocity boundary conditions. However, the studied problem was not fully described, e.g., (a) is the source term, $S_{h}$ (Eqn. 5) a constant? (b) Were wall-solid and wall-fluid heat transfer mechanisms considered in the problem? If so what were the boundary conditions used in this case? Several authors reported that the temperature profile of the pebbles are nearly parabolic -- here it is nearly flat, Fig 5);
+%
+\item Why did the authors ignored the time-term in Eqn. 4?
+%
+\item Why was supercritical CO$_{2}$ used as cooling fluid? How is the compressibility of this fluid model in this work?
+%
+\item Mesh independence is assessed in Fig. 3, however the domain is 4.5 m long and here mesh independence was investigated over 11 m? Is this correct? Also, mesh independence (as any statistical quantity from discrete methods) is often investigated using scalar- or vector- fields that are primarily solved in the system of equations, e.g., velocity, pressure or volume fraction (for multiphase flows). Why did the author choose temperature?
+%
+\item Was the model used/developed by the authors previously validated against analytical solutions, experimental data, or other computational models (cross-code validation)? Some of the results does not seem correct, e.g., constant radial temperature (Fig 5), linear behaviour of temperature (Fig. 4), etc. 
+%
+\item Finally, was the numerical experiment conducted in annulus geometry?
+%
+\end{enumerate}
+I have 2 main concerns about this manuscript that the authors should address,
+\begin{enumerate}[(i)]
+\item An in-depth analysis of the numerical solutions presented;;
+\item The authors must clearly state the novelty that the manuscript addresses.
+\end{enumerate}
+
+In summary, the subject of the manuscript is very relevant, however the paper still needs to be improved before being considered for publication. The results, although interesting (but poorly discussed), does not bring much novelty to the field -- or at least the authors failed to explicitly demonstrate it. 
+
+
+%%%
+%%% Appendix
+%%%
+{
+  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_BMSE_D_01072.pdf}}
+
+
+
+\clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+
+\begin{center}
+  {\Large Review of the Manuscript CAM-D-15-02454 `Mixed Volume Element Combined with Characteristic Mixed Finite Volume Element Method for Oil-Water Two-Phase Displacement Problem' by Yuan {\it et al.}}
+\end{center}
+
+\medskip
+
+The manuscript describes a hybrid FEM-FVM-Characteristic method to solve the elliptic coupled mass balance and force balanced equations representing the (Darcy) flows in porous media. The authors undertook a comprehensive literature review of the main fluid methods with focus on mixed FEM.
+
+The manuscript is relatively well-written with a small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives. However, the manuscript is comprehensive and introduces an insightful review of the main fundamentals on FEM-based methods for porous media flows. 
+
+The manuscript however fails to highlight:
+  \begin{itemize}
+    \item Aims and objectives of the work
+    \item Novelty.
+  \end{itemize}
+A few comments:
+\begin{enumerate}[(a)] 
+%
+\item {\it Abstract} and {\it Section 1:} authors should include aims/objectives of the work;
+%
+\item {\it Section 2:} Are $\alpha_{i}$ (with $i$ = 1,2) arbitrary constants? Also (page 5), $D_{j}$ and $d_{j}$ were used before being defined. I am not if the former is a component of the diffusion coefficient (Eqn. 1.2) or a linear-operator.
+%
+\item {\it Section 5:} Validation undertook for the method introduced in {\it Section 3} seems very limited. And how does it compare (accuracy) with Arbogast $\&$ Wheeler? Analysis of the solutions in this section were superficial.
+%
+\end{enumerate}
+I have 3 main concerns about this manuscript that the authors should address,
+\begin{enumerate}[(i)]
+\item An in-depth analysis of the numerical solutions presented in Figs. 2-9;
+\item The authors must clearly state the novelty that the manuscript addresses.
+\end{enumerate}
+
+In summary, the subject of the manuscript is very relevant, however the paper still needs to be improved before being considered for publication. The results, although interesting (but poorly discussed), does not bring much novelty to the field -- or at least the authors failed to explicitly demonstrate it. 
+
+\clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+
+\begin{center}
+  {\Large Review of the Manuscript POWTEC-D-15-01601 `Discrete Element Modelling of Sediment Falling in Water' by Wang $\&$ Tan}
+\end{center}
+
+\medskip
+
+The manuscript describes a set of numerical simulations of granular particles falling in fluid at rest (thus no imposed fluid velocities into the particles). The authors undertook a brief, but comprehensive, literature review of the main computational tecnologies on granular flows with focus on continuum (mainly CFD) and discrete models (mainly DEM) currently used. The main aim of the paper is to investigate (and validate) momentum transfer forces and formulations (Table 2) in the DEM framework. Simulations were performed usin g the open-source LAMMPS model and compared against lab experiments.
+
+The manuscript is relatively well-written with a small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives. However, the manuscript is comprehensive and introduces an insightful (but superficial) review of fluid-solid mometum transfer models. The manuscript briefly reviewed the main equations for drag and added mass forces, and briefly summarises the Stokeslet disturbance formulation. 
+
+There were other publications that extensively investigated the impact of drag and added mass forces in granular flows and, in particular, in fluidisation in both continuum and discrete models. Momentum transfer models based on solid concentration (volume fraction) and the impact of particles' motion on the surrounding fluid flows have been largely studied by the granular CFD community. A few comments:
+\begin{enumerate}[(a)] 
+%
+\item Page 2: `(...) and complex fluid systems, that CFD results are generally non-disputed (...)': Not really, CFD, as any model, relies on extensive software and model quality assurance (verification and validation); 
+%
+\item Page 7: `(...) which are related to the particles material properties (see Table 1)': I believe the authors have not included this table;
+%
+\item Second paragraph of page 16: The authors described the numerical solutions (Fig. 2) but no analysis was conducted;
+%
+\item First paragraph of page 18: Why do the models behave in such way? 
+%
+\end{enumerate}
+I have 3 main concerns about this manuscript that the authors should address,
+\begin{enumerate}[(i)]
+\item An in-depth analysis of the numerical solutions presented in Figs. 2-5;
+\item Comparison against experimental data is very superficial and lacks a proper statistical analysis;
+\item The authors must clearly state the novelty that the manuscript addresses.
+\end{enumerate}
+
+In summary, the subject of the manuscript is very relevant, however the paper still needs to be improved before being considered for publication. The results, although interesting (but poorly discussed), does not bring much novelty to the field -- or at least the authors failed to explicitly demonstrate it. 
+
+\clearpage
+
+
 %%%%%%%
 %%%%%%%
 %%%%%%%
