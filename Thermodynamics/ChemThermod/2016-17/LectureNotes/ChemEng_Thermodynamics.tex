@@ -106,6 +106,7 @@
 \setlength\headsep{.5cm}
 \setlength\footskip{.8cm}
 \setlength\parskip{0pt}
+%\setlength\parindent{0pt} % no indentation
 
 %%%
 %%% Headers and Footers
@@ -113,7 +114,7 @@
 %-\lhead[] {\text{\small{ICON/AMCG}}} 
 %-\chead[\text{\small{FETCH Manual}}]  {\text{\small{FETCH Manual}}} %{\text{\small{JAERI Analysis Report Issue}}}
 %-\rhead[\text{\small{Commercial-in Confidence}}]{}
-\cfoot[\thepage]{\thepage}
+\rfoot[\thepage]{\thepage}
 %-\rfoot[]{}%{\text{\small{\today}}}
 %\cfoot[\text{\small{\today}}]{}% {\text{\small{\today}}}
 %\cfoot[\text{\small{January 2006}}] {\text{\small{January 2006}}}
@@ -318,7 +319,7 @@
 \begin{center}
 \bigskip
 
-   \includegraphics[width=15cm,clip]{./../FigBanner/UoAHorizBanner}
+  % \includegraphics[width=15cm,clip]{./../FigBanner/UoAHorizBanner}
 
 \bigskip
 \vspace{3.5cm}
@@ -348,11 +349,24 @@
 \bigskip
 
 \bigskip
-
-
-
-
 \end{titlepage}
+
+\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+
+\pagenumbering{roman}% Arabic page numbers (and reset to 1)
+\begin{center}
+  \Large{ Revisions}
+
+\bigskip
+
+\begin{tabular}{ c c}
+\hline
+{\bf Revision number}  & {\bf Date } \\
+\hline
+  1                    & \today \\
+\hline 
+\end{tabular}
+\end{center}
 
 \setcounter{page}{1}
 
@@ -367,8 +381,11 @@
 \vfill
 \pagebreak
 
+
+\pagenumbering{arabic}% Arabic page numbers (and reset to 1)
+
 \part{Introduction and Review of Basic Concepts}
-\input{Module_01} % Introduction and Review of Thermodynamics
+\input{Chapter_Introduction.tex} % Introduction and Review of Thermodynamics
 
 \part{Thermodynamic Properties of Fluids}
 \input{Module_02} % Volumetric Properties of Pure Fluids
@@ -383,9 +400,8 @@
 
 \cleardoublepage
 
-%\part{Appendices}
-
   \begin{appendix}
+\part{Appendices}
      \input{Appendix_ConversionTable}
      \input{Appendix_SaturatedTables}
      \input{Appendix_LogTable}
