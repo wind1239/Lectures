@@ -9,6 +9,8 @@
         \begin{enumerate}
            \item kk
         \end{enumerate}
+\bigskip
+     Recommended reading: \cite{Devoe_Chpt1_2}
    \end{shaded}
 
 %%%
@@ -17,16 +19,12 @@
 \section{Introduction}\label{Chapter:Introduction:Section:Introduction}
 Thermodynamics studies global properties of the matter and the process (\eg thermal, chemical, mechanical, nuclear etc) in which these properties may be altered. The study of thermodynamics may be divided into two main areas, {\it classical} and {\it statistical} thermodynamics. In the latter, matter is assumed to be formed by assemblies of particles (\ie atoms), and properties' changes of each assemble are obtained from quantum mechanics. {\it Classical thermodynamics} studies the macroscopic change of properties, \ie it is assumed that matter is formed by a large quantity of particles' assemblies that has properties representing the interactions between these assemblies. 
 
-In practice, any thermodynamic analysis starts by defining the domain of interest, which can be a volume in space or quantity of matter (Fig.~\ref{Chapter:Introduction:Fig:Domain} a). This domain is called {\it system} and the remaining of the space is called {\it surroundings} (or {\it neighbourhood}) limited by {\it boundaries}. 
-
-
-In Fig.~\ref{Chapter:Introduction:Fig:Domain}(b), nitrogen gas is contained in a pressure vessel with prescribed wall thickness. In this case, the interior of the vessel with N$_{2}$ is the {\it system}, whereas the wall (in contact with the gas) is the border of the system. 
-
-
-
+%%% Subsection
+\subsection{System, Surroundings and Boundaries}\label{Chapter:Introduction:Section:Introduction:SystemSurroundingsBoundaries}\index{System}\index{System!Boundaries}\index{System!Surroundings}
+In practice, any thermodynamic analysis starts by defining the domain of interest, which can be a volume in space or quantity of matter (Fig.~\ref{Chapter:Introduction:Fig:Domain} a). This domain is called {\it system} -- \ie any 3-D region of physical space on which we want to proceed our analysis, and the remaining of the space is called {\it surroundings} (or {\it neighbourhood}) limited by {\it boundaries}. The {\it boundary} is a surface that encloses the {\it system} and separates it fro the {\it surroundings}. For example, in Fig.~\ref{Chapter:Introduction:Fig:Domain}(b), nitrogen gas is contained in a pressure vessel with prescribed wall thickness. In this case, the interior of the vessel with N$_{2}$ is the {\it system}, whereas the wall (in contact with the gas) is the border of the system. 
 
 %%% Figure
-      \begin{figure}%
+      \begin{figure}[h]%
           \vbox{\hbox{
              \hspace{0.cm}\hbox{\includegraphics[width=8cm, height=8cm]{./../Pics/Fig_SystemDefinition}}
              \hspace{0.cm}\hbox{\includegraphics[width=9cm, height=5cm]{./../Pics/Fig_SystemDefinition2}}}
@@ -40,7 +38,12 @@ In Fig.~\ref{Chapter:Introduction:Fig:Domain}(b), nitrogen gas is contained in a
         \caption{System and control volumes: (a,b) schematics of systems and associated borders, (c) cylinder-piston system with extensive/intensive properties.}
       \end{figure}
 
+For convenience, sometimes we may want to divide the {\it system} into multiple {\it sub-systems} and analyse them individually, or to combine several small {\it systems} into a larger {\it super-systems}. The choice depends on the conditions of the domain of interest and how mass and energy flows across the {\it sub-systems}. If mass and energy are allowed to flow across the {\it boundaries}, we say that the {\it system} is {\bf open}, otherwise if only the energy is allowed to flow (\ie be transferred) across the {\it boundaries}, the {\it system} is assumed to be {\bf closed}. If both energy and mass can not be transferred across the {\it boundaries} the system is assumed {\bf isolated}, in such case, where there is no energy flow, the boundary is called {\bf adiabatic} (Table~\ref{Chapter:Introduction:Table:System}).\index{System!Open}\index{System!Closed}\index{System!Isolated}\index{System!Adiabatic}\index{Adiabatic}
 
+
+%%% Table
+   \begin{table}[h]
+     \begin{center}
       \begin{tabular}{|c|c|c|}
          \hline
                       & {\bf Mass} & {\bf Energy} \\
@@ -50,7 +53,18 @@ In Fig.~\ref{Chapter:Introduction:Fig:Domain}(b), nitrogen gas is contained in a
          {\bf Closed} & {\it no}   & {\it yes}    \\
          {\bf Isolated}&{\it no}   & {\it no}     \\
          \hline 
-      \end{tabular}    
+      \end{tabular}  \label{Chapter:Introduction:Table:System}
+        \caption{System and control volumes: energy and mass transfer.}
+     \end{center}
+   \end{table}
+
+%%% Subsection
+\subsection{Extensive and Intensive Properties}\label{Chapter:Introduction:Section:Introduction:ExtensiveIntensiveProperties}\index{Extensive Properties}\index{Intensive Properties}\index{System!Extensive Properties}\index{System!Intensive Properties}
+A quantitative property of a system describes a macroscopic characteristic in which it may vary with time (\ie time-dependent property). Thermodynamic properties may be classified as either extensive or intensive. An extensive property is a property that depends on the amount of substance (\ie size) in the system. Examples of extensive properties are total mass, total volume, total internal energy etc. An intensive property is a property that is independent of the amount of substance, examples are temperature, mass, density, molar volume, concentration and pressure.
+
+
+
+
 
 %%%
 %%% SECTION

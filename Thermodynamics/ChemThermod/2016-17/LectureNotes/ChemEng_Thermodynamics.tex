@@ -69,7 +69,8 @@
 % with this we ensure that the chapter and section
 % headings are in lowercase
 %%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand*\thesection{\arabic{section}}
 \fancyhf{} %delete the current section for header and footer
 %\fancyhead[LE,RO]{\bfseries\thepage}
 %\fancyfoot[LE,RO]{\bfseries\thepage}
@@ -302,8 +303,11 @@
 %\setcounter{secnumdepth}{8}
 %\setcounter{tocdepth}{8}
 
-\setcounter{secnumdepth}{4}%
-\setcounter{tocdepth}{4}%
+\setcounter{secnumdepth}{3}%
+\setcounter{tocdepth}{3}%
+
+%\usepackage{chngcntr}
+%\counterwithout{figure}{chapter}
 
 \newcounter{qcounter}
 \newcounter{mcounter}
