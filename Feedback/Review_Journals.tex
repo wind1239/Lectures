@@ -56,435 +56,55 @@
 %%%%%%%
 %%%%%%%
 
-
 \begin{center}
-  {\Large Review of the Manuscript JFUE-D-16-00689 `Coal Cleat Reconstruction using Microcomputed Tomography Imaging' by Y. Jing {\it et al.}}
+  {\Large Review of the Manuscript BJCE-2016-0095 `Mathematical Model of the Temperature and the Concentration Profiles of an Industrial Rotary Kiln used in Clinker Production' by D.C.Q. Rodrigues {\it et al.}}
 \end{center}
 
 \medskip
 
-The manuscript describes a novel methodology for $\mu$CT image analysis to investigate coal cleat formation. The authors undertook a comprehensive literature review of the current methods used to capture heterogeneity (i.e., cleats configuration) in rocks. Image analysis was performed in a field sample.
+The manuscript introduces a mathematical procedure to model gas and solid flows in rotary kiln. The authors undertook a comprehensive, but limited, literature review of the current problems in the clinker production. The manuscript briefly described the main conservation and constitutive equations used in the industry-standard model by {\it Spang (1972)} and the modification suggested by the author. Simulations were performed in a 2-D system.
 
-The manuscript is well-written with a small number of typos and unrevised sentences. There is/are sentence(s) or page(s) missing after the first paragraph of the {\it Introduction}. The manuscript is comprehensive and introduced an in-depth literature review on the main subject areas, however the manuscript fails to clearly state the main aim of the work and, most of all, the novelties introduced by the authors. This should be addressed in the revised manuscript.  A few comments:
+The manuscript is relatively well-written with a small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives.  However, the manuscript is comprehensive although it introduced a very superficial literature review on the main subject area, clinker production. In fact, as the manuscript mainly focuses on simulations' results, I would expect a short literature review on any (if not all) of the subject that are relevant to the clinker production field, e.g., heat and mass transfer mechanisms, chemical kinetics and thermodynamics, multiphase (solid-fluid) flows, etc (e.g., Ngako {\it et al.}, 2015, Powder Technology 271:221-227; Atmaca $\&$ Yumrutas, 2014, Applied Thermal Engineering 66:435-444; Sogut {\it et al.}, 2010, Applied Thermal Engineering 30:817-825 etc). 
+
+The manuscript fails to clearly state the novelty of the work -- the authors modified the existing Spang model, but have not explicitly explained how the changes impacted in the solution or why these changes were performed. A few comments:
 \begin{enumerate}[(a)] 
 %
-    \item Page numbering would really help on these commments.
+\item The aim of the paper is to introduce a new model of rotary kiln for clinker production. The model is based on the existing Spang model, in which the main equations are available in the Appendix. However, the authors must explain the existing model (conservation + constitutive equations + boundary conditions and main assumptions + simplifications) before introducing the modifications (with the appropriate reasoninig for those changes). 
 %
-    \item Missing page(s) or sentence(s) in Page 2 (just below Fig. 1);
-% 
-    \item In the methodology description (second paragraph of Section 2.1.3), the authors cited (from references) the methods used to extract {\it Orientation} (1) and {\it Length} (2) -- without a proper description. As the main aim of the paper (at least it seems to be) is to describe a novel methodology to reconstruct images, a detailed description of the (1) and (2) may help fully understand the authors' contribution to the state-of-the-art.
+\item In page 4 (lines 10-11): `(...) The results qualitatively describe the behaviour of kilns, but the steady state was not reached.' Why not? And what about quantitative behaviour of the Spang model?
 %
-    \item Paragraph above Fig.5: The authors state `(...) Figure 6. It is clear that the realisation captures the main structural featurs of the original coal cleat image (...)' How do the authors `measure' / `calculate' similarities between original scan and stochastic DFN model (Fig. 6) to back this (very strong) claim?
+\item Several terms in the equations (in the Appendix) are not in the list of symbols.
 %
-    \item Section 2.5.2: The authors briefly described grid-based (or FEM-based) methods that can be used to calculate effective permeability (first paragraph of this section). However, in the following paragraph the authors stated that a LB method was used instead but with no explaination of the method or specific reference. By the way, what does D3Q19 stand for? What are $\overline{x}$ and $\delta_{t}$ in Eqn. 2?
+\item Equations 13-15 describe the thermal energy balance of gas, solid phases and the wall (I am not sure if the existence of Eqn. 15 is correct). Why isn't there any time-term in the gas-equation original model (Eqn. 13)? I understand that this is the authors' contribution for the new model, but it is difficult to understand how someone would have solved the transient for the solid phase (and the wall as well) but not for the gas phase. What is Spang's assumption? 
 %
-\end{enumerate}
-
-In summary, the subject of the manuscript is very relevant, however the paper still needs minor improvements before being considered for publication. My main concern about this manuscript is that the authors must explicitly define the aims and objectives of the manuscript and clearly state the novelty that the manuscript addresses.  In the attached document, {\it PE} stands for `poor English' and {\it SC} stands for `sentence(s) is/are very confusing', and therefore the authors are urged to improve the indicated sentences.
-
-%%%
-%%% Appendix
-%%%
-{
-  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_JFUE_D_16_00689.pdf}}
-
-
-
-\clearpage
-
-
-
-%%%%%%%
-%%%%%%%
-%%%%%%%
-
-
-\begin{center}
-  {\Large Review of the Manuscript BJCE-2016-0044 `Simulation of Species Concentration Distribution in Reactive Flows with Unsteady Boundary Conditions' by Oliveira Filho {\it et al.}}
-\end{center}
-
-\medskip
-
-The manuscript describes a numerical model to solve 1- and 2-D reactive flows with mixing boundary conditions. The manuscript briefly describes the current `state-of-the-art' of single phase models used to tackle reactive flows under different boundary and initial conditions followed by a set of 1-D analytical methods available in the open-literature.  
-
-The manuscript is relatively well-written with a small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives.  However, the manuscript is comprehensive and introduced an in-depth literature review on the main subject areas (i.e., numerical methods for steady/unsteady flows, CFD methods etc). However the manuscript fails to clearly state the main aim of the work and, most of all, the novelties introduced by the authors. Solving advection-diffusion-reactive (ADR) flows in multi-D has been introduced in several papers and text-books (see references in `Numerical Solutions of Time-Dependent Advection-Diffusion-Reaction Equations' by Hundsdorfer and Verwer). The same applies to solve ADR PDE with hybrid boundary conditions (Dirichlet, Robin, Newmann and weakly-applied Dirichlet BCs). Thus, what is the actual novelty of the paper? This should be clearly state before being considered for publication. A few comments:
-\begin{enumerate}[(a)] 
+\item The model introduced by the authors replaced the thermal energy source term, $q_{f}$ (Eqn. 17, flame equation) by discrete values obtained from field data (page 5, lines 8-12). Why was this necessary? What is the discrepancy between discrete $q_{f}$ (industry-based) and the obtained from Eqn. 17?
 %
-    \item The manuscript describes the use of a traditional Galerkin method to solve the ADR PDE (with reaction rate of zeroth-order). What is the solution method used to solve the discretised equation 26?
-% 
-    \item What is the numerical accuracy of the model and how does it compare (in 1D) with (semi-)analytical solutions?
+\item Second paragraph of page 5 (lines 33-44): `(...) final composition of the clinker obtained in the simulation was similar to the actual values obtained in the cement industry (Table 5)'. What is the criteria to assess this {\it similarity}? Data in Table 5 for field and simulation data do not seem to match, a simple error analysis revealed discrepancies ranging from 17$\%$ to 52$\%$.
 %
-    \item I could not understand the meaning of Figs 10-12. As stated in the first paragraph of page 23, they were obtained with the same parameters (and I I guess the authors refer here to boundary and initial conditions, expressed as $Pe$ and $Ra$ numbers) as in Fig. 9. So why are they so different? I guess the authors imposed spatial-prescribed BCs, is it correct? These figures need to be explained. And why are they important?
+\item The manuscript is about a new mathematical model, but the description of the model and the numerical methods/schemes used to solve the set of equations were very poor.
 %
-    \item In Fig. 5, why is the behaviour (concentration profile) in C so different from A and B?
+\item Figures 6-9 describe sensitivity analysis of the simulation, i.e., what is the impact of changes in gas/solid inlet velocity in both temperature and concentration (gas and solid phases) fields. The results are interesting but disappointingly there is no analysis of the results.
 %
-    \item Figure 5 and Table 1 focuses on demonstrating that MDBC boundary conditions are better suited to help solving the set of equations. And I guess that is the main objective of the paper. However, MDBC was {\bf never} explained in the paper, the first time it appears was in the end of the first paragraph of page 21 when Fig. 5 was described. I guess this is a hybrid BC but the authors MUST explain it.
+\item I guess the main problem in this manuscript is the lack validation of the new model. No comparison (apart from Table 5, commented above) with either Spang model, experiments or field data is quantitatively (and/or statistically) introduced.
 %
 \end{enumerate}
-I have 3 main concerns about this manuscript that the authors should address,
+
+I have 4 main concerns about this manuscript that the authors must address,
 \begin{enumerate}[(i)]
-   \item An in-depth analysis of the numerical solutions presented;
-   \item The authors must explicitly define the aims and objectives of the manuscript;
-   \item The authors must clearly state the novelty that the manuscript addresses.
-\end{enumerate}
-
-In summary, the subject of the manuscript is very relevant, however the paper still needs to be improved before being considered for publication. The results, although interesting, does not bring much novelty to the field -- or at least the authors failed to explicitly demonstrate it.  In the attached document, {\it PE} stands for poor English, and therefore the authors are urged to improve the indicated sentences.
-
-%%%
-%%% Appendix
-%%%
-{
-  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_BJCE_2016_0044.pdf}}
-
-
-
-\clearpage
-
-
-
-%%%%%%%
-%%%%%%% NERC COMMENTS: NE/N018656/1
-%%%%%%%
-\begin{center}
-  {\Large Appendix B: Feedback to NERC-Proposal NE/N018656/1 `Sustainable Gas Pathways for Brazil: from Microcosm to Macrocosm' by Drs Hawkes (UK) and Giudici (Brazil)}
-\end{center}
-  \begin{enumerate}[{\bf 1.}]
-%
-     \item {\bf Proposal Details:}
-        \begin{enumerate}[(a)]
-            \item Introducer Name: Dr Jeff Gomes
-            \item Grant Reference: NE/N018656/1
-            \item UK PI Name: Dr Hawkes
-            \item Brazilian PI Name: Dr Giudici
-        \end{enumerate}
-%
-     \item {\bf Proposal Assessment details and feedback to applicant:}
-        \begin{enumerate}[(a)]
-            \item Panel Score for Research Excellence (0 -- 10): 8
-            \begin{itemize}
-               \item Panel's Justification: The proposal aims to critically assess distinct economical, social and engineering strategies for sustainable gas exploration and use in the Brazilian energy matrix. The proposal has a multi-dimension approach: (a) Microcosm level (WPs 1-4), in which the potential for production of biogas and biomethane associated with bioethanol industry is exploited, and (b) Macroscosm level (WPs 5-8) that aims to link activities of the Microscopic level into the national level (energy, economic and social vectors) towards 2050 energy goals.
-
-The proposal has several interesting elements of multi-disciplinary integration from engineering to policy-making with potential strong impact on the academic communities and industrial stakeholders. The proposal is timely as researcher from Brazil and UK have an outstanding track record on their fields relevant for this Call and the collaboration may produce significant outputs of scientific papers and reports of high-impact. There was a genuine concern from the reviewers -re time allocation of the PI and the management role of the co-investigators, which was fully addressed by the investigators in their response.  
-            \end{itemize}
-%
-            \item Panel Score for Fit to Scheme Scientific Objectives (0 -- 6): 5
-            \begin{itemize}
-            \item Panel's Justification: The proposal addresses several of the science themes required by the Call as highlighted by the reviewers. However it seems that it did not manage to highlight the innovation that would be expected in such a call.
-            \end{itemize}
-%
-            \item Panel Assessment for Pathways to Impact (Acceptable / Unacceptable): Acceptable
-            \begin{itemize}
-               \item Panel's Justification: It is a good {\it Pathways to Impact} plan, although strongly based on the alleged infra-structure of the existing SGI and GIC. Exchange of research students, early-career researchers and senior researchers across the Atlantic has the potential to produce a strong impact on both communities, in particular considering that there are 4 UK universities (ICL, UCL, ULeeds and CardiffU) engaged in the project. Website and White paper are good ways for dissemination within industrial and academic stakeholders.
-            \end{itemize}
-%
-            \item Please detail any comments and recommendations made by the panel (including any adjustments) regarding cost effectiveness and resources requested, including e.g. staff time, equipment costs etc: Requested financial resources are adequate.
-%
-            \item Additional Comments: No further comments.
-%
-        \end{enumerate}
-%
-  \end{enumerate}
-
-
-%%%%%%%
-%%%%%%%
-%%%%%%%
-
-\clearpage
-
-%%%%%%%
-%%%%%%% NERC COMMENTS: NE/N018656/1
-%%%%%%%
-
-\begin{center}
-  {\Large Comments on NERC-Proposal NE/N018656/1 `Sustainable Gas Pathways for Brazil; from Microcosm to Macrocosm' by Drs Hawkes (UK) and Giudici (Brazil)}
-\end{center}
-\begin{enumerate}[(i)]
-%
-   \item The proposal is led by Dr Hawkes (ICL) and Dr Giudici (USP) and will last for 36 months. UK team also includes UCL, University of Leeds and Cardiff University;
-%
-   \item The proposal requested $\sim$\pounds~970.3k from NERC and $\sim$\pounds~970.6k from FAPESP, resulting in $\sim$\pounds~1.94M. An additional contribution of \pounds~500k was obtained from BG Group;
-%
-   \item The \underline{proposal aims to} critically assess distinct economical, solcial and engineering strategies for sustainable gas exploration and use in the Brazilian energy matrix. The proposal has a multi-dimension approach: (a) {\bf Microcosm} level (WPs 1-4), in which the potential for production of biogas and biomethane associated with bioethanol industry is exploited, and (b) {\bf Macroscosm} level (WPs 5-8)that aims to link activities of the Microscopic level into the national level (energy, economic and social vectors) towards 2050 energy goals;
-% 
-   \item As such, this proposal is truly multi-disciplinary with 6 work-packages:
-      \begin{description}
-           \item[WP1:] Optimised distillary modelling (USP)
-           \item[WP2:] Sugarcane biogas production (USP) 
-           \item[WP3:] Optimised energy management in sugarcane industry: an integrated approach combining economic and environmental factors (USP)
-           \item[WP4:] Socio-economics of biomethane pathways (UCL)
-           \item[WP5:] Gas infrastructure in Brazil (ICL)
-           \item[WP6:] Gas partnering with renewable electricity (ICL)
-           \item[WP7:] Gas pathways for Brazil (ICL)
-           \item[WP8:] Ecological implications of natural gas expanion for Brazil (ULeeds)
-      \end{description}
-%
-   \item {\it Risks and mitigation strategy} are realistic and accurate;
-%
-   \item Reviewers' scores:
-       \begin{center}
-          \begin{tabular}{c c | c c c c }
-              \hline
-               {\bf R} & {\bf Reviewer} & {\bf Expertise} & {\bf Excellence}  & {\bf Scientific Objectives} & {\bf Non-Scientific Objectives} \\ 
-              \hline
-                 1     &  213805105    &  Medium         &      6            &          6                  &         5                       \\
-             2$\star$  &  168184013    &  Medium         &      6            &          5                  &         6                       \\
-                 3     &  186054007    &  High           &      5            &          5                  &         5                       \\
-              \hline
-          \end{tabular}
-       \end{center}
-%
-   \item Reviewers' main comments:
-       \begin{description}
-%
-          \item[R1] Multidisciplinary proposal: from engineering to socio-economical and ecological sciences;
-          \item[R1 $\&$ R3] Time allocated for the PI is too small and management role of the CoI is too not clear:
-            \begin{description}
-               \item[Rebut:] Balanced load between UK's and Brazil's PIs;
-               \item[Rebut:] Prof Brandon (time funded by BG) will act as mentor to UK's PI;
-               \item[Rebut:] PI is Deputy Director of the SGI (Sustainable Gas Institute) with strong synergy of the activities;
-            \end{description}
-          \item[R2] Strong comments on the bio-derived gas ({\it Microcosm}) focus on the proposal. Reviewer believed that the case of support was not strong enough, with issues on:
-            \begin{enumerate}
-                \item potential of raw material (bagasse);
-                \item choice of conversion technology (bioethanol waste $\rightarrow$ methane): {\it `The exclusive application of bio-processes for methane is surprising given the attention currently being paid to thermally based systems in the UK and Europe which offer potential for technical and economically efficient biomethane production. This is especially important give the long time horizons proposed.'} (see paragraph $\star$). Also:
-                   \begin{itemize}
-                       \item {\it `The concept of replacing bioethanol by biomethane seems implausible given the high export value of ethanol and its importance as a biofuel. Biomethane needs extensive upgrading to either compress it or liquefy it into a transport fuel and it is not clear if this aspect is properly considered. } 
-                          \begin{description}
-                            \item[Rebut:] `We intend to investigate how a biogas/bio-methane industry could exist alongside the ethanol industry.'
-                          \end{description}
-                       \item {\it The advocacy of dry fermentation is not well justified in the context of development of a national biomethane programme, especially with a focus on lab scale experiments;}
-                          \begin{description}
-                            \item[Rebut:] Technological choice of the investigators that believe this is a potential game-changer.
-                          \end{description}
-                       \item {\it Microgrids are proposed although it is not clear what they will provide and where or to whom.}
-                          \begin{description}
-                            \item[Rebut:] \textcolor{red}{Not addressed}.
-                          \end{description}
-                       \item {\it Substitution of diesel by methane is not just a simple case of replacement but has substantial infrastructural, technical and economic consequences which appear to be minimised.}
-                          \begin{description}
-                            \item[Rebut:] \textcolor{red}{Not addressed}.
-                          \end{description}
-                   \end{itemize}
-            \end{enumerate}
-            \begin{description}
-               \item[Rebut:] Figure (7Mt) of bagasse is the current waste with ethanol production. But this can increase to 51Mt and become a potential raw material for biomethane production; 
-            \end{description}
-          \item[R3] argued that it is not clear that the {\it Macrocosm} will have a broad view instead of focusing on bio-conversion elements;
-            \begin{description}
-               \item[Rebut:] Investigators clarified that this was covered, i.e., the {\it Macrocosm} has broad view on the gas sustainability technologies and how it impact in the society;
-            \end{description}
-          \item[R1] argued that {\bf WP4} does not accurately address the socio-economics aspects of biomethane exploration.
-            \begin{description}
-               \item[Rebut:] Investigators clarified the meaning of {\it assemblage} and how this methodology will be used to help integrate {\it Micro-} and {\it Macro}-scales;
-            \end{description}
-%          
-       \end{description}
-%
-     \item Reviewers' comments on Fit to Scheme and Pathways to Impact:
-%
-
-       \begin{description}
-          \item[Fit to Scheme -- Scientific Objectives:] {\bf R1} acknowledges the scientific fit2scheme of the proposal, however, {\bf R2} and {\bf R3} are less enthusiastic. {\bf R3} comments that the proposal only address ONE sustainable gas pathway. This was acknowledged by the investigators as one technology was chosen for the micro-scale whereas several socio-economical approaches for pathways are addressed in the macro-scale. {\bf R2} is however unhappy with the approach taken. His/her comments were very strong and although (most of the arguments) rebutted by the investigators.
-%
-          \item[Fit to Scheme -- Non-Scientific Objectives:] Positive comments from all reviewers. The allocated time for the PI (and Co-Is) was raised again here by {\bf R1} and {\bf R2}. 
-%
-          \item[Pathways to Impact:] {\bf R3} was very positive with the actions towards P2I, however {\bf R1} highlighted that the 2 institutes SGI (Sustainable Gas Institute) and GIC (Gas Innovation Institute) are still in their childhood and are not well-established yet. Her/his main concern is the fact that there is no (current) engagement with the {\it `development and climate change communities'}. {\bf R2} was less positive (as already mentioned in her/his comments -re the proposal). 
-            \begin{description}
-               \item[Rebut:] Investigators clarified the infra-structure they put on place (management board groups) for the proposal and highlighted the production of a White Paper at the end of the project.
-            \end{description}
-       \end{description}
-     
-%
-\end{enumerate}
-
-     \begin{center}
-       {\large Overall comments:}
-     \end{center}
-
-       \begin{enumerate}[1.]
-          \item \textcolor{red}{Comments of {\bf R2} (168184013) \underline{does not seem} to be in-line with the overall assessment.}
-%
-          \item \textcolor{red}{Deliverable ?}
-%
-          \item {\bf Pathways to Impact:}
-              \begin{enumerate}[(a)]
-                 \item A good {\it Pathways to Impact} but strongly based on the alleged infra-structure of the existing SGI and GIC;
-%
-                 \item Exchange of research students, early-career researchers and senior researchers across the Atlantic has the potential to produce a strong impact on both communities, in particular considering that there are 4 UK universities (ICL, UCL, ULeeds and CardiffU) engaged in the project
-                 \item Website and White paper are good ways for dissemination within industrial and academic stakeholders. But what about the communities in Brazil and UK? Are there anything in place for it? 
-              \end{enumerate}
-%
-          \item {\bf Justification of Resources:} Seems reasonable. Brazilian's partners seems to be spending $\sim$12$\%$ of the FAPESP budget in a single experimental kit.
-%       
-          \item Suggestions for  Marks:
-              \begin{enumerate}[(a)]
-                 \item {\bf Research Excellence (0-10):} It is a good proposal with several interesting elements of multi-disciplinary integration from engineering to policy-making with potential strong impact on the academic communities and industrial stakeholders. The proposal is timely as researcher from Brazil and UK have an outstanding track record on their fields relevant for this Call and the collaboration may produce scientific papers and reports of high-impact. However it seems that the proposal fails to highlight the innovation that would be expected in such a call. \textcolor{red}{7}
-                 \item {\bf Fit2Scheme Scientific Objectives (0-6):} The scientific aspects of the proposal fits the Call's requirement as highlighted by {\bf R1} and {\bf R3}. However, {\bf R2} raised a few issues that need to be taken into account, in which some of them were not addressed by the investigators' responses. \textcolor{red}{5}
-                 \item {\bf Pathways to Impact (Acceptable/Unacceptable):} \textcolor{red}{Acceptable}.
-              \end{enumerate}
-%
-       \end{enumerate}
-
-\medskip
-
-%%%%%%%
-%%%%%%%
-%%%%%%%
-
-
-\clearpage
-
-%%%%%%%
-%%%%%%% NERC COMMENTS: NE/N018656/1
-%%%%%%%
-
-\begin{center}
-  {\Large Comments on NERC-Proposal NE/N020294/1 `Novel Routes to Added Value Chemicals and Fuels from CO2 (CO2FUEL)' by Drs Dupont (UK) and Rossi (Brazil)}
-\end{center}
-
-\begin{enumerate}[(i)]
-%
-   \item The proposal is led by Prof Dupont (UNott) and Dr Rossi (USP) and will last for 36 months;
-%
-   \item The proposal requested $\sim$\pounds~891.7k from NERC and $\sim$\pounds~544.8k from FAPESP, resulting in $\sim$\pounds~1.44M;
-%
-   \item The \underline{proposal aims to} study integrated process for catalytic conversion of CO$_{2}$ to biofuels using ionic liquid-stabilised metal nanoparticles (IL-MNPs);
-% 
-   \item As such, the proposal is divided into 6 work-packages:
-      \begin{description}
-           \item[WP1:] Synthesis of IL and supported materias (UNott and USP)
-           \item[WP2:] Catalyst Synthesis (UNott) 
-           \item[WP3:] Characterisation of Catalytic Materials (USP)
-           \item[WP4:] CO$_{2}$ capture and conversion mechanistic studies (USP)
-           \item[WP5:] Sustainable H$_{2}$ generation (?)
-           \item[WP6:] Process Integration (UNott)
-      \end{description}
-%
-   \item {\it Risks and mitigation strategy} are realistic and accurate;
-
-   \item {\it Deliverables} seems accurate and realistic;
-%
-   \item Reviewers' scores:
-       \begin{center}
-          \begin{tabular}{c c | c c c c }
-              \hline
-               {\bf R} & {\bf Reviewer} & {\bf Expertise} & {\bf Excellence}  & {\bf Scientific Objectives} & {\bf Non-Scientific Objectives} \\ 
-              \hline
-                 1     &  037509021    &  High           &      6            &          5                  &         6                       \\
-                 2     &  117269705    &  Medium         &      6            &          6                  &         6                       \\
-                 3     &  198643903    &  High           &      4            &          3                  &         3                       \\
-              \hline
-          \end{tabular}
-       \end{center}
-%
-   \item Reviewers' main comments on {\it Excellence}:
-       \begin{description}
-%         
-          \item[R1 and R2] are very supportive and raised minor issues that the investigators acknowledged and rebutted. Comments were about how the proposal will address reduction of poverty and selectivity of Fischer-Tropsch process and scale-up of the whole technology.
-%
-         \item[R3] comments were stronger and pointed out a number of issues:
-             \begin{enumerate}
-                \item Track-record of CoIs relevant to FT and RWGS catalysis: not addressed;
-                \item Whole system approach: good overall response, although the investigators did not fully address the high temperature issue;
-                \item {\it `The applicants do not address the most significant risk, namely that a low temperature RWGS catalyst will not be found, and that elevated reaction temperatures are still required which mean IL based systems cannot be employed due to
-instability.} This comment was not fully addressed and it may be a risk for the whole project.
-             \end{enumerate} 
-
-
-       \end{description}
-%
-     \item Reviewers' comments on Fit to Scheme and Pathways to Impact:
-%
-
-       \begin{description}
-          \item[Fit to Scheme -- Scientific Objectives:] {\bf R1} acknowledges the scientific fit2scheme of the proposal, bu highlights the lack of emphasis on poverty reduction, which was acknowledge by the investigators. {\bf R2} recognised the scientific value of the proposal. {\bf R3} are much less enthusiastic and highlighted that the proposal has engaged with stakeholders on the gas value chain. The investigators highlighted that CO$_{2}$ can be potentially sourced from biomass power stations but did not address the lack of industrial engagement. Maybe the most important comment from {\bf R3} was the lack of multi-disciplinary aspects in the proposal. The two research groups has complemented chemical (and physics) skills -- i.e., `focus is more on fundamental science, which while valuable is not addressing the overall objectives of the call'.
-%
-          \item[Fit to Scheme -- Non-Scientific Objectives:] Positive comments from all reviewers. They also highlighted specialised offices on PI and strong collaboration prior to the proposal
-%
-          \item[Pathways to Impact:] Positive comments from all reviewers. They highlighted {\it public awareness} aspect (to academic and lay audience) that will be raised by the investigators. The high-quality of the investigators were acknowledge by the reviewers.
-       \end{description}
-     
-%
-\end{enumerate}
-
-     \begin{center}
-       {\large Overall comments:}
-     \end{center}
-
-       \begin{enumerate}[1.]
-          \item \textcolor{red}{Comments of {\bf R3} (198643903) \underline{were extremely negative} in the assessment of the proposal but somehow milder in the Fit2Schemes aspects. However this was not projected in the overall assessment.}
-          \item {\bf Pathways to Impact:}
-              \begin{enumerate}[(a)]
-                 \item It is an extremely well-written P2I;
-                 \item Exchange of research students, early-career researchers and senior researchers across the Atlantic has the potential to produce a strong impact on both communities. An extra PhD student and PDRA will be funded by UNott
-                 \item Engagement of the general public;
-                 \item Work closely with IP offices
-              \end{enumerate}
-%
-          \item {\bf Justification of Resources:} Seems reasonable. Brazilian's partners seems to be spending $\sim$40$\%$ of the FAPESP budget in a equipment. Low budget for travelling is a concern.
-%       
-          \item Suggestions for  Marks:
-              \begin{enumerate}[(a)]
-                 \item {\bf Research Excellence (0-10):} It is a good proposal with several interesting elements of multi-disciplinary integration from engineering to policy-making with potential strong impact on the academic communities and industrial stakeholders. The proposal is timely as researcher from Brazil and UK have an outsanding track record on their fields relevant for this Call and the collaboration may produce scientific papers and reports of high-impact. The technology seems to be an issue, according to {\bf R3} although (s)he acknowledged the overall technical quality of the proposal. \textcolor{red}{8}
-                 \item {\bf Fit2Scheme Scientific Objectives (0-6):} The scientific aspects of the proposal fits the Call's requirement as highlighted by {\bf R1} and {\bf R3}. However, {\bf R3} raised a few issues that need to be taken into account, in which some of them were not addressed by the investigators' responses. \textcolor{red}{5}
-                 \item {\bf Pathways to Impact (Acceptable/Unacceptable):} \textcolor{red}{Acceptable}.
-              \end{enumerate}
-%
-       \end{enumerate}
-
-%%%%%%%
-%%%%%%%
-%%%%%%%
-
-
-\clearpage
-
-%%%%%%%
-%%%%%%%
-%%%%%%%
-
-
-\begin{center}
-  {\Large Review of the Manuscript BMSE-D-15-01072 `Numerical Study to Investigate the Effect of Inlet Velocity on Thermal-Fluid Phenomena in the Supercritical CO$_{2}$ cooled Pebble Bed Reactor' by Latifi and Setayeshi}
-\end{center}
-
-\medskip
-
-The manuscript describes thermal fluid dynamic simulations in a pebble-bed reactor using a commercial CFD software. The manuscript briefly described the main conservative equations along with a short summary of the solution methods used. The aim of the paper is to `investigate the effect of inlet fluid velocity' in the temperature field under steady-state conditions.
-
-The manuscript is relatively well-written with a small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives.  However, the manuscript is comprehensive although it introduced a very superficial literature review on the main subject areas (i.e., PBMR, thermalised reactors, VHTR, turbulence models, heat transfer models for granular flows, CFD methods etc). In fact, as the manuscript mainly focuses on simulations' results, I would expect a short literature review on any (if not all) of these subjects. There is a good number of manuscripts on the nuclear and non-nuclear open literature on both internal (single- and multiphase) flows and heat transfer in PBMR (e.g., see Boer {\it et al.}, 2010, Nuclear Engineering and Design 240:2384-2391; Jiang {\it et al.}, 2006, Annals Nuclear Engineering 33:1039-1057; Nouri-Borujerdi and Ghomsheh, 2015, Annals Nuclear Engineering 78:485-492; Pavlidis and Lathouwers, 2013, Nuclear Engineering and Design 264:161-167; etc).
-
-The manuscript also fails to clearly state the novelty of the work -- as already mentioned, pebble-bed (nuclear) reactors have been widely studied, and it would interesting if the authors could highlight their contribution to science and/or technology on fluid dynamics and/or heat transfer involving flows in pebble beds.A few comments:
-\begin{enumerate}[(a)] 
-%
-\item  The main objective of the paper is to investigate steady-state heat transfer under prescribed fluid velocity boundary conditions. However, the studied problem was not fully described, e.g., (a) is the source term, $S_{h}$ (Eqn. 5) a constant? (b) Were wall-solid and wall-fluid heat transfer mechanisms considered in the problem? If so what were the boundary conditions used in this case? Several authors reported that the temperature profile of the pebbles are nearly parabolic -- here it is nearly flat, Fig 5);
-%
-\item Why did the authors ignored the time-term in Eqn. 4?
-%
-\item Why was supercritical CO$_{2}$ used as cooling fluid? How is the compressibility of this fluid model in this work?
-%
-\item Mesh independence is assessed in Fig. 3, however the domain is 4.5 m long and here mesh independence was investigated over 11 m? Is this correct? Also, mesh independence (as any statistical quantity from discrete methods) is often investigated using scalar- or vector- fields that are primarily solved in the system of equations, e.g., velocity, pressure or volume fraction (for multiphase flows). Why did the author choose temperature?
-%
-\item Was the model used/developed by the authors previously validated against analytical solutions, experimental data, or other computational models (cross-code validation)? Some of the results does not seem correct, e.g., constant radial temperature (Fig 5), linear behaviour of temperature (Fig. 4), etc. 
-%
-\item Finally, was the numerical experiment conducted in annulus geometry?
-%
-\end{enumerate}
-I have 2 main concerns about this manuscript that the authors should address,
-\begin{enumerate}[(i)]
-\item An in-depth analysis of the numerical solutions presented;;
+\item A thorough description of the model;
+\item An in-depth analysis of the solutions presented;
+\item An appropriate validation of the introduced model;
 \item The authors must clearly state the novelty that the manuscript addresses.
 \end{enumerate}
 
-In summary, the subject of the manuscript is very relevant, however the paper still needs to be improved before being considered for publication. The results, although interesting (but poorly discussed), does not bring much novelty to the field -- or at least the authors failed to explicitly demonstrate it. 
+In summary, the subject of the manuscript is very relevant, however the paper still needs to be largely improved before being considered for publication. The results, although interesting (but poorly discussed), does not bring much novelty to the field -- or at least the authors failed to explicitly demonstrate it. 
 
 
 %%%
 %%% Appendix
 %%%
 {
-  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_BMSE_D_01072.pdf}}
+  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_BJCE_2016_0095.pdf}}
 
 
 
