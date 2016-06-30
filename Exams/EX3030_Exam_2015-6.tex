@@ -181,38 +181,54 @@ where $\alpha$ is the thermal diffusivity, $\Delta x$ and $\Delta t$ are the spa
      \end{center} \vspace{-0.9cm}
 with the thermal diffusivity,~\solmarks{1/10}
 \begin{displaymath}
-     \alpha = \frc{\kappa}{\rho C_{p}} = \left(5.40\frc{W}{m.^{\circ}C}\right)\left(\frc{1}{550}\frc{m^{3}}{kg}\right)\left(\frc{1}{0.1\times 10^{3}}\frc{kg.^{\circ}C}{J}\right) = 9.8182\times 10^{-5} \frc{m^{2}}{s}, 
+     \alpha = \frc{\kappa}{\rho C_{p}} = \left(5.40\frc{W}{m.^{\circ}C}\right)\left(\frc{1}{550}\frc{m^{3}}{kg}\right)\left(\frc{1}{0.1\times 10^{3}}\frc{kg.^{\circ}C}{J}\right) = {\bf 9.8182\times 10^{-5} \frc{m^{2}}{s}}, 
 \end{displaymath}
-and the Fourier number is,~\solmarks{1/10}
+and the Fourier number,~\solmarks{1/10}
 \begin{displaymath}
-  \tau = \frc{\alpha \Delta t}{\left(\Delta x\right)^{2}} = \left(9.8182\times 10^{-5} \frc{m^{2}}{s}\right)\left( 5 s\right)\left(\frc{1}{2.5\times 10^{-2}}\frc{1}{m^{2}}\right) = 0.7855
+  \tau = \frc{\alpha \Delta t}{\left(\Delta x\right)^{2}} = \left(9.8182\times 10^{-5} \frc{m^{2}}{s}\right)\left( 5 s\right)\left(\frc{1}{2.5\times 10^{-2}}\frc{1}{m^{2}}\right) = {\bf 0.7855}.
 \end{displaymath}
+Boundary and initial conditions are:
+\begin{itemize}
+    \item Dirichlet BC at node $i=0\;\left(x = 0.0\text{cm}\right)$ : {\bf $T_{0}^{0} = T_{0}^{1} = T_{0}^{2} = \cdots = $ 150$^{\circ}$C};~\solmarks{1/10}
+    \item Newmann BC at node $i=4\;\left(x = 10.0\text{cm}\right)$: ~\solmarks{1/10}
+          \begin{eqnarray}
+             && - \kappa\frc{\partial T}{\partial x} = h\left( T - T_{\infty}\right) \Longrightarrow - \kappa\frc{T_{i+1}^{j}-T_{i-1}^{j}}{2\Delta x} = h\left( T_{i}^{j}- T_{\infty}\right) \nonumber \\
+             && \mathbf{T_{i+1}^{j} = T_{i-1}^{j} - \frc{2 h \Delta x }{\kappa}\left(T_{i}^{j}-T_{\infty}\right)}, \nonumber
+          \end{eqnarray}
+    \item Initial conditions: {\bf $T_{1}^{0}=T_{2}^{0}=T_{3}^{0}=T_{4}^{0}=$ 20$^{\circ}$C}.~\solmarks{1/10}
+\end{itemize}
 
-
-The Courant number ($C_{t}$) for this problem is then~\solmarks{1/10}
-\begin{displaymath}
-   C_{t} = \frc{\alpha \Delta t}{\left(\Delta x\right)^{2}} = {\bf 7.8545\times 10^{-5}}
-\end{displaymath}
-with $\Delta t$ = 5 and $\Delta x$ = 2.5. We need to solve
-\begin{displaymath}
-    T_{i}^{j+1} = T_{i}^{j} + C_{t}\left(T_{i+1}^{j}-2T_{i}^{j}+T_{i-1}^{j}\right)
-\end{displaymath}
-Thus for j = 0~\solmarks{2/10}
+The discretised thermal equation,~\solmarks{1/10}
 \begin{eqnarray}
-    i=1 && T_{1}^{1} = T_{1}^{0} + C_{t}\left(T_{2}^{0}-2T_{1}^{0}+T_{0}^{0}\right) \nonumber \\
-     \vdots && \hspace{3cm} \vdots \nonumber \\
-    i=4 && T_{4}^{1} = T_{4}^{0} + C_{t}\left(T_{5}^{0}-2T_{4}^{0}+T_{3}^{0}\right) \nonumber
+    && T_{i}^{j+1} = T_{i}^{j} + \alpha\frc{\Delta t}{\left(\Delta x\right)^{2}}\left(T_{i+1}^{j}-2T_{i}^{j}+T_{i-1}^{j}\right)\;\;\text{ with }\;\;\tau = \frc{\alpha \Delta t}{\left(\Delta x\right)^{2}} \nonumber \\
+    && \mathbf{T_{i}^{j+1} = \left( 1- 2\tau \right)T_{i}^{j} + \tau\left(T_{i+1}^{j}+T_{i-1}^{j}\right)} \nonumber
 \end{eqnarray}
-with $T_{0}^{0}$ = 150$^{\circ}$C (ghost-cell) and $T_{5}^{j}$ calculated from the boundary conditions:~\solmarks{2/10}
-\begin{displaymath}
--\kappa\frc{\partial T}{\partial x} = h\left(T-T_{amb}\right)\Longrightarrow -\kappa \frc{T^{j}_{5}-T^{j}_{4}}{\Delta x} = h\left(T_{5}^{j}-T_{amb}\right)
-\end{displaymath}
-Thus~\solmarks{4/10}
-{\bf \begin{eqnarray}
-   T\left(\underline{x},t=5\right)  &=& \left[ 149.9796\;\; 20.0102 \;\; 20.0000\;\; 19.9997\;\; 15.8889\right]^{T}\; ^{\circ}C \nonumber \\
-   T\left(\underline{x},t=10\right) &=& \left[ 149.9592\;\; 20.0204 \;\; 20.0000\;\; 19.9993\;\; 15.8887\right]^{T}\; ^{\circ}C \nonumber
-\end{eqnarray}}
-} 
+
+Thus for $j=0$:~\solmarks{1/10}
+         \begin{eqnarray}
+             \mathbf{i=1}   &&  \mathbf{T_{1}^{1} = \left(1-2\tau\right)T_{1}^{0} + \tau\left(T_{2}^{0}+T_{0}^{0}\right)} \nonumber \\
+               \vdots &&   \hspace{3cm}                \vdots \nonumber \\
+             \mathbf{i=4}   &&  \mathbf{T_{4}^{1} = \left(1-2\tau\right)T_{4}^{0} + \tau\left(T_{5}^{0}+T_{3}^{0}\right)} \nonumber 
+         \end{eqnarray} 
+         with ghost-cell, $T_{5}^{0}$ defined through the Newmann BC:~\solmarks{1/10}
+         \begin{displaymath}
+             \mathbf{T_{5}^{0} = T_{3}^{0} - \frc{2 h\Delta x}{\kappa}\left(T_{4}^{0}-T_{\infty}\right)}
+         \end{displaymath}
+
+Thus:~\solmarks{2/10}
+\begin{center}
+\begin{tabular}{c | c c c c c }
+{\bf t (s)}  &  $T_{0}$  &  $T_{1}$  &  $T_{2}$  &  $T_{3}$  &  $T_{4}$  \\
+\hline
+0.0          &  150.00  &  20.00    &  20.00   &  20.00   &  20.00  \\
+{\bf 5.0 }         &  {\bf 150.00 }  &  {\bf 122.12 }   &  {\bf 20.00 }   &  {\bf 20.00 }   &  {\bf 19.98 }  \\
+{\bf 10.0  }        &  {\bf 150.00 }  &  {\bf 63.80 }    &  {\bf 100.21 }   &  {\bf 19.98 }   &  {\bf 19.99 } 
+\end{tabular}
+\end{center}
+}
+
+
+
 %=============
 
 \end{enumerate}
