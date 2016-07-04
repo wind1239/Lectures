@@ -162,7 +162,7 @@ The {\it log mean-temperature difference}, $\Delta T_{lm}$ is~\solmarks{3/10}
 \end{displaymath}
 And the heat transfer rate is~\solmarks{4/10}
 \begin{displaymath}
-\dot{Q} = U A \Delta T_{lm} = {\bf 181440\; W = 1.81\times10^{2}\; MW}
+\dot{Q} = U A \Delta T_{lm} = {\bf 181440\; W = 181.44; kW}
 \end{displaymath}
 } 
 %=============
@@ -185,37 +185,37 @@ with the thermal diffusivity,~\solmarks{1/10}
 \end{displaymath}
 and the Fourier number,~\solmarks{1/10}
 \begin{displaymath}
-  \tau = \frc{\alpha \Delta t}{\left(\Delta x\right)^{2}} = \left(9.8182\times 10^{-5} \frc{m^{2}}{s}\right)\left( 5 s\right)\left(\frc{1}{2.5\times 10^{-2}}\frc{1}{m^{2}}\right) = {\bf 0.7855}.
+  \tau = \frc{\alpha \Delta t}{\left(\Delta x\right)^{2}} = \left(9.8182\times 10^{-5} \frc{m^{2}}{s}\right)\left( 5 s\right)\left(\frc{1}{2.5\times 10^{-2}}\frc{1}{m}\right)^{2} = {\bf 0.7855}.
 \end{displaymath}
 Boundary and initial conditions are:
 \begin{itemize}
-    \item Dirichlet BC at node $i=0\;\left(x = 0.0\text{cm}\right)$ : {\bf $T_{0}^{0} = T_{0}^{1} = T_{0}^{2} = \cdots = $ 150$^{\circ}$C};~\solmarks{1/10}
-    \item Newmann BC at node $i=4\;\left(x = 10.0\text{cm}\right)$: ~\solmarks{1/10}
+    \item Dirichlet BC at node $i=0\;\left(x = 0.0\text{cm}\right)$ : {\bf $T_{0}^{0} = T_{0}^{1} = T_{0}^{2} = \cdots = $ 150$^{\circ}$C};%~\solmarks{1/10}
+    \item Newmann BC at node $i=4\;\left(x = 10.0\text{cm}\right)$: %~\solmarks{2/10}
           \begin{eqnarray}
              && - \kappa\frc{\partial T}{\partial x} = h\left( T - T_{\infty}\right) \Longrightarrow - \kappa\frc{T_{i+1}^{j}-T_{i-1}^{j}}{2\Delta x} = h\left( T_{i}^{j}- T_{\infty}\right) \nonumber \\
              && \mathbf{T_{i+1}^{j} = T_{i-1}^{j} - \frc{2 h \Delta x }{\kappa}\left(T_{i}^{j}-T_{\infty}\right)}, \nonumber
           \end{eqnarray}
-    \item Initial conditions: {\bf $T_{1}^{0}=T_{2}^{0}=T_{3}^{0}=T_{4}^{0}=$ 20$^{\circ}$C}.~\solmarks{1/10}
+    \item Initial conditions: {\bf $T_{1}^{0}=T_{2}^{0}=T_{3}^{0}=T_{4}^{0}=$ 20$^{\circ}$C}.%~\solmarks{1/10}
 \end{itemize}
 
-The discretised thermal equation,~\solmarks{1/10}
+The discretised thermal equation,~\solmarks{2/10}
 \begin{eqnarray}
     && T_{i}^{j+1} = T_{i}^{j} + \alpha\frc{\Delta t}{\left(\Delta x\right)^{2}}\left(T_{i+1}^{j}-2T_{i}^{j}+T_{i-1}^{j}\right)\;\;\text{ with }\;\;\tau = \frc{\alpha \Delta t}{\left(\Delta x\right)^{2}} \nonumber \\
     && \mathbf{T_{i}^{j+1} = \left( 1- 2\tau \right)T_{i}^{j} + \tau\left(T_{i+1}^{j}+T_{i-1}^{j}\right)} \nonumber
 \end{eqnarray}
 
-Thus for $j=0$:~\solmarks{1/10}
+Thus for $j=0$:%~\solmarks{2/10}
          \begin{eqnarray}
              \mathbf{i=1}   &&  \mathbf{T_{1}^{1} = \left(1-2\tau\right)T_{1}^{0} + \tau\left(T_{2}^{0}+T_{0}^{0}\right)} \nonumber \\
                \vdots &&   \hspace{3cm}                \vdots \nonumber \\
              \mathbf{i=4}   &&  \mathbf{T_{4}^{1} = \left(1-2\tau\right)T_{4}^{0} + \tau\left(T_{5}^{0}+T_{3}^{0}\right)} \nonumber 
          \end{eqnarray} 
-         with ghost-cell, $T_{5}^{0}$ defined through the Newmann BC:~\solmarks{1/10}
+         with ghost-cell, $T_{5}^{0}$ defined through the Newmann BC:~\solmarks{2/10}
          \begin{displaymath}
              \mathbf{T_{5}^{0} = T_{3}^{0} - \frc{2 h\Delta x}{\kappa}\left(T_{4}^{0}-T_{\infty}\right)}
          \end{displaymath}
 
-Thus:~\solmarks{2/10}
+Thus:~\solmarks{4/10}
 \begin{center}
 \begin{tabular}{c | c c c c c }
 {\bf t (s)}  &  $T_{0}$  &  $T_{1}$  &  $T_{2}$  &  $T_{3}$  &  $T_{4}$  \\
