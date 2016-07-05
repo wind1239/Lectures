@@ -1,6 +1,7 @@
 
-%\documentclass[calculator,steamtables,datasheet,solutions]{exam_newMarcus2}
-\documentclass[calculator,steamtables,allquestions,datasheet,resit]{exam_newMarcus2}
+\documentclass[calculator,steamtables,datasheet,solutions]{exam_newMarcus2}
+%\documentclass[calculator,steamtables,allquestions,datasheet,resit]{exam_newMarcus2}
+%\documentclass[calculator,steamtables,allquestions,datasheet,resit,solution]{exam_newMarcus2}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -145,10 +146,10 @@ Now deriving $\beta$ and $\kappa$,
 \begin{displaymath}
 Z = 1+ \beta - q\beta\frc{Z - \beta}{\left(Z+\epsilon\beta\right)\left(Z+\sigma\beta\right)}\;\;\text{ with} \;\; \beta = \Omega \frc{P_{r}}{T_{r}}\;\;\text{ and}\;\; q=\frc{\Psi\alpha}{\Omega T_{r}}
 \end{displaymath}
-For SRK with {\bf T$_{r}$=0.8380}, {\bf P$_{r}$=0.3754}, {\bf $\beta$=3.88$\times$10$^{-2}$} and {\bf $q$=6.7274}~\solmarks{2/12},
-\begin{displaymath}
-{\bf Z = 1 + \beta - q\beta\frc{Z-\beta}{Z^{2}+\beta Z}}
-\end{displaymath}~\solmarks{2/12}
+For RK with {\bf T$_{r}$=0.6977}, {\bf P$_{r}$=5.0826$\times$10$^{-2}$}, {\bf $\beta$=6.3115$\times$10$^{-3}$} and {\bf $q$=8.4663}~\solmarks{2/12}. 
+
+$\alpha = \sqrt{T_{r}}$, $\sigma=1$, $\epsilon=0$, $\Omega=0.08664$, $\Psi=0.42748$ and \\ $\mathbf{Z = 1 + \beta - q\beta\frc{Z-\beta}{Z^{2}+\beta Z}}$.~\solmarks{2/12}
+
 The equation is non-linear and to find the root we can apply Newton-Raphson method 
 \begin{displaymath}
 Z_{i} = Z_{i-1} - \frc{\mathcal{F}\left(Z_{i-1}\right)}{d\mathcal{F}/dZ \left(Z_{i-1}\right)}
@@ -156,15 +157,18 @@ Z_{i} = Z_{i-1} - \frc{\mathcal{F}\left(Z_{i-1}\right)}{d\mathcal{F}/dZ \left(Z_
 with,
 \begin{eqnarray}
 && \mathcal{F}\left(Z\right) = Z - \left[ 1 + \beta - q\beta\frc{Z-\beta}{Z^{2}+\beta Z}\right] \nonumber \\
-&& \frc{d\mathcal{F}}{dZ}\left(Z\right) = 1 + q\beta \frc{\beta^{2}+2\beta Z- Z^{2}}{\left(Z^{2}+\beta Z\right)^{2}} \nonumber
+&& \frc{d\mathcal{F}}{dZ}\left(Z\right) = 1 + q\beta \frc{\beta^{2}+2\beta Z- Z^{2}}{\left(Z^{2}+\beta Z\right)^{2}}. \nonumber
 %\frc{q\beta\left(Z^{2}\beta +Z\right)-q\beta Z\left(2Z + \beta\right)}{\left(Z^{2}+\beta Z\right)^{2}} + \frc{q\beta^{2}\left(2Z+\beta\right)}{\left(Z^{2}+\beta Z\right)^{2}} \nonumber
 \end{eqnarray} 
-as initial guess, we can use the generic real gas EOS, $PV=Z_{0}RT \Longrightarrow$ {\bf $Z_{0}=0.7217$}~\solmarks{2/12}. Thus 
+The initial estimate is $Z_{0}=1$, thus
 \begin{center}
-{\bf $Z_{1}$ = 0.7184}~\solmarks{3/12} \\
-{\bf $Z_{2}$ = 0.7160}~\solmarks{3/12} \\
+{\bf $Z_{1}$ = 0.9510}~\solmarks{2/12} \\
+{\bf $Z_{2}$ = 0.9509}~\solmarks{3/12} \\
 $\cdots \cdots \cdots $ \\
-\textcolor{red} {or (using calculator) }{\bf $Z_{22}$ = 0.7088}~\solmarks{\textcolor{red}{8/12}} \\
+\textcolor{red} {or using the calculator to obtain $\mathbf{Z}${\bf = 0.9509}}~\solmarks{\textcolor{red}{5/12}}. The molar volume is obtained by~\solmarks{3/12} 
+\begin{displaymath}
+    \mathbf{V} = \frc{Z R T}{P} = \frc{ 0.9509 \times 8.3143 \frc{\text{J}}{\text{mol.K}} \times 300\; \text{K}}{4\; \text{bar}} = \mathbf{5.9296\times 10^{-3}\frc{\text{\bf m}^{3}}{\text{\bf mol}}}
+\end{displaymath}
 
 \end{center}
 } 
@@ -325,8 +329,8 @@ where $S$, $n$ and $y$ are entropy, number of moles and mole fraction, respectiv
 \end{eqnarray}
 Therefore,~\solmarks{2/10}
 \begin{eqnarray}
-y_{1} = 0.7 \;\;\Longrightarrow V_{1}^{t} = 0.7\;cm^{3} \nonumber \\
-y_{2} = 0.3 \;\;\Longrightarrow V_{2}^{t} = 0.3\;cm^{3} \nonumber
+y_{1} = 0.7 \;\;\Longrightarrow V_{1}^{t} = 0.7\;m^{3} \nonumber \\
+y_{2} = 0.3 \;\;\Longrightarrow V_{2}^{t} = 0.3\;m^{3} \nonumber
 \end{eqnarray}
 At $P=1$ bar and $T=298.15$ K, the number of moles, $n$, is~\solmarks{2/10}
 \begin{displaymath}
@@ -352,22 +356,22 @@ The entropy change is~\solmarks{4/10}
 where $A=$ 2.409, $B=$ 1.970, $C_{1}$ = 16.1952, $C_{2}=$ 14.0568, $D_{1}=$ -3423.53, $D_{2}=$ -2825.42, $E_{1}=$ -55.7152, $E_{2}=$ -42.7089. [P] = kPa and [T] = $\left[\text{D}_{i}\right]$ = $\left[\text{E}_{i}\right]$ = K.~\marks{10}
 
 %========================
-\solution{ At 331 K, the saturation pressures are $P_{1}^{sat}=$ 42.90 kPa and $P_{2}^{sat}=$ 7054 kPa.~\solmarks{2/10}
+\solution{ At 331 K, the saturation pressures are $\mathbf{P_{1}^{sat}=}$ {\bf 42.90 kPa} and $\mathbf{P_{2}^{sat}=}$ {\bf 70.54 kPa}.~\solmarks{2/10}
 
-The liquid solution with $x_{1}=0.412$ and $x_{2}=0.588$ results in the following activity coefficient $\gamma_{1}=2.011$ and $\gamma_{2}=1.521$.~\solmarks{2/10}
+The liquid solution with $\mathbf{x_{1}=0.412}$ and $\mathbf{x_{2}=0.588}$~\solmarks{2/10} results in the following activity coefficient $\mathbf{\gamma_{1}=2.0111}$ and $\mathbf{\gamma_{2}=1.6702}$.~\solmarks{2/10}
 
-The partial pressure of ethanol and n-hexane are,~\solmarks{2/10}
+The partial pressure of ethanol and n-hexane are,
 \begin{eqnarray}
 P_{1} = x_{1}\gamma_{1}P_{1}^{sat} = 35.55\text{ kPa} \nonumber \\
-P_{2} = x_{2}\gamma_{2}P_{2}^{sat} = 63.09\text{ kPa} \nonumber 
+P_{2} = x_{2}\gamma_{2}P_{2}^{sat} = 69.28\text{ kPa} \nonumber 
 \end{eqnarray}
 The bubble pressure is~\solmarks{2/10}
 \begin{displaymath}
-P =P_{1} + P_{2} = 98.64\text{ kPa}
+\mathbf{P } =  P_{1} + P_{2} = \mathbf{103.83}\text{ {\bf kPa}}
 \end{displaymath}
 And the composition of the vapour phase is~\solmarks{2/10}
 \begin{displaymath}
-y_{1} = \frc{P_{1}}{P} = 0.360\;\;\text{ and } \;\; y_{2} = 0.640
+\mathbf{y_{1} =} \frc{P_{1}}{P} = \mathbf{0.360}\;\;\text{ and } \;\; \mathbf{y_{2} = 0.640}
 \end{displaymath}
 
 
