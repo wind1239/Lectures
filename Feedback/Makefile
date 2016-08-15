@@ -1,7 +1,9 @@
 
-default:	Review_UoA_PGT_UG.pdf
+default:	Review_UoA_PGT_UG.pdf Review_Journals.pdf Feedback_2ndY_XiaoLiang.pdf
 
 Review_UoA_PGT_UG.pdf:	Review_UoA_PGT_UG.tex
+Review_Journals.pdf:	Review_Journals.tex
+Feedback_2ndY_XiaoLiang.pdf:	Feedback_2ndY_XiaoLiang.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
