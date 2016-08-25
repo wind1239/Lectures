@@ -1,8 +1,9 @@
 
-default:	ChemEng_Thermodynamics.pdf
+default:	ChemEng_Thermodynamics.pdf Matlab_Assignment.pdf
 
 ChemEng_Thermodynamics.pdf:	ChemEng_Thermodynamics.tex
 ChemEng_Thermodynamics.idx:	ChemEng_Thermodynamics.idx
+Matlab_Assignment.pdf:		Matlab_Assignment.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
