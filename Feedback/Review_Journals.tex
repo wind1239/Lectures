@@ -52,6 +52,110 @@
 \vfill
 \clearpage
 
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+\begin{center}
+  {\Large Review of the Manuscript BJCE-2016-0044.R1 `Challenge Analysis and Schemes Desgn for the CFD Simulation of PWR' by C. Chen {\it et al.}}
+\end{center}
+
+\medskip
+
+The manuscript investigates some of the simulations' issues faced by the CFD community worldwide, in particular mesh resolution $\&$ quality and CPU time involving flow analysis in PWRs channels. It is relatively well-written but it contains a large number of typos and unrevised sentences. Several sentences are confusing and disconnected with no clear objectives.  However, the manuscript is insightful although it introduced a limited overview of the main subject area, high-performance computation for PWR simulations. 
+
+In fact, from the title I was expecting a comprehensive study of the main issues on CFD that have large impacts on the nuclear thermo-hydraulic community, e.g., (a) geometric representation (including BC representation of internals); (b) mesh type, resolution and quality (including mesh generation and parallel visualisation of large and complex geometries); (c) discretisation schemes; (d) solver methods (including strategies for efficient HPC and scalability); (e) physical sub-models (e.g., turbulence, heat transfer etc) -- somehow represented in Fig. 21. The present manuscript focuses (partially) on (b) and its potential effects on (a few aspects of) the fluid dynamics. And for the investigation of (b), although an extensive quantity of data was generated the analysis was superficial and lacked rigorous structure. In addition, the manuscript fails to clearly state the novelty of the work -- most of the parametric analysis was conducted before by several authors from the CFD community. A few comments:
+\begin{enumerate}[(a)] 
+%
+    \item {\it Section 2:} all analysis were performed based on a set of numerical simulations using the commercial CFD Fluent. However, the simulation domain (and prescribed geometry and grids), initial and boundary conditions, discretisation and solvers set-up were not properly introduced. There are several published papers reporting error analysis on different grids (mesh type and resolution) and numerical schemes (order of accuracy, upwind/downwind etc).
+    \item {\it Section 2.3.1:} last sentence of page 3, `(...) It's always known that structured types are better for data storage and transfer, so the simulation speed of structured mesh is faster and the iteration step number is smaller (...)'. The first part of this sentence has been proved wrong for quite a while (although, one may correctly state that structured grids are easy to implement). Also, what is `iteration step number'? Is it the number of non-linear iterations ? or the (total) number of specific iterations (i.e., for pressure, continuity etc)? or is it something else? 
+    \item {\it Section 2.3.1:} What is the effective difference of HP, HP2 and HP3? Is it just the resolution? And what is HP4? Results were shown for this grid but this was not described/introduced.
+    \item {\it Section 3.2:} MOC ? 
+    \item {\it Section 3.3:} I believe that was the section I could not understand. It is well established within the CFD community that computation time is due to a number of factors, among them (i) mesh type, resolution $\&$ quality; (ii) discretisation schemes; (iii) solver methods and (iv) physics to be solved. Several published CFD studies have demonstrated that most of simulation CPU time are spent on velocity and pressure solvers, which, I believe, the authors parametrised through number of iterations, time-steps and cells. The authors should try to further explain these relationships.
+    \item The same is applied to {\it Section 4}.%
+\end{enumerate}
+
+In summary, the subject of the manuscript is very relevant, however the paper still needs to be improved before being considered for publication. The results are insightful and the novelty of the manuscript must be highlighted. 
+
+% 
+
+%%%
+%%% Appendix
+%%%
+{
+  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_PNUCENE-D-16-00308.pdf}} 
+  %\includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_BJCE_2016_0095.pdf}}
+
+
+
+\clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+\begin{center}
+  {\Large Review of the Manuscript BJCE-2016-0044.R1 `Simulation of Species Concentration Distribution in Reactive Flows with Unsteady Boundary Conditions' by A.G. de Oliveira Filho {\it et al.}}
+\end{center}
+
+\medskip
+
+The manuscript introduces a novel FEM-based formulation for advection-diffusion-reactive equations and investigates concentration distribution under prescribed boundary conditions. The authors undertook an extensive but comprehensive literature review of a variety of up-to-date models and numerical formulations used in contaminant dispersion in rivers.
+
+The manuscript is relatively well-written with a small number of typos and unrevised sentences (see attached scanned file). A few sentences are confusing and disconnected with no clear objectives. However, the manuscript is comprehensive and introduces an insightful review of the main fundamentals for solving  advection-diffusion-reactive equations.
+
+I am happy that the authors revised the original manuscript, however it still needs revisions before being considered for publication (please see the scanned file). A few comments:
+%
+\begin{enumerate}[(a)] 
+%
+\item A few terms need to be defined, e.g, $n$ and $\tau$ in Eqn. 4; $n_{i}$ in Eqn. 7; $B$ in Eqn. 28,  etc
+%
+\item A paragraph before Eqn. 8: `(...) that advection might effectively occur at the outlet, and {\it said term no longer} represents the (...)'. What do the authors mean with this sentence?
+%
+\item It clear the FEM-weighted development from Eqn. 2 to Eqn. 11, but how does the velocity magnitude ($U$) appear? This would certainly smear the solution (during the iterative solving procedure), except if $\overline{u}_{x}=\overline{u}_{y}$ which I don't think is the case.
+%
+\item What is the difference between `pulse injection' and `instantaneous injection'?
+%
+\item Before Eqn. 17: `(...) in 1-D equation 2 type (...)'. What do the authors mean with {\it 1-D equation 2 type}?
+%
+\item The manuscript describes the use of a traditional Galerkin method to solve the advection-diffusion-reactive equation (with reaction rate of zeroth-order). What is the solution method used to solve the discretised Eqn. 26?
+%
+\item I am familiar with natural (NBC) and essential boundary conditions (EBC), but what does MDBC stand for? I believe the readers of BJChE would largely benefit if authors explain these 3 types of boundary conditions. {\bf This is crucial to appreciate the work}.
+%
+\item Resolution of the figures must be largely improved.
+%
+\item In the caption of Fig. 4, the simulation was performed with {\it Pe} number of 50, however in the previous paragraph, the authors stated that the {\it Pe} is 100. Which {\it Pe} did the authors used? 
+%
+\item Last paragraph before Sub-section `2-D Simulation Results' {\bf (ps: appropriated page or section numbering would have greatly improved comments)}: `(...) In this condition, as coarse meshes are adopted (...) MDBC along with sufficiently fine meshes or refined time steps lead to better matching with (...)'. For each {\it Pe} number (Table 1) the authors used mostly one $\Delta x$ (=0.2, which I am assuming is the (maximum) element size) and 1-3 $\Delta t$. Is this enough to support the statement -re mesh refinement and time-step? This would be certainly true if the authors have performed simulations with mesh size and time-steps of different orders of magnitude (e.g., 10$^{-3}\leq\Delta x\leq$ 10$^{-1}$ and 10$^{-4}\leq\Delta x\leq$ 10$^{-1}$).
+%
+\item First paragraph before Sub-section `2-D Simulation Results': `We observe that the numerical solutions with outlet EBC provide the poorest approximation in all P\'eclet and Damk\"oler numbers considered and that MDBC solutions result in better approximations than NBC in almost all cases'. The authors should give reasons for this statement.
+%
+\item Figure 6: What is the difference between (A) and (B)?
+%
+\item Figures 10-12:  I could not understand the meaning of these figures. As stated in the first paragraph of page 23, they were obtained with the same parameters (and I guess the authors refer here to prescribed injection boundary conditions) as in Fig. 9. So why are they so different? I guess the authors imposed spatial-prescribed BCs, is it correct? These figures need to be explained. And why are they important?
+%
+\end{enumerate}
+
+In summary, the subject of the manuscript is very relevant, however the paper still needs to be improved before being considered for publication. The results are insightful and the novel formulation may introduce an improvement to the accuracy of advection-diffusion-reactive problems under prescribed boundary conditions. 
+
+
+In the scanned copy,
+\begin{itemize}
+\item PE: Poor English. The authors should consider revise the sentence(s);
+\item SC: Sentence(s) is/are very confusing and do(es) not make any/much sense. The authors should revise the sentence(s).
+\item LR: Low resolution (i.e., poor quality) figure.
+\end{itemize}
+
+
+%%%
+%%% Appendix
+%%%
+{
+  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_BJCE_2016_0044R1.pdf}}
+
+
+\clearpage
 %%%%%%%
 %%%%%%%
 %%%%%%%
