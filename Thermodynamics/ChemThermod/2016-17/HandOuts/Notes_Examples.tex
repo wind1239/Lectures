@@ -1,0 +1,548 @@
+
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{natbib}
+\usepackage{pdfpages,enumerate}% ,enumitem}
+ \usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+
+\pagestyle{empty}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+ 
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{EX3029 -- Chemical Thermodynamics}}} 
+\rhead[] {{\text{\small{Notes $\&$ Examples}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+\lfoot[]{Dr Jeff Gomes}
+%\cfoot[\thepage]{\thepage}
+\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+\usepackage{cancel} 
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%\newlist{ExList}{enumerate}{1}
+%\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+%\newlist{ProbList}{enumerate}{1}
+%\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\purple}{\textcolor{purple}}
+\newcommand{\eg}{{\it e.g., }}
+\newcommand{\ie}{{\it i.e., }}
+ 
+\begin{document}
+
+%%% SECTION
+\section{Module 01: Introduction and Principles}
+
+%%% SUBSECTION
+\subsection{A Few Important Definitions}
+  
+   \begin{enumerate}[i)]
+%
+      \item {\it Properties} are macroscopic quantities associated with the system and may be defined experimentally (\eg P, V, T etc). These quantities are either intensive or extensive, \ie either independent or linearly dependent on the amount of matter.
+%
+      \item {\it State functions} are function of any thermodynamic property, and as such they can be either extensive or intensive (\eg internal energy, enthalpy, entropy, Gibbs free energy, Helmholtz free energy etc).
+%
+      \item In an arbitrary thermodynamic transformation where $Q$ is the net amount of heat absorbed by the system, and $W$ is the net amount of work done on the system, the 1$^{\text{st}}$ Law states that
+          \begin{displaymath}
+             \Delta U = Q + W,
+          \end{displaymath}
+where $U$ is the internal energy.
+%
+      \item In thermally isolated system (\ie contained within adiabatic walls):
+          \begin{displaymath}
+             Q = 0 \Longrightarrow \Delta U = W. 
+          \end{displaymath}
+%
+      \item For mechanically isolated system,
+          \begin{displaymath}
+             W = 0 \Longrightarrow \Delta U = Q.
+          \end{displaymath}
+%
+      \item The 1$^{\text{st}}$ Law is a statement of energy conservation and defines $U$ as an extensive state function. In an infinitesimal transformation, the first law can be expressed in differential form as,
+          \begin{displaymath}
+             dU = \delta Q + \delta W.
+          \end{displaymath}
+This expression states that d$U$ is a total (\ie exact) differential for an infinitesimal transformation. $Q$ and $W$ are process-dependent and are not state functions, therefore $\delta Q$ and $\delta W$ are approximations (\ie not exact). 
+%
+      \item In thermodynamic cycles, changes in the system may lead to a number of equilibrium and non-equilibrium states, but ending in exactly the same state as the start. By definition, all state variables (\eg $U$) are unchanged in a cycle thus,
+          \begin{displaymath}
+             \displaystyle\oint\limits_{C} d U = 0,
+          \end{displaymath}
+around any closed cycle $C$, or
+          \begin{displaymath}
+             \displaystyle\oint\limits_{C} \delta Q + \displaystyle\oint\limits_{C} \delta W = 0.
+          \end{displaymath}
+Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displaystyle\oint\limits_{C} \delta W\ne 0$, these line integrals depend on the closed path $C$.
+%
+      \item For a process to be {\it reversible} two conditions must be satisfied: (a) it must be quasistatic, and (b) there must be no friction. A quasistatic process is a successive set of equilibrium states of the system. It is an idealisation as it is required to be carried out infinitely slowly. As reversible processes are infinitely slow, it is always essentially in equilibrium.
+%
+      \item In {\it irreversible} processes, variables and state functions continuously change through a number of non-equilibrium states until reaching equilibrium.
+%
+      \item If the PVT behaviour of a fluid is represented by $PV^{n}=$ constant, then
+           \begin{itemize}
+              \item If $n = 0\;\;\Longrightarrow P =$ constant, and the process is {\it isobaric}; 
+              \item If $n = 1\;\;\Longrightarrow PV =$ constant, and the fluid is an {\it ideal gas};
+              \item If $n = \infty\;\;\Longrightarrow$ the process is {\it isochoric} (\ie constant volume);
+              \item If $n = \gamma=\frc{C_{p}}{C_{v}}\;\;\Longrightarrow$ the process is {\it adiabatic} (\ie isentropic).
+           \end{itemize}
+%
+   \end{enumerate}
+
+%%% SUBSECTION
+\subsection{A Few Important Derivations}
+  
+   \begin{enumerate}[i)]
+%
+      \item Derive \blue{$C_{p}+C_{v}=R$}:
+
+           From the statement of the First Law $dU = dQ + dW$ with $dU=C_{v}dT$ and $dW = -PdV$,
+              \begin{equation}
+                  \red{dQ = C_{v}dT + PdV},\label{Mod01_1Law_1}
+              \end{equation}
+           where $V$ is the molar volume. For constant external pressure,
+              \begin{displaymath}
+                  C_{p}dT = dQ = C_{v}dT + PdV,
+              \end{displaymath}
+           And assuming \underline{ideal gas}, the equation of state, $PV=RT$, can be differentiated,
+              \begin{displaymath}
+                  dT = d\left(\frc{P V}{R}\right) \Longrightarrow dT =\frc{P}{R}dV + \frc{V}{R}\cancelto{=0\text{ (constant pressure)}}{dP}  \Longrightarrow PdV = RdT
+              \end{displaymath}
+           Now, replacing in the previous equation,
+              \begin{eqnarray}
+                  C_{p}dT &=& C_{v}dT + PdV \nonumber \\
+                  C_{p}dT &=& C_{v}dT + RdT \;\;\;\blue{\left(\times \frc{1}{dT}\right)} \nonumber\\
+                  C_{p} &=& C_{v} + R \Longrightarrow \red{C_{p}-C_{v}=R}  \label{Mod01_1Law_CpCv}
+              \end{eqnarray}
+%
+      \item Derive \blue{$dQ=C_{p}dT-\frc{RT}{P}dP$}:
+
+           Again from $dU = dQ + dW$,
+           \begin{displaymath}
+               dQ = dU -dW = dU + PdV = C_{v}dT + PdV,
+           \end{displaymath}
+           however as $C_{p}+C_{v}=R$,
+           \begin{eqnarray}
+               dQ &=& \left(C_{p}-R\right)dT + PdV \nonumber \\
+                  &=& C_{p}dT - RdT + PdV. \nonumber
+           \end{eqnarray}
+           Differentiating the ideal gas equation of state,
+           \begin{eqnarray}
+               PV &=& RT \;\;\text{ (differentiating both sides)} \nonumber \\
+               d(PV) &=& d(RT) \nonumber \\
+               PdV + VdP &=& RdT \nonumber
+           \end{eqnarray}
+           Replacing $RdT$ in the relation above for $dQ$,
+           \begin{eqnarray}
+               \red{dQ} &=& C_{p}dT - RdT + PdV. \nonumber \\
+                  &=& C_{p}dT - PdV - VdP + PdV \nonumber \\
+                  &=& C_{p}dT - VdP \red{= C_{p}dT - \frc{RT}{P}dP} \label{Mod01_1Law_2}
+           \end{eqnarray}
+%
+      \item Derive \blue{$dQ=\frc{C_{p}}{R} PdV - \frc{C_{v}}{R} VdP$}:
+
+           Again from $dU = dQ + dW$,
+           \begin{displaymath}
+               dQ = dU -dW = dU + PdV = C_{v}dT + PdV,
+           \end{displaymath}
+           Differentiating the ideal gas equation of state, $T=\frc{PV}{R}$
+           \begin{displaymath}
+                dT = \frc{P}{R}dV + \frc{V}{R}dP.
+           \end{displaymath}
+           Replacing it in the previous relation, and with $C_{p}+C_{v}=R$,
+           \begin{eqnarray}
+             \red{dQ} &=& C_{v}\frc{P}{R}dV + C_{v}\frc{V}{R}dP + PdV = \left(\frc{C_{v}}{R}+1\right)PdV + \frc{C_{v}}{R}VdP \nonumber \\
+                      &=&  \red{\frc{C_{p}}{R} PdV - \frc{C_{v}}{R} VdP } \label{Mod01_1Law_3}
+           \end{eqnarray}
+%
+      \item We just derived 3 fundamental relations based on the 1$^{\text{st}}$ Law -- Eqns.~\ref{Mod01_1Law_1},~\ref{Mod01_1Law_2} and ~\ref{Mod01_1Law_3}.
+%
+      \item Isentropic/Polytropic Relations: in adiabatic processes, no heat exchange is allowed between the system and the surroundings ($dQ=0$). For mechanically reversible adiabatic (\ie isentropic) \blue{compression / expansion} of ideal gasses (Eqn.~\ref{Mod01_1Law_1}),
+           \begin{eqnarray}
+             dQ &=& C_{v}dT + PdV =0 \nonumber \\
+             dT &=& -\frc{P}{C_{v}}dV  \;\; \left(\text{Constraint: } C_{v}\ne 0\right) \nonumber \\
+             dT &=& -\frc{RT}{V C_{v}}dV \;\; \Rightarrow \;\; \frc{dT}{T} = - \frc{R}{C_{v}}\frc{dV}{V}. \label{Mod01_1Law_4}
+           \end{eqnarray}
+           Integrating Eqn.~\ref{Mod01_1Law_4} and assuming $C_{v}$ is constant,
+           \begin{eqnarray}
+              \int\limits_{T_{1}}^{T_{2}} \frc{dT}{T} &=& \frc{R}{C_{v}}\int\limits_{V_{1}}^{V_{2}}\frc{dV}{V} \nonumber \\
+              \left.\ln{T}\right|_{T_{1}}^{T_{2}} &=& \left.-\frc{R}{C_{v}}\ln{V}\right|_{V_{1}}^{V_{2}} \nonumber \\
+              \ln{\frc{T_{2}}{T_{1}}} &=& -\frc{R}{C_{v}}\ln{\frc{V_{2}}{V_{1}}} = \ln{\left(\frc{V_{1}}{V_{2}}\right)^{\frac{R}{C_{v}}}} \nonumber \\
+              \frc{T_{2}}{T_{1}} &=& \left(\frc{V_{1}}{V_{2}}\right)^{\frac{R}{C_{v}}} \nonumber
+           \end{eqnarray}
+
+           Now, defining the heat capacity ratio (or isentropic index), $\gamma\equiv\frc{C_{p}}{C_{v}}$, and using the relation $C_{p}-C_{v}=R$,
+           \begin{equation}
+              \gamma = \frc{C_{p}}{C_{v}} = \frc{C_{v}+R}{C_{v}} = 1 + \frc{R}{C_{v}},\label{Mod01_Gamma}
+           \end{equation}
+           the relation above becomes
+           \begin{equation}
+              \red{TV^{\gamma-1} = \text{ constant}}\label{Mod01_1Law_5}
+           \end{equation}
+
+           Now, from Eqn.~\ref{Mod01_1Law_2} and assuming $C_{p}$ s constant and different from zero,
+           \begin{eqnarray}
+             dQ &=& C_{p}dT - \frc{RT}{P} = 0 \nonumber \\
+             \int\limits_{T_{1}}^{T_{2}}\frc{dT}{T} &=& \frc{R}{C_{p}}\int\limits_{P_{1}}^{P_{2}}\frc{dP}{P} \nonumber \\
+             \left.\ln{T}\right|_{T_{1}}^{T_{2}} &=& \left.\frc{R}{C_{p}} \ln{P}\right|_{P_{1}}^{P_{2}} \nonumber \\
+             \ln{\frc{T_{2}}{T_{1}}} &=& \ln{\left(\frc{P_{2}}{P_{1}}\right)^{\frac{R}{C_{p}}}} \nonumber \\
+             \frc{T_{2}}{T_{1}} &=& \left(\frc{P_{2}}{P_{1}}\right)^{\frac{R}{C_{p}}}.\nonumber
+           \end{eqnarray}
+            Using the $\gamma$ relation, Eqn.~\ref{Mod01_Gamma},
+           \begin{equation}
+              \red{TP^{\frac{1-\gamma}{\gamma}} = \text{ constant}}\label{Mod01_1Law_6}
+           \end{equation}
+
+           Finally, from Eqn.~\ref{Mod01_1Law_3},
+           \begin{eqnarray}
+             dQ &=& \frc{C_{v}}{R}VdP + \frc{C_{p}}{R}PdV = 0 \nonumber \\
+              \frc{C_{v}}{\cancel{R}}VdP = -\frc{C_{p}}{\cancel{R}}PdV &\Longrightarrow& C_{v}\int\limits_{P_{1}}^{P_{2}} \frc{dP}{P} = -C_{p}\int\limits_{V_{1}}^{V_{2}}\frc{dV}{V} \nonumber \\
+              \left.\ln{P}\right|_{P_{1}}^{P_{2}} &=& -\left.\frc{C_{p}}{C_{v}}\ln{V}\right|_{V_{1}}^{V_{2}} \nonumber \\
+              \frc{P_{2}}{P_{1}} &=& \left(\frc{V_{1}}{V_{2}}\right)^{\frac{C_{p}}{C_{v}}} \nonumber
+           \end{eqnarray}
+            Using the $\gamma$ relation, Eqn.~\ref{Mod01_Gamma},
+           \begin{equation}
+              \red{PV^{\gamma} = \text{ constant}}\label{Mod01_1Law_7}
+           \end{equation}
+%
+      \item {\bf Relation for Entropy Changes:} From the First Law equation,
+           \begin{equation}
+              dU = dQ - PdV,\label{Mod01_1Law_Eqn}
+           \end{equation} 
+           If we differentiate the enthalpy equation -- $H = U + PV$.
+                \begin{displaymath}
+                    dH = dU + d(PV) = dU + PdV +VdP,
+                \end{displaymath}
+           and replace in Eqn.~\ref{Mod01_1Law_Eqn}:
+                \begin{displaymath}
+                    dH - \cancel{PdV} - VdP = dQ - \cancel{PdV} \;\;\Rightarrow \;\; dQ = dH - VdP
+                \end{displaymath}
+           For ideal gas, $C_{p}=\left(\frac{dH}{dT}\right)_{P}$ and $V=\frc{RT}{P}$,
+                \begin{eqnarray}
+                  dQ &=& C_{p}dT - \frc{RT}{P}dP\;\;\;\;\;\times\left(\frc{1}{T}\right) \nonumber \\
+                  \frc{dQ}{T} &=& \frc{C_{p}}{T}dT - \frc{R}{P}dP \nonumber \\
+                  dS &=& \frc{C_{p}}{T}dT - \frc{R}{P}dP, \nonumber
+                \end{eqnarray}
+           where $S$ is the molar entropy of ideal gas. Integrating from state 0 to state 1,
+                \begin{eqnarray}
+                    \int\limits_{S_{0}}^{S_{1}} dS &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{T}dT - R\int\limits_{P_{0}}^{P_{1}}\frc{dP}{P} \nonumber \\
+                    \left(S_{1}-S_{0}\right) &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{T}dT - R\ln{\frc{P_{1}}{P_{0}}} \;\;\;\;\times\left(\frc{1}{R}\right) \nonumber \\
+                    \red{\Delta S} &=& \red{\int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{R}\frc{dT}{T} - \ln{\frc{P_{1}}{P_{0}}} }.
+                \end{eqnarray}
+           Although this equation was derived for mechanically reversible processes, it focuses on \underline{properties only} and is independent of the process. Thus it can be used to calculate of {\it ideal gasses}.
+
+               
+%
+   \end{enumerate}
+
+%%% SUBSECTION
+\subsection{General Remarks for the Course}
+
+\begin{enumerate}[(i)]
+%
+   \item Do always use \blue{SI units} for calculations:
+       \begin{itemize}
+          \item second ($s$), meter ($m$), gram ($g$), Kelvin ($K$), mole ({\it mol});
+       \end{itemize}
+%
+   \item Or those based on them:
+       \begin{itemize}
+          \item Newton ($N=kg.m.s^{-2}$), Joule ($J=N.m=kg.m^{2}.s^{-2}$), Pascal ($Pa=N.m^{-2}=kg.m^{-1}.s^{-2}$).
+       \end{itemize}
+%
+   \item And the appropriated prefix:
+      \begin{center}
+        \begin{tabular}{c c c | c c c}
+             \hline
+             {\it Multiple} & {\it Prefix} & {\it Symbol} & {\it Multiple} & {\it Prefix} & {\it Symbol} \\
+             \hline
+             10$^{-15}$      & femto        & f            &   10$^{2}$     &  hecto       & h            \\
+             10$^{-12}$      & pico         & p            &   10$^{3}$     &  kilo        & k            \\
+             10$^{-9}$       & nano         & n            &   10$^{6}$     &  mega        & M            \\
+             10$^{-6}$       & micro        & $\mu$        &   10$^{9}$     &  giga        & G            \\
+             10$^{-3}$       & milli        & m            &   10$^{12}$    &  tera        & T            \\
+             10$^{-2}$       & centi        & c            &   10$^{15}$    &  peta        & P            \\
+             \hline
+        \end{tabular}
+      \end{center}
+%
+   \item Most of the time, we need to convert units during our calculations. Thus if we want to convert pressure ($P$) from {\it atm} to {\it psi} (pounds per square inch):
+      \begin{displaymath}
+        P = 5\;\cancel{\text{atm}} \times \textcolor{red}{\displaystyle\frac{14.70\;\text{psi}}{1\;\cancel{\text{atm}}}} = 73.50\;psi
+      \end{displaymath}
+%
+   \item Or, in a more complex example:
+      \begin{eqnarray}
+        h_{7} &=& h_{6} + v_{6}\left(P_{7}-P_{6}\right) \nonumber \\
+              &=& 706.9\textcolor{red}{\frac{kJ}{kg}} + 1.1111\times 10^{-3}\textcolor{blue}{\frac{m^{3}}{kg}}\left(210.0-7.4\right)\textcolor{blue}{bar} \nonumber \\
+              &=& 706.9\textcolor{red}{\frac{kJ}{kg}} + 1.1111\times 10^{-3}\textcolor{blue}{\frac{\cancel{m^{3}}}{\cancel{kg}}} 202.6\;\textcolor{blue}{\cancel{bar}} \textcolor{red}{\frac{10^{5}\;\frac{\cancel{kg}}{\cancel{m}.\cancel{s^{2}}}}{1\; \cancel{bar}}} \textcolor{red}{\frac{10^{-3}\; \frac{kJ}{kg}}{1\;\frac{\cancel{m^{2}}}{\cancel{s^{2}}}}} \nonumber \\
+              &=& 729.41\textcolor{red}{\frac{kJ}{kg}} \nonumber 
+      \end{eqnarray} 
+%
+\end{enumerate}
+
+
+\clearpage
+
+%%% SUBSECTION
+\subsection{Examples}
+
+\begin{enumerate}[1)]
+%%%
+%%% EXAMPLE 
+%%%
+   \item\label{Mod01Ex01} If $P_{1}$ = 3.00 atm, $V_{1}$ = 500 cm$^{3}$, $P_{2}$ = 1.00 atm and $V_{2}$ = 2000 cm$^{3}$. Calculate the work, $W_{\text{rev}}$ (in $J$), for the expansion processes shown in Figs.~\ref{Mod01Fig01} (a) and (b).
+      \begin{figure}[h]
+         \begin{center}
+           \includegraphics[width=.6\columnwidth,clip]{./Figs/Mod1Ex1}
+           \vspace{-.1cm}\caption{Expansion processes (Example~\ref{Mod01Ex01}).}\label{Mod01Fig01}
+         \end{center}
+       \end{figure}
+
+% SOLUTION
+       \noindent{\bf Solution:} $W_{\text{rev}}$ is related to the area below the curve. Thus, we should use the $PV$ work equation:
+           \begin{itemize}
+              \item For process {\bf (a)}: 
+                 \begin{eqnarray}
+                    d W = -PdV \Longrightarrow W &=& -P_{2}\left(V_{2}-V_{1}\right) \nonumber \\
+                                                 &=& - 1\text{ atm}\left(2000-500\right)\text{ cm}^{3} = -1500\text{ atm.cm}^{3} \nonumber 
+                 \end{eqnarray}
+                 Now we need to convert {\it atm.cm}$^{3}$ to $J$, thus using the unit conversion table:
+                 \begin{eqnarray}
+                     W &=& -1500\blue{\cancel{\text{ atm}}}.\red{\cancel{\text{cm}^{3}}} \frc{1.01325\times 10^{5}\blue{\cancel{\text{ Pa}}}}{1\blue{\cancel{\text{ atm}}}} \frc{1 \frc{\text{kg}}{\text{m.s}^{2}}}{1\blue{\cancel{\text{ Pa}}}} \frc{1\text{ m}^{3}}{ 100^{3} \red{\cancel{\text{ cm}^{3}}}} \nonumber \\
+                       &=& -151.9875 \blue{\cancel{\frc{\text{ kg.m}^{2}}{\text{s}^{2}}}} \frc{ 1 \text{ J}}{ \blue{\cancel{\frc{\text{ kg.m}^{2}}{\text{s}^{2}}}}} \nonumber\\
+                       &=& -151.9875\text{ J} \nonumber
+                 \end{eqnarray}
+%
+              \item For process {\bf (b)}, since $P$ is constant, i.e., $P_{1}=P_{2}$:
+                 \begin{eqnarray}
+                    d W = -PdV \Longrightarrow W &=& -P_{1}\left(V_{2}-V_{1}\right) \nonumber \\
+                                                 &=& - 3\text{ atm}\left(2000-500\right)\text{ cm}^{3} = -4500\text{ atm.cm}^{3} \nonumber \\
+                                                 &=& -455.9625\text{ J} \nonumber
+                 \end{eqnarray}
+           \end{itemize}
+
+\clearpage
+
+%%%
+%%% EXAMPLE
+%%%
+   \item Calculate the internal energy (in $J$) when 1 mol of water is isobarically heated from 25$^{\circ}$C to 30$^{\circ}$C at 1 atm. Given: densities of water are 0.9970 g.cm$^{-3}$ at 0$^{\circ}$C and 0.9956 g.cm$^{-3}$ at 100$^{\circ}$C. Molar mass and heat capacity at constant pressure of water are 18 g.mol$^{-1}$ and 1 cal.$\left(\text{g.}^{\circ}\text{C}\right)^{-1}$, respectively.
+
+% SOLUTION
+       \noindent{\bf Solution:} From the 1$^{\text{st}}$ Law, $U=Q+W$ ,and in order to calculate $U$ we first need to obtain heat ($Q$) and work ($W$). $Q$ can be obtained from the heat capacity equation
+          \begin{displaymath}
+             Q = m C_{p} \Delta T,
+          \end{displaymath}  
+          where $m$ is the mass of water can be obtained from
+          \begin{displaymath}
+             n = \frc{m}{MW} \Longrightarrow  m = n.MW = 1\text{ mol} . 18 \frc{\text{g}}{\text{mol}} = 18 \text{ g}
+          \end{displaymath}
+          $n$ and $MW$ are number of moles and molar mass, respectively. Now,
+          \begin{displaymath}
+             Q = m C_{p} \Delta T = 18\text{ g} . 1 \frc{\text{ cal}}{\text{g.}^{\circ}\text{C}}.\left(30-25\right)^{\circ}\text{C} = 90\text{ cal}
+          \end{displaymath}  
+          Now, we should calculate the work through $W=-P\Delta V$, however $V$ is not known, but we can obtain it from the density relation $V=m/\rho$, thus
+          \begin{displaymath}
+             W = - P\Delta V = -P\left(V_{2}-V_{1}\right) = -P\left(\frc{m}{\rho_{2}} - \frc{m}{\rho_{1}}\right) = -0.025\text{atm.cm}^{3} = -0.0006\text{ cal} 
+          \end{displaymath}
+          Now, calculating the internal energy,
+          \begin{displaymath}
+             U = Q + W = 89.9994\cancel{\text{ cal}} . \frc{ 4.186\text{ J}}{1\cancel{\text{ cal}}} = 376.7375 \text{ J}
+          \end{displaymath}
+
+\clearpage
+%%%
+%%% EXAMPLE
+%%%
+   \item A 0.3 m$^{3}$  tank contains oxygen initially at 100 kPa and 300 K. A paddle wheel within the tank is rotated until the pressure inside rise to 150 kPa. During the process 2 kJ of heat is lost to the surroundings. Determine the paddle-wheel work done (in kJ). Neglect the energy stored in the paddle wheel and assume the heat capacity at constant volume of oxygen is 0.6745 kJ.$\left(\text{kg.K}\right)^{1}$. Given molar mass of oxygen of 32 g.mol$^{-1}$.
+
+% SOLUTION
+       \noindent{\bf Solution:} The volume of the tank remains constant $V_{2}=V_{1}=V=$ 0.3 m$^{3}$ during the whole process. Thus, we can define:
+            \begin{center}
+              \begin{tabular}{l l l l}
+                 Initial Condition & $P_{1}=$ 100 kPa   & $T_{1}=$ 300 K         & $V_{1}=$ 0.3 m$^{3}$  \\
+                 Final Condition   & $P_{2}=$ 150 kPa   &                       & $V_{2}=$ 0.3 m$^{3}$ \\
+                 Heat Loss         & $Q=$ -2 kJ        &                       &                    
+              \end{tabular}
+            \end{center}
+       The compression occurs in a closed system (i.e., constant mass) and, as there is no further information, we may consider that oxygen behaves as an ideal gas. The work added to the system by the paddle can be expressed by $U=Q+W$. Our first step is to calculate $T_{2}$,
+       \begin{displaymath}
+          \frc{P V}{T} = \text{ constant} \Rightarrow \frc{P_{1}V_{1}}{T_{1}} = \frc{P_{2}V_{2}}{T_{2}} \Rightarrow \frc{P_{1}}{T_{1}}=\frc{P_{2}}{T_{2}} \Rightarrow T_{2} = 450\text{ K}
+       \end{displaymath}
+        The specific internal energy can defined by the fundamental relation, $du=C_{v}dT$ (check the units for this relation!), where $C_{v}$ is the heat capacity at constant volume thus,
+       \begin{displaymath}
+          \Delta U = m\Delta u = C_{v}\Delta T = Q + W,
+       \end{displaymath}
+       therefore, we need to obtain the mass of oxygen in the tank through the ideal gas equation of state,
+       \begin{eqnarray}
+         P V = n R T \Rightarrow n = \frc{m}{MW} = \frc{P V}{R T} \Rightarrow m &=& \frc{ MW P V}{R T} \nonumber \\
+                                                      &=& \frc{ 32\frc{\text{ g}}{\text{mol}} 100\text{ kPa} . 0.3\text{ m}^{3}}{ 8.3143 \frc{\text{J}}{\text{mol.K}} 300\text{ K}} \nonumber \\
+                                                      &=& 0.3848 \frc{\text{ g.kPa.m}^{3}}{\text{J}} \frc{1 \text{ J}}{1\text{ N.m}} \frc{1000 \text{ Pa}}{1 \text{ kPa}} \frc{ 1 \text{ N.m}^{-2}}{1\text{ Pa}} \nonumber\\
+                                                      &=& 0.3848\text{ kg}\nonumber
+       \end{eqnarray}
+       Thus
+       \begin{eqnarray}
+          \Delta u = m C_{v}\Delta T = Q + W \Rightarrow W &=& m C_{v}\left(T_{2}-T_{1}\right) - Q \nonumber \\
+                                                          &=& 0.3848\text{ kg} \times 0.6745 \frc{\text{kJ}}{\text{kg.K}}\times (450-300)\text{ K} - (-2 \text{ kJ}) \nonumber \\
+                                                          &=& 40.9321\text{ kJ}. \nonumber
+       \end{eqnarray}
+       The paddle-wheel executed 40.9321 kJ of work to the system.
+
+\clearpage
+%%%
+%%% EXAMPLE
+%%%
+   \item  Air initially occupying 1 m$^{3}$ at 1.5 bar and 20$^{\circ}$C undergoes an internally reversible compression for which $P V^{\gamma}=$ constant to a final state where the pressure is 6 bar and the temperature is 120$^{\circ}$C. Determine:
+        \begin{enumerate}[(a)]
+           \item Value of $\gamma$;
+           \item Work and the heat transfer (in kJ).
+       \end{enumerate}
+       Assume that heat capacity at constant volume and molar mass of air are 0.718 kJ.$\left(\text{kg.K}\right)^{-1}$ and 29 g.mol$^{-1}$. 
+
+% SOLUTION
+       \noindent{\bf Solution:}
+        \begin{center}
+           \begin{tabular}{c c c c}
+               {\bf State}  &   $P$ (atm)  &   $T\;\left(^{\circ}\text{C}\right)$ & $V\;\left(\text{m}^{3}\right)$ \\
+                    1       &     1.5      &            20                      & 1  \\
+                    2       &     6.0      &            120                     &     \\              
+           \end{tabular}
+        \end{center}
+        \begin{enumerate}[(a)]
+           \item In order to calculate the isentropic index $\gamma$, we can use any of the relations learned in the lecture,
+               \begin{displaymath} 
+                   P V^{\gamma} = C, \hspace{1cm} T V^{\gamma-1} = C \hspace{1cm} \text{ and/or } \hspace{1cm} T P^{\frac{1-\gamma}{\gamma}} = C.
+               \end{displaymath}
+               Although $P$ and $V$ is the relation initially given in the problem, we do not know the final volume of air, $V_{2}$. However, initial and final pressure and temperature are known and we can make use of this relationship to obtain $\gamma$,
+               \begin{eqnarray} 
+                   T P^{\frac{1-\gamma}{\gamma}} = C \Rightarrow T_{1}P_{1}^{\frac{1-\gamma}{\gamma}} = T_{2}P_{2}^{\frac{1-\gamma}{\gamma}} \nonumber \\
+                   \left(\frc{P_{1}}{P_{2}}\right)^{\frac{1-\gamma}{\gamma}} = \frc{T_{2}}{T_{1}} \Rightarrow \frc{1-\gamma}{\gamma} = \frc{\ln{\frac{T_{2}}{T_{1}}}}{\ln{\frac{P_{1}}{P_{2}}}} \Longrightarrow \gamma = 1.2686  \nonumber
+               \end{eqnarray}
+                 
+           \item Compression work can be obtained by integrating $\d W = -P dV$ from state 1 to state 2 with $P=\frac{C}{V^{\gamma}}$,
+               \begin{eqnarray}
+                 W_{1-2} &=& -\int\limits_{V_{1}}^{V_{2}} P dV = -\int\limits_{V_{1}}^{V_{2}}\frc{C}{V^{\gamma}} dV = -\left.\frc{C}{1-\gamma}V^{1-\gamma}\right|_{V_{1}}^{V_{2}} \nonumber \\
+                         &=& -\frc{C}{1-\gamma}\left(V_{2}^{1-\gamma}-V_{1}^{1-\gamma}\right),\;\;\text{ however, as } C=P_{1}V_{1}^{\gamma}=P_{2}V_{2}^{\gamma} \nonumber \\
+                         &=& -\frc{P_{2}V_{2}^{\gamma}V_{2}^{1-\gamma} - P_{1}V_{1}^{\gamma}V_{1}^{1-\gamma}}{1-\gamma} = \frc{P_{1}V_{1}-P_{2}V_{2}}{1-\gamma} \nonumber
+               \end{eqnarray}
+               The relation above, although important, can not be used as we do not know $V_{2}$, however we can change variables through the ideal gas relation
+               \begin{eqnarray}
+                  P V = n R T &\Rightarrow& n = \frc{P V}{R T } = \frc{1.5\text{ atm} \times 1\text{ m}^{3}}{ 8.3143 \frc{\text{J}}{\text{mol.K}} 293.15\text{ K}} \frc{1.01325\times 10^{5} \text{ Pa}}{1 \text{ atm}} \frc{ 1 \text{ N.m}^{-2}}{1\text{ Pa}}\frc{1 \text{ J}}{1\text{ N.m}} = 62.3580\text{ moles}\nonumber \\
+                   % m &=& \frc{P_{1} V_{1} MW}{R T_{1}} = \frc{1.5\text{ atm} \times 1\text{ m}^{3} \times 29 \frac{\text{g}}{\text{mol}} } { 8.3143 \frc{\text{J}}{\text{mol.K}} 293.15\text{ K}} \frc{1 \text{ J}}{1\text{ N.m}} \frc{1.01325\times 10^{5} \text{ Pa}}{1 \text{ atm}} \frc{ 1 \text{ N.m}^{-2}}{1\text{ Pa}} = 1808.38 \text{ g}\nonumber\\
+                    W &=& \frc{P_{1}V_{1}-P_{2}V_{2}}{1-\gamma} = nR\frc{T_{1}- T_{2}}{1-\gamma} \nonumber \\
+                      &=& 62.3580\text{ mol} \times 8.3143 \frc{\text{J}}{\text{mol.K}} \times \frc{\left(293.15-393.15\right)\text{ K}}{1-1.2686} \nonumber \\
+                      &=& 193024.2440 \text{ J} \Longrightarrow W = -193.02 \text{ kJ} \nonumber
+               \end{eqnarray}
+              Heat ($Q$) can be obtained from
+               \begin{eqnarray}
+          \Delta u &=& m C_{v}\Delta T = n MW C_{v}\Delta T = Q + W  \nonumber \\
+             Q &=& n MW C_{v}\left(T_{2}-T_{1}\right) - W \nonumber \\
+               &=& 62.3580\text{ mol}\times 29 \frc{\text{g}}{\text{mol}} \red{\frc{1\text{ kg}}{1000\text{ g}}}\times 0.718\frc{\text{kJ}}{\text{kg.K}}\times (393.15-293.15)\text{ K} - 193.30 \text{ kJ} \nonumber \\
+                                                          &=& -63.46\text{ kJ}. \nonumber                   
+               \end{eqnarray}
+       \end{enumerate}
+
+
+\clearpage
+%%%
+%%% EXAMPLE
+%%%
+   \item Two kg of water at 80$^{\circ}$C is mixed adiabatically with 3 kg of water at 30$^{\circ}$C in a constant pressure process of 1 atm. Find the increase in entropy $\left(\text{in kJ.K}^{-1}\right)$ of the total mass of water due to the mixing process. Assume that $C_{p}$ of water is 4.187 kJ.$\left(\text{kg.K}\right)^{-1}$. 
+
+% SOLUTION
+       \noindent{\bf Solution:} From the classic thermodynamic definition of reversible entropy processes (second law),
+         \begin{displaymath}
+            d S = \frc{d Q}{T}
+         \end{displaymath}
+         with $dQ = m C_{p}dT$, then integrating 
+         \begin{eqnarray}
+            \int\limits_{S_{i}}^{S_{f}} dS &=& m C_{p}\int\limits_{T_{i}}^{T_{f}}\frc{dT}{T} \nonumber \\
+            \Delta S &=& S_{f}-S_{i} = m C_{p} \ln{\frc{T_{f}}{T_{i}}} \nonumber
+         \end{eqnarray}
+         Assuming that the system is adiabatic, we can calculate the final temperature $\left(T_{f}\right)$ from thermal energy conservation principles: 
+         \begin{displaymath}
+            m_{1}C_{p,1}T_{1} + m_{2}C_{p,2}T_{2} = \left(m_{1}+m_{2}\right)C_{p}T_{f} \rightarrow T_{f} = 50^{\circ}\text{C} = 323.15\text{ K}
+         \end{displaymath}
+         And the entropies are
+         \begin{eqnarray}
+             \Delta S_{1} &=& m_{1}C_{p,1}\ln{\frc{T_{f}}{T_{1}}} =  -0.7434\frc{\text{kJ}}{\text{K}} \nonumber \\
+             \Delta S_{2} &=& m_{2}C_{p,2}\ln{\frc{T_{f}}{T_{2}}} =  0.8025\frc{\text{kJ}}{\text{K}} \nonumber 
+         \end{eqnarray}
+         Thus the increase in entropy of the total mass is
+         \begin{displaymath}
+              \Delta S_{\text{mix}} = \Delta S_{1} + \Delta S_{2} = 0.0591\frc{\text{kJ}}{\text{K}}
+         \end{displaymath}
+
+
+%
+\end{enumerate}
+
+
+%%%
+\end{document}
+ 

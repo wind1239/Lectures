@@ -1,5 +1,5 @@
 
-default:	Module_01.pdf Tutorial_01.pdf \
+default:	Module_01.pdf Tutorial_01.pdf Notes_Examples.tex \
 		Module_02.pdf Tutorial_02.pdf \
 		Module_03.pdf Tutorial_03.pdf \
 		Practical_01.pdf \
@@ -15,6 +15,7 @@ default:	Module_01.pdf Tutorial_01.pdf \
 
 Module_01.pdf:		Module_01.tex
 Tutorial_01.pdf:	Tutorial_01.tex
+Notes_Examples.pdf:	Notes_Examples.tex
 Module_02.pdf:		Module_02.tex
 Tutorial_02.pdf:	Tutorial_02.tex
 Module_03.pdf:		Module_03.tex

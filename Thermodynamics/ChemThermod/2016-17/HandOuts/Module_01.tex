@@ -137,7 +137,6 @@
 }
 
 %\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
-%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
 
 
 
@@ -260,6 +259,37 @@
 %%%
 \section{Introduction} 
 
+%%% SUBSECTION
+\subsection{General Remarks} 
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{General Remarks}
+  \begin{columns}
+     \begin{column}[l]{0.5\linewidth}
+        \begin{enumerate}[(a)]%\scriptsize
+           \item<1-> \underline{Difficult subject} with new content;
+           \item<1-> Subject requires a good level of \underline{\blue{abstraction}};
+           \item<2-> Pre-requisite for 2$^{\text{nd}}$ half-session courses;
+           \item<2-> Visit \blue{MyAberdeen} regularly $\rightarrow$ Emails $\&$ Announcements;
+           \item<3-> Course is mainly based on {\it Smith, Van Ness and Abbott} text-book. Other thermodynamic text-books are also available in the library (and online) !
+           \item<4-> Assessment: 80$\%$ December exam diet + 20$\%$ continuous assessment (Weeks 10-12); 
+        \end{enumerate}
+     \end{column}
+     \begin{column}[l]{0.5\linewidth}
+        \begin{enumerate}[(a)]\setcounter{enumi}{6}%\scriptsize
+           \item<4-> Make a \underline{blue{serious}} effort to learn (and enjoy!) \red{Matlab}. It will help your performance throughout levels 3-5!
+           \item<5-> \red{Pace change when compared to \underline{Level 2}. Courses and subjects are \underline{substantially} more complex};
+           \item<6-> \blue{Time management} is crucial. \red{Do not leave to study all Modules during the \underline{Revision Week}.}   
+        \end{enumerate}
+     \end{column}
+  \end{columns}
+\end{frame}
+
+
+
 
 %%% SUBSECTION
 \subsection{Objectives}
@@ -269,28 +299,17 @@
 %%%
 \begin{frame}
  \frametitle{Aims and Objectives}
-  \begin{columns}
-    \begin{column}[l]{0.6\linewidth}
-     \begin{enumerate}[(a)]\scriptsize
+
+     \begin{enumerate}[(a)]
       \item <1-> We aim to understand how energy evolves or is consumed in industrial- or environmental-based processes.
-      \item <2-> In order to achieve this, we first must define the thermodynamic system and review the definition of:
-       \begin{enumerate}[(i)]\scriptsize
+      \item <2-> In order to achieve this, we must revise definitions of:
+       \begin{enumerate}[(i)]
         \item <2-> Intensive and extensive properties;
         \item <2-> Laws of thermodynamics;
         \item <2-> Reversible and irreversible processes;
        \end{enumerate}
-      \item <3->Finally, we should review applications of \textcolor{red}{{\it First and Second Laws}}. 
+      \item <3->Finally, we should revise applications of \red{{\it First and Second Laws}}. 
      \end{enumerate}
-    \end{column}
-     \begin{column}[l]{0.4\linewidth}
-      \begin{figure}%
-        \begin{center}
-          \includegraphics[width=\columnwidth,clip]{./../Pics/Fig_SteamPowerPlant2}
-           \caption{{\it Schematics of a simplified steam power plant.}} 
-        \end{center}
-      \end{figure}
-    \end{column}
-  \end{columns}
 \end{frame}
 
 
@@ -324,27 +343,27 @@
 \begin{frame}
  \frametitle{An `Extremely Short History' of Thermodynamics}
 
-   \begin{block}{1650s: $\lq$Birth' of the scientific discipline:}
-   \textcolor{blue}{Boyle and Hooke found the classic relationship between pressure, temperature and volume.}
-   \end{block}
+   {\begin{block}<1->{1650s: $\lq$Birth' of the scientific discipline:}
+   \textcolor{blue}{Boyle and Hooke found the classic relationship between $P$, $T$ and $V$.}
+   \end{block}}
 
 
-   \begin{block}{1854: Scottish physicist William Thomson (Lord Kelvin)}
+   {\begin{block}<2->{1854: Scottish physicist William Thomson (Lord Kelvin)}
      \begin{itemize}
        \item \textcolor{blue}{$\lq$Thermo-dynamics is the subject of the relation of heat to forces acting between contiguous parts of bodies, and the relation of heat to electrical agency.'}
        \item \textcolor{blue}{Kelvin scale temperature (1848)}
        \item \textcolor{blue}{$\lq$Joule-Thompson effect' in gas liquefaction (1852)}
      \end{itemize}
-   \end{block}
+   \end{block}}
 
-   \begin{block}{1871: Scottish mathematical physicist James Clerk Maxwell}
+   {\begin{block}<3->{1871: Scottish mathematical physicist James Clerk Maxwell}
      \begin{itemize}
        \item \textcolor{blue}{1856-1869: Professor at Marischal College.}
        \item \textcolor{blue}{Maxwell's Laws of Eletromagnestism (1861-1881).}
        \item \textcolor{blue}{Kinetic theory -- Maxwell-Boltzmann distribution (1860-1866).}
        \item \textcolor{blue}{Maxwell's Thermodynamic relations (1871).}
      \end{itemize}
-   \end{block}
+   \end{block}}
 
 \end{frame}
 
@@ -379,68 +398,6 @@
      \end{enumerate} 
   \end{block}  }
 \end{frame}
-
-
-%%%
-%%% SUBSECTION
-%%%
-\subsection{Dimensions and Units} 
-
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{General Remarks}
-  \begin{enumerate}
-   \item <1-> Do always use \textcolor{blue}{SI units} for calculations:
-     \begin{itemize}
-       \item<1-> second (s), meter (m), gram (g), Kelvin (K), mole (mol);
-     \end{itemize}
-   \item<2-> Or those based on them:
-     \begin{itemize}
-       \item<2-> Newton (N), Joule (J), Pascal (Pa).
-     \end{itemize}
-   \item<3->  And the appropriated prefix:
-  \begin{center}
-    \visible<3->{\begin{tabular}{c c c | c c c}
-      \hline
-      {\it Multiple} & {\it Prefix} & {\it Symbol} & {\it Multiple} & {\it Prefix} & {\it Symbol} \\
-      \hline
-      10$^{-15}$      & femto        & f            &   10$^{2}$     &  hecto       & h            \\
-      10$^{-12}$      & pico         & p            &   10$^{3}$     &  kilo        & k            \\
-      10$^{-9}$       & nano         & n            &   10$^{6}$     &  mega        & M            \\
-      10$^{-6}$       & micro        & $\mu$        &   10$^{9}$     &  giga        & G            \\
-      10$^{-3}$       & milli        & m            &   10$^{12}$    &  tera        & T            \\
-      10$^{-2}$       & centi        & c            &   10$^{15}$    &  peta        & P            \\
-      \hline
-    \end{tabular}}
-  \end{center}
-  \end{enumerate}
-
-\end{frame}
-
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Unit Convertion}
-  \begin{enumerate}\setcounter{enumi}{3}
-   \item<1-> Most of the time, we need to convert units during our calculations. Thus if we want to convert pressure ($P$) from {\it atm} to {\it psi} (pounds per square inch):
-      \begin{displaymath}
-        P = 5\;\cancel{\text{atm}} \times \textcolor{red}{\displaystyle\frac{14.70\;\text{psi}}{1\;\cancel{\text{atm}}}} = 73.50\;psi
-      \end{displaymath}
-   \item<2-> Or, in a more complex example:
-      \begin{eqnarray}
-        h_{7} &=& h_{6} + v_{6}\left(P_{7}-P_{6}\right) \nonumber \\
-              &=& 706.9\textcolor{red}{\frac{kJ}{kg}} + 1.1111\times 10^{-3}\textcolor{blue}{\frac{m^{3}}{kg}}\left(210.0-7.4\right)\textcolor{blue}{bar} \nonumber \\
-              &=& 706.9\textcolor{red}{\frac{kJ}{kg}} + 1.1111\times 10^{-3}\textcolor{blue}{\frac{\cancel{m^{3}}}{\cancel{kg}}} 202.6\;\textcolor{blue}{\cancel{bar}} \textcolor{red}{\frac{10^{5}\;\frac{\cancel{kg}}{\cancel{m}.\cancel{s^{2}}}}{1\; \cancel{bar}}} \textcolor{red}{\frac{10^{-3}\; \frac{kJ}{kg}}{1\;\frac{\cancel{m^{2}}}{\cancel{s^{2}}}}} \nonumber \\
-              &=& 729.41\textcolor{red}{\frac{kJ}{kg}} \nonumber 
-      \end{eqnarray} 
-  \end{enumerate}
-\end{frame}
-
 
 %%%
 %%% SUBSECTION
@@ -526,7 +483,7 @@
 \end{frame}
 
 
-
+\begin{comment}
 
 %%%
 %%% SECTION
@@ -813,6 +770,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
 
 \end{frame}
 
+\end{comment}
 
 %%%
 %%% SECTION
@@ -905,7 +863,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
         \end{center}
       \end{block}}
 
-      \item<3-> Heat and work represent energy in transint across boundaries -- system and surroundings.
+      \item<3-> Heat and work represent energy in transit across boundaries -- system and surroundings.
 
    \end{enumerate}
 \normalsize
@@ -916,7 +874,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
 %%%
 %%% Slide
 %%%
-\begin{frame}
+\begin{frame}\label{Slide1}
  \frametitle{First Law of Thermodynamics (Conservation of Energy in Closed Systems)}
  %\scriptsize
    \begin{enumerate} 
@@ -948,7 +906,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
   \displaystyle\oint \delta Q = \displaystyle\oint \delta W
   \label{Module00:first_law}
  \end{equation}
- with {\it [Q] = J} and {\it [W] = J}.
+ with {\it [Q] = J} and {\it [W] = J}. The symbol $\displaystyle\oint$ represents {\it line integral}, see more details in \blue{\it Appendices$\_$Thermodynamics.pdf} document in {\it MyA}.
 
 \end{frame}
 
@@ -1018,33 +976,32 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
  \begin{columns}
   \begin{column}[l]{0.5\linewidth}
    \begin{itemize}%\scriptsize
-    \item <1-> \textcolor{blue}{Refrigerators} and \textcolor{blue}{Heat Pumps} Cycles (rhs): cycles in which Q$_{in}$ is associated with the heat energy transferred into the system from the cold body. Q$_{out}$ is the energy discharged via heat transfer from the system to the hot body;
-    \item <2-> $W_{cycle} = Q_{out} - Q_{in}$% > 0 \Longrightarrow Q_{out} > Q_{in}$
-    \item <3-> \textcolor{blue}{Refrigeration cycle}:
-     \begin{enumerate}[(a)]%\scriptsize
-      \item <4-> Objective: to cool a refrigerated body or to maintain the temperature of a body bellow that of the surroundings;
-      \item <5-> Coefficient of Performance: $\beta = \displaystyle\frac{Q_{in}}{W_{cycle}} = \displaystyle\frac{Q_{in}}{Q_{out} - Q_{in}}$;
-      %\item <6-> E.g., in a fridge: cavity contents $\xrightarrow{Q_{in}}$ refrigerant fluid $\left(T_{fluid} < T_{cavity}\right)$ $\xrightarrow{Q_{out}}$ surrounding air; 
-     \end{enumerate}
+      \item <1-> \textcolor{blue}{Refrigeration} Cycles (rhs) aim to cool a refrigerated body or to maintain the temperature of a body bellow that of the surroundings;
+      \item <2-> Q$_{in}$ is associated with the heat energy transferred into the system from the cold body, whereas Q$_{out}$ is the energy discharged via heat transfer from the system to the hot body. The work required for the cycle is,
+             \visible<2->{\begin{displaymath}
+                 W_{cycle} = Q_{out} - Q_{in}
+             \end{displaymath}}\vspace{-0.5cm}
+      \item <3-> Coefficient of Performance: 
+             \visible<3->{\begin{displaymath}
+                 \beta = \frc{Q_{in}}{W_{cycle}} = \frc{Q_{in}}{Q_{out} - Q_{in}}
+             \end{displaymath}}
     \end{itemize}
   \end{column}
    
   \begin{column}[c]{0.5\linewidth}
-     \begin{enumerate}[(c)]%\scriptsize
-      \item <6-> E.g., in a fridge: cavity contents $\xrightarrow{Q_{in}}$ refrigerant fluid $\left(T_{fluid} < T_{cavity}\right)$ $\xrightarrow{Q_{out}}$ surrounding air; 
-     \end{enumerate}
-\vspace{-.5cm}
+     \begin{itemize}[(c)]%\scriptsize
+      \item <4-> E.g., in a fridge: cavity contents $\xrightarrow{Q_{in}}$ refrigerant fluid $\left(T_{fluid} < T_{cavity}\right)$ $\xrightarrow{Q_{out}}$ surrounding air; 
+     \end{itemize}
+\vspace{-.8cm}
    \begin{figure}%
-    \begin{center}
-     \includegraphics[width=8.cm,clip]{./../Pics/FirstLaw_Cycle_02}
-    \end{center}
+     \hbox{\hspace{-.5cm}\includegraphics[width=8.cm,clip]{./../Pics/FirstLaw_Cycle_02}}
    \end{figure}    
   \end{column}
  \end{columns}
  \normalsize
 \end{frame}
 
-
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -1073,6 +1030,8 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
  \normalsize
 \end{frame}
 
+
+\end{comment}
 %%%
 %%% Slide
 %%%
@@ -1157,7 +1116,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
     \text{Cycle I:}  \int\limits_{1}^{2}\delta Q_{A} + \int\limits_{2}^{1}\delta Q_{B} = \int\limits_{1}^{2}\delta W_{A} + \int\limits_{2}^{1}\delta W_{B}  \label{Module00:proc1a}\\
     \text{Cycle II:} \int\limits_{1}^{2}\delta Q_{A} + \int\limits_{2}^{1}\delta Q_{C} = \int\limits_{1}^{2}\delta W_{A} + \int\limits_{2}^{1}\delta W_{C}  \label{Module00:proc1b}
    \end{eqnarray}
-   \item <2-> Subtracting \ref{Module00:proc1b} from \red{\ref{Module00:proc1a}} and rearranging:
+   \item <2-> Subtracting Eqn. \ref{Module00:proc1b} from \ref{Module00:proc1a} and rearranging:
    \begin{equation}
     \int\limits_{2}^{1}\left(\delta Q- \delta W\right)_{B} = \int\limits_{2}^{1}\left(\delta Q- \delta W\right)_{C}\label{Module00:proc1c}
    \end{equation}
@@ -1174,7 +1133,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
  \frametitle{Representations of the First Law -- Process}
 
   \begin{itemize}
-   \item <1-> Energy (as any property) depends only on the state and not the path taken to arrive at the state. Defining the differential of U:\\
+   \item <1-> Energy (as any property) depends only on the state and not on the path taken to arrive at the state. Defining the differential of U:\\
     $dU =\delta Q - \delta W$\\ 
    
    \item <2-> Integrating from 1 to 2:\\
@@ -1182,7 +1141,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
 
    \item <3-> Leading to
    \begin{equation}
-    U_{2} - U_{1} = Q_{1}^{2}- W_{1}^{2} \label{Module00:proc1c}
+    U_{2} - U_{1} = Q_{1}^{2}- W_{1}^{2} \label{Module00:proc1d}
    \end{equation}
 
   \end{itemize}
@@ -1199,9 +1158,13 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
  \begin{block}{Another way to state the First Law} 
   For a system undergoing a process, the change in energy is equal to the \underline{heat added to the system} \red{and} the \underline{work done by the system}.
   \begin{displaymath}
-   dU =\delta Q - \delta W 
+     dU =\delta Q \pm \delta W 
   \end{displaymath}
  \end{block}
+Note that the sign convention (Slide~\ref{Slide1}) should be used here, i.e., positive sign for energy (as heat and work) flowing into the system and negative sign for energy flowing out of the system. Thus,
+  \begin{equation}
+     dU =\delta Q - \delta W 
+  \end{equation}
 \end{frame}
 
 
