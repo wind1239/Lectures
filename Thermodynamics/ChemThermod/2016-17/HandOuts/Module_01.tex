@@ -9,9 +9,9 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-\documentclass[10pt,compress]{beamer}
+%\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
-%\documentclass[10pt,compress,handout]{beamer}
+\documentclass[10pt,compress,handout]{beamer}
 %\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
@@ -243,9 +243,9 @@
 \end{frame}
 
 % Table of contents
-%\frame{ \frametitle{Slides Outline}
-%  \tableofcontents
-%}
+\frame{ \frametitle{Slides Outline}
+  \tableofcontents
+}
 
 
 %%%%%%%%%%%%%%%%%%%% The Presentation Proper %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -282,7 +282,7 @@
         \begin{enumerate}[(a)]\setcounter{enumi}{6}%\scriptsize
            \item<4-> Make a \underline{blue{serious}} effort to learn (and enjoy!) \red{Matlab}. It will help your performance throughout levels 3-5!
            \item<5-> \red{Pace change when compared to \underline{Level 2}. Courses and subjects are \underline{substantially} more complex};
-           \item<6-> \blue{Time management} is crucial. \red{Do not leave to study all Modules during the \underline{Revision Week}.}   
+           \item<6-> \blue{Time management} is crucial. \red{Do not leave to study all contents during the \underline{Revision Week}.}   
         \end{enumerate}
      \end{column}
   \end{columns}
@@ -301,14 +301,14 @@
  \frametitle{Aims and Objectives}
 
      \begin{enumerate}[(a)]
-      \item <1-> We aim to understand how energy evolves or is consumed in industrial- or environmental-based processes.
-      \item <2-> In order to achieve this, we must revise definitions of:
+      \item We aim to understand how energy evolves or is consumed in industrial- or environmental-based processes.
+      \item In order to achieve this, we must revise definitions of:
        \begin{enumerate}[(i)]
-        \item <2-> Intensive and extensive properties;
-        \item <2-> Laws of thermodynamics;
-        \item <2-> Reversible and irreversible processes;
+        \item Intensive and extensive properties;
+        \item Laws of thermodynamics;
+        \item Reversible and irreversible processes;
        \end{enumerate}
-      \item <3->Finally, we should revise applications of \red{{\it First and Second Laws}}. 
+      \item Finally, we should revise applications of \red{{\it First and Second Laws}}. 
      \end{enumerate}
 \end{frame}
 
@@ -377,22 +377,22 @@
 %%%
 \begin{frame}
  \frametitle{The Thermodynamic System}
-  \begin{enumerate}[(a)]\scriptsize
+  \begin{enumerate}[(a)]%\scriptsize
    \item <1-> \red{Thermodynamics is the study of energy and its transformations};
    \item <2-> It deals with overall energy and entropy changes, and their relation to direction of reactions and the position of equilibrium;
    \item <3-> \blue{Thermodynamics} embodies a macroscopic viewpoint, i.e., it \blue{focuses on properties of a system (e.g., temperature, volume and heat capacity)};
-   \item <4-> Thermodynamics can be applied to systems in equilibrium and non-equilibrium;
-   \item <5-> In this course we focus on \blue{system on equilibrium thermodynamics} relevant to engineering problems.     
+   \item <4-> It can be applied to systems in equilibrium and non-equilibrium;
+   \item <5-> In this course we focus on \blue{system at equilibrium}..     
   \end{enumerate}
-  \visible<6->{\begin{block}{\begin{center}\scriptsize Thermodynamics {\bf \underline{does}}:\end{center}}
-     \begin{enumerate}[(i)]\scriptsize
+  \visible<6->{\begin{block}{\begin{center} Thermodynamics {\bf \underline{does}}:\end{center}}
+     \begin{enumerate}[(i)]%\scriptsize
        \item<6-> describe a system macroscopically;
        \item<6-> calculate the $\lq$energy' required for a physical or chemical process;
        \item<6-> determine a system's equilibrium conditions;
      \end{enumerate} 
   \end{block}  }
-  \visible<7->{\begin{block}{\begin{center}\scriptsize Thermodynamics {\bf \underline{does not}}:\end{center}}
-     \begin{enumerate}[(i)]\scriptsize
+  \visible<7->{\begin{block}{\begin{center} Thermodynamics {\bf \underline{does not}}:\end{center}}
+     \begin{enumerate}[(i)]%\scriptsize
        \item<7-> allow for kinetic considerations of chemical or physical processes;
        \item<7-> describe molecular behaviour.
      \end{enumerate} 
@@ -402,29 +402,16 @@
 %%%
 %%% SUBSECTION
 %%%
-\subsection{System and Control Volumes} 
+\subsection{System Properties} 
 
 %%%
 %%% Slide
 %%%
-\scriptsize
 \begin{frame}
- \frametitle{System and Control Volumes}
+ \frametitle{System Properties}
   \begin{columns}
-    \begin{column}[l]{0.6\linewidth}
-      \begin{enumerate}\scriptsize
-       \item <1-> The thermodynamic system is the part of the universe we are considering. We are free to choose boundary conditions.
-       \item <2-> A \textcolor{red}{system} is defined as a quantity of matter or a region in space chosen for study;
-       \item <3-> The mass or region outside the system is called the \textcolor{red}{surroundings};
-       \item <4-> The real or imaginary surface that separates the system from its surroundings is called the \textcolor{red}{boundary};
-       \item <5-> Systems may be considered to be {\it closed} or {\it open}, depending on whether a fixed mass or a fixed volume in space is chosen for study; 
-       \item <6-> A \textcolor{red}{closed system} (also known as a \textcolor{red}{control mass}) consists of a fixed amount of mass, and no mass can cross its boundary. However, energy (in the form of heat or work) may cross the boundary -- and the volume of a closed system does not have to be fixed; 
-       \item <7-> When neither energy nor mass is allowed to cross the boundary, that system is called an \textcolor{red}{isolated system};
-       \item <8-> An open system (or \textcolor{red}{control volume}) is a properly selected region in space. It usually encloses a device that involves mass flow such as a compressor, turbine, or nozzle.
-      \end{enumerate} 
-    \end{column}
     \begin{column}[l]{0.4\linewidth}\scriptsize
-      \begin{figure}%
+      \visible<1->{\begin{figure}%
         \begin{center}
           \includegraphics[width=\columnwidth,clip]{./../Pics/Fig_SystemDefinition}
         \end{center}
@@ -438,46 +425,15 @@
          {\bf Closed} & {\it no}   & {\it yes}    \\
          {\bf Isolated}&{\it no}   & {\it no}     \\
          \hline 
-      \end{tabular}    
+      \end{tabular} }  
     \end{column}
-  \end{columns}
-\end{frame}
-\normalsize
-
-
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{System and Control Volumes}
-  \begin{columns}
     \begin{column}[l]{0.6\linewidth}
-      \begin{enumerate}\setcounter{enumi}{8}\scriptsize
-         \item <1-> The \textcolor{red}{material} in a system is composed of phases (e.g., solid, liquid, gas) with distinct physical and chemical properties;
-         \item <2-> The \textcolor{red}{composition} of each phase is described by a series of discrete chemical formula units (i.e., chemical components) -- e.g., water/steam $\left(\right.$H$_{2}$O$\left.\right)$, ammonia $\left(\right.$NH$_{3}\left.\right)$, carbon dioxide $\left(\right.$CO$_{2}\left.\right)$, etc;
-         \item <3-> Any characteristic of a system is called a \textcolor{red}{property} -- e.g., pressure, temperature, mass, etc;
-         \item <4-> Properties can be classified as \textcolor{red}{intensive} or \textcolor{red}{extensive};
-         \item <5-> \textcolor{red}{Intensive properties} are those that are {\bf independent} of the mass of a system -- e.g., temperature, pressure, density, viscosity, etc;
-         \item <6-> \textcolor{red}{Extensive properties} are those whose values {\bf depend} on the size (or extent) of the system -- e.g., mass, volume, number of moles, internal energy, enthalpy, entropy, etc.  
+      \begin{enumerate}
+         \item <2-> Any characteristic of a system is called a \textcolor{red}{property} -- e.g., pressure, temperature, mass, etc;
+         \item <2-> Properties can be classified as \textcolor{red}{intensive} or \textcolor{red}{extensive};
+         \item <3-> \textcolor{red}{Intensive properties} are those that are {\bf independent} of the mass of a system -- e.g., temperature, pressure, density, viscosity, etc;
+         \item <4-> \textcolor{red}{Extensive properties} are those whose values {\bf depend} on the size (or extent) of the system -- e.g., mass, volume, number of moles, internal energy, enthalpy, entropy, etc.  
       \end{enumerate} 
-    \end{column}
-    \begin{column}[l]{0.4\linewidth}\scriptsize
-      \begin{figure}%
-        \begin{center}
-          \includegraphics[width=\columnwidth,clip]{./../Pics/Fig_SystemDefinition}
-        \end{center}
-      \end{figure}
-      \begin{tabular}{|c|c|c|}
-         \hline
-                      & {\bf Mass} & {\bf Energy} \\
-                      & {\bf Exchange} & {\bf Exchange} \\
-         \hline
-         {\bf Open}   & {\it yes}  & {\it yes}    \\
-         {\bf Closed} & {\it no}   & {\it yes}    \\
-         {\bf Isolated}&{\it no}   & {\it no}     \\
-         \hline 
-      \end{tabular}    
     \end{column}
   \end{columns}
 \end{frame}
@@ -994,7 +950,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
      \end{itemize}
 \vspace{-.8cm}
    \begin{figure}%
-     \hbox{\hspace{-.5cm}\includegraphics[width=8.cm,clip]{./../Pics/FirstLaw_Cycle_02}}
+     \hbox{\hspace{-.1cm}\includegraphics[width=8.cm,clip]{./../Pics/FirstLaw_Cycle_02}}
    \end{figure}    
   \end{column}
  \end{columns}
@@ -1031,7 +987,6 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
 \end{frame}
 
 
-\end{comment}
 %%%
 %%% Slide
 %%%
@@ -1082,6 +1037,8 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
  \normalsize
 \end{frame}
 
+\end{comment}
+
 %%%
 %%% Slide
 %%%
@@ -1120,7 +1077,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
    \begin{equation}
     \int\limits_{2}^{1}\left(\delta Q- \delta W\right)_{B} = \int\limits_{2}^{1}\left(\delta Q- \delta W\right)_{C}\label{Module00:proc1c}
    \end{equation}
-   \item <3-> B and C are arbitrary paths ; Eqn. \ref{Module00:proc1c} asserts that the integral of $\left(\delta Q -\delta W\right)\left.\right|_{2}^{1}$ is path-independent. Notice, however that both \textcolor{blue}{Q} and \textcolor{blue}{W} are path-dependent quantities. 
+   \item <3-> B and C are arbitrary paths ; Eqn. \ref{Module00:proc1c} asserts that the integral of $\left(\delta Q -\delta W\right)\left.\right|_{2}^{1}$ is \underline{path-independent}. Notice, however that both \textcolor{blue}{Q} and \textcolor{blue}{W} are \underline{path-dependent} quantities. 
     \end{itemize}
 \end{frame}
 
@@ -1167,7 +1124,7 @@ Note that the sign convention (Slide~\ref{Slide1}) should be used here, i.e., po
   \end{equation}
 \end{frame}
 
-
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -1212,7 +1169,7 @@ Note that the sign convention (Slide~\ref{Slide1}) should be used here, i.e., po
  \end{columns}
 \normalsize
 \end{frame}
-
+\end{comment}
 
 %%%
 %%% Slides
@@ -1239,29 +1196,19 @@ Note that the sign convention (Slide~\ref{Slide1}) should be used here, i.e., po
 \begin{frame}
  \frametitle{Reversible Processes}
    \begin{itemize}
-    \item The initial state $\left(\text{i.e., }T_{0}\right)$ can be restored {\it but not spontaneously} $\Longrightarrow$  The reverse processes do not violate the First Law, and yet they {\it do not occur spontaneously};
-    \item Another law is needed to help understand and predict which processes will occur spontaneously.
+    \item <1->The initial state $\left(\text{i.e., }T_{0}\right)$ can be restored {\it but not spontaneously} $\Longrightarrow$  The reverse processes do not violate the First Law, and yet they {\it do not occur spontaneously};
+    \item <1->Another law is needed to help understand and predict which processes will occur spontaneously.
    \end{itemize}
-    \begin{figure}%
-     \begin{center}
-      \includegraphics[width=5.5cm,clip]{./../Pics/HotColdCoffee}
-     \end{center}
-    \end{figure}
+  
+   \visible<2->{\begin{block}{Reversible process}
+     A process in which it is possible to return both the system and surroundings to their original states;
+   \end{block}}
+   \visible<3->{\begin{block}{Irreversible process}
+      A process in which it is impossible to return both the system and surroundings to their original states.
+   \end{block}}
  \normalsize
 \end{frame}
 
-
-%%%
-%%% Slides
-%%%
-\begin{frame}
- \frametitle{Reversible Processes}
- \begin{itemize}
-  \item <2-> \textcolor{blue}{Reversible process:} A process in which it is possible to return both the system and surroundings to their original states;
-  \item <3-> \textcolor{blue}{Irreversible process:} A process in which it is impossible to return both the system and surroundings to their original states.
- \end{itemize}
-
-\end{frame}
 
 %%%
 %%% Slides
@@ -1289,25 +1236,26 @@ Note that the sign convention (Slide~\ref{Slide1}) should be used here, i.e., po
 %%%
 \begin{frame}
  \frametitle{Heat Capacity}
-     \begin{itemize}
-        \item<1-> General definition:
-          \visible<1->{\begin{displaymath}
+      \begin{block}{Definition}
+         \begin{displaymath}
             C = \frac{dQ}{dT}
-          \end{displaymath}}
-        \item<2-> At \textcolor{blue}{constant volume}
+          \end{displaymath}
+      \end{block}
+     \begin{itemize}
+        \item<2-> At constant volume:
              \visible<2->{\begin{displaymath}
-                C_{V} = \left(\frac{\partial U}{\partial T}\right)_{V} \Longleftrightarrow  Q = n\Delta U = n\int\limits_{T_{1}}^{T_{2}} C_{V} dT
+                C_{v} = \left(\frac{\partial U}{\partial T}\right)_{V} \Longleftrightarrow  Q = n\Delta U = n\int\limits_{T_{1}}^{T_{2}} C_{v} dT
              \end{displaymath}}
-        \item<3-> At \textcolor{blue}{constant pressure}
+        \item<3-> At constant pressure:
              \visible<2->{\begin{displaymath}
-                C_{P} = \left(\frac{\partial H}{\partial T}\right)_{P} \Longleftrightarrow  Q = n\Delta H = n\int\limits_{T_{1}}^{T_{2}} C_{P} dT
+                C_{p} = \left(\frac{\partial H}{\partial T}\right)_{P} \Longleftrightarrow  Q = n\Delta H = n\int\limits_{T_{1}}^{T_{2}} C_{p} dT
              \end{displaymath}}
      \end{itemize}
  
  \normalsize
 \end{frame}
 
-
+\begin{comment}
 %%%
 %%% Slides
 %%%
@@ -1347,7 +1295,7 @@ Note that the sign convention (Slide~\ref{Slide1}) should be used here, i.e., po
  
  \normalsize
 \end{frame}
-
+\end{comment}
 
 %%%
 %%% SECTION
@@ -1359,26 +1307,41 @@ Note that the sign convention (Slide~\ref{Slide1}) should be used here, i.e., po
 %%%
 \begin{frame}
  \frametitle{Ideal Gas: General Remarks}
-     \begin{enumerate}
-        \item<1-> Equation of state:
+%
+     \visible<1->{\begin{block}{Equation of State}
            \visible<1->{\begin{displaymath}
               P V = R T
            \end{displaymath}} 
-        \item<2-> Heat capacity ratios:
+           where $V$ is the molar volume.
+     \end{block}}
+%
+     \visible<2->{\begin{block}{Heat Capacities:}
            \visible<2->{\begin{eqnarray}
-             && C_{V}=\left(\frac{\partial U}{\partial T}\right)_{V} = \frac{d U(T)}{d T} = C_{V}(T) \nonumber \\
-             && C_{P}=\left(\frac{\partial H}{\partial T}\right)_{P} = \frac{d H(T)}{d T} = C_{P}(T) \nonumber
-           \end{eqnarray}}    
-        \item<3-> Internal energy {\bf depends only on} the temperature, $U = U(T)$;    
-        \item<4-> Formally defining {\it Enthalpy}:
-           \visible<4->{\begin{displaymath}
+             && C_{v}=\left(\frac{\partial U}{\partial T}\right)_{V} = \frac{d U(T)}{d T} = C_{v}(T) \nonumber \\
+             && C_{p}=\left(\frac{\partial H}{\partial T}\right)_{P} = \frac{d H(T)}{d T} = C_{p}(T) \nonumber
+           \end{eqnarray}
+        Internal energy {\bf depends only on} the temperature, $U = U(T)$.}
+     \end{block}}
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Ideal Gas: General Remarks}
+%
+     \visible<1->{\begin{block}{Enthalpy:}
+           \visible<1->{\begin{displaymath}
               H \equiv U + PV = U(T) + RT = H(T)
            \end{displaymath}} 
-        \item<5-> Relationship between $C_{P}(T)$ and $C_{V}(T)$:
-           \visible<5->{\begin{displaymath}
-              \textcolor{red}{C_{P}}=\frac{d H(T)}{d T} = \frac{d U(T)}{d T} + \frac{d(RT)}{d T} = \textcolor{red}{C_{V} + R}
+     \end{block}}
+%
+     \visible<2->{\begin{block}{Relationship between $C_{p}(T)$ and $C_{v}(T)$:}
+           \visible<2->{\begin{displaymath}
+              C_{p}=\frac{d H(T)}{d T} = \frac{d U(T)}{d T} + \frac{d(RT)}{d T} = C_{v} + R
            \end{displaymath}}           
-     \end{enumerate} 
+     \end{block}}
+%
   \normalsize
 \end{frame}
 
@@ -1387,66 +1350,73 @@ Note that the sign convention (Slide~\ref{Slide1}) should be used here, i.e., po
 %%%
 \begin{frame}
  \frametitle{Ideal Gas: Processes}
-     \begin{enumerate}
-        \item<1-> Processes involving {\it heat} and {\it work} quantities:
+%
+     \visible<1->{\begin{block}{Processes involving {\it heat} and {\it work} quantities:}
            \visible<1->{\begin{eqnarray}
              && d Q = C_{V} dT + RT \frac{d V}{V}  \Longleftrightarrow dW = -RT\frac{d V}{V} \nonumber \\
              && d Q = C_{P} dT - RT \frac{d P}{P}  \Longleftrightarrow dW = -R d T + RT\frac{d P}{P} \nonumber
-           \end{eqnarray}} 
-        \item<2-> With $PV = RT$
+           \end{eqnarray}}       
+     \end{block}}  
+%
+     \visible<2->{\begin{block}{With $PV = RT$:}
            \visible<2->{\begin{displaymath}
               d W = -P d V  \Longleftrightarrow dQ = \frac{C_{V}}{R}VdP + \frac{C_{P}}{R}P d V  
            \end{displaymath}}    
-     \end{enumerate} 
-  \normalsize
-\end{frame}
-
-
-%%%
-%%% Slides
-%%%
-\begin{frame}
- \frametitle{Ideal Gas: Processes}
-     \begin{enumerate}  \setcounter{enumi}{2}
-        \item<1-> Isothermal procesess $(dT = 0)$:
-           \visible<1->{\begin{displaymath}
+     \end{block}}  
+%
+     \visible<3->{\begin{block}{Isothermal procesess $(dT = 0)$:}
+           \visible<3->{\begin{displaymath}
               Q = -W = RT \ln\frac{V_{2}}{V_{1}} = -RT \ln\frac{P_{2}}{P_{1}}
            \end{displaymath}} 
-        \item<2-> Isobaric process $(dP= 0)$:
-           \visible<2->{\begin{displaymath}
-              Q = \Delta H = \int\limits_{T_{1}}^{T_{2}}C_{P}dT
-           \end{displaymath}}    
-        \item<3-> Isochoric process $(dV= 0)$:
-           \visible<3->{\begin{displaymath}
-              Q = \Delta U = \int\limits_{T_{1}}^{T_{2}}C_{V}dT
-           \end{displaymath}}     
-     \end{enumerate} 
+     \end{block}}  
+%
   \normalsize
 \end{frame}
-
 
 %%%
 %%% Slides
 %%%
 \begin{frame}
  \frametitle{Ideal Gas: Processes}
-     \begin{enumerate}  \setcounter{enumi}{5}
-        \item<1-> Adiabatic process $(dQ= 0)$:
+%
+     \visible<1->{\begin{block}{Isobaric process $(dP= 0)$:}
            \visible<1->{\begin{displaymath}
-               \frac{T_{2}}{T_{1}} = \left(\frac{V_{1}}{V_{2}}\right)^{\frac{R}{C_{V}}} \Leftrightarrow \frac{T_{2}}{T_{1}} = \left(\frac{P_{2}}{P_{1}}\right)^{\frac{R}{C_{P}}} \Leftrightarrow \frac{P_{2}}{P_{1}} = \left(\frac{V_{1}}{V_{2}}\right)^{\frac{C_{P}}{C_{V}}} 
+              Q = \Delta H = \int\limits_{T_{1}}^{T_{2}}C_{P}dT
            \end{displaymath}}    
-         \item<2-> If we define $\gamma \equiv \displaystyle\frac{C_{P}}{C_{V}}$, the relations above can be rewritten as,
+     \end{block}}  
+%
+     \visible<2->{\begin{block}{Isochoric process $(dV= 0)$:}
            \visible<2->{\begin{displaymath}
-               TV^{\gamma-1}=\text{const.} \Leftrightarrow TP^{\frac{1-\gamma}{\gamma}}=\text{const.} \Leftrightarrow PV^{\gamma}=\text{const.} 
-           \end{displaymath}}    
-         \item<3-> And for {\it polytropic} processes,
-           \visible<3->{\begin{displaymath}
-               TV^{\delta-1}=\text{const.} \Leftrightarrow TP^{\frac{1-\delta}{\delta}}=\text{const.} \Leftrightarrow PV^{\delta}=\text{const.} 
-           \end{displaymath}}    
-     \end{enumerate} 
+              Q = \Delta U = \int\limits_{T_{1}}^{T_{2}}C_{V}dT
+           \end{displaymath}}     
+     \end{block}}  
+%
   \normalsize
 \end{frame}
 
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Ideal Gas: Processes}
+%
+     \begin{block}{Adiabatic process $(dQ= 0)$:}
+           \begin{displaymath}
+               \frac{T_{2}}{T_{1}} = \left(\frac{V_{1}}{V_{2}}\right)^{\frac{R}{C_{V}}} \Leftrightarrow \frac{T_{2}}{T_{1}} = \left(\frac{P_{2}}{P_{1}}\right)^{\frac{R}{C_{P}}} \Leftrightarrow \frac{P_{2}}{P_{1}} = \left(\frac{V_{1}}{V_{2}}\right)^{\frac{C_{P}}{C_{V}}} 
+           \end{displaymath}   
+           If we define $\gamma \equiv \displaystyle\frac{C_{P}}{C_{V}}$, the relations above can be rewritten as,
+           \begin{displaymath}
+               TV^{\gamma-1}=\text{const.} \Leftrightarrow TP^{\frac{1-\gamma}{\gamma}}=\text{const.} \Leftrightarrow PV^{\gamma}=\text{const.}
+           \end{displaymath}
+           And for {\it polytropic} processes,
+           \begin{displaymath}
+               TV^{\delta-1}=\text{const.} \Leftrightarrow TP^{\frac{1-\delta}{\delta}}=\text{const.} \Leftrightarrow PV^{\delta}=\text{const.}, 
+           \end{displaymath}
+           where $\delta$ is the polytropic index.
+     \end{block}  
+%
+  \normalsize
+\end{frame}
 
 
 %%%
@@ -1748,13 +1718,12 @@ Note that the sign convention (Slide~\ref{Slide1}) should be used here, i.e., po
 %%%
 \begin{frame}
  \frametitle{Summary}
-After these set of lectures you should know the fundamentals of thermodynamics which will be relevant to understand heat-engine cycles. This includes knowledge of: 
+After this Module you should know the main fundamentals and definitions of classic thermodynamics which will be relevant to understand the remaining of the course. This includes knowledge of: 
  \begin{enumerate}[(a)]
-  \item <2-> Phase diagram and steam tables;
-  \item <3-> Zeroth, First and Second laws;
-  \item <4-> Reversibility and its impact on thermodynamics formulation;
-  \item <5-> Definition of the key thermodynamic properties, e.g., work, heat, temperature, internal energy, enthalpy, entropy, etc;
-  \item <6-> Mass and energy balances in open and closed systems.
+  \item <2-> Zeroth, First and Second laws;
+  \item <2-> Reversibility and its impact on thermodynamics formulation;
+  \item <2-> Definition of the key thermodynamic properties, e.g., work, heat, temperature, internal energy, enthalpy and entropy;
+  \item <2-> Main thermodynamic relations derived from the First Law.
  \end{enumerate}
 \end{frame}
 
