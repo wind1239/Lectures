@@ -2,7 +2,7 @@
 default:	Module_01.pdf Tutorial_01.pdf Notes_Examples.tex \
 		Module_02.pdf Tutorial_02.pdf \
 		Module_03.pdf Tutorial_03.pdf \
-		Practical_01.pdf \
+		Matlab_Assignment.pdf \
 		Module_04.pdf Tutorial_04.pdf \
 		Practical_02.pdf \
 		Module_05.pdf Tutorial_05.pdf \
@@ -20,7 +20,7 @@ Module_02.pdf:		Module_02.tex
 Tutorial_02.pdf:	Tutorial_02.tex
 Module_03.pdf:		Module_03.tex
 Tutorial_03.pdf:	Tutorial_03.tex
-Practical_01.pdf:	Practical_01.tex
+Matlab_Assignment.pdf:	Matlab_Assignment.tex
 Module_04.pdf:		Module_04.tex
 Tutorial_04.pdf:	Tutorial_04.tex
 Practical_02.pdf:	Practical_02.tex
