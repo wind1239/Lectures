@@ -95,8 +95,10 @@
  
 \begin{document}
 
+%%%
 %%% SECTION
-\section{Module 01: Introduction and Principles}
+%%%
+\section{Module 01: Introduction and Principles}\label{Section:01}
 
 %%% SUBSECTION
 \subsection{A Few Important Definitions}
@@ -555,10 +557,210 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
          \begin{displaymath}
               \Delta S_{\text{mix}} = \Delta S_{1} + \Delta S_{2} = 0.0591\frc{\text{kJ}}{\text{K}}
          \end{displaymath}
-
-
 %
 \end{enumerate}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%                                                    END OF MODULE 01                                                %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%% SECTION
+%%%
+\section{Module 02: Volumetric Properties of Pure Fluids}\label{Section:02}
+
+
+%%% SUBSECTION
+\subsection{PVT Behaviour of Pure Substances}
+  
+   \begin{enumerate}[i)]
+%
+       \item {\it Pure substances/fluids} can be defined as a material of homogeneous and constant composition. Systems containing (a) water and ice, (b) water and steam or (c) water, ice and steam are examples of pure fluids at different phases, whereas (d) air-water, (e) air-steam and (f) a gaseous mixture containing N$_{2}$, H$_{2}$, O$_{2}$ and NO$_{2}$ are not. 
+%
+       \item A pure fluid can exist and coexist in different phases (\ie solid, liquid and vapour -- S, L and V). Phase behaviour of fluids is often represented by {\it PVT}\footnote{{\it PVT} stands for pressure, specific (or molar) volume and temperature.} phase diagrams. 
+%
+       \item {\it PVT} diagram of an arbitrary fluid is shown as 3D representation in Figure~\ref{Mod02Fig01}a. Solid, liquid and vapour phases are represented by continuous volumes and, the regions between these volumes are representations of \blue{phase equilibrium}.
+%
+           \begin{figure}[h]
+              \begin{center}
+                 \includegraphics[width=10.cm,clip]{./../Pics/PVT_Surface.jpg}\label{Mod02Fig01}
+                 \caption{$PVT$ volume (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Borgnakke $\&$ Sonntag).}\label{Mod02Fig01}
+              \end{center}
+           \end{figure}    
+%
+       \item Such 3D representation helps determining (qualitatively) phases (S, L and V) at prescribed coordinates (temperature, specific/molar volume and pressure) of fluids. However, it is not convenient dealing with 3D plots and, most of the time, we may want to extract quantitative values of fluids (Module 03). A better approach is to project 3D plots into surfaces, \ie $PT$, $PV$ and $VT$ diagrams (Figs.~\ref{Mod02Fig01}b and~\ref{Mod02Fig01}c).
+%
+       \item $PV$ diagrams (Fig.~\ref{Mod02Fig02}a) are representations of Fig.~\ref{Mod02Fig01}a at constant specific temperature, where surfaces represent both single phases and phase transitions (\ie phases in equilibrium). Here, there are three properties that we need to define:
+           \begin{enumerate}[a)]
+              \item Critical point (or state): coordinates in which two phases of a fluid become indistinguishable. Beyond this coordinate, a fluid is neither completely liquid nor completely gaseous, \ie exhibits properties of both the liquid phase and the gas phase and is referred to as a {\it supercritical fluid}. All fluids have distinct critical coordinates, known as {\it critical pressure} $\left(\text{P}_{c}\right)$, {\it critical temperature} $\left(\text{T}_{c}\right)$ and {\it critical volume} $\left(\text{V}_{c}\right)$. Interesting videos about critical state can be seen in \href{https://www.youtube.com/watch?v=bJjcTpRzXpM}{https://www.youtube.com/watch?v=bJjcTpRzXpM} and \href{https://www.youtube.com/watch?v=RmaJVxafesU}{https://www.youtube.com/watch?v=RmaJVxafesU}.
+              \item Saturation lines (blue lines in Fig.~\ref{Mod02Fig02}a) are coordinates in which phase transition starts to occur.
+              \item Isotherms: Lines of constant temperature.
+           \end{enumerate} 
+           In vapour-liquid equilibrium (VLE) systems there are two main saturation lines: {\it saturated liquid line} (left-hand side of $C$ in Fig.~\ref{Mod02Fig02}a)  and {\it saturated vapour line} (rhs of $C$) that represent the initial transition from a single phase system to a two or three phases system. 
+%
+       \item $PT$ diagrams (Fig.~\ref{Mod02Fig02}b) are representations of Fig.~\ref{Mod02Fig01}a at constant specific volumes, where phases are defined by surfaces with continuous lines representing phases transitions (\ie in equilibrium). The {\it triple point} is coordinate in which all three phases (S, L and V) coexist in equilibrium.
+%
+           \begin{figure}[h]\label{Mod02Fig02}
+              \vbox{
+                    \hbox{\includegraphics[width=.5\columnwidth,clip]{./../Pics/PV_Diagram1}
+                          \includegraphics[width=.5\columnwidth,clip]{./../Pics/PT_Diagram}}
+                    \vspace{-.1cm}
+                    \hbox{\hspace{4cm}(a)\hspace{8cm}(b)}}
+              \caption{ (a) $PV$ and (b) $PT$ diagrams for a pure substance. Dotted line in (a) represents the isotherm at T=T$_{c}$.}\label{Mod02Fig02}
+           \end{figure}
+%
+        \item A fluid in the compressed liquid state is often called {\it sub-cooled fluid} (central region of Fig.~\ref{Mod02Fig02}b), while a gas at a pressure lower than its saturation vapour pressure for a given temperature is said to be at {\it superheated state}.
+%
+        \item The \underline{Gibbs phase rule} is a relation that determines the number of independent variables that mist be specified to establish the {\it intensive state of any system at equilibrium},
+                \begin{equation}
+                    \Psi = 2 + \mathcal{C} - \mathcal{P} -\mathcal{R},\label{Mod02_GibbsPhaseRuleReactive}
+                \end{equation}
+                where $\Psi$, $\mathcal{C}$, $\mathcal{P}$ and $\mathcal{R}$ are the number of degrees of freedom of the thermodynamic system, number of chemical components, number of co-existing phases and number of independent reactions, respectively. For non-reactive systems\footnote{The Gibbs phase rule will be revisited again in Module~\ref{Section:06} -- Chemical Reaction Equilibrium.}, this relation becomes,
+                \begin{equation}
+                    \Psi = 2 + \mathcal{C} - \mathcal{P}.\label{Mod02_GibbsPhaseRule}
+                \end{equation}
+                The degrees of freedom ($\Psi$, \ie number of intensive properties such as temperature and pressure) determines the number of variables that must be specified to fix all other remaining phase rule variables. For example, for a pure liquid component, the phase rule yields two degrees of freedom, \ie if temperature and pressure are specified, all other intensive properties (\eg enthalpy, entropy etc) are uniquely determined. However, if the same liquid component is in equilibrium with its vapour phase (\eg water and steam) there is {\it only} one degree of freedom. This means that either pressure or temperature may be specified to fix all other intensive properties of the system. At the triple point (\eg water, steam and ice), the number of degrees of freedom is {\it zero}, \ie any change from such state (\eg for water-steam-ice at $\sim$ 273.15 K and 0.0061 bar) causes at least one of the phases to vanish.
+%
+        \item The ideal gas {\it equation of state} (EOS),
+                \begin{equation}
+                   P V = R T,\label{Mod02_IdealEOS}
+                \end{equation}
+                where $V$ is the molar volume. This is a relationship between the macroscopic intensive properties, and is based in two main assumptions with respect to the microscopic behaviour of molecules:
+            \begin{enumerate}[(a)]
+                \item Molecules have no extension in space (\ie zero volume), and;
+                \item Molecules \underline{do not interact with each other}.
+            \end{enumerate}
+            The second assumption is particularly important as it considers that atoms and molecules either do not interact or do not have electric charge or have an infinite distance between them (\ie at low density conditions).
+%
+        \item However, these assumptions are rarely met in real conditions (both in the environment and in industry) and several mathematical relations have been developed to better represent the PVT behaviour of real fluids:
+            \begin{enumerate}[a)]
+%
+                \item The PVT behaviour of real pure fluids can be expressed as functional $f(P,V,T) = 0$. However, from the Gibbs phase rule for a single phase pure component the number of degrees of freedom is equal to 2. Therefore, we can write this function in its simplest way (or EOS), $V=V(T,P)$, or in differential form,
+                   \begin{displaymath}
+                      dV = \left(\frc{\partial V}{\partial T}\right)_{P}dT + \left(\frc{\partial V}{\partial P}\right)_{T}dP
+                   \end{displaymath}
+                   defining the {\it coefficient of thermal expansion} (or {\it volume expansivity coefficient}), $\beta$, and the {\it coefficient of isothermal compressibility}, $\kappa$ as,
+                   \begin{equation}
+                      \beta \equiv \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P}\;\;\;\text{ and }\;\;\;\kappa \equiv -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T},\label{Mod02_Compressibilityexpansivity}
+                   \end{equation}
+                   respectively, leading to
+                   \begin{equation}
+                       \frc{dV}{V} = \beta dT - \kappa dP.\label{Mod02_Compressibilityexpansivity2}
+                   \end{equation}
+%
+                \item The {\it Virial EOS} is a relation that can be derived from statistical mechanics, and is represented by power series in terms of $\frac{1}{V}$ with two alternate forms:
+                   \begin{eqnarray}
+                       \frc{P V}{R T} &=& 1 + \frc{B}{V} + \frc{C}{V^{2}} + \cdots \text{ or} \label{Mod02_Virial1}\\
+                       \frc{P V}{R T} &=& 1 + B^{\prime}P + C^{\prime}P^{2} + \cdots,\label{Mod02_Virial2} 
+                   \end{eqnarray}
+                   where $B$ and $C$ are the second and third virial coefficients and,
+                   \begin{displaymath}
+                      B = \frc{B^{\prime}}{R T}\;\;\;\text{ and }\;\;\; C^{\prime}=\frc{C-B^{2}}{\left(R T\right)^{2}}.
+                   \end{displaymath}
+                   Second and third terms of Eqns.~\ref{Mod02_Virial1} and~\ref{Mod02_Virial2} are \blue{corrections of the non-ideal behaviour of a gas}. Virial coefficients are strongly dependent on the temperature (\ie $B=B(T)$, $C=C(T)$, $D=D(T)$ etc) and the more the number of coefficients (\ie the more terms in the power series -- Eqns.~\ref{Mod02_Virial1} and~\ref{Mod02_Virial2}) the better is the predictions of the gas molar volume. The second virial coefficient is readily found for a large number of fluids in any chemical engineering handbook (and several textbooks), however the third and further coefficients are more difficult to obtain/calculate. Therefore the Virial EOS is often used for moderate deviations from the ideal gas behaviour through the truncated forms of Eqns.~\ref{Mod02_Virial1} and~\ref{Mod02_Virial2}
+              \begin{eqnarray}
+                  \frc{P V}{R T} &=& 1 + \frc{B}{V} \;\;\;\;\text{ or } \label{Mod02_Virial1b}\\
+                  Z &=& 1 + \frc{B P}{R T} = 1 + \frc{B P_{c}}{R T_{c}}\frc{P_{r}}{T_{r}},\label{Mod02_Virial1c}
+              \end{eqnarray}
+              where,
+              \begin{equation}
+                 T_{r} = \frc{T}{T_{c}}\;\;\;\;\text{ and }\;\;\;\; P_{r} = \frc{P}{P_{c}}\label{Mod02_ReducedT-P},
+              \end{equation}
+              are {\it reduced temperature and pressure}, respectively. $Z = \frac{P V}{R T}$ is the \underline{compressibility factor} and can be defined as the ration of the molar volume of a gas to the molar volume of an ideal gas at the same temperature and pressure conditions -- for an ideal gas, $Z=1$. 
+
+              A number of {\it generalised relations} have been developed to calculate the {\it second virial coefficients}, \eg
+              \begin{displaymath}
+                  \frc{B P_{c}}{R T_{c}} = B^{0} + \omega B^{1},
+              \end{displaymath}
+              with terms $B^{0}$ and $B^{1}$ defined by,
+              \begin{displaymath}
+                  B^{0} = 0.083 - \frc{0.422}{T_{r}^{1.6}}\;\;\text{ and }\;\; B^{1} = 0.139 - \frc{0.172}{T_{r}^{4.2}}.
+              \end{displaymath}
+              $\omega$ is a parameter known as \underline{acentric factor} that measures the non-sphericity of molecules,
+              \begin{displaymath}
+                 \omega \equiv -1 - \log\limits_{10}{\left(P_{r}^{\text{sat}}\right)_{T_{r}=0.7}},
+              \end{displaymath}
+              where $\left(P_{r}^{\text{sat}}\right)_{T_{r}=0.7}$ is the reduced saturation vapour pressure obtained at reduced temperature of 0.7. 
+
+%
+            \end{enumerate}
+% 
+   \end{enumerate}
+
+\clearpage
+
+%%% SUBSECTION
+\subsection{Examples}
+
+\begin{enumerate}[1)]
+%%%
+%%% EXAMPLE 
+%%%
+\item\label{Mod02Ex01} Derive the relations for (a) coefficient of thermal expansion and (b) isothermal compressibility coefficient from the equation of state of an ideal gas.
+
+% SOLUTION
+       \noindent{\bf Solution:} From the definitions and for ideal gas, $V=\frc{R T}{P}$,
+          \begin{enumerate}[(a)]
+%
+              \item $\beta = \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P}$, thus,
+                  \begin{displaymath}
+                      \beta =\frc{P}{R T}\frc{R}{P} = \frc{1}{T},
+                  \end{displaymath}
+%
+              \item $\kappa = -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T}$, thus
+                  \begin{displaymath}
+                      \kappa = -\frc{P}{R T}\left(-\frc{R T}{P^{2}}\right) = \frc{1}{P}
+                  \end{displaymath}
+%
+          \end{enumerate}
+%
+\end{enumerate}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%                                                    END OF MODULE 02                                                %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%% SECTION
+%%%
+\section{Module 03: Thermodynamic Properties of Pure Fluids}\label{Section:03}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%                                                    END OF MODULE 03                                                %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%% SECTION
+%%%
+\section{Module 04: Vapour-Liquid Equilibrium of Mixtures}\label{Section:04}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%                                                    END OF MODULE 04                                                %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%% SECTION
+%%%
+\section{Module 05: Solution Thermodynamics}\label{Section:05}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%                                                    END OF MODULE 05                                                %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%% SECTION
+%%%
+\section{Module 06: Chemical Reaction Equilibrium}\label{Section:06}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%                                                    END OF MODULE 06                                                %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%
