@@ -659,29 +659,101 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
                       B = \frc{B^{\prime}}{R T}\;\;\;\text{ and }\;\;\; C^{\prime}=\frc{C-B^{2}}{\left(R T\right)^{2}}.
                    \end{displaymath}
                    Second and third terms of Eqns.~\ref{Mod02_Virial1} and~\ref{Mod02_Virial2} are \blue{corrections of the non-ideal behaviour of a gas}. Virial coefficients are strongly dependent on the temperature (\ie $B=B(T)$, $C=C(T)$, $D=D(T)$ etc) and the more the number of coefficients (\ie the more terms in the power series -- Eqns.~\ref{Mod02_Virial1} and~\ref{Mod02_Virial2}) the better is the predictions of the gas molar volume. The second virial coefficient is readily found for a large number of fluids in any chemical engineering handbook (and several textbooks), however the third and further coefficients are more difficult to obtain/calculate. Therefore the Virial EOS is often used for moderate deviations from the ideal gas behaviour through the truncated forms of Eqns.~\ref{Mod02_Virial1} and~\ref{Mod02_Virial2}
-              \begin{eqnarray}
-                  \frc{P V}{R T} &=& 1 + \frc{B}{V} \;\;\;\;\text{ or } \label{Mod02_Virial1b}\\
-                  Z &=& 1 + \frc{B P}{R T} = 1 + \frc{B P_{c}}{R T_{c}}\frc{P_{r}}{T_{r}},\label{Mod02_Virial1c}
-              \end{eqnarray}
-              where,
-              \begin{equation}
-                 T_{r} = \frc{T}{T_{c}}\;\;\;\;\text{ and }\;\;\;\; P_{r} = \frc{P}{P_{c}}\label{Mod02_ReducedT-P},
-              \end{equation}
-              are {\it reduced temperature and pressure}, respectively. $Z = \frac{P V}{R T}$ is the \underline{compressibility factor} and can be defined as the ration of the molar volume of a gas to the molar volume of an ideal gas at the same temperature and pressure conditions -- for an ideal gas, $Z=1$. 
+                   \begin{eqnarray}
+                      \frc{P V}{R T} &=& 1 + \frc{B}{V} \;\;\;\;\text{ or } \label{Mod02_Virial1b}\\
+                      Z &=& 1 + \frc{B P}{R T} = 1 + \frc{B P_{c}}{R T_{c}}\frc{P_{r}}{T_{r}},\label{Mod02_Virial1c}
+                   \end{eqnarray}
+                   where,
+                   \begin{equation}
+                      T_{r} = \frc{T}{T_{c}}\;\;\;\;\text{ and }\;\;\;\; P_{r} = \frc{P}{P_{c}}\label{Mod02_ReducedT-P},
+                   \end{equation}
+                   are {\it reduced temperature and pressure}, respectively. $Z = \frac{P V}{R T}$ is the \underline{compressibility factor} and can be defined as the ration of the molar volume of a gas to the molar volume of an ideal gas at the same temperature and pressure conditions -- for an ideal gas, $Z=1$. 
 
-              A number of {\it generalised relations} have been developed to calculate the {\it second virial coefficients}, \eg
-              \begin{displaymath}
-                  \frc{B P_{c}}{R T_{c}} = B^{0} + \omega B^{1},
-              \end{displaymath}
-              with terms $B^{0}$ and $B^{1}$ defined by,
-              \begin{displaymath}
-                  B^{0} = 0.083 - \frc{0.422}{T_{r}^{1.6}}\;\;\text{ and }\;\; B^{1} = 0.139 - \frc{0.172}{T_{r}^{4.2}}.
-              \end{displaymath}
-              $\omega$ is a parameter known as \underline{acentric factor} that measures the non-sphericity of molecules,
-              \begin{displaymath}
-                 \omega \equiv -1 - \log\limits_{10}{\left(P_{r}^{\text{sat}}\right)_{T_{r}=0.7}},
-              \end{displaymath}
-              where $\left(P_{r}^{\text{sat}}\right)_{T_{r}=0.7}$ is the reduced saturation vapour pressure obtained at reduced temperature of 0.7. 
+                   A number of {\it generalised relations} have been developed to calculate the {\it second virial coefficients}, \eg
+                   \begin{displaymath}
+                      \frc{B P_{c}}{R T_{c}} = B^{0} + \omega B^{1},
+                   \end{displaymath}
+                   with terms $B^{0}$ and $B^{1}$ defined by,
+                   \begin{displaymath}
+                      B^{0} = 0.083 - \frc{0.422}{T_{r}^{1.6}}\;\;\text{ and }\;\; B^{1} = 0.139 - \frc{0.172}{T_{r}^{4.2}}.
+                   \end{displaymath}
+                   $\omega$ is a parameter known as \underline{acentric factor} that measures the non-sphericity of molecules,
+                   \begin{displaymath}
+                      \omega \equiv -1 - \log\limits_{10}{\left(P_{r}^{\text{sat}}\right)_{T_{r}=0.7}},
+                   \end{displaymath}
+                   where $\left(P_{r}^{\text{sat}}\right)_{T_{r}=0.7}$ is the reduced saturation vapour pressure obtained at reduced temperature of 0.7. 
+%
+                \item The truncated form of the {\it Virial EOS} can be used to represent PVT behaviour of gases with reasonable accuracy at relatively low pressures. At moderate and high pressures, predicted volumetric properties deviate from expected and alternative EOS formulations have been developed. \underline{Cubic EOS} are widely used in flow and process simulators to represent PVT behaviour of fluids, and were developed as a cubic function of the molar volume (or the compressibility factor, $Z$). Cubic equations of state can result in (reasonable) accurate prediction of both gas and liquid (saturated) molar volumes and are relatively easy to implement. Since the development of the first cubic EOS in the 19$^{\text{th}}$ century, several EOS have been proposed and used by industry. Four of the most important cubic EOS are listed below:
+                   \begin{enumerate}[c.1)]
+%
+                      \item The \underline{van der Walls} (vdW) EOS was originally developed in 1873 and has the form,
+                          \begin{equation}
+                             P = \frc{R T}{V-b} - \frc{a}{V^{2}},\label{Mod02_vdWEOS}
+                          \end{equation}
+                          where $a$ is called the {\it attraction parameter} and $b$ is the {\it repulsive parameter} (or {\it effective molecular volume} or {\it co-volume}), 
+                          \begin{displaymath}
+                              a = \frc{27}{64}\frc{R^{2}T_{c}^{2}}{P_{c}},\;\;\; b = \frc{1}{8}\frc{R T_{c}}{P_{c}},
+                          \end{displaymath}
+                          and they take into account interactions between molecules. Although this EOS is able to predict volumetric properties of gasses better than the ideal EOS, it is still very inaccurate for liquids and for fluids at high pressure.  Redlich-Kwong and Soave-Redlich-Kwong were formulated in the 40's and 70's and became increasingly popular in the oil $\&$ gas and petrochemical sectors. 
+%
+                      \item Redlich-Kwong (RK EOS):
+                           \begin{equation}
+                               P = \frc{R T}{V-b} - \frc{a}{V\sqrt{T}\left(V+b\right)},\label{Mod02_RKEOS}
+                           \end{equation}
+                           with,
+                          \begin{displaymath}
+                              a = \frc{0.42748 R^{2}T_{c}^{2}}{P_{c}},\; \text{ and }\;\;\; b = \frc{0.08664 R T_{c} }{P_{c}}.
+                          \end{displaymath}
+%
+                      \item Soave-Redlich-Kwong (SRK EOS):
+                           \begin{equation}
+                               P = \frc{R T}{V-b} - \frc{a\alpha}{V\left(V+b\right)},\label{Mod02_SRKEOS}
+                           \end{equation}
+                           with,
+                          \begin{eqnarray}
+                              &&a = \frc{0.427 R^{2}T_{c}^{2}}{P_{c}},\;\;\;b = \frc{0.08664 R T_{c} }{P_{c}} \nonumber \\
+                              &&\text{and }\;\;\; \alpha = \left[1 + \left( 0.48508 + 1.55171\omega - 0.15613\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}\nonumber
+                          \end{eqnarray}                          
+%
+                      \item Peng-Robinson (PR EOS):
+                           \begin{equation}
+                               P = \frc{R T}{V-b} - \frc{a\alpha}{V\left(V+b\right)+b\left(V-b\right)},\label{Mod02_PREOS}
+                           \end{equation}
+                           with,
+                          \begin{eqnarray}
+                              && a = \frc{0.45274 R^{2}T_{c}^{2}}{P_{c}},\;\;\;b = \frc{0.07780 R T_{c} }{P_{c}},\;\;\alpha = \left[1 + \kappa\left(1-\sqrt{T_{r}}\right)\right]^{2}  \nonumber \\
+                              &&\text{ and }\; \kappa = 0.37464 + 1.54226\omega - 0.26992\omega^{2} \nonumber
+                          \end{eqnarray}                
+%
+                   \end{enumerate}
+                   These EOS can be generalised and manipulated to appear as a cubic function of the compressibility factor, $Z=\frc{PV}{RT}$,
+                   \begin{equation}
+                      Z^{3} + k_{1} Z^{2} +k_{2} Z + k_{3} = 0,\label{Mod02_GeneralEOS}
+                   \end{equation}
+                   where
+                   \begin{eqnarray}
+                     && A = \frc{aP}{\left(RT\right)^{2}},\;\; B = \frc{bP}{RT},\;\; k_{1} = -1 -B + uB \nonumber \\
+                     && k_{2} = A + w B^{2} - uB -uB^{2}\;\;\text{ and }\;\; k_{3} = - AB -w B^{2} -w B^{3}\nonumber
+                   \end{eqnarray}
+
+\begin{table}[h]
+  \begin{center}
+  \begin{tabular}{ c | c c c c c }
+    \hline
+      {\bf EOS} & {\bf $u$} & {\bf $w$} & {\bf k$_{1}$} & {\bf k$_{2}$} & {\bf k$_{3}$} \\
+    \hline
+        {\bf vdW} &    0    &    0    & -1-B       &     A         & -AB         \\
+        {\bf RK}  &    1    &    0    & -1         &  A-B-B$^{2}$   & -AB         \\
+        {\bf SRK} &    1    &    0    & -1         &  A-B-B$^{2}$   & -AB         \\
+        {\bf PR}  &    2    &   -1    & -1+B       & A-2B-3B$^{2}$  & -AB+B$^{2}$+B$^{3}$ \\
+    \hline
+  \end{tabular}
+  \end{center}
+\end{table}
+
+
+
+                  
 
 %
             \end{enumerate}
