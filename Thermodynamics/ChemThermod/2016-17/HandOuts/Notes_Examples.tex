@@ -726,14 +726,14 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
                           \end{eqnarray}                
 %
                    \end{enumerate}
-                   These EOS can be generalised and manipulated to appear as a cubic function of the compressibility factor, $Z=\frc{PV}{RT}$,
+                   These EOS can be generalised and manipulated to appear as a cubic function of the compressibility factor, $Z$,
                    \begin{equation}
                       Z^{3} + k_{1} Z^{2} +k_{2} Z + k_{3} = 0,\label{Mod02_GeneralEOS}
                    \end{equation}
                    where
                    \begin{eqnarray}
-                     && A = \frc{aP}{\left(RT\right)^{2}},\;\; B = \frc{bP}{RT},\;\; k_{1} = -1 -B + uB \nonumber \\
-                     && k_{2} = A + w B^{2} - uB -uB^{2}\;\;\text{ and }\;\; k_{3} = - AB -w B^{2} -w B^{3}\nonumber
+                     && A = \frc{aP}{\left(RT\right)^{2}},\;\; B = \frc{bP}{RT},\;\; k_{1} = -1 -B + uB, \nonumber \\
+                     && k_{2} = A + w B^{2} - uB -uB^{2}\;\;\text{ and }\;\; k_{3} = - AB -w B^{2} -w B^{3}.\nonumber
                    \end{eqnarray}
 
 \begin{table}[h]
@@ -748,10 +748,41 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
         {\bf PR}  &    2    &   -1    & -1+B       & A-2B-3B$^{2}$  & -AB+B$^{2}$+B$^{3}$ \\
     \hline
   \end{tabular}
+  \caption{Values for $u$, $w$ and k$_{i}$ for vdW, RK, SRK and PR EOS --  Eqn.~\ref{Mod02_GeneralEOS}.}\label{Mod02:Table1}
   \end{center}
 \end{table}
+                   Coefficients for these expressions are listed in Table~\ref{Mod02:Table1}. Equation~\ref{Mod02_GeneralEOS} has three roots ($Z_{1}$, $Z_{2}$ and $Z_{3}$), the largest \underline{real positive root} represents the {\it vapour phase}, $Z_{\text{vap}}$, whereas the \underline{smallest real positive root} represents the {\it liquid phase}, $Z_{\text{liq}}$. Intermediate root has no physical meaning. The relevant roots for this cubic polynomial can be solved through:
+                   \begin{eqnarray}
+                       Z_{\text{vap}} = 1 + \beta - q\beta \frc{Z - \beta} {\left(Z+\varepsilon\beta\right)\left(Z+\sigma\beta\right)},\label{Mod02_Zvap} \\
+                       Z_{\text{liq}} = 1 + \beta + \left(Z + \epsilon\beta\right)\left(Z+\sigma\beta\right)\left(\frc{1+\beta-Z}{q\beta}\right)\label{Mod02_Zliq}
+                   \end{eqnarray}
+                   with 
+                   \begin{displaymath}
+                      \beta=\Omega\frc{P_{r}}{T_{r}},\;\;\; \text{ and }\;\;\; q=\frc{\Psi\alpha}{\Omega T_{r}}.
+                   \end{displaymath}
+                   Parameters for these expressions are listed in Table~\ref{Mod02:Table2} with
+                   \begin{eqnarray}
+                         \alpha_{\text{SRK}} &=& \left[ 1 + \left( 0.480 + 1.574 \omega - 0.176\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}, \nonumber \\
+                         \alpha_{\text{PR}} &=& \left[ 1 + \left( 0.37464 + 1.54226 \omega - 0.26992\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}. \nonumber
+                   \end{eqnarray}
+                   Equations~\ref{Mod02_Zvap} and ~\ref{Mod02_Zliq} can be numerically solved either using a {\it calculator} or applying any method described in Appendix \red{E.2}.
 
 
+\begin{table}[h]
+    \begin{center}
+       \begin{tabular}{| l | c c c c c| }
+       \hline
+          {\bf EOS}  & {\bf $\alpha$} & {\bf $\sigma$}  & {\bf $\varepsilon$} & {\bf $\Omega$} & {\bf $\Psi$ } \\
+       \hline
+            vdW      & 1              & 0               & 0                  & 1/8            & 27/64          \\
+            RK       & T$_{r}^{-1/2}$  & 1                & 0                  & 0.08664       & 0.42748        \\
+           SRK       &$\alpha_{\text{SRK}}$& 1            & 0                   & 0.08664       & 0.42748        \\
+            PR       &$\alpha_{\text{PR}}$& 1+$\sqrt{2}$   & 1-$\sqrt{2}$        & 0.07780        & 0.45724  \\
+       \hline
+       \end{tabular}
+  \caption{Parameters for Eqns.~\ref{Mod02_Zvap}-~\ref{Mod02_Zliq}.}\label{Mod02:Table2}
+  \end{center}
+\end{table}
 
                   
 
@@ -769,24 +800,110 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
 %%%
 %%% EXAMPLE 
 %%%
-\item\label{Mod02Ex01} Derive the relations for (a) coefficient of thermal expansion and (b) isothermal compressibility coefficient from the equation of state of an ideal gas.
+\item\label{Mod02Ex01} For gaseous methane at 298K and 2 MPa, compute the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ using the SRK EOS. Given $T_{c}=$ 190.7 K, $P_{c}=$ 46.41 bar and $\omega=$ 0.011
 
 % SOLUTION
-       \noindent{\bf Solution:} From the definitions and for ideal gas, $V=\frc{R T}{P}$,
-          \begin{enumerate}[(a)]
+        \noindent{\bf Solution:} We can calculate the molar volume of a real gas using the relation $PV=ZRT$, where the compressibility factor for the gaseous fluid can be obtained from Eqn.~\ref{Mod02_Zvap},
+           \begin{displaymath}
+               Z_{\text{vap}} = 1 + \beta - q\beta \frc{Z - \beta} {\left(Z+\varepsilon\beta\right)\left(Z+\sigma\beta\right)},
+           \end{displaymath}
+           where 
+           \begin{eqnarray}
+               && T_{r}=\frc{T}{T_{c}} = 1.5627,\;\;P_{r}=\frc{P}{P_{c}}=0.4309,\;\;\omega=0.011,\;\;\Omega = 0.08664, \nonumber \\
+               && \Psi = 0.42748,\;\; \sigma=1.0,\;\;\epsilon=0.0,\;\;\beta=\Omega\frc{P_{r}}{T_{r}}=2.3890\times 10^{-2},\nonumber \\
+               && \alpha_{\text{SRK}} = 0.7667\;\;\text{ and }\;\; q = \frc{\Psi\alpha_{\text{SRK}}}{\Omega T_{r}} = 2.4207, \nonumber 
+           \end{eqnarray}
+           leading to $Z_{\text{vap}} = $ 0.9670. Now replacing $Z_{\text{vap}}$ in 
+           \begin{displaymath}
+              V=\frc{Z_{\text{vap}}R T}{P} = 1197.9493 \text{ cm}^{3}.\text{mol}^{-1}
+           \end{displaymath}
+\clearpage
+%%%
+%%% EXAMPLE 
+%%%
+\item\label{Mod02Ex02} Calculate the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ for gaseous butane at 2.5 bar and 298 K using (a) the ideal gas equation, (b) the truncated virial EOS and (c) the PR EOS. Given $T_{c}=$ 425.1 K, $P_{c}=$ 37.96 bar and $\omega=$ 0.20.
+
+% SOLUTION
+        \noindent{\bf Solution:} 
+           \begin{enumerate}[a)]
 %
-              \item $\beta = \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P}$, thus,
+               \item Assuming that butane behaves as an ideal gas,
+                    \begin{displaymath}
+                        V^{\text{IG}} = \frc{RT}{P} = 9910.6456 \text{ cm}^{3}.\text{mol}^{-1}
+                    \end{displaymath}
+%
+               \item From Eqn.~\ref{Mod02_Virial1c},
                   \begin{displaymath}
-                      \beta =\frc{P}{R T}\frc{R}{P} = \frc{1}{T},
+                     Z = \frc{P V}{R T} = 1 + \frc{B P_{c}}{R T_{c}}\frc{P_{r}}{T_{r}},
                   \end{displaymath}
-%
-              \item $\kappa = -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T}$, thus
+                  manipulating this equation with 
                   \begin{displaymath}
-                      \kappa = -\frc{P}{R T}\left(-\frc{R T}{P^{2}}\right) = \frc{1}{P}
+                     \frc{B P_{c}}{R T_{c}} = B^{0} + \omega B^{1},
                   \end{displaymath}
+                  leads to
+                  \begin{displaymath}
+                     V = \frc{R T}{P} + \left(B^{0} + \omega B^{1}\right) \frc{P_{r}R T}{T_{r}P} = \frc{R T}{P} + \left(B^{0} + \omega B^{1}\right)\frc{RT_{c}}{P_{c}},
+                  \end{displaymath}
+                  where $P_{r}=\frac{P}{P_{c}}$ and $T_{r}=\frac{T}{T_{c}}$. Calculating $B^{0}$ and $B^{1}$ from
+                  \begin{displaymath}
+                     B^{0} = 0.083 - \frc{0.422}{T_{r}^{1.6}} = -0.6620\;\;\text{ and }\;\; B^{1} = 0.139 - \frc{0.172}{T_{r}^{4.2}}=-0.6257.
+                  \end{displaymath}
+                  Thus $V^{\text{virial}} = 9430.6465$ cm$^{3}$.mol$^{-1}$.
 %
-          \end{enumerate}
+               \item Now, in order to calculate the molar volume using the PR EOS, we first need to calculate the compressibility factor $Z_{\text{vap}}$, Eqn.~\ref{Mod02_Zvap},
+                  \begin{displaymath}
+                     Z_{\text{vap}} = 1 + \beta - q\beta \frc{Z - \beta} {\left(Z+\varepsilon\beta\right)\left(Z+\sigma\beta\right)},
+                  \end{displaymath}
+                  with
+                  \begin{eqnarray}
+                     && T_{r}=\frc{T}{T_{c}} = 0.7010,\;\;P_{r}=\frc{P}{P_{c}}=6.5859\times 10^{-2},\;\;\omega=0.20,\;\;\Omega = 0.0078, \nonumber \\
+                     && \Psi = 0.45724,\;\; \sigma=1+\sqrt{2},\;\;\epsilon=1-\sqrt{2},\;\;\beta=\Omega\frc{P_{r}}{T_{r}}=7.3281\times 10^{-4},\nonumber \\
+                     && \alpha_{\text{PR}} = 1.2308\;\;\text{ and }\;\; q = \frc{\Psi\alpha_{\text{PR}}}{\Omega T_{r}} = 102.9246, \nonumber 
+                  \end{eqnarray}
+                  Solving numerically leads to $Z_{\text{vap}}=0.9188$ and $V=\frc{Z_{\text{vap}}RT}{P} = 9105.9012$ cm$^{3}$.mol$^{-1}$.
 %
+           \end{enumerate}
+\clearpage
+%%%
+%%% EXAMPLE 
+%%%
+   \item\label{Mod02Ex03} Derive the relations for coefficient of thermal expansion and the isothermal compressibility coefficient for
+              \begin{enumerate}[(a)]
+                  \item Ideal gas EOS;
+                  \item $V=\frc{a}{RT}+\frc{bT}{PR}$ 
+              \end{enumerate}
+
+% SOLUTION
+        \noindent{\bf Solution:} Here we need to obtain expressions for 
+           \begin{eqnarray}
+                && \beta = \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P} \nonumber \\
+                && \kappa = -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T} \nonumber
+           \end{eqnarray}
+           for 
+           \begin{enumerate}[a)]
+%
+               \item Ideal gas EOS, $V=\frc{R T}{P}$,
+                    \begin{displaymath}
+                       \beta =\frc{P}{R T}\frc{R}{P} = \frc{1}{T},
+                    \end{displaymath}
+                    and 
+                    \begin{displaymath}
+                       \kappa = -\frc{P}{R T}\left(-\frc{R T}{P^{2}}\right) = \frc{1}{P}
+                    \end{displaymath}
+%
+               \item $V=\frc{a}{RT}+\frc{bT}{PR}$: Solving the partial differentials,
+                    \begin{displaymath}
+                       \left(\frc{\partial V}{\partial T}\right)_{P} = \frc{b}{PR}-\frc{a}{RT^{2}}\;\;\text{ and }\;\; \left(\frc{\partial V}{\partial P}\right)_{T} = -\frc{bT}{P^{2}R},
+                    \end{displaymath}
+                    thus
+                    \begin{eqnarray}
+                       && \beta =\frc{1}{\frc{a}{RT}+\frc{bT}{PR}}\left(\frc{b}{PR}-\frc{a}{RT^{2}}\right) = \frc{\frc{bT^{2}-aP}{PRT^{2}}}{\frc{aP+bT^{2}}{PRT}} = -\frc{1}{T} \nonumber \\
+                       && \kappa = -\frc{1}{\frc{a}{RT}+\frc{bT}{PR}} \left(-\frc{bT}{PR^{2}}\right) = \frc{bT^{2}}{R\left(aP+bT^{2}\right)} \nonumber
+                    \end{eqnarray}
+                    
+%
+           \end{enumerate}
+%     
 \end{enumerate}
 
 \clearpage
