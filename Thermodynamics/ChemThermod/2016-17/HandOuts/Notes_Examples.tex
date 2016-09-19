@@ -92,11 +92,12 @@
 \newcommand{\purple}{\textcolor{purple}}
 \newcommand{\eg}{{\it e.g., }}
 \newcommand{\ie}{{\it i.e., }}
+\newcommand{\wrt}{{\it wrt }}
  
 \begin{document}
 
 %%%
-%%% SECTION
+%%% SECTION 1
 %%%
 \section{Module 01: Introduction and Principles}\label{Section:01}
 
@@ -565,7 +566,7 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%
-%%% SECTION
+%%% SECTION 2
 %%%
 \section{Module 02: Volumetric Properties of Pure Fluids}\label{Section:02}
 
@@ -798,7 +799,7 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
 %%%
 %%% EXAMPLE 
 %%%
-\item\label{Mod02Ex01} For gaseous methane at 298K and 2 MPa, compute the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ using the SRK EOS. Given $T_{c}=$ 190.7 K, $P_{c}=$ 46.41 bar and $\omega=$ 0.011
+\item\label{Mod02Ex01} For gaseous methane at 298K and 2 MPa, compute the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ using the SRK EOS. Given $T_{c}=$ 190.7 K, $P_{c}=$ 46.41 bar and $\omega=$ 0.011.
 
 % SOLUTION
         \noindent{\bf Solution:} We can calculate the molar volume of a real gas using the relation $PV=ZRT$, where the compressibility factor for the gaseous fluid can be obtained from Eqn.~\ref{Mod02_Zvap},
@@ -985,9 +986,182 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%
-%%% SECTION
+%%% SECTION 3
 %%%
 \section{Module 03: Thermodynamic Properties of Pure Fluids}\label{Section:03}
+
+
+%%% SUBSECTION
+\subsection{Thermodynamic Property Relations for Single Phase Systems}
+
+In Module~\ref{Section:01}, we have learnt that the First Law for reversible processes in closed systems can be written as (for $n$ moles),
+   \begin{equation}
+       d\left(n U\right) = d Q_{\text{rev}} + d W_{\text{rev}},\label{Mod03_FirstLaw}
+   \end{equation} 
+with $d W_{\text{rev}} = -Pd(nV)$ and $d Q_{\text{rev}}=Td(nS)$,
+   \begin{equation}
+       d\left(n U\right) = T d(nS) - Pd(nV).\label{Mod03_FirstSecondLaw}
+   \end{equation} 
+This relation involves {\it only state functions}, therefore is not restricted to reversible processes. The only constraint of this relation is that it is defined for closed systems and it assumes that changes may occur between equilibrium states. Finally, Eqn.~\ref{Mod03_FirstSecondLaw} involves five thermodynamic properties: $P, T, V, U$ and $S$. For $n=1$ mol, Eqn.~\ref{Mod03_FirstSecondLaw} becomes,
+   \begin{equation}
+      TdS = dU + PdV,\label{Mod03_FundamentalRelation01}
+   \end{equation}
+however, we know the definition of enthalpy,
+   \begin{displaymath}
+      dH = dU + d(PV) = dU + PdV + VdP.
+   \end{displaymath}
+Replacing the bove relation in Eqn.~\ref{Mod03_FundamentalRelation01},
+   \begin{equation}
+      TdS = dH - VdP.\label{Mod03_FundamentalRelation02}
+   \end{equation}
+Equations~\ref{Mod03_FundamentalRelation01}-\ref{Mod03_FundamentalRelation02} correlatesentropy changes to changes in other thermodynamic properties
+   \begin{eqnarray}
+      && dU = TdS - PdV \nonumber \\
+      && dH = TdS + VdP. \nonumber 
+   \end{eqnarray}
+These two fundamental relations can be used to define the two remaining thermodynamic potentials: Gibbs ($G$) free and Helmholtz free ($A$) energy functions:
+   \begin{eqnarray}
+      && A = U -TS \nonumber \\
+      && G =  H -TS, \nonumber 
+   \end{eqnarray}
+or in differential form,
+   \begin{eqnarray}
+      && dA = dU -TdS - SdT \nonumber \\
+      && dG = dH -TdS - SdT.\nonumber 
+   \end{eqnarray}
+Using Eqns.~\ref{Mod03_FundamentalRelation01}-\ref{Mod03_FundamentalRelation02}:
+   \begin{eqnarray}
+      && dA = - SdT - PdV, \label{Mod03_HelmholtzFundamentalRelation01}\\ 
+      && dG = - SdT + VdP. \label{Mod03_GibbsFundamentalRelation01}
+   \end{eqnarray}
+These four equations, Eqns.~\ref{Mod03_FundamentalRelation01}-~\ref{Mod03_GibbsFundamentalRelation01} are known as {\it fundamental thermodynamic relations} as they correlate the five thermodynamic potentials -- $U$, $H$, $S$, $G$, and $A$ with $PVT$ properties.
+
+
+
+%%% SUBSECTION
+\subsection{Maxwell Relations}\label{Section:03:MaxwellRelations}
+
+The four energy relations, Eqns.~\ref{Mod03_FundamentalRelation01}-~\ref{Mod03_GibbsFundamentalRelation01}, can be defined from a generic functional, 
+   \begin{displaymath}
+    f = f(a,b),
+   \end{displaymath}
+with the assumption that the thermodynamic potentials ($f$ above) are \blue{continuous and differentiable throughout the domain}. Therefore we can write the total derivative of function $f$ as
+   \begin{displaymath}
+         df = \underbrace{\left(\frc{\partial f}{\partial a}\right)_{b}}_{M}da + \underbrace{\left(\frc{\partial f}{\partial b}\right)_{a}}_{N}db = Mda + Ndb.
+   \end{displaymath}
+Now, if we differentiate $M$ \wrt $b$ and $N$ \wrt $a$,
+   \begin{displaymath}
+         \left(\frc{\partial M}{\partial b}\right)_{a} = \frc{\partial^{2}f}{\partial a\partial b} \;\;\;\text{ and }\;\;\; \left(\frc{\partial N}{\partial a}\right)_{b} = \frc{\partial^{2}f}{\partial b\partial a},
+   \end{displaymath}
+since we required that $f(a,b)$ to be \underline{continuous}, 
+   \begin{equation}
+         \frc{\partial^{2}f}{\partial a\partial b} = \frc{\partial^{2}f}{\partial b\partial a}\;\;\Longrightarrow \left(\frc{\partial M}{\partial b}\right)_{a} = \left(\frc{\partial N}{\partial a}\right)_{b}\label{Mod03_EqualRelation}
+   \end{equation}
+Now applying Eqn.~\ref{Mod03_EqualRelation} into ~\ref{Mod03_FundamentalRelation01},
+   \begin{eqnarray}
+        df &=& Mda + Ndb, \nonumber \\
+        dU &=& TdS - PdV, \nonumber
+   \end{eqnarray}
+with $M=T$, $da=dS$, $N=-P$, $db = dV$ and $da = dS$ leading to,
+   \begin{equation}
+       \left(\frc{\partial M}{\partial b}\right)_{a} = \left(\frc{\partial N}{\partial a}\right)_{b} \;\;\;\Longrightarrow \left(\frc{\partial T}{\partial V}\right)_{S} = - \left(\frc{\partial P}{\partial S}\right)_{V}\label{Mod03_MaxwellRelation1}
+   \end{equation}
+Using the same procedure with  Eqn.~\ref{Mod03_FundamentalRelation02}-~\ref{Mod03_GibbsFundamentalRelation01},
+   \begin{eqnarray}
+          &&\left(\frc{\partial T}{\partial P}\right)_{S} = \left(\frc{\partial V}{\partial S}\right)_{P},\label{Mod03_MaxwellRelation2} \\
+          &&\left(\frc{\partial S}{\partial V}\right)_{T} = \left(\frc{\partial P}{\partial T}\right)_{V},\label{Mod03_MaxwellRelation3} \\
+          &&-\left(\frc{\partial S}{\partial P}\right)_{T} = \left(\frc{\partial V}{\partial T}\right)_{P},\label{Mod03_MaxwellRelation4} 
+   \end{eqnarray}
+The \blue{Maxwell relations}, Eqns.~\ref{Mod03_MaxwellRelation1}-~\ref{Mod03_MaxwellRelation4}, allow determining changes in entropy without directly measurement, but only with changes on the PVT properties. We can also make use of the total derivative definition and apply it into Eqns.~\ref{Mod03_FundamentalRelation01}-~\ref{Mod03_GibbsFundamentalRelation01}, thus
+   \begin{eqnarray}
+                      &                            & df =  \left(\frc{\partial f}{\partial a}\right)_{b}da + \left(\frc{\partial f}{\partial b}\right)_{a}db \nonumber \\
+      dU = TdS - PdV  &\;\;\;\Longrightarrow \;\;\;& dU =  \underbrace{\left(\frc{\partial U}{\partial S}\right)_{V}}_{T}dS + \underbrace{\left(\frc{\partial U}{\partial V}\right)_{S}}_{-P}dV \nonumber \\
+      dH = TdS + VdP  &\;\;\;\Longrightarrow \;\;\;& dH =  \underbrace{\left(\frc{\partial H}{\partial S}\right)_{P}}_{T}dS + \underbrace{\left(\frc{\partial H}{\partial P}\right)_{S}}_{V}dP \nonumber \\
+      dA = -SdT - PdV &\;\;\;\Longrightarrow \;\;\;& dA =  \underbrace{\left(\frc{\partial A}{\partial T}\right)_{V}}_{-S}dT + \underbrace{\left(\frc{\partial A}{\partial V}\right)_{T}}_{-P}dV \nonumber \\
+      dG = -SdT + VdP &\;\;\;\Longrightarrow \;\;\;& dG =  \underbrace{\left(\frc{\partial G}{\partial T}\right)_{P}}_{-S}dT + \underbrace{\left(\frc{\partial G}{\partial P}\right)_{T}}_{V}dP \nonumber 
+   \end{eqnarray}
+Therefore
+   \begin{eqnarray}
+       \left(\frc{\partial U}{\partial S}\right)_{V} & =  T = & \left(\frc{\partial H}{\partial S}\right)_{P}\label{Mod03_MaxwellRelation5} \\
+       \left(\frc{\partial U}{\partial V}\right)_{S} & = -P = & \left(\frc{\partial A}{\partial V}\right)_{T}\label{Mod03_MaxwellRelation6} \\
+       \left(\frc{\partial H}{\partial P}\right)_{S} & =  V = & \left(\frc{\partial G}{\partial P}\right)_{T}\label{Mod03_MaxwellRelation7} \\
+       \left(\frc{\partial A}{\partial T}\right)_{V} & = -S = & \left(\frc{\partial G}{\partial T}\right)_{P}\label{Mod03_MaxwellRelation8}
+   \end{eqnarray}
+These properties relations, Eqns.~\ref{Mod03_MaxwellRelation5}-~\ref{Mod03_MaxwellRelation8}, correlate easily measurable properties -- $P$, $V$ and $T$, with non-measurable potentials -- $U$, $H$, $S$, $A$ and $G$.
+
+
+
+
+
+
+
+
+\clearpage
+
+%%% SUBSECTION
+\subsection{Examples}
+
+\begin{enumerate}[1)]
+%%%
+%%% EXAMPLE 
+%%%
+\item\label{Mod03Ex01} A block of copper of 1 kg undertakes a reversible compression from 0.1 MPa to 100 MPa at constant temperature of 15$^{\circ}$C. Calculate:
+    \begin{enumerate}[a)]
+       \item Work done on the copper block during the process;
+       \item Change in entropy {\it per} kg of copper;
+       \item Heat transfer and;
+       \item Change of internal energy {\it per} kg.
+    \end{enumerate}
+    Given, 
+    \begin{itemize}
+       \item Volume expansivity coefficient: $\beta = 5\times 10^{-5}$ K$^{-1}$;
+       \item Isothermal compressibility coefficient: $\kappa = 8.6\times 10^{-12}$ m${2}$.N$^{-1}$;
+       \item specific volume: $v=1.14\times 10^{-4}$ m$^{3}$.kg$^{-1}$.
+    \end{itemize} 
+
+% SOLUTION
+    \noindent{\bf Solution:} 
+       \begin{enumerate}[a)]
+%
+            \item The work done during the compression,
+                \begin{displaymath}
+                   w = -\int P dv,
+                \end{displaymath}
+                where $v$ is the specific volume. $\kappa$ was defined in Module~\ref{Section:02} as,
+                \begin{displaymath}
+                   \kappa = \frc{1}{v}\left(\frc{\partial v}{\partial P}\right)_{T}\;\Longrightarrow \; v\kappa dP = - dv \;\;\text{( (with constant T)}
+                \end{displaymath}
+                For isothermal processes
+                \begin{displaymath}
+                   w = -\int P dv = - \int P\left(-v\kappa dP\right) = \frc{v}{2}\kappa\left(P_{2}^{2}-P_{1}^{2}\right) = 4.90 \frc{\text{J}}{\text{kg}}
+                \end{displaymath}
+%
+            \item $ds$ = ? (specific entropy).\\
+                  From the Maxwell relations -- Eqn.~\ref{Mod03_MaxwellRelation4}, 
+                \begin{displaymath}
+                   -\left(\frc{\partial s}{\partial P}\right)_{T} = \left(\frc{\partial v}{\partial T}\right)_{P},
+                \end{displaymath}
+                and from the definition of $\beta$,
+                \begin{eqnarray}
+                    && \beta = \frc{1}{v}\left(\frc{\partial v}{\partial T}\right)_{P} \;\;\Longrightarrow\;\; -\left(\frc{\partial s}{\partial P}\right)_{T} = \beta v \nonumber \\
+                    && ds = -\beta v dP \;\;\Longrightarrow ds = s_{2}-s_{1} = -\beta v \left(P_{2}-P_{1}\right) = -0.5694 \frc{\text{J}}{\text{kg.K}} \nonumber
+                \end{eqnarray}
+%
+            \item The heat transferred in such reversible isothermal process is
+                \begin{displaymath}
+                   dq = Tds \;\;\Longrightarrow q = T\left(s_{2}-s_{1}\right) = -164.07 \frc{\text{J}}{\text{kg}}.
+                \end{displaymath}
+%
+            \item The specific internal energy,
+                \begin{eqnarray}
+                   &&  du = q + w \nonumber \\
+                   && \left(u_{2}-u_{1}\right) = \underbrace{-164.07}_{\text{heat removed from the system}} + \overbrace{4.90}^{\text{work given to the system}} = -159.17 \frc{\text{J}}{\text{kg}}. \nonumber
+                \end{eqnarray}
+ 
+%
+       \end{enumerate} 
+
+\end{enumerate}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
