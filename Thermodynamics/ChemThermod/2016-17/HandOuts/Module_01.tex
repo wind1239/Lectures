@@ -9,9 +9,9 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-%\documentclass[10pt,compress]{beamer}
+\documentclass[10pt,compress]{beamer}
 %Draft or handout mode
-\documentclass[10pt,compress,handout]{beamer}
+%\documentclass[10pt,compress,handout]{beamer}
 %\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
@@ -280,7 +280,7 @@
      \end{column}
      \begin{column}[l]{0.5\linewidth}
         \begin{enumerate}[(a)]\setcounter{enumi}{6}%\scriptsize
-           \item<4-> Make a \underline{blue{serious}} effort to learn (and enjoy!) \red{Matlab}. It will help your performance throughout levels 3-5!
+           \item<4-> Make a \underline{\blue{serious}} effort to learn (and enjoy!) \red{Matlab}. It will help your performance throughout levels 3-5!
            \item<5-> \red{Pace change when compared to \underline{Level 2}. Courses and subjects are \underline{substantially} more complex};
            \item<6-> \blue{Time management} is crucial. \red{Do not leave to study all contents during the \underline{Revision Week}.}   
         \end{enumerate}
@@ -359,7 +359,7 @@
    {\begin{block}<3->{1871: Scottish mathematical physicist James Clerk Maxwell}
      \begin{itemize}
        \item \textcolor{blue}{1856-1869: Professor at Marischal College.}
-       \item \textcolor{blue}{Maxwell's Laws of Eletromagnestism (1861-1881).}
+       \item \textcolor{blue}{Maxwell's Laws of Eletromagnetism (1861-1881).}
        \item \textcolor{blue}{Kinetic theory -- Maxwell-Boltzmann distribution (1860-1866).}
        \item \textcolor{blue}{Maxwell's Thermodynamic relations (1871).}
      \end{itemize}
@@ -1727,23 +1727,184 @@ After this Module you should know the main fundamentals and definitions of class
  \end{enumerate}
 \end{frame}
 
+
+
+\section{Examples}
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 1}
+         \blue{If $P_{1}$ = 3.00 atm, $V_{1}$ = 500 cm$^{3}$, $P_{2}$ = 1.00 atm and $V_{2}$ = 2000 cm$^{3}$. Calculate the work, $W_{\text{rev}}$ (in $J$), for the expansion processes shown in the Figures (a) and (b).}
+      \begin{figure}[h]
+         \begin{center}
+           \includegraphics[width=.6\columnwidth,clip]{./Figs/Mod1Ex1}
+           \vspace{-.1cm}\caption{\blue{Expansion processes.}}
+         \end{center}
+       \end{figure}
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 1}
+           {\bf Solution:} $W_{\text{rev}}$ is related to the area below the curve. Thus, we should use the $PV$ work equation:
+           \begin{itemize}
+              \item<1-> For process {\bf (a)}: 
+                 \visible<1->{\begin{eqnarray}
+                    d W = -PdV \Longrightarrow W &=& -P_{2}\left(V_{2}-V_{1}\right) \nonumber \\
+                                                 &=& - 1\text{ atm}\left(2000-500\right)\text{ cm}^{3} = -1500\text{ atm.cm}^{3} \nonumber 
+                 \end{eqnarray}}
+%
+                 \visible<2->{Now we need to convert {\it atm.cm}$^{3}$ to $J$, thus using the unit conversion table:}
+                    \visible<2->{\begin{eqnarray}
+                       W &=& -1500\blue{\cancel{\text{ atm}}}.\red{\cancel{\text{cm}^{3}}} \frc{1.01325\times 10^{5}\blue{\cancel{\text{ Pa}}}}{1\blue{\cancel{\text{ atm}}}} \frc{1 \frc{\text{kg}}{\text{m.s}^{2}}}{1\blue{\cancel{\text{ Pa}}}} \frc{1\text{ m}^{3}}{ 100^{3} \red{\cancel{\text{ cm}^{3}}}} \nonumber \\
+                         &=& -151.9875 \blue{\cancel{\frc{\text{ kg.m}^{2}}{\text{s}^{2}}}} \frc{ 1 \text{ J}}{ \blue{\cancel{\frc{\text{ kg.m}^{2}}{\text{s}^{2}}}}} \nonumber\\
+                         &=& -151.9875\text{ J} \nonumber
+                    \end{eqnarray}}
+          \end{itemize} 
+%
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 1}
+          \begin{itemize}
+              \item<1-> For process {\bf (b)}, since $P$ is constant, i.e., $P_{1}=P_{2}$:
+                 \visible<1->{\begin{eqnarray}
+                    d W = -PdV \Longrightarrow W &=& -P_{1}\left(V_{2}-V_{1}\right) \nonumber \\
+                                                 &=& - 3\text{ atm}\left(2000-500\right)\text{ cm}^{3} = -4500\text{ atm.cm}^{3} \nonumber \\
+                                                 &=& -455.9625\text{ J} \nonumber
+                 \end{eqnarray}}
+          \end{itemize} 
+%
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 2}
+           \blue{Calculate the internal energy (in $J$) when 1 mol of water is isobarically heated from 25$^{\circ}$C to 30$^{\circ}$C at 1 atm. Given: densities of water are 0.9970 g.cm$^{-3}$ at 0$^{\circ}$C and 0.9956 g.cm$^{-3}$ at 100$^{\circ}$C. Molar mass and heat capacity at constant pressure of water are 18 g.mol$^{-1}$ and 1 cal.$\left(\text{g.}^{\circ}\text{C}\right)^{-1}$, respectively.}\medskip
+
+           \visible<2->{{\bf Solution:} From the 1$^{\text{st}}$ Law, $U=Q+W$ ,and in order to calculate $U$ we first need to obtain heat ($Q$) and work ($W$). $Q$ can be obtained from the heat capacity equation
+          \begin{displaymath}
+             Q = m C_{p} \Delta T,
+          \end{displaymath}}  
+          \visible<3->{where $m$ is the mass of water can be obtained from
+          \begin{displaymath}
+             n = \frc{m}{MW} \Longrightarrow  m = n.MW = 1\text{ mol} . 18 \frc{\text{g}}{\text{mol}} = 18 \text{ g}
+          \end{displaymath}
+          $n$ and $MW$ are number of moles and molar mass, respectively.} \visible<4->{Now,
+          \begin{displaymath}
+             Q = m C_{p} \Delta T = 18\text{ g} . 1 \frc{\text{ cal}}{\text{g.}^{\circ}\text{C}}.\left(30-25\right)^{\circ}\text{C} = 90\text{ cal}
+          \end{displaymath}  }
+\end{frame}
  
+
 %%%
-%%% Appendix
+%%% Slides
 %%%
-%\subsection{Appendix}
-%\begin{frame}
-%\begin{itemize}
-%\item Saturated Water and Steam Tables;
-%\item Superheated Steam at Various Pressure and Temperatures;
-%\item Units Conversion.
-%\end{itemize}
-%\end{frame}
+\begin{frame}
+ \frametitle{Example 2}
+          Now, we should calculate the work through $W=-P\Delta V$, however $V$ is not known, \visible<2->{but we can obtain it from the density relation $V=m/\rho$, thus
+          \begin{eqnarray}
+             W &=& - P\Delta V = -P\left(V_{2}-V_{1}\right) = -P\left(\frc{m}{\rho_{2}} - \frc{m}{\rho_{1}}\right)  \nonumber \\
+               &=& -0.025\text{ atm.cm}^{3} \blue{\times \frc{1.01325\times 10^{5}\text{ Pa}}{1\text{ atm}} \times \frc{1\frc{\text{kg}}{\text{m.s}^{2}}}{1\text{ Pa}}\times} \nonumber \\
+               &&   \hspace{1cm} \blue{\times \frc{1\text{ J}}{1\frc{\text{kg}}{\text{m.s}^{2}}} \times \frc{1\text{ m}^{3}}{100^{3}\text{ cm}^{3}} \times \frc{1\text{ cal}}{4.186\text{ J}}} \nonumber \\
+               &=& -0.0006\text{ cal} \nonumber
+          \end{eqnarray}}
+          \visible<3->{Now, calculating the internal energy,
+          \begin{displaymath}
+             U = Q + W = 89.9994\cancel{\text{ cal}} . \frc{ 4.186\text{ J}}{1\cancel{\text{ cal}}} = 376.7375 \text{ J}
+          \end{displaymath}}
+    
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 3}
+           \blue{Air initially occupying 1 m$^{3}$ at 1.5 bar and 20$^{\circ}$C undergoes an internally reversible compression for which $P V^{\gamma}=$ constant to a final state where the pressure is 6 bar and the temperature is 120$^{\circ}$C. Determine:}
+        \begin{enumerate}[(a)]
+           \item \blue{Value of $\gamma$;}
+           \item \blue{Work and the heat transfer (in kJ).}
+       \end{enumerate}
+       \blue{Assume that heat capacity at constant volume and molar mass of air are 0.718 kJ.$\left(\text{kg.K}\right)^{-1}$ and 29 g.mol$^{-1}$. }
+\medskip
+
+           \visible<2->{{\bf Solution:} 
+        \begin{center}
+           \begin{tabular}{c c c c}
+               {\bf State}  &   $P$ (atm)  &   $T\;\left(^{\circ}\text{C}\right)$ & $V\;\left(\text{m}^{3}\right)$ \\
+                    1       &     1.5      &            20                      & 1  \\
+                    2       &     6.0      &            120                     &     \\              
+           \end{tabular}
+        \end{center}}
+        \begin{itemize}
+            \item<3->In order to calculate the isentropic index $\gamma$, we can use any of the relations learned in the lecture,
+               \begin{displaymath} 
+                   P V^{\gamma} = C, \hspace{1cm} T V^{\gamma-1} = C \hspace{1cm} \text{ and/or } \hspace{1cm} T P^{\frac{1-\gamma}{\gamma}} = C.
+               \end{displaymath}
+        \end{itemize}        
+\end{frame}
+ 
 
 
-%{
-%  \includepdf[pages=-,fitpaper]{./../Pics/Roschke.pdf}
-%}
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 3}
+        \visible<1->{Although $P$ and $V$ is the relation initially given in the problem, we do not know the final volume of air, $V_{2}$. However, initial and final pressure and temperature are known and we can make use of this relationship to obtain $\gamma$,}
+               \visible<2->{\begin{eqnarray} 
+                   T P^{\frac{1-\gamma}{\gamma}} = C \Rightarrow T_{1}P_{1}^{\frac{1-\gamma}{\gamma}} = T_{2}P_{2}^{\frac{1-\gamma}{\gamma}} \nonumber \\
+                   \left(\frc{P_{1}}{P_{2}}\right)^{\frac{1-\gamma}{\gamma}} = \frc{T_{2}}{T_{1}} \Rightarrow \frc{1-\gamma}{\gamma} = \frc{\ln{\frac{T_{2}}{T_{1}}}}{\ln{\frac{P_{1}}{P_{2}}}} \Longrightarrow \gamma = 1.2686  \nonumber
+               \end{eqnarray}}
+        \begin{itemize}
+            \item<3->Compression work can be obtained by integrating $\d W = -P dV$ from state 1 to state 2 with $P=\frac{C}{V^{\gamma}}$,
+               \visible<3->{\begin{eqnarray}
+                 W_{1-2} &=& -\int\limits_{V_{1}}^{V_{2}} P dV = -\int\limits_{V_{1}}^{V_{2}}\frc{C}{V^{\gamma}} dV = -\left.\frc{C}{1-\gamma}V^{1-\gamma}\right|_{V_{1}}^{V_{2}} \nonumber \\
+                         &=& -\frc{C}{1-\gamma}\left(V_{2}^{1-\gamma}-V_{1}^{1-\gamma}\right),\;\;\text{ however, as } C=P_{1}V_{1}^{\gamma}=P_{2}V_{2}^{\gamma} \nonumber
+               \end{eqnarray}}
+        \end{itemize}        
+\end{frame}
 
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 3}
+               \visible<1->{\begin{displaymath}
+                 W_{1-2} =-\frc{P_{2}V_{2}^{\gamma}V_{2}^{1-\gamma} - P_{1}V_{1}^{\gamma}V_{1}^{1-\gamma}}{1-\gamma} = \frc{P_{1}V_{1}-P_{2}V_{2}}{1-\gamma} \nonumber
+               \end{displaymath}}
+               \visible<2->{The relation above, although important, can not be used as we do not know $V_{2}$, however we can change variables through the ideal gas relation}
+               \visible<2->{\begin{eqnarray}
+                  P V = n R T &\Rightarrow& n = \frc{P V}{R T } = \frc{1.5\text{ atm} \times 1\text{ m}^{3}}{ 8.3143 \frc{\text{J}}{\text{mol.K}} 293.15\text{ K}} \times \frc{1.01325\times 10^{5}\text{ Pa}}{1 \text{ atm}} \times \nonumber \\
+                      &&   \times \frc{ 1 \text{ N.m}^{-2}}{1\text{ Pa}}\frc{1 \text{ J}}{1\text{ N.m}} = 62.3580\text{ moles}\nonumber \\
+                    W &=& \frc{P_{1}V_{1}-P_{2}V_{2}}{1-\gamma} = nR\frc{T_{1}- T_{2}}{1-\gamma} \nonumber \\
+                      &=& 62.3580\text{ mol} \times 8.3143 \frc{\text{J}}{\text{mol.K}} \times \frc{\left(293.15-393.15\right)\text{ K}}{1-1.2686} \nonumber \\
+                      &=& 193024.2440 \text{ J} \Longrightarrow W = -193.02 \text{ kJ} \nonumber
+               \end{eqnarray}}
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Example 3}
+               \visible<1->{Heat ($Q$) can be obtained from}
+               \visible<2->{\begin{eqnarray}
+          \Delta u &=& m C_{v}\Delta T = n MW C_{v}\Delta T = Q + W  \nonumber \\
+             Q &=& n MW C_{v}\left(T_{2}-T_{1}\right) - W \nonumber \\
+               &=& 62.3580\text{ mol}\times 29 \frc{\text{g}}{\text{mol}} \red{\frc{1\text{ kg}}{1000\text{ g}}}\times 0.718\frc{\text{kJ}}{\text{kg.K}}\times (393.15-293.15)\text{ K} \nonumber \\
+               && \hspace{1cm} - 193.30 \text{ kJ} \nonumber \\
+                                                          &=& -63.46\text{ kJ}. \nonumber                   
+               \end{eqnarray}}
+\end{frame}
 
 \end{document}
