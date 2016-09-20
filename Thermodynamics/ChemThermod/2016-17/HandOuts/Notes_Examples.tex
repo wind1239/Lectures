@@ -5,7 +5,9 @@
 \usepackage{epsfig,graphicx,times,psfrag}
 \usepackage{natbib}
 \usepackage{pdfpages,enumerate}% ,enumitem}
- \usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{framed}
+\definecolor{shadecolor}{gray}{0.9}
 
 \pagestyle{empty}
 \def\newblock{\hskip .11em plus .33em minus .07em}
@@ -93,6 +95,7 @@
 \newcommand{\eg}{{\it e.g., }}
 \newcommand{\ie}{{\it i.e., }}
 \newcommand{\wrt}{{\it wrt }}
+\newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
  
 \begin{document}
 
@@ -1089,6 +1092,83 @@ Therefore
    \end{eqnarray}
 These properties relations, Eqns.~\ref{Mod03_MaxwellRelation5}-~\ref{Mod03_MaxwellRelation8}, correlate easily measurable properties -- $P$, $V$ and $T$, with non-measurable potentials -- $U$, $H$, $S$, $A$ and $G$.
 
+
+%%% SUBSECTION
+\subsection{Relations for Internal Energy, Enthalpy and Entropy}\label{Section:03:U_H_S_Relations}
+
+Maxwell relations can help to develop relations for changes in $U$, $H$ and $S$ that reflect in heat and work interactions. Given
+    \begin{center}
+       $\begin{cases}
+           H = H(T,P), \text{ and } \\
+           S = S(T,P),
+        \end{cases}$ 
+    \end{center}
+\ie defining {\it enthalpy} and {\it entropy} as functions of temperature and pressure. From Eqn.~\ref{Mod03_FundamentalRelation02},
+    \begin{eqnarray}
+        dH &=& TdS + VdP\;\;\text{ at constant } P\hspace{1cm} \blue{\times\left(1/dT\right)} \nonumber \\
+        \Partial[H]{T}{P} &=& C_{p} = T\Partial[S]{T}{P} \nonumber \\
+        \Partial[S]{T}{P} &=& \frc{C_{p}}{T}\label{Mod03_DerivedEntropyRelation1}
+    \end{eqnarray}
+From Eqn.~\ref{Mod03_FundamentalRelation02} at constant $T$, multiplied by $(1/dP)$,
+    \begin{displaymath}
+       \Partial[H]{P}{T} = T\underbrace{\Partial[S]{P}{T}}_{\text{Eqn.~\ref{Mod03_MaxwellRelation4}}} + V = -T\Partial[V]{T}{P} + V.
+    \end{displaymath}
+Now if we write the derivatives of functions $H$ and $S$,
+    \begin{eqnarray}
+       dH = \Partial[H]{T}{P}dT + \Partial[H]{P}{T}dP \nonumber \\
+       dH = C_{p}dT + \left[V - T\Partial[V]{T}{P}\right]dP,\label{Mod03_DerivedEnthalpyRelation1}
+    \end{eqnarray}
+and using Eqn.~\ref{Mod03_DerivedEntropyRelation1},
+    \begin{eqnarray}
+       dS = \underbrace{\Partial[S]{T}{P}}_{\text{Eqn.~\ref{Mod03_DerivedEntropyRelation1}}}dT + \overbrace{\Partial[S]{P}{T}}^{\text{Eqn.~\ref{Mod03_MaxwellRelation4}}}dP \nonumber \\
+       dS = C_{p}\frc{dT}{T} - \Partial[V]{T}{P}dP\label{Mod03_DerivedEntropyRelations}
+    \end{eqnarray}
+
+\begin{shaded}
+      \noindent
+      For an \blue{ideal gas}, $V=\frac{RT}{P}$ and $\Partial[V]{T}{P} = \frc{R}{P}$, therefore Eqn.~\ref{Mod03_DerivedEnthalpyRelation1} becomes
+         \begin{eqnarray}
+            dH &=& C_{p}dT + \left[V-\overbrace{T\frc{R}{P}}^{=V}\right]dP \nonumber \\
+            dH &=& C_{p}dT,\label{Mod03_DerivedEnthalpyRelation2}
+         \end{eqnarray}
+      and Eqn.~\ref{Mod03_DerivedEntropyRelations} becomes,
+         \begin{equation}
+            dS = C_{p}\frc{dT}{T} -\frc{R}{P}dP.\label{Mod03_DerivedEntropyRelations2}
+         \end{equation}
+\end{shaded}
+
+\bigskip
+
+Similarly, we can express $U$ and $S$ as functions of $T$ and $V$,
+    \begin{center}
+       $\begin{cases}
+           U = U(T,V), \text{ and } \\
+           S = S(T,V),
+        \end{cases}$
+    \end{center} 
+using the same procedure as above starting from the derivatives of functions $U$ and $S$,
+    \begin{eqnarray}
+        dU &=& \Partial[U]{T}{V}dT + \Partial[U]{V}{T}dV, \text{ and } \nonumber \\
+        dS &=& \Partial[S]{T}{V}dT + \Partial[S]{V}{T}dV. \nonumber
+    \end{eqnarray} 
+From Eqn.~\ref{Mod03_FundamentalRelation01}, 
+    \begin{displaymath}
+        dU = TdS - PdV,
+        \begin{cases}
+            \red{\times\Partial[]{T}{V}} \Longrightarrow \Partial[U]{T}{V} = T\Partial[S]{T}{V} = C_{v} \Longrightarrow  \Partial[S]{T}{V} = \frc{C_{v}}{T}\\
+            \red{\times\Partial[]{V}{T}} \Longrightarrow \underbrace{\Partial[U]{V}{T}}_{\text{Eqn.~\ref{Mod03_MaxwellRelation3}}} = T\Partial[S]{V}{T} - P \Longrightarrow \Partial[U]{V}{T} = T\Partial[P]{T}{V}-P   \\
+        \end{cases}
+    \end{displaymath}
+Substituting these relations in the total differentials,
+    \begin{eqnarray}
+        dU = \Partial[U]{T}{V}dT + \Partial[U]{V}{T}dV \;\;&\Longrightarrow&\;\; dU = C_{v}dT + \left[T\Partial[P]{T}{V}-P\right]dV\label{Mod03_DerivedIntEnergyRelation1} \\
+        dS = \Partial[S]{T}{V}dT + \Partial[S]{V}{T}dV \;\;&\Longrightarrow&\;\; dS = \frc{C_{v}}{T}dT + \Partial[P]{T}{V}dV.\label{Mod03_DerivedEntropyRelations3}
+    \end{eqnarray} 
+Equation~\ref{Mod02_Compressibilityexpansivity2} (Module~\ref{Section:02}) relates the isothermal compressibility, $\kappa$, expansivity, $\beta$, $T$, $P$ and $V$,
+     \begin{eqnarray}
+        \frc{dV}{V} &=& \beta dT - \kappa dP \;\;\;\red{\times\Partial[]{T}{V} \nonumber \text{ \ie at }V\text{ constant}} \nonumber \\
+            0       &=& \beta - \kappa\Partial[P]{T}{V} \Longrightarrow \Partial[P]{T}{V} = \frc{\beta}{\kappa} \nonumber
+     \end{eqnarray}
 
 
 
