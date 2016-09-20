@@ -58,7 +58,6 @@
 % presentation.
 \usepackage{multimedia}
 \usepackage{animate}
-\usepackage{comment} 
 
 %%%%% Color settings
 \usepackage{color}
@@ -274,8 +273,8 @@
      \begin{enumerate}[(i)]
        \item <1-> Apply the Second Law of Thermodynamics to understand power and refrigeration systems;
        \item <1-> Identify the engines/equipment commonly found industrial-based thermodynamic cycles; 
-       \item <1-> Study the two power cycles relevant to vapour systems: Carnot and Rankine; 
-       \item <1-> Identify the common operations to improve the cycles' performance / efficiency;
+       \item <1-> Study the power cycle relevant to vapour systems: Rankine; 
+       %\item <1-> Identify the common operations to improve the cycles' performance / efficiency;
        \item <1-> Fundamentals of Refrigeration: Refrigeration and heat pump; Elements of refrigeration; Efficieny; Classification and Properties of Refrigerants;
        \item <1-> Absorption Refrigeration Systems;
  \end{enumerate}
@@ -307,6 +306,8 @@
 %%%           %%%
  \section{Review of Fundamentals of Thermodynamics Engineering}
 
+%%%% COMMENTS
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -341,7 +342,7 @@
      \end{itemize}
   \end{enumerate}
 \end{frame}
-
+\end{comment}
 
 
 %%%
@@ -349,6 +350,8 @@
 %%%
 \subsection{Overall System Analysis}
 
+%%%% COMMENTS
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -441,8 +444,6 @@
 \end{frame}
 \normalsize
 
-
-\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -479,6 +480,7 @@
 \normalsize
 \end{comment}
 
+%%%
 %%%
 %%% Slide
 %%%
@@ -785,6 +787,8 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
 
 \end{frame}
 
+%%%% COMMENT
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -828,6 +832,8 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
 
 \end{frame}
 
+\end{comment}
+
 %%%
 %%% Slide
 %%%
@@ -855,6 +861,8 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
 %%% SUBSECTION
 \subsection{Introduction}
 
+%%%% COMMENT
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -870,6 +878,8 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
 \textcolor{blue}{Fuel used in electricity generation and electricity supplied. (\href{https://www.gov.uk/government/organisations/department-of-energy-climate-change/series/electricity-statistics}{https://www.gov.uk/government/organisations/department-of-energy-climate-change/series/electricity-statistics})}
  \normalsize
 \end{frame}
+
+\end{comment}
 
 
 %%%
@@ -945,6 +955,8 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
 \end{frame}
 
 
+%%%% COMMENT
+\begin{comment}
 %%%
 %%% SUB-SECTION
 %%%
@@ -1009,7 +1021,7 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
  \normalsize
 \end{frame}
 
-
+\end{comment}
 
 %%%
 %%% SUB-SECTION
@@ -1097,7 +1109,7 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
              \item<2-> Steam leaves the boiler at a pressure lower than expected; 
              \item<3-> \underline{Fluid pressure at the turbine inlet} is also \underline{lower than that at the boiler exit} due to pressure drop between pipes; 
              \item<4-> Pressure drop in the \blue{condenser} is usually \underline{negligible}; 
-             \item<5-> In order to mitigate these pressure drops throughout power cycles, water must be pumped to a pressure higher than the required in the ideal cycle. Thus, a more powerful pump (and therefore larger worker input to the pump) is needed, increasing the energy cost.  
+             \item<5-> In order to mitigate these pressure drops throughout power cycles, water must be pumped to a pressure higher than the required in the ideal cycle. Thus, a more powerful pump (and therefore larger work input to the pump) is needed, increasing the energy cost.  
          \end{enumerate}\scriptsize
          \visible<6->{\begin{block}{\begin{center}Efficiencies of Turbines and Pumps\end{center}}
            \begin{eqnarray}\scriptsize
@@ -1138,7 +1150,7 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
               \end{enumerate}
             \item <3-> The thermal efficiency can be improved by
               \begin{enumerate}[(a)]\scriptsize
-                 \item <3-> \blue{Regenerative feed heating};
+                 \item <3-> Regenerative feed heating;
                  \item <3-> \blue{Reheating of steam};
                  \item <3-> Water extraction;
                  \item <3-> Using binary-vapour
@@ -1164,9 +1176,9 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Example 1: Carnot and Rankine efficiencies}
+ \frametitle{Example 1: Rankine efficiency}
  %\scriptsize
-    Steam (dry and saturated) is supplied by the boiler at 15 bar and the condenser pressure is 0.4 bar. Calculate the Carnot and Rankine efficiencies of the cycle. Neglect the pump work.
+    Steam (dry and saturated) is supplied by the boiler at 15 bar and the condenser pressure is 0.4 bar. Calculate the Rankine efficiency of the cycle. Neglect the pump work.
 \end{frame}
 
 %%%
@@ -1308,6 +1320,9 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
 \end{frame}
 
 
+%%%% COMMENT
+\begin{comment}
+
 %%%
 %%% Slide
 %%%
@@ -1432,7 +1447,7 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
   
 \end{frame}
  
-
+\end{comment}
 %%%
 %%% Slide
 %%%
@@ -1499,6 +1514,9 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
   \end{columns}
 \end{frame}
 
+%%%% COMMENT
+\begin{comment}
+
 %%%
 %%% Slide
 %%%
@@ -1549,6 +1567,8 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
 \end{frame}
 
 
+%%%% COMMENT
+\end{comment}
 %%%
 %%% Slide
 %%%
@@ -1838,7 +1858,7 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
  \frametitle{Summary}
   \begin{itemize}
    \item <1-> Components of vapour power and refrigeration cycles;
-   \item <2-> Carnot cycle -- maximum possible efficiency derived from the Second Law of Thermodynamics;
+   %\item <2-> Carnot cycle -- maximum possible efficiency derived from the Second Law of Thermodynamics;
    \item <3-> Rankine cycle is currently used in a number of industrial applications to transform thermal to mechanical/electrical energy;
    \item <4-> Practical improvements to the Rankine cycle to enhance thermal effciency.
    \item <5-> Components of refrigerant cycles;
