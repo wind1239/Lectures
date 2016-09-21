@@ -1176,6 +1176,40 @@ This relation can be used in Eqns.~\ref{Mod03_DerivedIntEnergyRelation1} and~\re
      \end{eqnarray}
 
 
+\begin{shaded} 
+    For liquids, using $\beta$ and $\kappa$ in Eqns.~\ref{Mod03_DerivedEnthalpyRelation1}-~\ref{Mod03_DerivedEntropyRelations},
+       \begin{eqnarray}
+          \Partial[S]{P}{T} &=& -\Partial[V]{T}{P} = -\beta V \nonumber \\
+          \Partial[H]{P}{T} &=& V - T\Partial[V]{T}{P} = V - TV\beta = \left(1-\beta T\right)V, \nonumber
+       \end{eqnarray}
+    leading to
+       \begin{eqnarray}
+             dH &=& C_{p}dT + \left(1-\beta T\right)VdP \label{Mod03_DerivedEnthalpyLiquid}\\
+             dS &=& C_{p}\frc{dT}{T} - \beta V dP.\label{Mod03_DerivedEntropyRelationsLiquid}
+       \end{eqnarray}
+    For internal energy, we can write,
+       \begin{eqnarray}
+          dU &=& dH - d(PV) = dH -PdV -VdP\;\;\;\;\blue{\times\Partial[]{P}{T}} \nonumber \\
+          \Partial[U]{P}{T} &=& \underbrace{\Partial[H]{P}{T}}_{\red{\cancel{V}}-T\Partial[V]{T}{P}} - P\Partial[V]{P}{T} - \red{\cancel{V}} \nonumber \\
+                            &=& - T\underbrace{\Partial[V]{T}{P}}_{\beta V} - P \underbrace{\Partial[V]{P}{T}}_{\kappa V} \nonumber \\
+          \Partial[U]{P}{T} &=& \left(\kappa P - \beta T\right)V \label{Mod03_DerivedInternalEnergyLiquid}
+       \end{eqnarray}
+    This relation is only applied to {\it liquids}.
+\end{shaded}
+
+
+
+
+%%% SUBSECTION
+\subsection{Gibbs Free Energy as Generating Function}\label{Section:03:GibbsGeneratingFunction}
+
+The fundamental relation for the Gibbs free energy, Eqn.~\ref{Mod03_GibbsFundamentalRelation01}, demonstrated that this potential can be expressed as a function of temperature and pressure, $G=G(T,P)$. In chemical industrial (or lab) processes, both properties, $T$ and $P$, can be readily measured and controlled, and therefore used to obtain $G$. A convenient way to deal with this relation is rewrite it in dimensionless form
+    \begin{eqnarray}
+         d\left(\frc{G}{RT}\right) &\equiv& \frc{1}{RT}dG - \frc{GR}{\left(RT\right)^{2}}dT = \frc{1}{RT}\underbrace{dG}_{\text{using Eqn.~\ref{Mod03_GibbsFundamentalRelation01}}} - \overbrace{\frc{G}{RT^{2}}}^{\text{using }G=H-TS}dT \nonumber \\
+                                    & =& \frc{V}{RT}dP - \red{\cancel{\frc{S}{RT}dT}} - \frc{H}{RT^{2}}dT + \red{\cancel{\frc{S}{RT}dT}} \nonumber \\
+         d\left(\frc{G}{RT}\right) &=& \frc{V}{RT}dP - \frc{H}{RT^{2}}dT\label{Mod03_GibbsGeneratingFunction} 
+    \end{eqnarray}
+
 
 
 
