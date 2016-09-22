@@ -1234,14 +1234,19 @@ thus \eg
    \end{equation}
 The {\it residual properties} concept is \underline{only} used for gases, and it is based in the idea that properties of real gases are often close of ideal gas behaviour at similar conditions. We can use {\it generating function} concept, defined in Section~\ref{Section:03:GibbsGeneratingFunction}, to compute changes in properties based on the Gibbs free energy (Eqn.~\ref{Mod03_GibbsGeneratingFunction}),
    \begin{equation}
-      d\left(G^{R}/RT\right) = d\left(G/RT\right) - d\left(G^{\text{ig}}/RT\right) = \frc{V^{R}}{RT}dP - \frc{H^{R}}{RT^{2}}dT\label{Mod03_ResidualProperties_GeneratingGibbsFunction}
+      d\left(G^{R}/RT\right) = d\left(G/RT\right) - d\left(G^{\text{ig}}/RT\right) = \frc{V^{R}}{RT}dP - \frc{H^{R}}{RT^{2}}dT\label{Mod03_ResidualProperties_GeneratingGibbsFunction1}
    \end{equation}
 
    \begin{shaded}
       \noindent {\bf For processes at constant temperature, \ie, }\mathbf{dT=0},
           \begin{displaymath}
-
+              d\left(G^{R}/RT\right) = \frc{V^{R}}{RT}dP,
           \end{displaymath}
+          integrating from $0$ (ideal gas state) to $P$,
+          \begin{eqnarray}
+              \left(\frc{G^{R}}{RT}\right)_{P} &-& \underbrace{\left(\frc{G^{R}}{RT}\right)_{0}}_{\Phi \text{ (integration constant)} = \int\limits_{0}^{P}\overbrace{\frc{V^{R}}{RT}dP}^{\text{replacing by Eqn.~\ref{Mod03_ResidualProperties_V}}}, \nonuber \\
+              \left(\frc{G^{R}}{RT}\right)_{P} = \Phi + \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}\label{Mod03_ResidualProperties_GeneratingGibbsFunction2}
+          \end{eqnarray}
 
    \end{shaded}
 
