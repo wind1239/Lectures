@@ -1237,18 +1237,76 @@ The {\it residual properties} concept is \underline{only} used for gases, and it
       d\left(G^{R}/RT\right) = d\left(G/RT\right) - d\left(G^{\text{ig}}/RT\right) = \frc{V^{R}}{RT}dP - \frc{H^{R}}{RT^{2}}dT\label{Mod03_ResidualProperties_GeneratingGibbsFunction1}
    \end{equation}
 
-   \begin{shaded}
-      \noindent {\bf For processes at constant temperature, \ie, }\mathbf{dT=0},
+%%% SUBSUBSECTION
+   \subsubsection{Properties obtained at Constant Temperature}
+
+      For processes at constant temperature, \ie, $dT=0$,
           \begin{displaymath}
               d\left(G^{R}/RT\right) = \frc{V^{R}}{RT}dP,
           \end{displaymath}
           integrating from $0$ (ideal gas state) to $P$,
           \begin{eqnarray}
-              \left(\frc{G^{R}}{RT}\right)_{P} &-& \underbrace{\left(\frc{G^{R}}{RT}\right)_{0}}_{\Phi \text{ (integration constant)} = \int\limits_{0}^{P}\overbrace{\frc{V^{R}}{RT}dP}^{\text{replacing by Eqn.~\ref{Mod03_ResidualProperties_V}}}, \nonuber \\
-              \left(\frc{G^{R}}{RT}\right)_{P} = \Phi + \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}\label{Mod03_ResidualProperties_GeneratingGibbsFunction2}
+              \left(\frc{G^{R}}{RT}\right)_{P} &-&  \underbrace{\left(\frc{G^{R}}{RT}\right)_{P=0}}_{\Phi \text{ (integration constant)}} =  \int\limits_{0}^{P}\overbrace{\frc{V^{R}}{RT}}^{\text{replacing by Eqn.~\ref{Mod03_ResidualProperties_V}}}dP, \nonumber \\
+              \left(\frc{G^{R}}{RT}\right)_{P} &=& \Phi + \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P},\label{Mod03_ResidualProperties_GeneratingGibbsFunction2}
           \end{eqnarray}
+          Differentiating this expression \wrt $T$ $\left(\text{\ie }\Partial[]{T}{}\right)$ 
+          \begin{displaymath}
+              \Partial[\left(G^{R}/RT\right)]{T}{} = \int\limits_{0}^{P} \left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P},
+          \end{displaymath}
+          here it is important to note that in $\left.\Partial[Z]{T}{}\right|_{P}$, the index $P$ indicates that the differential in brackets is only valid for $P\ne0$, as for $P=0$ the gas is assumed ideal and $Z$ is constant equal to $1$. Now using Eqn.~\ref{Mod03_GibbsGeneratingFunctionPConst},
+          \begin{shaded}
+             \begin{equation}
+                \frc{H^{R}}{RT} = - T\int\limits_{0}^{P}\left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P}.\label{Mod03_ResidualProperties_GeneratingEnthalpyFunction2}
+             \end{equation}
+          \end{shaded}
+          With this expression, one can readily obtain the residual enthalpy of a real gas assuming that $\frac{\partial Z}{\partial T}$ at a prescribed pressure can be obtained by experiments or by differentiating the cubic form in $Z$ of any EOS (Eqns.~\ref{Mod02_GeneralEOS}-~\ref{Mod02_Zvap}). Now, using the fundamental relation $G = H - TS$,
+          \begin{eqnarray}
+                 G^{\text{ig}} &=& H^{\text{ig}} - TS^{\text{ig}} \nonumber \\
+                 G^{R} &=& H^{R} - TS^{R}\;\;\;\;\;\blue{\times\frc{1}{RT}} \;\;\;\Longrightarrow \;\;\; \frc{S^{R}}{R} = \frc{H^{R}}{RT} - \frc{G^{R}}{RT} \nonumber \\
+                 \frc{S^{R}}{R} &=& \underbrace{-T\int\limits_{0}^{P}\left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P}}_{\text{Eqn.~\ref{Mod03_ResidualProperties_GeneratingEnthalpyFunction2}}} \overbrace{- \Phi - \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}}^{\text{Eqn.~\ref{Mod03_ResidualProperties_GeneratingGibbsFunction2}}}\;\;\;\blue{(\text{at constant}\;\; T)}.\label{Mod03_ResidualProperties_GeneratingEntropyFunction1}
+          \end{eqnarray}
+          For practical applications we often require $\Delta S$,
+          \begin{displaymath}
+             \Delta S = S_{2} - S_{1} = \left(S_{2}^{\text{ig}}-S_{1}^{\text{ig}}\right) + \underbrace{\overbrace{\left(S_{2}^{R}-S_{1}^{R}\right)}^{\Phi\text{ cancels out !!}}}_{\text{Thus we can arbitrarily set }\Phi=0}
+          \end{displaymath}
+          Thus
+          \begin{shaded}
+              \begin{eqnarray}
+                  \frc{S^{R}}{R} &=& -T\int\limits_{0}^{P}\left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P} - \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P},\label{Mod03_ResidualProperties_GeneratingEntropyFunction2} \\
+                  \frc{G^{R}}{RT} &=&  \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}.\label{Mod03_ResidualProperties_GeneratingGibbsFunction3} 
+              \end{eqnarray}
+          \end{shaded}
 
-   \end{shaded}
+%%% SUBSUBSECTION
+   \subsubsection{Residual Properties in the Zero-Pressure Limit}
+      
+       By definition, at pressures near to zero $P\rightarrow 0$, the gas behaves as an ideal gas and $Z\rightarrow 1$. However, \underline{not all} residual properties become zero near the near-zero pressure condition. Molar volume for example,
+       \begin{displaymath}
+           \lim\limits_{P\rightarrow 0}V^{R} = \lim\limits_{P\rightarrow 0}V - \lim\limits_{P\rightarrow 0}V^{\text{ig}},
+       \end{displaymath}
+both terms in the r.h.s. tends to $+\infty$ and the difference is assumed undetermined. For other properties:
+       \begin{eqnarray}
+           \lim\limits_{P\rightarrow 0}H^{R} &=& 0, \hspace{2cm} \forall T \text{ (for all $T$)}, \nonumber \\
+           \lim\limits_{P\rightarrow 0}\left(G^{R}/RT\right) &=& \infty-\infty, \hspace{1cm}  \text{undetermined but not necessarily zero}. \nonumber 
+       \end{eqnarray}
+
+
+%%% SUBSECTION
+\subsection{Two-Phase Systems}\label{Section:03:Two_Phase}
+
+When a pure component is in phase equilibrium, {\it all coexisting phases have the same temperature and pressure}. Therefore, the following criterion is applied,
+      \begin{displaymath}
+          dG = VdP - SdT = 0 \;\;\;\;\text{ at constant } T \text{ and } P.
+      \end{displaymath}
+This means that changes in Gibbs free energy in all coexisting phases are the same, \ie,
+      \begin{displaymayth}
+          dG^{\alpha} = dG^{\beta} = dG^{\gamma} = \cdots,
+      \end{displaymath}
+where $\alpha$, $\beta$, $\gamma$, $\cdots$, are phases in thermodynamic equilibrium. Therefore we can write Gibbs change for two given phases as,
+      \begin{displaymath}
+          V^{\alpha}dP^{\text{sat}} - S^{\alpha}dT = 
+      \end{displaymath}
+Hence, the following criterion is applied in the study of phase equilibria [see 3
 
 
 \clearpage
@@ -1315,7 +1373,7 @@ The {\it residual properties} concept is \underline{only} used for gases, and it
  
 %
        \end{enumerate} 
-\clearpage
+
 %%%
 %%% EXAMPLE 
 %%%
