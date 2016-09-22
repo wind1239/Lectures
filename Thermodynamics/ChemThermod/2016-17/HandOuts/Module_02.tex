@@ -760,5 +760,182 @@
    \end{enumerate}
 \end{frame}
 
+\section{Examples}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1}
+    \blue{For gaseous methane at 298K and 2 MPa, compute the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ using the SRK EOS. Given $T_{c}=$ 190.7 K, $P_{c}=$ 46.41 bar and $\omega=$ 0.011.}
+
+   \visible<2->{We can calculate $V$ of a real gas using the relation $PV=ZRT$, where the compressibility factor, $Z$, for the gaseous fluid can be obtained from,}
+           \visible<2->{\begin{displaymath}
+                Z_{\text{vap}} = 1 + \beta - q\beta \frc{Z_{\text{vap}} - \beta} {\left(Z_{\text{vap}}+\varepsilon\beta\right)\left(Z_{\text{vap}} +\sigma\beta\right)},
+           \end{displaymath}
+           where} 
+           \visible<3->{\begin{eqnarray}
+               && T_{r}=\frc{T}{T_{c}} = 1.5627,\;\;P_{r}=\frc{P}{P_{c}}=0.4309,\;\;\omega=0.011,\;\;\Omega = 0.08664, \nonumber \\
+               && \Psi = 0.42748,\;\; \sigma=1.0,\;\;\epsilon=0.0,\;\;\beta=\Omega\frc{P_{r}}{T_{r}}=2.3890\times 10^{-2},\nonumber \\
+               && \alpha_{\text{SRK}} = 0.7667\;\;\text{ and }\;\; q = \frc{\Psi\alpha_{\text{SRK}}}{\Omega T_{r}} = 2.4207, \nonumber 
+           \end{eqnarray}}
+           \visible<4->{There are three ways to solve this non-linear equation, all of them involve iterative methods for root-finder.}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 1 (Solver in the Calculator)}
+{\bf Method 1:} Using a calculator, leading to \red{$Z_{\text{vap}} = $ 0.9670.}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 2 (Substitution Method)}
+{\bf Method 2:}  In this method we rewrite the $Z_{\text{vap}}$ equation as,
+                 \begin{displaymath}
+                     Z_{\text{vap}}^{(i+1)} = 1 + \beta - q\beta \frc{Z_{\text{vap}}^{(i)} - \beta} {\left(Z_{\text{vap}}^{(i)}+\varepsilon\beta\right)\left(Z_{\text{vap}}^{(i)} +\sigma\beta\right)},
+                 \end{displaymath}
+                 where $i$ is an index for the number of iterations. Taking the ideal gas condition as the initial guess, i.e., $Z_{\text{vap}}^{(1)}=1$, 
+                 \begin{eqnarray}
+                    \visible<2->{i=1 &\Rightarrow& Z_{\text{vap}}^{(2)} = 1 + \beta - q\beta \frc{Z_{\text{vap}}^{(1)} - \beta} {\left(Z_{\text{vap}}^{(1)}+\varepsilon\beta\right)\left(Z_{\text{vap}}^{(1)} +\sigma\beta\right)} = 0.96876 \nonumber} \\
+                    \visible<3->{i=2 &\Rightarrow& Z_{\text{vap}}^{(3)} = 1 + \beta - q\beta \frc{Z_{\text{vap}}^{(2)} - \beta} {\left(Z_{\text{vap}}^{(2)}+\varepsilon\beta\right)\left(Z_{\text{vap}}^{(2)} +\sigma\beta\right)} = 0.96707 \nonumber}
+                 \end{eqnarray}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 2 (Substitution Method)} 
+                 \begin{eqnarray}
+                    \visible<1->{i=3 &\Rightarrow& Z_{\text{vap}}^{(4)} = 1 + \beta - q\beta \frc{Z_{\text{vap}}^{(3)} - \beta} {\left(Z_{\text{vap}}^{(3)}+\varepsilon\beta\right)\left(Z_{\text{vap}}^{(3)} +\sigma\beta\right)} = 0.96697 \nonumber} \\ 
+                    \visible<2->{i=4 &\Rightarrow& Z_{\text{vap}}^{(5)} = 1 + \beta - q\beta \frc{Z_{\text{vap}}^{(4)} - \beta} {\left(Z_{\text{vap}}^{(4)}+\varepsilon\beta\right)\left(Z_{\text{vap}}^{(4)} +\sigma\beta\right)} = 0.96696 \nonumber} \\
+                    \visible<2->{\vdots && \vdots \nonumber}
+                 \end{eqnarray}
+                  \visible<3->{these iterations can continue 'till either,}
+                   \begin{itemize}
+                      \item<3-> $i=n_{\text{max}}$, i.e., we reached the maximum number of iterations or,
+                      \item<4-> the solution has converged (i.e, there is no significant change in the solution after k$^{\text{th}}$ iteration).
+                   \end{itemize}
+                   \visible<5->{For the later, we can create a {\it stoppage criteria} to acess if the solution converged,}
+                   \visible<5->{\begin{displaymath}
+                      \mathcal{E} = \frc{\| Z_{\text{vap}}^{(i+1)} - Z_{\text{vap}}^{(i)}\|}{Z_{\text{vap}}^{(i)}}.
+                   \end{displaymath}}
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 2 (Substitution Method)}
+                 If $\mathcal{E}$ is smaller than a prescribed tolerance, than we say that the method converged, otherwise we should continue our iterations. Assuming that $\mathcal{E} \leq 1.0\times 10^{-4}$,
+                 \begin{center}
+                     \begin{tabular}{c c c c}
+                        \hline
+                            $\mathbf{i}$  &  $\mathbf{Z_\text{vap}^{(i)}}$  & $\mathbf{Z_\text{vap}^{(i+1)}}$  & $\mathbf{\mathcal{E}}$ \\  
+                               1         &           1.0                 &  0.96876                      &  3.12$\times$10$^{-2}$ \\
+                               2         &       0.96876                 &  0.96707                      &  1.74$\times$10$^{-3}$ \\
+                               3         &       0.96707                 &  0.96697                      &  1.03$\times$10$^{-4}$ \\
+                               4         &       0.96697                 &  0.96696                      &  \blue{1.03$\times$10$^{-5}$} \\  
+                        \hline
+                     \end{tabular}
+                 \end{center}
+                 Thus after the forth iteration the solution converged to \red{$Z_{\text{vap}}^{(4)} = 0.96696 \sim 0.9670$}.
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 3 (Newton-Raphson Method)}
+{\bf Method 3:} This iterative method (see Appendix E.2) is based on dividing the domain in infinitesimal segments and smoothly `walking towards the solution'. It can be generalised as,
+                  \begin{displaymath}
+                     x^{(i+1)} = x^{(i)} - \frc{F\left(x^{(i)}\right)}{F^{\prime}\left(x^{(i)}\right)},
+                  \end{displaymath}  
+                  where $F^{\prime}\left(x^{(i)}\right) = \frc{d F\left(x^{(i)}\right)}{dx}$, i.e., the first derivative of the function. \visible<2->{In our case, the first step is to manipulate the $Z_{\text{vap}}$ equation as,}
+                  \visible<2->{\begin{displaymath}
+                     F\left(Z_{\text{vap}}\right) = Z_{\text{vap}} - 1 - \beta + q\beta \frc{Z_{\text{vap}} - \beta} {\left(Z_{\text{vap}}+\varepsilon\beta\right)\left(Z_{\text{vap}} +\sigma\beta\right)} = 0,
+                  \end{displaymath}}
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 3 (Newton-Raphson Method)}
+          The Newton-Raphson Method becomes,
+                  \begin{displaymath}
+                     Z_{\text{vap}}^{(i+1)} = Z_{\text{vap}}^{(i)} - \frc{F\left(Z_{\text{vap}}^{(i)}\right)}{F^{\prime}\left(Z_{\text{vap}}^{(i)}\right)}.
+                  \end{displaymath}
+          \visible<2->{The next step is to obtain the derivative of the function $F\left(Z_{\text{vap}}\right)$ with respect to $Z_{\text{vap}}$, i.e., (for $\epsilon=0$)}
+                  \visible<3->{\begin{eqnarray}
+                     F^{\prime}\left(Z_{\text{vap}}\right) &=& \frc{d F^{\prime}\left(Z_{\text{vap}}\right)}{d Z_{\text{vap}}} = \frc{d}{dZ_{\text{vap}}} \left[Z_{\text{vap}} - 1 - \beta + q\beta \frc{Z_{\text{vap}}-\beta}{Z_{\text{vap}}\left(Z_{\text{vap}}+\sigma\beta\right)}\right]\nonumber \\
+                                                       &=& 1 - \frc{q\beta}{\left(Z_{\text{vap}}+\sigma\beta\right)^{2}} + \frc{q\beta^{2}\left(2Z_{\text{vap}}+\sigma\beta\right)}{\left[Z_{\text{vap}}\left(Z_{\text{vap}}+\sigma\beta\right)\right]^{2}}. \nonumber
+                  \end{eqnarray}}
+             
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 3 (Newton-Raphson Method)}
+
+          \visible<1->{This leads to,
+                  \begin{eqnarray}
+                     Z_{\text{vap}}^{(i+1)} &=& Z_{\text{vap}}^{(i)} - \frc{F\left(Z_{\text{vap}}^{(i)}\right)}{F^{\prime}\left(Z_{\text{vap}}^{(i)}\right)} =
+                      Z_{\text{vap}}^{(i)} - \frc{Z_{\text{vap}}^{(i)} - 1 - \beta + q\beta \frc{Z_{\text{vap}}^{(i)} - \beta} {Z_{\text{vap}}^{(i)}\left(Z_{\text{vap}}^{(i)} +\sigma\beta\right)}}{1 - \frc{q\beta}{\left(Z_{\text{vap}}^{(i)}+\sigma\beta\right)^{2}} + \frc{q\beta^{2}\left(2Z_{\text{vap}}^{(i)}+\sigma\beta\right)}{\left[Z_{\text{vap}}^{(i)}\left(Z_{\text{vap}}^{(i)}+\sigma\beta\right)\right]^{2}}}. \nonumber
+                  \end{eqnarray}}
+          \visible<2->{Using ideal gas as initial guess, i.e., $Z_{\text{vap}}^{(1)}=1$ and $\mathcal{E} \leq 1.0\times 10^{-4}$,}
+          \visible<3->{
+                 \begin{center}
+                     \begin{tabular}{c c c c}
+                        \hline
+                            $\mathbf{i}$  &  $\mathbf{Z_\text{vap}^{(i)}}$  & $\mathbf{Z_\text{vap}^{(i+1)}}$  & $\mathbf{\epsilon}$ \\  
+                               1         &           1.0                 &  0.96703                      &  3.30$\times$10$^{-2}$ \\
+                               2         &       0.96703                 &  0.96697                      &  \blue{6.20$\times$10$^{-5}$} \\
+                               3         &       0.96697                 &  0.96697                      & $<$ 1$\times$10$^{-5}$ \\ 
+                        \hline
+                     \end{tabular}
+                 \end{center}}
+          \visible<4->{The solution rapidly converged after the second iteration to \red{$Z_{\text{vap}}^{(2)}=0.96697\sim 0.9670$.}}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 }
+           Now replacing \red{$Z_{\text{vap}} = 0.9670$} in 
+           \begin{displaymath}
+              V=\frc{Z_{\text{vap}}R T}{P} = 1197.9493 \text{ cm}^{3}.\text{mol}^{-1}\sim 1197.95 \text{ cm}^{3}.\text{mol}^{-1}
+           \end{displaymath}
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 2}
+
+\end{frame}
 
 \end{document}
