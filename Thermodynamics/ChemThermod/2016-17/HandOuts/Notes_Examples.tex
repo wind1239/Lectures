@@ -1198,21 +1198,52 @@ This relation can be used in Eqns.~\ref{Mod03_DerivedIntEnergyRelation1} and~\re
 \end{shaded}
 
 
-
-
 %%% SUBSECTION
 \subsection{Gibbs Free Energy as Generating Function}\label{Section:03:GibbsGeneratingFunction}
 
 The fundamental relation for the Gibbs free energy, Eqn.~\ref{Mod03_GibbsFundamentalRelation01}, demonstrated that this potential can be expressed as a function of temperature and pressure, $G=G(T,P)$. In chemical industrial (or lab) processes, both properties, $T$ and $P$, can be readily measured and controlled, and therefore used to obtain $G$. A convenient way to deal with this relation is rewrite it in dimensionless form
     \begin{eqnarray}
          d\left(\frc{G}{RT}\right) &\equiv& \frc{1}{RT}dG - \frc{GR}{\left(RT\right)^{2}}dT = \frc{1}{RT}\underbrace{dG}_{\text{using Eqn.~\ref{Mod03_GibbsFundamentalRelation01}}} - \overbrace{\frc{G}{RT^{2}}}^{\text{using }G=H-TS}dT \nonumber \\
-                                    & =& \frc{V}{RT}dP - \red{\cancel{\frc{S}{RT}dT}} - \frc{H}{RT^{2}}dT + \red{\cancel{\frc{S}{RT}dT}} \nonumber \\
-         d\left(\frc{G}{RT}\right) &=& \frc{V}{RT}dP - \frc{H}{RT^{2}}dT\label{Mod03_GibbsGeneratingFunction} 
+                                    & =& \frc{V}{RT}dP - \red{\cancel{\frc{S}{RT}dT}} - \frc{H}{RT^{2}}dT + \red{\cancel{\frc{S}{RT}dT}} \nonumber
+    \end{eqnarray}
+
+    \begin{shaded} 
+       \begin{eqnarray}
+           d\left(\frc{G}{RT}\right) &=& \frc{V}{RT}dP - \frc{H}{RT^{2}}dT\label{Mod03_GibbsGeneratingFunction} \\
+           && \frc{V}{RT} = \Partial[(G/RT)]{P}{T} \;\;\blue{\text{ for } T\text{ constant}},\label{Mod03_GibbsGeneratingFunctionTConst} \\
+           && \frc{H}{RT} = -T\Partial[(G/RT)]{T}{P} \;\;\blue{\text{ for } P\text{ constant}}.\label{Mod03_GibbsGeneratingFunctionPConst}
+       \end{eqnarray}
+    \end{shaded}
+With a similar procedure we can obtain generating functions from
+    \begin{eqnarray}
+        \frc{S}{R} &=& \frc{H}{RT} - \frc{G}{RT}   \;\;\blue{\Longleftarrow \; G=H-TS \;\;\times(1/RT)}\label{Mod03_EntropyGeneratingFunction} \\
+        \frc{U}{RT} &=& \frc{H}{RT} - \frc{PV}{RT} \;\;\blue{\Longleftarrow \; U=H-PV \;\;\times(1/RT)}\label{Mod03_IntEnergyGeneratingFunction}
     \end{eqnarray}
 
 
+%%% SUBSECTION
+\subsection{Residual Properties}\label{Section:03:ResidualProperties}
 
+Another way to calculate energy and entropy changes for real gases is by defining {\it residual properties}, \ie the difference between any extensive thermodynamic property, $M$ (\eg $V$, $U$, $H$, $S$, $G$ and $A$), in real gases and its equivalent assuming ideal gas behaviour, $M^{\text{ig}}$,
+   \begin{displaymath}
+      M^{R} = M - M^{\text{ig}},
+   \end{displaymath}
+thus \eg
+   \begin{equation}
+      V^{R} = V - V^{\text{ig}} = \underbrace{V}_{=\frac{zRT}{P}} - \frc{RT}{P} = \frc{RT}{P}\left(Z-1\right).\label{Mod03_ResidualProperties_V}
+   \end{equation}
+The {\it residual properties} concept is \underline{only} used for gases, and it is based in the idea that properties of real gases are often close of ideal gas behaviour at similar conditions. We can use {\it generating function} concept, defined in Section~\ref{Section:03:GibbsGeneratingFunction}, to compute changes in properties based on the Gibbs free energy (Eqn.~\ref{Mod03_GibbsGeneratingFunction}),
+   \begin{equation}
+      d\left(G^{R}/RT\right) = d\left(G/RT\right) - d\left(G^{\text{ig}}/RT\right) = \frc{V^{R}}{RT}dP - \frc{H^{R}}{RT^{2}}dT\label{Mod03_ResidualProperties_GeneratingGibbsFunction}
+   \end{equation}
 
+   \begin{shaded}
+      \noindent {\bf For processes at constant temperature, \ie, }\mathbf{dT=0},
+          \begin{displaymath}
+
+          \end{displaymath}
+
+   \end{shaded}
 
 
 \clearpage
@@ -1279,6 +1310,44 @@ The fundamental relation for the Gibbs free energy, Eqn.~\ref{Mod03_GibbsFundame
  
 %
        \end{enumerate} 
+\clearpage
+%%%
+%%% EXAMPLE 
+%%%
+\item\label{Mod03Ex02} Demonstrate that the derivative of molar volume \wrt temperature at constant pressure is
+     \begin{displaymath}
+         \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}},
+     \end{displaymath}
+     and obtain an expression for $\Partial[V]{T}{P}$ for the van der Waals EOS. {\bf Hint:} You should start the proof from the total differential of a continuous function $f(a,b)$,
+     \begin{displaymath}
+         df = \Partial[f]{a}{b}da + \Partial[f]{b}{a}db.
+     \end{displaymath}
+
+% SOLUTION
+    \noindent{\bf Solution:} The total differential of a generic continuous function $f(a,b)$ is
+     \begin{displaymath}
+         df = \Partial[f]{a}{b}da + \Partial[f]{b}{a}db.
+     \end{displaymath}
+     where (from the given thermodynamic function) $f=P$, $a=T$ and $b=V$, \ie
+     \begin{displaymath}
+         dP = \Partial[P]{T}{V}dT + \Partial[P]{V}{T}dV.
+     \end{displaymath}
+     However we want a differential expression in which $P$ is constant, therefore $dP = 0$,
+     \begin{eqnarray}
+         0 &=& \Partial[P]{T}{V}dT + \Partial[P]{V}{T}dV \;\;\;\text{ at } P \text{ constant},\nonumber \\
+         \Partial[V]{T}{P} &=& -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}}.\nonumber
+     \end{eqnarray}
+
+     \medskip\noindent
+     The vdW-EOS is,
+     \begin{displaymath}
+          P = \frc{RT}{V-b} - \frc{a}{V^{2}},
+     \end{displaymath}
+     where $V$ is the molar volume and $a$ and $b$ are constants that {\it depends only on critical properties}, $P_{c}$ and $T_{c}$. Due to the non-linearity of this EOS, obtaining $\Partial[V]{T}{P}$ from a direct differentiation would be difficult. However, we can use the expression that we just derived,
+     \begin{displaymath}
+         \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}} = -\frc{\frc{R}{V-b}}{-\frc{RT}{\left(V-b\right)^{2}+\frc{2a}{V^{3}}}}
+     \end{displaymath}
+    
 
 \end{enumerate}
 
