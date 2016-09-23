@@ -96,6 +96,7 @@
 \newcommand{\ie}{{\it i.e., }}
 \newcommand{\wrt}{{\it wrt }}
 \newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
+\newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}}
  
 \begin{document}
 
@@ -1294,6 +1295,9 @@ both terms in the r.h.s. tends to $+\infty$ and the difference is assumed undete
 %%% SUBSECTION
 \subsection{Two-Phase Systems}\label{Section:03:Two_Phase}
 
+%%% SUBSUBSECTION
+   \subsubsection{Clapeyron Relations}
+
 When a pure component is in phase equilibrium, {\it all coexisting phases have the same temperature and pressure}. Therefore, the following criterion is applied,
       \begin{displaymath}
           dG = VdP - SdT = 0 \;\;\;\;\text{ at constant } T \text{ and } P.
@@ -1319,8 +1323,97 @@ therefore,
           \begin{equation}
               \frc{dP^{\text{sat}}}{dT} = \frc{\Delta H^{\alpha\beta}}{T\Delta V^{\alpha\beta}},\label{Mod03_ClapeyronEqn} 
           \end{equation}
-          this expression is known as {\it Clapeyron Equation}.
+          this expression is known as {\it Clapeyron Equation} and it expresses the relation between a change in temperature and a change in pressure under the conditions of equilibrium between two phases. 
       \end{shaded}
+
+We can determine the enthalpy of vaporisation (\ie latent heat of vaporisation), $H^{\alpha\beta}=H^{\text{fg}}$, at a given $T$ by simply measuring the slope of the saturation curve on a $PT$ diagram (Fig.~\ref{Mod03Fig01}) and the specific volume of saturated liquid and saturated vapour at the given $T$. The {\it Clapeyron Equation} can be simplified for liquid-vapour and solid-vapour phase changes. At low pressures
+      \begin{displaymath}
+         V^{\text{g}} >>>> V^{\text{f}} \;\;\Longrightarrow \;\; V^{\text{fg}} = V^{\text{g}},
+      \end{displaymath}
+if we treat the vapour as an ideal gas, $V^{\text{g}} = \frc{RT}{P}$, and replacing in Eqn.~\ref{Mod03_ClapeyronEqn} 
+      \begin{displaymath}
+          \frc{dP^{\text{sat}}}{dT} = \frc{P^{\text{sat}}\Delta H^{\text{fg}}}{RT^{2}} \;\;\;\Longrightarrow \;\;\; \left(\frc{dP}{P}\right)_{\text{sat}} = \frc{\Delta H^{\text{fg}}}{R}\left(\frc{dT}{T^{2}}\right)_{\text{sat}}.
+      \end{displaymath}
+For infinitesimal intervals of $T$, \underline{$\Delta H^{\text{fg}}$ may be considered as a constant}, thus
+%
+           \begin{figure}[h]
+               \begin{center}
+                   \includegraphics[width=.5\columnwidth,clip]{./../Pics/PT_Diagram2}
+               \end{center} 
+               \caption{ $PT$ diagrams for a pure substance. Graphical representation of the Clapeyron relation.}\label{Mod03Fig01}
+           \end{figure}
+      \begin{shaded}
+          \begin{equation}
+             \frc{d\left(\ln{P^{\text{sat}}}\right)}{dT} = \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \;\;\; \ln{\left(\frc{P_{2}}{P_{1}}\right)_{\text{sat}}} = \frc{\Delta H^{\text{fg}}}{R}\left(\frc{1}{T_{1}}-\frc{1}{T_{2}}\right)_{\text{sat}}.\label{Mod03_ClausiusClapeyronEqn} 
+          \end{equation} 
+This expression is known as {\it Clausius-Clapeyron equation} and is a good approximation when describing temperature and pressure dependence at boiling/condensation and at sublimation/gas deposition.
+      \end{shaded}
+For the dependence of the saturated vapour pressure  on $T$, a number of empirical relations have been developed. The simplest expression is,
+    \begin{displaymath}
+       \ln{P^{\text{sat}}} = A - \frc{B}{T},%\label{Mod03_AntoineSimplest}
+    \end{displaymath}
+where $A$ and $B$ are constants obtained from experiments. A more `popular' relation is,
+    \begin{shaded}
+       \begin{equation}
+          \ln{P^{\text{sat}}} = A - \frc{B}{T+C},\label{Mod03_Antoine}
+       \end{equation}
+       this relation is known as {\it Antoine Equation}, where $A$, $B$ and $C$ are constants obtained experimentally.
+    \end{shaded}
+This two relations, although still widely used by the fluids community are plagued with strong inaccuracy. Due to better accuracy, high-order polynomial relations have become commonly used in flow and process simulators,
+    \begin{displaymath}
+       \ln{P^{\text{sat}}} = \frc{A\tau + B\tau^{1.5} + C\tau^{3} + D\tau^{6}}{1-\tau}\;\;\;\;\text{ with }\;\;\tau = 1 - T_{r}.
+    \end{displaymath}
+
+
+
+%%% SUBSUBSECTION
+   \subsubsection{Vapour-Liquid Equilibrium Systems}
+
+Several processes of engineering relevance occur with fluids in phase equilibria -- either saturated vapour (\ie vapour saturated with liquid droplets) and saturated liquid (\ie liquid saturated with bubbles of vapour). In most cases, it is important to know the actual quantities of both phases in thermodynamic equilibrium, \ie the amount of vapour and liquid present in a constrained system at prescribed temperature and pressure conditions. Let assume that a closed system contains $n$ moles of a chemical species split into $\mathcal{P}$ phases,
+    \begin{displaymath}
+      n = \sum\limits_{j=1}^{\mathcal{P}} \mfr[n]{}{j} = \mfr[n]{}{1} + \mfr[n]{}{2} + \cdots + \mfr[n]{}{\mathcal{P}}.
+    \end{displaymath}
+The mass balance acroos all $\mathcal{P}$ phases can be represented as
+    \begin{displaymath}
+       nV = \mfr[n]{}{1}\mfr[V]{}{1} + \mfr[n]{}{2}\mfr[V]{}{2} + \cdots + \mfr[n]{}{\mathcal{P}}\mfr[V]{}{\mathcal{P}}  = \sum\limits_{j=1}^{\mathcal{P}}\left(nV\right)^{\left(j\right)},
+    \end{displaymath}
+where $V$ is the molar volume. Dividing by $n$
+    \begin{displaymath}
+       V = \frc{\mfr[n]{}{1}}{n}\mfr[V]{}{1} + \frc{\mfr[n]{}{2}}{n}\mfr[V]{}{2} + \cdots + \frc{\mfr[n]{}{\mathcal{P}}}{n}\mfr[V]{}{\mathcal{P}}.
+    \end{displaymath}
+Defining molar (or mole) fraction, $\mfr[x]{}{j}=\frc{\mfr[n]{}{j}}{n}$, where
+    \begin{eqnarray}
+         && \sum\limits_{j=1}^{\mathcal{P}}\mfr[x]{}{j} = 1,  \\
+         && V = \mfr[x]{}{1}\mfr[V]{}{1} + \mfr[x]{}{2}\mfr[V]{}{2} + \cdots + \mfr[x]{}{\mathcal{P}}\mfr[V]{}{\mathcal{P}}. 
+    \end{eqnarray}
+For vapour-liquid systems,
+    \begin{eqnarray}
+         && \mfr[x]{}{L} + \mfr[x]{}{V} = 1,  \nonumber \\
+         && V = \mfr[x]{}{L}\mfr[V]{}{L} + \mfr[x]{}{V}\mfr[V]{}{V}. \nonumber
+    \end{eqnarray}
+For a generic thermodynamic potential $M$ (= $V$, $U$, $H$, $S$ etc),
+    \begin{shaded}
+       \begin{subequations}
+           \begin{equation}
+              M = \left(1-\mfr[x]{}{V}\right)\mfr[M]{}{L} + \mfr[x]{}{V}\mfr[M]{}{V}
+           \end{equation}
+           \begin{equation}
+              M = \mfr[M]{}{L} + \mfr[x]{}{V}\Delta\mfr[M]{}{LV}
+           \end{equation}
+       \end{subequations}
+    \end{shaded}
+$\mfr[x]{}{V}$ is called {\it vapour quality}. Thermodynamic potentials of pure substances are graphically represented by $PH$ (pressure $\times$ enthalpy) and $TS$ (temperature $\times$ entropy) diagrams, Fig.~\ref{Mod03Fig02}, where information on $P$, $T$, $S$, $H$, $x$ and $V$ can be readily extracted.
+%
+           \begin{figure}[h]
+              \vbox{
+                    \hbox{\includegraphics[width=.5\columnwidth,clip]{./Figs/Mod3PHDiagram}
+                          \includegraphics[width=.5\columnwidth,clip]{./Figs/Mod3TSDiagram}}
+                    \vspace{-.1cm}
+                    \hbox{\hspace{4cm}(a)\hspace{8cm}(b)}}
+              \caption{ (a) $PH$ and (b) $TS$ diagrams for a pure substance.}\label{Mod03Fig02}
+           \end{figure}
+%
+    
 
 
 \clearpage
@@ -1423,7 +1516,40 @@ therefore,
      where $V$ is the molar volume and $a$ and $b$ are constants that {\it depends only on critical properties}, $P_{c}$ and $T_{c}$. Due to the non-linearity of this EOS, obtaining $\Partial[V]{T}{P}$ from a direct differentiation would be difficult. However, we can use the expression that we just derived,
      \begin{displaymath}
          \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}} = -\frc{\frc{R}{V-b}}{-\frc{RT}{\left(V-b\right)^{2}+\frc{2a}{V^{3}}}}
-     \end{displaymath}
+     \end{displaymath} 
+
+%%%
+%%% EXAMPLE 
+%%%
+\item\label{Mod03Ex03} The Antoine equation constants for toluene are $A=14.01415$, $B=3106.46$ K and $C=-53.15$ K (for pressure given in kPa). At 1.01325$\times$10$^{5}$ Pa, calculate the boiling temperature and the enthalpy of vaporisation at this temperature.
+
+% SOLUTION
+    \noindent{\bf Solution:} Boiling temperature can be calculated from the Antoine equation,
+       \begin{displaymath}
+          \ln{P^{\text{sat}}} = A - \frc{B}{T+C} \;\;\;\Rightarrow \;\;\; T = \frc{B}{A-\ln{P^{\text{sat}}}} - C = \red{383.77 K}
+       \end{displaymath}
+The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the Clausius-Clapeyron equation,
+         \begin{eqnarray}
+            \frc{d}{dT} \left(\ln{P^{\text{sat}}}\right) &=& \frc{\Delta H^{\text{fg}}}{RT^{2}} \nonumber \\
+             \frc{B}{\left(T+C\right)^{2}} &=&  \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \Delta H^{\text{fg}} = 34.7984 \text{kJ.mol}^{-1}. \nonumber
+         \end{eqnarray}
+ 
+
+%%%
+%%% EXAMPLE 
+%%%
+\item\label{Mod03Ex04} Derive an expression for enthalpy change of a gas during an isothermal process assuming using the following EOS: $P\left(V-b\right)=RT$
+
+% SOLUTION
+    \noindent{\bf Solution:} We have seen that enthalpy change is given by Eqn.~\ref{Mod03_DerivedEnthalpyRelation1},
+    \begin{displaymath}
+       dH = C_{p}dT + \left[V - T\Partial[V]{T}{P}\right]dP.
+    \end{displaymath}
+    We can rearrange the given EOS and obtain $\Partial[V]{T}{P}$,
+    \begin{eqnarray}
+       && P\left(V-b\right)=RT \;\;\;\rightarrow\;\;\; V = \frc{RT}{P} + b \;\;\;\rightarrow\;\;\; \Partial[V]{T}{P} = \frc{R}{P}\;\;\text{ thus, } \nonumber \\
+       && dH = C_{p}dT + \left(V - \frc{RT}{P}\right)dP = \blue{C_{p}dT + bdP}. \nonumber 
+    \end{eqnarray}
     
 
 \end{enumerate}
