@@ -935,6 +935,114 @@
 %%%
 \begin{frame}
  \frametitle{Example 2}
+    \blue{Derive the relations for coefficient of thermal expansion and the isothermal compressibility coefficient for}
+              \begin{enumerate}[(a)]
+                  \item \blue{Ideal gas EOS;}
+                  \item \blue{$V=\frc{a}{RT}+\frc{bT}{PR}$.}
+              \end{enumerate}
+
+    \visible<2->{ Here we need to obtain expressions for 
+           \begin{eqnarray}
+                && \beta = \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P} \nonumber \\
+                && \kappa = -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T} \nonumber
+           \end{eqnarray}}
+
+    \visible<3->{(a) Ideal gas EOS, $V=\frc{R T}{P}$,}
+            \visible<4->{\begin{displaymath}
+                            \beta =\frc{P}{R T}\frc{R}{P} = \frc{1}{T},
+                         \end{displaymath}}
+            \visible<5->{\begin{displaymath}
+                            \kappa = -\frc{P}{R T}\left(-\frc{R T}{P^{2}}\right) = \frc{1}{P}
+                         \end{displaymath}}
+
+\end{frame}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 2}
+    \visible<1->{(a) $V=\frc{a}{RT}+\frc{bT}{PR}$,}
+
+    \visible<2->{\begin{displaymath}
+                   \left(\frc{\partial V}{\partial T}\right)_{P} = \frc{b}{PR}-\frc{a}{RT^{2}}\;\;\text{ and }\;\; \left(\frc{\partial V}{\partial P}\right)_{T} = -\frc{bT}{P^{2}R},
+                 \end{displaymath}}
+
+    \visible<3->{thus, \begin{displaymath}
+                   \beta =\frc{1}{\frc{a}{RT}+\frc{bT}{PR}}\left(\frc{b}{PR}-\frc{a}{RT^{2}}\right) = \frc{\frc{bT^{2}-aP}{PRT^{2}}}{\frc{aP+bT^{2}}{PRT}} = \frc{bT^{2}-aP}{T\left(aP+bT^{2}\right)}
+                 \end{displaymath}}
+
+    \visible<4->{and, \begin{displaymath}
+                   \kappa = -\frc{1}{\frc{a}{RT}+\frc{bT}{PR}} \left(-\frc{bT}{P^{2}R}\right) = \frc{bT^{2}}{P\left(aP+bT^{2}\right)}
+                 \end{displaymath}}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 3}
+    \blue{Calculate the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ for gaseous butane at 2.5 bar and 298 K using:}
+         \begin{enumerate}[(a)]
+            \item \blue{ideal gas equation,}
+            \item \blue{truncated virial EOS (Eqn. 20) and,}
+            \item \blue{PR EOS. }
+         \end{enumerate}  
+         \blue{Given $T_{c}=$ 425.1 K, $P_{c}=$ 37.96 bar and $\omega=$ 0.20.}
+
+   \visible<2->{(a) Ideal gas equation: Assuming that butane behaves as an ideal gas,
+                    \begin{displaymath}
+                        V^{\text{IG}} = \frc{RT}{P} = \blue{9910.6456 \text{ cm}^{3}.\text{mol}^{-1}}.
+                    \end{displaymath}}
+
+   \visible<3->{(b) Truncated virial EOS: From Eqn. 20,
+                  \begin{displaymath}
+                     Z = \frc{P V}{R T} = 1 + \frc{B P_{c}}{R T_{c}}\frc{P_{r}}{T_{r}},
+                  \end{displaymath}}
+   \visible<4->{manipulating this equation with 
+                  \begin{displaymath}
+                     \frc{B P_{c}}{R T_{c}} = B^{0} + \omega B^{1},
+                  \end{displaymath}}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 3 -- truncated virial EOS}
+      \visible<1->{Leads to
+                  \begin{displaymath}
+                     V = \frc{R T}{P} + \left(B^{0} + \omega B^{1}\right) \frc{P_{r}R T}{T_{r}P} = \frc{R T}{P} + \left(B^{0} + \omega B^{1}\right)\frc{RT_{c}}{P_{c}},
+                  \end{displaymath}}
+
+      \visible<2->{where $P_{r}=\frac{P}{P_{c}}$ and $T_{r}=\frac{T}{T_{c}}$. Calculating $B^{0}$ and $B^{1}$ from
+                  \begin{displaymath}
+                     B^{0} = 0.083 - \frc{0.422}{T_{r}^{1.6}} = -0.6620\;\;\text{ and }\;\; B^{1} = 0.139 - \frc{0.172}{T_{r}^{4.2}}=-0.6257.
+                  \end{displaymath}}
+
+      \visible<3->{Leading to \blue{$V^{\text{virial}} = 9430.6465$ cm$^{3}$.mol$^{-1}$}.}
+
+    
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 3 -- PR EOS}
+      \visible<1->{(c) Peng-Robinson cubic EOS: in order to calculate the molar volume, we first need to calculate the compressibility factor $Z_{\text{vap}}$,}
+      \visible<2->{\begin{displaymath}
+                     Z_{\text{vap}} = 1 + \beta - q\beta \frc{Z - \beta} {\left(Z+\varepsilon\beta\right)\left(Z+\sigma\beta\right)},
+                   \end{displaymath}}
+      \visible<3->{with
+                  \begin{eqnarray}
+                     && T_{r}=\frc{T}{T_{c}} = 0.7010,\;\;P_{r}=\frc{P}{P_{c}}=6.5859\times 10^{-2},\;\;\omega=0.20,\;\;\Omega = 0.0078, \nonumber \\
+                     && \Psi = 0.45724,\;\; \sigma=1+\sqrt{2},\;\;\epsilon=1-\sqrt{2},\;\;\beta=\Omega\frc{P_{r}}{T_{r}}=7.3281\times 10^{-4},\nonumber \\
+                     && \alpha_{\text{PR}} = 1.2308\;\;\text{ and }\;\; q = \frc{\Psi\alpha_{\text{PR}}}{\Omega T_{r}} = 102.9246, \nonumber 
+                  \end{eqnarray}}
+      \visible<4->{ Solving numerically leads to $Z_{\text{vap}}=0.9188$ and \blue{$V=\frc{Z_{\text{vap}}RT}{P} = 9105.9012$ cm$^{3}$.mol$^{-1}$}.}
 
 \end{frame}
 
