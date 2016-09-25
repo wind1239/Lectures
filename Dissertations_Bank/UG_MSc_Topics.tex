@@ -100,10 +100,13 @@
 
 
 \newcommand{\frc}{\displaystyle\frac}
-\newcommand{\all}{MSc O$\&$GE, Chemical/Mechanical/Petroleum Engineering}
-\newcommand{\MSc}{MSc O$\&$GE}
-\newcommand{\Chem}{Chemical/Mechanical Engineering}
-\newcommand{\Renew}{MSc Renewable Engineering, Chemical/Mechanical Engineering}
+\newcommand{\all}{MSc O$\&$GE, PetE, UG Chem/Mech/Pet Engineering}
+\newcommand{\MSc}{MSc O$\&$GE, PetE, RenewE}
+\newcommand{\Chem}{UG Chem/Mech Engineering}
+\newcommand{\Renew}{MSc RenewE, UG Chem/Mech Engineering}
+\newcommand{\ie}{{\it i.e., }}
+\newcommand{\eg}{{\it e.g., }}
+\newcommand{\etall}{{\it et al. }}
 
 \newlist{ExList}{enumerate}{1}
 \setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
@@ -137,7 +140,7 @@
 %%%
 %%%
 \item {\bf Initial Design of a Reservoir Simulation Workbench: From Field Mapping to Reservoir Management}\\
-Reservoir simulator is a crucial tool for efficient and cost-eefective hydrocarbon production. It has been developed in both academia and industry for several applications, e.g., optimal production of oil and gas, to ensure safety operation of O$\&$G fields, to predict fluid flow in geological formations, etc. Flow simulations in porous media are often bounded by uncertainties associated with fluid and rock properties and averaging (densities, viscosities, stress, permeabilities, porosities etc), geological formation (data from core, well-log, seismic, geochemistry analysis, etc) and the computational methods used to solve transport equations. 
+Reservoir simulator is a crucial tool for efficient and cost-effective hydrocarbon production. It has been developed in both academia and industry for several applications, e.g., optimal production of oil and gas, to ensure safety operation of O$\&$G fields, to predict fluid flow in geological formations, etc. Flow simulations in porous media are often bounded by uncertainties associated with fluid and rock properties and averaging (densities, viscosities, stress, permeabilities, porosities etc), geological formation (data from core, well-log, seismic, geochemistry analysis, etc) and the computational methods used to solve transport equations. 
 
 \noindent
 {\bf Objectives:}
@@ -151,23 +154,26 @@ Reservoir simulator is a crucial tool for efficient and cost-eefective hydrocarb
 \item Flow simulators: general structure and algorithms, commercial and academic models and software;
 \item History matching.
 \end{enumerate}
-\item Description and analysis of new HPC technologies for flow simulation in giant oil/gas fields.
+\item Description and analysis of new HPC technologies for flow simulation in giant oil/gas fields;
+\item After initial review of the whole workflow (Weeks 1-3), the student {\bf must} choose one/two stage(s) and undertake an in-depth analysis and simulation (in either programming language, \ie Matlab, Python, C or Fortran, or an appropriate simulation tool) on this/these stage(s).
 \end{enumerate}
 
 \noindent
 {\bf Specifics:} 
 \begin{enumerate}
-\item Review and computational (\all) -- 1 student;
-\item After review the whole workflow, the student {\bf must} choose one/two stage(s) and undertake an in-depth analysis and simulation (in Matlab, Python, C or Fortran) on this/these stage(s).
+\item Review and computational (\all) -- 1 student.
 \end{enumerate}
 
 \noindent
 {\bf References:}
 \begin{itemize}
-\item Chen (2007) $\lq$Reservoir Simulation – Mathematical Techniques in Oil Recovery’, SIAM;
-\item Ahmed $\&$ McKinney (2005) $\lq$Advanced Reservoir Engineering’, Elsevier;
-\item Jenny et al. (2002) $\lq$Modeling Flow in Geometrically Complex Reservoirs Using Hexahedral Multiblock Grids’, SPE 78673;
-\item DeBaun et al. (2006) $\lq$An Extensible Architecture for Next Generation Scalable Parallel Reservoir Simulation’, SPE 93274.
+\item Chen (2007) `Reservoir Simulation – Mathematical Techniques in Oil Recovery’, SIAM;
+\item Ahmed $\&$ McKinney (2005) `Advanced Reservoir Engineering’, Elsevier;
+\item Jenny \etall (2002) `Modeling Flow in Geometrically Complex Reservoirs Using Hexahedral Multiblock Grids’, SPE 78673;
+\item DeBaun \etall (2006) `An Extensible Architecture for Next Generation Scalable Parallel Reservoir Simulation’, SPE 93274;
+\item Chen \etall (2006) `Computational Methods for Multiphase Flows in PorousMedia', SIAM Computational Science $\&$ Engineering, ISBN 0-89871-606-3;
+\item Teletzke \etall (2010) `Enhanced Oil Recovery Pilot Testing Best Practices', SPE Journal SPE118055;
+\item Miller \etall (1998) `Multiphase Flow andTransport Modeling in Heterogeneous Porous Media: Challenges and Approaches', Advances in Water Resources 21:77-120.
 \end{itemize}
 
 \clearpage
@@ -175,7 +181,7 @@ Reservoir simulator is a crucial tool for efficient and cost-eefective hydrocarb
 %%%
 %%%
 \item {\bf Advanced Reservoir Management: History-Matching (HM) Workflow} \\
-Flow simulators are widely used in O$\&$G industry to optimise and predict hydrocarbon production. A traditional reservoir simulator workflow includes: geological assessment and initial field mapping, grid/mesh generation, properties upscaling, mult-fluid flow and geo-mechanical simulations and history-matching. History-matching (HM) is often associated with flow simulator validation, i.e., it is used to ensure that field data are accurately represented by simulated solutions, and decision of the reservoir management can be made. More recently, HM has been used for short- and long-term prediction of both reservoir behaviour and O$\&$G production.
+Flow simulators are widely used in O$\&$G industry to optimise and predict hydrocarbon production. A traditional reservoir simulator workflow includes: geological assessment and initial field mapping, grid/mesh generation, properties upscaling, mult-fluid flow and geo-mechanical simulations and history-matching. History-matching (HM) is often associated with flow simulator validation, \ie it is used to ensure that field data are accurately represented by simulated solutions, and decision of the reservoir management can be made. More recently, HM has been used for short- and long-term prediction of both reservoir behaviour and O$\&$G production.
       
 \noindent
 {\bf Objectives:} The aim of this project is to study methods currently used in HM and the applications reservoir management. Therefore the following tasks will be tackled:
@@ -201,11 +207,11 @@ Flow simulators are widely used in O$\&$G industry to optimise and predict hydro
 \noindent
 {\bf References:}
 \begin{itemize}
-\item Mata-Lima (2011) $\lq$Evaluation of the Objective Function to Improve Production History Matching Performance based on Fluid Flow Behaviour’, Journal of Petroleum Science and Engineering 78:42-53;
-\item Becerra et al. (2012) $\lq$Uncertainty History Matching and Forecasting, a Field Case Application’, SPE 153176-MS;
-\item Chitralekha et al.  (2010) $\lq$Application of the EnKF for Characterization and History Matching of Unconventional Oil Reservoirs’, SPE 137480-MS;
-\item Schulze-Rigert $\&$ Ghedan (2007) $\lq$Modern Techniques for History Matching’, 9th International Forum on Reservoir Simulation;
-\item Hajizadeh et al. (2011) $\lq$Ant Colony Optimization for History Matching and Uncertainty Quantification of Reservoir Models’, Journal of Petroleum Science and Engineering 77:78-92. 
+\item Mata-Lima (2011) `Evaluation of the Objective Function to Improve Production History Matching Performance based on Fluid Flow Behaviour’, Journal of Petroleum Science and Engineering 78:42-53;
+\item Becerra et al. (2012) `Uncertainty History Matching and Forecasting, a Field Case Application’, SPE 153176-MS;
+\item Chitralekha et al.  (2010) `Application of the EnKF for Characterization and History Matching of Unconventional Oil Reservoirs’, SPE 137480-MS;
+\item Schulze-Rigert $\&$ Ghedan (2007) `Modern Techniques for History Matching’, 9th International Forum on Reservoir Simulation;
+\item Hajizadeh et al. (2011) `Ant Colony Optimization for History Matching and Uncertainty Quantification of Reservoir Models’, Journal of Petroleum Science and Engineering 77:78-92. 
 \end{itemize}
 %
 \clearpage
@@ -224,7 +230,7 @@ In industrial facilities, CO2 is separated from flue gas and after compression (
 {\bf Objectives:}
 \begin{enumerate}
 \item Energy and exergy analysis (and comparison) of current and last-generation gas-, coal- and biomass-fire power station and averaged CO2 emissions (GHG budget);
-\item Critical review and analysis of state-of-the-art technologies involving CO2 (a) capture (i.e., separation from syngas flows); (b) injection in wells; (c) reaction and thermodynamic equilibrium with the geological formation (geochemistry);
+\item Critical review and analysis of state-of-the-art technologies involving CO2 (a) capture (\ie separation from syngas flows); (b) injection in wells; (c) reaction and thermodynamic equilibrium with the geological formation (geochemistry);
 \item Study of current technologies on integrated gasification combined cycle (IGCC) and the linkages with CCS including current international experiences;
 \item Thermodynamic and flow calculations for energy, exergy and CO2 budget analysis in coal-fired and CHP plants;
 \item Critical review and analysis of sensor network technologies currently used to monitor CO2 plume motion in geological formation.
@@ -242,9 +248,9 @@ In industrial facilities, CO2 is separated from flue gas and after compression (
 \begin{itemize}
 \item International Energy Outlook 2013 (DoE/EIA-0484);
 \item Energy for a Sustainable Future: Reports and Recommendations (2010), The Secretary-General’s Advisory Group on Energy and Climate Change (AGECC);
-\item Pettinau et al. (2013) $\lq$Combustion vs. Gasification for a Demonstration CCS Project in Italy: A Techno-Economic Analysis’, Energy 50:160-169;
-\item Ashworth et al. (2012) $\lq$What’s in store: Lessons from Implementing CCS’, International Journal of Greenhouse Gas Control 9:402-409;
-\item Xu et al. (2007) $\lq$Numerical Modeling of Injection and Mineral Trapping of CO2 with H2S and SO2 in a Sandstone Formation’, Chemical Geology 242:319-346.
+\item Pettinau et al. (2013) `Combustion vs. Gasification for a Demonstration CCS Project in Italy: A Techno-Economic Analysis’, Energy 50:160-169;
+\item Ashworth et al. (2012) `What’s in store: Lessons from Implementing CCS’, International Journal of Greenhouse Gas Control 9:402-409;
+\item Xu et al. (2007) `Numerical Modeling of Injection and Mineral Trapping of CO2 with H2S and SO2 in a Sandstone Formation’, Chemical Geology 242:319-346.
 \end{itemize}
 
 \clearpage
@@ -265,7 +271,7 @@ To calculate thermodynamic equilibrium for a closed system, three conditions mus
 \item Review and analysis of current thermodynamic formulations for hydrate formation and stability;
 \item Critical review of industry experience on mitigation and remediation of hydrates formation in subsea pipelines; 
 \item Study equations of state and optimisation methods used in the stability analysis;
-\item Develop a thermodynamic formulation that describe water, hydrocarbon and hydrate phases in equilibrium (i.e., onset of precipitation).
+\item Develop a thermodynamic formulation that describe water, hydrocarbon and hydrate phases in equilibrium (\ie onset of precipitation).
 \end{enumerate} 
  
 
@@ -274,17 +280,17 @@ To calculate thermodynamic equilibrium for a closed system, three conditions mus
 \begin{enumerate}
 \item Computational, theoretical and review (\all) -- 1 student. 
 \item The student is required to develop an initial thermodynamic solid-liquid-vapour equilibrium (SLVE) formulation;
-\item This formulation will be $\lq$translated' into a code (e.g., Matlab, Python etc) and coupled with a optimisation software to assess its initial reliability/accuracy.
+\item This formulation will be `translated' into a code (e.g., Matlab, Python etc) and coupled with a optimisation software to assess its initial reliability/accuracy.
 \end{enumerate}
 
 {\bf References:}
 \begin{itemize}
-\item Ahmadi et al. (2007) $\lq$Natural gas production from hydrate dissociation: An axisymmetric model', Journal of Petroleum Science and Engineering, 58:245-258;
-%\item Fotland and Askvik (2008) $\lq$Some aspects of hydrate formation and wetting', Journal of Colloids and Interface Science, 321:130-141;
-%\item Callen (1985) $\lq$ Thermodynamics and an Introduction to Thermostatistics';
-\item Sloan (1998) $\lq$Clathrate Hydrates of Natural Gases', M. Dekker (Publisher);
-\item Jager et al. (2003) $\lq$The next generation of hydrate prediction - II. Dedicated aqueous phase fugacity model for hydrate prediction', Fluid Phase Equilibria, 211:85-107;
-\item Carrol (2003) $\lq$Natural Gas Hydrates: A Guide for Engineers', Gulf Professional Publishing.
+\item Ahmadi et al. (2007) `Natural gas production from hydrate dissociation: An axisymmetric model', Journal of Petroleum Science and Engineering, 58:245-258;
+%\item Fotland and Askvik (2008) `Some aspects of hydrate formation and wetting', Journal of Colloids and Interface Science, 321:130-141;
+%\item Callen (1985) ` Thermodynamics and an Introduction to Thermostatistics';
+\item Sloan (1998) `Clathrate Hydrates of Natural Gases', M. Dekker (Publisher);
+\item Jager et al. (2003) `The next generation of hydrate prediction - II. Dedicated aqueous phase fugacity model for hydrate prediction', Fluid Phase Equilibria, 211:85-107;
+\item Carrol (2003) `Natural Gas Hydrates: A Guide for Engineers', Gulf Professional Publishing.
 \end{itemize}
 
 \clearpage
@@ -318,14 +324,14 @@ Immiscible displacement flows has been widely studied for oil $\&$ gas productio
 \noindent
 {\bf References:}
 \begin{itemize}
-\item Z. Chen, G. Huan, Y. Ma (2006) $\lq$Computational Methods for Multiphase Flows in Porous Media', {\it SIAM Computational Science $\&$ Engineering}, ISBN 0-89871-606-3;
-\item M. Blunt and M.Christie (1994) $\lq$Theory of Viscous Fingering in Two Phase, Three Component Flow', {\it SPE Journal} SPE22613;
-\item M.L.R. Farias, M.S. Carvalho, A.L.S. Souza (2013) $\lq$Numerical and Experimental Investigation of Produced Water Reinjection Viscous Oil Recovery', {\it Offshore Technology Conference}, Rio de Janeiro;
-%\item P.A. Sesini, D.A.F. Souza, A.L.G. Coutinho (2010) $\lq$Finite Element Simulation of Viscous Fingering in Miscible Displacements at High Mobility-Ratios', {\it Journal of the Brazilian Society of Mechanical Science and Engineering}, 32:292-299;
-\item G.F. Teletzke, R.C. Wattenbarger, J.R. WIlkinson (2010) $\lq$Enhanced Oil Recovery Pilot Testing Best Practices', {\it SP Journal} SPE118055;
-\item D. Beliveau (2009) $\lq$Waterflooding Viscous Oil Reservoirs', {\it SPE Journal} SPE113132;
-\item M.C. Kim (2012) $\lq$Linear Stability Analysis on the Onset of the Viscous Fingering of a Miscible Slice in a Porous Media', {\it Advances in Water Resource} 35:1-9;%
-\item C.T. Miller, G. Christakos, P.T. Imhoff, J.F McBride, J.A. Pedit (1998) $\lq$Multiphase Flow and Transport Modeling in Heterogeneous Porous Media: Challenges and Approaches', {\it Advances in Water Resources} 21:77-120.
+\item Z. Chen, G. Huan, Y. Ma (2006) `Computational Methods for Multiphase Flows in Porous Media', {\it SIAM Computational Science $\&$ Engineering}, ISBN 0-89871-606-3;
+\item M. Blunt and M.Christie (1994) `Theory of Viscous Fingering in Two Phase, Three Component Flow', {\it SPE Journal} SPE22613;
+\item M.L.R. Farias, M.S. Carvalho, A.L.S. Souza (2013) `Numerical and Experimental Investigation of Produced Water Reinjection Viscous Oil Recovery', {\it Offshore Technology Conference}, Rio de Janeiro;
+%\item P.A. Sesini, D.A.F. Souza, A.L.G. Coutinho (2010) `Finite Element Simulation of Viscous Fingering in Miscible Displacements at High Mobility-Ratios', {\it Journal of the Brazilian Society of Mechanical Science and Engineering}, 32:292-299;
+\item G.F. Teletzke, R.C. Wattenbarger, J.R. WIlkinson (2010) `Enhanced Oil Recovery Pilot Testing Best Practices', {\it SP Journal} SPE118055;
+\item D. Beliveau (2009) `Waterflooding Viscous Oil Reservoirs', {\it SPE Journal} SPE113132;
+\item M.C. Kim (2012) `Linear Stability Analysis on the Onset of the Viscous Fingering of a Miscible Slice in a Porous Media', {\it Advances in Water Resource} 35:1-9;%
+\item C.T. Miller, G. Christakos, P.T. Imhoff, J.F McBride, J.A. Pedit (1998) `Multiphase Flow and Transport Modeling in Heterogeneous Porous Media: Challenges and Approaches', {\it Advances in Water Resources} 21:77-120.
 \end{itemize}
 
 \clearpage
@@ -336,7 +342,7 @@ Immiscible displacement flows has been widely studied for oil $\&$ gas productio
 %%%
 \item {\bf Near-Well Upscaling Techniques for Waterflooding}
 
-Numerical reservoir simulations are usually constrained by grid resolution and availability of computational resources. Detailed realisations of geological formations (i.e., models) usually contain hundredth million of cells $\left(\text{10}^{8}\right)$ that can not be effectively used by simulators due to CPU time and memory constraints.  In each cell, all fluid (e.g., density, viscosity, etc) and rock properties (e.g., porosity, permeabilities, etc) are allocated and used to solve transport equations (i.e., Darcy and saturation continuity equations) in space and time. A common strategy is to $\lq$statistically' average cells-embedded properties across regions (i.e., coarsening the initial grid into larger volumes) -- {\it upscaling}.  Although this technique has been largely used during simulations involving large fields, heterogeneities near the production well region may lead to inaccurate flow solutions. 
+Numerical reservoir simulations are usually constrained by grid resolution and availability of computational resources. Detailed realisations of geological formations (\ie models) usually contain hundredth million of cells $\left(\text{10}^{8}\right)$ that can not be effectively used by simulators due to CPU time and memory constraints.  In each cell, all fluid (e.g., density, viscosity, etc) and rock properties (e.g., porosity, permeabilities, etc) are allocated and used to solve transport equations (\ie Darcy and saturation continuity equations) in space and time. A common strategy is to `statistically' average cells-embedded properties across regions (\ie coarsening the initial grid into larger volumes) -- {\it upscaling}.  Although this technique has been largely used during simulations involving large fields, heterogeneities near the production well region may lead to inaccurate flow solutions. 
 
 
 \noindent
@@ -351,22 +357,29 @@ Numerical reservoir simulations are usually constrained by grid resolution and a
 \noindent
 {\bf Specifics:} 
 \begin{enumerate}
-\item Computational and theoretical review (\MSc) -- 1 student. 
-\item Simulations will be performed in the {\it Fluidity} (open-source multi-physics simulator). 
-\item For {\it Fluidity}, the student is required to install {\it Linux} (Ubuntu distro) and {\it Fluidity} in her/his laptop. 
+\item Computational and theoretical review (\MSc) -- 1 student;
+\item After initial review on (Weeks 1-3):
+   \begin{enumerate}
+       \item Reservoir engineering and simulation methods;
+       \item Waterflooding, principles and technologies;
+       \item Geological field mapping and grid generation;
+       \item Upscale modelling approaches;
+   \end{enumerate}
+the student {\bf must} choose one/two aspects of the topics above and undertake an in-depth analysis and simulation (in either programming language, \ie Matlab, Python, C or Fortran, or an appropriate simulation tool) on this/these topic(s).
 \end{enumerate}
 
 
 \noindent
 {\bf References:}
 \begin{itemize}
-\item Z. Chen, G. Huan, Y. Ma (2006) $\lq$Computational Methods for Multiphase Flows in Porous Media', {\it SIAM Computational Science $\&$ Engineering}, ISBN 0-89871-606-3;
-\item T. Nakashima (2009) $\lq$Near-Well Upscaling for Two- and Three-Phase Flows', {\it PhD Thesis}, Stanford University.
-\item P. Audigane, M.J. Blunt (2004) $\lq$Dual Mesh Method for Upscaling in Waterflood Simulation', {\it Transport in Porous Media} 55:71-89;
-\item G.F. Teletzke, R.C. Wattenbarger, J.R. WIlkinson (2010) $\lq$Enhanced Oil Recovery Pilot Testing Best Practices', {\it SPE Journal} SPE118055;
-\item C.T. Miller, G. Christakos, P.T. Imhoff, J.F McBride, J.A. Pedit (1998) $\lq$Multiphase Flow and Transport Modeling in Heterogeneous Porous Media: Challenges and Approaches', {\it Advances in Water Resources} 21:77-120;
-\item  Ahmed $\&$ McKinney (2005) $\lq$Advanced Reservoir Engineering’, Elsevier;
-\item Jenny et al. (2002) $\lq$Modeling Flow in Geometrically Complex Reservoirs Using Hexahedral Multiblock Grids’, SPE 78673;
+\item Z. Chen, G. Huan, Y. Ma (2006) `Computational Methods for Multiphase Flows in Porous Media', {\it SIAM Computational Science $\&$ Engineering}, ISBN 0-89871-606-3;
+\item T. Nakashima (2009) `Near-Well Upscaling for Two- and Three-Phase Flows', {\it PhD Thesis}, Stanford University.
+\item P. Audigane, M.J. Blunt (2004) `Dual Mesh Method for Upscaling in Waterflood Simulation', {\it Transport in Porous Media} 55:71-89;
+\item G.F. Teletzke, R.C. Wattenbarger, J.R. Wilkinson (2010) `Enhanced Oil Recovery Pilot Testing Best Practices', {\it SPE Journal} SPE118055;
+\item C.T. Miller, G. Christakos, P.T. Imhoff, J.F McBride, J.A. Pedit (1998) `Multiphase Flow and Transport Modeling in Heterogeneous Porous Media: Challenges and Approaches', {\it Advances in Water Resources} 21:77-120;
+\item  Ahmed $\&$ McKinney (2005) `Advanced Reservoir Engineering’, Elsevier;
+\item Jenny \etall (2002) `Modeling Flow in Geometrically Complex Reservoirs Using Hexahedral Multiblock Grids', {\it SPE Journal}, SPE78673;
+\item B. Bailey \etall (2000) \href{https://www.slb.com/~/media/Files/resources/oilfield_review/ors00/spr00/p30_51.pdf}{`Water Control'}, {\it Oil Field Review}, Spring, 30-51.
 \end{itemize}
 
 
@@ -376,12 +389,12 @@ Numerical reservoir simulations are usually constrained by grid resolution and a
 %%%
 \item {\bf Precipitation and Thermodynamic Stability Analysis of Asphaltenes in Crude Oils}
 
-Asphaltenes are heavy macromolecular-like species (i.e., heavy hydrocarbon) naturally found in oil reservoirs. They can precipitate due to large perturbations in temperature, pressure and composition conditions leading to well-blockage, decreasing on reservoir permeabilities and pipes blockage. Several models have been introduced to investigate the thermodynamic stability (or formation) of asphaltene precipitation based upon minimisation of the Helmholtz free energy. In equilibrium conditions (i.e., onset of precipitation) the PVT behaviour can be described by a number of equations of state, e.g., Flory-Huggins, SAFT, cubic, etc. 
+Asphaltenes are heavy macromolecular-like species (\ie heavy hydrocarbon) naturally found in oil reservoirs. They can precipitate due to large perturbations in temperature, pressure and composition conditions leading to well-blockage, decreasing on reservoir permeabilities and pipes blockage. Several models have been introduced to investigate the thermodynamic stability (or formation) of asphaltene precipitation based upon minimisation of the Helmholtz free energy. In equilibrium conditions (\ie onset of precipitation) the PVT behaviour can be described by a number of equations of state, e.g., Flory-Huggins, SAFT, cubic, etc. 
 
 \noindent
 {\bf Objectives:}
 \begin{enumerate}
-\item Study of the thermodynamic stability of asphaltenes (i.e., onset of precipitation); 
+\item Study of the thermodynamic stability of asphaltenes (\ie onset of precipitation); 
 \item Review and analysis of current thermodynamic formulations for asphaltenes formation; 
 \item Equations of state and optimisation methods used in the stability analysis; 
 \item Critical review and analysis of current technologies (or strategies) used to mitigate asphaltene precipitation in both wells and pipes;
@@ -393,17 +406,17 @@ Asphaltenes are heavy macromolecular-like species (i.e., heavy hydrocarbon) natu
 \begin{enumerate}
 \item Computational/Theoretical/Review (\all) -- 1 student.
 \item The student is required to develop an initial thermodynamic solid-liquid-vapour equilibrium (SLVE) formulation;
-\item This formulation will be $\lq$translated' into a code (e.g., Matlab, Python etc) and coupled with a optimisation software to assess its initial reliability/accuracy.
+\item This formulation will be `translated' into a code (e.g., Matlab, Python etc) and coupled with a optimisation software to assess its initial reliability/accuracy.
 \end{enumerate}
 
 \noindent
 {\bf References:}
 \begin{itemize}
-\item Mansoori (1997) $\lq$Modeling of Asphaltene and Other Heavy Organic Depositions’, Journal of Petroleum Science and Engineering 17:101-111;
-\item Hu et al. (2000) $\lq$A Study on the Application of Scaling Equation for Asphaltene Precipitation’, Fluid Phase Equilibria 171:181-185;
-\item Pazuki et al. (2007) $\lq$Application of a New Cubic EOS to Computation of Phase Behaviour of Fluids and Asphaltene Precipitation in Crude Oil’, Fluid Phase Equilibria 254:42-48;
-\item Artola et al. (2011) $\lq$Understanding the Fluid Phase Behaviour of Crude Oil: Asphaltene Precipitation’, Fluid Phase Equilibria 306:129-136;
-%\item Zendehboudi et al. (2013) $\lq$Asphaltene Precipitation and Deposition in Oil Reservoirs – Technical Aspects, Experimental and Hybrid Neural Network Predictive Tools’, Chemical Engineering Research and Design (to be published). 
+\item Mansoori (1997) `Modeling of Asphaltene and Other Heavy Organic Depositions’, Journal of Petroleum Science and Engineering 17:101-111;
+\item Hu et al. (2000) `A Study on the Application of Scaling Equation for Asphaltene Precipitation’, Fluid Phase Equilibria 171:181-185;
+\item Pazuki et al. (2007) `Application of a New Cubic EOS to Computation of Phase Behaviour of Fluids and Asphaltene Precipitation in Crude Oil’, Fluid Phase Equilibria 254:42-48;
+\item Artola et al. (2011) `Understanding the Fluid Phase Behaviour of Crude Oil: Asphaltene Precipitation’, Fluid Phase Equilibria 306:129-136;
+%\item Zendehboudi et al. (2013) `Asphaltene Precipitation and Deposition in Oil Reservoirs – Technical Aspects, Experimental and Hybrid Neural Network Predictive Tools’, Chemical Engineering Research and Design (to be published). 
 \end{itemize}
 
 
@@ -415,41 +428,45 @@ Asphaltenes are heavy macromolecular-like species (i.e., heavy hydrocarbon) natu
 
 Geothermal energy systems can be broadly divided into two semi-independent systems: extraction of thermal energy from subsurface environment system and transformation of heat into power. The former involves injection of cold water/brine into variable depths with partial or complete vaporisation of water/brine and further extraction in production wells. 
 
-Depending on the heat source (i.e., temperature gradient, thermal energy can be directly transformed into mechanical energy (in a steam turbine) or used the vaporisation of organic Rankine fluids (low grade heat). Therefore, simulation of geothermal systems is based on the physics of (multi-)fluid flow and heat transfer, on quantitative information (petrology) about geothermal reservoir properties, and on the thermodynamics and thermophysical properties of reservoir fluids (water in particular). 
+Depending on the heat source (\ie temperature gradient) thermal energy can be directly transformed into mechanical energy (in a steam turbine) or used the vaporisation of organic Rankine fluids (low grade heat). Therefore, simulation of geothermal systems is based on the physics of (multi-)fluid flow and heat transfer, on quantitative information (petrology) about geothermal reservoir properties, and on the thermodynamics and thermophysical properties of reservoir fluids (water in particular). 
 
 
 \noindent
 {\bf Objectives:}
 \begin{enumerate}
-%\item Study the different geothermal energy conversion systems (dry-rock, flash-steam, binary and EGS);
+\item Study the different geothermal energy conversion systems (dry-rock, flash-steam, binary and EGS);
 \item Assess the mass, energy and exergy balances in EGS and organic Rankine cycle fluids;
-\item Design of coupled algorithms for thermo-fluid balance of the whole system;
-%\item Investigate the challenges for EGS;
-\item Formulate strategies to assess the sensitivity of the system.% (i.e., how the generated power would oscillate with increasing/decreasing of extracted water/brine flow rate, temperature and density). 
+%\item Design of coupled algorithms for thermo-fluid balance of the whole system;
+\item Investigate the relationship between enhanced geothermal systems (EGS) and enhanced oil recovery (EOR) and the associated technological challenges (\eg HPHT fields) ;
+\item Formulate strategies to assess the sensitivity of the system (\ie how the generated power would oscillate with increasing/decreasing of extracted water/brine flow rate, temperature and density). 
 \end{enumerate}
 
 \noindent
 {\bf Specifics:} 
 \begin{enumerate}
-\item Computational and Theoretical (\Renew) -- 1 student.
-\item Simulations will be performed in the {\it Fluidity} (open-source multi-physics simulator). 
-\item For {\it Fluidity}, the student is required to install {\it Linux} (Ubuntu distro) and {\it Fluidity} in her/his laptop. 
-\item The student is requires to develop a simulation workbench using UniSim process simulator;
-\item The student is required to propose a case-study and use her/his algorithm to assess this case.
+\item Computational and Theoretical (\all) -- 1 student.
+\item After initial review of the relevant topics on geothermal and oil recovery technologies (Weeks 1-3), the student {\bf must} choose one/two topic(s) and undertake an in-depth analysis and simulation (in either programming language, \ie Matlab, Python, C or Fortran, or an appropriate simulation tool) on this/these stage(s).
+%\item Simulations will be performed in the {\it Fluidity} (open-source multi-physics simulator). 
+%\item For {\it Fluidity}, the student is required to install {\it Linux} (Ubuntu distro) and {\it Fluidity} in her/his laptop. 
+%\item The student is requires to develop a simulation workbench using UniSim process simulator;
+%\item The student is required to propose a case-study and use her/his algorithm to assess this case.
 \end{enumerate}
 
 \noindent
 {\bf References:}
 \begin{itemize}
-\item R. DiPippo (2012) $\lq$Geothermal Power Plants'; Butterworth Heinemann;
-\item E. Barbier (2002) $\lq$Geothermal Energy Technology and Current Status: An Overview', Renewable $\&$ Sustainable Energy Reviews 6:3-65;
-\item H.N. Pollack, S.J. Hurter, J.R. Johnson (1993) $\lq$Heat Flow from the Earth's Interior: Analysis of the Global Data Set', Reviews of Geophysics 31:267-280;
-\item G.S. Bodvarsson, P.A. Witherspoon (1989) $\lq$Geothermal Reservoir Engineering Part 1', Geotherm. Science and Technology 2:1-68;
-%\item H.K. Gupta (1980) $\lq$Geothermal Resources: An Energy Alternaive', {\it In} Developments in Economic Geology 12, Chapters 3-5;
-%\item K. Pruess (2002) $\lq$Mathematical Modelling of Fluid Flow and Heat Transfer in Geothermal Systems -- An Introduction in Five Lectures', United Nations University;
-%\item L. Georgsson (2010) $\lq$Geophysical Methods used in Geothermal Exploration', Short Course V on Exploration for Geothermal Resources, Kenya;
-%\item Documentation in \href{http://en.openei.org/wiki/Geothermal_Exploration_Best_Practices:_A_Guide_to_Resource_Data_Collection,_Analysis_and_Presentation_for_Geothermal_Projects}{OpenEI Report: Geothermal Exploration Best Practices: A Guide to Resource Data Collection, Analysis and Prsentation for Geothermal Projects};
-\item Z. Chen (2006) $\lq$Computational Methods for Multiphase Flows in Porous Media', SIAM, Chapters: 1-3, 11-13.
+\item S.K. Sanyal (2003) \href{https://www.slb.com/~/media/Files/geothermal/tech_papers/sanyal_one_discipline_two_arenas_reservoir_engineering_in_geothermal_petroleum_industries_2003.pdf}{`One Discipline, Two Arenas -- Reservoir Engineering in Geothermal and Petroleum Industries'}, Proceedings of the 28$^{\text{th}}$ Workshop on Geothermal Reservoir Engineering, SGP-TR-173;
+\item R. DiPippo (2012) Geothermal Power Plants'; Butterworth Heinemann;
+\item E. Barbier (2002) `Geothermal Energy Technology and Current Status: An Overview', Renewable $\&$ Sustainable Energy Reviews 6:3-65;
+\item G. DeBruijn \etall (2010) \href{https://www.slb.com/~/media/Files/resources/oilfield_review/ors08/aut08/high_pressure_high_temperature.pdf}{`High-Pressure, High-Temperature Technologies'}, {\it Oil Field Review}, 46-60.
+\item H.N. Pollack, S.J. Hurter, J.R. Johnson (1993) `Heat Flow from the Earth's Interior: Analysis of the Global Data Set', Reviews of Geophysics 31:267-280;
+\item G.S. Bodvarsson, P.A. Witherspoon (1989) `Geothermal Reservoir Engineering Part 1', Geotherm. Science and Technology 2:1-68;
+\item H.K. Gupta (1980) `Geothermal Resources: An Energy Alternaive', {\it In} Developments in Economic Geology 12, Chapters 3-5;
+\item K. Pruess (2002) `Mathematical Modelling of Fluid Flow and Heat Transfer in Geothermal Systems -- An Introduction in Five Lectures', United Nations University;
+\item L. Georgsson (2010) `Geophysical Methods used in Geothermal Exploration', Short Course V on Exploration for Geothermal Resources, Kenya;
+\item X. Wang (2012) `The Hot Water Oil Expulsion Technique for Geothermal Resources', Geomaterials 2:42-48.
+\item Documentation in \href{http://en.openei.org/wiki/Geothermal_Exploration_Best_Practices:_A_Guide_to_Resource_Data_Collection,_Analysis_and_Presentation_for_Geothermal_Projects}{OpenEI Report: Geothermal Exploration Best Practices: A Guide to Resource Data Collection, Analysis and Presentation for Geothermal Projects};
+\item Z. Chen (2006) `Computational Methods for Multiphase Flows in Porous Media', SIAM, Chapters: 1-3, 11-13.
 \end{itemize}
 
 \clearpage
@@ -458,20 +475,20 @@ Depending on the heat source (i.e., temperature gradient, thermal energy can be 
 %%%
 %%%
 %%%
-\item {\bf Optimisation of Energy Systems in $\lq$Smart Cities}
-Overpopulation of urban areas is one of the keys issues faced by humanity today, with a primary concern being the associated increased air pollution (due to intense traffic, home and industrial emissions) and the continuous reduction of open spaces. The term $\lq$Smart City’ was firstly used  in the early 2000’s to address efforts to introduce new ICT, environmental, energy, mobility, housing (etc) technologies and policies aiming for sustainability in urban areas.
+\item {\bf Optimisation of Energy Systems in `Smart Cities}
+Overpopulation of urban areas is one of the keys issues faced by humanity today, with a primary concern being the associated increased air pollution (due to intense traffic, home and industrial emissions) and the continuous reduction of open spaces. The term `Smart City’ was firstly used  in the early 2000’s to address efforts to introduce new ICT, environmental, energy, mobility, housing (etc) technologies and policies aiming for sustainability in urban areas.
 
 Combined cooling, heat and power (CCHP or trigeneration) is a technology derived from the CHP and has been widely used as an integrated energy system with relatively good efficiency. Novel turbines, combustion processes, refrigerant fluids, energy storage technologies have been developed to: (a) aid mitigating green-house gas emissions, (b) enhance thermal and energy efficiencies and (c) inhibit solid/liquid waste production.
 
 \noindent
-{\bf Objectives:} The aim of this project is to study current (C)CHP technologies and their integration with the $\lq$smart city’ energy-related grid. Therefore the following tasks will be tackled:
+{\bf Objectives:} The aim of this project is to study current (C)CHP technologies and their integration with the `smart city’ energy-related grid. Therefore the following tasks will be tackled:
 \begin{enumerate}
 \item Literature review on thermodynamic steam, gas and refrigeration cycles;
 \item Study of co-/tri-generation technologies;
 \item Energy and exergy analysis for process integration (including pinch analysis);
 \item Optimisation methods often used in energy/exergy process integration and;
 \item Design a system (in Matlab, Python, Fortran or C) for optimisation process of an integrated CCHP with manufactured data;
-\item Analysis of CO$_{2}$ emissions in (C)CHP processes and the environmental impact in $\lq$Smart Cities';
+\item Analysis of CO$_{2}$ emissions in (C)CHP processes and the environmental impact in `Smart Cities';
 \item Case study: Sheffield and Masdar City.
 \end{enumerate}
 
@@ -486,11 +503,11 @@ Combined cooling, heat and power (CCHP or trigeneration) is a technology derived
 \noindent
 {\bf References:}
 \begin{itemize}
-\item Bracco et al. (2013) $\lq$Economic and Environmental Optimization Model for the Design and the Operation of a Combined Heat and Power Distributed Generation System in Urban Area’, Energy 55:1014-1024;
-\item Smith et al. (2013) $\lq$Benefits of Thermal Enerfy Storage Option combined with CHP System for Different Commercial Building Types’, Sustainable Energy Technologies and Assessments 1:3-12;
-\item Wu and Wang (2008) $\lq$Combined Cooling, Heating and Power: A Review’, Progress in Energy and Combustion Science 32:459-495.
-\item Finey et al. (2013) $\lq$Modelling and Mapping Sustainable Heating for Cities’, Applied Thermal Engineering 53: 246-255;
-\item Kaviri et al. (2012) $\lq$Modeling and Multi-Objective Exergy Based Optimization of a Combined Power Plant using GA’, Energy Conversion and Management 58: 94-103.
+\item Bracco et al. (2013) `Economic and Environmental Optimization Model for the Design and the Operation of a Combined Heat and Power Distributed Generation System in Urban Area’, Energy 55:1014-1024;
+\item Smith et al. (2013) `Benefits of Thermal Enerfy Storage Option combined with CHP System for Different Commercial Building Types’, Sustainable Energy Technologies and Assessments 1:3-12;
+\item Wu and Wang (2008) `Combined Cooling, Heating and Power: A Review’, Progress in Energy and Combustion Science 32:459-495.
+\item Finey et al. (2013) `Modelling and Mapping Sustainable Heating for Cities’, Applied Thermal Engineering 53: 246-255;
+\item Kaviri et al. (2012) `Modeling and Multi-Objective Exergy Based Optimization of a Combined Power Plant using GA’, Energy Conversion and Management 58: 94-103.
 \end{itemize}
 
 \clearpage
@@ -500,9 +517,9 @@ Combined cooling, heat and power (CCHP or trigeneration) is a technology derived
 %%%
 \item {\bf Implementing a Particle-Swarm Optimisation (PSO) Algorithm for Global Minimum Thermodynamic Problems} \\
 
-In engineering and physical sciences, qualitative and quantitative decision makings are frequently aided by optimization tools. The modeller typically wants to find the $\lq$absolutely best’ decision which corresponds to the extrema of an objective function, while it satisfies a given collection of feasibility constraints. The objective function expresses the overall system performance, such as profit, utility, loss, risk or error, whilst constraints naturally rise from the problem.
+In engineering and physical sciences, qualitative and quantitative decision makings are frequently aided by optimization tools. The modeller typically wants to find the `absolutely best’ decision which corresponds to the extrema of an objective function, while it satisfies a given collection of feasibility constraints. The objective function expresses the overall system performance, such as profit, utility, loss, risk or error, whilst constraints naturally rise from the problem.
 
-A large number of such models belong to the realm of $\lq$traditional' local scope continuous optimisation (e.g. linear and convex programming). However, most real-world problems are highly nonlinear and multi-modal, under various complex constraints. In general, finding an optimal solution (or/and sub-optimal solutions) is not an easy task. There are many optimisation algorithms which can be classified in different ways, depending on the goals. If the derivative or gradient of a function is the focus, then optimisation can be classified as either gradient-based or derivative-free (or gradient-free) algorithms. Other form of classification includes deterministic or stochastic.
+A large number of such models belong to the realm of `traditional' local scope continuous optimisation (e.g. linear and convex programming). However, most real-world problems are highly nonlinear and multi-modal, under various complex constraints. In general, finding an optimal solution (or/and sub-optimal solutions) is not an easy task. There are many optimisation algorithms which can be classified in different ways, depending on the goals. If the derivative or gradient of a function is the focus, then optimisation can be classified as either gradient-based or derivative-free (or gradient-free) algorithms. Other form of classification includes deterministic or stochastic.
 
 Virtual prototyping and virtual testing has been increasingly used in engineering problems to aid in the design, evaluation, and testing of new hardware and eventually entire systems. This new modelling paradigm is driven by the dual high cost and time that are required for testing laboratory or field components, as well as complete systems. Furthermore, safety aspects of the product or system represent an important and sometimes dominant element for testing or validating numerical simulations.
 
@@ -529,12 +546,12 @@ Virtual prototyping and virtual testing has been increasingly used in engineerin
 \noindent
 {\bf References:}
 \begin{itemize}
-\item Corana et al. (1987) $\lq$Minimising multi-modal functions of continuous variables with the simulated annealing algorithm', ACM -- Transactions on Mathematical Software, 13:262-289;
-\item Gandomi et al. (2013) $\lq$Cuckoo search algorithm: a meta heuristic approach to solve structural optimisation problems', Engineering with Computers, 29:17-35;
-\item Ghodrati et al. (2012) $\lq$A Hybrid CS/PSO Algorithm for Global Optimization', ACIIDS 2012, Part III, 89–98;
-%\item Goffe et al. (1994) $\lq$Global optimization of statistical functions with simulated annealing', Journal of Econometrics 60:65-69;
-\item Gomes et al. (2001) $\lq$Modelling the Vapour-Liquid Equilibrium of Polymer Solutions Using a Cubic Equation of State', Macromolecular Theory and Simulations, 10:816-826;
-%\item Glover (1986) $\lq$Future paths for integer programming and links to artificial intelligence', Computers and Operations Research, 13:533-549.
+\item Corana et al. (1987) `Minimising multi-modal functions of continuous variables with the simulated annealing algorithm', ACM -- Transactions on Mathematical Software, 13:262-289;
+\item Gandomi et al. (2013) `Cuckoo search algorithm: a meta heuristic approach to solve structural optimisation problems', Engineering with Computers, 29:17-35;
+\item Ghodrati et al. (2012) `A Hybrid CS/PSO Algorithm for Global Optimization', ACIIDS 2012, Part III, 89–98;
+%\item Goffe et al. (1994) `Global optimization of statistical functions with simulated annealing', Journal of Econometrics 60:65-69;
+\item Gomes et al. (2001) `Modelling the Vapour-Liquid Equilibrium of Polymer Solutions Using a Cubic Equation of State', Macromolecular Theory and Simulations, 10:816-826;
+%\item Glover (1986) `Future paths for integer programming and links to artificial intelligence', Computers and Operations Research, 13:533-549.
 \end{itemize}
 
 \clearpage
@@ -544,9 +561,9 @@ Virtual prototyping and virtual testing has been increasingly used in engineerin
 %%%
 \item {\bf Development and Performance Analysis of the Stochastic Torus Algorithm for Global Minimum Thermodynamic Problems} \\
 
-In engineering and physical sciences, qualitative and quantitative decision makings are frequently aided by optimization tools. The modeller typically wants to find the $\lq$absolutely best’ decision which corresponds to the extrema of an objective function, while it satisfies a given collection of feasibility constraints. The objective function expresses the overall system performance, such as profit, utility, loss, risk or error, whilst constraints naturally rise from the problem.
+In engineering and physical sciences, qualitative and quantitative decision makings are frequently aided by optimization tools. The modeller typically wants to find the `absolutely best’ decision which corresponds to the extrema of an objective function, while it satisfies a given collection of feasibility constraints. The objective function expresses the overall system performance, such as profit, utility, loss, risk or error, whilst constraints naturally rise from the problem.
 
-A large number of such models belong to the realm of $\lq$traditional' local scope continuous optimisation (e.g. linear and convex programming). However, most real-world problems are highly nonlinear and multi-modal, under various complex constraints. In general, finding an optimal solution (or/and sub-optimal solutions) is not an easy task. There are many optimisation algorithms which can be classified in different ways, depending on the goals. If the derivative or gradient of a function is the focus, then optimisation can be classified as either gradient-based or derivative-free (or gradient-free) algorithms. Other form of classification includes deterministic or stochastic.
+A large number of such models belong to the realm of `traditional' local scope continuous optimisation (e.g. linear and convex programming). However, most real-world problems are highly nonlinear and multi-modal, under various complex constraints. In general, finding an optimal solution (or/and sub-optimal solutions) is not an easy task. There are many optimisation algorithms which can be classified in different ways, depending on the goals. If the derivative or gradient of a function is the focus, then optimisation can be classified as either gradient-based or derivative-free (or gradient-free) algorithms. Other form of classification includes deterministic or stochastic.
 
 Virtual prototyping and virtual testing has been increasingly used in engineering problems to aid in the design, evaluation, and testing of new hardware and eventually entire systems. This new modelling paradigm is driven by the dual high cost and time that are required for testing laboratory or field components, as well as complete systems. Furthermore, safety aspects of the product or system represent an important and sometimes dominant element for testing or validating numerical simulations.
 
@@ -570,13 +587,13 @@ Virtual prototyping and virtual testing has been increasingly used in engineerin
 \noindent
 {\bf References:}
 \begin{itemize}
-\item F.M. Rabinowitz (1995) $\lq$Algorithm 744: A Stochastic Algorithm for Global Optimization with Constraints', ACM Transactions on Mathematical Software, 21:194-213.
-%\item Corana et al. (1987) $\lq$Minimising multi-modal functions of continuous variables with the simulated annealing algorithm', ACM -- Transactions on Mathematical Software, 13:262-289;
-\item Gandomi et al. (2013) $\lq$Cuckoo search algorithm: a meta heuristic approach to solve structural optimisation problems', Engineering with Computers, 29:17-35;
-%\item Ghodrati et al. (2012) $\lq$A Hybrid CS/PSO Algorithm for Global Optimization', ACIIDS 2012, Part III, 89–98;
-\item Goffe et al. (1994) $\lq$Global optimization of statistical functions with simulated annealing', Journal of Econometrics 60:65-69;
-\item Gomes et al. (2001) $\lq$Modelling the Vapour-Liquid Equilibrium of Polymer Solutions Using a Cubic Equation of State', Macromolecular Theory and Simulations, 10:816-826;
-%\item Glover (1986) $\lq$Future paths for integer programming and links to artificial intelligence', Computers and Operations Research, 13:533-549.
+\item F.M. Rabinowitz (1995) `Algorithm 744: A Stochastic Algorithm for Global Optimization with Constraints', ACM Transactions on Mathematical Software, 21:194-213.
+%\item Corana et al. (1987) `Minimising multi-modal functions of continuous variables with the simulated annealing algorithm', ACM -- Transactions on Mathematical Software, 13:262-289;
+\item Gandomi et al. (2013) `Cuckoo search algorithm: a meta heuristic approach to solve structural optimisation problems', Engineering with Computers, 29:17-35;
+%\item Ghodrati et al. (2012) `A Hybrid CS/PSO Algorithm for Global Optimization', ACIIDS 2012, Part III, 89–98;
+\item Goffe et al. (1994) `Global optimization of statistical functions with simulated annealing', Journal of Econometrics 60:65-69;
+\item Gomes et al. (2001) `Modelling the Vapour-Liquid Equilibrium of Polymer Solutions Using a Cubic Equation of State', Macromolecular Theory and Simulations, 10:816-826;
+%\item Glover (1986) `Future paths for integer programming and links to artificial intelligence', Computers and Operations Research, 13:533-549.
 \end{itemize}
 
 \clearpage
@@ -609,9 +626,9 @@ In rapid chemistry processes, such as combustion, kinetics mechanisms are repres
 \noindent
 {\bf References:}
 \begin{itemize}
-\item L.Lu and S.B. Pope (2009) $\lq$An Improved Algorithm for {\it in situ adaptive tabulation}’, Journal of Computational Physics 228:361-386;
-\item L.Petzold (1983) $\lq$Automatics Selection of Methods for Solving Stiff and Nonstiff Systems of Ordinary Differential Equations', SIAM Journal of Scientific Statistical Computation 4:136-148;
-\item S.B. Pope (1985)  $\lq$PDF Methods for Turbulent Reactive Flows',  Prog. Energy Combust. Sci. 11:119-192.
+\item L.Lu and S.B. Pope (2009) `An Improved Algorithm for {\it in situ adaptive tabulation}’, Journal of Computational Physics 228:361-386;
+\item L.Petzold (1983) `Automatics Selection of Methods for Solving Stiff and Nonstiff Systems of Ordinary Differential Equations', SIAM Journal of Scientific Statistical Computation 4:136-148;
+\item S.B. Pope (1985)  `PDF Methods for Turbulent Reactive Flows',  Prog. Energy Combust. Sci. 11:119-192.
 \end{itemize}
 
 \clearpage
@@ -630,16 +647,16 @@ In rapid chemistry processes, such as combustion, kinetics mechanisms are repres
 \item {\bf An Integrated Simulation Framework for Radionuclide Transport in Waste Repository Systems}
 
 
-The major technological challenge for current and future generations of nuclear power plants is the efficient disposal and management of high- and intermediate-level nuclear waste (H/ILW), which must be isolated from the biosphere. Deep and stable geological formations have been considered as a viable option for permanent disposal of nuclear waste. The goal of geological disposal is to ensure that radioactive waste produced from reprocessing and spent fuel are contained in the dual engineered repository (i.e., canisters and backfill rock matrix) and host-rock. In the canisters (e.g., spent fuel cask), water is vaporised by the decay-heat from H/ILW producing steam micro-bubbles (due to homogeneous/heterogeneous nucleation) and radiolytic gases (from radiolysis processes) that build up the internal pressure. If the pressure exceeds the canisters' structural limits, radionuclides can leak and flow through the backfill rock matrix (low permeability) and unconsolidated-consolidated host rock and, eventually reach an aquifer.
+The major technological challenge for current and future generations of nuclear power plants is the efficient disposal and management of high- and intermediate-level nuclear waste (H/ILW), which must be isolated from the biosphere. Deep and stable geological formations have been considered as a viable option for permanent disposal of nuclear waste. The goal of geological disposal is to ensure that radioactive waste produced from reprocessing and spent fuel are contained in the dual engineered repository (\ie canisters and backfill rock matrix) and host-rock. In the canisters (e.g., spent fuel cask), water is vaporised by the decay-heat from H/ILW producing steam micro-bubbles (due to homogeneous/heterogeneous nucleation) and radiolytic gases (from radiolysis processes) that build up the internal pressure. If the pressure exceeds the canisters' structural limits, radionuclides can leak and flow through the backfill rock matrix (low permeability) and unconsolidated-consolidated host rock and, eventually reach an aquifer.
 
-The transport of radionuclides in porous media and in open water has been investigated extensively, both numerically and experimentally, in different length-scales. Most of these studies focused on individual phenomena, i.e., advection, diffusion and hydrodynamic dispersion of isotopes, equilibrium or kinetic reaction of radionuclides and radioactive decay. This project aims to develop a multiscale and multi-physics computational framework that enables modelling and simulation of transport of radionuclides from a postulated accident scenario, i.e., from the damaged canister to the aquifer. This simulation tool is built in the top of the existing computational fluid dynamics (CFD) Fluidity model.  Fluidity is an open-source general-purpose multi-physics flow solver built upon various finite element and finite volume discretisation methods on unstructured anisotropic meshes. The model is based on existing parallel mesh-adaptive technologies that allow arbitrary movement of the mesh in time-dependent problems.
+The transport of radionuclides in porous media and in open water has been investigated extensively, both numerically and experimentally, in different length-scales. Most of these studies focused on individual phenomena, \ie advection, diffusion and hydrodynamic dispersion of isotopes, equilibrium or kinetic reaction of radionuclides and radioactive decay. This project aims to develop a multiscale and multi-physics computational framework that enables modelling and simulation of transport of radionuclides from a postulated accident scenario, \ie from the damaged canister to the aquifer. This simulation tool is built in the top of the existing computational fluid dynamics (CFD) Fluidity model.  Fluidity is an open-source general-purpose multi-physics flow solver built upon various finite element and finite volume discretisation methods on unstructured anisotropic meshes. The model is based on existing parallel mesh-adaptive technologies that allow arbitrary movement of the mesh in time-dependent problems.
 
 This project will focus on multiscale model for radionuclides transport through backfill and host rock matrices. This will involve development of 3-D fully coupled models of advection, diffusion, dispersion and rock-matrix diffusion of dissolved radioactive species. Fluids will be assumed to comprise of two phases (liquid water, micro-bubbles of steam and radiolytic gases) and an arbitrary number of radionuclide species (multi-component approach). Model and software will be validated against lab-scale experiments, field observations and data from natural analogues (e.g., Oklo reactor).  The resulting model can help site operators and regulators to predict radionuclide migration in geological formations and to plan emergency responses for leakages.
 
-The main aim of this project is to develop a simulation framework that integrates transport and dispersion of radionuclides, waste inventory (i.e., nuclear data) and geological characterisation that is able to support detailed safety assessment of scenarios involving the accidental release of radioactive material in hydrogeological formations. The project will develop advanced computational methods for multi-physics problems. This model will be built in the top of the 3D CFD Fluidity software - a finite element method (FEM) -based flow simulator incorporating anisotropic mesh-adaptivity capability. The transport of radionuclides will be modelled within the existing multi-component model framework with associated tabulated and parameterised decay-heat rate. This 3-years PhD project will be divided in 9 continuous tasks that will rely on intense collaboration with academics at the University of Aberdeen:
+The main aim of this project is to develop a simulation framework that integrates transport and dispersion of radionuclides, waste inventory (\ie nuclear data) and geological characterisation that is able to support detailed safety assessment of scenarios involving the accidental release of radioactive material in hydrogeological formations. The project will develop advanced computational methods for multi-physics problems. This model will be built in the top of the 3D CFD Fluidity software - a finite element method (FEM) -based flow simulator incorporating anisotropic mesh-adaptivity capability. The transport of radionuclides will be modelled within the existing multi-component model framework with associated tabulated and parameterised decay-heat rate. This 3-years PhD project will be divided in 9 continuous tasks that will rely on intense collaboration with academics at the University of Aberdeen:
 \begin{enumerate}
    \item Familiarisation with (a) numerical methods for PDEs (in particular on discontinuous Galerkin finite element methods - DGFEM), (b) transport equations (advection-diffusion-reactive equations); (c) neutron-radiation transport equation; (d) best practices in software engineering and HPC and; (e) Fluidity CFD model;
-   \item To implement rock heterogeneity (i.e., temporally evolving permeability and porosity fields) in the Fluidity model. Model validation against laboratory measurements of the saturation field in carbonate rock as aqueous HCl imbibes through it;
+   \item To implement rock heterogeneity (\ie temporally evolving permeability and porosity fields) in the Fluidity model. Model validation against laboratory measurements of the saturation field in carbonate rock as aqueous HCl imbibes through it;
    \item To develop a numerical formulation for compressible multiphase flows based on high-order shock-capturing schemes (e.g., Riemann methods);
    \item To optimise the mesh-adaptivity library for the coupled multiphase and multi-component flow formulations;
    \item To develop high-order accurate tetrahedral discontinuous finite elements;
@@ -652,7 +669,7 @@ The main aim of this project is to develop a simulation framework that integrate
 
 {\bf Strategic Fit:} The current multi-physics and multiscale model framework was designed to solve transport equations in complex geometries and as such can be applied to a number of distinct scenarios for disposal of nuclear waste inventory. The resulting integrated model framework and experimental data will be able to support the environmental, safety $\&$ risk planning and management activities of site operators and regulators. It will also support policymakers to establish thermo-geophysical conditions to safe site operation.
 
-{\bf Skills and Capabilities:} This project proposes to integrate R$\&$D activities on waste storage, decommissioning and spent fuel, but to focus on critical safety assessment on both, traditional storage sites and deep and geological disposal facilities. The skills and capabilities obtained through this project will be complementary to NDA and SLCs engineering activities.  The PhD student will be trained in a number of disciplines: fluid dynamics, computational methods, heat and mass transfer, neutron-radiation transport, and software engineering. In addition, her/his training will benefit from strong cross-fertilisation with existing academic energy programmes (i.e., oil and gas engineering, renewable energy, subsea engineering, geophysics etc) in similar areas: turbulence, safety engineering and risk management, power generation, material sciences, decommissioning etc.
+{\bf Skills and Capabilities:} This project proposes to integrate R$\&$D activities on waste storage, decommissioning and spent fuel, but to focus on critical safety assessment on both, traditional storage sites and deep and geological disposal facilities. The skills and capabilities obtained through this project will be complementary to NDA and SLCs engineering activities.  The PhD student will be trained in a number of disciplines: fluid dynamics, computational methods, heat and mass transfer, neutron-radiation transport, and software engineering. In addition, her/his training will benefit from strong cross-fertilisation with existing academic energy programmes (\ie oil and gas engineering, renewable energy, subsea engineering, geophysics etc) in similar areas: turbulence, safety engineering and risk management, power generation, material sciences, decommissioning etc.
 
 {\bf References}
 \begin{enumerate}
