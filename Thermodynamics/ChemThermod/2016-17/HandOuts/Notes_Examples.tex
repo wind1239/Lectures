@@ -1334,8 +1334,8 @@ thus \eg
 both terms in the r.h.s. tends to $+\infty$ and the difference is assumed undetermined. For other properties:
        \begin{displaymath}
           \begin{cases}
-             \lim\limits_{P\rightarrow 0}H^{R} = 0, \hspace{2cm} \forall T \text{ (for all $T$)}, \\
-             \lim\limits_{P\rightarrow 0}\left(G^{R}/RT\right) = \infty-\infty, \hspace{1cm}  \text{undetermined but not necessarily zero}.  
+             \lim\limits_{P\rightarrow 0}H^{R} = 0, & \forall T \text{ (for all $T$)}, \\
+             \lim\limits_{P\rightarrow 0}\left(G^{R}/RT\right) = \infty-\infty,& \text{undetermined but not necessarily zero}.  
           \end{cases}
        \end{displaymath}
 
@@ -1346,6 +1346,7 @@ both terms in the r.h.s. tends to $+\infty$ and the difference is assumed undete
 %%% SUBSUBSECTION
    \subsubsection{Clapeyron Relations}
 
+\begin{subequations}
 When a pure component is in phase equilibrium, {\it all coexisting phases have the same temperature and pressure}. Therefore, the following criterion is applied,
       \begin{displaymath}
           dG = VdP - SdT = 0 \;\;\;\;\text{ at constant } T \text{ and } P.
@@ -1364,7 +1365,7 @@ $P^{\text{sat}}$ is the saturated pressure, \ie pressure in which phase change o
       \end{displaymath}
 We can define the {\it latent heat of phase transition} (\eg vaporisation, solidification etc), $\Delta H^{\alpha\beta}$ from Eqn.~\ref{Mod03_FundamentalRelation02} integrating with constant pressure,
       \begin{displaymath}
-          dH = TdS + VdP \;\;\Rightarrow \;\; \int dH = \int TdS \;\;\Rightarrow \;\;  H^{\beta}-H^{\alpha} = T\left(S^{\beta}-S^{\alpha}\right)  \;\;\Rightarrow \;\; \Delta H^{\alpha\beta} = T\Delta S^{\alpha\beta},
+          dH = TdS + VdP \;\;\Rightarrow \;\; \int\limits_{H^{\alpha}}^{H^{\beta}} dH = \int\limits_{S^{\alpha}}^{S^{\beta}} TdS \;\;\Rightarrow \;\;  H^{\beta}-H^{\alpha} = T\left(S^{\beta}-S^{\alpha}\right)  \;\;\Rightarrow \;\; \Delta H^{\alpha\beta} = T\Delta S^{\alpha\beta},
       \end{displaymath}
 therefore,
       \begin{shaded}
@@ -1374,7 +1375,7 @@ therefore,
           this expression is known as {\it Clapeyron Equation} and it expresses the relation between a change in temperature and a change in pressure under the conditions of equilibrium between two phases. 
       \end{shaded}
 
-We can determine the enthalpy of vaporisation (\ie latent heat of vaporisation), $H^{\alpha\beta}=H^{\text{fg}}$, at a given $T$ by simply measuring the slope of the saturation curve on a $PT$ diagram (Fig.~\ref{Mod03Fig01}) and the specific volume of saturated liquid and saturated vapour at the given $T$. The {\it Clapeyron Equation} can be simplified for liquid-vapour and solid-vapour phase changes. At low pressures
+We can determine the enthalpy of vaporisation (\ie latent heat of vaporisation), $H^{\alpha\beta}=H^{\text{fg}}$, at a given $T$ by simply measuring the slope of the saturation curve on a $PT$ diagram (Fig.~\ref{Mod03Fig01}) and the specific volume of saturated liquid and saturated vapour at the given $T$. The {\it Clapeyron Equation} can be simplified for liquid-vapour (and for solid-vapour) phase changes, at low pressures
       \begin{displaymath}
          V^{\text{g}} >>>> V^{\text{f}} \;\;\Longrightarrow \;\; V^{\text{fg}} = V^{\text{g}},
       \end{displaymath}
@@ -1382,7 +1383,7 @@ if we treat the vapour as an ideal gas, $V^{\text{g}} = \frc{RT}{P}$, and replac
       \begin{displaymath}
           \frc{dP^{\text{sat}}}{dT} = \frc{P^{\text{sat}}\Delta H^{\text{fg}}}{RT^{2}} \;\;\;\Longrightarrow \;\;\; \left(\frc{dP}{P}\right)_{\text{sat}} = \frc{\Delta H^{\text{fg}}}{R}\left(\frc{dT}{T^{2}}\right)_{\text{sat}}.
       \end{displaymath}
-For infinitesimal intervals of $T$, \underline{$\Delta H^{\text{fg}}$ may be considered as a constant}, thus
+For infinitesimal intervals of $T$, \underline{$\Delta H^{\text{fg}}$ may be considered constant}, thus
 %
            \begin{figure}[h]
                \begin{center}
@@ -1411,7 +1412,7 @@ This two relations, although still widely used by the fluids community are plagu
     \begin{displaymath}
        \ln{P^{\text{sat}}} = \frc{A\tau + B\tau^{1.5} + C\tau^{3} + D\tau^{6}}{1-\tau}\;\;\;\;\text{ with }\;\;\tau = 1 - T_{r}.
     \end{displaymath}
-
+\end{subequations}
 
 
 %%% SUBSUBSECTION
@@ -1431,8 +1432,8 @@ where $V$ is the molar volume. Dividing by $n$
     \end{displaymath}
 Defining molar (or mole) fraction, $\mfr[x]{}{j}=\frc{\mfr[n]{}{j}}{n}$, where
     \begin{eqnarray}
-         && \sum\limits_{j=1}^{\mathcal{P}}\mfr[x]{}{j} = 1,  \\
-         && V = \mfr[x]{}{1}\mfr[V]{}{1} + \mfr[x]{}{2}\mfr[V]{}{2} + \cdots + \mfr[x]{}{\mathcal{P}}\mfr[V]{}{\mathcal{P}}. 
+         && \sum\limits_{j=1}^{\mathcal{P}}\mfr[x]{}{j} = 1,  \nonumber \\
+         && V = \mfr[x]{}{1}\mfr[V]{}{1} + \mfr[x]{}{2}\mfr[V]{}{2} + \cdots + \mfr[x]{}{\mathcal{P}}\mfr[V]{}{\mathcal{P}}.  \nonumber
     \end{eqnarray}
 For vapour-liquid systems,
     \begin{eqnarray}
@@ -1450,7 +1451,7 @@ For a generic thermodynamic potential $M$ (= $V$, $U$, $H$, $S$ etc),
            \end{equation}
        \end{subequations}
     \end{shaded}
-$\mfr[x]{}{V}$ is called {\it vapour quality}. Thermodynamic potentials of pure substances are graphically represented by $PH$ (pressure $\times$ enthalpy) and $TS$ (temperature $\times$ entropy) diagrams, Fig.~\ref{Mod03Fig02}, where information on $P$, $T$, $S$, $H$, $x$ and $V$ can be readily extracted.
+$\mfr[x]{}{V}$ is called \underline{\it vapour quality}. Thermodynamic potentials of pure substances are graphically represented by $PH$ (pressure $\times$ enthalpy) and $TS$ (temperature $\times$ entropy) diagrams, Fig.~\ref{Mod03Fig02}, where information on $P$, $T$, $S$, $H$, $x$ and $V$ can be readily extracted.
 %
            \begin{figure}[h]
               \vbox{
