@@ -1451,7 +1451,7 @@ For a generic thermodynamic potential $M$ (= $V$, $U$, $H$, $S$ etc),
            \end{equation}
        \end{subequations}
     \end{shaded}
-$\mfr[x]{}{V}$ is called \underline{\it vapour quality}. Thermodynamic potentials of pure substances are graphically represented by $PH$ (pressure $\times$ enthalpy) and $TS$ (temperature $\times$ entropy) diagrams, Fig.~\ref{Mod03Fig02}, where information on $P$, $T$, $S$, $H$, $x$ and $V$ can be readily extracted.
+$\mfr[x]{}{V}$ is called \underline{\it vapour quality}. Thermodynamic potentials of pure substances are graphically represented by $Ph$ (pressure $\times$ specific enthalpy) and $Ts$ (temperature $\times$ specific entropy) diagrams, Fig.~\ref{Mod03Fig02}, where information on $P$, $T$, $s$, $h$, $x$ and $v$ (specific volume) can be readily extracted.
 %
            \begin{figure}[h]
               \vbox{
@@ -1459,10 +1459,77 @@ $\mfr[x]{}{V}$ is called \underline{\it vapour quality}. Thermodynamic potential
                           \includegraphics[width=.5\columnwidth,clip]{./Figs/Mod3TSDiagram}}
                     \vspace{-.1cm}
                     \hbox{\hspace{4cm}(a)\hspace{8cm}(b)}}
-              \caption{ (a) $PH$ and (b) $TS$ diagrams for a pure substance.}\label{Mod03Fig02}
+              \caption{ (a) $Ph$ and (b) $Ts$ diagrams for a pure substance.}\label{Mod03Fig02}
            \end{figure}
 %
+In the $Ph$ diagram, Fig~\ref{Mod03Fig02}a, isotherms (i.e., lines representing constant temperature) and pressure conditions determine the phase of the fluid. At the left hand-side of the {\it dome} all fluid is at liquid state, whereas at the right hand-side of the {\it dome}, all fluid is at vapour state. The region within the {\it dome} is a two-phase region, where liquid and vapour coexist in thermodynamic equilibrium. As the fluid conditions `move' from the {\it saturated liquid line} to the {\it saturated vapour line} through the {\it isotherm}, the fluid is continuously vaporised `till there is no droplets of liquid fluid. The total amount of heat given to the system -- $\Delta H^{\text{fg}}$, is the latent heat of vaporisation. In a similar way, the $Ts$ diagram, Fig~\ref{Mod03Fig02}b, shows similar features over different {\it isobars}. In addition, the {\it quality} of the vapour can also be graphically represented. In a reversible expansion from $P_{1}$ to $P_{2}$ $\left(P_{1}>P_{2}\right)$, entropy change is null, $\Delta s=0$, and is represented by a vertical line, however during irreversible expansion, $\Delta s >0$, represented by an inclined line.  
+
+ $Ph$ and $Ts$ diagrams for common substances are no longer used by industry but it helps to qualitatively understand phase (and associated thermodynamic potentials) behaviour of pure substances. Quantitative information can be obtained from either saturated and superheated (Fig.~\ref{Mod03Fig03}) fluid tables or dedicated software, \eg
+\begin{itemize}
+   \item \href{http://www.weatherford.com/doc/wft183650}{PVTflex$^{TM}$};
+   \item \href{http://www.kbcat.com/infochem-software/flow-assurance-software-multiflash/pvt-simulation}{Multiflash$^{TM}$};
+   \item \href{https://www.honeywellprocess.com/en-US/explore/products/advanced-applications/unisim/Pages/default.aspx}{UniSim – Software for Process Design and Simulation};
+   \item \href{http://webbook.nist.gov/chemistry/fluid/}{NIST Website}
+   \item etc.
+\end{itemize}
+In general, table of {\it saturated fluid properties}, Fig.~\ref{Mod03Fig03}a, contains information of the fluid within the {\it dome}, whereas the table of {\it superheated fluid properties} refer to the region outside (rhs) the {\it dome}. 
+%
+   \begin{figure}[h]
+      \vbox{
+         \hbox{\includegraphics[width=.5\columnwidth,clip]{./Figs/WaterSatTable}
+               \includegraphics[width=.5\columnwidth,clip]{./Figs/Water_SuperheatedTable}}
+         \vspace{-1.5cm}
+         \hbox{\hspace{4cm}(a)\hspace{7cm}(b)}
+      }
+      \caption{ Table of properties of (a) saturated water-steam and (b) superheated vapour (Extracted from Moran $\&$ Saphiro, see Appendix B).}\label{Mod03Fig03}
+   \end{figure}
+%
     
+
+%%% SUBSUBSECTION
+   \subsubsection{Industrial Applications: Power System}
+Regardless the energy source (fossil fuel, nuclear or geothermal), power plants are good applications for VLE systems as it fluids are continuously vaporised and condensed by addition and extraction of heat and volume expansion. {\it Rankine thermal cycles} are system configuration for generating power and consist of four processes (Fig.~\ref{Mod03Fig04}) with associated energy balances:
+     \begin{itemize}
+      \item \textcolor{red}{Process 1-2}: reversible adiabatic (i.e., \blue{isentropic}) expansion in the turbine (or steam engine),
+            \begin{displaymath}
+               \left(h_{2} + \dot{W}_{T}\right)-h_{1} = 0 \Rightarrow \dot{W}_{T} = h_{1}-h_{2}
+            \end{displaymath}
+      \item \textcolor{red}{Process 2-3}: constant-pressure heat transfer (to the environment) in the condenser,
+            \begin{displaymath}
+               \left(h_{3} + \dot{Q}_{C}\right)-h_{2} = 0 \Rightarrow \dot{Q}_{C} = h_{2}-h_{3}
+            \end{displaymath}
+      \item \textcolor{red}{Process 3-4}: reversible adiabatic (i.e., \blue{isentropic}) pumping process in the feed pump,
+            \begin{displaymath}
+               h_{4} - \left(h_{3} + \dot{W}_{P}\right) = 0 \Rightarrow \dot{W}_{P} = h_{4}-h_{3}
+            \end{displaymath}
+      \item \textcolor{red}{Process 4-1}: constant-pressure heat transfer (to the fluid) in the boiler,
+            \begin{displaymath}
+               h_{1} - \left(h_{4} + \dot{Q}_{B}\right) = 0 \Rightarrow \dot{Q}_{B} = h_{1}-h_{4}
+            \end{displaymath} 
+     \end{itemize}
+     The efficiency $\left(\eta\right)$ of the Rankine cycle is given by
+           \begin{displaymath}
+               \eta_{\text{Rankine}} = \frc{\sum W_{i}}{Q_{B}} = \frc{\left|W_{\text{net}}\right|}{Q_{B}} = \frc{\left|\left(h_{1}-h_{2}\right)+\left(h_{4}-h_{3}\right)\right|}{h_{1}-h_{4}}.
+           \end{displaymath}
+     Due to engineering constraints, fluids entering and leaving the pump \underline{must be} at liquid phase, thus $h_{4}=h_{f4}$ and $h_{3}=h_{f3}$, \ie the fluid has the enthalpies of the liquid phase (from the saturated fluid table) at the prescribed temperature and pressure conditions. {\it Pumps} are able to induce the transport of liquid fluids that are often assumed incompressible, therefore
+          \begin{displaymath}
+                Tds = dh - v dP
+          \end{displaymath}
+as the compression occurs isentropically, \ie $ds=0$,
+          \begin{displaymath}
+                dh = v dP \Rightarrow h_{f4} = h_{f3} + v_{3}\left(P_{4}-P_{3}\right).
+          \end{displaymath}
+However, as $\left(h_{f4}-h_{f3}\right) <<<<< \left(h_{1}-h_{2}\right)$, the efficiency can be considered as
+           \begin{displaymath}
+               \eta_{\text{Rankine}} = \frc{\left|\left(h_{1}-h_{2}\right)\right|}{h_{1}-h_{f4}}.
+           \end{displaymath}     
+%
+   \begin{figure}[h]
+      \begin{center}
+         \includegraphics[width=\columnwidth,clip]{./Figs/Mod3PowerSystemDiagram}
+      \end{center}
+      \caption{ (a) Diagram of Rankine thermal cycle for power generation and associated $Ts$ diagram.}\label{Mod03Fig04}
+   \end{figure}
 
 
 \clearpage
@@ -1530,6 +1597,7 @@ $\mfr[x]{}{V}$ is called \underline{\it vapour quality}. Thermodynamic potential
 %
        \end{enumerate} 
 
+\clearpage
 %%%
 %%% EXAMPLE 
 %%%
@@ -1567,6 +1635,7 @@ $\mfr[x]{}{V}$ is called \underline{\it vapour quality}. Thermodynamic potential
          \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}} = -\frc{\frc{R}{V-b}}{-\frc{RT}{\left(V-b\right)^{2}+\frc{2a}{V^{3}}}}
      \end{displaymath} 
 
+\clearpage
 %%%
 %%% EXAMPLE 
 %%%
@@ -1583,6 +1652,7 @@ The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the C
              \frc{B}{\left(T+C\right)^{2}} &=&  \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \Delta H^{\text{fg}} = 34.7984 \text{kJ.mol}^{-1}. \nonumber
          \end{eqnarray}
  
+\clearpage
 
 %%%
 %%% EXAMPLE 
@@ -1600,8 +1670,61 @@ The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the C
        && dH = C_{p}dT + \left(V - \frc{RT}{P}\right)dP = \blue{C_{p}dT + bdP}. \nonumber 
     \end{eqnarray}
     
+\clearpage
+    
+\clearpage
+ 
+%%%
+%%% EXAMPLE 
+%%%  
+\item\label{Mod03Ex06} Steam (dry and saturated) is supplied by the boiler at 15 bar and the condenser pressure is 0.4 bar. Calculate the Rankine efficiency of the cycle. Neglect the pump work.
+
+% SOLUTION  
+    \noindent{\bf Solution:} 
+    
+
+ 
+%%%
+%%% EXAMPLE 
+%%%  
+\item\label{Mod03Ex06} The table below represents the steps of an idealised steam power plant:
+    \begin{center}
+     \begin{tabular}{||c | c | c | c | c | c ||}
+      \hline\hline
+       {\bf Step} & {\bf Location}       & {\bf Pressure}  & {\bf Temperature}     & {\bf Quality /}  &{\bf Velocity}    \\
+                  &                      & {\bf (bar)}     &{\bf$\left(^{\circ}\text{C}\right)$}& {\bf State} & {\bf m/s} \\
+      \hline\hline
+          1       & Inlet to turbine     &   60            &   380                 &  --              &       --         \\
+      \hline
+          2       & Exit from turbine and&   0.1           &    --                 & 0.9              &  200             \\
+                  & inlet to condenser   &                 &                       &                  &                  \\ 
+      \hline
+          3       & Exit from condenser and&  0.09         &  --                   & Saturated        &  --              \\
+                  & inlet to pump        &                 &                       & Liquid           &   --             \\
+      \hline
+          4       & Exit from pump and   &  100            &   --                  &     --           &   --             \\
+                  & inlet to boiler      &                 &                       &                  &                  \\
+      \hline 
+          5       & Exit from boiler     &  80             &  440                  &      --          &    --            \\
+           \hline\hline
+     \end{tabular}
+    \end{center}
+    Assume that the steam mass flow rate leaving the boiler is 10$^{4}$ kg.h$^{-1}$. Sketch the cycle numbering each stage. Calculate:
+      \begin{enumerate}[(a)]
+         \item Specific enthalpies of all streams;
+         \item Power output of the turbine;
+         \item Heat transfer per hour in the boiler and condenser;
+         \item Mass rate of cooling water circulated (kg/h) in the condenser assuming inlet and outlet fluid temperatures from the condenser of 20$^{\circ}$C and 30$^{\circ}$C. Assume that the heat capacity at constant pressure $\left(\text{C}_{\text{p}}\right)$ of the cooling water is 4.18 $\frac{\text{kJ}}{\text{kg.}^{\circ}\text{C}}$.
+         \item Diameter (m) of the pipe connecting the turbine with the condenser;
+         \item Sketch the $Ts$ diagram, indicating each step of the cycle.
+    \end{enumerate} 
+
+% SOLUTION  
+    \noindent{\bf Solution:} 
+    
 
 \end{enumerate}
+
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
