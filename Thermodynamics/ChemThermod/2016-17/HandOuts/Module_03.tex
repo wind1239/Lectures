@@ -360,7 +360,7 @@
       \begin{center}
         \begin{tabular}{l c  l}
            $\left(\frc{\partial T}{\partial V}\right)_{S} = -\left(\frc{\partial P}{\partial S}\right)_{v}$  &  \hspace{1cm} & $\left(\frc{\partial T}{\partial P}\right)_{S} =  \left(\frc{\partial V}{\partial S}\right)_{P}$  \\
-           $\left(\frc{\partial P}{\partial T}\right)_{V} =  \left(\frc{\partial S}{\partial V}\right)_{T}$  &  \hspace{1cm} & $\left(\frc{\partial V}{\partial T}\right)_{S} = -\left(\frc{\partial S}{\partial P}\right)_{T}$ 
+           $\left(\frc{\partial P}{\partial T}\right)_{V} =  \left(\frc{\partial S}{\partial V}\right)_{T}$  &  \hspace{1cm} & $\left(\frc{\partial V}{\partial T}\right)_{\red{P}} = -\left(\frc{\partial S}{\partial P}\right)_{T}$ 
         \end{tabular}
       \end{center}
    \end{block}
@@ -677,6 +677,92 @@
      \item Introduction of residual properties and applications;
      \item Two-phase systems.
    \end{enumerate}
+\end{frame}
+
+\section{Examples}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+   \frametitle{Example 1}
+    \blue{A block of copper of 1 kg undertakes a reversible compression from 0.1 MPa to 100 MPa at constant temperature of 15$^{\circ}$C. Calculate:}
+    \begin{enumerate}[a)]
+       \item \blue{Work done on the copper block during the process;}
+       \item \blue{Change in entropy {\it per} kg of copper;}
+       \item \blue{Heat transfer and;}
+       \item \blue{Change of internal energy {\it per} kg.}
+    \end{enumerate}
+    \blue{Given, }
+    \begin{itemize}
+       \item \blue{Volume expansivity coefficient: $\beta = 5\times 10^{-5}$ K$^{-1}$;}
+       \item \blue{Isothermal compressibility coefficient: $\kappa = 8.6\times 10^{-12}$ m$^{2}$.N$^{-1}$;}
+       \item \blue{specific volume: $v=1.14\times 10^{-4}$ m$^{3}$.kg$^{-1}$.}
+    \end{itemize} 
+
+    \noindent{\bf Solution:} 
+
+    \visible<2->{{\bf(a)} The work done during the compression,
+                \begin{displaymath}
+                   w = -\int P dv,
+                \end{displaymath}
+                where $v$ is the specific volume.}\visible<3->{ $\kappa$ was defined in Module 2 as,
+                \begin{displaymath}
+                   \kappa = \frc{1}{v}\left(\frc{\partial v}{\partial P}\right)_{T}\;\Longrightarrow \; v\kappa dP = - dv \;\;\text{ (with constant T)}
+                \end{displaymath}}
+                For isothermal processes
+                \begin{displaymath}
+                   w = -\int P dv = - \int P\left(-v\kappa dP\right) = \frc{v}{2}\kappa\left(P_{2}^{2}-P_{1}^{2}\right) = 4.90 \frc{\text{J}}{\text{kg}}
+                \end{displaymath}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+   \frametitle{Example 1}
+
+    \visible<1->{For isothermal processes
+                \begin{displaymath}
+                   w = -\int P dv = - \int P\left(-v\kappa dP\right) = \frc{v}{2}\kappa\left(P_{2}^{2}-P_{1}^{2}\right) = 4.90 \frc{\text{J}}{\text{kg}}
+                \end{displaymath}}
+    
+   \visible<2->{{\bf (b)} $ds$ = ? (specific entropy).}
+
+   \visible<3->{From the Maxwell relations, 
+                \begin{displaymath}
+                   -\left(\frc{\partial s}{\partial P}\right)_{T} = \left(\frc{\partial v}{\partial T}\right)_{P},
+                \end{displaymath}} 
+
+   \visible<4->{and from the definition of $\beta$,
+                \begin{eqnarray}
+                    && \beta = \frc{1}{v}\left(\frc{\partial v}{\partial T}\right)_{P} \;\;\Longrightarrow\;\; -\left(\frc{\partial s}{\partial P}\right)_{T} = \beta v \nonumber \\
+                    && ds = -\beta v dP \;\;\Longrightarrow ds = s_{2}-s_{1} = -\beta v \left(P_{2}-P_{1}\right) = -0.5694 \frc{\text{J}}{\text{kg.K}} \nonumber
+                \end{eqnarray}}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+   \frametitle{Example 1}
+
+    \visible<1->{{\bf (c)} The heat transferred in such reversible isothermal process is
+                \begin{displaymath}
+                   dq = Tds \;\;\Longrightarrow q = T\left(s_{2}-s_{1}\right) = -164.07 \frc{\text{J}}{\text{kg}}.
+                \end{displaymath}}
+
+    \visible<1->{{\bf (d)} The specific internal energy,
+                \begin{eqnarray}
+                   &&  du = q + w \nonumber \\
+                   && \left(u_{2}-u_{1}\right) = \underbrace{-164.07}_{\text{heat removed from the system}} + \overbrace{4.90}^{\text{work given to the system}} = -159.17 \frc{\text{J}}{\text{kg}}. \nonumber
+                \end{eqnarray}}
+
 \end{frame}
 
 
