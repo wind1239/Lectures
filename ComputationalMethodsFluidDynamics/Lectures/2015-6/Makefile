@@ -3,6 +3,7 @@ default:	Module_01.pdf Module_IntroTurbulence.pdf
 
 Module_01.pdf:			Module_01.tex 
 Module_IntroTurbulence.pdf:	Module_IntroTurbulence.tex
+IntroCFD.pdf:			IntroCFD.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
