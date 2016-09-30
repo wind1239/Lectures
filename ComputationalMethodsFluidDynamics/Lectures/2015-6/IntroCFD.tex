@@ -354,10 +354,63 @@
 %%%%%%%%%%%%%%%%%%%
 \section{Workflow for Computational Fluid Dynamics (CFD) Simulations}
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Demonstration Problem: Laminar Pipe Flow} 
+
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=8.cm, clip]{./Figs/LaminarPipeFlow2.pdf}
+    \end{center}
+   \end{figure}    
+   \visible<2->{Note that these properties result in $Re=\frc{\rho D L}{\mu} = 200 \Rightarrow$\;\; \red{Laminar flow}. }
+
+   \visible<3->{Solve this flow problem using \blue{ANSYS Fluent} to obtain the following information:}
+       \begin{enumerate}[a)]
+          \item<4-> velocity vectors;
+          \item<4-> velocity magnitude contours;
+          \item<4-> velocity profiles;
+          \item<4-> skin friction coefficient along the pipe wall.
+       \end{enumerate}
+   \visible<4->{\blue{Compare these results with the analytic solution for fully developed laminar pipe flow}.}
+
+\end{frame} 
+
 %##################
 %%%   SUBSECTION
 %##################
-\subsection{Pre-Processing}
+\subsection{Demonstration Problem}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Demonstration Problem: Laminar Pipe Flow} 
+    \begin{columns}
+       \begin{column}[l]{0.5\linewidth}
+          \begin{description}\scriptsize
+             \item[Windows Desktop:]<1-> Physical Sciences $\Longrightarrow$ Engineering $\Longrightarrow$ \blue{ANSYS 14.5} $\Longrightarrow$ Workbench 14.5;
+             \item[ANSYS WorkBench:]<2-> {\it Toolbox Area} (left hand-side) and {\it Project Schematic} (main area);
+             \item[Analysis System:]<3-> Contains the type of physical problems to be solved. We will select {\it Fluid Flow (Fluent)}.
+             \item[Project Schematic Area:]<4-> The main area will contain all elements for the simulation:
+                \begin{enumerate}[a)]\scriptsize
+                   \item<5-> Geometry;
+                   \item<5-> Mesh;
+                   \item<5-> Setup;
+                   \item<5-> Simulations and;
+                   \item<5-> Results.
+                \end{enumerate}
+          \end{description}
+       \end{column}
+       \begin{column}[l]{0.5\linewidth}
+          \visible<2->{\begin{figure}
+                \includegraphics[width=\columnwidth, clip]{./Figs/SystemInitialisation_b.pdf} 
+                \caption{Laminar pipe flow -- schematics.}\label{SchematicsPipe}
+          \end{figure}}
+       \end{column}
+    \end{columns}
+\end{frame} 
  
 %%%
 %%% Slide
@@ -388,27 +441,227 @@
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Pre-processing: Defining the Geometry for the Laminar Pipe Flow} 
-
-   \begin{figure}%
-    \begin{center}
-     \includegraphics[width=8.cm, clip]{./Figs/LaminarPipeFlow2.pdf}
-    \end{center}
-   \end{figure}    
-
-   \begin{enumerate}[(a)]
-      \item<2-> Note that these properties result in $Re=\frc{\rho D L}{\mu} = 200 \Rightarrow$\;\; \red{Laminar flow}. 
-   \end{enumerate}
-
+ \frametitle{Pre-processing: Geometry Setup} 
+    \begin{columns}
+       \begin{column}[l]{0.5\linewidth}
+          \begin{enumerate}[1)]\scriptsize
+             \item<1-> Establish the dimension of the problem:
+                 \begin{enumerate}[a)]\scriptsize
+                    \item<1-> Drag \blue{Geometry} from the \blue{Component Systems} menu to the main area;
+                    \item<1-> Right-click \blue{Geometry} $\rightarrow$ \blue{Properties}
+                    \item<1-> Select \red{2D};
+                 \end{enumerate}
+             \item<2-> Establish the unit for the geometry:
+                 \begin{enumerate}[a)]\scriptsize
+                    \item<2-> Right-click \blue{Geometry} $\rightarrow$ \blue{New Geometry}
+                    \item<2-> Select \red{Meter};
+                 \end{enumerate}
+          \end{enumerate}
+       \end{column}
+       \begin{column}[l]{0.5\linewidth}
+          \visible<1->{\begin{figure}
+                \includegraphics[width=\columnwidth, clip]{./Figs/Geometry.pdf} 
+          \end{figure}}
+       \end{column}
+    \end{columns}
+\end{frame} 
+ 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Pre-processing: Geometry Setup} 
+    \begin{columns}
+       \begin{column}[l]{0.5\linewidth}
+          \begin{enumerate}[1)]\scriptsize\setcounter{enumi}{2}
+             \item<1-> In the \blue{DesignModeler}, we can start creating the required geometry:
+                 \begin{enumerate}[a)]\scriptsize
+                    \item<1-> Select \blue{XYplane} from the \blue{Tree Outline} field;
+                    \item<1-> Click in the \blue{New Sketch} symbol from the \blue{Sketch Toolbar} $\Rightarrow$ \blue{Sketch1};
+                 \end{enumerate}
+             \item<2-> In order to adjust the visualisation of the sketch geometry, we should select \blue{Z-axis} to obtain a \blue{XYPlane} visualisation;
+          \end{enumerate}
+          \begin{center}
+                \visible<1->{\includegraphics[width=.8\columnwidth, clip]{./Figs/Geometry2.pdf}}
+          \end{center}
+       \end{column}
+       \begin{column}[l]{0.5\linewidth}
+          \begin{enumerate}[1)]\scriptsize\setcounter{enumi}{4} 
+             \item<3-> Generating the Geometry:
+                 \begin{enumerate}[a)]\scriptsize
+                    \item<3-> Select \blue{Rectangle} and draw the rectangle that will represent the pipe (Fig.~\ref{SchematicsPipe}). 
+                    \item<3-> \blue{P} indicates the origin of the geometry;
+                    \item<3-> As the mouse `touch' the lines, a letter \blue{C} will also appear;
+                 \end{enumerate}
+          \end{enumerate} 
+          \begin{center}
+                \visible<3->{\includegraphics[width=.8\columnwidth, clip]{./Figs/Geometry3.pdf}}
+          \end{center}
+       \end{column}
+    \end{columns}
 
 \end{frame} 
 
 
+ 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Pre-processing: Geometry Setup} 
+    \begin{columns}
+       \begin{column}[l]{0.5\linewidth}
+          \begin{enumerate}\scriptsize\setcounter{enumi}{5}
+             \item<1-> Setting dimensions of the rectangle:
+                 \begin{enumerate}[a)]\scriptsize
+                    \item<1-> Select \blue{Dimensions menu} from the \blue{Sketching Tab};
+                    \item<1-> Select \blue{Vertical} and click in the upper and lower line boundaries of the rectangle. Click on \blue{V1} symbol;
+                    \item<1-> Repeat the procedure for the horizontal dimension by selecting \blue{Horizontal} in the \blue{Sketching Tab};
+                    \item<1-> In the \blue{Details View table}, set $H2 = 6$ m and $V1 = 0.15$ m $= r = \frc{D}{2}$.
+                 \end{enumerate}
+          \end{enumerate}
+          \visible<1->{\begin{center}
+                \includegraphics[width=.9\columnwidth, clip]{./Figs/Geometry3.pdf} 
+          \end{center}}
+       \end{column}
+       \begin{column}[l]{0.5\linewidth}
+          \visible<2->{\begin{center}
+                \includegraphics[width=\columnwidth, clip]{./Figs/Geometry4b.pdf} 
+          \end{center}}
+          \begin{enumerate}\scriptsize\setcounter{enumi}{6}
+             \item<2-> Creating a \red{surface}:
+                 \begin{enumerate}[a)]\scriptsize
+                    \item<2-> Select \blue{Sketch1} from the \blue{Tree Outline};
+                    \item<2-> All sides of the created rectangle should turn \blue{yellow};
+                    \item<2-> Select \blue{Concept} $\Rightarrow$ \blue{Surfaces from Sketches};
+                    \item<2-> Select \blue{Apply} and click on \blue{Generate icon} from the \blue{Feature Toolbar}.
+                 \end{enumerate}
+             \item<3-> Close the \blue{DesignModeler} and \red{save} the project;
+             \item<3-> The project (for now, just the geometry) is contained in the file with extension $\ast$.wbpj.
+          \end{enumerate}
+       \end{column}
+    \end{columns}
+\end{frame} 
+
+ 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Pre-processing: Mesh Generation} 
+    \begin{columns}
+       \begin{column}[l]{0.5\linewidth}
+          \begin{enumerate}\scriptsize
+             \item<1-> The conservative equations will be effectively solved in {\it each cell} of the mesh within the geometry;
+             \item<1-> After generating the geometry, we now need to associate this geometry with a mesh:
+                \begin{enumerate}[a)]\scriptsize
+                   \item<2-> Drag the \blue{Mesh} component from the \blue{Component Systems menu} to the \blue{Project Schematic} area;
+                   \item<2-> Establish a link between the existent \blue{Geometry box} and the \blue{new box}; 
+                   \item<2-> Right-click \blue{Mesh cell} $\rightarrow$ \blue{Refresh}. This will link the geometry with mesh; 
+                   \item<2-> Right-click \blue{Mesh} $\rightarrow$ \blue{Edit} $\Longrightarrow$ \blue{Meshing Window}.
+                \end{enumerate}
+          \end{enumerate}
+       \end{column}
+       \begin{column}[l]{0.5\linewidth}
+          \visible<2->{\begin{figure}
+                \includegraphics[width=1.1\columnwidth, clip]{./Figs/MeshGeneration1.pdf} 
+          \end{figure}}
+       \end{column}
+    \end{columns}
+\end{frame} 
+
+ 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Pre-processing: Mesh Generation} 
+    \begin{columns}
+       \begin{column}[l]{0.5\linewidth}
+          \begin{enumerate}\scriptsize\setcounter{enumi}{2}
+             \item<1-> Creating boundary lines:
+                \begin{enumerate}[a)]\scriptsize
+                   \item<2-> Click the \blue{Edge Tool symbol} from the \blue{Selection Toolbar};
+                   \item<2-> Click in the {\it left edge of the geometry} in the \blue{Geometry window};
+                   \item<2-> Right-click the \underline{green highlighted line} and select \blue{Create Named Selection};
+                   \item<2-> Name the boundary \red{Inlet} in the \blue{Selection name window};
+                   \item<2-> Repeat the procedure with the other three boundaries, naming \red{Pipewall} (upper boundary), \red{Outlet} (rhs) and \red{Centreline} (lower boundary).
+                   \item<2-> d
+                \end{enumerate}
+          \end{enumerate}
+       \end{column}
+       \begin{column}[l]{0.5\linewidth}
+          \visible<2->{\begin{figure}
+                \includegraphics[width=\columnwidth, clip]{./Figs/MeshGeneration2.pdf} 
+          \end{figure}}
+       \end{column}
+    \end{columns}
+\end{frame} 
+
+ 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Pre-processing: Mesh Generation} 
+    \begin{columns}
+       \begin{column}[l]{0.5\linewidth}
+          \begin{enumerate}\scriptsize
+             \item<1-> 
+          \end{enumerate}
+       \end{column}
+       \begin{column}[l]{0.5\linewidth}
+          \visible<2->{\begin{figure}
+                \includegraphics[width=\columnwidth, clip]{./Figs/MeshGeneration1.pdf} 
+          \end{figure}}
+       \end{column}
+    \end{columns}
+\end{frame} 
 
 
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Objective}
+  
 
+   \begin{enumerate}\scriptsize
+       \item<1-> From the Navier-Stokes equations for incompressible fluids, we have defined the {\it Reynolds number},
+          \visible<1->{\begin{displaymath}
+               Re = \frc{\rho \left|u_{ref}\right| L_{ref}}{\mu}
+          \end{displaymath}
+          that measures the importance of convection and diffusion flow mechanisms.} 
+   \end{enumerate}
 
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=10.cm, height=6.5cm, clip]{./Figs/Transition2Turbulence}
+    \end{center}
+%\caption{XX}
+   \end{figure}  
+\end{frame}
+
+ 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Pre-processing: Mesh Generation} 
+    \begin{columns}
+       \begin{column}[l]{0.5\linewidth}
+          \begin{enumerate}\scriptsize
+             \item<1-> 
+          \end{enumerate}
+       \end{column}
+       \begin{column}[l]{0.5\linewidth}
+          \visible<2->{\begin{figure}
+                \includegraphics[width=\columnwidth, clip]{./Figs/MeshGeneration1.pdf} 
+          \end{figure}}
+       \end{column}
+    \end{columns}
+\end{frame} 
 
 %%%
 %%% Slide
