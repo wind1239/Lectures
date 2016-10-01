@@ -969,17 +969,17 @@
   \frametitle{Pre-processing: Model Setup}
     \begin{columns}
         \begin{column}[l]{0.5\linewidth}
-           \begin{enumerate}\scriptsize
+           \begin{enumerate}\scriptsize\setcounter{enumi}{17}
                \item<1-> As the {\it Fluent Solver} seeks the solution for the set of PDEs representing the physical problem, it requires residuals that makes the solution acceptable.
                \item<1-> Also, we may want to monitor and control of the solution and to extract diagnostic fields to assess the temporary and final solutions;  
                     \begin{enumerate}[i)]\scriptsize
                        \item<2-> Click \blue{Monitor} from the \blue{Navigation Panel} and select \blue{Residuals} from the \blue{Task Page};
                        \item<2-> Select \blue{Residuals -- Print, Plot} from the \blue{Residuals, Statistics and Force Monitors} and;
                        \item<2-> Click \blue{Edit} and set all 3 \blue{Absolute Convergence Criteria} to \blue{1.0$\times$10$^{-6}$}
-                   \end{enumerate}
+                    \end{enumerate}
+                    \visible<2->{The monitors provide an overall view of the iteration convergence of the variables at all nodes and cells after every iteration.}
+               \item<3-> We can monitor a specific variable in the course of the simulation, \eg force on a wall section or pressure at a specific location (this is the equivalent of installing a sensor in a physical experiment!);
            \end{enumerate}
-
-
            
         \end{column}
            \begin{column}[l]{0.5\linewidth}
@@ -997,16 +997,24 @@
   \frametitle{Pre-processing: Model Setup}
     \begin{columns}
         \begin{column}[l]{0.5\linewidth}
-           \begin{enumerate}\scriptsize
-                \item<1-> After 
+           \begin{enumerate}\scriptsize\setcounter{enumi}{20}
+                \item<1-> In this example, we will monitor the \red{drag coefficient on the pipe wall},
                     \begin{enumerate}[i)]\scriptsize
-                       \item<2-> Fluid 
-                   \end{enumerate}
+                       \item<1-> Click \blue{Create} in the \blue{Task Page} under \blue{Residuals, Statistics and Force Monitors};
+                       \item<1-> Select \blue{Drag} and give the \blue{Monitor} a name;
+                       \item<1-> Select \blue{Pipewall} from \blue{Wall Zones} and tick \blue{Print} to \blue{Console} and \blue{Plot} boxes under \blue{Options}.
+                    \end{enumerate}
+                \item<2-> Note that Fluent calculates the drag coefficient with respect to user-defined reference values for the density, velocity and area:
+                      \begin{displaymath}\scriptsize
+                          C_{D} = \frc{F_{D}}{0.5\rho_{\text{ref}}V^{2}_{\text{ref}}A_{\text{ref}}} = \frc{\int\overline{\tau}_{w}\overline{a}dA}{0.5\rho_{\text{ref}}V^{2}_{\text{ref}}A_{\text{ref}}}
+                      \end{displaymath}
+                      \visible<2->{The drag force $F_{D}$ is calculated in Fluent by integrating the wall shear stress $\overline{\tau}_{w}$ over the wall area, here $\overline{a}$ indicates the direction in which the force is acting.}
+                \item<3-> Now, in the \blue{Reference Values} box from the \blue{Navigation Panel}, specify \blue{Density} and \blue{Velocity} values (Fig.~\ref{SchematicsPipe}) and set the \blue{Area} equal to the area of the pipe $\left(A_{\text{ref}}=2\pi r L\right)$;    
            \end{enumerate}
         \end{column}
            \begin{column}[l]{0.5\linewidth}
-               \visible<2->{\begin{center}
-                   \includegraphics[width=\columnwidth, clip]{./Figs/MeshGeneration6.pdf} 
+               \visible<1->{\begin{center}
+                   \includegraphics[width=\columnwidth, clip]{./Figs/ProblemSetup6.pdf}
                \end{center}}
            \end{column}
     \end{columns}
