@@ -883,23 +883,114 @@
   \frametitle{Pre-processing: Model Setup}
     \begin{columns}
         \begin{column}[l]{0.5\linewidth}
-           \begin{enumerate}\scriptsize
-                \item<1-> After 
+           \begin{enumerate}\scriptsize\setcounter{enumi}{8}
+                \item<1-> During the \red{mesh setup}, we defined the \red{boundary lines (Inlet, Outlet, Pipewall and Centreline)}, now we should set up the properties of these lines, 
+                \item<2-> For the \red{Inlet BC}:
                     \begin{enumerate}[i)]\scriptsize
-                       \item<2-> Fluid 
-                   \end{enumerate}
+                       \item<2-> Select \blue{Boundary Condition} from the \blue{Navigation Panel}, and select \blue{Inlet} from the \blue{Task Page};
+                       \item<2-> Click \blue{Edit} and the \blue{Velocity Inlet dialog Panel} will appear;
+                       \item<2-> Set \blue{Velocity Specification Method} to \blue{Components};
+                       \item<2-> Set \blue{Axial Velocity} to \blue{1 m.s$^{-1}$}; 
+                    \end{enumerate}
+                \item<3-> For the \red{Outlet BC}
+                    \begin{enumerate}[i)]\scriptsize
+                       \item<3-> Select \blue{Outlet} from the \blue{Task Page};
+                       \item<3-> Select \blue{Type} $\Rightarrow$ \blue{Pressure-Outlet};
+                       \item<2-> No further changes are needed since the gauge pressure by default is set to \blue{0 Pa};
+                    \end{enumerate}
+                \item<4-> For the \red{Pipewall BC}
+                    \begin{enumerate}[i)]\scriptsize
+                       \item<4-> Select \blue{Pipewall} from the \blue{Task Page};
+                       \item<4-> Select \blue{Type} $\Rightarrow$ \blue{Wall};
+                    \end{enumerate}
            \end{enumerate}
         \end{column}
            \begin{column}[l]{0.5\linewidth}
                \visible<2->{\begin{center}
-                   \includegraphics[width=\columnwidth, clip]{./Figs/MeshGeneration6.pdf} 
+                   \includegraphics[width=\columnwidth, clip]{./Figs/ProblemSetup4.pdf}
                \end{center}}
+               \begin{enumerate}\scriptsize\setcounter{enumi}{12}
+                   \item<5-> For the \red{Centreline BC}:
+                       \begin{enumerate}[i)]\scriptsize
+                          \item<5-> Select \blue{Centreline} from the \blue{Task Page};
+                          \item<5-> Select \blue{Type} $\Rightarrow$ \blue{Axis};
+                       \end{enumerate}
+               \end{enumerate}
            \end{column}
     \end{columns}
 \end{frame}
 
 
 
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Pre-processing: Model Setup}
+    \begin{columns}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize\setcounter{enumi}{13}
+                \item<1-> Now that we setup the \red{physical} and \red{mathematical} problem, we need to setup the numerical schemes that Fluent will use to discretise and solve the problem;
+                \item<2-> For this problem, we will use the 2$^{\text{nd}}$-order discretisation to solve the momentum equation:
+                    \begin{enumerate}[i)]\scriptsize
+                        \item<2-> Select \blue{Solution Methods} from the \blue{Navigation Panel};
+                        \item<2-> Select \blue{Scheme} $\Rightarrow$ \blue{SIMPLE};
+                        \item<2-> For \blue{Spatial Discretisation}:
+                             \begin{enumerate}[(a)]\scriptsize
+                                       \item<2-> \blue{Gradient} $\Rightarrow$ \blue{Least Squares Cell Based};
+                                       \item<2-> \blue{Pressure} $\Rightarrow$ \blue{Standard};
+                                       \item<2-> \blue{Momentum} $\Rightarrow$ \blue{Second-Order Upwind}.
+                             \end{enumerate}
+                    \end{enumerate}
+                \item<3-> In the \blue{Solution Controls} box we can establish {\it relaxation factors} that will be used by the \red{Solver};
+                \item<3-> Select \blue{Solution Controls} from the \blue{Navigation Panel} and use the following relaxation factors:
+                    \begin{enumerate}[i)]\scriptsize
+                        \item<3-> \blue{Pressure} $\Rightarrow$ \blue{0.3};
+                        \item<3-> \blue{Density} $\Rightarrow$ \blue{1.0};
+                        \item<3-> \blue{Body Forces} $\Rightarrow$ \blue{1.0};
+                        \item<3-> \blue{PressureMomentum} $\Rightarrow$ \blue{0.7};
+                    \end{enumerate}
+           \end{enumerate}
+        \end{column}
+           \begin{column}[l]{0.5\linewidth}
+               \visible<2->{\begin{center}
+                   \includegraphics[width=\columnwidth, clip]{./Figs/ProblemSetup5.pdf}
+               \end{center}}
+           \end{column}
+    \end{columns}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Pre-processing: Model Setup}
+    \begin{columns}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize
+               \item<1-> As the {\it Fluent Solver} seeks the solution for the set of PDEs representing the physical problem, it requires residuals that makes the solution acceptable.
+               \item<1-> Also, we may want to monitor and control of the solution and to extract diagnostic fields to assess the temporary and final solutions;  
+                    \begin{enumerate}[i)]\scriptsize
+                       \item<2-> Click \blue{Monitor} from the \blue{Navigation Panel} and select \blue{Residuals} from the \blue{Task Page};
+                       \item<2-> Select \blue{Residuals -- Print, Plot} from the \blue{Residuals, Statistics and Force Monitors} and;
+                       \item<2-> Click \blue{Edit}
+                   \end{enumerate}
+           \end{enumerate}
+
+Click Monitors in the Navigation Pane, and in the Task Page select Residuals - Print, Plot under Residuals, Statistics and Force monitors and click Edit. Now, set all three convergence criteria (Absolute criteria) to 1e-6.  Ensure that all other setting in the dialog box are set   as
+follows:
+
+           
+        \end{column}
+           \begin{column}[l]{0.5\linewidth}
+               \visible<2->{\begin{center}
+                   \includegraphics[width=\columnwidth, clip]{./Figs/ProblemSetup6.pdf}
+               \end{center}}
+           \end{column}
+    \end{columns}
+\end{frame}
 
 %%%
 %%% Slide
@@ -922,7 +1013,6 @@
            \end{column}
     \end{columns}
 \end{frame}
-
 
 %%%
 %%% Slide
