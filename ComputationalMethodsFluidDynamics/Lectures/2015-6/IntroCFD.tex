@@ -834,9 +834,7 @@
     \end{center}
     \visible<4->{\begin{center}        
         \scriptsize 1 cell zone, 5 face zones.
-    \end{center}}
-
-    
+    \end{center}}   
 \end{frame}
 
 
@@ -873,8 +871,6 @@
            \end{column}
     \end{columns}
 \end{frame}
-
-
 
 %%%
 %%% Slide
@@ -920,9 +916,6 @@
     \end{columns}
 \end{frame}
 
-
-
-
 %%%
 %%% Slide
 %%%
@@ -960,7 +953,6 @@
            \end{column}
     \end{columns}
 \end{frame}
-
 
 %%%
 %%% Slide
@@ -1049,5 +1041,132 @@
            \end{column}
     \end{columns}
 \end{frame}
+
+
+%##################
+%%%   SUBSECTION
+%##################
+\subsection{Running the Numerical Simulation}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Running the Numerical Simulation}
+    \begin{columns}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize%\setcounter{enumi}{1}
+                \item<1-> After the \red{pre-processing} stage, we are now ready to run the numerical simulation;
+                \item<1-> However, before we start the simulation we may want to \red{save a variable} for use during the \red{post-processing} stage;
+                    \begin{enumerate}[i)]\scriptsize
+                       \item<2-> Select \blue{Files} from the \blue{Menu Bar} and select \blue{Data File Quantities} $\Rightarrow$ \blue{Skin Friction Coefficient};
+                    \end{enumerate}       
+                  \item<3-> Now, select \blue{Run Calculation} from the \blue{Navigation Panel} and set the \blue{Number of Iterations} as \blue{100};
+                  \item<3-> While the calculation is running you can switch between the \blue{Residual Monitor} and \blue{Drag Force Monitor} in the \blue{Graphics Window};
+                  \item<4-> After \red{76 iterations} the calculation stops as residuals are smaller than the specified convergence criteria. The converged simulation would include two factors:
+                    \begin{enumerate}[i)]\scriptsize
+                       \item<4-> a small residual and;
+                       \item<4-> negligible changes of the chosen variable.
+                    \end{enumerate}   
+                  \item<5-> The monitoring should show the residuals of the primary variables (continuity and velocities) and the user-defined drag coefficient;
+           \end{enumerate}
+           
+        \end{column}
+           \begin{column}[l]{0.5\linewidth}
+               \visible<5->{\begin{center}
+                   \includegraphics[width=\columnwidth, clip]{./Figs/ProblemSetup8.pdf}
+               \end{center}}
+           \begin{enumerate}\scriptsize\setcounter{enumi}{6}
+                \item<5-> \red{Save} the project and close Fluent.
+           \end{enumerate}
+           \end{column}
+    \end{columns}
+\end{frame}
+
+%##################
+%%%   SUBSECTION
+%##################
+\subsection{Post-Processing}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Post-processing}
+    \begin{columns}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize%\setcounter{enumi}{1}
+                \item<1-> Drag the \blue{Results} component from the \blue{Component Systems} to the \blue{Project Schematic};
+                \item<1-> Connect the \blue{Solution} cell from the \blue{Fluent Component Table} to \blue{Results Component Table};
+                \item<1-> Right-click on \blue{Results} and select \blue{Update}.
+                \item<1-> Now, double-click \blue{Results} from the \blue{Results Component} box. This will launch the \red{CFD-Post environment};
+                    \begin{enumerate}[i)]\scriptsize
+                       \item<2-> Select 
+                       \begin{enumerate}[(a)]\scriptsize
+                          \item<2->  Select
+                       \end{enumerate}
+                    \end{enumerate}                    
+           \end{enumerate}
+           
+        \end{column}
+           \begin{column}[l]{0.5\linewidth}
+               \visible<2->{\begin{center}
+                   \includegraphics[width=\columnwidth, clip]{./Figs/PostProcessing1.pdf}
+               \end{center}}
+           \end{column}
+    \end{columns}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Pre-processing: Model Setup}
+    \begin{columns}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize\setcounter{enumi}{1}
+                \item<1-> 
+                    \begin{enumerate}[i)]\scriptsize
+                       \item<2-> Select 
+                       \begin{enumerate}[(a)]\scriptsize
+                          \item<2->  Select
+                       \end{enumerate}
+                    \end{enumerate}                    
+           \end{enumerate}
+        \end{column}
+           \begin{column}[l]{0.5\linewidth}
+               \visible<2->{\begin{center}
+                   \includegraphics[width=\columnwidth, clip]{./Figs/ProblemSetup8.pdf}
+               \end{center}}
+           \end{column}
+    \end{columns}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Pre-processing: Model Setup}
+    \begin{columns}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize\setcounter{enumi}{1}
+                \item<1-> 
+                    \begin{enumerate}[i)]\scriptsize
+                       \item<2-> Select 
+                       \begin{enumerate}[(a)]\scriptsize
+                          \item<2->  Select
+                       \end{enumerate}
+                    \end{enumerate}                    
+           \end{enumerate}
+        \end{column}
+           \begin{column}[l]{0.5\linewidth}
+               \visible<2->{\begin{center}
+                   \includegraphics[width=\columnwidth, clip]{./Figs/ProblemSetup8.pdf}
+               \end{center}}
+           \end{column}
+    \end{columns}
+\end{frame}
+
 
 \end{document}
