@@ -1027,16 +1027,24 @@
   \frametitle{Pre-processing: Model Setup}
     \begin{columns}
         \begin{column}[l]{0.5\linewidth}
-           \begin{enumerate}\scriptsize
-                \item<1-> After 
+           \begin{enumerate}\scriptsize\setcounter{enumi}{23}
+                \item<1-> The last stage in the \red{pre-processing} before running the simulation is to \red{initialise} the problem, \ie set up \red{Initial Conditions}.
+                \item<1-> For this example, initial pressure and velocity (axial and radial components) are prescribed;
                     \begin{enumerate}[i)]\scriptsize
-                       \item<2-> Fluid 
-                   \end{enumerate}
+                       \item<2-> Select \b;lue{Solution Initialisation} from the \blue{Navigation Panel};
+                       \item<2-> Select \blue{Standard Initialisation} and choose \blue{Inlet} and;
+                       \begin{enumerate}[(a)]\scriptsize
+                          \item<2-> \blue{Gauge Pressure} $\Rightarrow$ \blue{0.0 Pa}; 
+                          \item<2-> \blue{Axial Velocity} $\Rightarrow$ \blue{1.0 m.s$^{-1}$}; 
+                          \item<2-> \blue{Radial Velocity} $\Rightarrow$ \blue{0.0 m.s$^{-1}$}; 
+                       \end{enumerate}
+                       \item<2-> Press \blue{Initialise}.
+                    \end{enumerate}                    
            \end{enumerate}
         \end{column}
            \begin{column}[l]{0.5\linewidth}
                \visible<2->{\begin{center}
-                   \includegraphics[width=\columnwidth, clip]{./Figs/MeshGeneration6.pdf} 
+                   \includegraphics[width=\columnwidth, clip]{./Figs/ProblemSetup7.pdf}
                \end{center}}
            \end{column}
     \end{columns}
