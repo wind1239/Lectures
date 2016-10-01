@@ -1099,6 +1099,168 @@
                 \item<1-> Connect the \blue{Solution} cell from the \blue{Fluent Component Table} to \blue{Results Component Table};
                 \item<1-> Right-click on \blue{Results} and select \blue{Update}.
                 \item<1-> Now, double-click \blue{Results} from the \blue{Results Component} box. This will launch the \red{CFD-Post environment};
+                \item<2-> There are a large number of plots that can be created from the simulation output, here we will focus on (a) velocity vectors, (b) velocity magnitude contour, (c) velocity profiles and (d) skin friction coefficient along the pipewall.                 
+           \end{enumerate}
+        \end{column}
+           \begin{column}[l]{0.5\linewidth}
+               \visible<1->{\begin{center}
+                   \includegraphics[width=\columnwidth, clip]{./Figs/PostProcessing1.pdf}
+               \end{center}}
+           \end{column}
+    \end{columns}
+\end{frame}
+
+%######################
+%%%   SUBSUBSECTION
+%######################
+\subsubsection{Velocity Vectors}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Post-processing: Velocity Vectors}
+    \begin{columns}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize%\setcounter{enumi}{1}
+                \item<1-> Click on the \blue{Z-axis} to view the \blue{XY-Plane};
+                \item<1-> Click on \blue{Periodic 1} under \blue{Surface Body} in the \blue{Tree Outline}. This is the {\it default} name for the interior region. %Click the \blue{Vector Icon} from the \blue{Creation Toobar} and give it a suitable name;
+                \item<1-> Select \blue{Periodic 1} under \blue{Location} in the \blue{Details View};
+                \item<1-> In the \blue{Symbols Tab} change the symbol size to \blue{0.2} (otherwise the vectors will appear too large) and click \blue{Apply};
+                \item<2-> As the simulation was performed in axisymmetric geometry, just half of the domain will be shown. In order to visualise the whole domain,   
+                    \begin{enumerate}[i)]\scriptsize
+                       \item<2-> Double-click \blue{Default Transform} in the \blue{Tree Outline};
+                       \item<2-> Untick \blue{Instancing Info from Domain} in the \blue{Details View};
+                       \item<2-> Tick \blue{Apply Reflection};
+                       \item<2-> Select \blue{ZXPlane} under \blue{Method} and;
+                       \item<2-> Click \blue{Apply}
+                    \end{enumerate}    
+           \end{enumerate}
+        \end{column}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize\setcounter{enumi}{4}
+                \item<2-> Vector should now be in the screen;
+                \item<2-> In order to \red{save the plot}, press the icon {\it camera} icon from the \blue{General Toolbar}, set the desired filename and format in the \blue{Dialog Box}, and press \blue{Save}.
+           \end{enumerate}
+       \visible<2->{\begin{center}
+            \includegraphics[width=\columnwidth, clip]{./Figs/PostProcessing2.pdf}
+       \end{center}}
+        \end{column}
+     \end{columns}
+\end{frame}
+
+%######################
+%%%   SUBSUBSECTION
+%######################
+\subsubsection{Velocity Magnitude Contours}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Post-processing: Velocity Magnitude Contours}
+    \begin{columns}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize%\setcounter{enumi}{1}
+                \item<1-> Click on the \blue{Contour Icon} in the \blue{Creation Toolbar}. Give an appropriate name;
+                \item<1-> In the \blue{Details View} select \blue{Periodic 1} under \blue{Locations};
+                \item<1-> Change the the \blue{Variable} from \blue{Pressure} to \blue{Velocity $u$} and click \blue{Apply};
+                \item<1-> To increase the \red{number of contours} change \blue{$\#$ of Contours} to \eg \blue{50} and click \blue{Apply}.                 
+           \end{enumerate}           
+        \end{column}
+        \begin{column}[l]{0.5\linewidth}
+           \visible<2->{\begin{center}
+               \includegraphics[width=\columnwidth, clip]{./Figs/PostProcessing3.pdf}
+           \end{center}}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+%######################
+%%%   SUBSUBSECTION
+%######################
+\subsubsection{Velocity Profiles}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Post-processing: Velocity Profiles}
+    \begin{columns}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize%\setcounter{enumi}{1}
+                \item<1-> In order to plot the velocity profile at the inlet and outlet of the pipe, we need to specify the lines along which we want to plot the profiles,
+                    \begin{enumerate}[i)]\scriptsize
+                       \item<2-> Create a \red{line} by clicking \blue{Location} in the \blue{Creation Toolbar} and select \blue{Line} and name it \blue{Pipe Inlet};
+                       \item<2-> In the \blue{Details View}, enter the \blue{(x,y,z) coordinates} for the two points of the line. Enter \blue{(0,0,0)} for \blue{Point 1} and \blue{(0,0.15,0)} for \blue{Point 2} and press \blue{Apply};
+                       \item<2-> Set the \blue{Number of Samples} to \blue{8} (\ie equal to the mesh size along the inlet and outlet;
+                       \item<2-> Repeat the procedure to create \blue{Pipe Outlet} with coordinates \blue{(6,0,0)} for \blue{Point 1} and \blue{(6,0.15,0)} for \blue{Point 2};
+                       \item<2-> Select the \blue{Chart Icon} from the \blue{Creation Toolbar}, name it \blue{Velocity Profile};
+                       \item<2-> In the \blue{Data Series} tab from the \blue{Details View}, select \blue{Pipe Inlet} under \blue{Location}. Also under \blue{Name}, type \blue{Pipe Inlet};
+                       \item<2-> Select \blue{X-axis tab} and select \blue{Velocity $u$} as variable;
+                       \item<2-> Select \blue{Y-axis tab} and select \blue{Y} as variable and select \blue{Apply};
+                    \end{enumerate}                    
+           \end{enumerate}
+        \end{column}
+           \begin{column}[l]{0.5\linewidth}
+               \visible<2->{\begin{center}
+                   \includegraphics[width=\columnwidth, clip]{./Figs/PostProcessing4.pdf}
+               \end{center}}
+                    \begin{enumerate}[i)]\scriptsize\setcounter{enumi}{8}
+                       \item<2-> Return to the \blue{Data Series} tab and press the \red{symbol} that adds new \blue{Data Series} to the existing plot; 
+                       \item<2-> Repeat the procedure to plot the \red{Velocity Profile} along the \red{pipe outlet}.
+                    \end{enumerate}
+                    \visible<3->{\scriptsize The data can be exported to a comma-separated-file (*.csv) that can be readily imported by {\it Excel} or {\it Matlab} software for external plots.}                    
+           \end{column}
+    \end{columns}
+\end{frame}
+
+
+%######################
+%%%   SUBSUBSECTION
+%######################
+\subsubsection{Skin Friction Coefficient along the Pipe Wall}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Post-processing: Skin Friction Coefficient along the Pipe Wall}
+    \begin{columns}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize%\setcounter{enumi}{1}
+               \item<1-> Now, we will plot the \red{skin friction coefficient} (\ie normalised wall shear stress) along the pipe wall,
+                   \visible<1->{\begin{displaymath}
+                      c_{f} = \frc{\tau_{w}}{0.5\rho_{\text{ref}}U^{2}_{\text{ref}}}
+                   \end{displaymath}}
+               \item<2-> We have already setup the monitoring of the \red{drag force coefficient}, and we are now able to plot the \red{skin friction coefficient} along the pipe wall,
+                    \begin{enumerate}[i)]\scriptsize
+                       \item<2-> Create a line called \blue{Pipe Wall} starting at \blue{(0,0.15)} and ending at \blue{(6,0.15)};
+                       \item<2-> Select the \blue{Chart Icon} from the \blue{Create Toolbar}. Name it \blue{Skin Friction Coefficient};
+                       \item<2-> In the \blue{Details View}, select \blue{Pipe Wall} under \blue{Location} in the \blue{Data Series Tab}
+                       \item<2-> In the \blue{X-axis tab} select \blue{X} as the variable and, under \blue{Y-axis}, select \blue{Skin Friction Coefficient} and click \blue{Apply}.
+                    \end{enumerate}
+
+                    
+           \end{enumerate}
+        \end{column}
+           \begin{column}[l]{0.5\linewidth}
+               \visible<2->{\begin{center}
+                   \includegraphics[width=\columnwidth, clip]{./Figs/PostProcessing5.pdf}
+               \end{center}}
+           \end{column}
+    \end{columns}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Post-processing: Velocity Vectors}
+    \begin{columns}
+        \begin{column}[l]{0.5\linewidth}
+           \begin{enumerate}\scriptsize\setcounter{enumi}{1}
+                \item<1-> 
                     \begin{enumerate}[i)]\scriptsize
                        \item<2-> Select 
                        \begin{enumerate}[(a)]\scriptsize
@@ -1106,7 +1268,6 @@
                        \end{enumerate}
                     \end{enumerate}                    
            \end{enumerate}
-           
         \end{column}
            \begin{column}[l]{0.5\linewidth}
                \visible<2->{\begin{center}
@@ -1115,58 +1276,5 @@
            \end{column}
     \end{columns}
 \end{frame}
-
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
-  \frametitle{Pre-processing: Model Setup}
-    \begin{columns}
-        \begin{column}[l]{0.5\linewidth}
-           \begin{enumerate}\scriptsize\setcounter{enumi}{1}
-                \item<1-> 
-                    \begin{enumerate}[i)]\scriptsize
-                       \item<2-> Select 
-                       \begin{enumerate}[(a)]\scriptsize
-                          \item<2->  Select
-                       \end{enumerate}
-                    \end{enumerate}                    
-           \end{enumerate}
-        \end{column}
-           \begin{column}[l]{0.5\linewidth}
-               \visible<2->{\begin{center}
-                   \includegraphics[width=\columnwidth, clip]{./Figs/ProblemSetup8.pdf}
-               \end{center}}
-           \end{column}
-    \end{columns}
-\end{frame}
-
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
-  \frametitle{Pre-processing: Model Setup}
-    \begin{columns}
-        \begin{column}[l]{0.5\linewidth}
-           \begin{enumerate}\scriptsize\setcounter{enumi}{1}
-                \item<1-> 
-                    \begin{enumerate}[i)]\scriptsize
-                       \item<2-> Select 
-                       \begin{enumerate}[(a)]\scriptsize
-                          \item<2->  Select
-                       \end{enumerate}
-                    \end{enumerate}                    
-           \end{enumerate}
-        \end{column}
-           \begin{column}[l]{0.5\linewidth}
-               \visible<2->{\begin{center}
-                   \includegraphics[width=\columnwidth, clip]{./Figs/ProblemSetup8.pdf}
-               \end{center}}
-           \end{column}
-    \end{columns}
-\end{frame}
-
 
 \end{document}
