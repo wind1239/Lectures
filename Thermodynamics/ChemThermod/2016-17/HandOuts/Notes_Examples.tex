@@ -96,8 +96,9 @@
 \newcommand{\ie}{{\it i.e., }}
 \newcommand{\wrt}{{\it wrt }}
 \newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
-\newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}}
- 
+\newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}} 
+\newcommand{\summation}[3][error]{\sum\limits_{#2}^{#3}#1}
+
 \begin{document}
 
 %%%
@@ -1267,7 +1268,7 @@ The fundamental relation for the Gibbs free energy, Eqn.~\ref{Mod03_GibbsFundame
 Another way to calculate energy and entropy changes for real gases is by defining {\it residual properties}, \ie the difference between any extensive thermodynamic property, $M$ (\eg $V$, $U$, $H$, $S$, $G$ and $A$), in real gases and its equivalent assuming ideal gas behaviour, $M^{\text{ig}}$,
    \begin{shaded}
       \begin{displaymath}
-         M^{R} = M - M^{\text{ig}},
+         M^{R} \equiv M - M^{\text{ig}},
       \end{displaymath}
    \end{shaded}
 thus \eg
@@ -1724,6 +1725,86 @@ The Rankine efficiency is given by
 %%% SECTION
 %%%
 \section{Module 04: Vapour-Liquid Equilibrium of Mixtures}\label{Section:04}
+
+Up to this point, we have only considered thermodynamic and volumetric properties of pure components at prescribed pressure and temperature conditions. However, most practical engineering applications deal with mixtures of components that may be present in a single or multiple phases, \eg oil in reservoirs, naphtha distillation, steel processing etc. This module focuses on understanding PVT behaviour of mixtures and the conditions for vapour-liquid equilibrium (VLE).
+
+
+%%% SUBSECTION
+\subsection{A Few Important Definitions}
+
+%%% SUBSUBSECTION
+\subsubsection{Partial Molar Properties}\label{Section:04:PartialMolarProperties}
+
+{\it Partial molar properties} describes the behaviour of homogeneous multi-component systems. Let's consider a homogeneous (\ie single phase) and open system (\ie system that allows mass and energy transfer across the boundary towards the surroundings) that undertakes a change in composition. Thus, the total value of any extensive property $M^{\text{t}}\;\left(M\equiv V, U, H, S, G, A\right)$ is not only a function of pressure and temperature, but it also depends on the number of moles of each species in the system. therefore
+  \begin{subequations}
+     \begin{equation}
+        M^{\text{t}} = nM = M\left(T,P,n_{1},n_{2},\cdots, n_{\mathcal{N}}\right),\label{Mod04_PartialProperties1}
+     \end{equation}
+     where $\mathcal{N}$ is the total number of chemical species, and $n=\summation[n_{i}]{i=1}{\mathcal{N}}$ is the total number of moles of all species. The total derivative of Eqn.~\ref{Mod04_PartialProperties1} is,
+     \begin{displaymath}  
+        d(nM) = \Partial[(nM)]{P}{T,n}dP + \Partial[(nM)]{T}{P,n}dT + \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}}dn_{i},
+     \end{displaymath}
+     where the subscript $n$ in the partial derivatives indicates that the number of moles is kept constant, whereas $n_{j\ne i}$ indicates that the number of moles of all components, except component $i$, are kept constant. This expression can be simplified to be a function of the mole fraction, $x_{i}$,
+     \begin{shaded}
+        \begin{equation}  
+           d(nM) = n\Partial[M]{P}{T,x}dP + n\Partial[M]{T}{P,x}dT + \summation[\overline{M}_{i}dn_{i}]{i}{},\label{Mod04_PartialProperties2}
+        \end{equation}
+     \end{shaded}
+     where $\overline{M}_{i} = \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}}$ defines the {\it partial molar property} $\overline{M}_{i}$ of species $i$ in solution, \ie the change of the total property $nM$ of a mixture of $\mathcal{N}$ species resulting from the addition at constant $T$ and $P$ of infinitesimal amount of species $i$ to a prescribed amount of solution. We will discuss partial molar properties in more details in Module~\ref{Section:05}.
+  \end{subequations}
+
+%%% SUBSUBSECTION
+\subsubsection{Excess Properties}\label{Section:04:ExcessProperties}
+  
+In Section~\ref{Section:03:ResidualProperties}, we have defined {\it residual properties} for gases as the difference between any extensive thermodynamic property, $M$, in real gases and its equivalent assuming ideal gas behaviour, $M^{\text{ig}}$. The equivalent for liquids is termed as {\it excess properties}, \ie the deviation from an ideal liquid solution property.
+
+Let's assume that $M$ is any extensive thermodynamic property (\eg $V$, $U$, $H$, $S$, $G$ and $A$), the excess property $M^{\text{E}}$ is defined as the difference between the property value of a solution and the value it would have as an ideal solution at the same $T$, $P$ and composition,
+\begin{subequations}
+  \begin{shaded}
+    \begin{equation}
+       M^{\text{E}} \equiv M - M^{\text{id}},\label{Mod04_ExcessProperties1a}
+    \end{equation}
+  \end{shaded}
+  where properties in ideal solutions of multiple chemical species can be represented as,
+    \begin{displaymath}
+       M^{\text{id}} = \summation[x_{i}M_{i}]{i}{},
+    \end{displaymath}
+    where $M_{i}$ is an extensive {\it molar property of the pure chemical species}. For a mixture of two components,
+    \begin{equation}
+      V^{\text{E}} = V - V^{\text{id}} = V - \summation[x_{i}V_{i}]{i}{} = V -\left(x_{1}V_{1}+x_{2}V_{2}\right).\label{Mod04_ExcessProperties1b}
+    \end{equation}
+    This equation shows that the total volume of a mixture of two components is different from the simple addition of both individual volumes. 
+\end{subequations}
+  
+%%% SUBSECTION
+\subsection{Chemical Potential $\left(\mu_{i}\right)$}\label{Section:04:ChemicalPotential}
+
+If we apply the concept of partial molar property to the Gibbs free energy definition, assuming that this thermodynamic potential is a function of $P$, $T$ and $n$, \ie $G^{\text{t}}= nG = G\left(T,P,n_{1},n_{2},\cdots,n_{\mathcal{N}}\right)$,
+  \begin{subequations}
+      \begin{equation}
+         d(nG) = n\Partial[G]{P}{T,x}dP + n\Partial[G]{T}{P,x}dT + \summation[\overline{G}_{i}dn_{i}]{i}{}.\label{Mod04_ChemPotentialDef1}
+      \end{equation}
+      By definition the {\it partial molar Gibbs free energy} is called \blue{chemical potential $\left(\mu_{i}\right)$},
+      \begin{shaded}
+         \begin{equation}
+            \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i}.\label{Mod04_ChemPotentialDef1b}
+         \end{equation}
+      \end{shaded}
+      The chemical potential can be understood as an energy associated with interactions of atoms/molecules in a mixture that control the tendency of molecules to leave the solution (or return to the solution), and to chemically react. We have defined the Gibbs free energy in Eqn.~\ref{Mod03_GibbsFundamentalRelation01} as a function of $T$ and $P$, now we will extend it to be also a function of the number of moles of a chemical species -- Eqn.~\ref{Mod04_ChemPotentialDef1},
+      \begin{equation}
+         d(nG) = (nV)dP - (nS)dT + \summation[\mu_{i}dn_{i}]{i}{},\label{Mod04_ChemPotentialDef1c}
+      \end{equation}
+      considering $n=1\;\Rightarrow n_{i}=x_{i}$, and Eqn.~\ref{Mod04_ChemPotentialDef1c} becomes
+      \begin{equation}
+        dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{},\label{Mod04_ChemPotentialDef1d}
+      \end{equation}
+  
+
+
+
+  \end{subequations}
+
+
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
