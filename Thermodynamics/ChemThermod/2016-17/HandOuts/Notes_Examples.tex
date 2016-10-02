@@ -1775,9 +1775,14 @@ Let's assume that $M$ is any extensive thermodynamic property (\eg $V$, $U$, $H$
     \end{equation}
     This equation shows that the total volume of a mixture of two components is different from the simple addition of both individual volumes. 
 \end{subequations}
-  
+
+
 %%% SUBSECTION
-\subsection{Chemical Potential $\left(\mu_{i}\right)$}\label{Section:04:ChemicalPotential}
+\subsection{Criteria for Chemical Equilibrium}\label{Section:04:ChemicalEquilibrium}
+
+  
+%%% SUBSUBSECTION
+\subsubsection{Chemical Potential $\left(\mu_{i}\right)$}\label{Section:04:ChemicalPotential}
 
 If we apply the concept of partial molar property to the Gibbs free energy definition, assuming that this thermodynamic potential is a function of $P$, $T$ and $n$, \ie $G^{\text{t}}= nG = G\left(T,P,n_{1},n_{2},\cdots,n_{\mathcal{N}}\right)$,
   \begin{subequations}
@@ -1798,12 +1803,42 @@ If we apply the concept of partial molar property to the Gibbs free energy defin
       \begin{equation}
         dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{},\label{Mod04_ChemPotentialDef1d}
       \end{equation}
+  \end{subequations}
+
+  
+%%% SUBSUBSECTION
+\subsubsection{Thermodynamic Equilibrium}\label{Section:04:thermodynamicEquilibrium}
+
+There are two main conditions for a system to achieve {\it chemical equilibrium}:
+  \begin{enumerate}[a)]
+     \item all distinct $\mathcal{P}$ phases that may co-exist are in equilibrium with each other, as such as there no net mass transfer of any chemical species between phases;
+     \item all chemical reactions that may occur between species are also in equilibrium, \ie no net progress \wrt conversion of reactants to products (and {\it vice-versa}).
+  \end{enumerate}
+
+  \begin{subequations}
+
+    \medskip
+
+    Let's initially consider a closed system (either homogeneous or heterogeneous) in thermal and mechanical equilibrium with the surroundings. In addition, let's also assume that the system is not under chemical equilibrium, \ie there are effective mass transfer across the phase boundary. Such transfer of matter occurs `till the point when the system is also at chemical equilibrium. In reality, these changes towards chemical occur by infinitesimal gradients and are, therefore, irreversible. Applying the {\it First Law},
+    \begin{displaymath}
+      dU^{\text{t}} = dQ + dW\;\;\;\text{ with }\;\;\; dW = -PdV^{\text{t}},
+    \end{displaymath}
+    with the heat exchange between the system and the surroundings,
+    \begin{displaymath}
+      dS_{\text{surr}} = \frc{dQ_{\text{surr}}}{T_{\text{surr}}} = - \frc{dQ^{\text{t}}}{T},\;\;\text{ where } dQ_{\text{surr}} = - dQ^{\text{t}}.
+    \end{displaymath}
+    
   
 
 
-
   \end{subequations}
-
+  
+   However, we assume that
+it is not under equilibrium with respect to possible inter-phase transfer of the chemical species or
+reactions between them. If the latter conditions prevail, all inter-phase transfer processes or reactive
+transformation of species must continue to occur till the point when the system is also at chemical
+equilibrium. In all real systems such changes are induced by finite gradients and are therefore are
+irreversible in nature. Applying the first law equation for all such changes for the system: 
 
 
 \clearpage
