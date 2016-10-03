@@ -9,10 +9,10 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-\documentclass[10pt,compress]{beamer}
+\documentclass[10pt,compress,unknownkeysallowed]{beamer}
 %Draft or handout mode
-%\documentclass[10pt,compress,handout]{beamer}
-%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
+%\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
@@ -23,7 +23,7 @@
 \newcommand{\emailaddress}{}%jefferson.gomes@abdn.ac.uk}
 \newcommand{\logoimage}{../../FigBanner/UoAHorizBanner}
 \title{Chemical Thermodynamics (EX3029)}
-\subtitle{Module 3: Thermodynamic Properties of Pure Fluids}
+\subtitle{Module 4: Vapour-Liquid Equilibrium of Mixtures}
 \date[ ]{ }
 
 %%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,12 +44,12 @@
 
 
 %At the start of every section, put a slide indicating the contents of the current section.
-\AtBeginSection[] {
-  \begin{frame}
-    \frametitle{Section Outline}
-    \tableofcontents[currentsection]
-  \end{frame}
-}
+%\AtBeginSection[] {
+%  \begin{frame}
+%    \frametitle{Section Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
 
 % Allow the inclusion of movies into the Presentation! At present,
 % only the Okular program is capable of playing the movies *IN* the
@@ -251,11 +251,10 @@
 % verbatim environment.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %%%
 %%% SECTION
 %%%
-%\section{General Remarks}
+\section{General Remarks}
 
 %%%
 %%% Slides
@@ -263,157 +262,68 @@
 \begin{frame}
  \frametitle{Aims and Objectives}
    \begin{enumerate}
-     \item<1-> In Modules 1-2, we learnt:
+     \item<1-> In Modules 2-3, we focused on 
        \begin{enumerate}
-         \item<1-> the laws of Thermodynamics and how they describe thermal equilibrium of species in closed and opened systems;
-         \item<1-> how to calculate thermodynamics properties -- internal energy, enthalpy and entropy for pure chemicallspecies;
-         \item<1-> PVT behaviour of pure species in equilibrium and;
-         \item<1-> Equations of state.
+         \item<1-> Evaluating partial derivatives of thermodynamic variables and derive fundamental thermodynamic relations;
+         \item<1-> Obtaining volumetric EOS parameters from critical properties;
+         \item<1-> Studying thermodynamic behaviour of pure substances in arbitrary number of phases (multiphase).
        \end{enumerate} 
-     \item<2-> This Module focuses on 
+     \item<2-> However, in most industrial processes more than one chemical specie is present within multiple phases in thermodynamic equilibrium. 
+     \item<3-> Our focus in this Module is to study equilibrium of arbitrary number of chemical species at vapour and liquid phases.
+     \item<4-> This Module focuses on 
          \begin{enumerate}
-           \item<2-> Thermodynamic properties of pure fluids;
-           \item<2-> Introduce two remaining thermodynamic properties: Gibbs and Helmholtz free energies;
-           \item<2-> Maxwell relations.
+           \item<4-> Partial molar properties; 
+           \item<4-> Vapour-liquid equilibrium (VLE) relations and the main diagrams ($X-y$, $T-x-y$, $P-x-y$); 
+           %\item<4-> Concept of activity, fugacity, chemical potential (and its relationship with the free Gibbs energy).
          \end{enumerate}
    \end{enumerate}
-
 \end{frame}
 
 
 %%%
 %%% SECTION
 %%%
-%\section{Bibliography}
+\subsection{Bibliography}
 \begin{frame}
  \frametitle{Suggested References}
   Literature relevant for this module:
-  \begin{enumerate}[(a)]
-   \item\label{SVN_Book} J.M. Smith, H.C. Van Ness, M.M. Abbott, $\lq$Introduction to Chemical Engineering Thermodynamics', 6$^{th}$ Edition: Chapter 6;
-   \item Y.A. Cengel, M.A. Boles, $\lq$Thermodynamics -- An Engineering Approach', 5$^{th}$ Edition: Chapter 12.1-4; 
-   %\item M.J. Moran, H.N. Saphiro, D.D. Boettner, M.B. Bailey, $\lq$Principles of Engineering Thermodynamics', 7$^{th}$ Edition: Chapters 3;
-   %\item C. Borgnakke, R.E. Sonntag,$\lq$Fundamentals of Thermodynamics',8$^{th}$ Edition: Chapter 2.
-   \item S.I. Sandler, $\lq$Chemical, Biochemical and Engineering Thermodynamics', 4$^{th}$ Edition: Chapter 6.
+  \begin{enumerate}[(i)]
+   \item\label{SVN_Book} J.M. Smith, H.C. Van Ness, M.M. Abbott, $\lq$Introduction to Chemical Engineering Thermodynamics', 6$^{th}$ Edition: Chapter 10;
+   \item Y.V.C. Rao, $\lq$Chemical Engineering Thermodynamics',4$^{th}$ Edition: Chapters 10 and 12.
+   \item\label{Sandle_Book} S.I. Sandler, $\lq$Chemical, Biochemical and Engineering Thermodynamics', 4$^{th}$ Edition: Chapter 10.
   \end{enumerate}
 \end{frame}
 
 
 %%%
-%%% SECTION
-%%%
-\section{Property Relations for Homogeneous Phases}
-
-%%%
 %%% SUBSECTION
 %%%
-\subsection{Thermodynamic Potentials} 
-
+\subsection{Introduction} 
 
 %%%
 %%% Slide
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{New State Functions}
-   \visible<1->{\begin{block}{Enthalpy}
-      \begin{displaymath}
-         H = U + P V
-      \end{displaymath}
-   \end{block}
-   }
-   \visible<2->{\begin{block}{Gibbs Free Energy}
-      \begin{displaymath}
-         G = H - T S
-      \end{displaymath}
-   \end{block}
-   }
-   \visible<3->{\begin{block}{Helmholtz Free Energy}
-      \begin{displaymath}
-         A = U - T S
-      \end{displaymath}
-   \end{block}
-   }
-
-\end{frame}
-\normalsize
-
-%%%
-%%% SUBSECTION
-%%%
-\subsection{Maxwell's Relations}
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{Maxwell's Relations}
-   \visible<1->{\begin{block}{For 1 mol of homogeneous fluid at $T=$ constant}
-      \begin{center}
-        \begin{tabular}{l c  l}
-           $dU = T dS - PdV$  &  \hspace{1cm} & $dH = TdS + VdP$ \\
-           $dA = -PdV - SdT$  &  \hspace{1cm} & $dG = VdP - SdT$ 
-        \end{tabular}
-      \end{center}
-   \end{block}
-   }
-   \visible<2->{\begin{block}{Maxwell's Equations}
-      \begin{center}
-        \begin{tabular}{l c  l}
-           $\left(\frc{\partial T}{\partial V}\right)_{S} = -\left(\frc{\partial P}{\partial S}\right)_{v}$  &  \hspace{1cm} & $\left(\frc{\partial T}{\partial P}\right)_{S} =  \left(\frc{\partial V}{\partial S}\right)_{P}$  \\
-           $\left(\frc{\partial P}{\partial T}\right)_{V} =  \left(\frc{\partial S}{\partial V}\right)_{T}$  &  \hspace{1cm} & $\left(\frc{\partial V}{\partial T}\right)_{S} = -\left(\frc{\partial S}{\partial P}\right)_{T}$ 
-        \end{tabular}
-      \end{center}
-   \end{block}
-   }
-
-\end{frame}
-\normalsize
-
-
-%%%
-%%% SUBSECTION
-%%%
-\subsection{Thermodynamic Potentials: Dependence on $T$ and $P$}
-
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{Internal Energy, Enthalpy and Entropy}
-   \visible<1->{\begin{block}{$H$ and $S$ as functions of $T$ and $P$}
-      \begin{center}
-        \begin{tabular}{l c  l}
-           $dH = C_{p}dT + \left[ V - T\left(\frc{\partial V}{\partial T}\right)_{P}\right]dP$ &  \hspace{1cm} & $dS=C_{p}\frc{dT}{T} - \left(\frc{\partial V}{\partial T}\right)_{P}dP$
-        \end{tabular}
-      \end{center}
-   \end{block}
-   }
-   \visible<2->{\begin{block}{Ideal Gas}
-      \begin{center}
-        \begin{tabular}{l c  l}
-           $dH = C_{p}dT$  &  \hspace{1cm} & $dS=C_{p}\frc{dT}{T} - R\frc{dP}{P}$  
-        \end{tabular}
-      \end{center}
-   \end{block}
-   }
-   \visible<3->{\begin{block}{Liquid}
-      \begin{center}
-        \begin{tabular}{l c  l}
-           $dH = C_{p}dT + \left(1-\beta\right)VdP$  &  \hspace{1cm} & $dS = C_{p}\frc{dT}{T} - \beta V{dP}$  
-        \end{tabular}
-      \end{center}
-   \end{block}
-   }
-   \visible<4->{\begin{block}{$U$ and $S$ as functions of $T$ and $V$}
-      \begin{center}
-        \begin{tabular}{l c  l}
-           $dU = C_{v}dT + \left[T\left(\frc{\partial P}{\partial T}\right)_{V} - P\right]dV$  &  \hspace{1cm} & $dS = C_{v}\frc{dT}{T} - \left(\frc{\partial P}{\partial T}\right)_{V}dV$  
-        \end{tabular}
-      \end{center}
-   \end{block}
-   }
-
+  \frametitle{Introduction}
+  \begin{enumerate}
+    \item<1-> In most technical processes there are no pure substances but a mixture of various species in
+        \begin{enumerate}
+          \item<1-> industrial reactors and pressure vessels $\&$ tanks;
+          \item<1-> separation process facilities (e.g., distillation, absorption, extraction etc);
+          \item<1-> subsurface transport processes (e.g., groundwater pollutant contamination, hydrocarbon exploration etc).     
+        \end{enumerate}
+    \item<2-> It is necessary \textcolor{blue}{to identify how the concentration of species will change during the process};
+    \item<3-> During \textcolor{blue}{phase equilibrium} we need to be able to effectively quantify variations in the thermodynamic properties, \textcolor{blue}{in particular, concentration}. This quantitative analysis is crucial in the design of processes and equipment;
+    \item<4-> \textcolor{blue}{Equilibria} of industrial interest:
+        \begin{enumerate}
+          \item<5-> \textcolor{blue}{Vapour-Liquid (VLE)}: distillation;
+          \item<5-> Liquid-Liquid (LLE): extraction;
+          \item<5-> Solid-vapour (SVE): particle generation;
+          \item<5-> Liquid-solid (LSE): cristallisation
+        \end{enumerate}
+    \item<5-> {\it In this Module we will only consider non-reacting systems.}
+  \end{enumerate}
 \end{frame}
 \normalsize
 
@@ -423,52 +333,312 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Gibbs Free Energy as Differential Operator}
-     \begin{enumerate}[(a)]
-        \item<1-> Gibbs Energy as generating function:
-              \begin{displaymath}
-                 \visible<1->{dG = VdP - SdT} \visible<2->{\Longrightarrow d\left(\frc{G}{RT}\right) = \frc{1}{RT}dG - \frc{G}{RT^{2}}dT} \nonumber 
-              \end{displaymath}
+  \frametitle{Representing Composition}
+  \begin{enumerate}
+    \item<1-> Mass $\left(w_{i}\right)$ and mole $\left(x_{i}\right)$ fraction:
+         \visible<1->{\begin{displaymath}
+            w_{i} = \frc{m_{i}}{m} = \frc{\dot{m}_{i}}{\dot{m}} \;\;\;\text{ and }\;\;\; x_{i} = \frc{n_{i}}{n} = \frc{\dot{n}_{i}}{\dot{n}}
+         \end{displaymath}
+         where $\left[\dot{\gamma}\right]$ represents flow rate quantities.}
+    \item<2-> Molar concentration:
+         \visible<2->{\begin{displaymath}
+            C_{i} = \frc{n_{i}}{V} 
+         \end{displaymath}
+          also called \textcolor{blue}{molarity}.}
+    \item<2-> Molar concentration in flow process:
+         \visible<2->{\begin{displaymath}
+            C_{i} = \frc{\dot{n}_{i}}{\dot{q}} 
+         \end{displaymath}
+         where $\dot{q}$ is the volumetric flow rate.}
+    \item<3-> (Average) Molar mass of mixtures:
+         \visible<3->{\begin{displaymath}
+            \overline{MW} = \sum\limits_{i} \left(x_{i} \cdot MW_{i}\right) 
+         \end{displaymath}
+         where $MW_{i}$ is the molecular weight (or molar mass) of species $i$.}
+  \end{enumerate}
+\end{frame}
+\normalsize
 
-        \item<3-> After substitution $\&$ algebraic reduction:
-              \begin{displaymath}
-                  \visible<3->{\frc{V}{RT} = \left\{ \frc{\partial\left(\frc{G}{RT}\right)}{\partial P}\right\}_{T} \hspace{1cm}\text{and}\hspace{1cm} \frc{H}{RT} = -T\left\{ \frc{\partial\left(\frc{G}{RT}\right)}{\partial T}\right\}_{P}}
-              \end{displaymath}
 
-        \item<4-> \textcolor{blue}{The Gibbs free energy when expressed as $G\left(T,P\right)$ operates as a generating function for other thermodynamic properties, and implicitly represents complete property information.}
-     \end{enumerate}
-
+\subsection{Excess Properties}
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Excess Properties}
+  \visible<1->{\begin{block}{Excess Mixing Properties (Sandler)}
+$\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive thermodynamic property $M$ that occurs on mixing at constant pressure and temperature in addition to that which would occur if an ideal mixture were formed.'
+  \end{block}}
+  \visible<1->{\begin{displaymath}
+     M^{\text{E}} = M - M^{\text{id}}
+  \end{displaymath}
+  $M$ is the actual property of the mixture, and $M^{\text{id}}$ is the ideal solution property.}\\
+  \visible<2->{This accounts for extensive properties of the individual components, i.e.,
+     \begin{displaymath}
+     M^{\text{id}} = \sum\limits_{i} x_{i} M_{i}
+  \end{displaymath}}
+  \medskip\noindent
+  \visible<3->{For two components,
+      \begin{displaymath}
+         \textcolor{blue}{V^{\text{E}}} = V - V^{\text{id}} = V - \sum\limits_{i} x_{i} V_{i} = \textcolor{blue}{V - \left(x_{1}V_{1} + x_{2}V_{2}\right)}
+      \end{displaymath}} 
 \end{frame}
 \normalsize
 
 %%%
 %%% SECTION
 %%%
-\section{Residual Properties}
+\section{Equilibrium Conditions}
 
-\subsection{General Approach}
+\subsection{Stability Test}
 %%%
 %%% Slide
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Residual Properties: General Approach}
-     \begin{enumerate}[(a)]
-        \item<1-> \textcolor{blue}{Residual Gibbs energy} is defined as:
-              \visible<1->{\begin{displaymath}
-                 \textcolor{red}{G^{R} = G - G^{ig}}
-              \end{displaymath}}
-            where \textcolor{blue}{$G$} is the actual Gibbs energy and \textcolor{blue}{$G^{id}$} is the correspondent thermodynamic function for ideal gas at same $T$ and $P$;
-        \item<2-> This leads to,
-              \visible<2->{\begin{displaymath}
-                 d\left(\frc{G^{R}}{RT}\right) =\frc{V^{R}}{RT}dP - \frc{H^{R}}{RT^{2}}dT
-              \end{displaymath}}
-             
-              \visible<3->{with,\begin{displaymath}
-                 \frc{V^{R}}{RT} = \left\{ \frc{\partial\left(\frc{G^{R}}{RT}\right)}{\partial P}\right\}_{T} \hspace{0.5cm}\text{ and }\hspace{0.5cm} \frc{H^{R}}{RT} = -T\left\{ \frc{\partial\left(\frc{G^{R}}{RT}\right)}{\partial T}\right\}_{P}
-              \end{displaymath}}
-     \end{enumerate}
+  \frametitle{Equilibrium Conditions and Stability Criteria}
+     \begin{center}
+         \begin{tabular}{l l l c}
+         \hline\hline
+            {\bf System}         &   {\bf Constraint}    &    {\bf Equilibrium}            & {\bf Stability } \\
+                                 &                       &    {\bf Criterion}              & {\bf Criterion} \\ 
+         \hline
+            Isolated, adiabatic  &  $U$ and $V$          &      $S$ = maximum               &    d$^{2}$S$<$ 0    \\
+            fixed-boundary system&   constant            &      $dS$ = 0                    &                     \\
+         \hline
+            Isothermal closed    &   $T$ and $V$         &      $A$ = minimum               &                   \\
+            system with fixed    &   constant            &      $dA$ = 0                    &  d$^{2}$A $>$ 0    \\
+            boundaries           &                       &                                  &                    \\
+         \hline
+            Isothermal, isobaric &  $T$ and $P$          &    $G$ = minimum                 &  d$^{2}$G $>$ 0    \\
+            closed system        &   constant            &    $dG$ = 0                      &                    \\
+         \hline
+            Isothermal, isobaric &  $T$, $P$ and $N$    &     $G$ = minimum                 &   \\
+            open system moving  with& constant          &     $dG$ = 0                      & d$^{2}$G $>$ 0    \\
+           the fluid velocity    &                      &                                   &                   \\
+         \hline\hline
+         \end{tabular}
+     \end{center}
+   \end{frame}
+\normalsize
 
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Phase Rule}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Phase Rule and Duhem's Theorem}
+  \begin{enumerate}
+      \item<1-> From Module 1, we defined that a system may be characterised by $T$, $P$ and $\left(\mathcal{C}-1\right)$ mole fractions for each phase $\mathcal{P}$ (where $\mathcal{C}$ is the number of chemical components);
+      \item<1-> However, the masses of the phases {\bf are not} $\lq$phase-rule' variables as they do not affect the intensive state properties of the system;
+      \item<2-> Thus, in order to determine a system we need to know \textcolor{blue}{$2 + \left(\mathcal{C}-1\right)\mathcal{P}$} variables;
+      \item<3-> At equilibrium, $\mu_{i}^{\alpha} = \mu_{i}^{\beta} = \mu_{i}^{\gamma} = \cdots = \mu_{i}^{\mathcal{P}}$ for all $\mathcal{C}$ components;
+      \item<4->These relations provide \textcolor{blue}{$\left(\mathcal{P}-1\right)\mathcal{C}$} equations;
+      \item<5-> The difference is the \textcolor{blue}{degree of freedom ($\Psi$)} of the system, leads to
+         \visible<5->{\begin{displaymath}
+             \Psi = \left[2 + \left(\mathcal{C}-1\right)\mathcal{P}\right] - \left[\left(\mathcal{P}-1\right)\mathcal{C}\right] %\textcolor{blue}{= 2 + \mathcal{C} - \mathcal{P}} 
+         \end{displaymath}}  
+  \end{enumerate}
+  \visible<6->{\begin{block}{\begin{center}Gibbs Phase Rule\end{center}}
+     \begin{displaymath}
+         \textcolor{blue}{\Psi = 2 + \mathcal{C} - \mathcal{P}}
+     \end{displaymath} 
+  \end{block}}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Phase Rule and Duhem's Theorem}
+  \begin{enumerate}\setcounter{enumi}{6}
+      \item<1-> If the system is closed and formed from specified amounts of each component, we can thus write:
+         \visible<1->{\begin{tabular}{l l}
+            Equilibrium equations for chemical potentials: & $\left(\mathcal{P}-1\right)\mathcal{C}$ \\
+            Material balance for each component:           & $\mathcal{C}$ \\
+            \hline
+            {\bf Total:}                                   & $\mathbf{\mathcal{P}\mathcal{C}}$ {\bf equations}
+         \end{tabular}}  
+      \item<2-> The system is characterised by
+         \visible<1->{\begin{tabular}{l l}
+            $T$, $P$ and $\left(\mathcal{C}\right)$ mole fractions for each phase: & $2 + \left(\mathcal{C}-1\right)\mathcal{P}$ \\
+            Masses of each phase:                                           & $\mathcal{P}$ \\
+            \hline
+            {\bf Total:}                                   & $\mathbf{2 + \mathcal{P}\mathcal{C}}$ {\bf variables}
+         \end{tabular}}  
+      \item<3-> Therefore, in order to determine the equilibrium state we just need $\left[2 + \mathcal{P}\mathcal{C}\right] - \mathcal{P}\mathcal{C} =$ \textcolor{blue}{2 variables}.
+  \end{enumerate}
+  \visible<4->{\begin{block}{\begin{center}Duhem's Theorem \end{center}}
+         \textcolor{blue}{$\lq$For any closed system of known composition, the equilibrium state is determined when any {\bf two independent variables} are fixed.'}
+  \end{block}}
+\end{frame}
+
+
+%%%
+%%% SECTION
+%%%
+\section{Vapour-Liquid Equilibrium (VLE)}
+
+\subsection{Qualitative Behaviour}
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{$P$-$T$-$xy$ Diagram}
+  \begin{columns}
+     \begin{column}[l]{0.3\linewidth}
+        \begin{enumerate}
+            \item<1-> System with $\mathcal{C} =2$ (hexane and triethylamine, extracted from Sandler, 2006);
+            \item<2-> From the phase rule: $\Psi = 4 -\mathcal{P}$;
+                \begin{enumerate}
+                    \item<3-> For $\mathcal{P}=1$ $\Longrightarrow$ $\Psi=3$, i.e., $P$, $T$ and {\bf one} mole fraction;
+                    \item<4-> For $\mathcal{P}=2$ $\Longrightarrow$ $\Psi=2$ $\leftrightarrow$ define surfaces;
+                \end{enumerate}
+            \item<5-> \textcolor{blue}{Surfaces} represent equilibrium states: saturated vapour and liquid.
+        \end{enumerate}
+     \end{column}
+     \begin{column}[l]{0.7\linewidth}
+        \hbox{\hspace{-1cm}
+           \includegraphics[width=9.7cm,clip]{./../Pics/PTxy_diagram}}
+     \end{column}
+  \end{columns}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{$P$-$T$-$xy$ Diagram}
+     \begin{center}
+       \includegraphics[width=8.cm,clip]{./../Pics/PTxy_diagram2}
+     \end{center}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{$P$-$T$-$xy$ Diagram}
+     \begin{center}
+       \includegraphics[width=8.cm,clip]{./../Pics/PTxy_diagram3}
+     \end{center}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{$P-T$ Diagrams at fixed composition}
+  \begin{columns}
+     \begin{column}[l]{0.5\linewidth}
+        \includegraphics[width=\linewidth,clip]{./../Pics/VLE_PT_diagram1}
+     \end{column}
+     \begin{column}[l]{0.5\linewidth}
+        \includegraphics[width=\linewidth,clip]{./../Pics/VLE_PT_diagram2}
+     \end{column}
+  \end{columns}
+  \begin{center}
+     Solid line: saturated liquid (bubble line); \\
+     Dashed line: saturated vapour (dew line) 
+  \end{center}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+  \frametitle{$Pxy$ Diagrams}
+  \vspace{-0.8cm}
+  \begin{columns}
+     \begin{column}[l]{0.5\linewidth}
+        \visible<1->{\hbox{\hspace{-1.7cm}\includegraphics[width=1.6\linewidth,clip]{./../Pics/VLE_Pxy_Diagram1}}}
+        %Upper curve: liquid phase composition $x$;\\
+        %Lower curve: vapour phase composition $y$;
+     \end{column}
+     \begin{column}[l]{0.5\linewidth}
+       \visible<2->{\hbox{\hspace{-1.7cm}\includegraphics[width=1.6\linewidth,clip]{./../Pics/VLE_Pxy_Diagram2}}}
+     \end{column}
+  \end{columns}
+         \visible<1->{Upper and lower curves represent liquid ($x$) and vapour phases compositions.}\\
+         \visible<2->{$P_{H}$ and $P_{L}$ are the vapour pressure of pure heavy and light components at temperature $T$, respectively.}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{$Pxy$ Diagrams}
+  \begin{columns}
+     \begin{column}[l]{0.5\linewidth}
+       \begin{enumerate}
+          \item<1-> For a given \textcolor{blue}{initial (feed) composition $z$} (at constant $T$), if pressure is raised to $P_{\text{DP}}$, the first droplet of liquid is formed. \textcolor{blue}{$P_{\text{DB}}$} is called {\bf \textcolor{blue}{dew point}};
+          \item<2-> The liquid droplets are much leaner in the light component and the composition is ${\bf \textcolor{blue}{x_{\text{DB}}}}$;
+          \item<3-> As the pressure is further increased, more liquid is formed. At \textcolor{blue}{P$_{1}$}, liquid and vapour are in equilibrium with composition $\textcolor{blue}{x_{1}}$ and $\textcolor{blue}{y_{1}}$;
+          \item<4-> When the pressure reaches \textcolor{blue}{P$_{\text{BP}}$}, the last bubble of vapour condenses -- {\bf \textcolor{blue}{bubble point}}.  
+       \end{enumerate}
+     \end{column}
+     \begin{column}[l]{0.5\linewidth}
+        \visible<1->{\hbox{\hspace{-1.7cm}\includegraphics[width=1.6\linewidth,clip]{./../Pics/VLE_Pxy_Diagram3}}}
+     \end{column}
+  \end{columns}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{$xy$ Diagrams}
+  \begin{columns}
+     \begin{column}[l]{0.4\linewidth}
+       \begin{enumerate}
+          \item<1-> The $xy$ diagram for a binary system correlates the compositions of the liquid and vapour phases in equilibrium;
+          \item<1-> They are designed assuming either constant $P$ or $T$ $\Longrightarrow$ though most industrial applications are isobaric.
+       \end{enumerate}
+     \end{column}
+     \begin{column}[l]{0.6\linewidth}
+        \visible<1->{\hbox{\hspace{-.0cm}\includegraphics[width=1.\linewidth,clip]{./../Pics/VLE_xy_Diagram1}}}
+     \end{column}
+  \end{columns}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{$xy$ Diagrams: Ideal and Non-Ideal Solutions}
+  \vbox{
+     \hbox{\visible<1->{\includegraphics[width=5.5cm,height=4.cm,clip]{./../Pics/VLE_xy_DiagramIdeal}} \hspace{1cm}
+           \visible<2->{\includegraphics[width=5.5cm,height=4.cm,clip]{./../Pics/VLE_xy_DiagramNonIdeal1}}}
+  \vspace{-0.2cm}
+  \hbox{\hspace{4cm}
+        \visible<3->{\includegraphics[width=5.5cm,height=4.cm,clip]{./../Pics/VLE_xy_DiagramNonIdeal2}}}
+  }
 \end{frame}
 \normalsize
 
@@ -476,188 +646,242 @@
 %%%
 %%% SUBSECTION
 %%%
-\subsection{Equations of State}
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{Residual Properties by EOS}
-       Alternative approach to numerical integration: analytical solution by EOS:
-            \begin{enumerate}[(a)]
-                \item<1-> Virial EOS: \textcolor{blue}{$Z = 1 + \frc{BP}{RT}$}, 
-                   \visible<2->{leading to \begin{displaymath}
-                      \frc{G^{R}}{RT} = \displaystyle\int\limits_{0}^{\rho}\left(Z - 1\right)\frc{d\rho}{\rho} + Z - 1 - \ln Z \hspace{1cm} \frc{H^{R}}{RT} = -T \displaystyle\int\limits_{0}^{\rho}\left(\frc{\partial Z}{\partial T}\right)_{\rho}\frc{d\rho}{\rho} + Z - 1
-                   \end{displaymath}
-                   \begin{displaymath}
-                      \frc{S^{R}}{RT} = \ln Z - T \displaystyle\int\limits_{0}^{\rho} \left(\frc{\partial Z}{\partial T}\right)_{\rho} \frc{d\rho}{\rho} - \displaystyle\int\limits_{0}^{\rho}\left(Z - 1\right)\frc{d\rho}{\rho} 
-                   \end{displaymath}
-}
-             \end{enumerate}
-\end{frame}
-\normalsize
-
-
+\subsection{Simple Models}
 
 %%%
 %%% Slide
 %%%
-%\scriptsize
-\begin{frame}
-  \frametitle{Residual Properties by EOS}
-            \begin{enumerate}[(a)]\setcounter{enumi}{1}
-               \item<1-> Cubic EOS: \textcolor{blue}{$P = \frc{RT}{V - b} - \frc{a\left(T\right)}{\left(V + \epsilon b\right)\left(V + \sigma b\right)}$}
-                   \visible<2->{leading to\begin{displaymath}
-                      \frc{G^{R}}{RT} = Z - 1 - \ln\left(Z - \beta\right) - q\mathcal{I} \hspace{1cm} \frc{H^{R}}{RT} = Z - 1 + \left[\frc{d\ln\alpha\left(T_{r}\right)}{d\ln T_{r}} - 1\right]q\mathcal{I}
-                   \end{displaymath}
-                   \begin{displaymath}
-                       \frc{S^{R}}{R} = \ln\left(Z - \beta \right) + \frc{d\ln\alpha\left(T_{r}\right)}{d\ln T_{r}}q\mathcal{I} 
-                   \end{displaymath}
-                   with
-                   \begin{displaymath}
-                      \mathcal{I} \equiv \displaystyle\int\limits_{0}^{P} \frc{d\left(\rho b\right)}{\left(1 + \epsilon\rho b\right)\left(1 + \sigma\rho b\right)}\;\;\;\;\left(T\text{ const.}\right)
-                   \end{displaymath}
-                   See Section 6.3 of Smith, Van Ness $\&$ Abbott -- \textcolor{blue}{Reference (\ref{SVN_Book})}.
-}
-             \end{enumerate}
-
-\end{frame}
-\normalsize
-
-
-
-
-
-%%%
-%%% SECTION
-%%%
-\section{Two-Phase Systems}
-
-\subsection{General Remarks}
-%%%
-%%% Slide
-%%%
-%\scriptsize
 \begin{frame}
   \frametitle{General Remarks}
-     \begin{enumerate}[(a)]
-         \item<1-> \textcolor{blue}{Phase transition}: many extensive properties change abruptly during phase transition at given $P$ and $T$: specific volume, internal energy, enthalpy and entropy;
-         \item<2-> \textcolor{blue}{Exception:} \textcolor{red}{molar Gibbs energy};
-         \item<3-> For 2 phases \textcolor{blue}{$\alpha$} and \textcolor{blue}{$\beta$} of pure species at equilibrium,
-            \visible<3->{\begin{block}{\textcolor{blue}{Equilibrium $\Rightarrow$ Equality of Gibbs energy}}
-                     \begin{displaymath}
-                        \textcolor{red}{G^{\alpha} = G^{\beta}} 
-                     \end{displaymath}
-            \end{block}}
-         \item<4-> Clapeyron equation:
-            \visible<4->{\begin{displaymath}
-              \frc{d P^{sat}}{d T} = \frc{\Delta H^{lv}}{T \Delta V^{lv}}
-            \end{displaymath}}
-     \end{enumerate}
-
-\end{frame}
-\normalsize
-
-
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{General Remarks}
-     \begin{enumerate}[(a)]\setcounter{enumi}{4}
-         \item<1-> Temperature dependence of vapour pressure \blue{$\Rightarrow$} Empirical approaches for practical applications:
-         \begin{enumerate}[(i)]
-            \item<2-> Simplest case:
-                \visible<2->{\begin{displaymath}
-                   \ln P^{sat} = A - \frc{B}{T}
-                \end{displaymath}}
-            \item<3-> Antoine Equation:
-                \visible<3->{\begin{displaymath}
-                   \ln P^{sat} = A - \frc{B}{T+C}
-                \end{displaymath}}
-            \item<4-> Wagner Equation \blue{(more accurate)}:
-                \visible<4->{\begin{displaymath}
-                   \ln P_{r}^{sat} = \frc{A\tau + B\tau^{1.5} + C\tau^{3} + D\tau^{6}}{1-\tau}\;\;\;\text{ with }\;\;\; \tau = 1 - T_{r}
-                \end{displaymath}}
+  \begin{enumerate}
+      \item<1-> \textcolor{blue}{VLE models} aim for mathematical descriptions of the PVT behaviour of mixtures at equilibrium conditions:
+         \begin{enumerate}
+            \item<1-> Prediction of \textcolor{blue}{vapour and liquid compositions} at given $T$ and $P$;
+            \item<1-> Basis for process modelling.
          \end{enumerate}
-     \end{enumerate}
+      \item<2-> Two simple models:
+         \begin{enumerate}
+            \item<2-> \textcolor{blue}{Raoult's law};
+            \item<2-> \textcolor{blue}{Henry's law}.
+         \end{enumerate}
+  \end{enumerate}
+\end{frame}
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Raoult's Law}
+  \begin{enumerate}
+      \item<1-> Main assumptions:
+         \begin{enumerate}
+             \item<1-> \textcolor{blue}{vapour phase} behaves as an {\bf ideal gas} $\Longrightarrow$ low to moderate pressures;
+             \item<1-> \textcolor{blue}{liquid phase} is an {\bf ideal solution}.
+         \end{enumerate}
+         \visible<2->{\begin{block}{Raoult's Law}
+              \begin{displaymath}
+                  \textcolor{blue}{ P_{i}= y_{i}P = x_{i} P_{i}^{\text{sat}}\left(T\right)}\;\;\;\;\textcolor{blue}{\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}}
+              \end{displaymath}
+         \end{block}
+         where $P_{i}=y_{i}P$ is the {\bf partial pressure} of species {\it i} in the vapour phase.}
+      \item<2-> This equation indicates that the partial pressure of a component in an ideal solution is equal to the product of the species mole fraction and its vapour pressure (of the pure component);
+      \item<3-> Two major constraints:
+         \begin{enumerate}
+             \item<2-> Mass balance of both phases: $\sum\limits_{i=1}^{\mathcal{C}} x_{i} = 1$ and $\sum\limits_{i=1}^{\mathcal{C}} y_{i} = 1$
+             \item<2-> {\bf Ideal solution:} \textcolor{blue}{$x_{i}\rightarrow 1$}. Also species {\bf must} be chemically similar (i.e., size, same chemical nature, e.g., isomers such as ortho-, meta-, and para-xylene) 
+         \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Raoult's Law: Ideal gas mixture properties}
+  \begin{enumerate}
+      \item<1-> Dalton's Law: \textcolor{blue}{$P=\sum\limits_{i=1}^{\mathcal{C}}P_{i}=\sum\limits_{i=1}^{\mathcal{C}}y_{i}P$}
+      \item<2-> Amagat's Law: \textcolor{blue}{$V^{t}=\sum\limits_{i=1}^{\mathcal{C}}V_{i}^{t} = \sum\limits_{i=1}^{\mathcal{C}} y_{i}V^{t}$}
+      \item<3-> Kay's rule: pseudo-critical pressure \textcolor{blue}{$\left(T_{c}^{t}=\sum\limits_{i=1}^{\mathcal{C}}y_{i}T_{c,i}\right)$} and temperature \textcolor{blue}{$\left(T_{c}^{t}=\sum\limits_{i=1}^{\mathcal{C}}y_{i}T_{c,i}\right)$}. 
+  \end{enumerate}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame} % Sandler Example 10.1.1(page 498)
+  \frametitle{Example 1:} 
+    Assuming a mixture of n-pentane $\left(nC_{5}\right)$ and n-heptane $\left(nC_{7}\right)$ is ideal, draw vapour-liquid equilibrium diagrams for this mixtures at:
+    \begin{enumerate}
+        \item Constant temperature of 50$^{\circ}$C;
+        \item Constant pressure of 1.013 bar.
+    \end{enumerate}
+    Given Antoine relation, $\ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{RT}$, with $A_{nC_{5}}=10.422$, $A_{nC_{7}}=11.431$, $B_{nC_{5}}=26799$ and $B_{nC_{7}}=35200$. [$P$] = bar and [$T$] = K
 \end{frame}
 \normalsize
 
 
 %%%
-%%% SUBSECTION 
+%%% Slide
 %%%
-\subsection{Liquid/Vapour Systems}
+\begin{frame}
+  \frametitle{Raoult's Law: Dew and Bubble Point Calculations}
+  \begin{description}
+      \item[Dew Point:]<2->: Calculate, 
+           \begin{enumerate}
+               \item<2-> $\textcolor{blue}{\bf x_{i}}$ and \textcolor{blue}{$P$}, given $y_{i}$ and $T$;
+               \item<2-> $\textcolor{blue}{\bf x_{i}}$ and \textcolor{blue}{$T$}, given $y_{i}$ and $P$;
+           \end{enumerate}
+      \item[Bubble Point:]<3-> Calculate, 
+           \begin{enumerate}
+               \item<3-> $\textcolor{blue}{\bf y_{i}}$ and \textcolor{blue}{$P$}, given $x_{i}$ and $T$;
+               \item<3-> $\textcolor{blue}{\bf y_{i}}$ and \textcolor{blue}{$T$}, given $x_{i}$ and $P$.
+           \end{enumerate}
+  \end{description}
+\end{frame}
+
 %%%
 %%% Slide
 %%%
 %\scriptsize
-\begin{frame}
-  \frametitle{Liquid/Vapour Systems}
-     \begin{enumerate}[(a)]
-         \item<1-> Systems with \blue{saturated vapour} and \blue{saturated liquid} in \red{equilibrium};
-         \item<2-> \blue{Mass/Energy Balance} for any extensive property:
-            \visible<3->{\begin{displaymath} 
-                nV = n^{(l)}V^{(l)} + n^{(v)}V^{(v)} \;\;\; \Leftrightarrow \;\;\; V = x^{(l)}V^{(l)} + x^{(v)}V^{(v)}
-             \end{displaymath}
-             where $x^{(j)}$ is the \blue{molar/mass fraction} of phase \blue{j = l, v} $\rightarrow$  $x^{(l)} + x^{(v)} = 1$. 
-            }
-         \item<4-> The mass/molar volume fraction of vapour, \blue{$x^{(v)}$}, is also called \blue{vapour quality}. 
-     \end{enumerate}
+\begin{frame} % Sandler Example 10.1.2(page 501)
+  \frametitle{Example 2:}
+    \begin{enumerate}
+        \item Estimate the bubble and dew point temperatures of a 25 mol-$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol-$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol-$\%$ n-heptane $\left(nC_{7}\right)$ mixture at 1.013 bar. 
+        \item  Estimate the bubble and dew point pressures of this mixture at 73$^{\circ}$C.
+    \end{enumerate}
+    Given the Antonie equation:
+    \begin{displaymath}
+       \ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{RT}
+    \end{displaymath}
 
+    with
+    \begin{center}
+       \begin{tabular}{l l l} 
+          $A_{nC_{5}}=10.422$ & $A_{nC_{6}}=10.456$ & $A_{nC_{7}}=11.431$ \\
+          $B_{nC_{5}}=26799$  & $B_{nC_{6}}=29676$  & $B_{nC_{7}}=35200$.
+       \end{tabular}
+    \end{center}
 \end{frame}
 \normalsize
 
-
 %%%
+%%% Slide
 %%%
-%%% SUBSECTION 
-%%%
-\subsection{Thermodynamic Diagrams}
+\begin{frame}
+  \frametitle{Generalised Relation for VLE in Ideal Mixtures}
+  \begin{enumerate}
+      \item<1-> Raoult's law is a particular case of a more general relation involving \textcolor{blue}{vapour-liquid mixtures} (that we will see with more details on Module 5),
+           \visible<2->{\begin{displaymath}
+              f_{i}^{\left(L\right)}\left(T,P,\underline{x}\right) = f_{i}^{\left(V\right)}\left(T,P,\underline{y}\right)
+           \end{displaymath}
+           where $\underline{x}$ and $\underline{y}$ represent the array of compositions in the liquid and vapour phases, respectively.}
+      \item<3-> For low-pressure VLE,
+           \visible<3->{\begin{displaymath}
+               \textcolor{blue}{y_{i}P=x_{i}\gamma_{i}P_{i}^{\text{sat}}}
+           \end{displaymath}}
+      \item<4-> The activity  coefficient of species $i$, $\gamma_{i}$, is a thermodynamic property that indicates $\lq$how much a solution will deviate from the ideal solution';
+      \item<4-> For an ideal solution, $\gamma_{i}=1$, and the equation above becomes the Raoult's law.  
+  \end{enumerate}
+\end{frame}
 
 %%%
 %%% Slide
 %%%
-%\scriptsize
 \begin{frame}
-  \frametitle{Pressure $\times$ Enthalpy ({\it PH}) Diagram}
-      \begin{figure}%
+  \frametitle{Henry's Law}
+  \begin{enumerate}
+      \item<1-> Raoult's law requires vapour pressure data $\left(\text{i.e., }P_{i}^{\text{sat}}\right)$, thus:
+        \begin{enumerate}
+            \item<1-> It is not applicable if $T\geq T_{c,i}$;
+            \item<1-> Does not take into account gasses dissolved in the liquid.
+        \end{enumerate}
+      \item<2-> Henry's law:
+         \visible<2->{\begin{displaymath}
+             \textcolor{blue}{y_{i}P = x_{i}\mathcal{H}_{i}}\;\;\;\;\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}
+         \end{displaymath}}
+  \end{enumerate}
+  \visible<2->{
+ \begin{table}
+  \begin{center}
+    \begin{tabular}{l r || l r }
+      \hline
+       {\bf Gas}    &  ${\bf \mathcal{H}\text{ (bar)}}$ & {\bf Gas}    &  ${\bf \mathcal{H}\text{ (bar)}}$ \\
+      \hline
+         Acetylene  &   1350                            & He           &  126600 \\
+         Air        &   72950                           & H$_{2}$      &  71600  \\
+         CO$_{2}$    & 1670                              & H$_{2}$S     & 550 \\
+         CO         &  54600                            &  CH$_{4}$    &  41850 \\
+         C$_{2}$H$_{6}$ & 30600                          &  N$_{2}$     & 87650  \\
+         Ethylene  & 11550                              & O$_{2}$      & 44380 \\
+      \hline
+    \end{tabular}
+    \caption{Henry's constant for gases dissolved in water at 25$^{\circ}$C.}
+  \end{center}
+\end{table}}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{K-Value Correlations}
+  \begin{columns}
+     \begin{column}[l]{0.5\linewidth}
+        \begin{enumerate}
+           \item<1-> Equilibrium ratio, $K_{i}$
+               \visible<1->{\begin{displaymath}
+                  K_{i} = \frc{y_{i}}{x_{i}}
+               \end{displaymath}}
+           \item<2-> With Raoult's law:
+               \visible<2->{\begin{displaymath}
+                  K_{i} = \frc{P_{i}^{\text{sat}}}{P}
+               \end{displaymath}}
+           \item<3-> With modified Raoult's law:
+               \visible<3->{\begin{displaymath}
+                  K_{i} = \frc{\gamma_{i}P_{i}^{\text{sat}}}{P}
+               \end{displaymath}}
+        \end{enumerate}
+     \end{column}
+     \begin{column}[l]{0.5\linewidth}
         \begin{center}
-          \includegraphics[width=1\columnwidth,clip]{./../Pics/LnP_H_Diagram}
+            \hspace{-.8cm}\includegraphics[width=6.1cm,clip]{./../Pics/02_07_fig_02.png}
         \end{center}
-      \end{figure}
+     \end{column}
+   \end{columns}
 \end{frame}
-\normalsize
 
 
 %%%
 %%% Slide
 %%%
-%\scriptsize
 \begin{frame}
-  \frametitle{Temperature $\times$ Entropy ({\it TS}) Diagram}
-      \begin{figure}%
-        \begin{center}
-          \includegraphics[width=1\columnwidth,clip]{./../Pics/T_S_Diagram}
-        \end{center}
-      \end{figure}
+  \frametitle{Flash Calculations}
+  \begin{columns}
+     \begin{column}[c]{0.5\linewidth}
+       \visible<3->{\hspace{-1cm}\includegraphics[width=1.3\linewidth,clip]{./../Pics/Flash_VLE}}
+     \end{column}
+     \begin{column}[l]{0.5\linewidth}
+        \begin{enumerate}
+           \item<1-> If a fluid mixture is at liquid state with pressure larger than the associated bubble point pressure; % $\left(\text{i.e., }P \leq P_{\text{BP}}\right)$;
+           \item<2-> Part of the fluid evaporates \textcolor{blue}{(or {\it flashes})} when the pressure is reduced leading to a two-phase system -- vapour and liquid in equilibrium;
+            \item<3-> This phenomenon is often called \textcolor{blue}{\it flash} and is the most important application of VLE;
+            \item<4-> Thus, a feeding stream $F$ with overall composition $z_{i}$ is separated into vapour ($V$) and liquid ($L$) streams with compositions $y_{i}$ and $x_{i}$, respectively. 
+        \end{enumerate}
+     \end{column}
+   \end{columns}
 \end{frame}
-\normalsize
 
 %%%
 %%% Slide
 %%%
 %\scriptsize
-\begin{frame}
-  \frametitle{Enthalpy $\times$ Entropy ({\it Moiller}) Diagram}
-      \begin{figure}%
-        \begin{center} 
-          \includegraphics[width=1\columnwidth,clip]{./../Pics/MoillerDiagram}
-        \end{center}
-      \end{figure}
+\begin{frame} % Sandler Example 10.1.4(page 504)
+  \frametitle{Example 3:}
+        A liquid mixture of 25 mol-$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol-$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol-$\%$ n-heptane $\left(nC_{7}\right)$ initially at 69$^{\circ}$C and a high pressure, is partially vaporised by isothermically lowering the pressure to  1.013 bar. Calculate the relative amounts of vapour and liquid in equilibrium and compositions.
 \end{frame}
 \normalsize
 
@@ -671,11 +895,12 @@
 \begin{frame}
  \frametitle{Summary}
    \begin{enumerate}[(i)]
-     \item New thermodynamic potential properties: Gibbs and Helmholtz free energies;
-     \item Introduction of Maxwell's relations and applications;
-     \item Internal energy, enthalpy, entropy Gibbs and Helmholtz energies described as functions of pressure, volume and temperature (PVT);
-     \item Introduction of residual properties and applications;
-     \item Two-phase systems.
+     \item Stability conditions/criteria;
+     \item Phase rule and Duhem's theorem;
+     \item Qualitative analysis of VLE -- efficient use of graphical representation of $P$, $T$ and composition of species;
+     \item Introduction to generalised relation for VLE in non-ideal mixtures;
+     \item Raoult and Henry's laws; 
+     \item Industrial application for VLE: Flash problem.
    \end{enumerate}
 \end{frame}
 
