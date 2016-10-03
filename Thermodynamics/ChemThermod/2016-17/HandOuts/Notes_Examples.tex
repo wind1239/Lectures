@@ -1837,18 +1837,66 @@ There are two main conditions for a system to achieve {\it chemical equilibrium}
     \end{shaded}
     We can write the criterion for stable equilibrium in non-adiabatic system from the First Law for $n$ moles,
     \begin{eqnarray}
-      dQ = dU + PdV -\mu dn &>& TdS \nonumber \\
+      dQ = dU + PdV -\mu dn &>& TdS \label{Mod04_EquilibriumCriteria0} \\
       dU + PdV -\mu dn - TdS &>& 0,\label{Mod04_EquilibriumCriteria1}
     \end{eqnarray}
     thus,
     \begin{enumerate}[i)]
         \item if we make $U$, $V$ and $n$ constants, $dQ=0$ and the stability condition becomes \underline{$dS<0$} $\Longrightarrow$ \underline{$S$ is maximum};
-       \item if $S$, $V$ and $n$ are set as constants, then from Eqn.~\ref{Mod04_EquilibriumCriteria1}, the system will be stable if \underline{$dU>0$} $\Longrightarrow$ \underline{$U$ is minimum};
+        \item if $S$, $V$ and $n$ are set as constants, then from Eqn.~\ref{Mod04_EquilibriumCriteria1}, the system will be stable if \underline{$dU>0$} $\Longrightarrow$ \underline{$U$ is minimum};
+        \item if $T$, $V$ and $n$ are kept constants, then Eqn.~\ref{Mod04_EquilibriumCriteria1}, becomes
+            \begin{eqnarray}
+              dU - TdS &>& 0 \nonumber \\
+              d(U-TS) &>& 0 \;\;  \text{(for } T \text{  constant}),
+            \end{eqnarray}
+            however, we have seen the definition of the Helmholtz free energy -- $U-TS =A$, thus $dA>0$ $\Longrightarrow$ \underline{$A$ is minimum};
+        \item from the Helmholtz free energy definition,
+            \begin{eqnarray}
+              dA &=& \overbrace{dU}^{\text{from Eqn.~\ref{Mod04_EquilibriumCriteria0}}: dU = dQ -dW +\mu dn} -SdT - TdS \nonumber \\
+                &=& \red{dQ} -dW + \mu dn -SdT \red{-TdS},\label{Mod04_EquilibriumCriteria2}
+            \end{eqnarray}
+            from the Clausius inequality, $dQ-TdS \leq 0$, and if we consider $T$ and $n$ constants $\Longrightarrow\;\; dA = -dW + (dQ - TdS) \leq 0$, therefore
+            \begin{displaymath}
+                 dA \leq -dW \;\;\;\text{ or }\;\;\; W \leq -\Delta A.
+            \end{displaymath}
+            This means tha $-\Delta A$ is the maximum work we can obtain from a process perfomred under constant $T$ and $n$ conditions. Also, as $A$ is a \underline{state function}, it does \underline{not} depend on the path, but only on the initial and final states;
+         \item assuming $S$, $P$ and $n$ are kept constant, then Eqn.~\ref{Mod04_EquilibriumCriteria1} becomes
+            \begin{displaymath}
+                 d(U+PV) = dH > 0,
+            \end{displaymath}
+            for stable equilibrium $\Longrightarrow$ \underline{enthalpy is minimum};
+         \item now, suppose that $T$, $P$ and $n$ are held constant, Eqn.~\ref{Mod04_EquilibriumCriteria1} becomes,
+            \begin{displaymath}
+                 d(U+PV-TS)  > 0,
+            \end{displaymath}
+            but $U+PV-TS = H-TS = G$, \ie \underline{the Gibbs free energy is minimum} for stable equilibrium with fixed $T$, $P$ and $n$.    
     \end{enumerate}
+    In Table~\ref{Mod04_TableEquilibriumCriteria}, the \blue{equilibrium criteria} is summarised for all thermodynamic potential. The stability criteria for \blue{Gibbs free energy} is particularly important for several chemical engineering processes involving closed systems, as so as we can state,
+
+    \begin{shaded}
+         `The equilibrium state of a closed system is that state for which the total Gibbs free energy is a minimum \wrt all possible changes at the given $T$ and $P$.'
+      \end{shaded}
+    
+    \begin{table}
+    \begin{center}
+      \begin{tabular}{c c c c c}
+         \hline
+          Held            & State    &  Definition & Differential         &  Stable Equilibrium \\
+          Fixed           & Function &             &                      &   Criterion          \\
+          \hline
+          $U$, $V$, $n$   & $S$      & --          & $dS=\frac{dQ}{T}$    & Maximum             \\
+          $S$, $V$, $n$   & $U$      & --          & $dU=TdS-PdV+\mu dn$ & Minimum             \\
+          $S$, $P$, $n$   & $H$      & $H\equiv U+PV$& $dH=TdS+VdP+\mu dn$ & Minimum             \\
+          $T$, $V$, $n$   & $A$      & $A\equiv U-TS$& $dA=-SdT-PdV+\mu dn$ & Minimum             \\
+          $T$, $P$, $n$   & $G$      & $G\equiv H-TS$& $dG=-SdT+VdP+\mu dn$ & Minimum             \\
+      \end{tabular}
+    \end{center}
+    \caption{Criteria for thermodynamic equilibria.}\label{Mod04_TableEquilibriumCriteria}
+    \end{table}
+    
     
 
     \medskip
-    However, if $S$, $V$ and $n$ are set as constants, then from Eqn.~\ref{Mod04_EquilibriumCriteria1}, the system will be stable if \underline{$dU>0$}, \ie \underline{$U$ is minimum}.
   
 
 
