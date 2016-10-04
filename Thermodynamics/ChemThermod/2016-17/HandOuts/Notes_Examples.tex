@@ -577,7 +577,7 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
 
 
 %%% SUBSECTION
-\subsection{PVT Behaviour of Pure Substances}
+\subsection{PVT Behaviour of Pure Substances}\label{Section:02:PVTBehaviour}
   
    \begin{enumerate}[i)]
 %
@@ -1777,6 +1777,7 @@ Let's assume that $M$ is any extensive thermodynamic property (\eg $V$, $U$, $H$
 \end{subequations}
 
 
+
 %%% SUBSECTION
 \subsection{Criteria for Chemical Equilibrium}\label{Section:04:ChemicalEquilibrium}
 
@@ -1804,7 +1805,6 @@ If we apply the concept of partial molar property to the Gibbs free energy defin
         dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{},\label{Mod04_ChemPotentialDef1d}
       \end{equation}
   \end{subequations}
-
   
 %%% SUBSUBSECTION
 \subsubsection{Thermodynamic Equilibrium}\label{Section:04:thermodynamicEquilibrium}
@@ -1871,7 +1871,7 @@ There are two main conditions for a system to achieve {\it chemical equilibrium}
             \end{displaymath}
             but $U+PV-TS = H-TS = G$, \ie \underline{the Gibbs free energy is minimum} for stable equilibrium with fixed $T$, $P$ and $n$.    
     \end{enumerate}
-    In Table~\ref{Mod04_TableEquilibriumCriteria}, the \blue{equilibrium criteria} is summarised for all thermodynamic potential. The stability criteria for \blue{Gibbs free energy} is particularly important for several chemical engineering processes involving closed systems, as so as we can state,
+    In Table~\ref{Mod04_TableEquilibriumCriteria}, the \blue{equilibrium criteria} is summarised for all thermodynamic potentials. The stability criteria for \blue{Gibbs free energy} is particularly important for several chemical engineering processes involving closed systems, as so as we can state,
 
     \begin{shaded}
          `The equilibrium state of a closed system is that state for which the total Gibbs free energy is a minimum \wrt all possible changes at the given $T$ and $P$.'
@@ -1894,14 +1894,65 @@ There are two main conditions for a system to achieve {\it chemical equilibrium}
     \caption{Criteria for thermodynamic equilibria.}\label{Mod04_TableEquilibriumCriteria}
     \end{table}
     
-    
+  \end{subequations}
 
-    \medskip
-  
+%%% SUBSUBSECTION
+\subsubsection{Chemical Potential and Thermodynamic Equilibrium}\label{Section:04:ChemPotThermEquil}
 
+Now, let's consider a closed system consisting of two phases in equilibrium  (vapour and liquid, or solid or vapour or liquid and vapour), $\alpha$ and $\beta$. Each of these phases may be considered as an open system with an interface between them where mass and energy can flow freely, also both systems (or phases) are in mechanical and thermal equilibrium $\left(\ie\; T^{\alpha}=T^{\beta}=T\text{ and } P^{\alpha}=P^{\beta}=P\right)$ We can apply Eqn.~\ref{Mod04_ChemPotentialDef1c} to both phases,
+  \begin{subequations}
+
+     \begin{eqnarray}
+        d(nG)^{\alpha} &=& (nV)^{\alpha}dP - (nS)^{\alpha}dT + \summation[\mu_{i}^{\alpha}dn_{i}^{\alpha}]{i}{},\label{Mod04_ChemPotentialDef1c1} \\
+        d(nG)^{\beta} &=& (nV)^{\beta}dP - (nS)^{\beta}dT + \summation[\mu_{i}^{\beta}dn_{i}^{\beta}]{i}{}.\label{Mod04_ChemPotentialDef1c2} 
+     \end{eqnarray}
+     The change in total Gibbs free energy of a two-phase system is the sum of the changes in each phase. As mass is transferred across the interface, volume and entropy of each phase may change,
+     \begin{eqnarray}
+        (nV) &=& (nV)^{\alpha}+ (nV)^{\beta}, \nonumber \\
+        (nS) &=& (nS)^{\alpha}+(nS)^{\beta}, \nonumber
+     \end{eqnarray}
+     Summing up Eqns.~\ref{Mod04_ChemPotentialDef1c1} and~\ref{Mod04_ChemPotentialDef1c2} and using the above relation,
+     \begin{displaymath}
+        d(nG) = (nV)dP - (nS)dT + \summation[\mu_{i}^{\alpha}dn_{i}^{\alpha}]{i}{} + \summation[\mu_{i}^{\beta}dn_{i}^{\beta}]{i}{} = 0,
+     \end{displaymath}
+     and as the whole system is closed and the net mass transfer is zero, $dn_{i}^{\alpha}=-dn_{i}^{\beta}$ thus,
+     \begin{displaymath}
+        d(nG) = (nV)dP - (nS)dT + \summation[\left(\mu_{i}^{\alpha}-\mu_{i}^{\beta}\right)dn_{i}^{\alpha}]{i}{} = 0,
+     \end{displaymath}
+     as we are considering that system is already under mechanical and thermal equilibrium,
+     \begin{equation}
+        \summation[\left(\mu_{i}^{\alpha}-\mu_{i}^{\beta}\right)dn_{i}^{\alpha}]{i}{} = 0,
+     \end{equation}
+     This equation describes changes in the chemical potential and in the mass of each component in each phase. In fact, throughout this derivation, $dn_{i}^{\alpha}$ is enforced to be independent of each other and therefore \underline{can not be zero}, hence
+      \begin{shaded}
+         \begin{equation}
+            \mu_{i}^{\alpha} = \mu_{i}^{\beta}, \;\;\;\;\forall i=1,2,\cdots, \mathcal{N}.\label{Mod04_ChemPotentialDef1c3} 
+         \end{equation}
+      \end{shaded}
+      This rather simple relation is crucial for understanding phase equilibria, as it states that for an arbitrary closed system at fixed $T$, $P$, thermodynamic equilibrium will be reached when the chemical potential of \underline{all} chemical species in one of the phases is \underline{equal} to the counterpart in the other phase. In fact, we can extend this argument for any number of phases, 
+         \begin{equation}
+            \mu_{i}^{\alpha} = \mu_{i}^{\beta} = \cdots = \mu_{i}^{\mathcal{P}} \;\;\;\;\forall i=1,2,\cdots, \mathcal{N}.\label{Mod04_ChemPotentialDef1c3} 
+         \end{equation}
 
   \end{subequations}
-  
+
+
+%%% SUBSUBSECTION
+\subsubsection{Gibbs Phase Rule and Duhem's Theorem}\label{Section:04:GibbsPhaseRule}
+
+In Section~\ref{Section:02:PVTBehaviour} (Eqns.~\ref{Mod02_GibbsPhaseRuleReactive}-~\ref{Mod02_GibbsPhaseRule}), we introduced the idea of {\it Gibbs phase rule} and how this `rule' can help determining the number of degrees of freedom of any system. Here, a mathematical framework will be used to demonstrate the validity of the {\it Gibbs phase rule}. Consider a non-reactive system closed system in thermodynamic equilibrium with $\mathcal{P}$ co-existing phases and $\mathcal{N}$ independent chemical species, the number of degrees of freedom for such system (\ie number of intensive variables that may vary independently of each other) is given by
+\begin{shaded}
+  \begin{center}
+     \red{Degrees of Freedom} = \blue{Total Number of Intensive Variables} - \purple{Number of Independent Equations}
+  \end{center} 
+\end{shaded}
+
+Thus,
+\begin{enumerate}[a)]
+   \item \blue{Total Number of Intensive Variables}: $T$, $P$ and $\mathcal{N}-1$ mole fractions for each of the $\mathcal{P}$ phases;
+   \item \purple{Number of Independent Equations}: $\left(\mathcal{P}-1\right)\mathcal{N}$
+\end{enumerate}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 \clearpage
