@@ -841,8 +841,6 @@
 \end{frame}
 
 
-
-
 %%%
 %%% Slide
 %%%
@@ -863,6 +861,92 @@
     \end{eqnarray}
 
 \end{frame}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+   \frametitle{Example 4}
+    \blue{The Antoine equation constants for toluene are $A=14.01415$, $B=3106.46$ K and $C=-53.15$ K (for pressure given in kPa). At 1.01325$\times$10$^{5}$ Pa, calculate:}
+        \begin{enumerate}[(a)]
+           \item \blue{the boiling temperature and;}
+           \item \blue{the enthalpy of vaporisation at these conditions.}
+        \end{enumerate}
+
+    \noindent\visible<2->{{\bf Solution:} }
+       \begin{enumerate}[a)]
+%
+           \item<2->Boiling temperature can be calculated from the Antoine equation,
+               \begin{eqnarray}
+                   \visible<3->{&& \ln{P^{\text{sat}}} = A - \frc{B}{T+C}} \nonumber \\
+                   \visible<4->{&& T = \frc{B}{A-\ln{P^{\text{sat}}}} - C = \blue{383.77 \text{ K}}}  \nonumber          
+               \end{eqnarray}
+%
+           \item<5-> The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the Clausius-Clapeyron equation,
+               \begin{eqnarray}
+                   && \visible<5->{\frc{d}{dT} \left(\ln{P^{\text{sat}}}\right) = \frc{\Delta H^{\text{fg}}}{RT^{2}}} \nonumber \\
+                   && \visible<6->{\frc{B}{\left(T+C\right)^{2}} =  \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \Delta H^{\text{fg}} = \blue{34.7984 \text{ kJ.mol}^{-1}}.} \nonumber
+               \end{eqnarray}
+%
+        \end{enumerate}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+   \frametitle{Example 5}
+    \blue{Steam (dry and saturated) is supplied by the boiler at 15 bar and the condenser inlet pressure is 0.4 bar. Calculate the Rankine efficiency of the cycle. Neglect the pump work, assume the enthalpy of fluid leaving the pump is 317.58 kJ.kg$^{-1}$.}
+    \noindent\visible<2->{{\bf Solution:} For this problem, let's assume the same numbering of Fig. 7a in the Lecture-Notes.}\visible<3->{ At 15 bar, dry and saturated $\left(\ie\; x_{1}=1\right)$ steam} \visible<4->{has the following properties (from saturated table),}
+           \visible<4->{\begin{eqnarray}
+             T_{1} &=& T_{\text{sat}} = 198.3^{\circ}\text{C},\nonumber \\
+             h_{1} &=& h_{\text{g}} = 2792.2\; \text{kJ.kg}^{-1} \nonumber \\
+             s_{1} &=& s_{\text{g}} = 6.4448\; \text{kJ.(kg.K)}^{-1} \nonumber
+          \end{eqnarray} }
+          \visible<5->{In the condenser, $P_{2}=0.4$ bar,
+          \begin{eqnarray}
+              T_{2} &=& T_{\text{sat}} = 75.87^{\circ}\text{C}, \nonumber \\
+              h_{\text{g}2} &=& 2636.8\;\text{kJ.kg}^{-1},\;\;\; h_{\text{f}2} = 317.58\;\text{kJ.kg}^{-1},  \nonumber \\
+              s_{\text{g}2} &=& 7.6700 \;\text{kJ.(kg.K)}^{-1},\;\;\; s_{\text{f}2} = 1.0259\;\text{kJ.(kg.K)}^{-1}. \nonumber  
+          \end{eqnarray}}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+   \frametitle{Example 5}
+         \visible<1-> {$h_{2}$ and $s_{2}$ depend on the knowledge of how vaporised the water is, in other words, we need to determine the quality of the steam, $x_{1}$ through},
+         \begin{displaymath}
+              \visible<2->{M = \mfr[M]{}{L} + \mfr[x]{}{V}\Delta\mfr[M]{}{LV}}
+              \visible<3->{ \begin{cases}
+                      h_{2} = h_{\text{f}2} + x_{2}\left(h_{\text{g}2} - h_{\text{f}2}\right), \\
+                      s_{2} = s_{\text{f}2} + x_{2}\left(s_{\text{g}2} - s_{\text{f}2}\right).  
+              \end{cases}}
+         \end{displaymath}
+
+         \visible<4-> {As we know that water is expanded isentropically in the turbine, \ie \blue{$s_{1}=s_{2}$},}
+         \begin{eqnarray}
+             && \visible<5-> {s_{2} = s_{\text{f}2} + x_{2}\left(s_{\text{g}2} - s_{\text{f}2}\right) = s_{1} = 6.4448}  \nonumber \\
+             && \visible<6-> {x_{2} = 0.8156 \;\;(81.56\% \text{ of vapour})}\nonumber
+         \end{eqnarray}
+
+         \visible<7-> {Thus replacing in 
+             \begin{displaymath}
+                h_{2} = h_{\text{f}2} + x_{2}\left(h_{\text{g}2} - h_{\text{f}2}\right) = 2209.14\text{ kJ.kg}^{-1}.
+             \end{displaymath}}
+
+         \visible<8-> {The Rankine efficiency is given by}
+             \begin{displaymath}
+                 \visible<8-> {\eta_{\text{Rankine}} = \frc{\text{Adiabatic or Isentropic Heat Drop}}{\text{Heat Supplied}} =} \visible<9-> {\frc{\left|h_{1}-h_{2}\right|}{h_{1}-h_{\text{f}4}} = 0.2356\;\;\;\rightarrow \;\;\; 23.56\%}
+             \end{displaymath}
+\end{frame}
+
+
 
 \end{document}
  

@@ -6,7 +6,7 @@
 \usepackage{natbib}
 \usepackage{pdfpages,enumerate}% ,enumitem}
 \usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
-\usepackage{framed}
+\usepackage{framed,comment}
 \definecolor{shadecolor}{gray}{0.9}
 
 \pagestyle{empty}
@@ -1489,7 +1489,7 @@ In general, table of {\it saturated fluid properties}, Fig.~\ref{Mod03Fig03}a, c
 
 %%% SUBSUBSECTION
    \subsubsection{Industrial Applications: Power System}
-Regardless the energy source (fossil fuel, nuclear or geothermal), power plants are good applications for VLE systems as it fluids are continuously vaporised and condensed by addition and extraction of heat and volume expansion. {\it Rankine thermal cycles} are system configuration for generating power and consist of four processes (Fig.~\ref{Mod03Fig04}) with associated energy balances:
+Regardless the energy source (fossil fuel, nuclear or geothermal), power plants are good applications for VLE systems as fluids are continuously vaporised and condensed by addition and extraction of heat and volume expansion. {\it Rankine thermal cycles} are system configurations for generating power and consist of four processes (Fig.~\ref{Mod03Fig04}) with associated energy balances:
      \begin{itemize}
       \item \textcolor{red}{Process 1-2}: reversible adiabatic (i.e., \blue{isentropic}) expansion in the turbine (or steam engine),
             \begin{displaymath}
@@ -1512,7 +1512,7 @@ Regardless the energy source (fossil fuel, nuclear or geothermal), power plants 
            \begin{displaymath}
                \eta_{\text{Rankine}} = \frc{\sum W_{i}}{Q_{B}} = \frc{\left|W_{\text{net}}\right|}{Q_{B}} = \frc{\left|\left(h_{1}-h_{2}\right)+\left(h_{4}-h_{3}\right)\right|}{h_{1}-h_{4}}.
            \end{displaymath}
-     Due to engineering constraints, fluids entering and leaving the pump \underline{must be} at liquid phase, thus $h_{4}=h_{f4}$ and $h_{3}=h_{f3}$, \ie the fluid has the enthalpies of the liquid phase (from the saturated fluid table) at the prescribed temperature and pressure conditions. {\it Pumps} are able to induce the transport of liquid fluids that are often assumed incompressible, therefore
+     Due to engineering constraints, fluids entering and leaving the pump \underline{must be} at liquid phase, thus $h_{4}=h_{f4}$ and $h_{3}=h_{f3}$, \ie the fluid has the enthalpy of the liquid phase (from the saturated fluid table) at the prescribed temperature and pressure conditions. {\it Pumps} are able to induce the transport of liquid fluids that are often assumed incompressible, therefore
           \begin{displaymath}
                 Tds = dh - v dP
           \end{displaymath}
@@ -1732,6 +1732,35 @@ Up to this point, we have only considered thermodynamic and volumetric propertie
 %%% SUBSECTION
 \subsection{A Few Important Definitions}
 
+
+%%% SUBSUBSECTION
+\subsubsection{Representing Compositions}\label{Section:04:Compositions}
+The previous modules we mostly focused on thermodynamic properties of systems containing pure chemical species. This module (and the remaining of the course) will study system with arbitrary number of components, and therefore the quantification of each component is critical. A few composition definitions:
+\begin{subequations}
+   \begin{enumerate}[a)]
+       \item Mass $\left(w_{i}\right)$ and mole $\left(x_{i}\right)$ fractions:
+            \begin{eqnarray}
+                w_{i} = \frc{m_{i}}{m}, \\
+                x_{i} = \frc{n_{i}}{n}.
+            \end{eqnarray}
+            where $m$ and $m_{i}$ are the total mass and the mass of individual components, respectively. $n$ and $n_{i}$ are the total number of moles and the number of moles of component $i$, respectively. As these quantities are normalised, we can define:
+            \begin{equation}
+                  \summation[w_{i}]{i=1}{\mathcal{N}} = 1\;\;\;\;\text{ and }\;\;\;\;\summation[x_{i}]{i=1}{\mathcal{N}} = 1
+            \end{equation}
+            where $\mathcal{N}$ is the number of components in the mixture.
+       \item Molar concentration (molarity):
+            \begin{equation}
+               C_{i} = \frc{n_{i}}{V}, 
+            \end{equation}
+            where $V$ is the total volume.
+       \item (Average) Molar mass of mixtures:
+            \begin{equation}
+                \overline{MW} = \sum\limits_{i} \left(x_{i} \cdot MW_{i}\right) 
+            \end{equation}
+         where $MW_{i}$ is the molecular weight (or molar mass) of species $i$.
+   \end{enumerate}
+\end{subequations}
+
 %%% SUBSUBSECTION
 \subsubsection{Partial Molar Properties}\label{Section:04:PartialMolarProperties}
 
@@ -1796,14 +1825,16 @@ If we apply the concept of partial molar property to the Gibbs free energy defin
             \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i}.\label{Mod04_ChemPotentialDef1b}
          \end{equation}
       \end{shaded}
-      The chemical potential can be understood as an energy associated with interactions of atoms/molecules in a mixture that control the tendency of molecules to leave the solution (or return to the solution), and to chemically react. We have defined the Gibbs free energy in Eqn.~\ref{Mod03_GibbsFundamentalRelation01} as a function of $T$ and $P$, now we will extend it to be also a function of the number of moles of a chemical species -- Eqn.~\ref{Mod04_ChemPotentialDef1},
+      The chemical potential can be understood as an energy associated with interactions of atoms/molecules in a mixture that controls the tendency of molecules to leave the solution (or return to the solution), and to chemically react. We have defined the Gibbs free energy in Eqn.~\ref{Mod03_GibbsFundamentalRelation01} as a function of $T$ and $P$, now we will extend it to be also a function of the number of moles of a chemical species -- Eqn.~\ref{Mod04_ChemPotentialDef1},
       \begin{equation}
          d(nG) = (nV)dP - (nS)dT + \summation[\mu_{i}dn_{i}]{i}{},\label{Mod04_ChemPotentialDef1c}
       \end{equation}
       considering $n=1\;\Rightarrow n_{i}=x_{i}$, and Eqn.~\ref{Mod04_ChemPotentialDef1c} becomes
-      \begin{equation}
-        dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{},\label{Mod04_ChemPotentialDef1d}
-      \end{equation}
+      \begin{shaded}
+        \begin{equation}
+          dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{},\label{Mod04_ChemPotentialDef1d}
+        \end{equation}
+      \end{shaded}
   \end{subequations}
   
 %%% SUBSUBSECTION
@@ -1811,15 +1842,15 @@ If we apply the concept of partial molar property to the Gibbs free energy defin
 
 There are two main conditions for a system to achieve {\it chemical equilibrium}:
   \begin{enumerate}[a)]
-     \item all distinct $\mathcal{P}$ phases that may co-exist are in equilibrium with each other, as such as there no net mass transfer of any chemical species between phases;
-     \item all chemical reactions that may occur between species are also in equilibrium, \ie no net progress \wrt conversion of reactants to products (and {\it vice-versa}).
+     \item all distinct $\mathcal{P}$ phases that may co-exist are in equilibrium with each other, as such as there is no net mass transfer of any chemical species between phases;
+     \item all chemical reactions that may occur between species are also in equilibrium, \ie there is no net progress \wrt conversion of reactants to products (and {\it vice-versa}).
   \end{enumerate}
 
   \begin{subequations}
 
     \medskip
 
-    Let's initially consider a closed system (either homogeneous or heterogeneous) in thermal and mechanical equilibrium with the surroundings. In addition, let's also assume that the system is not under chemical equilibrium, \ie there are effective mass transfer across the phase boundary. Such transfer of matter occurs `till the point when the system is also at chemical equilibrium. In reality, these changes towards chemical occur by infinitesimal gradients and are, therefore, irreversible. Applying the {\it First Law},
+    Let's initially consider a closed system (either homogeneous or heterogeneous) in thermal and mechanical equilibrium with the surroundings. In addition, let's also assume that the system is not under chemical equilibrium, \ie there are effective mass transfer across the phase boundary. Such transfer of matter occurs `till the point when the system is also at chemical equilibrium. In reality, these changes towards chemical equilibrium occur by infinitesimal gradients and are, therefore, irreversible. Applying the {\it First Law},
     \begin{displaymath}
       dU^{\text{t}} = dQ + dW\;\;\;\text{ with }\;\;\; dW = -PdV^{\text{t}},
     \end{displaymath}
@@ -1859,7 +1890,7 @@ There are two main conditions for a system to achieve {\it chemical equilibrium}
             \begin{displaymath}
                  dA \leq -dW \;\;\;\text{ or }\;\;\; W \leq -\Delta A.
             \end{displaymath}
-            This means tha $-\Delta A$ is the maximum work we can obtain from a process perfomred under constant $T$ and $n$ conditions. Also, as $A$ is a \underline{state function}, it does \underline{not} depend on the path, but only on the initial and final states;
+            This means that $-\Delta A$ is the maximum work we can obtain from a process performed under constant $T$ and $n$ conditions. Also, as $A$ is a \underline{state function}, it does \underline{not} depend on the path, but only on the initial and final states;
          \item assuming $S$, $P$ and $n$ are kept constant, then Eqn.~\ref{Mod04_EquilibriumCriteria1} becomes
             \begin{displaymath}
                  d(U+PV) = dH > 0,
@@ -1899,7 +1930,7 @@ There are two main conditions for a system to achieve {\it chemical equilibrium}
 %%% SUBSUBSECTION
 \subsubsection{Chemical Potential and Thermodynamic Equilibrium}\label{Section:04:ChemPotThermEquil}
 
-Now, let's consider a closed system consisting of two phases in equilibrium  (vapour and liquid, or solid or vapour or liquid and vapour), $\alpha$ and $\beta$. Each of these phases may be considered as an open system with an interface between them where mass and energy can flow freely, also both systems (or phases) are in mechanical and thermal equilibrium $\left(\ie\; T^{\alpha}=T^{\beta}=T\text{ and } P^{\alpha}=P^{\beta}=P\right)$ We can apply Eqn.~\ref{Mod04_ChemPotentialDef1c} to both phases,
+Now, let's consider a closed system consisting of two phases in equilibrium  (vapour and liquid, or solid or vapour or liquid and vapour), $\alpha$ and $\beta$. Each of these phases may be considered as an open system with an interface between them, where mass and energy can flow freely. Also, both systems (or phases) are in mechanical and thermal equilibrium $\left(\ie\; T^{\alpha}=T^{\beta}=T\text{ and } P^{\alpha}=P^{\beta}=P\right)$. We can apply Eqn.~\ref{Mod04_ChemPotentialDef1c} to both phases,
   \begin{subequations}
 
      \begin{eqnarray}
@@ -1911,7 +1942,7 @@ Now, let's consider a closed system consisting of two phases in equilibrium  (va
         (nV) &=& (nV)^{\alpha}+ (nV)^{\beta}, \nonumber \\
         (nS) &=& (nS)^{\alpha}+(nS)^{\beta}, \nonumber
      \end{eqnarray}
-     Summing up Eqns.~\ref{Mod04_ChemPotentialDef1c1} and~\ref{Mod04_ChemPotentialDef1c2} and using the above relation,
+     Summing up Eqns.~\ref{Mod04_ChemPotentialDef1c1} and~\ref{Mod04_ChemPotentialDef1c2} and using the above relations,
      \begin{displaymath}
         d(nG) = (nV)dP - (nS)dT + \summation[\mu_{i}^{\alpha}dn_{i}^{\alpha}]{i}{} + \summation[\mu_{i}^{\beta}dn_{i}^{\beta}]{i}{} = 0,
      \end{displaymath}
@@ -1930,13 +1961,16 @@ Now, let's consider a closed system consisting of two phases in equilibrium  (va
          \end{equation}
       \end{shaded}
       This rather simple relation is crucial for understanding phase equilibria, as it states that for an arbitrary closed system at fixed $T$, $P$, thermodynamic equilibrium will be reached when the chemical potential of \underline{all} chemical species in one of the phases is \underline{equal} to the counterpart in the other phase. In fact, we can extend this argument for any number of phases, 
+      \begin{shaded}
          \begin{equation}
             \mu_{i}^{\alpha} = \mu_{i}^{\beta} = \cdots = \mu_{i}^{\mathcal{P}} \;\;\;\;\forall i=1,2,\cdots, \mathcal{N}.\label{Mod04_ChemPotentialDef1c3} 
          \end{equation}
+      \end{shaded}
 
   \end{subequations}
 
 
+\begin{comment}
 %%% SUBSUBSECTION
 \subsubsection{Gibbs Phase Rule and Duhem's Theorem}\label{Section:04:GibbsPhaseRule}
 
@@ -1953,6 +1987,47 @@ Thus,
    \item \purple{Number of Independent Equations}: $\left(\mathcal{P}-1\right)\mathcal{N}$
 \end{enumerate}
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+\end{comment}
+
+
+%%% SUBSECTION
+\subsection{Vapour-Liquid Equilibrium}\label{Section:04:VLE}
+
+One of the main objectives of Module~\ref{Section:02} was to study the thermodynamic equilibrium of pure components that involved phase change (see Figs.~\ref{Mod02Fig01}-~\ref{Mod02Fig02}), and in particular for vapour-liquid equilibrium (VLE). $PVT$ relations of pure components were quantitatively expressed through equations of state. Here we will extend the investigation of VLE to mixtures of arbitrary number of components.
+
+%%% SUBSUBSECTION
+\subsubsection{Phase Diagrams}\label{Section:04:PhaseDiagrams}
+In Section~\ref{Section:02:PVTBehaviour} (Eqns.~\ref{Mod02_GibbsPhaseRuleReactive}-~\ref{Mod02_GibbsPhaseRule}), we introduced the idea of {\it Gibbs phase rule} and how this `rule' can help determining the number of degrees of freedom of any system,
+    \begin{displaymath}
+        \Psi = 2 + \mathcal{C} - \mathcal{P}.
+    \end{displaymath}
+For a binary components system in equilibrium, $\mathcal{C}=2$, the phase rule yields a degree of freedom of $\Psi=4-\mathcal{P}$. In VLE system, the number of independent intensive variables becomes $2$ that need to be chosen between:
+\begin{enumerate}[a)]
+   \item temperature ($T$);
+   \item pressure ($P$);
+   \item molar fraction of the more volatile component\footnote{In this module, we will adopt a notation in which for a mixture of $\mathcal{N}$ components, the most volatile will be assigned as number \blue{$1$}. Also, we will follow here the notation used in most thermodynamic text-books in which the molar fraction of component $i$ in vapour and liquid phases are \blue{$y_{i}$} and \blue{$x_{i}$}, respectively.} in the vapour phase $\left(y_{1}\right)$, and;
+   \item molar fraction of the more volatile component in the liquid phase $\left(x_{1}\right)$.
+\end{enumerate}
+A plot with these 4 variables is note very practical as shown in Fig.~\ref{Mod04Fig01} for a mixture of hexane and triethylamine. In this plot, to ensure a single phase system, \ie $\mathcal{P}=1$, $T$, $P$ and {\bf one} molar fraction need to be fixed. For a two-phase system, \ie $\mathcal{P}=2$, two variables need to be fixed and the system is expressed as a surface -- \eg the plane of constant pressure of $0.54$ bar. Although insightful, this plot is not very convenient to assess compositions and phase behaviour, and is limited to a binary systems. 
+      \begin{figure}[h]
+         \begin{center}
+           \includegraphics[width=.9\columnwidth,clip]{./../Pics/PTxy_diagram}
+           \vspace{-.1cm}\caption{$P-T-xy$ diagram for hexane and triethylamine (extracted from Sandler, 2006).}\label{Mod04Fig01}
+         \end{center}
+       \end{figure}
+
+In Fig.~\ref{Mod04Fig02}(top), a generic $P-T-xy$ diagram is shown. Every vertical plane in this diagram indicates a $P-xy$ plot at constant temperature, \eg, the `lens' \blue{AB}, where the lower part corresponds to $P-y_{1}$ (vapour) diagram, and the upper part is the $P-x_{1}$ (liquid) diagram. Overall, the solid projection in this figure represents the liquid and vapour phases in thermodynamic equilibrium at several constant temperatures, whereas the region below and above this solid represent the homogeneous vapour and liquid phases, respectively. The upper line (for each temperature level) of this solid is the saturated liquid line whilst the lower line is the saturated vapour line.
+      \begin{figure}[h]
+         \vbox{ \hbox{\includegraphics[width=.75\columnwidth,clip]{./../Pics/PTxy_diagram2}}
+                   \vspace{-0.cm}
+                \hbox{\includegraphics[width=.75\columnwidth,clip]{./../Pics/PTxy_diagram3}}
+         }
+         \vspace{-.1cm}\caption{$P-T-xy$ diagrams for binary mixtures (extracted from Smith, Van Ness and Abbott, 2000).}\label{Mod04Fig02}
+       \end{figure}
+
+Compositions of each phase can be obtained from a parallel line linking $x_{1}$ and $y_{1}$. The intersection of this parallel line with the upper curve provides the saturated liquid composition, $x_{1}$ and is called \blue{bubble pressure line}. Similarly, the intersection of the parallel line with the lower curve provides the saturated vapour composition, $y_{1}$ and is called \blue{dew pressure line}. The lines that connect these two compositions, $T_{1}$ and $T_{2}$ in Fig.~\ref{Mod04Fig02}(top), is called \blue{\it tie line}.
+
+
 
 
 \clearpage
