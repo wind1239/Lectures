@@ -227,6 +227,12 @@
 \newcommand{\blue}{\textcolor{blue}}
 \newcommand{\green}{\textcolor{green}}
 \newcommand{\purple}{\textcolor{purple}}
+\newcommand{\eg}{{\it e.g., }}
+\newcommand{\ie}{{\it i.e., }}
+\newcommand{\wrt}{{\it wrt }}
+\newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
+\newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}} 
+\newcommand{\summation}[3][error]{\sum\limits_{#2}^{#3}#1}
  
 \begin{document}
 
@@ -346,7 +352,7 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Maxwell's Relations}
+  \frametitle{Maxwell's Relations}\label{Module03:Section:MaxwellRelation}
    \visible<1->{\begin{block}{For 1 mol of homogeneous fluid at $T=$ constant}
       \begin{center}
         \begin{tabular}{l c  l}
@@ -686,7 +692,7 @@
 %%%
 %\scriptsize
 \begin{frame}
-   \frametitle{Example 1}
+   \frametitle{Example 1}%[label=Module03:Example01]
     \blue{A block of copper of 1 kg undertakes a reversible compression from 0.1 MPa to 100 MPa at constant temperature of 15$^{\circ}$C. Calculate:}
     \begin{enumerate}[a)]
        \item \blue{Work done on the copper block during the process;}
@@ -765,6 +771,98 @@
 
 \end{frame}
 
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+   \frametitle{Example 2}
+    \blue{Demonstrate that the derivative of molar volume \wrt temperature at constant pressure is}
+     \begin{displaymath}
+         \blue{\Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}},}
+     \end{displaymath}
+     \blue{and obtain an expression for $\Partial[V]{T}{P}$ for the van der Waals EOS.} \\
+
+   \blue{ {\bf Hint:} You should start the proof from the total differential of a continuous function $f(a,b)$,}
+     \begin{displaymath}
+         \blue{df = \Partial[f]{a}{b}da + \Partial[f]{b}{a}db.}
+     \end{displaymath}
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+   \frametitle{Example 2}
+
+    \noindent{\bf Solution:} 
+    \visible<1->{The total differential of a generic continuous function $f(a,b)$ is
+       \begin{displaymath}
+           df = \Partial[f]{a}{b}da + \Partial[f]{b}{a}db.
+       \end{displaymath}
+       where (from the given thermodynamic function) $f=P$, $a=T$ and $b=V$, \ie}
+
+    \visible<2->{\begin{displaymath}
+          dP = \Partial[P]{T}{V}dT + \Partial[P]{V}{T}dV.
+       \end{displaymath}}
+
+    \visible<3->{However we want a differential expression in which $P$ is constant, therefore} \visible<4->{$\mathbf{dP = 0}$,}
+       \begin{eqnarray}
+           \visible<5->{0 &=& \Partial[P]{T}{V}dT + \Partial[P]{V}{T}dV \;\;\;\text{ at } P \text{ constant},}\nonumber \\
+           \visible<6->{\Partial[V]{T}{P} &=& -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}}.} \nonumber
+       \end{eqnarray}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+   \frametitle{Example 2}
+
+    \visible<1->{Now we want to obtain a differential expression for the vdW-EOS,}
+    \visible<2->{\begin{displaymath}
+          P = \frc{RT}{V-b} - \frc{a}{V^{2}},
+       \end{displaymath}
+       where $V$ is the molar volume and $a$ and $b$ are constants that {\it depends only on critical properties}, $P_{c}$ and $T_{c}$.} 
+
+    \visible<3->{Due to the non-linearity of this EOS, obtaining $\Partial[V]{T}{P}$ from a direct differentiation would be difficult. However, now we know an expression that cn help us,}
+
+    \visible<4->{\begin{displaymath}
+         \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}} = -\frc{\frc{R}{V-b}}{-\frc{RT}{\left(V-b\right)^{2}+\frc{2a}{V^{3}}}}
+     \end{displaymath} }
+
+\end{frame}
+
+
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+   \frametitle{Example 3}
+    \blue{Derive an expression for enthalpy change of a gas during an isothermal process assuming using the following EOS: $P\left(V-b\right)=RT$}
+
+    \noindent\visible<2->{{\bf Solution:} We have seen that enthalpy change is given by (see Slide 8 or Eqn. 36a from the {\it Notes})
+    \begin{displaymath}
+       dH = C_{p}dT + \left[V - T\Partial[V]{T}{P}\right]dP.
+    \end{displaymath}}
+
+    \visible<3->{We can rearrange the EOS and obtain $\Partial[V]{T}{P}$, (or, for a more complex EOS, we could use the procedure of Exmaple 2 to obtain this differential)}
+    \begin{eqnarray}
+       \visible<3->{&& P\left(V-b\right)=RT \;\;\;\rightarrow\;\;\; V = \frc{RT}{P} + b \;\;\;\rightarrow\;\;\; \Partial[V]{T}{P} = \frc{R}{P}\;\;\text{ thus, }} \nonumber \\
+       \visible<3->{&& dH = C_{p}dT + \left(V - \frc{RT}{P}\right)dP = \blue{C_{p}dT + bdP}.} \nonumber 
+    \end{eqnarray}
+
+\end{frame}
 
 \end{document}
  
