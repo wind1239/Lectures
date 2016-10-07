@@ -1726,7 +1726,7 @@ The Rankine efficiency is given by
 %%%
 \section{Module 04: Vapour-Liquid Equilibrium of Mixtures}\label{Section:04}
 
-Up to this point, we have only considered thermodynamic and volumetric properties of pure components at prescribed pressure and temperature conditions. However, most practical engineering applications deal with mixtures of components that may be present in a single or multiple phases, \eg oil in reservoirs, naphtha distillation, steel processing etc. This module focuses on understanding PVT behaviour of mixtures and the conditions for vapour-liquid equilibrium (VLE).
+Up to this point, we have only considered thermodynamic and volumetric properties of pure components at prescribed pressure and temperature conditions. However, most engineering applications deals with mixtures of components that may be present in single or multiple phases, \eg oil in reservoirs, naphtha distillation, steel processing etc. This module focuses on understanding PVT behaviour of mixtures and the conditions for vapour-liquid equilibrium (VLE).
 
 
 %%% SUBSECTION
@@ -1735,24 +1735,18 @@ Up to this point, we have only considered thermodynamic and volumetric propertie
 
 %%% SUBSUBSECTION
 \subsubsection{Representing Compositions}\label{Section:04:Compositions}
-The previous modules we mostly focused on thermodynamic properties of systems containing pure chemical species. This module (and the remaining of the course) will study system with arbitrary number of components, and therefore the quantification of each component is critical. A few composition definitions:
+In the previous modules, we mostly focused on thermodynamic properties of systems containing pure chemical species. This module (and the remaining of the course) will study system with arbitrary number of components, and the quantification of each component at each phase. A few composition definitions:
 \begin{subequations}
    \begin{enumerate}[a)]
-       \item Mass $\left(w_{i}\right)$ and mole $\left(x_{i}\right)$ fractions:
+       \item Molar (or mole) $\left(x_{i}\right)$ fraction:
             \begin{eqnarray}
-                w_{i} = \frc{m_{i}}{m}, \\
                 x_{i} = \frc{n_{i}}{n}.
             \end{eqnarray}
-            where $m$ and $m_{i}$ are the total mass and the mass of individual components, respectively. $n$ and $n_{i}$ are the total number of moles and the number of moles of component $i$, respectively. As these quantities are normalised, we can define:
+            where $n$ and $n_{i}$ are the total number of moles in the system and the number of moles of component $i$, respectively. As these quantities are normalised, we can define:
             \begin{equation}
-                  \summation[w_{i}]{i=1}{\mathcal{N}} = 1\;\;\;\;\text{ and }\;\;\;\;\summation[x_{i}]{i=1}{\mathcal{N}} = 1
+                  \summation[x_{i}]{i=1}{\mathcal{N}} = 1
             \end{equation}
-            where $\mathcal{N}$ is the number of components in the mixture.
-       \item Molar concentration (molarity):
-            \begin{equation}
-               C_{i} = \frc{n_{i}}{V}, 
-            \end{equation}
-            where $V$ is the total volume.
+            where $\mathcal{N}$ is the total number of components in the mixture;
        \item (Average) Molar mass of mixtures:
             \begin{equation}
                 \overline{MW} = \sum\limits_{i} \left(x_{i} \cdot MW_{i}\right) 
@@ -1769,7 +1763,7 @@ The previous modules we mostly focused on thermodynamic properties of systems co
      \begin{equation}
         M^{\text{t}} = nM = M\left(T,P,n_{1},n_{2},\cdots, n_{\mathcal{N}}\right),\label{Mod04_PartialProperties1}
      \end{equation}
-     where $\mathcal{N}$ is the total number of chemical species, and $n=\summation[n_{i}]{i=1}{\mathcal{N}}$ is the total number of moles of all species. The total derivative of Eqn.~\ref{Mod04_PartialProperties1} is,
+     where $n=\summation[n_{i}]{i=1}{\mathcal{N}}$ is the total number of moles of all species. The total derivative of Eqn.~\ref{Mod04_PartialProperties1} is,
      \begin{displaymath}  
         d(nM) = \Partial[(nM)]{P}{T,n}dP + \Partial[(nM)]{T}{P,n}dT + \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}}dn_{i},
      \end{displaymath}
@@ -1779,13 +1773,13 @@ The previous modules we mostly focused on thermodynamic properties of systems co
            d(nM) = n\Partial[M]{P}{T,x}dP + n\Partial[M]{T}{P,x}dT + \summation[\overline{M}_{i}dn_{i}]{i}{},\label{Mod04_PartialProperties2}
         \end{equation}
      \end{shaded}
-     where $\overline{M}_{i} = \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}}$ defines the {\it partial molar property} $\overline{M}_{i}$ of species $i$ in solution, \ie the change of the total property $nM$ of a mixture of $\mathcal{N}$ species resulting from the addition at constant $T$ and $P$ of infinitesimal amount of species $i$ to a prescribed amount of solution. We will discuss partial molar properties in more details in Module~\ref{Section:05}.
+     \noindent where $\overline{M}_{i} = \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}}$ defines the {\it partial molar property} $\overline{M}_{i}$ of species $i$ in solution, \ie the change of the total property $nM$ of a mixture of $\mathcal{N}$ species resulting from the addition at constant $T$ and $P$ of infinitesimal amount of species $i$ to a prescribed amount of solution. We will discuss partial molar properties in more details in Module~\ref{Section:05}.
   \end{subequations}
 
 %%% SUBSUBSECTION
 \subsubsection{Excess Properties}\label{Section:04:ExcessProperties}
   
-In Section~\ref{Section:03:ResidualProperties}, we have defined {\it residual properties} for gases as the difference between any extensive thermodynamic property, $M$, in real gases and its equivalent assuming ideal gas behaviour, $M^{\text{ig}}$. The equivalent for liquids is termed as {\it excess properties}, \ie the deviation from an ideal liquid solution property.
+In Section~\ref{Section:03:ResidualProperties}, we have defined {\it residual properties} for gases as the difference between any extensive thermodynamic property, $M$, in real gases and its equivalent assuming ideal gas behaviour, $M^{\text{ig}}$. The equivalent for liquids is called {\it excess properties}, \ie the deviation from an ideal liquid solution property.
 
 Let's assume that $M$ is any extensive thermodynamic property (\eg $V$, $U$, $H$, $S$, $G$ and $A$), the excess property $M^{\text{E}}$ is defined as the difference between the property value of a solution and the value it would have as an ideal solution at the same $T$, $P$ and composition,
 \begin{subequations}
@@ -1794,15 +1788,15 @@ Let's assume that $M$ is any extensive thermodynamic property (\eg $V$, $U$, $H$
        M^{\text{E}} \equiv M - M^{\text{id}},\label{Mod04_ExcessProperties1a}
     \end{equation}
   \end{shaded}
-  where properties in ideal solutions of multiple chemical species can be represented as,
+  \noindent where properties in ideal ({\it id}) solutions of multiple chemical species can be represented as,
     \begin{displaymath}
        M^{\text{id}} = \summation[x_{i}M_{i}]{i}{},
     \end{displaymath}
-    where $M_{i}$ is an extensive {\it molar property of the pure chemical species}. For a mixture of two components,
+    where $M_{i}$ is an extensive {\it molar property of the \underline{pure} chemical species}. For example, if we mix equal volumes of two species (\eg water and ethanol), the final volume \underline{is not} the sum of the individual volumes. In fact, the final volume will be slightly larger than the sum of the individual volumes and this is due to the non-ideality behaviour of real liquid fluids. Thus for a binary solution,
     \begin{equation}
       V^{\text{E}} = V - V^{\text{id}} = V - \summation[x_{i}V_{i}]{i}{} = V -\left(x_{1}V_{1}+x_{2}V_{2}\right).\label{Mod04_ExcessProperties1b} 
     \end{equation}
-    This equation shows that the total volume of a mixture of two components is different from the simple addition of both individual volumes. 
+    %This equation shows that the total volume of a mixture of two components is different from the simple addition of both individual volumes. 
 \end{subequations}
 
 
@@ -1825,14 +1819,14 @@ If we apply the concept of partial molar property to the Gibbs free energy defin
             \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i}.\label{Mod04_ChemPotentialDef1b}
          \end{equation}
       \end{shaded}
-      The chemical potential can be understood as an energy associated with interactions of atoms/molecules in a mixture that controls the tendency of molecules to leave the solution (or return to the solution), and to chemically react. We have defined the Gibbs free energy in Eqn.~\ref{Mod03_GibbsFundamentalRelation01} as a function of $T$ and $P$, now we will extend it to be also a function of the number of moles of a chemical species -- Eqn.~\ref{Mod04_ChemPotentialDef1},
+      The chemical potential can be understood as an energy associated with interactions of atoms/molecules in a mixture that controls the tendency of molecules to leave the solution (or return to the solution), and to chemically react. We have defined the Gibbs free energy in Eqn.~\ref{Mod03_GibbsFundamentalRelation01} as a function of $T$ and $P$, now we will extend it to be also a function of the number of moles of chemical species -- Eqn.~\ref{Mod04_ChemPotentialDef1},
       \begin{equation}
          d(nG) = (nV)dP - (nS)dT + \summation[\mu_{i}dn_{i}]{i}{},\label{Mod04_ChemPotentialDef1c}
       \end{equation}
       considering $n=1\;\Rightarrow n_{i}=x_{i}$, and Eqn.~\ref{Mod04_ChemPotentialDef1c} becomes
       \begin{shaded}
         \begin{equation}
-          dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{},\label{Mod04_ChemPotentialDef1d}
+          \blue{dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{}},\label{Mod04_ChemPotentialDef1d}
         \end{equation}
       \end{shaded}
   \end{subequations}
@@ -1930,7 +1924,7 @@ There are two main conditions for a system to achieve {\it chemical equilibrium}
 %%% SUBSUBSECTION
 \subsubsection{Chemical Potential and Thermodynamic Equilibrium}\label{Section:04:ChemPotThermEquil}
 
-Now, let's consider a closed system consisting of two phases in equilibrium  (vapour and liquid, or solid or vapour or liquid and vapour), $\alpha$ and $\beta$. Each of these phases may be considered as an open system with an interface between them, where mass and energy can flow freely. Also, both systems (or phases) are in mechanical and thermal equilibrium $\left(\ie\; T^{\alpha}=T^{\beta}=T\text{ and } P^{\alpha}=P^{\beta}=P\right)$. We can apply Eqn.~\ref{Mod04_ChemPotentialDef1c} to both phases,
+Now, let's consider a closed system consisting of two phases in equilibrium  (vapour and liquid, or solid and vapour or liquid and solid), $\alpha$ and $\beta$. Each of these phases may be considered as an open system with an interface between them, where mass and energy can flow freely. Also, both systems (or phases) are in mechanical and thermal equilibrium $\left(\ie\; T^{\alpha}=T^{\beta}=T\text{ and } P^{\alpha}=P^{\beta}=P\right)$. We can apply Eqn.~\ref{Mod04_ChemPotentialDef1c} to both phases,
   \begin{subequations}
 
      \begin{eqnarray}
@@ -1963,7 +1957,7 @@ Now, let's consider a closed system consisting of two phases in equilibrium  (va
       This rather simple relation is crucial for understanding phase equilibria, as it states that for an arbitrary closed system at fixed $T$, $P$, thermodynamic equilibrium will be reached when the chemical potential of \underline{all} chemical species in one of the phases is \underline{equal} to the counterpart in the other phase. In fact, we can extend this argument for any number of phases, 
       \begin{shaded}
          \begin{equation}
-            \mu_{i}^{\alpha} = \mu_{i}^{\beta} = \cdots = \mu_{i}^{\mathcal{P}} \;\;\;\;\forall i=1,2,\cdots, \mathcal{N}.\label{Mod04_ChemPotentialDef1c3} 
+            \blue{\mu_{i}^{\alpha} = \mu_{i}^{\beta} = \cdots = \mu_{i}^{\mathcal{P}} \;\;\;\;\forall i=1,2,\cdots, \mathcal{N}.}\label{Mod04_ChemPotentialDef1c3} 
          \end{equation}
       \end{shaded}
 
@@ -1997,18 +1991,18 @@ One of the main objectives of Module~\ref{Section:02} was to study the thermodyn
 
 %%% SUBSUBSECTION
 \subsubsection{Phase Diagrams}\label{Section:04:PhaseDiagrams}
-In Section~\ref{Section:02:PVTBehaviour} (Eqns.~\ref{Mod02_GibbsPhaseRuleReactive}-~\ref{Mod02_GibbsPhaseRule}), we introduced the idea of {\it Gibbs phase rule} and how this `rule' can help determining the number of degrees of freedom of any system,
+In Section~\ref{Section:02:PVTBehaviour} (Eqns.~\ref{Mod02_GibbsPhaseRuleReactive}-~\ref{Mod02_GibbsPhaseRule}), the {\it Gibbs phase rule} was introduced to help determining the number of degrees of freedom of any system,
     \begin{displaymath}
         \Psi = 2 + \mathcal{C} - \mathcal{P}.
     \end{displaymath}
-For a binary components system in equilibrium, $\mathcal{C}=2$, the phase rule yields a degree of freedom of $\Psi=4-\mathcal{P}$. In VLE system, the number of independent intensive variables becomes $2$ that need to be chosen between:
+For a binary components system in equilibrium, $\mathcal{C}=2$, the phase rule yields a degree of freedom of $\Psi=4-\mathcal{P}$. In VLE system, the number of independent intensive variables becomes $2$, and it will need to be chosen between:
 \begin{enumerate}[a)]
    \item temperature ($T$);
    \item pressure ($P$);
    \item molar fraction of the more volatile component\footnote{In this module, we will adopt a notation in which for a mixture of $\mathcal{N}$ components, the most volatile will be assigned as number \blue{$1$}. Also, we will follow here the notation used in most thermodynamic text-books in which the molar fraction of component $i$ in vapour and liquid phases are \blue{$y_{i}$} and \blue{$x_{i}$}, respectively.} in the vapour phase $\left(y_{1}\right)$, and;
    \item molar fraction of the more volatile component in the liquid phase $\left(x_{1}\right)$.
 \end{enumerate}
-A plot with these 4 variables is note very practical as shown in Fig.~\ref{Mod04Fig01} for a mixture of hexane and triethylamine. In this plot, to ensure a single phase system, \ie $\mathcal{P}=1$, temperature, pressure and {\bf one} molar fraction need to be fixed. For a two-phase system, \ie $\mathcal{P}=2$, two variables need to be fixed and the system is expressed as a surface -- \eg the plane of constant pressure of $0.54$ bar. Although insightful, this plot is not very convenient to assess compositions and phase behaviour, and is limited to a binary systems. 
+A plot with these 4 variables is not very practical, as shown in Fig.~\ref{Mod04Fig01} for a mixture of hexane and triethylamine. In this $P-T-xy$ diagram, to ensure a single phase system $\left(\mathcal{P}=1\right)$, temperature, pressure and {\bf one} molar fraction need to be fixed. For a two-phase system $\left(\mathcal{P}=2\right)$, two variables need to be fixed and the system is expressed as a surface -- \eg the plane of constant pressure of $0.54$ bar. %Although insightful, this plot is not very convenient to assess compositions and phase behaviour, and is limited to a binary systems. 
       \begin{figure}[h]
          \begin{center}
            \includegraphics[width=.9\columnwidth,clip]{./../Pics/PTxy_diagram}
@@ -2016,16 +2010,22 @@ A plot with these 4 variables is note very practical as shown in Fig.~\ref{Mod04
          \end{center}
        \end{figure}
 
-In Fig.~\ref{Mod04Fig02}(top), a generic $P-T-xy$ diagram is shown. Every vertical plane in this diagram indicates a $P-xy$ plot at constant temperature, \eg, the `lens' \blue{AB}, where the lower part corresponds to $P-y_{1}$ (vapour) diagram, and the upper part is the $P-x_{1}$ (liquid) diagram. Overall, the solid projection in this figure represents the liquid and vapour phases in thermodynamic equilibrium at several constant temperatures, whereas the region below and above this solid represent the homogeneous vapour and liquid phases, respectively. The upper line (for each temperature level) of this solid is the saturated liquid line whilst the lower line is the saturated vapour line.
+In Fig.~\ref{Mod04Fig02}(top), a generic $P-T-xy$ diagram is shown. Every vertical plane in this diagram indicates a $P-xy$ plot at constant temperature, \eg, in the `lens' \blue{AB} at a vertical constant temperature plane, the lower part corresponds to $P-y_{1}$ (vapour) phase behaviour, and the upper part is the $P-x_{1}$ (liquid) phase behaviour. Overall, the solid (grey) projection in this figure represents the liquid and vapour phases in thermodynamic equilibrium at several constant temperatures, whereas the region below and above this solid represent the homogeneous vapour and liquid phases, respectively. 
       \begin{figure}[h]
-         \vbox{ \hbox{\includegraphics[width=.75\columnwidth,clip]{./../Pics/PTxy_diagram2}}
+         \vbox{ \hbox{\hspace{1.8cm}\includegraphics[width=.75\columnwidth,clip]{./../Pics/PTxy_diagram2}}
                    \vspace{-0.cm}
-                \hbox{\includegraphics[width=.75\columnwidth,clip]{./../Pics/PTxy_diagram3}}
+                \hbox{\hspace{1.8cm}\includegraphics[width=.75\columnwidth,clip]{./Figs/PTxy_Digram}}
          }
          \vspace{-.1cm}\caption{$P-T-xy$ diagrams for binary mixtures (extracted from Smith, Van Ness and Abbott, 2000).}\label{Mod04Fig02}
        \end{figure}
+       The upper line (for each temperature level) of this solid is the saturated liquid line whilst the lower line is the saturated vapour line.
 
-Compositions of each phase can be obtained from a parallel line linking $x_{1}$ and $y_{1}$. The intersection of this parallel line with the upper curve provides the saturated liquid composition, $x_{1}$ and is called \blue{bubble pressure line}. Similarly, the intersection of the parallel line with the lower curve provides the saturated vapour composition, $y_{1}$ and is called \blue{dew pressure line}. The lines that connect these two compositions, $T_{1}$ and $T_{2}$ in Fig.~\ref{Mod04Fig02}(top), is called \blue{\it tie line}.
+Compositions of each phase can be obtained from a parallel line linking $x_{1}$ and $y_{1}$. The intersection of this parallel line with the upper curve provides the saturated liquid composition, $x_{1}$ and is called \blue{bubble pressure line}. Similarly, the intersection of the parallel line with the lower curve provides the saturated vapour composition, $y_{1}$ and is called \blue{dew pressure line}. The lines that connect these two compositions, $T_{1}$ and $T_{2}$ in Fig.~\ref{Mod04Fig02}(top), is called \blue{\it tie line}. 
+
+A similar generic diagram is shown in Fig.~\ref{Mod04Fig02}(bottom) with distinct vertical ($T$ constant) and horizontal ($P$ constant) planes within the solid (grey) projection. At the vertical The $x_{1},y_{1}$ axis is limited to zero and one, thus at $x_{1}$ (or $y_{1}$) equal to zero, $x_{2}$ (or $y_{2}$) is equal to unity, \ie pure component \blue{2} in solution. Similarly at $x_{1}$ (or $y_{1}$) equal to one, $x_{2}$ (or $y_{2}$) is equal to zero, \ie pure component \blue{1} in solution. The diagram also depicts points \blue{$C_{1}$} and \blue{$C_{2}$} along with the planes of $x_{1},y_{1}=0$ and $x_{1},y_{1}=1$, respectively, these two points are the coordinates of the critical points of both pure components. Critical coordinates for various mixtures of \blue{1} and \blue{2} lie along a line on the rounded edge of the surface between \blue{$C_{1}$} and \blue{$C_{2}$}.
+
+The (subcooled) liquid region lies above the upper surface of the solid (grey) projection, and (superheated) vapour region lies below the under surface. The interior of the solid projection between the two surfaces is the
+region of coexistence of both liquid and vapor phases.
 
 
 
