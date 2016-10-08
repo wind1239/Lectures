@@ -1324,7 +1324,8 @@ thus \eg
                   \frc{G^{R}}{RT} &=&  \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}.\label{Mod03_ResidualProperties_GeneratingGibbsFunction3} 
               \end{eqnarray}
           \end{shaded}
-         \end{subequations}
+       \end{subequations}
+          
 %%% SUBSUBSECTION
    \subsubsection{Residual Properties in the Zero-Pressure Limit}
       
@@ -1398,7 +1399,7 @@ For infinitesimal intervals of $T$, \underline{$\Delta H^{\text{fg}}$ may be con
           \end{equation} 
 This expression is known as {\it Clausius-Clapeyron equation} and is a good approximation when describing temperature and pressure dependence at boiling/condensation and at sublimation/gas deposition.
       \end{shaded}
-For the dependence of the saturated vapour pressure  on $T$, a number of empirical relations have been developed. The simplest expression is,
+For the dependence of the saturated vapour pressure on $T$, a number of empirical relations have been developed. The simplest expression is,
     \begin{displaymath}
        \ln{P^{\text{sat}}} = A - \frc{B}{T},%\label{Mod03_AntoineSimplest}
     \end{displaymath}
@@ -1744,9 +1745,9 @@ In the previous modules, we mostly focused on thermodynamic properties of system
             \end{eqnarray}
             where $n$ and $n_{i}$ are the total number of moles in the system and the number of moles of component $i$, respectively. As these quantities are normalised, we can define:
             \begin{equation}
-                  \summation[x_{i}]{i=1}{\mathcal{N}} = 1
+                  \summation[x_{i}]{i=1}{\mathcal{C}} = 1
             \end{equation}
-            where $\mathcal{N}$ is the total number of components in the mixture;
+            where $\mathcal{C}$ is the total number of components in the mixture;
        \item (Average) Molar mass of mixtures:
             \begin{equation}
                 \overline{MW} = \sum\limits_{i} \left(x_{i} \cdot MW_{i}\right) 
@@ -1761,9 +1762,9 @@ In the previous modules, we mostly focused on thermodynamic properties of system
 {\it Partial molar properties} describes the behaviour of homogeneous multi-component systems. Let's consider a homogeneous (\ie single phase) and open system (\ie system that allows mass and energy transfer across the boundary towards the surroundings) that undertakes a change in composition. Thus, the total value of any extensive property $M^{\text{t}}\;\left(M\equiv V, U, H, S, G, A\right)$ is not only a function of pressure and temperature, but it also depends on the number of moles of each species in the system. therefore
   \begin{subequations}
      \begin{equation}
-        M^{\text{t}} = nM = M\left(T,P,n_{1},n_{2},\cdots, n_{\mathcal{N}}\right),\label{Mod04_PartialProperties1}
+        M^{\text{t}} = nM = M\left(T,P,n_{1},n_{2},\cdots, n_{\mathcal{C}}\right),\label{Mod04_PartialProperties1}
      \end{equation}
-     where $n=\summation[n_{i}]{i=1}{\mathcal{N}}$ is the total number of moles of all species. The total derivative of Eqn.~\ref{Mod04_PartialProperties1} is,
+     where $n=\summation[n_{i}]{i=1}{\mathcal{C}}$ is the total number of moles of all species. The total derivative of Eqn.~\ref{Mod04_PartialProperties1} is,
      \begin{displaymath}  
         d(nM) = \Partial[(nM)]{P}{T,n}dP + \Partial[(nM)]{T}{P,n}dT + \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}}dn_{i},
      \end{displaymath}
@@ -1773,7 +1774,7 @@ In the previous modules, we mostly focused on thermodynamic properties of system
            d(nM) = n\Partial[M]{P}{T,x}dP + n\Partial[M]{T}{P,x}dT + \summation[\overline{M}_{i}dn_{i}]{i}{},\label{Mod04_PartialProperties2}
         \end{equation}
      \end{shaded}
-     \noindent where $\overline{M}_{i} = \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}}$ defines the {\it partial molar property} $\overline{M}_{i}$ of species $i$ in solution, \ie the change of the total property $nM$ of a mixture of $\mathcal{N}$ species resulting from the addition at constant $T$ and $P$ of infinitesimal amount of species $i$ to a prescribed amount of solution. We will discuss partial molar properties in more details in Module~\ref{Section:05}.
+     \noindent where $\overline{M}_{i} = \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}}$ defines the {\it partial molar property} $\overline{M}_{i}$ of species $i$ in solution, \ie the change of the total property $nM$ of a mixture of $\mathcal{C}$ species resulting from the addition at constant $T$ and $P$ of infinitesimal amount of species $i$ to a prescribed amount of solution. We will discuss partial molar properties in more details in Module~\ref{Section:05}.
   \end{subequations}
 
 %%% SUBSUBSECTION
@@ -1808,7 +1809,7 @@ Let's assume that $M$ is any extensive thermodynamic property (\eg $V$, $U$, $H$
 %%% SUBSUBSECTION
 \subsubsection{Chemical Potential $\left(\mu_{i}\right)$}\label{Section:04:ChemicalPotential}
 
-If we apply the concept of partial molar property to the Gibbs free energy definition, assuming that this thermodynamic potential is a function of $P$, $T$ and $n$, \ie $G^{\text{t}}= nG = G\left(T,P,n_{1},n_{2},\cdots,n_{\mathcal{N}}\right)$,
+If we apply the concept of partial molar property to the Gibbs free energy definition, assuming that this thermodynamic potential is a function of $P$, $T$ and $n$, \ie $G^{\text{t}}= nG = G\left(T,P,n_{1},n_{2},\cdots,n_{\mathcal{C}}\right)$,
   \begin{subequations}
       \begin{equation}
          d(nG) = n\Partial[G]{P}{T,x}dP + n\Partial[G]{T}{P,x}dT + \summation[\overline{G}_{i}dn_{i}]{i}{}.\label{Mod04_ChemPotentialDef1}
@@ -1951,13 +1952,13 @@ Now, let's consider a closed system consisting of two phases in equilibrium  (va
      This equation describes changes in the chemical potential and in the mass of each component in each phase. In fact, throughout this derivation, $dn_{i}^{\alpha}$ is enforced to be independent of each other and therefore \underline{can not be zero}, hence
       \begin{shaded}
          \begin{equation}
-            \mu_{i}^{\alpha} = \mu_{i}^{\beta}, \;\;\;\;\forall i=1,2,\cdots, \mathcal{N}.\label{Mod04_ChemPotentialDef1c3} 
+            \mu_{i}^{\alpha} = \mu_{i}^{\beta}, \;\;\;\;\forall i=1,2,\cdots, \mathcal{C}.\label{Mod04_ChemPotentialDef1c3} 
          \end{equation}
       \end{shaded}
       This rather simple relation is crucial for understanding phase equilibria, as it states that for an arbitrary closed system at fixed $T$, $P$, thermodynamic equilibrium will be reached when the chemical potential of \underline{all} chemical species in one of the phases is \underline{equal} to the counterpart in the other phase. In fact, we can extend this argument for any number of phases, 
       \begin{shaded}
          \begin{equation}
-            \blue{\mu_{i}^{\alpha} = \mu_{i}^{\beta} = \cdots = \mu_{i}^{\mathcal{P}} \;\;\;\;\forall i=1,2,\cdots, \mathcal{N}.}\label{Mod04_ChemPotentialDef1c3} 
+            \blue{\mu_{i}^{\alpha} = \mu_{i}^{\beta} = \cdots = \mu_{i}^{\mathcal{P}} \;\;\;\;\forall i=1,2,\cdots, \mathcal{C}.}\label{Mod04_ChemPotentialDef1c3} 
          \end{equation}
       \end{shaded}
 
@@ -1968,7 +1969,7 @@ Now, let's consider a closed system consisting of two phases in equilibrium  (va
 %%% SUBSUBSECTION
 \subsubsection{Gibbs Phase Rule and Duhem's Theorem}\label{Section:04:GibbsPhaseRule}
 
-In Section~\ref{Section:02:PVTBehaviour} (Eqns.~\ref{Mod02_GibbsPhaseRuleReactive}-~\ref{Mod02_GibbsPhaseRule}), we introduced the idea of {\it Gibbs phase rule} and how this `rule' can help determining the number of degrees of freedom of any system. Here, a mathematical framework will be used to demonstrate the validity of the {\it Gibbs phase rule}. Consider a non-reactive system closed system in thermodynamic equilibrium with $\mathcal{P}$ co-existing phases and $\mathcal{N}$ independent chemical species, the number of degrees of freedom for such system (\ie number of intensive variables that may vary independently of each other) is given by
+In Section~\ref{Section:02:PVTBehaviour} (Eqns.~\ref{Mod02_GibbsPhaseRuleReactive}-~\ref{Mod02_GibbsPhaseRule}), we introduced the idea of {\it Gibbs phase rule} and how this `rule' can help determining the number of degrees of freedom of any system. Here, a mathematical framework will be used to demonstrate the validity of the {\it Gibbs phase rule}. Consider a non-reactive system closed system in thermodynamic equilibrium with $\mathcal{P}$ co-existing phases and $\mathcal{C}$ independent chemical species, the number of degrees of freedom for such system (\ie number of intensive variables that may vary independently of each other) is given by
 \begin{shaded}
   \begin{center}
      \red{Degrees of Freedom} = \blue{Total Number of Intensive Variables} - \purple{Number of Independent Equations}
@@ -1977,8 +1978,8 @@ In Section~\ref{Section:02:PVTBehaviour} (Eqns.~\ref{Mod02_GibbsPhaseRuleReactiv
 
 Thus,
 \begin{enumerate}[a)]
-   \item \blue{Total Number of Intensive Variables}: $T$, $P$ and $\mathcal{N}-1$ mole fractions for each of the $\mathcal{P}$ phases;
-   \item \purple{Number of Independent Equations}: $\left(\mathcal{P}-1\right)\mathcal{N}$
+   \item \blue{Total Number of Intensive Variables}: $T$, $P$ and $\mathcal{C}-1$ mole fractions for each of the $\mathcal{P}$ phases;
+   \item \purple{Number of Independent Equations}: $\left(\mathcal{P}-1\right)\mathcal{C}$
 \end{enumerate}
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 \end{comment}
@@ -1990,7 +1991,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 One of the main objectives of Module~\ref{Section:02} was to study the thermodynamic equilibrium of pure components that involved phase change (see Figs.~\ref{Mod02Fig01}-~\ref{Mod02Fig02}), and in particular for vapour-liquid equilibrium (VLE). $PVT$ relations of pure components were quantitatively expressed through equations of state. Here we will extend the investigation of VLE to mixtures of arbitrary number of components.
 
 %%% SUBSUBSECTION
-\subsubsection{Phase Diagrams}\label{Section:04:PhaseDiagrams}
+\subsubsection{Qualitative Analysis: Phase Diagrams}\label{Section:04:PhaseDiagrams}
 In Section~\ref{Section:02:PVTBehaviour} (Eqns.~\ref{Mod02_GibbsPhaseRuleReactive}-~\ref{Mod02_GibbsPhaseRule}), the {\it Gibbs phase rule} was introduced to help determining the number of degrees of freedom of any system,
     \begin{displaymath}
         \Psi = 2 + \mathcal{C} - \mathcal{P}.
@@ -1999,7 +2000,7 @@ For a binary components system in equilibrium, $\mathcal{C}=2$, the phase rule y
 \begin{enumerate}[a)]
    \item temperature ($T$);
    \item pressure ($P$);
-   \item molar fraction of the more volatile component\footnote{In this module, we will adopt a notation in which for a mixture of $\mathcal{N}$ components, the most volatile will be assigned as number \blue{$1$}. Also, we will follow here the notation used in most thermodynamic text-books in which the molar fraction of component $i$ in vapour and liquid phases are \blue{$y_{i}$} and \blue{$x_{i}$}, respectively.} in the vapour phase $\left(y_{1}\right)$, and;
+   \item molar fraction of the more volatile component\footnote{In this module, we will adopt a notation in which for a mixture of $\mathcal{C}$ components, the most volatile will be assigned as number \blue{$1$}. Also, we will follow here the notation used in most thermodynamic text-books in which the molar fraction of component $i$ in vapour and liquid phases are \blue{$y_{i}$} and \blue{$x_{i}$}, respectively.} in the vapour phase $\left(y_{1}\right)$, and;
    \item molar fraction of the more volatile component in the liquid phase $\left(x_{1}\right)$.
 \end{enumerate}
 A plot with these 4 variables is not very practical, as shown in Fig.~\ref{Mod04Fig01} for a mixture of hexane and triethylamine. In this $P-T-xy$ diagram, to ensure a single phase system $\left(\mathcal{P}=1\right)$, temperature, pressure and {\bf one} molar fraction need to be fixed. For a two-phase system $\left(\mathcal{P}=2\right)$, two variables need to be fixed and the system is expressed as a surface -- \eg the plane of constant pressure of $0.54$ bar. %Although insightful, this plot is not very convenient to assess compositions and phase behaviour, and is limited to a binary systems. 
@@ -2049,7 +2050,215 @@ As the pressure is continuously reduced along line \blue{$Q-R$}, more liquid is 
 
      Another common phase diagram is the $x-y$, Fig.~\ref{Mod04Fig04}(a), in which either pressure or temperature is kept constant. In this diagram, at constant pressure, there are two curves, the upper curve represents the composition at equilibrium with varying temperature. The straight line represents the equimolar composition, \ie $x_{1}=y_{1}$. However, in several solutions of industrial interest, molecular attractive forces from the heavier component (2) keep molecules of the more volatile component in the liquid solution, constraining its evaporation. This leads into an equilibrium pressure smaller than the expected at the same liquid composition. Such deviation from ideality is called \blue{\it azeotropy}. In practical terms, any component from solutions can often be separated through distillation processes, however azeotropes may lead to vapour-liquid-liquid equilibrium (VLLE) and other separations strategies may need to be used.  
      
+%%% SUBSUBSECTION
+\subsubsection{VLE Models: Raoult's Law}\label{Section:04:RaoultsLaw}
+  \begin{subequations}
+      The diagrams of binary (as well as multi-component) mixtures shown in the previous section are obtained from experiments and introduce a qualitative analysis of the PVT behaviour of solutions. However, classic thermodynamics provides a mathematical framework for systematic correlation, extension, generalisation and interpretation of data.
+      For ideal vapour-liquid systems, the \blue{Raoult's law} provides a relation between the compositions of the vapour and liquid phases,
+         \begin{shaded}
+           \begin{equation}
+             P_{i} = y_{i}P = x_{i}P_{i}^{\text{sat}},\;\;\;\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}\label{Mod04_RaoultLaw} 
+           \end{equation}
+         \end{shaded}
+      $P_{i}=y_{i}P$ in Eqn.~\ref{Mod04_RaoultLaw} is known as \blue{\it partial pressure}, and $P_{i}^{\text{sat}}$ is the saturated pressure (or saturated vapour pressure) of pure species $i$ and was defined in Eqn.~\ref{Mod03_Antoine}. This rather simple relation can only be applied to ideal solutions (for both phases). For a gas mixture to be considered ideal the pressure need to be equal or smaller than atmospheric. There are several relations for ideal gas mixtures, \eg
+       \begin{enumerate}[a)]
+           \begin{shaded}    
+               \item Dalton's Law:
+                  \begin{equation}
+                      P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[y_{i}P]{i=1}{\mathcal{C}}\label{Mod04_DaltonLaw}
+                  \end{equation}
+           \end{shaded}
+           \item Amagat's Law:
+              \begin{displaymath}
+                  V^{\text{t}} = \summation[V_{i}^{\text{t}}]{i=1}{\mathcal{C}} = \summation[y_{i}V^{\text{t}}]{i=1}{\mathcal{C}}
+              \end{displaymath}
+           \item Kay's rule for pseudo-critical temperature and pressure:
+              \begin{displaymath}
+                  T_{c}^{\text{t}} = \summation[y_{i}T_{c,i}]{i=1}{\mathcal{C}},\;\;\text{ and }\;\;P_{c}^{\text{t}} = \summation[y_{i}P_{c,i}]{i=1}{\mathcal{C}}
+              \end{displaymath}
+       \end{enumerate}
+       Liquid solutions are considered ideals if the molecular interaction between the similar species is identical to that between dissimilar species. Thermodynamics of liquid solutions are the focus of Module~\ref{Section:05}.
+       
+\end{subequations}
+
+%%% SUBSUBSECTION
+\subsubsection{Henry's Law}\label{Section:04:HenryLaw}
+
+A typical application of VLE is when gases are solubilised in liquid solutions, \eg O$_{2}$ in water, CO$_{2}$ in soft drinks, air in the blood stream etc. In these cases, gases have relatively low solubility (mole fraction varying between 10$^{-5}$ to 10$^{-2}$) in liquid solvents. Application of Raoult's law is limited to $P^{\text{sat}}$. If the temperature exceeds the critical temperature, Raoult's law is no longer applicable as $P^{\text{sat}}$ can not be defined. For such cases, a new relation is required that relates compositions in both phases and the pressure,
+\begin{shaded}
+  \begin{equation}
+      P_{i} = y_{i}P = x_{i}\mathcal{H}_{i},\label{Mod04_HenryLaw} 
+  \end{equation}
+\end{shaded}
+\noindent where $\mathcal{H}$ is the Henry's constant obtained experimentally. Values of Henty's contant for several gases dissolved in water at 25$^{\circ}$C is shown in Table~\ref{Mod04_HenryLawTable}
+ \begin{table}
+  \begin{center}
+    \begin{tabular}{l r || l r }
+      \hline
+       {\bf Gas}    &  ${\bf \mathcal{H}\text{ (bar)}}$ & {\bf Gas}    &  ${\bf \mathcal{H}\text{ (bar)}}$ \\
+      \hline
+         Acetylene  &   1350                            & He           &  126600 \\
+         Air        &   72950                           & H$_{2}$      &  71600  \\
+         CO$_{2}$    & 1670                              & H$_{2}$S     & 550 \\
+         CO         &  54600                            &  CH$_{4}$    &  41850 \\
+         C$_{2}$H$_{6}$ & 30600                          &  N$_{2}$     & 87650  \\
+         Ethylene  & 11550                              & O$_{2}$      & 44380 \\
+      \hline
+    \end{tabular}
+    \caption{Henry's constant for gases dissolved in water at 25$^{\circ}$C.}\label{Mod04_HenryLawTable}
+  \end{center}
+\end{table}
+
+  
+%%% SUBSECTION
+\subsection{Industrial Applications: Multi-Component VLE}
+
+%%% SUBSUBSECTION
+\subsubsection{Dew-point and Bubble-point Calculations using Raoult’s Law }
+
+Let's consider a vapour-liquid system containing $\mathcal{C}$ chemical species. From the phase rule the number of degrees of freedom is $\mathcal{C}$ that are $T$, $P$, $x_{i}$ and/or $y_{i}$. Four types of problems are possible:
+\begin{center}
+   \begin{tabular}{|l c c|}
+      \hline 
+      $\mathbf{VLE}$ {\bf Problem} & {\bf Specified Variables} &  {\bf Computed Variables} \\  
+      \hline
+          {\bf Bubble Pressure}        &  $T$ and $x_{i}$           &   $P$ and $y_{i}$          \\
+          {\bf Dew Pressure}           &  $T$ and $y_{i}$           &   $P$ and $x_{i}$          \\
+          {\bf Bubble Temperature}     &  $P$ and $x_{i}$           &   $T$ and $y_{i}$          \\
+          {\bf Dew Temperature}        &  $P$ and $y_{i}$           &   $T$ and $x_{i}$          \\     
+      \hline
+   \end{tabular}
+\end{center}
+Such problems are calculated using three relations:
+\begin{displaymath}
+    P_{i} = y_{i}P = x_{i}P_{i}^{\text{sat}}, \;\;\; \summation[x_{i}]{i=1}{\mathcal{C}} = 1, \;\;\text{ and }\;\; \summation[y_{i}]{i=1}{\mathcal{C}} = 1,
+\end{displaymath}
+bearing in mind that $P_{i}^{\text{sat}}$ is expressed as a function of $T$. Thus,
+\begin{enumerate}[a)]
+    \item Bubble pressure: Given $T$ and $x_{i}$ $\left(\text{with }i=1,\cdots,\mathcal{C}\right)$, find $P$ that solves,
+        \begin{displaymath}
+           \summation[y_{i}]{i=1}{\mathcal{C}} = 1 \;\;\Longrightarrow\;\; \summation[\frc{x_{i}P_{i}^{\text{sat}}}{P}]{i=1}{\mathcal{C}} = 1,
+        \end{displaymath}
+        and then calculate $y_{i}= \frc{x_{i}P_{i}^{\text{sat}}}{P}$.
+        
+    \item Bubble temperature: Given $P$ and $x_{i}$ $\left(\text{with }i=1,\cdots,\mathcal{C}\right)$, find $T$ that solves,
+        \begin{displaymath}
+           \summation[y_{i}]{i=1}{\mathcal{C}} = 1 \;\;\Longrightarrow\;\; \summation[\frc{x_{i}P_{i}^{\text{sat}}}{P}]{i=1}{\mathcal{C}} = 1,
+        \end{displaymath}
+        and then calculate $y_{i}= \frc{x_{i}P_{i}^{\text{sat}}}{P}$.
       
+    \item Dew pressure: Given $T$ and $y_{i}$ $\left(\text{with }i=1,\cdots,\mathcal{C}\right)$, find $P$ that solves,
+        \begin{displaymath}
+           \summation[x_{i}]{i=1}{\mathcal{C}} = 1 \;\;\Longrightarrow\;\; \summation[\frc{y_{i}P}{P_{i}^{\text{sat}}}]{i=1}{\mathcal{C}} = 1,
+        \end{displaymath}
+        and then calculate $y_{i}= \frc{x_{i}P_{i}^{\text{sat}}}{P}$.
+      
+    \item Dew temperature: Given $P$ and $y_{i}$ $\left(\text{with }i=1,\cdots,\mathcal{C}\right)$, find $T$ that solves,
+        \begin{displaymath}
+           \summation[x_{i}]{i=1}{\mathcal{C}} = 1 \;\;\Longrightarrow\;\; \summation[\frc{y_{i}P}{P_{i}^{\text{sat}}}]{i=1}{\mathcal{C}} = 1,
+        \end{displaymath}
+        and then calculate $y_{i}= \frc{x_{i}P_{i}^{\text{sat}}}{P}$.
+\end{enumerate}
+
+
+%%% SUBSUBSECTION
+\subsubsection{K-Value Correlations for Hydrocarbon Systems}
+
+As discussed in Modules~\ref{Section:02}-~\ref{Section:03}, cubic equations of state are often used to describe the PVT behaviour of vapour and liquid phases of pure chemical species and mixtures. Although the use of cubic EOS is widely spread over the chemical industry, applicability to liquid phase is still limited. Several alternatives have been proposed and developed over the past 50 years, one of them, mostly used in petroleum and petrochemical industry for hydrocarbons, is called {\it K-value correlation}. $K$ is defined as
+\begin{shaded}
+   \begin{equation}
+      K_{i} = \frc{P_{i}^{\text{sat}}}{P} = \frc{y_{i}}{x_{i}}.\label{Mod04_KValue}
+   \end{equation}
+\end{shaded}
+Values for $K_{i}$ are tabulated for a large number of hydrocarbons at several pressure and temperature conditions and can be found in any chemical engineering handbook as part of \blue{DePriester chart} (Fig.~\ref{Mod04Fig05}).
+  \begin{figure}[h]
+     \begin{center}
+         \includegraphics[width=1.\linewidth,clip]{./Figs/DePriesterCharts}
+     \end{center}
+     \caption{DePriester chart for several hydrocarbons (extracted from Smith, Van Ness and Abbott, 2000).}\label{Mod04Fig05}
+  \end{figure}
+
+
+%%% SUBSUBSECTION
+\subsubsection{Flash Distillation}
+
+Flash distillation is a common process in chemical industry to obtain solutions with the required enrichment from a feed-stock. Figure~\ref{Mod04Fig06} shows a schematic of this process, where a liquid stream (\ie with pressure equal to or larger than its bubble point pressure) with molar fraction $F$ and overall composition $z_{i}$ is injected into a separation vessel through a pressure reduction valve. The sudden reduction in pressure leads to partial evaporation (\ie {\it flash}) of the liquid feed resulting in the formation of a vapour and a liquid stream. Vapour and Liquid streams have molar fraction $V$ and $L$, respectively, with compositions of $y_{i}$ and $x_{i}$. 
+  \begin{figure}[h]
+     \begin{center}
+         \includegraphics[width=.7\linewidth,clip]{./Figs/FlashDistillation}
+     \end{center}
+     \caption{Schematic of a flash distillation process.}\label{Mod04Fig06}
+  \end{figure}
+        
+      The overall mass balance of the system is
+         \begin{displaymath}
+             F = V + L,
+         \end{displaymath}
+         for convenience, $F$ is assumed equal to unity, $F=1$. Similarly, the mass balance for each component $i$ is
+         \begin{displaymath}
+            z_{i} = x_{i}L + y_{i}V = x_{i}\left(1-V\right) + y_{i}V.
+         \end{displaymath}
+         Replacing $x_{i} = \frc{y_{i}}{K_{i}}$,
+         \begin{displaymath}
+           z_{i} = \frc{y_{i}}{K_{i}}\left(1-V\right) + y_{i}V \;\;\Longrightarrow \;\;y_{i} = \frc{z_{i}K_{i}}{1+V\left(K_{1}-1\right)}. 
+         \end{displaymath}
+         As $\summation[y_{i}]{i=1}{\mathcal{C}} = 1$,
+         \begin{shaded}
+           \begin{equation}
+              \summation[\frc{z_{i}K_{i}}{1+V\left(K_{i}-1\right)}]{i=1}{\mathcal{C}} = 1.\label{Mod04_FlashEquation} 
+           \end{equation}
+         \end{shaded}
+         Solving a $P-T$ flash problem is to \underline{find $V$} that satisfies Eqn.~\ref{Mod04_FlashEquation}.
+      
+\clearpage
+
+%%% SUBSECTION
+\subsection{Examples}
+
+\begin{enumerate}[1)]
+%%%
+%%% EXAMPLE
+%%%
+   \item\label{Mod04Ex01} Assuming a mixture of n-pentane $\left(nC_{5}\right)$ and n-heptane $\left(nC_{7}\right)$ is ideal, draw vapour-liquid equilibrium diagrams for this mixtures at:
+    \begin{enumerate}[(a)]
+        \item Constant temperature of 50$^{\circ}$C;
+        \item Constant pressure of 1.013 bar.
+    \end{enumerate}
+    Given Antoine relation,
+    \begin{displaymath}
+      \ln{P_{i}^{\text{sat}}} = A_{i} - \frc{B_{i}}{RT}
+    \end{displaymath}
+    with $A_{nC_{5}}=10.422$, $A_{nC_{7}}=11.431$, $B_{nC_{5}}=26799 \text{ J.mol}^{-1}$ and $B_{nC_{7}}=35200 \text{ J.mol}^{-1}$. Also [$P$] = bar and [$T$] = K.
+
+% SOLUTION
+ \noindent{\bf Solution:} 
+    \begin{enumerate}[(a)]
+ %
+       \item At $T=$50$^{\circ}$C = 323.15 K, vapour saturated pressures for $nC_{5}$ and $nC_{7}$ (for short notation, let's use 5 and 7 as $nC_{5}$ and $nC_{7}$, respectively) are
+           \begin{displaymath}
+              P_{5}^{\text{sat}} = 1.5639\text{ bar}\;\;\text{ and }\;\;P_{7}^{\text{sat}} = 0.1881\text{ bar}.
+           \end{displaymath}
+           In order to calculate the equilibrium pressure at each liquid $nC_{5}$ composition, $x_{5}$,
+           \begin{eqnarray}
+               && P_{i} = x_{i}P_{i}^{\text{sat}} \;\;\Longleftrightarrow \;\; P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[x_{i}P_{i}^{\text{sat}}]{i=1}{\mathcal{C}} \nonumber \\
+               && P = x_{5}P_{5}^{\text{sat}} + x_{7}P_{7}^{\text{sat}} = x_{5}P_{5}^{\text{sat}} + \left(1-x_{5}\right)P_{7}^{\text{sat}} \nonumber 
+           \end{eqnarray}
+           And for vapour composition (Raoult's law),
+           \begin{displaymath}
+               y_{i} P = x_{i}P_{i}^{\text{sat}}  \;\;\Longleftrightarrow \;\; y_{5} = \frc{x_{5}P_{5}^{\text{sat}}}{P},
+           \end{displaymath}
+           replacing pressure, $P$, from the previous equation
+           \begin{displaymath}
+               y_{5} = \frc{x_{5}P_{5}^{\text{sat}}}{x_{5}P_{5}^{\text{sat}} + \left(1-x_{5}\right)P_{7}^{\text{sat}}}
+           \end{displaymath}
+           
+ %
+    \end{enumerate}
+
+
+%
+\end{enumerate}
+
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%                                                    END OF MODULE 04                                                %%%%%%%%%%%%%
