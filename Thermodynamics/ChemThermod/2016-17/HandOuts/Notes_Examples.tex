@@ -2215,26 +2215,18 @@ Flash distillation is a common process in chemical industry to obtain solutions 
 %%% SUBSECTION
 \subsection{Examples}
 
-\begin{enumerate}[1)]
+\begin{enumerate}[1)] 
 %%%
 %%% EXAMPLE
 %%%
-   \item\label{Mod04Ex01} Assuming a mixture of n-pentane $\left(nC_{5}\right)$ and n-heptane $\left(nC_{7}\right)$ is ideal, draw vapour-liquid equilibrium diagrams for this mixtures at:
-    \begin{enumerate}[(a)]
-        \item Constant temperature of 50$^{\circ}$C;
-        \item Constant pressure of 1.013 bar.
-    \end{enumerate}
-    Given Antoine relation,
+   \item\label{Mod04Ex01} Assuming a mixture of n-pentane $\left(nC_{5}\right)$ and n-heptane $\left(nC_{7}\right)$ is ideal, draw vapour-liquid $x_{5}\times y_{5}$ and $P-x_{5}y_{5}$ equilibrium diagrams for this mixtures at constant temperature of 50$^{\circ}$C. Given Antoine relation,
     \begin{displaymath}
       \ln{P_{i}^{\text{sat}}} = A_{i} - \frc{B_{i}}{RT}
     \end{displaymath}
     with $A_{nC_{5}}=10.422$, $A_{nC_{7}}=11.431$, $B_{nC_{5}}=26799 \text{ J.mol}^{-1}$ and $B_{nC_{7}}=35200 \text{ J.mol}^{-1}$. Also [$P$] = bar and [$T$] = K.
 
 % SOLUTION
- \noindent{\bf Solution:} 
-    \begin{enumerate}[(a)]
- %
-       \item At $T=$50$^{\circ}$C = 323.15 K, vapour saturated pressures for $nC_{5}$ and $nC_{7}$ (for short notation, let's use 5 and 7 as $nC_{5}$ and $nC_{7}$, respectively) are
+ \noindent{\bf Solution:} At $T=$50$^{\circ}$C = 323.15 K, vapour saturated pressures for $nC_{5}$ and $nC_{7}$ (for short notation, let's use 5 and 7 as $nC_{5}$ and $nC_{7}$, respectively) are
            \begin{displaymath}
               P_{5}^{\text{sat}} = 1.5639\text{ bar}\;\;\text{ and }\;\;P_{7}^{\text{sat}} = 0.1881\text{ bar}.
            \end{displaymath}
@@ -2252,8 +2244,49 @@ Flash distillation is a common process in chemical industry to obtain solutions 
                y_{5} = \frc{x_{5}P_{5}^{\text{sat}}}{x_{5}P_{5}^{\text{sat}} + \left(1-x_{5}\right)P_{7}^{\text{sat}}}
            \end{displaymath}
            
- %
-    \end{enumerate}
+      \begin{figure}[h]
+         \vbox{
+             \hbox{\includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex1}
+                   \includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex1b}}}
+         \caption{Example~\ref{Mod04Ex01}}
+      \end{figure}
+\clearpage
+ % 
+%%%
+%%% EXAMPLE
+%%%
+   \item\label{Mod04Ex02} Assuming a mixture of n-pentane $\left(nC_{5}\right)$ and n-heptane $\left(nC_{7}\right)$ is ideal, draw vapour-liquid $x_{5}\times y_{5}$ and $P-x_{5}y_{5}$ equilibrium diagrams for this mixtures at constant pressure of 1.013 bar. Given Antoine relation,
+    \begin{displaymath}
+      \ln{P_{i}^{\text{sat}}} = A_{i} - \frc{B_{i}}{RT}
+    \end{displaymath}
+    with $A_{nC_{5}}=10.422$, $A_{nC_{7}}=11.431$, $B_{nC_{5}}=26799 \text{ J.mol}^{-1}$ and $B_{nC_{7}}=35200 \text{ J.mol}^{-1}$. Also [$P$] = bar and [$T$] = K.
+
+% SOLUTION
+ \noindent{\bf Solution:} At $T=$50$^{\circ}$C = 323.15 K, vapour saturated pressures for $nC_{5}$ and $nC_{7}$ (for short notation, let's use 5 and 7 as $nC_{5}$ and $nC_{7}$, respectively) are
+           \begin{displaymath}
+              P_{5}^{\text{sat}} = 1.5639\text{ bar}\;\;\text{ and }\;\;P_{7}^{\text{sat}} = 0.1881\text{ bar}.
+           \end{displaymath}
+           In order to calculate the equilibrium pressure at each liquid $nC_{5}$ composition, $x_{5}$,
+           \begin{eqnarray}
+               && P_{i} = x_{i}P_{i}^{\text{sat}} \;\;\Longleftrightarrow \;\; P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[x_{i}P_{i}^{\text{sat}}]{i=1}{\mathcal{C}} \nonumber \\
+               && P = x_{5}P_{5}^{\text{sat}} + x_{7}P_{7}^{\text{sat}} = x_{5}P_{5}^{\text{sat}} + \left(1-x_{5}\right)P_{7}^{\text{sat}} \nonumber 
+           \end{eqnarray}
+           And for vapour composition (Raoult's law),
+           \begin{displaymath}
+               y_{i} P = x_{i}P_{i}^{\text{sat}}  \;\;\Longleftrightarrow \;\; y_{5} = \frc{x_{5}P_{5}^{\text{sat}}}{P},
+           \end{displaymath}
+           replacing pressure, $P$, from the previous equation
+           \begin{displaymath}
+               y_{5} = \frc{x_{5}P_{5}^{\text{sat}}}{x_{5}P_{5}^{\text{sat}} + \left(1-x_{5}\right)P_{7}^{\text{sat}}}
+           \end{displaymath}
+           
+      \begin{figure}[h]
+         \vbox{
+             \hbox{\includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex2a}
+                   \includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex2b}}}
+         \caption{Example~\ref{Mod04Ex02}}
+      \end{figure}
+ % 
 
 
 %
