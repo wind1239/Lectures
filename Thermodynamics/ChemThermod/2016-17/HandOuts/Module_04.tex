@@ -9,10 +9,10 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-\documentclass[10pt,compress,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,unknownkeysallowed]{beamer}
 %Draft or handout mode
 %\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
-%\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
+\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
@@ -227,6 +227,7 @@
 \newcommand{\blue}{\textcolor{blue}}
 \newcommand{\green}{\textcolor{green}}
 \newcommand{\purple}{\textcolor{purple}}
+\newcommand{\summation}[3][error]{\sum\limits_{#2}^{#3}#1}
  
 \begin{document}
 
@@ -273,7 +274,7 @@
      \item<4-> This Module focuses on 
          \begin{enumerate}
            \item<4-> Partial molar properties; 
-           \item<4-> Vapour-liquid equilibrium (VLE) relations and the main diagrams ($X-y$, $T-x-y$, $P-x-y$); 
+           \item<4-> Vapour-liquid equilibrium (VLE) relations and the main diagrams ($x-y$, $T-xy$ and $P-xy$); 
            %\item<4-> Concept of activity, fugacity, chemical potential (and its relationship with the free Gibbs energy).
          \end{enumerate}
    \end{enumerate}
@@ -335,11 +336,12 @@
 \begin{frame}
   \frametitle{Representing Composition}
   \begin{enumerate}
-    \item<1-> Mass $\left(w_{i}\right)$ and mole $\left(x_{i}\right)$ fractions:
+    \item<1-> Molar fraction $\left(x_{i}\right)$:
          \visible<1->{\begin{displaymath}
             %w_{i} = \frc{m_{i}}{m} = \frc{\dot{m}_{i}}{\dot{m}} \;\;\;\text{ and }\;\;\; x_{i} = \frc{n_{i}}{n} = \frc{\dot{n}_{i}}{\dot{n}}
-            w_{i} = \frc{m_{i}}{m}  \;\;\;\text{ and }\;\;\; x_{i} = \frc{n_{i}}{n} 
+            x_{i} = \frc{n_{i}}{n} 
          \end{displaymath}}
+         where $n = n_{1}+\cdots+n_{\mathcal{C}} = \summation[n_{i}]{i=1}{\mathcal{C}}$.
          %where $\left[\dot{\gamma}\right]$ represents flow rate quantities.}
     \item<2-> Molar concentration:
          \visible<2->{\begin{displaymath}
@@ -424,63 +426,6 @@ $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive the
    \end{frame}
 \normalsize
 
-\begin{comment}
-%%%
-%%% SUBSECTION
-%%%
-\subsection{Phase Rule}
-%%%
-%%% Slide
-%%%
-\begin{frame}
-  \frametitle{Phase Rule and Duhem's Theorem}
-  \begin{enumerate}
-      \item<1-> From Module 1, we defined that a system may be characterised by $T$, $P$ and $\left(\mathcal{C}-1\right)$ mole fractions for each phase $\mathcal{P}$ (where $\mathcal{C}$ is the number of chemical components);
-      \item<1-> However, the masses of the phases {\bf are not} $\lq$phase-rule' variables as they do not affect the intensive state properties of the system;
-      \item<2-> Thus, in order to determine a system we need to know \textcolor{blue}{$2 + \left(\mathcal{C}-1\right)\mathcal{P}$} variables;
-      \item<3-> At equilibrium, $\mu_{i}^{\alpha} = \mu_{i}^{\beta} = \mu_{i}^{\gamma} = \cdots = \mu_{i}^{\mathcal{P}}$ for all $\mathcal{C}$ components;
-      \item<4->These relations provide \textcolor{blue}{$\left(\mathcal{P}-1\right)\mathcal{C}$} equations;
-      \item<5-> The difference is the \textcolor{blue}{degree of freedom ($\Psi$)} of the system, leads to
-         \visible<5->{\begin{displaymath}
-             \Psi = \left[2 + \left(\mathcal{C}-1\right)\mathcal{P}\right] - \left[\left(\mathcal{P}-1\right)\mathcal{C}\right] %\textcolor{blue}{= 2 + \mathcal{C} - \mathcal{P}} 
-         \end{displaymath}}  
-  \end{enumerate}
-  \visible<6->{\begin{block}{\begin{center}Gibbs Phase Rule\end{center}}
-     \begin{displaymath}
-         \textcolor{blue}{\Psi = 2 + \mathcal{C} - \mathcal{P}}
-     \end{displaymath} 
-  \end{block}}
-\end{frame}
-
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
-  \frametitle{Phase Rule and Duhem's Theorem}
-  \begin{enumerate}\setcounter{enumi}{6}
-      \item<1-> If the system is closed and formed from specified amounts of each component, we can thus write:
-         \visible<1->{\begin{tabular}{l l}
-            Equilibrium equations for chemical potentials: & $\left(\mathcal{P}-1\right)\mathcal{C}$ \\
-            Material balance for each component:           & $\mathcal{C}$ \\
-            \hline
-            {\bf Total:}                                   & $\mathbf{\mathcal{P}\mathcal{C}}$ {\bf equations}
-         \end{tabular}}  
-      \item<2-> The system is characterised by
-         \visible<1->{\begin{tabular}{l l}
-            $T$, $P$ and $\left(\mathcal{C}\right)$ mole fractions for each phase: & $2 + \left(\mathcal{C}-1\right)\mathcal{P}$ \\
-            Masses of each phase:                                           & $\mathcal{P}$ \\
-            \hline
-            {\bf Total:}                                   & $\mathbf{2 + \mathcal{P}\mathcal{C}}$ {\bf variables}
-         \end{tabular}}  
-      \item<3-> Therefore, in order to determine the equilibrium state we just need $\left[2 + \mathcal{P}\mathcal{C}\right] - \mathcal{P}\mathcal{C} =$ \textcolor{blue}{2 variables}.
-  \end{enumerate}
-  \visible<4->{\begin{block}{\begin{center}Duhem's Theorem \end{center}}
-         \textcolor{blue}{$\lq$For any closed system of known composition, the equilibrium state is determined when any {\bf two independent variables} are fixed.'}
-  \end{block}}
-\end{frame}
-\end{comment}
-
 %%%
 %%% SECTION
 %%%
@@ -520,23 +465,11 @@ $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive the
 \begin{frame}
   \frametitle{$P$-$T$-$xy$ Diagram}
      \begin{center}
-       \includegraphics[width=8.cm,clip]{./../Pics/PTxy_diagram2}
+       \includegraphics[width=.75\columnwidth,clip]{./Figs/PTxy_Digram} %{./../Pics/PTxy_diagram2}
      \end{center}
 \end{frame}
 \normalsize
 
-
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{$P$-$T$-$xy$ Diagram}
-     \begin{center}
-       \includegraphics[width=8.cm,clip]{./../Pics/PTxy_diagram3}
-     \end{center}
-\end{frame}
-\normalsize
 
 
 %%%
@@ -566,7 +499,7 @@ $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive the
 %%%
 \scriptsize
 \begin{frame}
-  \frametitle{$Pxy$ Diagrams}
+  \frametitle{$Pxy$ Diagrams} 
   \vspace{-0.8cm}
   \begin{columns}
      \begin{column}[l]{0.5\linewidth}
@@ -600,7 +533,7 @@ $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive the
        \end{enumerate}
      \end{column}
      \begin{column}[l]{0.5\linewidth}
-        \visible<1->{\hbox{\hspace{-1.7cm}\includegraphics[width=1.6\linewidth,clip]{./../Pics/VLE_Pxy_Diagram3}}}
+        \visible<1->{\hbox{\hspace{.0cm}\includegraphics[width=1.\linewidth,clip]{./../Pics/VLE_Pxy_Diagram3b}}}
      \end{column}
   \end{columns}
 \end{frame}
@@ -708,24 +641,6 @@ $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive the
   \end{enumerate}
 \end{frame}
 
-
-\begin{comment}
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame} % Sandler Example 10.1.1(page 498)
-  \frametitle{Example 1:} 
-    Assuming a mixture of n-pentane $\left(nC_{5}\right)$ and n-heptane $\left(nC_{7}\right)$ is ideal, draw vapour-liquid equilibrium diagrams for this mixtures at:
-    \begin{enumerate}
-        \item Constant temperature of 50$^{\circ}$C;
-        \item Constant pressure of 1.013 bar.
-    \end{enumerate}
-    Given Antoine relation, $\ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{RT}$, with $A_{nC_{5}}=10.422$, $A_{nC_{7}}=11.431$, $B_{nC_{5}}=26799$ and $B_{nC_{7}}=35200$. [$P$] = bar and [$T$] = K
-\end{frame}
-\normalsize
-\end{comment}
-
 %%%
 %%% Slide
 %%%
@@ -745,35 +660,6 @@ $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive the
   \end{description}
 \end{frame}
 
-\begin{comment}
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame} % Sandler Example 10.1.2(page 501)
-  \frametitle{Example 2:}
-    \begin{enumerate}
-        \item Estimate the bubble and dew point temperatures of a 25 mol-$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol-$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol-$\%$ n-heptane $\left(nC_{7}\right)$ mixture at 1.013 bar. 
-        \item  Estimate the bubble and dew point pressures of this mixture at 73$^{\circ}$C.
-    \end{enumerate}
-    Given the Antonie equation:
-    \begin{displaymath}
-       \ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{RT}
-    \end{displaymath}
-
-    with
-    \begin{center}
-       \begin{tabular}{l l l} 
-          $A_{nC_{5}}=10.422$ & $A_{nC_{6}}=10.456$ & $A_{nC_{7}}=11.431$ \\
-          $B_{nC_{5}}=26799$  & $B_{nC_{6}}=29676$  & $B_{nC_{7}}=35200$.
-       \end{tabular}
-    \end{center}
-\end{frame}
-\normalsize
-\end{comment}
-%%%
-%%% Slide
-%%%
 \begin{frame}
   \frametitle{Generalised Relation for VLE in Ideal Mixtures}
   \begin{enumerate}
@@ -879,17 +765,6 @@ $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive the
    \end{columns}
 \end{frame}
 
-\begin{comment}
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame} % Sandler Example 10.1.4(page 504)
-  \frametitle{Example 3:}
-        A liquid mixture of 25 mol-$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol-$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol-$\%$ n-heptane $\left(nC_{7}\right)$ initially at 69$^{\circ}$C and a high pressure, is partially vaporised by isothermically lowering the pressure to  1.013 bar. Calculate the relative amounts of vapour and liquid in equilibrium and compositions.
-\end{frame}
-\normalsize
-\end{comment}
 
 \section{Summary}
 
