@@ -1,0 +1,111 @@
+\documentclass[calculator,datasheet,handbook,solutions]{exam}
+% The full list of class options are
+% calculator : Allows approved calculator use.
+% datasheet : Adds a note that data sheet are attached to the exam.
+% handbook : Allows the use of the engineering handbook.
+% resit : Adds the resit markings to the paper.
+% sample : Adds conspicuous SAMPLE markings to the paper
+% solutions : Uses the contents of \solution commands (and \solmarks) to generate a solution file
+
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{pdfpages}
+\usepackage[hidelinks]{hyperref}
+
+\examtime{2~pm -- 5~pm}%
+\examdate{13}{12}{2016}%
+\examformat{Candidates should attempt \textit{all} questions.}
+
+\newtoggle{3030paper}
+
+%This changes the mode from EX3030 to EM40JN
+\toggletrue{3030paper}
+%\togglefalse{3030paper}
+
+\iftoggle{3030paper}{
+  \coursecode{EX3030}%
+  \coursetitle{Heat, Mass, \& Momentum Transfer}%
+}{
+  \coursecode{EM40JN}%
+  \coursetitle{Heat and Momentum Transfer}%
+}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{question}
+  \begin{enumerate}[a)]
+     \item In a binary geothermal power plant, the working fluid isobutane is condensed by air in a condenser at 75$^{\circ}$C $\left(h_{\text{fg}}=\text{ 255.7 kJ/kg}\right)$ at a rate of 2.7 kg/s. Air enters the condenser at 21$^{\circ}$C and leaves at 28$^{\circ}$C. The heat transfer surface area based on the isobutane side is 24 m$^{2}$. Determine the mass flow rate of air (in kg/s) and the overall heat transfer coefficient $\left(\text{in W/}\left(\text{m}^{2}.^{\circ}\text{C}\right)\right)$. Assume that: (i) there is no heat losses across the border of the condenser and (ii)etrams of isobutane and air are counterflow. Given the specific heat capacity of air of 1005 J/$\left(\text{kg.}^{\circ}\text{C}\right)$.\marks{8}
+     \solution{The mass flow rate of air can be obtained from the energy balance across the borders assuming no heat losses,\solmarks{1}
+           \begin{displaymath}
+                 \left|\dot{Q}_{\text{air}}\right| = \left|\dot{Q}_{\text{iC4}}\right|
+           \end{displaymath}
+The rate of heat transfer during condensation of isobtane can be determined by\solmarks{1}
+         \begin{displaymath}
+            \dot{Q}_{\text{iC4}} = \left(\dot{m}h_{fg}\right)_{\text{iC4}} = 690.39 \text{ kJ/s}
+         \end{displaymath}
+         The mass flow rate of air is determined from\solmarks{2}
+         \begin{displaymath}
+            \dot{Q}_{\text{air}} = \left[\dot{m}C_{p}\left(T_{\text{out}}-T_{\text{in}}\right)\right]_{\text{air}}\;\;\;\Rightarrow \dot{m}_{\text{air}} = 98.14\text{ kg/s}
+         \end{displaymath}
+The overall heat transfer coefficient can be obtained by the LMTD method,
+          \begin{displaymath}
+             \dot{Q} = U A_{s} \Delta T_{\text{lm}}
+          \end{displaymath}
+           where $\Delta T_{\text{lm}}$ is given by
+           \begin{displaymath}
+              \Delta T_{\text{lm}} = \frac{\Delta T_{1}-\Delta T_{2}}{\ln{\frac{\Delta T_{1}}{\Delta T_{2}}}}
+           \end{displaymath}
+           where\solmarks{2}
+         \begin{displaymath}
+               \begin{cases}
+                   \Delta T_{1} = T_{\text{h,in}}-T_{\text{c,out}} = 54^{\circ}\text{C} \\
+                   \Delta T_{2} = T_{\text{h,out}}-T_{\text{c,in}} = 47^{\circ}\text{C} \\
+               \end{cases} 
+         \end{displaymath}
+$\Delta T_{\text{lm}}$ can be obtained as 50.4$^{\circ}\text{C}$\solmarks{1}. And the overall heat transfer coefficient is,\solmarks{1}
+          \begin{displaymath}
+             \dot{Q} = U A_{s} \Delta T_{\text{lm}}\;\;\Rightarrow U = 571 \text{ W/}\left(\text{m}^{2}.^{\circ}\text{C}\right)
+          \end{displaymath}
+}
+    \item A long rod of 60 mm diameter and thermophysical properties $\rho=$ 8000 kg/m$^{3}$, $C_{p}=$ 500 J/(kg.K), and $k=$ 50 W/(m.K) is initially at a uniform temperature and is heated in a forced convection furnace maintained at 750 K. The convection coefficient is estimated to be 1000 W/(m$^{2}$.K). Calculate the centerline temperature of the rod when the surface temperature is 550 K.\marks{12}
+   \solution{ Assuming that the Fourier number for this problem is larger than 0.2, we can use the 1D analytical solution for the transient conductive equation,\solmarks{1}
+        \begin{displaymath}
+           \theta_{\text{cyl}} = \frac{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\mathbf{J_{0}}\left(\frac{\lambda_{1}r}{r_{0}}\right)
+        \end{displaymath}
+and at the centre of the geometry,\solmarks{2}
+        \begin{displaymath}
+           \theta_{\text{cyl}} = \frac{T(0,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}
+        \end{displaymath}
+We need to obtain $T(0,t)$ at time $t=t_{i}$ such that $T\left(r_{0},t_{i}\right) =$ 500 K. Merging both equations,\solmarks{3}
+        \begin{displaymath}
+           \frac{T(r_{0},t_{i})-T_{\infty}}{T_{i}-T_{\infty}} = \frac{T(0,t_{i})-T_{\infty}}{T_{i}-T_{\infty}}\mathbf{J_{0}}\left(\frac{\lambda_{1}r_{0}}{r_{0}}\right)
+        \end{displaymath}
+In order to solve this expression, $\mathbf{J_{0}}\left(\frac{\lambda_{1}r}{r_{0}}\right)$ and $\lambda_{1}$ need to be obtained from the Table of coefficients for the approximate solution of the transient 1D heat conduction based on,\solmarks{3}
+       \begin{displaymath}
+           Bi = \frac{h r_{0}}{\kappa} = 0.60 \;\;\Rightarrow \;\; \lambda_{1} = 1.0184\;\;\text{ and }\;\; \mathbf{J_{0}}\left(\frac{\lambda_{1}r_{0}}{r_{0}}\right) = \mathbf{J_{0}}\left(\lambda_{1}\right) = 0.7571
+       \end{displaymath} 
+Replacing $\mathbf{J_{0}}$ in the merged equation, \solmarks{3}
+       \begin{displaymath}
+           (550-750) = \left[T\left(0,t_{i}\right)-750\right] \times 0.7571 \;\;\Rightarrow T\left(0,t_{i}\right) = 485.83\text{ K}
+       \end{displaymath} 
+    
+    
+
+
+
+
+}
+
+  \end{enumerate}
+\end{question}
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\input{datasheet}
+% \includepdf{BaselFunctionTable.pdf}
+\paperend
+\end{document}
