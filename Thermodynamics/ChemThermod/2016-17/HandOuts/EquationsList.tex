@@ -2,7 +2,7 @@
 \documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
 \usepackage{graphicx,wrapfig,pdfpages}% Include figure files
 %\usepackage{dcolumn,enumerate}% Align table columns on decimal point
-\usepackage{enumerate,enumitem}% Align table columns on decimal point
+\usepackage{enumerate}%,enumitem}% Align table columns on decimal point
 \usepackage{bm,dpfloat}% bold math
 \usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
 \usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
@@ -99,12 +99,10 @@
 
 
 \newcommand{\frc}{\displaystyle\frac}
+\newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
+\newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}} 
+\newcommand{\summation}[3][error]{\sum\limits_{#2}^{#3}#1}
 
-\newlist{ExList}{enumerate}{1}
-\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
-
-\newlist{ProbList}{enumerate}{1}
-\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
 
 \setcounter{secnumdepth}{4}%
 \setcounter{tocdepth}{4}%
@@ -112,16 +110,33 @@
 
 \begin{document}
 
-\begin{itemize}
-%%%
-\item Generic cubic equation of state:
-\begin{eqnarray}
-&& Z= 1 + \beta - q\beta \frc{Z - \beta} {\left(Z+\varepsilon\beta\right)\left(Z+\sigma\beta\right)}  \;\;\text{(vapour and vapour-like roots)}\nonumber\\
-&& Z= 1 + \beta + \left(Z + \epsilon\beta\right)\left(Z+\sigma\beta\right)\left(\frc{1+\beta-Z}{q\beta}\right)  \;\;\text{(liquid and liquid-like roots)}\nonumber\\
-&& \text{with }\; \beta=\Omega\frc{P_{r}}{T_{r}} \;\;\text{ and } \;\; q=\frc{\Psi\alpha\left(T_{r}\right)}{\Omega T_{r}}  \nonumber \\
-&&\alpha_{\text{SRK}} = \left[ 1 + \left( 0.480 + 1.574 \omega - 0.176\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}  \nonumber \\
-&&\alpha_{\text{PR}} = \left[ 1 + \left( 0.37464 + 1.54226 \omega - 0.26992\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2} \nonumber
-\end{eqnarray} 
+\begin{enumerate}[1.]
+  %%% Module 1
+\item Fundamentals of Thermodynamics:
+  \begin{eqnarray}
+    && dU = dQ + dW;\;\;dW = -PdV;\;\; C_{v}=\Partial[U]{T}{V};\;\;C_{p} = \Partial[H]{T}{P};\nonumber \\
+    && C_{p}-C_{v} = R;\;\; TV^{\gamma-1} =\text{ const};\; TP^{\frac{1-\gamma}{\gamma}}=\text{ const};\; PV^{\gamma}=\text{ const} \nonumber \\
+    && dH = dU + d(PV);\;\; dS = \frc{dQ}{T};\;\; PV = nRT \nonumber
+  \end{eqnarray}
+  
+  %%% Module 2
+  \item Volumetric Properties of Pure Fluids:
+  \begin{eqnarray}
+    && \Psi = 2 + \mathcal{C} - \mathcal{P} -\mathcal{R};\;\; \beta = \frc{1}{V}\Partial[V]{T}{P};\;\; \kappa = -\frc{1}{V}\Partial[V]{P}{T};\;\;T_{r} = \frc{T}{T_{c}};\;\; P_{r} = \frc{P}{P_{c}};\;\; PV=ZRT \nonumber \\
+    &&  Z = 1 + \frc{B P}{R T} = 1 + \frc{B P_{c}}{R T_{c}}\frc{P_{r}}{T_{r}};\;\; \frc{B P_{c}}{R T_{c}} = B^{0} + \omega B^{1};\;\; B^{0} = 0.083 - \frc{0.422}{T_{r}^{1.6}}; \;\; B^{1} = 0.139 - \frc{0.172}{T_{r}^{4.2}} \nonumber \\
+    && P = \frc{R T}{V-b} - \frc{a}{V^{2}};\;\;a = \frc{27}{64}\frc{R^{2}T_{c}^{2}}{P_{c}};\;\; b = \frc{1}{8}\frc{R T_{c}}{P_{c}};\;\; \text{[van der Walls (vdW) EOS]} \nonumber \\
+    && P = \frc{R T}{V-b} - \frc{a}{V\sqrt{T}\left(V+b\right)};\;\;a = \frc{0.42748 R^{2}T_{c}^{2}}{P_{c}};\;\; b = \frc{0.08664 R T_{c} }{P_{c}};\;\;\text{[Redlich-Kwong (RK) EOS]}  \nonumber \\
+    && P = \frc{R T}{V-b} - \frc{a\alpha}{V\left(V+b\right)};\;\; a = \frc{0.427 R^{2}T_{c}^{2}}{P_{c}};\;\; b = \frc{0.08664 R T_{c} }{P_{c}}\;\;\;\;\text{ and } \nonumber \\
+    && \;\;\;\;\; \alpha = \left[1 + \left( 0.48508 + 1.55171\omega - 0.15613\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}; \;\;\text{[Soave-Redlich-Kwong (SRK) EOS]}  \nonumber \\
+    && P = \frc{R T}{V-b} - \frc{a\alpha}{V\left(V+b\right)+b\left(V-b\right)};\;\; a = \frc{0.45274 R^{2}T_{c}^{2}}{P_{c}};\;\;b = \frc{0.07780 R T_{c} }{P_{c}};\;\;\text{ and } \nonumber \\
+    &&\;\;\;\;\;\alpha = \left[1 + \kappa\left(1-\sqrt{T_{r}}\right)\right]^{2};\;\; \kappa = 0.37464 + 1.54226\omega - 0.26992\omega^{2};\;\; \text{[Peng-Robinson (PR) EOS]}  \nonumber \\
+    && Z_{\text{vap}} = 1 + \beta - q\beta \frc{Z_{\text{vap}} - \beta} {\left(Z_{\text{vap}}+\varepsilon\beta\right)\left(Z_{\text{vap}} +\sigma\beta\right)};\;\;\text{[Vapour $\&$ Vapour-like Roots]} \nonumber \\
+    && Z_{\text{liq}} = 1 + \beta + \left(Z_{\text{liq}} + \epsilon\beta\right)\left(Z_{\text{liq}}+\sigma\beta\right)\left(\frc{1+\beta-Z_{\text{liq}}}{q\beta}\right);\;\;\text{[Liquid $\&$ Liquid-like Roots]} \nonumber \\
+    && \beta=\Omega\frc{P_{r}}{T_{r}};\;\; q=\frc{\Psi\alpha}{\Omega T_{r}};\;\;\alpha_{\text{SRK}} = \left[ 1 + \left( 0.480 + 1.574 \omega - 0.176\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2};\;\;\;\text{ and } \nonumber \\
+    && \alpha_{\text{PR}} = \left[ 1 + \left( 0.37464 + 1.54226 \omega - 0.26992\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2} \nonumber
+  \end{eqnarray}
+
+\begin{table}[h]
     \begin{center}
        \begin{tabular}{| l | c c c c c| }
        \hline
@@ -133,29 +148,51 @@
             PR       &$\alpha_{\text{PR}}$& 1+$\sqrt{2}$   & 1-$\sqrt{2}$        & 0.07780        & 0.45724  \\
        \hline
        \end{tabular}
-    \end{center}
+  \caption{Parameters for the generic form of cubic equations of state.}
+  \end{center}
+\end{table}
 
-%%%
-\item Newton-Raphson (root-finder) method: $X_{i} = X_{i-1} - \frc{\mathcal{F}\left(X_{i-1}\right)}{d\mathcal{F}/dX\left(X_{i-1}\right)}$
-
-%%%
-\item Fundamental thermodynamic equations:\\
-\begin{tabular}{c c c c}
-$dU = dQ + dW$;  & $dH = dU + d(PV)$; & $dA = dU -d(TS)$; & $dG=dH-d(TS)$ \\
-$dU = TdS - PdV$;& $dH = TdS + VdP$;  & $dA = -SdT - PdV$;& $dG = -SdT + VdP$ \\ 
-\end{tabular}\\
-\begin{tabular} {c c}
-$dH = C_{p}dT + \left[ V - T\left(\frc{\partial V}{\partial T}\right)_{P}\right]dP$; &  $dS=C_{p}\frc{dT}{T} - \left(\frc{\partial V}{\partial T}\right)_{P}dP$ \\
-$dU = C_{v}dT + \left[T\left(\frc{\partial P}{\partial T}\right)_{V} - P\right]dV$;  & $dS = C_{v}\frc{dT}{T} - \left(\frc{\partial P}{\partial T}\right)_{V}dV$
-\end{tabular}
-
-%%% 
-\item Polytropic Relations:\\
-\begin{displaymath} 
-\frc{T_{2}}{T_{1}} =\left(\frc{P_{2}}{P_{1}}\right)^{\frac{\gamma-1}{\gamma}} = \left(\frc{V_{1}}{V_{2}}\right)^{\gamma-1}\;\; ; 
-TV^{\gamma-1} =\text{ const};\; TP^{\frac{1-\gamma}{\gamma}}=\text{ const};\; PV^{\gamma}=\text{ const} 
+\begin{displaymath}
+  Z_{\text{vap}}^{(i+1)} = Z_{\text{vap}}^{(i)} - \frc{F\left(Z_{\text{vap}}^{(i)}\right)}{F^{\prime}\left(Z_{\text{vap}}^{(i)}\right)};\;\;\;\text{(Root-finder expression for the Newton-Raphson method)}
 \end{displaymath}
 
+
+  %%% Module 3
+\item Thermodynamic Properties of Pure Fluids:
+  \begin{eqnarray}
+    && H = U + P V;\;\; G = H - T S;\;\; A = U - T S; \nonumber \\
+    && dU = T dS - PdV;\;\; dH = TdS + VdP;\;\; dA = -PdV - SdT;\;\;dG = VdP - SdT; \nonumber \\
+    && \Partial[T]{V}{S}=-\Partial[P]{S}{V};\;\;\Partial[T]{P}{S}=\Partial[V]{S}{P};\;\; \Partial[S]{V}{T}=\Partial[P]{T}{V};\;\;\text{ and } \nonumber \\
+    && -\Partial[S]{P}{T}=\Partial[V]{T}{P};\;\;\text{(Maxwell relations)} \nonumber \\
+    && \Partial[U]{S}{V}=T=\Partial[H]{S}{P};\;\; \Partial[U]{V}{S}=-P=\Partial[A]{V}{T};\;\; \Partial[H]{P}{S} = V = \Partial[G]{P}{T};\;\;\text{ and }\nonumber \\
+    && \Partial[A]{T}{V} = -S = \Partial[G]{T}{P} \nonumber \\
+    && dH = C_{p}dT + \left[V - T\Partial[V]{T}{P}\right]dP;\;\; dS = C_{p}\frc{dT}{T} - \Partial[V]{T}{P}dP; \nonumber \\
+    && dU = C_{v}dT + \left[T\Partial[P]{T}{V}-P\right]dV;\;\; dS = \frc{C_{v}}{T}dT + \Partial[P]{T}{V}dV; \nonumber \\
+    && d\left(\frc{G}{RT}\right) = \frc{V}{RT}dP - \frc{H}{RT^{2}}dT\;\;\text{(Generating function)}; \nonumber \\
+    && M^{R} = M - M^{\text{ig}};\;\;\frc{H^{R}}{RT} = - T\int\limits_{0}^{P}\left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P}; \;\; \frc{S^{R}}{R} = -T\int\limits_{0}^{P}\left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P} - \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P};\;\;\;\text{ and } \nonumber \\
+    &&  \frc{G^{R}}{RT} =  \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}\;\;\text{ (Residual properties)}; \nonumber \\
+    && \frc{dP^{\text{sat}}}{dT} = \frc{\Delta H^{\alpha\beta}}{T\Delta V^{\alpha\beta}};\;\; \frc{d\left(\ln{P^{\text{sat}}}\right)}{dT} = \frc{\Delta H^{\text{fg}}}{RT^{2}};\;\;\text{ (Clapeyron relations)} \nonumber \\
+    && \mfr[x]{}{V} = \frc{M-\mfr[M]{}{L}}{\mfr[M]{}{V}-\mfr[M]{}{L}}\;\;\text{ (Quality of vapour)}; \nonumber
+  \end{eqnarray}
+  
+
+  %%% Module 4
+\item Vapour-Liquid Equilibrium of Mixtures:
+  \begin{eqnarray}
+    && x_{i} = \frc{\mfr[n]{i}{L}}{n};\;\; y_{i} = \frc{\mfr[n]{i}{V}}{n};\;\; \summation[x_{i}]{i=1}{\mathcal{C}} = 1;\;\;\summation[y_{i}]{i=1}{\mathcal{C}} = 1\;\; \text{ (Molar fraction of liquid and vapour phases)}; \nonumber \\
+    && \overline{M}_{i} = \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}}\;\; \text{ (Partial molar property)};\;\; M^{\text{E}} = M - M^{\text{id}}\;\;\text{ (Excess properties)} \nonumber \\
+    && \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}}; \;\; \mu_{i} = \overline{G}_{i}; \;\; dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{}; \nonumber \\
+    && P_{i} = y_{i}P = x_{i}P_{i}^{\text{sat}};\;\;P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[y_{i}P]{i=1}{\mathcal{C}};\;\; T_{c}^{\text{t}} = \summation[y_{i}T_{c,i}]{i=1}{\mathcal{C}};\;\; P_{c}^{\text{t}} = \summation[y_{i}P_{c,i}]{i=1}{\mathcal{C}}; \nonumber \\
+    && P_{i} = y_{i}P = x_{i}\mathcal{H}_{i};\;\;  K_{i} = \frc{P_{i}^{\text{sat}}}{P} = \frc{y_{i}}{x_{i}};\;\; F = V + L;\;\; Fz_{i} = x_{i}L + y_{i}V; \;\; \summation[\frc{z_{i}K_{i}}{1+V\left(K_{i}-1\right)}]{i=1}{\mathcal{C}} = 1\nonumber 
+  \end{eqnarray}
+
+
+
+
+
+
+
+  
 %%%
 \item Raoult's Law:\\
 \begin{displaymath}
@@ -180,6 +217,6 @@ x_{i}\mathcal{H}_{i} = y_{i}P\;\;\;\text{ with } i=1,2,\cdots N
 M^{\text{E}} = M - \sum\limits_{i=1}^{N} x_{i}M_{i}; \; \overline{M}_{1}=M+x_{2}\frc{d M}{dx_{1}};\; \overline{M}_{2} = M - x_{1}\frc{d M}{dx_{1}}
 \end{displaymath}
 
-\end{itemize}
+\end{enumerate}
 
 \end{document}
