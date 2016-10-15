@@ -181,41 +181,36 @@
   \begin{eqnarray}
     && x_{i} = \frc{\mfr[n]{i}{L}}{n};\;\; y_{i} = \frc{\mfr[n]{i}{V}}{n};\;\; \summation[x_{i}]{i=1}{\mathcal{C}} = 1;\;\;\summation[y_{i}]{i=1}{\mathcal{C}} = 1\;\; \text{ (Molar fraction of liquid and vapour phases)}; \nonumber \\
     && \overline{M}_{i} = \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}}\;\; \text{ (Partial molar property)};\;\; M^{\text{E}} = M - M^{\text{id}}\;\;\text{ (Excess properties)} \nonumber \\
-    && \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}}; \;\; \mu_{i} = \overline{G}_{i}; \;\; dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{}; \nonumber \\
-    && P_{i} = y_{i}P = x_{i}P_{i}^{\text{sat}};\;\;P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[y_{i}P]{i=1}{\mathcal{C}};\;\; T_{c}^{\text{t}} = \summation[y_{i}T_{c,i}]{i=1}{\mathcal{C}};\;\; P_{c}^{\text{t}} = \summation[y_{i}P_{c,i}]{i=1}{\mathcal{C}}; \nonumber \\
-    && P_{i} = y_{i}P = x_{i}\mathcal{H}_{i};\;\;  K_{i} = \frc{P_{i}^{\text{sat}}}{P} = \frc{y_{i}}{x_{i}};\;\; F = V + L;\;\; Fz_{i} = x_{i}L + y_{i}V; \;\; \summation[\frc{z_{i}K_{i}}{1+V\left(K_{i}-1\right)}]{i=1}{\mathcal{C}} = 1\nonumber 
+    && \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} = \overline{G}_{i}; \;\; dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{}; \nonumber \\
+    && P_{i} = y_{i}P = x_{i}\gamma_{i}P_{i}^{\text{sat}}\; \text{ (Raoult's law)};\;\;P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[y_{i}P]{i=1}{\mathcal{C}};\;\; T_{c}^{\text{t}} = \summation[y_{i}T_{c,i}]{i=1}{\mathcal{C}};\;\; P_{c}^{\text{t}} = \summation[y_{i}P_{c,i}]{i=1}{\mathcal{C}}; \nonumber \\
+    && P_{i} = y_{i}P = x_{i}\mathcal{H}_{i} \text{ (Henry's law)}; \nonumber \\
+    && K_{i} = \frc{P_{i}^{\text{sat}}}{P} = \frc{y_{i}}{x_{i}};\;\; F = V + L;\;\; Fz_{i} = x_{i}L + y_{i}V; \;\; \summation[\frc{z_{i}K_{i}}{1+V\left(K_{i}-1\right)}]{i=1}{\mathcal{C}} = 1;\nonumber 
+  \end{eqnarray}
+
+  %%% Module 
+\item Solution Thermodynamics:
+  \begin{eqnarray}
+    && RT\Partial[\ln{f}]{P}{T} = \underline{v}; \;\; \lim\limits_{P\rightarrow 0}\frc{f}{P}=1;\;\; RT\ln{\left(\frc{\overline{f}_{i}}{y_{i}f_{i}}\right)} = \int\limits_{0}^{P} \left(\overline{V}_{i}-\overline{v}_{i}\right)dP \nonumber \\
+    && \overline{f}_{i}^{V} = y_{i}P^{'}\;\;\text{ and }\;\; \overline{f}_{i}^{L} = x_{i}f_{i}^{L}\;\;\text{ (Lewis-Randall relation)}; \nonumber \\
+    && \mu_{i} - \mu_{i}^{0} = RT\ln{\left(\frc{\overline{f}_{i}}{f_{i}^{0}}\right)};\;\; a_{i} = \frc{\overline{f}_{i}}{f_{i}^{0}};\;\; \gamma_{i} = \frc{a_{i}}{y_{i}} = \frc{\overline{f}_{i}}{x_{i}f_{i}}; \nonumber \\
+    &&\phi_{i} = \frc{f_{i}}{P};\;\;\; G_{i}^{R} = G_{i}-G_{i}^{\text{ig}} = RT\ln{\left(\frc{f_{i}}{P}\right)} = RT\ln{\phi_{i}}; \nonumber  \\
+    && f_{i}^{L}(P) = \phi_{i}^{\text{sat}}P_{i}^{\text{sat}}\exp{\left[\frc{V_{i}^{L}\left(P-P_{i}^{\text{sat}}\right)}{RT}\right]} \nonumber \\
+    && \Partial[M]{T}{P,x}dT + \Partial[M]{P}{T,x}dP - \summation[x_{i}d\overline{M}_{i}]{i=1}{\mathcal{C}} = 0\;\;\text{ (Gibbs-Duhen equation)} \nonumber \\
+    && \summation[x_{i}d\overline{M}_{i}]{i}{}=0;\;\; \summation[x_{i}\frc{d\overline{M}_{i}}{d x_{j}}]{i}{}=0; \nonumber \\
+    && M^{\text{E}} = M - \summation[x_{i}M_{i}]{i}{}; \; \overline{M}_{1}=M+x_{2}\frc{d M}{dx_{1}};\; \overline{M}_{2} = M - x_{1}\frc{d M}{dx_{1}} \nonumber \\
+    &&  x_{1}\frc{d\overline{M}_{1}}{dx_{1}} + x_{2}\frc{d\overline{M}_{2}}{dx_{1}} = 0; \;\;\; \frc{d\overline{M}_{1}}{dx_{1}} = -\frc{x_{2}}{x_{1}}\frc{d\overline{M}_{2}}{dx_{1}} \nonumber \\
+    && PV^{\text{igm}} = \left(\summation[n_{i}]{i=1}{\mathcal{C}}\right)RT;\;\; \overline{V}_{i}^{\text{igm}}(T,P,y) = \frc{RT}{P} = \overline{V}_{i}^{\text{ig}}(T,P); \;\; P_{i}^{\text{igm}}\left(\summation[n_{i}]{i=1}{\mathcal{C}}, V, T,y\right) = \frc{n_{i}RT}{V} = P^{\text{ig}}\left(n_{i},V,T\right);\nonumber \\
+    && \overline{U}^{\text{igm}}(T,y) = \summation[y_{i}\overline{U}_{i}^{\text{ig}}(T)]{i=1}{\mathcal{C}}; \;\;\; \overline{H}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{H}_{i}^{\text{ig}}(T,P)]{i=1}{\mathcal{C}};\;\;\;\overline{V}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{V}_{i}^{\text{ig}}(T,P)]{i=1}{\mathcal{C}} \nonumber \\
+    && \overline{S}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{S}_{i}^{\text{ig}}(T,P)]{i=1}{\mathcal{C}} - R\summation[y_{i}\ln{y_{i}}]{i=1}{\mathcal{C}}; \;\; \overline{G}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{G}_{i}^{\text{ig}}(T,P)]{i=1}{\mathcal{C}} + RT\summation[y_{i}\ln{y_{i}}]{i=1}{\mathcal{C}};\;\;\text{ and }  \nonumber \\
+    && \overline{A}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{A}_{i}^{\text{ig}}(T,P)]{i=1}{\mathcal{C}} + RT\summation[y_{i}\ln{y_{i}}]{i=1}{\mathcal{C}} \nonumber \\
+    && M^{\text{id}} = \summation[x_{i}\overline{M}_{i}^{\text{id}}]{i}{};\;\;\; V^{\text{id}} = \summation[x_{i}V_{i}]{i}{};\;\;\;H^{\text{id}} = \summation[x_{i}H_{i}]{i}{};\;\;\; S^{\text{id}} = \summation[x_{i}S_{i}]{i}{} - R\summation[x_{i}\ln{x_{i}}]{i}{}\;\;\;\text{ and } \nonumber \\
+    && G^{\text{id}} = \summation[x_{i}G_{i}]{i}{} - RT\summation[x_{i}\ln{x_{i}}]{i}{}; \nonumber \\
+    && d\left(\frc{nG^{E}}{RT}\right) = \frc{nV^{E}}{RT}dP - \frc{nH^{E}}{RT^{2}}dT + \summation[\ln{\gamma_{i}}dn_{i}]{i}{};\;\;\; \frc{V^{E}}{RT} = \Partial[\left(\frac{G^{E}}{RT}\right)]{P}{T,x};\;\;\; \frc{H^{E}}{RT} = -T\Partial[\left(\frac{G^{E}}{RT}\right)]{T}{P,x}; \nonumber \\
+    && \ln{\gamma_{i}} = \Partial[\left(\frac{G^{E}}{RT}\right)]{n_{i}}{T,P,n_{j}\left(n_{j}\ne n_{i}\right)}
   \end{eqnarray}
 
 
 
-
-
-
-
-  
-%%%
-\item Raoult's Law:\\
-\begin{displaymath}
-y_{i}P = x_{i}P_{i}^{\text{sat}}\;\;\;\text{ and } \;\;\; y_{i}P = x_{i}\gamma_{i}P_{i}^{\text{sat}}\;\;\;\text{ with } i=1,2,\cdots N
-\end{displaymath}
-
-%%%
-\item Henry's Law:\\
-\begin{displaymath}
-x_{i}\mathcal{H}_{i} = y_{i}P\;\;\;\text{ with } i=1,2,\cdots N
-\end{displaymath}
-
-%%%
-\item Antoine Equation:\\
-\begin{displaymath}
-\log_{10} P^{\star} = A-\frc{B}{T+C}\;\;\;\text{ with P}^{\star}\text{ in mm-Hg and T in }^{\circ}\text{C}
-\end{displaymath}
-
-%%%
-\item Solutions:\\
-\begin{displaymath}
-M^{\text{E}} = M - \sum\limits_{i=1}^{N} x_{i}M_{i}; \; \overline{M}_{1}=M+x_{2}\frc{d M}{dx_{1}};\; \overline{M}_{2} = M - x_{1}\frc{d M}{dx_{1}}
-\end{displaymath}
 
 \end{enumerate}
 
