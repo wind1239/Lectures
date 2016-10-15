@@ -206,7 +206,9 @@
     && M^{\text{id}} = \summation[x_{i}\overline{M}_{i}^{\text{id}}]{i}{};\;\;\; V^{\text{id}} = \summation[x_{i}V_{i}]{i}{};\;\;\;H^{\text{id}} = \summation[x_{i}H_{i}]{i}{};\;\;\; S^{\text{id}} = \summation[x_{i}S_{i}]{i}{} - R\summation[x_{i}\ln{x_{i}}]{i}{}\;\;\;\text{ and } \nonumber \\
     && G^{\text{id}} = \summation[x_{i}G_{i}]{i}{} - RT\summation[x_{i}\ln{x_{i}}]{i}{}; \nonumber \\
     && d\left(\frc{nG^{E}}{RT}\right) = \frc{nV^{E}}{RT}dP - \frc{nH^{E}}{RT^{2}}dT + \summation[\ln{\gamma_{i}}dn_{i}]{i}{};\;\;\; \frc{V^{E}}{RT} = \Partial[\left(\frac{G^{E}}{RT}\right)]{P}{T,x};\;\;\; \frc{H^{E}}{RT} = -T\Partial[\left(\frac{G^{E}}{RT}\right)]{T}{P,x}; \nonumber \\
-    && \ln{\gamma_{i}} = \Partial[\left(\frac{G^{E}}{RT}\right)]{n_{i}}{T,P,n_{j}\left(n_{j}\ne n_{i}\right)};\;\;\;\overline{G}_{i}^{\text{E}}=RT\ln\gamma_{i};\;\;\; \nonumber \\
+    && \ln{\gamma_{i}} = \Partial[\left(\frac{G^{E}}{RT}\right)]{n_{i}}{T,P,n_{j}\left(n_{j}\ne n_{i}\right)};\;\;\;\overline{G}_{i}^{\text{E}}=RT\ln\gamma_{i};\;\;\; \nonumber 
+  \end{eqnarray}
+  \begin{eqnarray}
     && \ln\gamma_{1}=x_{2}^{2}\left[A_{12}+2\left(A_{21}-A_{12}\right)x_{1}\right];\;\;\; \ln\gamma_{2}=x_{1}^{2}\left[A_{21}+2\left(A_{12}-A_{21}\right)x_{2}\right];\;\;\;\text{ (Mergules activity model)}; \nonumber\\
     && \ln\gamma_{1}= B_{12}\left(1+\frc{B_{12}x_{1}}{A_{21}x_{2}}\right)^{-2}; \;\;\; \ln\gamma_{2}= B_{21}\left(1+\frc{B_{21}x_{1}}{A_{12}x_{2}}\right)^{-2};\;\;\;\text{ (Van Laar activity model)}; \nonumber\\
     && \frc{G^{\text{E}}}{RT} = x_{1}\ln\left(x_{1}+x_{2}C_{12}\right) - x_{2}\ln\left(x_{2}+x_{1}C_{21}\right)\;\;\text{ with } \nonumber \\
@@ -217,14 +219,16 @@
   %%% Module 6
 \item Chemical Reaction Equilibrium:
   \begin{eqnarray}
-    && \summation[\nu_{i}A_{i}]{i=1}{\mathcal{C}}=0;\;\;\;d\epsilon=\frc{dn_{i}}{\nu_{i}};\;\;n_{i} = n_{i0}+\nu_{i}\epsilon \nonumber \\
-    &&  n
+    && \summation[\nu_{i}A_{i}]{i=1}{\mathcal{C}}=0;\;\;\;d\epsilon=\frc{dn_{i}}{\nu_{i}};\;\;\summation[n_{i}]{i}{} = \summation[n_{i0}]{i}{}+\epsilon\summation[\nu_{i}]{i}{};\;\;\; n = n_{0} +\nu\epsilon \nonumber \\
+    &&  y_{i} = \frc{n_{i}}{n} = \frc{n_{i0}+\nu_{i}\epsilon}{n_{0}+\nu\epsilon} \nonumber \\
+    && \summation[\nu_{i}G_{i}]{i}{} = \summation[\nu_{i}\mu_{i}]{i}{}=0;\;\;\; \prod\limits_{i}\left(\frc{\overline{f}_{i}}{f_{i}^{0}}\right)^{\nu_{i}} = \prod\limits_{i}a_{i}^{\nu_{i}} = K =\exp\left(\frc{-\Delta G^{0}}{RT}\right); \nonumber \\
+    && \Delta H^{0} = -RT^{2}\frc{d}{dT}\left(\Delta G^{0}/RT\right)\;\;\;\text{ (Standard heat of reaction)};\nonumber \\
+    && \frc{d\left(\ln{K}\right)}{dT} =\frc{\Delta H^{0}}{RT^{2}}\;\;\;\text{ (Van't Hoff equation)};\nonumber \\
+    && \prod\limits_{i}\left(y_{i}\phi_{i}\right)^{\nu_{i}} =K \left(\frc{P}{P^{0}}\right)^{-\nu},\;\;\; \text{ where } \nu=\sum\limits_{i}\nu_{i}\;\;\text{ (gas-phase)}; \nonumber\\
+    && \prod\limits_{i}\left(y_{i}\gamma_{i}\right)^{\nu_{i}} = K\exp\left[\frc{P^{0}-P}{RT}\sum\limits_{i}\left(\nu_{i}V_{i}\right)\right]^{-\nu}\;\;\text{ (liquid-phase)};\nonumber\\
+    && \prod_{i}\left(y_{i}\right)^{\nu_{i,j}} = \left(\frc{P}{P^{0}}\right)^{-\nu_{i,j}}K_{j};\;\;\;\text{ (ideal gas multi-reaction)} \nonumber
   \end{eqnarray}
   
-
-
-
-
 \end{enumerate}
 
 \end{document}
