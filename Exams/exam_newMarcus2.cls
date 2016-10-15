@@ -218,8 +218,7 @@
     {\large\textbf{END OF PAPER}}%
   \end{center}%
   \ifelsesolutions{\begin{center}{\bf Total Paper
-        Marks:\thepapertotalmarks} \\(not all questions are
-      compulsory)\end{center}}{} }
+        Marks:\thepapertotalmarks} \end{center}}{} }
 
 % This command ensures that the END OF PAPER text is only printed at
 % the first occurrence, this is because it is either printed at the
