@@ -239,9 +239,10 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
            \begin{displaymath}
                 dT = \frc{P}{R}dV + \frc{V}{R}dP.
            \end{displaymath}
-           Replacing it in the previous relation, and with $C_{p}+C_{v}=R$,
+           Replacing it in the previous relation, and with $C_{p}-C_{v}=R$,
            \begin{eqnarray}
              \red{dQ} &=& C_{v}\frc{P}{R}dV + C_{v}\frc{V}{R}dP + PdV = \left(\frc{C_{v}}{R}+1\right)PdV + \frc{C_{v}}{R}VdP \nonumber \\
+                &=& \left(\frc{C_{p}-R}{R}+1\right)PdV + \frc{C_{v}}{R}dP \nonumber \\
                       &=&  \red{\frc{C_{p}}{R} PdV + \frc{C_{v}}{R} VdP } \label{Mod01_1Law_3}
            \end{eqnarray}
 %
@@ -270,7 +271,7 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
               \red{TV^{\gamma-1} = \text{ constant}}\label{Mod01_1Law_5}
            \end{equation}
 
-           Now, from Eqn.~\ref{Mod01_1Law_2} and assuming $C_{p}$ s constant and different from zero,
+           Now, from Eqn.~\ref{Mod01_1Law_2} and assuming $C_{p}$ is constant and different from zero,
            \begin{eqnarray}
              dQ &=& C_{p}dT - \frc{RT}{P} = 0 \nonumber \\
              \int\limits_{T_{1}}^{T_{2}}\frc{dT}{T} &=& \frc{R}{C_{p}}\int\limits_{P_{1}}^{P_{2}}\frc{dP}{P} \nonumber \\
@@ -317,7 +318,7 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
                 \begin{eqnarray}
                     \int\limits_{S_{0}}^{S_{1}} dS &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{T}dT - R\int\limits_{P_{0}}^{P_{1}}\frc{dP}{P} \nonumber \\
                     \left(S_{1}-S_{0}\right) &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{T}dT - R\ln{\frc{P_{1}}{P_{0}}} \;\;\;\;\times\left(\frc{1}{R}\right) \nonumber \\
-                    \red{\Delta S} &=& \red{\int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{R}\frc{dT}{T} - \ln{\frc{P_{1}}{P_{0}}} }.
+                    \red{\frc{\Delta S}{R}} &=& \red{\int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{R}\frc{dT}{T} - \ln{\frc{P_{1}}{P_{0}}} }.
                 \end{eqnarray}
            Although this equation was derived for mechanically reversible processes, it focuses on \underline{properties only} and is independent of the process. Thus it can be used to calculate of {\it ideal gasses}.
 
@@ -934,7 +935,7 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
                   \end{displaymath}
                   with
                   \begin{eqnarray}
-                     && T_{r}=\frc{T}{T_{c}} = 0.7010,\;\;P_{r}=\frc{P}{P_{c}}=6.5859\times 10^{-2},\;\;\omega=0.20,\;\;\Omega = 0.0078, \nonumber \\
+                     && T_{r}=\frc{T}{T_{c}} = 0.7010,\;\;P_{r}=\frc{P}{P_{c}}=6.5859\times 10^{-2},\;\;\omega=0.20,\;\;\Omega = 0.07880, \nonumber \\
                      && \Psi = 0.45724,\;\; \sigma=1+\sqrt{2},\;\;\epsilon=1-\sqrt{2},\;\;\beta=\Omega\frc{P_{r}}{T_{r}}=7.3281\times 10^{-4},\nonumber \\
                      && \alpha_{\text{PR}} = 1.2308\;\;\text{ and }\;\; q = \frc{\Psi\alpha_{\text{PR}}}{\Omega T_{r}} = 102.9246, \nonumber 
                   \end{eqnarray}
@@ -1634,7 +1635,7 @@ However, as $\left(h_{f4}-h_{f3}\right) <<<<< \left(h_{1}-h_{2}\right)$, the eff
      \end{displaymath}
      where $V$ is the molar volume and $a$ and $b$ are constants that {\it depends only on critical properties}, $P_{c}$ and $T_{c}$. Due to the non-linearity of this EOS, obtaining $\Partial[V]{T}{P}$ from a direct differentiation would be difficult. However, we can use the expression that we just derived,
      \begin{displaymath}
-         \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}} = -\frc{\frc{R}{V-b}}{-\frc{RT}{\left(V-b\right)^{2}+\frc{2a}{V^{3}}}}
+         \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}} = -\frc{\frc{R}{V-b}}{-\frc{RT}{\left(V-b\right)^{2}}+\frc{2a}{V^{3}}}
      \end{displaymath} 
 
 \clearpage
