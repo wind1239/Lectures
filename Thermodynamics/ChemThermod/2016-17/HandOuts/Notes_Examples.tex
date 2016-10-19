@@ -2504,8 +2504,6 @@ Assuming ideal solution, $K_{i}$ for the three hydrocarbons can be readily obtai
         \end{cases}
    \end{displaymath}
     with $\summation[y_{i}]{i}{} = 1.0000$
-
-
  % 
 
 %
@@ -2520,6 +2518,33 @@ Assuming ideal solution, $K_{i}$ for the three hydrocarbons can be readily obtai
 %%% SECTION
 %%%
 \section{Module 05: Solution Thermodynamics}\label{Section:05}
+
+
+
+
+%%% SUBSUBSECTION
+\subsection{Partial Molar Property}\label{Section:05:PartialMolarProperty}
+\begin{subequations}
+  A formal definition for {\it partial molar property} was given in Section~\ref{Section:04:PartialMolarProperties} for an arbitrary extensive function $M$, Eqn.~\ref{Mod04_PartialProperties2}. Such formulation was applied to the Gibbs free energy of an open system with $n=n_{1}+n_{2}+\cdots+n_{\mathcal{C}}$ moles leading to the definition of chemical potential, Eqns.~\ref{Mod04_ChemPotentialDef1}-~\ref{Mod04_ChemPotentialDef1b},
+  \begin{displaymath}
+    d(nG) = n\Partial[G]{P}{T,x}dP + n\Partial[G]{T}{P,x}dT + \sum\limits_{i} \Partial[(nG)]{n_{i}}{T,P,n_{j},\left(n_{j}\ne n_{i}\right)},
+  \end{displaymath}
+  with
+  \begin{displaymath}
+      \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i}
+  \end{displaymath}
+  and with the derived Maxwell identities (Eqns.~\ref{Mod03_MaxwellRelation7} and ~\ref{Mod03_MaxwellRelation8}),
+  \begin{shaded}
+    \begin{equation}
+      d(nG) = (nV) dT - (nS)dP + \summation[\mu_{i}dn_{i}]{i}{},\label{Mod05:PMP_Gibbs1}
+    \end{equation}
+  \end{shaded}
+  and for 1 mole of solution,
+    \begin{displaymath}
+      dG = V dT - S dP + \summation[\mu_{i}dn_{i}]{i}{}.
+    \end{displaymath}
+
+\end{subequations}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
