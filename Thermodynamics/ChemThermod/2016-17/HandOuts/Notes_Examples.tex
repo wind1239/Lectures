@@ -1347,7 +1347,7 @@ both terms in the r.h.s. tends to $+\infty$ and the difference is assumed undete
 \subsection{Two-Phase Systems}\label{Section:03:Two_Phase}
 
 %%% SUBSUBSECTION
-   \subsubsection{Clapeyron Relations}
+   \subsubsection{Clapeyron Relations}\label{Section:03:ClapeyronRelations}
 
 \begin{subequations}
 When a pure component is in phase equilibrium, {\it all coexisting phases have the same temperature and pressure}. Therefore, the following criterion is applied,
@@ -2519,8 +2519,31 @@ Assuming ideal solution, $K_{i}$ for the three hydrocarbons can be readily obtai
 %%%
 \section{Module 05: Solution Thermodynamics}\label{Section:05}
 
+Vapour-liquid equilibrium of pure components and mixtures were the focus of study in Modules~\ref{Section:02}-\ref{Section:04}. In this modules, equations of state were introduced to represent the $PVT$ behaviour of pure components in both vapour and liquid phases. From your readings, you may have noticed that EOS are largely applied, with relatively accuracy, to vapour phases, but rarely used to assess liquid phase behaviour. 
+
+This is mainly due to the fact that EOS were originally (and cubic EOS in particular) to represent weak inter-molecular forces between molecules at relatively large distances. As pressure increases $\left(P\rightarrow \infty\right)$ and the distance between molecules tends to zero $\left(d\rightarrow 0\right)$, accuracy of EOS to predict $PVT$ behaviour also decreases, as the attractive and repulsive forces between molecules are stronger. 
+
+Molecules in liquid phase are held together at close distance by strong attractive forces, however these forces are not strong enough to keep them in a fixed position (as forces in the solid phase) and the molecules are free to move past, slide over and collide with other molecules. A fraction of the molecules (mostly with higher energy) may be able to break such attractive forces and `escape' towards the vapour phase. 
+
+Kinetic energy in gaseous molecules are larger than the attractive forces, leading to large distances between molecules and a tendency to occupy the whole volume of the system. The large kinetic energy in gaseous molecules also lead to continuous collisions between molecules and with the system (container) walls. After collisions, although the momentum is conserved, individual energies (and velocities) may decrease and molecules may move to a system with lower kinetic energy, \ie liquid phase.
+
+In Module~\ref{Section:01}, the concept of {\it mechanical} (\ie system at constant or uniform pressure) and {\it thermal} (from the Zeroth law) equilibrium were introduced. In order to define phase equilibria, we established (in Module~\ref{Section:04}) that an additional condition was necessary, {\it chemical equilibrium}, \ie equality of Gibbs free energy of all phases (Section~\ref{Section:03:ClapeyronRelations}) for pure fluids. This concept can be extended for mixtures by using the definition of {\it chemical potential}, $\mu_{i}$ (Eqn.~\ref{Mod04_ChemPotentialDef1b}),
+         \begin{displaymath}
+            \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i},
+         \end{displaymath}
+where $\overline{G}_{i}$ is the partial molar Gibbs free energy. This leads to the final phase equilibria condition in which {\it the chemical potential for each component at all coexisting phases are identical}, \ie 
+         \begin{eqnarray}
+            && \mfr[\mu]{i}{\alpha} = \mfr[\mu]{i}{\beta} = \cdots =  \mfr[\mu]{i}{j} = \cdots, \;\;\;\forall i\in\{1,2,\cdots,\mathcal{C}\}\;\; \text{ and }\;\;\; \forall j\in\{\alpha,\beta,\cdots,\mathcal{N}_{\mathcal{P}}\}, \nonumber \\
+            &&  \text{or for VLE systems: }\;\;\;\; \mfr[\mu]{i}{L} = \mfr[\mu]{i}{V},\;\;\;\forall i\in\{1,2,\cdots,\mathcal{C}\} \nonumber 
+         \end{eqnarray}
+
+\medskip
+
+Assumptions of ideal gas include massless particles with no interaction between them (\ie volume of the molecules is negligibly small compared with the volume occupied by the gas or simply distance between gaseous molecules are often infinitely large $\left(d\rightarrow \infty\right)$), except during elastic collisions over negligible duration. These conditions can only be met by fluids at sufficiently high temperature and relatively low pressure, when large distances between molecules and high velocity overcome any interaction. The concept of ideality for liquids also exists and is based on the assumption that inter-molecular forces are the same between all molecules in solution. This assumption may be correct for pure non-polar substances 
 
 
+
+Assumptions for a fluid to be considered an ideal gas includes
 
 %%% SUBSUBSECTION
 \subsection{Partial Molar Property}\label{Section:05:PartialMolarProperty}
