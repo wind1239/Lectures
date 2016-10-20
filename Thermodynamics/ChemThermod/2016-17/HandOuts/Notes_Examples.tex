@@ -2519,6 +2519,8 @@ Assuming ideal solution, $K_{i}$ for the three hydrocarbons can be readily obtai
 %%%
 \section{Module 05: Solution Thermodynamics}\label{Section:05}
 
+%%% SUBSUBSECTION
+\subsection{Introduction}\label{Section:05:Introduction}
 Vapour-liquid equilibrium of pure components and mixtures were the focus of study in Modules~\ref{Section:02}-\ref{Section:04}. In this modules, equations of state were introduced to represent the $PVT$ behaviour of pure components in both vapour and liquid phases. From your readings, you may have noticed that EOS are largely applied, with relatively accuracy, to vapour phases, but rarely used to assess liquid phase behaviour. 
 
 This is mainly due to the fact that EOS were originally (and cubic EOS in particular) to represent weak inter-molecular forces between molecules at relatively large distances. As pressure increases $\left(P\rightarrow \infty\right)$ and the distance between molecules tends to zero $\left(d\rightarrow 0\right)$, accuracy of EOS to predict $PVT$ behaviour also decreases, as the attractive and repulsive forces between molecules are stronger. 
@@ -2539,23 +2541,113 @@ where $\overline{G}_{i}$ is the partial molar Gibbs free energy. This leads to t
 
 \medskip
 
-Assumptions of ideal gas include massless particles with no interaction between them (\ie volume of the molecules is negligibly small compared with the volume occupied by the gas or simply distance between gaseous molecules are often infinitely large $\left(d\rightarrow \infty\right)$), except during elastic collisions over negligible duration. These conditions can only be met by fluids at sufficiently high temperature and relatively low pressure, when large distances between molecules and high velocity overcome any interaction. The concept of ideality for liquids also exists and is based on the assumption that inter-molecular forces are the same between all molecules in solution. This assumption may be correct for pure non-polar substances 
+The main assumptions for ideal gas behaviour assumes that molecules of gas are mass-less particles with no interaction between them (\ie volume of the molecules is negligibly small compared with the volume occupied by the gas or simply the distance between gaseous molecules are often infinitely large, $d\rightarrow \infty$), except during elastic collisions over negligible duration. These conditions can only be met by fluids at sufficiently high temperature and relatively low pressure when large distances between molecules and high velocity overcome any interaction. The concept of ideality for liquids also exists and is based on the assumption that inter-molecular forces are the same between all molecules in solution. This assumption may be correct for pure non-polar substances (\ie in solutions with no major inter-/intra-molecular forces).
+
+Thus, the aim of this Module is to define thermodynamic properties of real solutions based on properties of ideal solutions. Excess property (Section~\ref{Section:04:ExcessProperties}) plays a role similar to that of residual property for gases. In order to assess solution properties at low to moderate pressures, {\it activity coefficient}, based on the definition of {\it fugacity}, is used. The {\it activity coefficient}, derived from the {\it excess Gibbs free energy}, is a measure of the extent of non-ideality of a real solution and helps describing phase equilibria of mixtures at low and moderate pressures.
 
 
-
-Assumptions for a fluid to be considered an ideal gas includes
-
-%%% SUBSUBSECTION
-\subsection{Partial Molar Property}\label{Section:05:PartialMolarProperty}
+%%% SUBSECTION
+\subsection{Fugacity}\label{Section:05:FugacitySection}
 \begin{subequations}
   A formal definition for {\it partial molar property} was given in Section~\ref{Section:04:PartialMolarProperties} for an arbitrary extensive function $M$, Eqn.~\ref{Mod04_PartialProperties2}. Such formulation was applied to the Gibbs free energy of an open system with $n=n_{1}+n_{2}+\cdots+n_{\mathcal{C}}$ moles leading to the definition of chemical potential, Eqns.~\ref{Mod04_ChemPotentialDef1}-~\ref{Mod04_ChemPotentialDef1b},
+  \begin{shaded}
+     \begin{eqnarray}
+       && dG = \Partial[G]{P}{T,n}dP + \Partial[G]{T}{P,n}dT + \underbrace{\Partial[G]{n}{T,P}}_{\mu}dn, \nonumber \\
+       && \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i}, \nonumber
+     \end{eqnarray}
+  \end{shaded}
+  For pure components,
+  \begin{displaymath}
+    G = n\mu \;\;\rightarrow \mu=\frc{G}{n}=\overline{g}.
+  \end{displaymath}
+  Using the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7},
+  \begin{eqnarray}
+    && \Partial[G]{P}{T} = V = \Partial[n\mu]{P}{T} = n\Partial[\mu]{P}{T} \nonumber \\
+    && \Partial[\mu]{P}{T} = \frc{V}{n} = \underline{v}\label{Mod05_fugacity1}
+  \end{eqnarray}
+  where $\underline{v}$ is the molar volume. For ideal gas,
+  \begin{displaymath}
+     \Partial[\mu^{\ast}]{P}{T} = \frc{RT}{P},
+  \end{displaymath}
+  where the superscript $^{\ast}$ refers to ideal gas. This differential can be integrated as,
+  \begin{equation}
+    \mu^{\ast} = RT\ln{P} + C(T),\label{Mod05_fugacity1a}
+  \end{equation}
+  where $C(T)$ is an integration constant. At limiting conditions, $P\rightarrow 0$ and $P\rightarrow\infty$, the chemical potential lies within $-\infty < \mu < +\infty$. For a fluid to be considered an ideal gas, pressure needs to be relatively low, thus we can use Eqn.~\ref{Mod05_fugacity1a} to represent the chemical potential of real fluids,
+  \begin{equation}
+    \mu = RT\ln{f} + C(T),\label{Mod05_fugacity1b}
+  \end{equation}
+  where $f$ is the {\it fugacity of a real gas}, \ie \blue{a representation of pressure of an ideal gas which has the same chemical potential as the real gas.} Since the {\it fugacity} has the \underline{units of pressure}, it is often referred as a `fictitious pressure'.  The definition of fugacity from Eqn.~\ref{Mod05_fugacity1b} is entirely general and can be readily extended to both liquids and solids. Now, replacing Eqn.~\ref{Mod05_fugacity1b} in the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7},
+  \begin{equation}
+    RT\Partial[\left(\ln{f}\right)]{P}{T} = \overline{v},\label{Mod05_fugacity1c}
+  \end{equation}
+      {\it fugacity} can be obtained by integrating this equation holding $T$ constant. As pressure tends to zero (lower limit of the left-hand-side integration), the fluid behaves as an ideal gas. We can thus define that the fugacity of a pure component is equal to the pressure in the limit of zero pressure, \ie
+      \begin{shaded}
+        \begin{equation}
+           \lim\limits_{P \rightarrow 0} \frc{f}{P} = 1.\label{Mod05_fugacity1d}
+        \end{equation}
+      \end{shaded}
+
+      In a \underline{mixture}, Eqn.~\ref{Mod05_fugacity1c} becomes,
+      \begin{eqnarray}
+        && RT\Partial[\left(\ln{f_{i}}\right)]{P}{T,n} = \overline{v}_{i},\label{Mod05_fugacity1e1} \\
+        && RT\Partial[\left(\ln{\overline{f}_{i}}\right)]{P}{T,n} = \overline{V}_{i},\label{Mod05_fugacity1e2}
+      \end{eqnarray}
+      where $f_{i}$ is the {\it fugacity of pure component $i$} and $\overline{f}_{i}$ is the {\it fugacity of component $i$ in the mixture}. $\overline{v}_{i}$ and $\overline{V}_{i}$ are the molar volume of pure component $i$ and of component $i$ in the mixture. If we subtract Eqn.~\ref{Mod05_fugacity1e1} from ~\ref{Mod05_fugacity1e2} and integrate the result from $P'$ to $P$ at constant $T$,
+      \begin{displaymath}
+        RT\Partial[\left(\ln{\frc{\overline{f}_{i}}{f_{i}}}\right)]{P}{T,n} = \overline{V}_{i} - \overline{v}_{i} \;\;\Longrightarrow \;\;  RT\left[\left.\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)}\right|_{P'}^{P}\right] = \int\limits_{P'}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP
+      \end{displaymath}
+      As $P'\rightarrow 0$,
+      \begin{equation}
+        RT\left[\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)} - \lim\limits_{P'\rightarrow 0}\ln\left(\frc{\overline{f}_{i}}{f_{i}}\right)\right] = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP.\label{Mod05_fugacity1f}
+      \end{equation}
+      When $P'\rightarrow 0$
+      \begin{displaymath}
+        \begin{cases}
+          f_{i} \rightarrow P', \\
+          \overline{f}_{i} \rightarrow y_{i}P',
+        \end{cases}
+      \end{displaymath}
+      and the limiting term in the previous equation becomes,
+      \begin{displaymath}
+        \lim\limits_{P'\rightarrow 0}\ln\left(\frc{\overline{f}_{i}}{f_{i}}\right) \rightarrow \ln{\left(\frc{y_{i}P'}{P'}\right)} = \ln{y_{i}}
+      \end{displaymath}
+      Thus Eqn.~\ref{Mod05_fugacity1f} becomes,
+        \begin{displaymath}
+          RT\left[\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)} - \ln{y_{i}}\right] = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP
+        \end{displaymath}
+      \begin{shaded}
+        \begin{equation}
+           RT\ln{\left(\frc{\overline{f}_{i}}{y_{i}f_{i}}\right)} = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP. \label{Mod05_fugacity1g}
+        \end{equation}
+      \end{shaded}
+\end{subequations}
+
+      
+%%% SUBSECTION
+\subsection{Activity}\label{Section:05:ActivitySection}
+   \begin{subequations}
+        
+      \begin{shaded}
+         An \underline{ideal solution} is a mixture in which,
+        \begin{equation}
+          \mfr[\overline{f}]{i}{V} = y_{i}P'\;\;\;\text{ and }\;\;\; \mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}\label{Mod05_fugacity1g}
+        \end{equation}
+        These expressions are called \red{\it Lewis-Randall rules} and they describe relations between phase compositions and fugacities.
+      \end{shaded}
+      
+      
+   \end{subequations}
+    
+  \section{Blob}
   \begin{displaymath}
     d(nG) = n\Partial[G]{P}{T,x}dP + n\Partial[G]{T}{P,x}dT + \sum\limits_{i} \Partial[(nG)]{n_{i}}{T,P,n_{j},\left(n_{j}\ne n_{i}\right)},
   \end{displaymath}
   with
   \begin{displaymath}
-      \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i}
+      \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i},
   \end{displaymath}
+  
   and with the derived Maxwell identities (Eqns.~\ref{Mod03_MaxwellRelation7} and ~\ref{Mod03_MaxwellRelation8}),
   \begin{shaded}
     \begin{equation}
@@ -2567,7 +2659,6 @@ Assumptions for a fluid to be considered an ideal gas includes
       dG = V dT - S dP + \summation[\mu_{i}dn_{i}]{i}{}.
     \end{displaymath}
 
-\end{subequations}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
