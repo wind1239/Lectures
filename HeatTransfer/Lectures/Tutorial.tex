@@ -290,7 +290,7 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
 %\item\label{Problem:Analytical_Example4} Solve~\ref{Problem:Analytical_Example3} with FDM.
 
 %%% http://www.sfu.ca/~ptaherib/teaching/MSE_321/Presentation/Tutorial%206.pdf
-\item\label{Problem:Analytical_Prob1} A new material is to be developed for bearing balls in a new rolling-element bearing. For annealing (heat treatment) each bearing ball, a sphere of radius $r_{o} =$ 5 mm, is heated in a furnace until it reaches to the equilibrium temperature of the furnace at 400$^{\circ}$C. Then, it is suddenly removed from the furnace and subjected to a two-step cooling process.
+\item\label{Problem:Analytical_Prob1} A new material is to be developed for bearing balls in a new rolling-element bearing. For annealing (heat treatment) each bearing ball, a sphere of radius $r_{o} =$ 5 mm, is heated in a furnace until it reaches the thermal equilibrium at 400$^{\circ}$C. Then, it is suddenly removed from the furnace and subjected to a two-step cooling process.
    \begin{description}
       \item[Stage 1:] Cooling in an air flow of 20$^{\circ}$C for a period of time $t_{\text{air}}$ until the center temperature reaches 335$^{\circ}$C. For this situation, the convective heat transfer coefficient of air is assumed constant and equal to $h =$ 10 W/(m$^{2}$.K). After the sphere has reached this specific temperature, the second step is initiated. 
       \item[Stage 2:] Cooling in a well-stirred water bath at 20$^{\circ}$C, with a convective heat transfer coefficient of water $h =$ 6000 W/(m$^{2}$.K). 
@@ -338,7 +338,15 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
     \item Water at 45$^{\circ}$C: $\rho=990$kg/m$^{3}$, $\kappa=0.637$W/(m.K), $Pr=3.91$, $\nu=\mu/\rho=0.602\times 10^{-6}$m$^{2}$/s; 
     \item Oil at 80$^{\circ}$C: $\rho=852$kg/m$^{3}$, $\kappa=0.138$W/(m.K), $Pr=490$, $\nu=37.5\times 10^{-6}$m$^{2}$/s
 \end{enumerate}
-
+The inner convective heat transfer coefficient, $h_{i}$, can be obtained from
+\begin{displaymath}
+       Nu = \frc{h_{i}D_{h}}{\kappa} =
+   \begin{cases}
+       4.36  & \text{(for laminar flows),} \\
+       0.023\Re^{0.8}\Pr^{0.4} & \text{(for turbulent flows),} \\
+   \end{cases}
+\end{displaymath}
+and the outter convective heat transfer coefficient, $h_{0}$ is 75.2 W.$\left(\text{m}^{2}.\text{K}\right)$.
 
 %%% Slide (Cengel Example 13.1)
 \item\label{Problem:HE_Example2} A double-pipe (shell-and-tube) heat exchanger is constructed of a stainless steel ($\kappa=$ 15.1 W/(m.$^{\circ}$C) inner tube of inner diameter D$_{i}=$ 1.5 cm and outer diameter D$_{o}=$ 1.9 cm and an outer shell of inner diameter 3.2 cm. The convective heat transfer coefficient is h$_{i}=$ 800 W/(m$^{2}.^{\circ}$C) on the inner surface of the tube and h$_{o}=$ 1200 W/(m$^{2}.^{\circ}$C) on the outer surface. For a fouling factor R$_{f,i}=$ 0.0004 m$^{2}.^{\circ}$C/W on the tube side and R$_{f,o}=$ 0.0001 m$^{2}.^{\circ}$C/W on the shell side, determine:
@@ -358,7 +366,7 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
 \item\label{Problem:HE_Example4}For the HE of~\ref{Problem:HE_Example3} with the same entering-fluid temperatures, calculate the exit water temperature when only 40 kg/min of water is heated but the same quantity of oil is used. Also calculate the total heat transfer under these new conditions.
 
 %%% Slide (??)
-\item\label{Problem:HE_Example5}  A finned-tube heat exchanger (Fig.~\ref{Fig:XFlow}) is used to heat 2.36 m$^{3}$/s of air at 1 atm from 15.55 to 29.44$^{\circ}$C. Hot water enters the tubes at 82.22$^{\circ}$C, and the air flows across the tubes, producing an average overall heat-transfer coefficient of 227 W/(m$^{2}$.$^{\circ}$C). The total surface area of the exchanger 9.29 m$^{2}$. Calculate the exit water temperature and the heat-transfer rate.
+\item\label{Problem:HE_Example5}  A finned-tube heat exchanger (Fig.~\ref{Fig:XFlow}) is used to heat 2.36 m$^{3}$/s of air at 1 atm from 15.55 to 29.44$^{\circ}$C. Hot water enters the tubes at 82.22$^{\circ}$C, and the air flows across the tubes, producing an average overall heat-transfer coefficient of 227 W/(m$^{2}$.$^{\circ}$C). The total surface area of the exchanger 9.29 m$^{2}$. Calculate the exit water temperature and the heat-transfer rate. Assume air behaves as an ideal gas with molar mass of 28.97 g.mol$^{-1}$ and heat capacity at constant pressure of 1005 J.(kg.K)$^{-1}$.
 
 \begin{center}
    \begin{figure}[h]
