@@ -9,10 +9,10 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-%\documentclass[10pt,compress]{beamer}
+\documentclass[10pt,compress,unknownkeysallowed]{beamer}
 %Draft or handout mode
-\documentclass[10pt,compress,handout]{beamer}
-%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer}
+%\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
@@ -24,7 +24,6 @@
 \newcommand{\logoimage}{../FigBanner/UoAHorizBanner}
 \title{EX3030/EM40JK}
 \subtitle{Transient Heat Transfer}
-%\subtitle{Module 1.1: Review of Thermodynamics}
 \date[ ]{ }
 
 %%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,9 +136,6 @@
 }
 
 %\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
-%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
-
-
 
 %%%%% Color settings
 \usepackage{color}
@@ -178,6 +174,8 @@
 
 \usepackage{comment} 
 
+\usepackage{framed,comment}
+\definecolor{shadecolor}{gray}{0.9} 
 % Get rid of font warnings as modern LaTaX installations have scalable
 % fonts
 \usepackage{type1cm} 
@@ -242,11 +240,31 @@
       \end{minipage}}
     {\colorbox{#1!50}{\color{black}$\displaystyle#2$}}} 
 
+\newcommand{\eg}{{\it e.g., }}
+\newcommand{\ie}{{\it i.e., }}
+\newcommand{\wrt}{{\it wrt }}
 \newcommand{\frc}{\displaystyle\frac}
 \newcommand{\red}{\textcolor{red}}
 \newcommand{\blue}{\textcolor{blue}}
 \newcommand{\green}{\textcolor{green}}
-\newcommand{\purple}{\textcolor{purple}} 
+\newcommand{\purple}{\textcolor{purple}}
+\newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
+\newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}} 
+\newcommand{\summation}[3][error]{\sum\limits_{#2}^{#3}#1}
+ 
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+\newcommand{\Bi}{\dimensionless{Bi}}
 
 \begin{document}
 
@@ -260,9 +278,9 @@
 \end{frame}
 
 % Table of contents
-%\frame{ \frametitle{Slides Outline}
-%  \tableofcontents
-%}
+\frame{ \frametitle{Slides Outline}
+  \tableofcontents
+}
 
 
 %%%%%%%%%%%%%%%%%%%% The Presentation Proper %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -316,12 +334,11 @@
     \item L. Theodore, `Essential Engineering Calculations Series: Heat Transfer Applications for the Practicing Engineer' (John Willey $\&$ Sons): Chapter 8.
   \end{enumerate}
 \end{frame}
- 
 
 %%%
 %%%  SECTION
 %%%
-\section{Lumped-Capacity Method}
+\section{Lumped-Capacitance Method}
 %\section{Unsteady-State Conduction}
 
 %%% SUBSECTION
@@ -341,7 +358,7 @@
 %
      \begin{column}[l]{0.5\linewidth}
         \begin{enumerate}
-           \item<1-> In the study of heat transfer, the simplest case analysis is when bodies are assumed {\it isothermal} and, therefore they can be treated as a \blue{lump} system;
+           \item<1-> In the study of heat transfer, the simplest case analysis is when bodies are assumed \red{{\it isothermal}} and, therefore they can be treated as a \blue{lump} system;
            \item<1-> This means that the temperature of these bodies at any spatial coordinate can be expressed as function of time only, i.e., \blue{$T=T\left(t\right)$};
         \end{enumerate}
      \end{column}     
@@ -384,9 +401,9 @@
  \frametitle{Thermal Energy Balance}
    \begin{enumerate}\setcounter{enumi}{5}\scriptsize
      \item<1-> The energy balance,
-          \visible<1->{\blue{\begin{equation}
+          \visible<1->{\blue{\begin{displaymath}
               hA_{s}\left(T_{\infty}-T\right)dt = mC_{p}dT \label{eqn:energybalance}
-          \end{equation}}}
+          \end{displaymath}}}
      \item<1-> can be rearranged and integrated as (from time \blue{0} to \blue{t}),
           \visible<2->{\begin{eqnarray}
               \frc{d\left(T-T_{\infty}\right)}{T-T_{\infty}} &=& -\frc{hA_{s}}{\rho V C_{p}}dt \nonumber \\
@@ -418,17 +435,17 @@
  \frametitle{Convection Heat Transfer}
    \begin{enumerate}%\setcounter{enumi}{5}\scriptsize
      \item<1-> The {\it Newton's law of cooling} can determine the rate of convection heat transfer,
-          \visible<1->{\blue{\begin{equation}
+          \visible<1->{\begin{displaymath}
               \dot{Q}(t) = hA_{s}\left[T(t) - T_{\infty}\right] \hspace{1cm} \mathbf{(W)}
-          \end{equation}}}
+          \end{displaymath}}
      \item<2-> The heat transferred between the body and the surroundings during time \blue{$\Delta t$} is the energy change in the system (i.e., body + surroundings):
-          \visible<2->{\begin{equation}
-              \dot{Q} = m C_{p}\left[T(t) - T_{\infty}\right] \hspace{1cm} \mathbf{(J)}
-          \end{equation}}
+          \visible<2->{\begin{displaymath}
+              Q = m C_{p}\left[T(t) - T_{\infty}\right] \hspace{1cm} \mathbf{(J)}
+          \end{displaymath}}
      \item<3-> Therefore the maximum heat exchanged between the body and the surroundings is
-          \visible<3->{\begin{equation}
-              \dot{Q}_{\text{max}} = m C_{p}\left[T_{0} - T_{\infty}\right] \hspace{1cm} \mathbf{(J)}
-          \end{equation}}
+          \visible<3->{\blue{\begin{equation}
+              Q_{\text{max}} = m C_{p}\left[T_{0} - T_{\infty}\right] \hspace{1cm} \mathbf{(J)}
+          \end{equation}}}
    \end{enumerate}
 \end{frame}
 
@@ -445,15 +462,15 @@
  \frametitle{Criteria for Lumped System}
    \begin{enumerate}%\setcounter{enumi}{5}\scriptsize
      \item<1-> The assumption of {\bf lumped system} is not often the most appropriate. With the {\it characteristic length} \blue{$L_{c}=\frc{V}{A_{s}}$};
-     \item<2-> We can determine the dimensionless \red{Biot Number (\it{Bi})},
+     \item<2-> We can determine the dimensionless \red{Biot Number ($\Bi$)},
        \begin{equation}
-          \visible<2->{\red{Bi} \blue{= \frc{\text{Conduction resistance within the body}}{\text{Convection resistance at the surface}}}} \visible<3->{\blue{= \frc{\frc{L_{c}}{\kappa}}{\frc{1}{h}}} \red{= \frc{h L_{c}}{\kappa}}}
+          \visible<2->{\red{\Bi} \blue{= \frc{\text{Conduction resistance within the body}}{\text{Convection resistance at the surface}}}} \visible<3->{\blue{= \frc{\frc{L_{c}}{\kappa}}{\frc{1}{h}}} \red{= \frc{h L_{c}}{\kappa}}}
        \end{equation}  
-     \item<4-> {\bf Lumped system} analysis assumes {\it uniform temperature distribution} throughout the body;
-     \item<4-> This assumption is correct {\bf if} the convection coefficient is small and thermal conductivity is large, i.e.,;
-     \item<5-> \blue{The smaller the {\bf Bi}, the more accurate the lumped system analysis,} 
+     \item<4-> {\bf Lumped system} analysis \underline{assumes {\it uniform temperature distribution}} \underline{throughout the body};
+     \item<4-> This assumption is correct {\bf if} the convection coefficient is small and thermal conductivity is large, \ie
+     \item<5-> \blue{The smaller the {\bf $\Bi$}, the more accurate the lumped system analysis,} 
                      \begin{displaymath}
-                       \visible<5->{ \red{Bi \leq 0.1}}
+                       \visible<5->{ \red{\Bi \leq 0.1}}
                      \end{displaymath}
    \end{enumerate}
 \end{frame}
@@ -462,9 +479,27 @@
 %%% Slide
 %%%
 \begin{frame}
+ \frametitle{Lumped-Capacitance Method}
+    \begin{shaded}
+       In summary, in the \blue{lumped-capacitance method}, temperature can be computed using the assuption that a body will heat /cool uniformly, \ie $T(t)$,
+          \begin{displaymath}
+             \frc{T(t)-T_{\infty}}{T_{0}-T_{\infty}} = e^{-bt},\;\;\;\text{ where }\;\;\;\ b = \frc{hA_{s}}{\rho V C_{p}}.
+          \end{displaymath}
+This method is valid {\bf only if}
+           \begin{displaymath}
+               \Bi \le 0.1
+           \end{displaymath}
+    \end{shaded}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
  \frametitle{Criteria for Lumped System -- Example 1}
    \begin{enumerate}%\scriptsize
-     \item<1-> Example: Two spheres are removed from a furnace and let to cool with air at 25$^{\circ}$C under relatively low convection coefficient of 15 W.$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. The spheres are made of copper,  $\kappa_{\text{Cu}}=401\;\text{W.}\left(\text{m.}^{\circ}\text{C}\right)^{-1}$, and coal, $\kappa_{\text{Coal}}=0.2\;\text{W.}\left(\text{m.}^{\circ}\text{C}\right)^{-1}$. Can we apply the lumped method to both spheres? 
+     \item<1-> Two spheres are removed from a furnace and let to cool with air at 25$^{\circ}$C under relatively low convection coefficient of 15 W.$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. The spheres are made of copper,  $\kappa_{\text{Cu}}=401\;\text{W.}\left(\text{m.}^{\circ}\text{C}\right)^{-1}$, and coal, $\kappa_{\text{Coal}}=0.2\;\text{W.}\left(\text{m.}^{\circ}\text{C}\right)^{-1}$. Can we apply the lumped method to both spheres? 
    \end{enumerate}
 \end{frame}
 
@@ -539,7 +574,7 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
     \begin{column}[l]{0.6\linewidth}
       \begin{block}{\begin{center}Heat Equation\end{center}}
            \visible<1->{\begin{equation}
-              \frc{\partial^{2} T}{\partial x^{2}} = \frc{1}{\alpha}\frc{\partial T}{\partial t}\label{Eqn:GlobalThermalEqn}
+              \frc{\partial^{2} T}{\partial x^{2}} = \frc{1}{\alpha}\frc{\partial T}{\partial t}\label{Eqn:GlobalThermalEqnb}
            \end{equation}
         \scriptsize where $\alpha=\kappa\left(\rho C_{p}\right)^{-1}$ is the heat diffusivity of the material.}
       \end{block}
@@ -572,13 +607,13 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
 \begin{frame}
  \frametitle{Plane Wall: 1-D Transient Heat Conduction at \red{$0\leq x\leq L$} }
    \begin{enumerate}[(a)]\setcounter{enumi}{5}%\scriptsize
-     \item<1-> In order to solve Eqn.~\ref{Eqn:GlobalThermalEqn} with the associated boundary and initial conditions, we first need to {\it adimensionalise} this partial differential equation (PDE) with
+     \item<1-> In order to solve Eqn.~\ref{Eqn:GlobalThermalEqnb} with the associated boundary and initial conditions, we first need to {\it non-dimensionalise} this partial differential equation (PDE) with
         \begin{displaymath}
              \theta = \frc{T - T_{\infty}}{T_{i} - T_{\infty}}
         \end{displaymath}    
      \item<2-> Leading to (in non-dimensional form):
            \visible<2->{\begin{equation}
-              \frc{\partial^{2} \theta}{\partial X^{2}} = \frc{\partial \theta}{\partial \tau}\label{Eqn:GlobalThermalEqn_NonDimensional}
+              \frc{\partial^{2} T}{\partial x^{2}} = \frc{1}{\alpha}\frc{\partial T}{\partial t} \;\;\Longrightarrow \;\;\;\frc{\partial^{2} \theta}{\partial X^{2}} = \frc{\partial \theta}{\partial \tau}\label{Eqn:GlobalThermalEqn_NonDimensional}
            \end{equation}
            where $X = x/L$ and $\tau = \alpha t / L^{2}$.}
      \item<3-> With {\it boundary conditions}:
@@ -608,7 +643,7 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
           \begin{displaymath}
             A_{n} = \frc{4\sin{\lambda_{n}}}{2\lambda_{n}+\sin{2\lambda_{n}}}\text{ and } \lambda_{n}\tan{\lambda_{n}} = Bi
           \end{displaymath}
-     \item<2-> The solution for this infinite series converges rapidly with increasing time and for $\tau > 0.2$. We can use the first term and neglect the remaining terms; 
+     \item<2-> The solution for this infinite series converges rapidly with increasing time and for $\tau > 0.2$. \underline{We can use the first term and neglect the remaining terms}; 
      \item<3-> Solution for $\tau>0.2$ can be found in the next slide for the 3 geometries considered here.
 
    \end{enumerate} 
@@ -696,10 +731,10 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
            \item<2-> Convective heat transfer coefficient is constant and uniform;
            \item<2-> No heat generation in the body.
         \end{enumerate}
-     \item<3-> The \red{Fourier dimensionless number (Fo)} helps to better understand the main heat flux mechanisms. It is defined as the ratio of rates of heat diffusion and heat stored in a body of volume $L^{3}$, i.e.,
-        \visible<3->{\begin{equation}
-               Fo = \frc{\alpha t}{L^{2}}
-        \end{equation}} 
+     \item<3-> The parameter $\tau$ is also known as the \red{Fourier dimensionless number (Fo)}. This dimensionless number helps to better understand the main heat flux mechanisms. It is defined as the ratio of rates of heat diffusion and heat stored in a body of volume $L^{3}$, \ie
+        \visible<3->{\begin{displaymath}
+               Fo = \frc{\alpha t}{L^{2}} = \tau
+        \end{displaymath}} 
    \end{enumerate} 
 \end{frame}
 
