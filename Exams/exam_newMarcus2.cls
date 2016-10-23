@@ -15,6 +15,12 @@
 \DeclareOption{sample}
 {\@samplepapertrue}
 
+           
+\newif\if@mockpaper
+\@mockpaperfalse
+\DeclareOption{mock}
+{\@mockpapertrue}   
+
 \newif\if@calculatorallowed
 \@calculatorallowedfalse
 \DeclareOption{calculator}
@@ -117,6 +123,7 @@
 \fi
 \rhead{\if@samplepaper{SAMPLE-}\fi%
   \if@resitpaper{R-}\fi%
+  \if@mockpaper{M-}\fi%
   \@coursecode/\SessionStart--\SessionEndShort}
 \makeatother
 \cfoot{\thepage/\pageref{LastPage}} \rfoot{}
@@ -137,6 +144,7 @@
 \def \@frontmatter{%
   \RaggedRight
   \if@samplepaper\lhead{SAMPLE PAPER}\lfoot{SAMPLE PAPER}\rfoot{SAMPLE PAPER}\fi
+  \if@mockpaper\lhead{MOCK-EXAM PAPER}\lfoot{MOCK-EXAM PAPER}\rfoot{MOCK-EXAM PAPER}\fi
   \newcounter{sessionyear}
   \setcounter{sessionyear}{\getdateyear{ExamDateSaved}}
   {\textbf{UNIVERSITY OF ABERDEEN\hspace{0.25in}SESSION \SessionStart--\SessionEndShort}
@@ -148,6 +156,7 @@
     \textbf{\longexamdateformat\displaydate{ExamDateSaved}\hspace{2cm} \@examtime}}
   
   \if@samplepaper\begin{center}\textbf{\LARGE{SAMPLE PAPER}}\end{center}\fi
+  \if@mockpaper\begin{center}\textbf{\LARGE{MOCK-EXAM PAPER}}\end{center}\fi
 
   \begin{center}{\bf PLEASE NOTE THE FOLLOWING}\end{center}
   \begin{enumerate}[(i)]
