@@ -28,12 +28,12 @@
 \newcommand{\fracp}[2]{\frac{\partial #1}{\partial #2}}
 \renewcommand{\d}[1]{\mathrm{d} #1 } 
 \newcommand{\Ma}{\mathrm{M\!a}} 
+\newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
+\newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}} 
 
 
 
 \begin{document}
-
-
 
 
 %%%
@@ -304,6 +304,85 @@ with [P] = bar, [T] = K, [B] = K and [C] = K.
 
 
 
+\clearpage
+
+
+%%%
+%%% Question 05 (Example 5.2 of NPTEL)
+%%%
+\begin{question}
+
+\begin{enumerate}[(a)]
+   \item Derive an expression for enthalpy change of a gas during an isothermal process assuming that the gas behaves accordingly with the following EOS:
+                     \begin{displaymath}
+                        Z = 1 + A \frc{P_{r}}{T_{r}},
+                     \end{displaymath}
+         where $Z$, $A$, $P_{r}$ and $T_{r}$ are constant compressibility factor, arbitrary constant, reduced pressure and temperature, respectively. Also, given the residual enthalpy expression,
+                     \begin{displaymath}
+                        \frc{H^{R}}{RT_{c}} = - T_{r}^{2}\int\limits_{0}^{P_{r}}\Partial[Z]{T_{r}}{P_{r}}\frc{d P_{r}}{P_{r}},
+                     \end{displaymath}
+         where $T_{c}$ is the critical temperature.~\marks{8}
+         \solution{For this problem we want to derive an expression for enthalpy change of an arbitrary real gas, $\Delta H$, given an EOS. Any thermodynamic property of real gases, $M$, can be expressed as functions of the equivalent ideal gas, $M^{\text{ig}}$, that can be readily obtained, and from residual properties of the gas, $M^{R}$, i.e.,~\solmarks{2/8}
+            \begin{displaymath}
+                M^{R} = M - M^{\text{ig}}.
+            \end{displaymath}
+            And for enthalpy changes~\solmarks{1/8}
+            \begin{displaymath}
+                \Delta H = \Delta H^{\text{ig}} + \Delta H^{R}.
+            \end{displaymath}
+            Thus we need to find an expression for $\Delta H^{R}$ based on the given equation,~\solmarks{3/8}
+                     \begin{eqnarray}
+                        \frc{H^{R}}{RT_{c}} &=& - T_{r}^{2}\int\limits_{0}^{P_{r}}\Partial[Z]{T_{r}}{P_{r}}\frc{d P_{r}}{P_{r}} = - T_{r}^{2}\int\limits_{0}^{P_{r}}\Partial[\left(1 + A \frc{P_{r}}{T_{r}}\right)]{T_{r}}{P_{r}}\frc{d P_{r}}{P_{r}} \nonumber \\
+                                          &=& - T_{r}^{2}\int\limits_{0}^{P_{r}}\left(-\frc{AP_{r}}{T_{r}^{2}}\right)\frc{d P_{r}}{P_{r}} = AP_{r} \nonumber
+                     \end{eqnarray}
+           Now, ~\solmarks{2/8}
+            \begin{eqnarray}
+                \Delta H &=& \Delta H^{\text{ig}} + \Delta H^{R} = \Delta H^{\text{ig}} - \left(H_{2}^{R}-H_{1}^{R}\right) \nonumber \\
+                         &=& \Delta H^{\text{ig}} + A\left(P_{r2}-P_{r1}\right)RT_{c} \nonumber
+            \end{eqnarray}
+         }
+
+   \item In a nuclear power plant, 10 kg.s$^{-1}$ of steam at 30 bar and 400$^{\circ}$C is isentropically expanded in a turbine to 1 bar. Determine:
+          \begin{enumerate}
+              \item Saturated temperature of the water-steam at 30 bar and 1 bar;~\marks{2}
+                  \solution{From the saturated water-steam table, the saturated temperature of water-steam at 30 bar and 1 bar are 233.9$^{\circ}$C~\solmarks{1/2} and 99.63$^{\circ}$C, respectively~\solmarks{1/2}.
+
+                  }
+              \item Quality of the water-steam after the expansion;~\marks{5}
+                  \solution{ At 30 bar, saturated temperature of water-steam is 233.9$^{\circ}$C $<<<$ 400$^{\circ}$C, therefore the fluid is at superheated state with~\solmarks{2/5}
+                     \begin{displaymath}
+                       h_{1} = 3230.9 \text{ kJ.kg}^{-1}\;\;\text{ and }\;\; s_{1} = 6.9212\text{ kJ.}\left(\text{kg.}^{\circ}\text{C}\right)^{-1}.
+                     \end{displaymath}
+                     At 1 bar (from saturated tables), 
+                     \begin{eqnarray}
+                       h_{f} = 417.46 \text{ kJ.kg}^{-1}\;\;\text{ and }\;\; s_{f} = 1.3026\text{ kJ.}\left(\text{kg.}^{\circ}\text{C}\right)^{-1}, \nonumber \\
+                       h_{g} = 2675.5 \text{ kJ.kg}^{-1}\;\;\text{ and }\;\; s_{g} = 7.3594\text{ kJ.}\left(\text{kg.}^{\circ}\text{C}\right)^{-1}. \nonumber
+                     \end{eqnarray}
+                     The water-steam is isentropically expanded in the turbine, i.e., $s_{2}=s_{1}$, therefore as $s_{f} < s_{2} < s_{g}$, we can conclude that the fluid leaving the turbine is partially condensed. The quality of the vapour can be calculated from~\solmarks{3/5}
+                       \begin{displaymath}
+                          \mfr[x]{}{V} = \frc{M-\mfr[M]{}{L}}{\mfr[M]{}{V} - \mfr[M]{}{L}} = \frc{s_{2}-s_{f}}{s_{g}-s_{f}} = \frc{6.9212-1.3026}{7.3594-1.3026} = 0.9277
+                       \end{displaymath}
+                  }
+              \item Power generated in the turbine (in MW);~\marks{5}
+                  \solution{ Using the quality calculated in (b), we can obtain $h_{2}$,~\solmarks{2/5}
+                       \begin{displaymath}
+                          \mfr[x]{}{V} = \frc{M-\mfr[M]{}{L}}{\mfr[M]{}{V} - \mfr[M]{}{L}} = \frc{h_{2}-h_{f}}{h_{g}-h_{f}} = \frc{h_{2}-417.46}{2675.5-417.46} = 0.9277\;\;\Rightarrow\;\; h_{2} = 2512.2437\text{ kJ.kg}^{-1}.
+                       \end{displaymath}
+                       The power produced by the turbine can be obtained from energy balance, i.e.,
+                        \begin{displaymath}
+                            \text{Output Energy} - \text{Input Energy} = 0 \;\;\Rightarrow\;\; \left(\dot{m}_{w}h_{2}+\dot{W}_{T}\right) - \dot{m}_{w}h_{1} = 0\;\;\Leftrightarrow\;\; \dot{W}_{T} = \dot{m}_{w}\left(h_{1}-h_{2}\right)
+                        \end{displaymath}
+                        leading to~\solmarks{3/5}
+                        \begin{displaymath}
+                           \dot{W}_{T} = 7.19\text{ MW}
+                        \end{displaymath}
+                  }
+          \end{enumerate}
+                         
+\end{enumerate}
+
+\end{question}
+
 
 \vfill
 \paperend
@@ -317,7 +396,7 @@ with [P] = bar, [T] = K, [B] = K and [C] = K.
 %\begin{comment}
 {
   \includepdf[pages=-,fitpaper]{./Pics/EquationsList}
-  \includepdf[pages=-,fitpaper]{./Pics/ChemEng_UnitConv}
+  \includepdf[pages=-,fitpaper]{./Pics/SelectedWaterSteam__UnitConv}
 }
 %\end{comment}
 
