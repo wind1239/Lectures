@@ -304,13 +304,16 @@
 \begin{frame}
  \frametitle{Aims and Objectives}
    \begin{enumerate}
-     \item<1-> In previous lectures, the main focus was on methods to calculate heat transfer flux under steady-state conditions;
+     \item<1-> In previous thermal energy conservation lectures, the main focus was on methods to calculate heat transfer flux under steady-state conditions;
      \item<1-> However, several environmental and industrial applications require understanding of transient (or unsteady) heat transfer mechanisms;
      \item<2-> In this module we will study two main heat transfer scenarios,
          \begin{enumerate}
-            \item<2-> The simplest case when the spatial variation of temperature is negligible, and temperature varies nearly uniformly with time ({\it lumped capacity method}) -- $T=T\left(t\right)$;
-            \item<3-> The most common case is when temperature varies in space and time -- $T=T\left(x, t\right)$;
-            \item<3-> For this, we will study two classes of methods, analytical and numerical methods for 1D. 
+            \item<2-> The simplest case when the spatial variation of temperature is negligible, and temperature varies nearly uniformly with time ({\it lumped-capacitance method}), \ie \blue{$T=T\left(t\right)$};
+            \item<3-> The most common case is when temperature varies in space and time, \ie \blue{$T=T\left(x, t\right)$}. For this, we will study two classes of methods:
+              \begin{enumerate}
+                 \item<4-> Analytical methods (appplied mostly for 1D problems);
+                 \item<5-> Numerical/Computational methods (embedded into simulators). 
+              \end{enumerate}
          \end{enumerate}
    \end{enumerate}
 \end{frame}
@@ -341,29 +344,6 @@
 \section{Lumped-Capacitance Method}
 %\section{Unsteady-State Conduction}
 
-%%% SUBSECTION
-\subsection{Introduction}
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Introduction}
-   \begin{columns}
-     \begin{column}[l]{0.5\linewidth}
-        \begin{center}
-          \includegraphics[width=\columnwidth,clip]{./Pics/Lumped1}
-        \end{center}
-     \end{column}
-%
-     \begin{column}[l]{0.5\linewidth}
-        \begin{enumerate}
-           \item<1-> In the study of heat transfer, the simplest case analysis is when bodies are assumed \red{{\it isothermal}} and, therefore they can be treated as a \blue{lump} system;
-           \item<1-> This means that the temperature of these bodies at any spatial coordinate can be expressed as function of time only, i.e., \blue{$T=T\left(t\right)$};
-        \end{enumerate}
-     \end{column}     
-   \end{columns}
-\end{frame}
 
 %%%
 %%% SUBSECTION
@@ -374,23 +354,57 @@
 %%% Slide
 %%%
 \begin{frame}
+ \frametitle{Introduction}
+   \begin{columns}
+     \begin{column}[l]{0.5\linewidth}
+         \begin{center}
+            \visible<3->{\includegraphics[width=.8\columnwidth,clip]{./Pics/Lumped1b}}
+         \end{center}
+     \end{column}
+     \begin{column}[l]{0.5\linewidth}
+         \begin{flushleft}
+            \visible<1->{\includegraphics[width=\columnwidth,clip]{./Pics/Lumped2}}
+         \end{flushleft}
+     \end{column}         
+   \end{columns}
+%
+        \begin{enumerate}
+           \item<1-> In the study of heat transfer, the simplest case analysis is when bodies are assumed \red{{\it isothermal}} and, therefore they can be treated as a \blue{lump} system;
+           \item<2-> This means that the temperature of these bodies at any spatial coordinate can be expressed as function of time only, i.e., \blue{$T=T\left(t\right)$}; 
+           \item<4-> Let's consider a body of mass \blue{$m$} and arbitrary shape $\left(\text{with area} \blue{A_{s}}\right)$ and temperature \blue{$T$};
+        \end{enumerate}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
  \frametitle{Thermal Energy Balance}
-   \begin{enumerate}
-     \item<1-> Let's consider a body of mass \blue{$m$} and arbitrary shape $\left(\text{with area} \blue{A_{s}}\right)$ and temperature \blue{$T$};
-     \item<1-> The body is assumed homogeneous and we can consider constant heat capacity at constant pressure, \blue{$C_{p}$}, thermal conductivity, \blue{$\kappa$} and;
-     \item<2-> The energy balance of an isothermal body during time interval \blue{$dt$}, subject to constant surrounding temperature \blue{$T_{\infty}$}, can be simplified as,\\
-       \begin{center}
-        \begin{tabular}{c c c}
-           \visible<3->{\blue{Heat transferred into}} & \visible<3->{=} & \visible<4->{\red{Increase of thermal energy}} \\
-           \visible<3->{\blue{the body during $dt$}}  &                 & \visible<4->{\red{of the body during $dt$}} \\
-                                                      &                 & \\
-           \visible<3->{\blue{$\Downarrow$}}          &                 & \visible<4->{\red{$\Downarrow$}}\\
-                                                      &                 & \\
-           \visible<3->{\blue{$hA_{s}\left(T_{\infty}-T\right)dt$}}& \visible<3->{=} & \visible<4->{\red{$mC_{p}dT$}}
-        \end{tabular}
+
+   \begin{columns}
+         \vspace{-.1cm}
+     \begin{column}[l]{0.5\linewidth}
+         \begin{center}
+            \visible<1->{\includegraphics[width=.8\columnwidth,clip]{./Pics/Lumped1c}}
+         \end{center}
+     \end{column}
+     \begin{column}[l]{0.5\linewidth} 
+         \begin{enumerate}\setcounter{enumi}{3}
+            \item<1-> The body is assumed homogeneous and we can consider constant {\it heat capacity at constant pressure} $\left(\blue{C_{p}}\right)$, {\it thermal conductivity} $\left(\blue{\kappa}\right)$ and;
+            \item<2-> The energy balance of a body during time interval \blue{$dt$}, subject to constant surrounding temperature \blue{$T_{\infty}$}, can be simplified as, 
+         \end{enumerate}
+     \end{column}
+   \end{columns}
+        \begin{center}
+          \begin{tabular}{c c c}
+             \visible<3->{\blue{Heat transferred into}} &\visible<3->{=} & \visible<4->{\red{Increase of thermal energy}} \\
+             \visible<3->{\blue{the body during $dt$}}  &                 & \visible<4->{\red{of the body during $dt$}} \\
+                                                        &                  & \\
+             \visible<3->{\blue{$hA_{s}\left(T_{\infty}-T\right)dt$}} &\visible<3->{=} & \visible<4->{\red{$mC_{p}dT$}}
+          \end{tabular}
         \end{center} 
-      \item<5-> For \blue{$m=\rho V$} (where $\rho$ and $V$ are the density and volume of the body, respectively) and;
-      \item<5-> \blue{$dT=d\left(T_{\infty}-T\right)$};
+       \begin{enumerate}\setcounter{enumi}{5} 
+     \item<5-> For \blue{$m=\rho V$} (where $\rho$ and $V$ are the density and volume of the body, respectively) and \blue{$dT=d\left(T-T_{\infty}\right)$};
    \end{enumerate}
 \end{frame}
 
@@ -399,15 +413,14 @@
 %%%
 \begin{frame}
  \frametitle{Thermal Energy Balance}
-   \begin{enumerate}\setcounter{enumi}{5}\scriptsize
+   \begin{enumerate}\setcounter{enumi}{6}\scriptsize
      \item<1-> The energy balance,
           \visible<1->{\blue{\begin{displaymath}
               hA_{s}\left(T_{\infty}-T\right)dt = mC_{p}dT \label{eqn:energybalance}
           \end{displaymath}}}
-     \item<1-> can be rearranged and integrated as (from time \blue{0} to \blue{t}),
+     \item<1-> can be rearranged and integrated as (from time \blue{$0$} to \blue{$t$}),
           \visible<2->{\begin{eqnarray}
-              \frc{d\left(T-T_{\infty}\right)}{T-T_{\infty}} &=& -\frc{hA_{s}}{\rho V C_{p}}dt \nonumber \\
-              \ln\frc{T(t)-T_{\infty}}{T_{0}-T_{\infty}} &=& -\frc{hA_{s}}{\rho V C_{p}}t \nonumber \\
+              \int\limits_{T_{0}}^{T(t)}\frc{d\left(T-T_{\infty}\right)}{T-T_{\infty}} &=& \int\limits_{0}^{t}-\frc{hA_{s}}{\rho V C_{p}}dt \;\;\Rightarrow \;\; \ln\frc{T(t)-T_{\infty}}{T_{0}-T_{\infty}} = -\frc{hA_{s}}{\rho V C_{p}}t  \nonumber\\ 
               \blue{\frc{T(t)-T_{\infty}}{T_{0}-T_{\infty}}} &\blue{=}& \blue{e^{-bt}} \label{eqn:CharacteristicTime}
           \end{eqnarray}}
           \visible<2->{where \blue{$T_{0}$} is the initial temperature and $b = \frc{hA_{s}}{\rho V C_{p}}$ is the \blue{time constant} with dimension {\bf $\left[\text{time}^{-1}\right]$}.}
@@ -426,32 +439,6 @@
 %%%
 %%% SUBSECTION
 %%%
-\subsection{Convection Heat Transfer}
-
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Convection Heat Transfer}
-   \begin{enumerate}%\setcounter{enumi}{5}\scriptsize
-     \item<1-> The {\it Newton's law of cooling} can determine the rate of convection heat transfer,
-          \visible<1->{\begin{displaymath}
-              \dot{Q}(t) = hA_{s}\left[T(t) - T_{\infty}\right] \hspace{1cm} \mathbf{(W)}
-          \end{displaymath}}
-     \item<2-> The heat transferred between the body and the surroundings during time \blue{$\Delta t$} is the energy change in the system (i.e., body + surroundings):
-          \visible<2->{\begin{displaymath}
-              Q = m C_{p}\left[T(t) - T_{\infty}\right] \hspace{1cm} \mathbf{(J)}
-          \end{displaymath}}
-     \item<3-> Therefore the maximum heat exchanged between the body and the surroundings is
-          \visible<3->{\blue{\begin{equation}
-              Q_{\text{max}} = m C_{p}\left[T_{0} - T_{\infty}\right] \hspace{1cm} \mathbf{(J)}
-          \end{equation}}}
-   \end{enumerate}
-\end{frame}
-
-%%%
-%%% SUBSECTION
-%%%
 \subsection{Criteria for Lumped System}
 
 
@@ -461,10 +448,10 @@
 \begin{frame}
  \frametitle{Criteria for Lumped System}
    \begin{enumerate}%\setcounter{enumi}{5}\scriptsize
-     \item<1-> The assumption of {\bf lumped system} is not often the most appropriate. With the {\it characteristic length} \blue{$L_{c}=\frc{V}{A_{s}}$};
-     \item<2-> We can determine the dimensionless \red{Biot Number ($\Bi$)},
+     \item<1-> The assumption of {\bf lumped system} is not often the most appropriate. 
+     \item<2-> Defining the \underline{\it characteristic length} as \blue{$L_{c}=\frc{V}{A_{s}}$}, we can determine the dimensionless \red{Biot Number ($\Bi$)},
        \begin{equation}
-          \visible<2->{\red{\Bi} \blue{= \frc{\text{Conduction resistance within the body}}{\text{Convection resistance at the surface}}}} \visible<3->{\blue{= \frc{\frc{L_{c}}{\kappa}}{\frc{1}{h}}} \red{= \frc{h L_{c}}{\kappa}}}
+          \visible<3->{\red{\Bi} \blue{= \frc{\text{Conduction resistance within the body}}{\text{Convection resistance at the surface}}}} \visible<3->{\blue{= \frc{\frc{L_{c}}{\kappa}}{\frc{1}{h}}} \red{= \frc{h L_{c}}{\kappa}}}
        \end{equation}  
      \item<4-> {\bf Lumped system} analysis \underline{assumes {\it uniform temperature distribution}} \underline{throughout the body};
      \item<4-> This assumption is correct {\bf if} the convection coefficient is small and thermal conductivity is large, \ie
@@ -493,25 +480,19 @@ This method is valid {\bf only if}
 
 \end{frame}
 
-%%%
-%%% Slide
-%%%
-\begin{frame}
- \frametitle{Criteria for Lumped System -- Example 1}
-   \begin{enumerate}%\scriptsize
-     \item<1-> Two spheres are removed from a furnace and let to cool with air at 25$^{\circ}$C under relatively low convection coefficient of 15 W.$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. The spheres are made of copper,  $\kappa_{\text{Cu}}=401\;\text{W.}\left(\text{m.}^{\circ}\text{C}\right)^{-1}$, and coal, $\kappa_{\text{Coal}}=0.2\;\text{W.}\left(\text{m.}^{\circ}\text{C}\right)^{-1}$. Can we apply the lumped method to both spheres? 
-   \end{enumerate}
-\end{frame}
 
 %%%
 %%% Slide
 %%%
-\begin{frame}
- \frametitle{Criteria for Lumped System --  Example 2}
-   \begin{enumerate}\setcounter{enumi}{1}%\scriptsize % Holman pg 143
-      \item A steel ball of 5 cm in diameter and at uniform temperature of 450$^{\circ}$C is suddenly placed in a controlled environment where temperature is kept at 100$^{\circ}$C.  The prescribed convection heat transfer coefficient is 10 W.$\left(\text{m}^{2}.^{\circ}\text{C}\right)^{-1}$. Calculate the time required for the ball to reach 150$^{\circ}$C. \\
-Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\text{ W.}\left(\text{m.}^{\circ}\text{C}\right)$ and $\rho_{\text{steel}}=7.8\times 10^{3}\text{kg.m}^{-3}$.
-   \end{enumerate}
+\begin{frame} % Holman pg 143
+ \frametitle{Criteria for Lumped System --  Example 1}
+      A steel ball of 5 cm in diameter and at uniform temperature of 450$^{\circ}$C is suddenly placed in a controlled environment where temperature is kept at 100$^{\circ}$C.  The prescribed convection heat transfer coefficient is 10 W.$\left(\text{m}^{2}.^{\circ}\text{C}\right)^{-1}$. Calculate the time required for the ball to reach 150$^{\circ}$C. Given:
+
+\begin{flushleft}
+ C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$ \\
+ $\kappa_{\text{steel}}=35\text{ W.}\left(\text{m.}^{\circ}\text{C}\right)^{-1}$ and \\
+$\rho_{\text{steel}}=7.8\times 10^{3}\text{kg.m}^{-3}$.
+\end{flushleft}
 \end{frame}
 
 
@@ -526,7 +507,7 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
 \begin{frame}
  \frametitle{Introduction}
    \begin{enumerate}%\setcounter{enumi}{5}%\scriptsize
-     \item<1-> In most transient heat transfer problems, the \blue{\it Biot} dimensionless number is larger than \blue{0.1} and the \blue{lumped-capacity method} and Eqn.~\ref{eqn:CharacteristicTime} can not be used.
+     \item<1-> In most transient heat transfer problems, the \blue{\it Biot} dimensionless number is larger than \blue{0.1} and the \blue{lumped-capacitance method} and Eqn.~\ref{eqn:CharacteristicTime} can not be used.
      \item<2-> In such cases, it is necessary to calculate the temperature distribution throught spatial and time domains, i.e., \red{$T\left(\underline{x},t\right)$}, where $\underline{x}$ is the spatial-coordinate in 1-, 2- and 3-D;
    \end{enumerate}
 
@@ -709,9 +690,9 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
    \begin{enumerate}[(a)]\setcounter{enumi}{3}%\scriptsize
      \item<1-> We can perform the integration for all three  studied geometries:
           \begin{eqnarray}
-            \text{Plane wall:} && \left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{wall}} = 1 - \theta_{0,\text{wall}}\frc{\sin{\lambda_{1}}}{\lambda_{1}} \\
-            \text{Cylinder:} && \left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{cyl}} = 1- 2\theta_{0,\text{cyl}}\frc{\mathbf{J_{1}}}{\lambda_{1}} \\
-            \text{Sphere:} && \left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{sph}} = 1 - 3\theta_{0,\text{sph}}\frc{\sin{\lambda_{1}}-\lambda_{1}\cos{\lambda_{1}}}{\lambda_{1}^{3}}
+            \text{Plane wall:} && \left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{wall}} = 1 - \theta_{0,\text{wall}}\frc{\sin{\lambda_{1}}}{\lambda_{1}}\label{hessler:wall} \\
+            \text{Cylinder:} && \left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{cyl}} = 1- 2\theta_{0,\text{cyl}}\frc{\mathbf{J_{1}}}{\lambda_{1}}\label{hessler:cylinder} \\
+            \text{Sphere:} && \left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{sph}} = 1 - 3\theta_{0,\text{sph}}\frc{\sin{\lambda_{1}}-\lambda_{1}\cos{\lambda_{1}}}{\lambda_{1}^{3}}\label{hessler:sphere}
           \end{eqnarray}
       \item<2-> Heisler and Gr\"ober charts were developed for these geometries to {\it easily} obtain temperature distribution and heat transfer in prescribed geometries. 
       \item<3-> Heisler and Gr\"ober charts are available in Appendix 2. They can also be obtained from most heat transfer text-books.      
@@ -743,7 +724,7 @@ Given C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$, $\kappa_{\text{steel}}=35\t
 %%% Slide (Example 4.5)
 %%%
 \begin{frame}
- \frametitle{Analytical Methods: Example3}
+ \frametitle{Analytical Methods: Example2}
 A long 20-cm-diameter cylindrical shaft made of stainless steel 304 comes out of an oven at a uniform temperature of 600$^{\circ}$C. The shaft is then allowed to cool slowly in an environment chamber at 200$^{\circ}$C with an average heat transfer coefficient of ($h$) of 80 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Determine the temperature at the center of the shaft 45 min after the start of the cooling process. Also, determine the heat transfer per unit length of the shaft during this time period. Given, for stainless steel 304 at room temperature: \\
 \begin{tabular}{l c l l}
 $\kappa$ & = & 14.9 & W/$\left(\text{m.}^{\circ}\text{C}\right)$ \\
@@ -884,21 +865,21 @@ $\alpha$ & = & 3.95$\times$10$^{-6}$ & m$^{2}$/s
 \begin{frame}
   \frametitle{Solving 1D Transient HT Problems with FDM}
     \begin{enumerate}\setcounter{enumi}{6}
-      \item<1-> Now substituting and arranging Eqns.~\ref{eqn:spatial_term}-~\ref{eqn:time_term} in Eqn.~\ref{DiffusionEqn}, with subscript $i$ and superscript $j$ representing spatial- and time-discretisation, respectively,
+      \item<1-> Now substituting and arranging Eqns.~\ref{eqn:spatial_term}-\ref{eqn:time_term} in Eqn.~\ref{DiffusionEqn}, with subscript $i$ and superscript $j$ representing spatial- and time-discretisation, respectively,
          \visible<1->{\begin{equation}
             T_{i}^{j+1} = T_{i}^{j} + \frc{\alpha\Delta t}{\left(\Delta x\right)^{2}}\left(T_{i+1}^{j}-2T_{i}^{j}+T_{i-1}^{j}\right)\label{ExplicitScheme}
          \end{equation}}
       \item<2-> The transient problem may be subject to \blue{boundary conditions} of the following types:
          \begin{enumerate}
-            \item<2-> Dirichlet BC: 
+            \item<2-> {\it Dirichlet BC:} fixed value (or function)
                  \visible<2->{\begin{eqnarray}
                       && T\left(x=0,t_{j}\right) = T_{1}^{j} = \Psi_{1} \;\;\; \text{ and/or } \nonumber \\
                       && T\left(x=L,t_{j}\right) = T_{n}^{j} = \Psi_{2} \nonumber 
                  \end{eqnarray}
                  where $\Psi_{1}$ and $\Psi_{2}$ are either constants or functions;}
-            \item<3-> Robin BC: prescribed flux, 
+            \item<3-> {\it Newman BC:} prescribed flux, 
                 \visible<3->{\begin{eqnarray}
-                   &&-\kappa\frc{\partial}{\partial x}T\left(x_{n},t_{j}\right) = h\left[T\left(x_{n},t_{j}\right)-T_{\infty}\right] \text{or in indices notation,}\nonumber \\
+                   &&-\kappa\frc{\partial}{\partial x}T\left(x_{n},t_{j}\right) = h\left[T\left(x_{n},t_{j}\right)-T_{\infty}\right] \text{ or in indices notation,}\nonumber \\
                    &&-\kappa\frc{\partial T_{n}^{j}}{\partial x} = h\left(T_{n}^{j}-T_{\infty}\right) \nonumber
                 \end{eqnarray}}
          \end{enumerate}
@@ -927,6 +908,22 @@ $\alpha$ & = & 3.95$\times$10$^{-6}$ & m$^{2}$/s
 
 
 %%%
+%%% Slide (Cengel Example 5.5)
+%%%
+\begin{frame}
+   \frametitle{Finite Difference Method: Example3}
+   Consider a large uranium plate of thickness $L=$ 4 cm, $\kappa =$ 28 W/(m.$^{\circ}$C), and $\alpha =$ 12.5$\times$10$^{-6}$ m$^{2}$/s that is initially at a uniform temperature of 200$^{\circ}$C. Heat is generated uniformly in the plate at a constant rate of 5$\times$10$^{6}$ W/m$^{3}$. 
+\medskip
+
+At time $t=$ 0, one side of the plate is brought into contact with iced water and is maintained at 0$^{\circ}$C at all times, while the other side is subjected to convection to an environment at T$_{\infty}=$ 30$^{\circ}$C with a heat transfer coefficient of $h=$ 45 W/(m$^{2}.^{\circ}$C).  
+\medskip
+
+Considering a total of three equally spaced nodes in the medium, two at the boundaries and one at the middle, estimate the exposed surface temperature of the plate 2.5 min after the start of cooling using finite difference method.
+
+\end{frame}
+
+
+%%%
 %%%  SECTION
 %%%
 \section{Summary} 
@@ -937,17 +934,15 @@ $\alpha$ & = & 3.95$\times$10$^{-6}$ & m$^{2}$/s
 \begin{frame}
   \frametitle{Summary}
     \begin{enumerate}  
-       \item Lumped capacity methods;  
-       \item Analytical methods using Heisler and Gr\"ober charts;
-       \item Finite-difference methods for 1D heat conduction problems.
+       \item Lumped-capacitance method (Eqn.~\ref{eqn:CharacteristicTime}) for simple 1D problems where temperature is time-dependent only, \ie , $T=T(t)$, and $\Bi \leq 0.1$;  
+       \item Analytical methods assuming constant thermo-physical properties, uniform initial temperature, {\bf no} heat generation and prescribed geometries:
+           \begin{enumerate}
+              \item Using Eqns.~\ref{analytical:wall}-\ref{analytical:sphere} for 1D problems;
+              \item Using Eqns.~\ref{hessler:wall}-\ref{hessler:sphere} with Heisler and Gr\"ober charts;
+            \end{enumerate}
+       \item Numerical methods: Finite-difference method for multi-D heat conduction problems in simple geometries.
     \end{enumerate}
 \end{frame}
-
-
-
-
-
-
 
 
 %%%
@@ -955,21 +950,19 @@ $\alpha$ & = & 3.95$\times$10$^{-6}$ & m$^{2}$/s
 %%%
 \section{Appendices}
 
-\subsection{Appendix 1: Coefficients and Bessel Functions}\label{appendix1}
+\subsection{Appendix 1: Coefficients and Bessel Functions (extracted from [3])}\label{appendix1}
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Coefficients and Bessel Functions}
+ \frametitle{Coefficients and Bessel Functions (extracted from [3])}
         \begin{center}
           \includegraphics[width=.9\columnwidth,height=.65\columnwidth,clip]{./Pics/BaselFunctionTable}
         \end{center}
 \end{frame}
 
 
-
-
-\subsection{Appendix 2: Heisler and Gr\"ober Charts}\label{appendix2}
+\subsection{Appendix 2: Heisler and Gr\"ober Charts (extracted from [3])}\label{appendix2}
 {
   \includepdf[pages=-,fitpaper]{./Pics/HeislerCharts_All.pdf}
 }
