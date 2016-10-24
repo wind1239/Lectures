@@ -11,6 +11,7 @@ default:	EG501J_Exam1_2014-5.pdf EG501J_Exam2_2014-5.pdf \
 		EX3030_Exam_2015-6.pdf \
 		EX3030_ExamSample_2015-6.pdf EX3029_AllExams.pdf \
 		EX3029_Exam1_2016-7.pdf EX3029_Exam2_2016-7.pdf \
+		EX3029_MockTest.pdf
 
 EG501J_Exam1_2014-5.pdf:	EG501J_Exam1_2014-5.tex
 EG501J_Exam2_2014-5.pdf:	EG501J_Exam2_2014-5.tex
@@ -34,6 +35,7 @@ EX3030_ExamSample_2015-6.pdf:	EX3030_ExamSample_2015-6.tex
 EX3029_AllExams.pdf:		EX3029_AllExams.tex
 EX3029_Exam1_2016-7.pdf:	EX3029_Exam1_2016-7.tex
 EX3029_Exam2_2016-7.pdf:	EX3029_Exam2_2016-7.tex
+EX3029_MockTest.pdf:		EX3029_MockTest.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
