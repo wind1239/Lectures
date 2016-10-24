@@ -485,16 +485,46 @@ This method is valid {\bf only if}
 %%% Slide
 %%%
 \begin{frame} % Holman pg 143
- \frametitle{Criteria for Lumped System --  Example 1}
-      A steel ball of 5 cm in diameter and at uniform temperature of 450$^{\circ}$C is suddenly placed in a controlled environment where temperature is kept at 100$^{\circ}$C.  The prescribed convection heat transfer coefficient is 10 W.$\left(\text{m}^{2}.^{\circ}\text{C}\right)^{-1}$. Calculate the time required for the ball to reach 150$^{\circ}$C. Given:
+ \frametitle{Criteria for Lumped System --  Example 1 (Tutorial P2)}
+      \blue{A steel ball of 5 cm in diameter and at uniform temperature of 450$^{\circ}$C is suddenly placed in a controlled environment where temperature is kept at 100$^{\circ}$C.  The prescribed convection heat transfer coefficient is 10 W.$\left(\text{m}^{2}.^{\circ}\text{C}\right)^{-1}$. Calculate the time required for the ball to reach 150$^{\circ}$C. Given:}
 
 \begin{flushleft}
- C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$ \\
- $\kappa_{\text{steel}}=35\text{ W.}\left(\text{m.}^{\circ}\text{C}\right)^{-1}$ and \\
-$\rho_{\text{steel}}=7.8\times 10^{3}\text{kg.m}^{-3}$.
+  \blue{C$_{p,\text{steel}} = 0.46\text{ kJ.kg}^{-1}$} \\
+  \blue{$\kappa_{\text{steel}}=35\text{ W.}\left(\text{m.}^{\circ}\text{C}\right)^{-1}$ and} \\
+  \blue{$\rho_{\text{steel}}=7.8\times 10^{3}\text{kg.m}^{-3}$.}
 \end{flushleft}
+
+\visible<2->{First, let's check if lumped-capacitance method can be used to solve this problem:}
+    \begin{displaymath}
+       \visible<3->{ \Bi = \frc{hL_{c}}{\kappa}, }
+    \end{displaymath}
+   \visible<4->{where the characteristic length is }
+    \begin{displaymath}
+       \visible<4->{ L_{c}=\frc{V}{A_{s}} }\visible<5->{= \frc{4/3\pi r^{3}}{4\pi r^{2}} = \frc{r}{3}}
+    \end{displaymath}
+
 \end{frame}
 
+
+%%%
+%%% Slide
+%%%
+\begin{frame} % Holman pg 143
+ \frametitle{Criteria for Lumped System --  Example 1 (Tutorial P2)}
+
+    \visible<1->{Thus the $\Bi$ number is}
+       \begin{displaymath}
+          \visible<2->{ \Bi = \frc{hL_{c}}{\kappa}= }\visible<3->{\frc{h\left(r/3\right)}{\kappa}} \visible<4->{=\frc{h\left(d/6\right)}{\kappa}} \visible<5->{= 2.38\times 10^{-3} <<<< 0.1}
+       \end{displaymath}
+    \visible<6->{Therefore we can use the {\it lumped-capacitance method} and,} 
+       \begin{eqnarray}
+           && \visible<7->{\frc{T(t)-T_{\infty}}{T_{0}-T_{\infty}} = e^{-bt} \;\;\;\text{ where }\;\; b = \frc{hA_{s}}{\rho V C_{p}} = \frc{h}{L_{c}\rho C_{p}}} \nonumber \\
+           && \visible<8->{\frc{150-100}{450-100} = \exp{\left(-\frc{10 t}{\frac{5\times 10^{-2}}{6}\times 7.8\times 10^{3}\times 0.46\times 10^{3}}\right)}} \nonumber \\
+           && \visible<8->{t = 5818.27\text{ s } \approx 1.62\text{ h }} \nonumber 
+       \end{eqnarray}
+       
+
+\end{frame}
 
 %%%
 %%% SECTION
@@ -724,16 +754,111 @@ $\rho_{\text{steel}}=7.8\times 10^{3}\text{kg.m}^{-3}$.
 %%% Slide (Example 4.5)
 %%%
 \begin{frame}
- \frametitle{Analytical Methods: Example2}
-A long 20-cm-diameter cylindrical shaft made of stainless steel 304 comes out of an oven at a uniform temperature of 600$^{\circ}$C. The shaft is then allowed to cool slowly in an environment chamber at 200$^{\circ}$C with an average heat transfer coefficient of ($h$) of 80 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$. Determine the temperature at the center of the shaft 45 min after the start of the cooling process. Also, determine the heat transfer per unit length of the shaft during this time period. Given, for stainless steel 304 at room temperature: \\
+ \frametitle{Analytical Methods: Example2 (Tutorial P3)}
+\blue{A long 20-cm-diameter cylindrical shaft made of stainless steel 304 comes out of an oven at a uniform temperature of 600$^{\circ}$C. }
+\medskip
+
+\blue{The shaft is then allowed to cool slowly in an environment chamber at 200$^{\circ}$C with an average heat transfer coefficient of ($h$) of 80 W/$\left(\text{m}^{2}.^{\circ}\text{C}\right)$.}
+\medskip
+
+\blue{Determine the temperature at the centre of the shaft 45 min after the start of the cooling process. }
+\medskip
+
+\blue{Also, determine the heat transfer per unit length of the shaft during this time period. Given, for stainless steel 304 at room temperature:} \\
 \begin{tabular}{l c l l}
-$\kappa$ & = & 14.9 & W/$\left(\text{m.}^{\circ}\text{C}\right)$ \\
-$\rho$   & = & 7900 & kg/m$^{3}$ \\
-$C_{p}$   & = & 477 & J/(kg.$^{\circ}$C) \\
-$\alpha$ & = & 3.95$\times$10$^{-6}$ & m$^{2}$/s 
+\blue{$\kappa$} & \blue{=} & \blue{14.9} & \blue{W/$\left(\text{m.}^{\circ}\text{C}\right)$} \\
+\blue{$\rho$}   & \blue{=} & \blue{7900} & \blue{kg/m$^{3}$} \\
+\blue{$C_{p}$}   & \blue{=} & \blue{477} & \blue{J/(kg.$^{\circ}$C)} \\
+\blue{$\alpha$} & \blue{=} & \blue{3.95$\times$10$^{-6}$} & \blue{m$^{2}$/s} 
 \end{tabular}
 
+
+
 \end{frame}
+
+
+%%%
+%%% Slide (Example 4.5)
+%%%
+\begin{frame}
+ \frametitle{Analytical Methods: Example2 (Tutorial P3)}
+
+\visible<1->{As the problem deals with a long geometry and the thermal symmetry is in the centerline, we can assume the problem as a 1D. }\visible<2->{ The radius of the cylinder is 0.1 m, thus}
+    \begin{displaymath}
+       \visible<3->{\Bi = \frc{hr_{0}}{\kappa} = 0.5369}\visible<4->{>0.1\;\; \red{\text{ thus lumped method can not be used, therefore}}}
+    \end{displaymath}
+\medskip
+
+\visible<5->{{\bf Method 1:} Heisler chart for cylindrical geometries can be used with}
+    \begin{displaymath}
+        \begin{cases}
+            \visible<6->{\frc{1}{\Bi} = 1.86\text{ and, }} \\
+            \visible<7->{Fo = \tau = \frc{\alpha t}{r_{0}^{2}} = \frc{3.95\times 10^{-6} \times \left(45 \times 60\right)}{0.1^{2}} = 1.07}.  
+        \end{cases}
+    \end{displaymath}
+
+    \begin{displaymath}
+         \visible<8->{\frc{T_{0}-T_{\infty}}{T_{i}-T_{\infty}} = 0.40 = \frc{T_{0}-200}{600-200}}\;\;\visible<9->{\Rightarrow\;\;\;T_{0}=360^{\circ}\text{C}}
+    \end{displaymath}
+
+\end{frame}
+
+%%%
+%%% Slide (Example 4.5)
+%%%
+\begin{frame}
+ \frametitle{Analytical Methods: Example2 (Tutorial P3)}
+
+    \visible<1->{The actual heat transfer can be obtained from the Gr\"ober chart with}
+    \begin{displaymath}
+        \begin{cases}
+            \visible<2->{\Bi^{2}\tau = 0.31 } \\
+            \visible<3->{\Bi = 0.54, }  
+        \end{cases}
+    \end{displaymath}
+    \visible<4->{leading to $\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}$ = 0.62}
+
+    \visible<5->{Calculating $\mathcal{Q}_{\text{max}}$ for $L=1$ m,} 
+    \begin{displaymath}
+       \visible<6->{\mathcal{Q}_{\text{max}} = mC_{p}\left(T_{\infty}-T_{i}\right) = 47352744\text{ J},}
+    \end{displaymath}
+    \visible<6->{with $m=\rho V = \rho \pi r_{0}^{2} L = 248.18$ kg.} 
+    \medskip
+
+    \visible<7->{And $\red{\mathcal{Q}=}29358701.28$ J $\sim \red{29.36}$ MJ.}
+
+\end{frame}
+
+%%%
+%%% Slide (Example 4.5)
+%%%
+\begin{frame}
+ \frametitle{Analytical Methods: Example2 (Tutorial P3)}
+
+    \visible<1->{{\bf Method 2:} Analytical Method: with $\Bi = 0.5369$ and $\tau = 1.07$.}
+    \medskip
+
+    \visible<2->{We can obtain the series coefficient and the Bessel functions $\lambda_{1} = 0.9694$ and $A_{1}=1.1218$.}
+    \medskip
+
+    \visible<3->{Now obtaining the non-dimensionalised temperature:}
+    \begin{displaymath}
+       \visible<4->{\theta_{0} = \frc{T_{0}-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}e^{-\lambda_{1}^{2}\tau} = 0.4104}\;\;\;\visible<5->{T_{0}=364.16^{\circ}\text{C}}
+    \end{displaymath}
+    \visible<6->{Obtaining}
+    \begin{displaymath}
+       \visible<6->{\left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{cyl}} = 1 - 2\theta_{0}\frc{J_{1}\left(\lambda_{1}\right)}{\lambda_{1}}}\;\;\;\;\visible<6->{\text{ where } J_{1}\left(\lambda_{1}\right) = 0.4296 }
+    \end{displaymath}
+
+    \visible<7->{Thus}
+    \begin{displaymath}
+       \visible<7->{\left(\frc{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{cyl}} = 0.636\;\;\;\Rightarrow\;\; \red{Q = } 30116345.18\text{ J} \sim \red{30.12\text{ MJ}}}
+    \end{displaymath}
+    
+
+\end{frame}
+
+
 
 
 %%%
