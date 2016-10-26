@@ -2523,77 +2523,79 @@ Assuming ideal solution, $K_{i}$ for the three hydrocarbons can be readily obtai
 \subsection{Introduction}\label{Section:05:Introduction}
 Vapour-liquid equilibrium of pure components and mixtures were the focus of study in Modules~\ref{Section:02}-\ref{Section:04}. In this modules, equations of state were introduced to represent the $PVT$ behaviour of pure components in both vapour and liquid phases. From your readings, you may have noticed that EOS are largely applied, with relatively accuracy, to vapour phases, but rarely used to assess liquid phase behaviour. 
 
-This is mainly due to the fact that EOS were originally (and cubic EOS in particular) to represent weak inter-molecular forces between molecules at relatively large distances. As pressure increases $\left(P\rightarrow \infty\right)$ and the distance between molecules tends to zero $\left(d\rightarrow 0\right)$, accuracy of EOS to predict $PVT$ behaviour also decreases, as the attractive and repulsive forces between molecules are stronger. 
+This is mainly due to the fact that EOS were originally (and cubic EOS in particular) to represent weak inter-molecular forces between gaseous molecules at relatively large distances (\ie {\it mean free path}). As pressure increases $\left(P\rightarrow \infty\right)$ and the distance between molecules tends to zero $\left(d\rightarrow 0\right)$, the accuracy of equations of state to predict $PVT$ behaviour also decreases, as the attractive and repulsive forces between molecules become stronger. 
 
-Molecules in liquid phase are held together at close distance by strong attractive forces, however these forces are not strong enough to keep them in a fixed position (as forces in the solid phase) and the molecules are free to move past, slide over and collide with other molecules. A fraction of the molecules (mostly with higher energy) may be able to break such attractive forces and `escape' towards the vapour phase. 
+Molecules in liquid phase are held together at close distances by strong attractive forces, however these forces are not strong enough to keep them in fixed positions (as inter/intraforces in the solid phase) and the molecules are free to move past, slide over and collide with other molecules. A fraction of the molecules (mostly with higher energy) may be able to break such attractive forces and `escape' towards the vapour phase. 
 
-Kinetic energy in gaseous molecules are larger than the attractive forces, leading to large distances between molecules and a tendency to occupy the whole volume of the system. The large kinetic energy in gaseous molecules also lead to continuous collisions between molecules and with the system (container) walls. After collisions, although the momentum is conserved, individual energies (and velocities) may decrease and molecules may move to a system with lower kinetic energy, \ie liquid phase.
+Kinetic energy in gaseous molecules are larger than the attractive forces, leading to large distances between molecules and a tendency to occupy the whole volume of the system. The large kinetic energy in gaseous molecules also lead to continuous collisions between molecules and with the system (container) walls. During collisions, although total momentum is conserved, individual energies (and velocities) may decrease and molecules may move to a system with lower kinetic energy, \ie liquid phase.
+
+\bigskip
 
 In Module~\ref{Section:01}, the concept of {\it mechanical} (\ie system at constant or uniform pressure) and {\it thermal} (from the Zeroth law) equilibrium were introduced. In order to define phase equilibria, we established (in Module~\ref{Section:04}) that an additional condition was necessary, {\it chemical equilibrium}, \ie equality of Gibbs free energy of all phases (Section~\ref{Section:03:ClapeyronRelations}) for pure fluids. This concept can be extended for mixtures by using the definition of {\it chemical potential}, $\mu_{i}$ (Eqn.~\ref{Mod04_ChemPotentialDef1b}),
          \begin{displaymath}
             \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i},
          \end{displaymath}
-where $\overline{G}_{i}$ is the partial molar Gibbs free energy. This leads to the final phase equilibria condition in which {\it the chemical potential for each component at all coexisting phases are identical}, \ie 
+where $\overline{G}_{i}$ is the {\it partial molar Gibbs free energy}. This leads to the final phase equilibria condition in which {\it the chemical potential for each component at all coexisting phases are identical}, \ie 
          \begin{eqnarray}
-            && \mfr[\mu]{i}{\alpha} = \mfr[\mu]{i}{\beta} = \cdots =  \mfr[\mu]{i}{j} = \cdots, \;\;\;\forall i\in\{1,2,\cdots,\mathcal{C}\}\;\; \text{ and }\;\;\; \forall j\in\{\alpha,\beta,\cdots,\mathcal{N}_{\mathcal{P}}\}, \nonumber \\
+            && \mfr[\mu]{i}{\alpha} = \mfr[\mu]{i}{\beta} = \cdots =  \mfr[\mu]{i}{j} = \cdots = \mfr[\mu]{i}{\mathcal{N}_{\mathcal{P}}} = \;\;\;\forall i\in\{1,2,\cdots,\mathcal{C}\}\;\; \text{ and }\;\;\; \forall j\in\{\alpha,\beta,\cdots,\mathcal{N}_{\mathcal{P}}\}, \nonumber \\
             &&  \text{or for VLE systems: }\;\;\;\; \mfr[\mu]{i}{L} = \mfr[\mu]{i}{V},\;\;\;\forall i\in\{1,2,\cdots,\mathcal{C}\} \nonumber 
          \end{eqnarray}
 
 \medskip
 
-The main assumptions for ideal gas behaviour assumes that molecules of gas are mass-less particles with no interaction between them (\ie volume of the molecules is negligibly small compared with the volume occupied by the gas or simply the distance between gaseous molecules are often infinitely large, $d\rightarrow \infty$), except during elastic collisions over negligible duration. These conditions can only be met by fluids at sufficiently high temperature and relatively low pressure when large distances between molecules and high velocity overcome any interaction. The concept of ideality for liquids also exists and is based on the assumption that inter-molecular forces are the same between all molecules in solution. This assumption may be correct for pure non-polar substances (\ie in solutions with no major inter-/intra-molecular forces).
+The main assumptions for ideal gas behaviour assumes that molecules of gas are massless particles with no interaction between them (\ie volume of the molecules is negligibly small compared with the volume occupied by the gas or simply the distance between gaseous molecules are often infinitely large, $d\rightarrow \infty$), except during elastic collisions over negligible duration. These conditions can only be met by fluids at sufficiently high temperature and relatively low pressure when large distances between molecules and high velocity overcome any interaction. The concept of ideality for liquids also exists and is based on the assumption that inter-molecular forces are the same between all molecules in solution. This assumption may be correct for pure non-polar substances (\ie in solutions with no major inter/intramolecular forces).
 
-Thus, the aim of this Module is to define thermodynamic properties of real solutions based on properties of ideal solutions. Excess property (Section~\ref{Section:04:ExcessProperties}) plays a role similar to that of residual property for gases. In order to assess solution properties at low to moderate pressures, {\it activity coefficient}, based on the definition of {\it fugacity}, is used. The {\it activity coefficient}, derived from the {\it excess Gibbs free energy}, is a measure of the extent of non-ideality of a real solution and helps describing phase equilibria of mixtures at low and moderate pressures.
+Thus, the aim of this Module is to define thermodynamic properties of real solutions based on properties of ideal solutions. Excess properties (Section~\ref{Section:04:ExcessProperties}) plays a role similar to that of residual properties for gases. In order to study solution properties at low to moderate pressures, {\it activity coefficient}, based on the definition of {\it fugacity}, is used. The {\it activity coefficient}, derived from the {\it excess Gibbs free energy}, is a measure of the extent of non-ideality of a real solution and helps describing phase equilibria of mixtures at low and moderate pressures.
 
 
 %%% SUBSECTION
 \subsection{Fugacity}\label{Section:05:FugacitySection}
 \begin{subequations}
-  A formal definition for {\it partial molar property} was given in Section~\ref{Section:04:PartialMolarProperties} for an arbitrary extensive function $M$, Eqn.~\ref{Mod04_PartialProperties2}. Such formulation was applied to the Gibbs free energy of an open system with $n=n_{1}+n_{2}+\cdots+n_{\mathcal{C}}$ moles leading to the definition of chemical potential, Eqns.~\ref{Mod04_ChemPotentialDef1}-~\ref{Mod04_ChemPotentialDef1b},
+  A formal definition for {\it partial molar property} was given in Section~\ref{Section:04:PartialMolarProperties} for an arbitrary extensive function $M$, Eqn.~\ref{Mod04_PartialProperties2}. Such formulation was applied to the Gibbs free energy of a system with $n=n_{1}+n_{2}+\cdots+n_{\mathcal{C}}$ moles leading to the definition of chemical potential, Eqns.~\ref{Mod04_ChemPotentialDef1}-~\ref{Mod04_ChemPotentialDef1b},
   \begin{shaded}
      \begin{eqnarray}
        && dG = \Partial[G]{P}{T,n}dP + \Partial[G]{T}{P,n}dT + \underbrace{\Partial[G]{n}{T,P}}_{\mu}dn, \nonumber \\
        && \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i}, \nonumber
      \end{eqnarray}
   \end{shaded}
-  For pure components,
+  \noindent For pure components,
   \begin{displaymath}
-    G = n\mu \;\;\rightarrow \mu=\frc{G}{n}=\overline{g}.
+    G = n\mu \;\;\rightarrow \mu=\frc{G}{n}=\overline{g},
   \end{displaymath}
-  Using the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7},
+  where $\overline{g}$ is the molar Gibbs free energy. Using the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7},
   \begin{eqnarray}
     && \Partial[G]{P}{T} = V = \Partial[n\mu]{P}{T} = n\Partial[\mu]{P}{T} \nonumber \\
     && \Partial[\mu]{P}{T} = \frc{V}{n} = \underline{v}\label{Mod05_fugacity1}
   \end{eqnarray}
   where $\underline{v}$ is the molar volume. For ideal gas,
   \begin{displaymath}
-     \Partial[\mu^{\ast}]{P}{T} = \frc{RT}{P},
+     \Partial[\mu^{\text{ig}}]{P}{T} = \frc{RT}{P},
   \end{displaymath}
-  where the superscript $^{\ast}$ refers to ideal gas. This differential can be integrated as,
+  where the superscript $^{\text{ig}}$ refers to ideal gas. This differential can be integrated as,
   \begin{equation}
-    \mu^{\ast} = RT\ln{P} + C(T),\label{Mod05_fugacity1a}
+    \mu^{\text{ig}} = RT\ln{P} + C(T),\label{Mod05_fugacity1a}
   \end{equation}
   where $C(T)$ is an integration constant. At limiting conditions, $P\rightarrow 0$ and $P\rightarrow\infty$, the chemical potential lies within $-\infty < \mu < +\infty$. For a fluid to be considered an ideal gas, pressure needs to be relatively low, thus we can use Eqn.~\ref{Mod05_fugacity1a} to represent the chemical potential of real fluids,
   \begin{equation}
     \mu = RT\ln{f} + C(T),\label{Mod05_fugacity1b}
   \end{equation}
-  where $f$ is the {\it fugacity of a real gas}, \ie \blue{a representation of pressure of an ideal gas which has the same chemical potential as the real gas.} Since the {\it fugacity} has the \underline{units of pressure}, it is often referred as a `fictitious pressure'.  The definition of fugacity from Eqn.~\ref{Mod05_fugacity1b} is entirely general and can be readily extended to both liquids and solids. Now, replacing Eqn.~\ref{Mod05_fugacity1b} in the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7},
+  where $f$ is the {\it fugacity of a real gas}, \ie \blue{a representation of the pressure of an ideal gas that has the same chemical potential as the real gas.} Since the {\it fugacity} has the \underline{units of pressure}, it is often referred as a `fictitious pressure'.  The definition of fugacity from Eqn.~\ref{Mod05_fugacity1b} is entirely general and can be readily extended to both liquids and solids. Now, replacing Eqn.~\ref{Mod05_fugacity1b} in the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7},
   \begin{equation}
     RT\Partial[\left(\ln{f}\right)]{P}{T} = \overline{v},\label{Mod05_fugacity1c}
   \end{equation}
-      {\it fugacity} can be obtained by integrating this equation holding $T$ constant. As pressure tends to zero (lower limit of the left-hand-side integration), the fluid behaves as an ideal gas. We can thus define that the fugacity of a pure component is equal to the pressure in the limit of zero pressure, \ie
+      {\it fugacity} can be obtained by integrating this equation holding $T$ constant. As pressure tends to zero (lower limit of the left-hand-side integration), the fluid behaves as an ideal gas. We can thus state that the fugacity of a pure component is equal to the pressure in the limit of zero pressure, \ie
       \begin{shaded}
         \begin{equation}
            \lim\limits_{P \rightarrow 0} \frc{f}{P} = 1.\label{Mod05_fugacity1d}
         \end{equation}
       \end{shaded}
 
-      In a \underline{mixture}, Eqn.~\ref{Mod05_fugacity1c} becomes,
+  \noindent  In a \underline{mixture} containing $n$ moles of $\mathcal{C}$ chemical species, Eqn.~\ref{Mod05_fugacity1c} becomes,
       \begin{eqnarray}
         && RT\Partial[\left(\ln{f_{i}}\right)]{P}{T,n} = \overline{v}_{i},\label{Mod05_fugacity1e1} \\
         && RT\Partial[\left(\ln{\overline{f}_{i}}\right)]{P}{T,n} = \overline{V}_{i},\label{Mod05_fugacity1e2}
       \end{eqnarray}
-      where $f_{i}$ is the {\it fugacity of pure component $i$} and $\overline{f}_{i}$ is the {\it fugacity of component $i$ in the mixture}. $\overline{v}_{i}$ and $\overline{V}_{i}$ are the molar volume of pure component $i$ and of component $i$ in the mixture. If we subtract Eqn.~\ref{Mod05_fugacity1e1} from ~\ref{Mod05_fugacity1e2} and integrate the result from $P'$ to $P$ at constant $T$,
+      where $f_{i}$ is the {\it fugacity of pure component $i$} and $\overline{f}_{i}$ is the {\it fugacity of component $i$ in the mixture}. $\overline{v}_{i}$ and $\overline{V}_{i}$ are the molar volume of pure component $i$ and, of component $i$ in the mixture. If we subtract Eqn.~\ref{Mod05_fugacity1e1} from ~\ref{Mod05_fugacity1e2} and integrate the result from $P'$ to $P$ at constant $T$,
       \begin{displaymath}
         RT\Partial[\left(\ln{\frc{\overline{f}_{i}}{f_{i}}}\right)]{P}{T,n} = \overline{V}_{i} - \overline{v}_{i} \;\;\Longrightarrow \;\;  RT\left[\left.\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)}\right|_{P'}^{P}\right] = \int\limits_{P'}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP
       \end{displaymath}
@@ -2621,6 +2623,7 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
            RT\ln{\left(\frc{\overline{f}_{i}}{y_{i}f_{i}}\right)} = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP. \label{Mod05_fugacity1g}
         \end{equation}
       \end{shaded}
+  \noindent This expression relates fugacity of a pure component $i$ and the fugacity of the same component $i$ in a mixture with $\mathcal{C}$ chemical components during continuous change in pressure. The term in brackets in the left-hand side represents in the ratio between partial pressures between real and ideal fluids in a mixture.
 \end{subequations}
 
       
