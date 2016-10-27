@@ -2643,12 +2643,146 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
       \begin{shaded}
          An \underline{ideal solution} is a mixture in which,
         \begin{equation}
-          \mfr[\overline{f}]{i}{V} = y_{i}P'\;\;\;\text{ and }\;\;\; \mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}\label{Mod05_fugacity1g}
+          \mfr[\overline{f}]{i}{V} = y_{i}P = P_{i}\;\;\;\text{ and }\;\;\; \mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}\label{Mod05_fugacity1g}
         \end{equation}
         These expressions are called \red{\it Lewis-Randall rules} and they describe relations between phase compositions and fugacities.
       \end{shaded}
       
+\medskip
+    
+      In a mixture (based on Eqn.~\ref{Mod05_fugacity1b}),
+  \begin{equation}
+    \mu = RT\ln{f} + C(T),\label{Mod05_fugacity1b}
+  \end{equation}
+  where $f$ is the {\it fugacity of a real gas}, \ie \blue{a representation of the pressure of an ideal gas that has the same chemical potential as the real gas.} Since the {\it fugacity} has the \underline{units of pressure}, it is often referred as a `fictitious pressure'.  The definition of fugacity from Eqn.~\ref{Mod05_fugacity1b} is entirely general and can be readily extended to both liquids and solids. Now, replacing Eqn.~\ref{Mod05_fugacity1b} in the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7},
+  \begin{equation}
+    RT\Partial[\left(\ln{f}\right)]{P}{T} = \overline{v},\label{Mod05_fugacity1c}
+  \end{equation}
+      {\it fugacity} can be obtained by integrating this equation holding $T$ constant. As pressure tends to zero (lower limit of the left-hand-side integration), the fluid behaves as an ideal gas. We can thus state that the fugacity of a pure component is equal to the pressure in the limit of zero pressure, \ie
+      \begin{shaded}
+        \begin{equation}
+           \lim\limits_{P \rightarrow 0} \frc{f}{P} = 1.\label{Mod05_fugacity1d}
+        \end{equation}
+      \end{shaded}
+
+  \noindent  In a \underline{mixture} containing $n$ moles of $\mathcal{C}$ chemical species, Eqn.~\ref{Mod05_fugacity1c} becomes,
+      \begin{eqnarray}
+        && RT\Partial[\left(\ln{f_{i}}\right)]{P}{T,n} = \overline{v}_{i},\label{Mod05_fugacity1e1} \\
+        && RT\Partial[\left(\ln{\overline{f}_{i}}\right)]{P}{T,n} = \overline{V}_{i},\label{Mod05_fugacity1e2}
+      \end{eqnarray}
+      where $f_{i}$ is the {\it fugacity of pure component $i$} and $\overline{f}_{i}$ is the {\it fugacity of component $i$ in the mixture}. $\overline{v}_{i}$ and $\overline{V}_{i}$ are the molar volume of pure component $i$ and, of component $i$ in the mixture. If we subtract Eqn.~\ref{Mod05_fugacity1e1} from ~\ref{Mod05_fugacity1e2} and integrate the result from $P'$ to $P$ at constant $T$,
+      \begin{displaymath}
+        RT\Partial[\left(\ln{\frc{\overline{f}_{i}}{f_{i}}}\right)]{P}{T,n} = \overline{V}_{i} - \overline{v}_{i} \;\;\Longrightarrow \;\;  RT\left[\left.\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)}\right|_{P'}^{P}\right] = \int\limits_{P'}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP
+      \end{displaymath}
+      As $P'\rightarrow 0$,
+      \begin{equation}
+        RT\left[\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)} - \lim\limits_{P'\rightarrow 0}\ln\left(\frc{\overline{f}_{i}}{f_{i}}\right)\right] = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP.\label{Mod05_fugacity1f}
+      \end{equation}
+      When $P'\rightarrow 0$
+      \begin{displaymath}
+        \begin{cases}
+          f_{i} \rightarrow P', \\
+          \overline{f}_{i} \rightarrow y_{i}P',
+        \end{cases}
+      \end{displaymath}
+      and the limiting term in the previous equation becomes,
+      \begin{displaymath}
+        \lim\limits_{P'\rightarrow 0}\ln\left(\frc{\overline{f}_{i}}{f_{i}}\right) \rightarrow \ln{\left(\frc{y_{i}P'}{P'}\right)} = \ln{y_{i}}
+      \end{displaymath}
+      Thus Eqn.~\ref{Mod05_fugacity1f} becomes,
+        \begin{displaymath}
+          RT\left[\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)} - \ln{y_{i}}\right] = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP
+        \end{displaymath}
+      \begin{shaded}
+        \begin{equation}
+           RT\ln{\left(\frc{\overline{f}_{i}}{y_{i}f_{i}}\right)} = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP. \label{Mod05_fugacity1g}
+        \end{equation}
+      \end{shaded}
+  \noindent This expression relates fugacity of a pure component $i$ and the fugacity of the same component $i$ in a mixture with $\mathcal{C}$ chemical components during continuous change in pressure. The term in brackets in the left-hand side represents in the ratio between partial pressures between real and ideal fluids in a mixture.
+\end{subequations}
+
       
+%%% SUBSECTION
+\subsection{Activity}\label{Section:05:ActivitySection}
+   \begin{subequations}
+        
+      For an ideal mixture of ideal gases, the partial pressure of species $i$ is the fugacity of component $i$ in the mixture, \ie
+         \begin{displaymath}
+            \mfr[\overline{f}]{i}{V} = y_{i}P = P_{i}.
+         \end{displaymath}
+      Now, for an ideal mixture of real fluids,
+         \begin{displaymath}
+            \mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L},
+         \end{displaymath}
+      \ie the fugacity of a component in a mixture is a function of the fugacity of the pure component.
+      \begin{shaded}
+         An \underline{ideal solution} is a mixture in which,
+        \begin{equation}
+          \mfr[\overline{f}]{i}{V} = y_{i}P = P_{i}\;\;\;\text{ and }\;\;\; \mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}\label{Mod05_fugacity1g}
+        \end{equation}
+        These expressions are called \red{\it Lewis-Randall rules} and they describe relations between phase compositions and fugacities.
+      \end{shaded}
+      
+\medskip
+    
+      In a mixture (based on Eqn.~\ref{Mod05_fugacity1b}),
+        \begin{displaymath}
+           \mu_{i} = RT\ln{\overline{f}_{i}} + C_{i}(T),
+        \end{displaymath}
+      consider a reference-state, where a species $i$ of a multi-component system is pure at temperature $T$ and at reference-state pressure, $P_{\text{ref}}$,
+        \begin{equation}
+           \mu_{i} - \mu_{i}^{\circ} = RT\ln{\left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)},\label{Mod05_activity1a},
+        \end{equation}
+      where superscript $^{\circ}$ stands for {\it reference state}. 
+        \begin{shaded}
+           \noindent Now, we can define the term in brackets as the \blue{activity} (dimensionless)
+           \begin{equation}
+              \frc{\overline{f}_{i}}{f_{i}^{\circ}} = a_{i}, \label{Mod05_activity1b}
+           \end{equation}
+           which `measures' the deviation from ideal behaviour.
+        \end{shaded}
+      \noindent Since $\mu^{\circ} = \overline{g}^{\circ}_{i}$, Eqn.~\ref{Mod05_activity1a} becomes
+        \begin{equation}
+           \mu_{i} = \overline{g}^{\circ}_{i} + RT\ln{a_{i}}\label{Mod05_activity1c}
+        \end{equation}
+      For an ideal solution, the {\it Lewis-Randall relation} can be used,
+        \begin{displaymath}
+           a_{i} =  \frc{\overline{f}_{i}}{f_{i}^{\circ}} = \frc{y_{i}f_{i}}{f_{i}^{\circ}},
+        \end{displaymath}
+      where $f_{i}$ is the fugacity of pure component $i$ at $P$ and $T$, and $f_{i}^{\circ}$ is the fugacity of pure component $i$ at $T$ and the reference-pressure $P_{\text{ref}}$. Thus,
+        \begin{displaymath}
+           \mu_{i} = \overline{g}^{\circ}_{i} + RT\ln{\left( \frc{y_{i}f_{i}}{f_{i}^{\circ}}\right)}.
+        \end{displaymath}
+
+        \begin{shaded}
+            \noindent For \underline{\it ideal solutions},
+              \begin{equation}
+                 \mu_{i} = \overline{g}^{\circ}_{i} + RT\ln{\left[\left(\frc{f_{i}}{P}\right)\left(\frc{P_{\text{ref}}}{f_{i}^{\circ}}\right)\frc{y_{i}P}{P_{\text{ref}}}\right]}.\label{Mod05_activity1d}
+              \end{equation}
+            If component $i$ behaves as an \underline{\it ideal gas} at both $\left(T,P\right)$ and $\left(T,P_{\text{ref}}\right)$, thus $\frc{f_{i}}{P} = \frc{f_{i}^{\circ}}{P_{\text{ref}}}=1$ and Eqn.~\ref{Mod05_activity1d} becomes
+              \begin{equation}
+                 \mu_{i} = \overline{g}^{\circ}_{i} + RT\ln{\frc{y_{i}P}{P_{\text{ref}}}}.\label{Mod05_activity1e}
+              \end{equation}
+             This expression allows the calculation of the chemical potential of the vapour phase in a mixture subjected to a change in pressure based on composition and temperature. Molar Gibbs energy at reference conditions for several chemical species are often tabulated and can be found in any chemical engineering handbook.
+\medskip
+        \noindent Finally we can now define the \underline{\blue{activity coefficient}}, $\gamma_{i}$, as
+          \begin{equation}
+              a_{i} = \frc{y_{i}f_{i}}{f_{i}^{\circ}}\;\;\;\;\Rightarrow \;\;\;\; \gamma_{i} = \frc{a_{i}}{y_{i}} = \frc{f_{i}}{f_{i}^{\circ}}\label{Mod05_activity1f}
+          \end{equation}
+         And for solutions,
+          \begin{equation}
+              \gamma_{i} = \frc{\overline{f}_{i}}{x_{i}f_{i}}\label{Mod05_activity1g}
+          \end{equation}
+         The \underline{\blue{activity coefficient}} takes into account non-idealities in the liquid phase, and it first appeared in the slide (handouts) of Module~\ref{Section:04} on VLE of non-ideal mixtures. Now, we can properly define the \underline{Raoult's law} (Section~\ref{Section:04:RaoultsLaw}) at low pressure,
+          \begin{equation}
+               \gamma_{i} = \frc{\overline{f}_{i}}{x_{i}f_{i}} = \frc{y_{i}P}{x_{i}f_{i}}=\frc{y_{i}P}{x_{i}P_{i}^{\text{sat}}} \;\;\;\Longrightarrow \;\;\;\ x_{i}\gamma_{i}P_{i}^{\text{sat}} = y_{i}P \label{Mod05_RaoultLaw}
+          \end{equation}
+          Equation~\ref{Mod05_RaoultLaw} is the general form for Raoult's law. If the solution is ideal, $\gamma_{i}=1$ and Eqn.~\ref{Mod04_RaoultLaw} is recovered.
+
+      \end{shaded}       
+
+\medskip
+
    \end{subequations}
     
   \section{Blob}
@@ -2660,7 +2794,7 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
       \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i},
   \end{displaymath}
   
-  and with the derived Maxwell identities (Eqns.~\ref{Mod03_MaxwellRelation7} and ~\ref{Mod03_MaxwellRelation8}),
+  and with the derived Maxwell identities (Eqns.~\ref{Mod03_MaxwellRelation7} and ~\ref{Mod03_MaxwellRelation8}).
   \begin{shaded}
     \begin{equation}
       d(nG) = (nV) dT - (nS)dP + \summation[\mu_{i}dn_{i}]{i}{},\label{Mod05:PMP_Gibbs1}
