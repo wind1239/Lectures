@@ -2943,13 +2943,13 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
      \begin{equation}
        U^{\text{igm}}(T,N) = \summation[n_{i}\underbrace{\overline{u}_{i}^{\text{ig}}}_{\frac{u^{\text{ig}}}{n_{i}}}(T)]{i=1}{\mathcal{C}},\label{Mod5_IGM2} 
      \end{equation}
-     where $\overline{u}_{i}^{\text{ig}}$ is the molar internal energy. We can change the notation on Eqns.~\ref{Mod5_IGM1}-\ref{Mod5_IGM2} to replace the number of moles by molar fraction, $y_{i}$, of the gas mixture, and to obtain the {\it partial molar internal energy}, $\overline{U}_{i}^{\text{igm}}(T,y)$
+     where $\overline{u}_{i}^{\text{ig}}$ is the molar internal energy.We can change the notation on Eqns.~\ref{Mod5_IGM1}-\ref{Mod5_IGM2} to replace the number of moles by molar fraction, $y_{i}$, of the gas mixture, and to obtain the {\it partial molar internal energy}, $\overline{U}_{i}^{\text{igm}}(T,y)$
      \begin{equation}
-       \overline{U}_{i}^{\text{igm}}(T,y) = \Partial[U^{\text{igm}}(T,N)]{n_{i}}{T,P,n_{j\ne i}} = \left.\frc{\partial}{\partial n_{i}}\right|_{T,P,n_{j}}\summation[n_{j}\overline{U}_{j}^{\text{ig}}(T)]{j=1}{\mathcal{C}} = \overline{u}_{i}^{\text{ig}}(T)\label{Mod5_IGM3}
-     \end{equation}
-     This means that the partial molar internal energy of a species $i$ in an ideal gas mixture is the same of its molar internal energy. We can also obtain the {\it partial molar volume}, $\overline{V}_{i}^{\text{igm}}$, with the same conclusion,
+       \overline{U}_{i}^{\text{igm}}(T,y) = \Partial[U^{\text{igm}}(T,N)]{n_{i}}{T,P,n_{j\ne i}} = \left.\frc{\partial}{\partial n_{i}}\right|_{T,P,n_{j\ne i}}\summation[n_{j}\overline{U}_{j}^{\text{ig}}(T)]{j=1}{\mathcal{C}} = \overline{u}_{i}^{\text{ig}}(T)\label{Mod5_IGM3}
+     \end{equation} 
+     This expression indicates that the partial molar internal energy of species $i$ in an ideal gas mixture at a given tempereature is equal to the pure component molar internal energy of that component as an ideal gas at the sae temperature. We can also obtain the {\it partial molar volume}, $\overline{V}_{i}^{\text{igm}}$, with the same conclusion,
      \begin{equation}
-       \overline{V}_{i}^{\text{igm}}(T,P,y) = \Partial[V^{\text{igm}}(T,P,N)]{n_{i}}{T,P,n_{j\ne i}} = \left.\frc{\partial}{\partial n_{i}}\right|_{T,P,n_{j}}\summation[n_{j} \frc{RT}{P}]{j=1}{\mathcal{C}} = \frc{RT}{P} = \overline{v}_{i}^{\text{ig}}(T,P).\label{Mod5_IGM4}
+       \overline{V}_{i}^{\text{igm}}(T,P,y) = \Partial[V^{\text{igm}}(T,P,N)]{n_{i}}{T,P,n_{j\ne i}} = \left.\frc{\partial}{\partial n_{i}}\right|_{T,P,n_{j\ne i}}\summation[n_{j} \frc{RT}{P}]{j=1}{\mathcal{C}} = \frc{RT}{P} = \overline{v}_{i}^{\text{ig}}(T,P).\label{Mod5_IGM4}
      \end{equation}
      \medskip
 
@@ -2967,7 +2967,16 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
      %  \item expanding each gas from its initial volume $V_{i}=n_{i}RT/P$ to $V=\summation[n_{i}RT/P]{}{}$.
      %\end{itemize}
 
-     For entropy\footnote{Here we will use a entropy relation that has not been derived in this notes,
+\medskip
+
+     The entropy of an idel gas depends on the pressure, 
+       \begin{displaymath}
+         dS^{\text{ig}} = - Rd\left(\ln{P}\right)\;\;\;\text{ and at constant } T,
+       \end{displaymath},
+
+
+
+\footnote{Here we will use a entropy relation that has not been derived in this notes,
        \begin{displaymath}
          dS = C_{p}d\left(\ln{T}\right) - Rd\left(\ln{P}\right)\;\;\;\text{ and at constant } T\;\;\Rightarrow\;\; dS = - Rd\left(\ln{P}\right)
      \end{displaymath}},
