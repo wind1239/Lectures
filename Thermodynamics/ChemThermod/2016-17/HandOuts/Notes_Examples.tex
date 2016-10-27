@@ -2837,32 +2837,96 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
         \begin{displaymath}
            n d M + M d n = n \Partial[M]{T}{P,x}dT + n\Partial[M]{P}{T,x}dP + \summation[\overline{M}_{i}\left(x_{i}dn + ndx_{i}\right)]{i}{}
         \end{displaymath}
+      Rearranging this expression,
+        \begin{equation}
+           \underbrace{\left[dM - \Partial[M]{T}{P,x}dT - \Partial[M]{P}{T,x}dP - \summation[\overline{M}_{i}dx_{i}]{i}{}\right]}_{A}n + \underbrace{\left[M-\summation[\overline{M}_{i}x_{i}]{i}{}\right]}_{B}dn = 0\label{Mod5_GibbsDuhem1a}
+        \end{equation}
+      Equation~\ref{Mod5_GibbsDuhem1a} is valid for any arbitrary values of $n$ and $dn$, therefore $n$ and $dn$ should be independent of each other. This is only true if the coefficients $A$ and $B$ are zero:
+          \begin{eqnarray}
+              A &=& dM - \Partial[M]{T}{P,x}dT - \Partial[M]{P}{T,x}dP - \summation[\overline{M}_{i}dx_{i}]{i}{} = 0 \nonumber \\
+              dM &=& \Partial[M]{T}{P,x}dT + \Partial[M]{P}{T,x}dP + \summation[\overline{M}_{i}dx_{i}]{i}{}, \label{Mod5_GibbsDuhem1b}
+          \end{eqnarray}
+      and
+          \begin{eqnarray}
+              B &=& M-\summation[\overline{M}_{i}x_{i}]{i}{} = 0 \nonumber \\
+              M &=& \summation[\overline{M}_{i}x_{i}]{i}{}\label{Mod5_GibbsDuhem1c} \\
+             \text{as } nM = n\summation[\overline{M}_{i}x_{i}]{i}{} &\Rightarrow& dM = \summation[x_{i}d \overline{M}_{i}]{i}{} + \summation[\overline{M}_{i}dx_{i}]{i}{}\label{Mod5_GibbsDuhem1d}
+          \end{eqnarray}
+      Replacing Eqn.~\ref{Mod5_GibbsDuhem1d} in Eqn.~\ref{Mod5_GibbsDuhem1b} leads to the \blue{\it Gibbs-Duhem Equation (GDE)}
+          \begin{shaded}
+             \begin{equation}
+                 \Partial[M]{T}{P,x}dT + \Partial[M]{P}{T,x}dP - \summation[x_{i}d\overline{M}_{i}]{i}{} = 0.\label{Mod5_GibbsDuhem1e}
+             \end{equation}
+             The \blue{GDE} must be satisfied for all changes in $P$, $T$ and $\underline{M}_{i}$.
+          \medskip
+
+             \noindent For changes at constant temperature and pressure conditions, the \blue{GDE} becomes
+               \begin{equation}
+                   \summation[x_{i}d\overline{M}_{i}]{i}{} = 0.\label{Mod5_GibbsDuhem1f}
+               \end{equation}
+             Or taking any arbitrary species $j$,
+               \begin{equation}
+                   \summation[x_{i}\frc{d\overline{M}_{i}}{dx_{j}}]{i}{} = 0, \;\;\;\text{ at constant } T\text{ and } P.\label{Mod5_GibbsDuhem1g}
+               \end{equation}
+             Equations~\ref{Mod5_GibbsDuhem1f}-\ref{Mod5_GibbsDuhem1g} imply that partial molar properties of various species, $\overline{M}_{i}$, are \underline{not} independent. Some key-properties,
+               \begin{displaymath}
+                   \begin{cases}
+                       \lim\limits_{x_{i}\rightarrow 0}\overline{M}_{i} = \overline{M}_{i}^{\infty} & \text{\ie at infinite dilutions;} \\
+                       \lim\limits_{x_{i}\rightarrow 1}\overline{M}_{i} = M_{i}                   & \text{ \ie nearly pure chemical species.} 
+                   \end{cases}
+               \end{displaymath}
+          \end{shaded}
 %
    \end{subequations}
 
 
-
-
-
-  \section{Blob}
-  \begin{displaymath}
-    d(nG) = n\Partial[G]{P}{T,x}dP + n\Partial[G]{T}{P,x}dT + \sum\limits_{i} \Partial[(nG)]{n_{i}}{T,P,n_{j},\left(n_{j}\ne n_{i}\right)},
-  \end{displaymath}
-  with
-  \begin{displaymath}
-      \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i},
-  \end{displaymath}
-  
-  and with the derived Maxwell identities (Eqns.~\ref{Mod03_MaxwellRelation7} and ~\ref{Mod03_MaxwellRelation8}).
-  \begin{shaded}
-    \begin{equation}
-      d(nG) = (nV) dT - (nS)dP + \summation[\mu_{i}dn_{i}]{i}{},\label{Mod05:PMP_Gibbs1}
-    \end{equation}
-  \end{shaded}
-  and for 1 mole of solution,
-    \begin{displaymath}
-      dG = V dT - S dP + \summation[\mu_{i}dn_{i}]{i}{}.
-    \end{displaymath}
+      
+%%% SUBSECTION
+\subsection{Partial Molar Properties in Binary Solutions}\label{Section:05:PMP_Binary}
+   \begin{subequations}
+%
+       In a mixture with $n$ moles, we can define the {\it isothermal molar property change of mixing}, $\Delta M_{\text{mix}}$ as,
+          \begin{eqnarray}
+              \Delta M_{\text{mix}}(T,P) & = & M(T,P) - \summation[x_{i}M_{i}(T,P)]{i}{} \nonumber \\
+                                      &=& \underbrace{\summation[\overline{M}_{i}x_{i}]{i}{}}_{\text{from Eqn.~\ref{Mod5_GibbsDuhem1c}}} - \summation[x_{i}M_{i}]{i}{} \nonumber \\
+                                      &=& \summation[x_{i}\left(\overline{M}_{i}-M_{i}\right)]{i}{}.\label{Mod5_GibbsDuhem1h}
+          \end{eqnarray}
+       In a \underline{binary system} (from Eqn.~\ref{Mod5_GibbsDuhem1c}),
+          \begin{equation}
+              M = \overline{M}_{1} x_{1} + \overline{M}_{2} x_{2},\;\;\;\;\;\left(\text{at constant }P \text{ and } T\right),\label{Mod5_GibbsDuhem1i}
+          \end{equation}
+      and using the {\it derivative of a product} rule on $M$,
+          \begin{displaymath}
+              dM = \left(x_{1}d\overline{M}_{1} + \overline{M}_{1}dx_{1}\right) + \left(x_{2}d\overline{M}_{2} + \overline{M}_{2}dx_{2}\right), 
+          \end{displaymath}
+      applying GDE (Eqn.~\ref{Mod5_GibbsDuhem1f}) in this expression, and using 
+          \begin{displaymath}
+             \summation[x_{i}]{i}{}=1\;\;\Leftrightarrow\;\; x_{1}+x_{2}=1\;\;\Rightarrow\;\;\; dx_{1}=-dx_{2},
+          \end{displaymath}
+      leads to 
+          \begin{eqnarray}
+             && \cancel{\red{x_{1}d\overline{M}_{1}}} + \overline{M}_{1}dx_{1} + \cancelto{\red{0 \text{ (due to GDE)}}}{\red{x_{2}d\overline{M}_{2}}} - \overline{M}_{2}dx_{1} = dM \nonumber \\
+             && dM = \overline{M}_{1}dx_{1} - \overline{M}_{2}dx_{1} \nonumber \\
+             && \frc{dM}{dx_{1}} = \overline{M}_{1} - \overline{M}_{2} \label{Mod5_GibbsDuhem1j}
+          \end{eqnarray}
+          \begin{shaded}
+             Using Eqn.~\ref{Mod5_GibbsDuhem1i} in Eqn.~\ref{Mod5_GibbsDuhem1j},
+               \begin{eqnarray}
+                  && \frc{dM}{dx_{1}} = \overline{M}_{1} - \left(\frc{M-\overline{M}_{1}x_{1}}{x_{2}}\right) \nonumber \\
+                  && x_{2}\frc{dM}{dx_{1}} =  \underbrace{x_{2}\overline{M}_{1}}_{\left(1-x_{1}\right)} - M + \overline{M}_{1}x_{1} \nonumber \\
+                  && \overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}} \label{Mod5_GibbsDuhem1k} \\
+                  && \overline{M}_{2} = M - x_{1}\frc{dM}{dx_{1}} \label{Mod5_GibbsDuhem1l}
+              \end{eqnarray}
+            In binary solutions, the partial molar properties can be easily calculated from these two  expressions as a function of composition at constant $T$ and $P$. %From the GDE,
+              \begin{eqnarray}
+                   && x_{1}d\overline{M}_{1} + x_{2}d\overline{M}_{2} = 0 \;\;\;\;\;\blue{\times\frc{1}{dx_{1}}} \nonumber \\
+                   && x_{1}\frc{d\overline{M}_{1}}{dx_{1}} + x_{2}\frc{d\overline{M}_{2}}{dx_{1}} = 0 \;\;\;\;\;\blue{\times\frc{1}{x_{1}}}\label{Mod5_GibbsDuhem1m} \\
+                   && \frc{d\overline{M}_{1}}{dx_{1}} + \frc{x_{2}}{x_{1}}\frc{d\overline{M}_{2}}{dx_{1}} = 0. \label{Mod5_GibbsDuhem1n} 
+              \end{eqnarray}
+          \end{shaded}
+      
+%
+   \end{subequations}
 
 
 \clearpage
