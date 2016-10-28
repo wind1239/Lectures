@@ -2945,15 +2945,15 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
      \end{equation}
      where $\overline{u}_{i}^{\text{ig}}$ is the molar internal energy.We can change the notation on Eqns.~\ref{Mod5_IGM1}-\ref{Mod5_IGM2} to replace the number of moles by molar fraction, $y_{i}$, of the gas mixture, and to obtain the {\it partial molar internal energy}, $\overline{U}_{i}^{\text{igm}}(T,y)$
      \begin{equation}
-       \overline{U}_{i}^{\text{igm}}(T,y) = \Partial[U^{\text{igm}}(T,N)]{n_{i}}{T,P,n_{j\ne i}} = \left.\frc{\partial}{\partial n_{i}}\right|_{T,P,n_{j\ne i}}\summation[n_{j}\overline{U}_{j}^{\text{ig}}(T)]{j=1}{\mathcal{C}} = \overline{u}_{i}^{\text{ig}}(T)\label{Mod5_IGM3}
+       \overline{U}_{i}^{\text{igm}}(T,y) = \Partial[U^{\text{igm}}(T,N)]{n_{i}}{T,P,n_{j\ne i}} = \left[\frc{\partial\summation[n_{j}\overline{u}_{j}^{\text{ig}}(T)]{j=1}{\mathcal{C}}}{\partial n_{i}}\right]_{T,P,n_{j\ne i}}  = \overline{u}_{i}^{\text{ig}}(T)\label{Mod5_IGM3}
      \end{equation} 
-     This expression indicates that the partial molar internal energy of species $i$ in an ideal gas mixture at a given tempereature is equal to the pure component molar internal energy of that component as an ideal gas at the sae temperature. We can also obtain the {\it partial molar volume}, $\overline{V}_{i}^{\text{igm}}$, with the same conclusion,
+     This expression indicates that the partial molar internal energy of species $i$ in an ideal gas mixture at a given tempereature is equal to the pure component molar internal energy of that component as an ideal gas at the same temperature. We can also obtain the {\it partial molar volume}, $\overline{V}_{i}^{\text{igm}}$, with the same conclusion,
      \begin{equation}
-       \overline{V}_{i}^{\text{igm}}(T,P,y) = \Partial[V^{\text{igm}}(T,P,N)]{n_{i}}{T,P,n_{j\ne i}} = \left.\frc{\partial}{\partial n_{i}}\right|_{T,P,n_{j\ne i}}\summation[n_{j} \frc{RT}{P}]{j=1}{\mathcal{C}} = \frc{RT}{P} = \overline{v}_{i}^{\text{ig}}(T,P).\label{Mod5_IGM4}
+       \overline{V}_{i}^{\text{igm}}(T,P,y) = \Partial[V^{\text{igm}}(T,P,N)]{n_{i}}{T,P,n_{j\ne i}} = \left[\frc{\partial\summation[n_{j} \frc{RT}{P}]{j=1}{\mathcal{C}}}{\partial n_{i}}\right]_{T,P,n_{j\ne i}} = \frc{RT}{P} = \overline{v}_{i}^{\text{ig}}(T,P).\label{Mod5_IGM4}
      \end{equation}
      \medskip
 
-     From Dalton's law (Section~\ref{Section:04:RaoultsLaw}), we defined the partial pressure $P_{i}$,
+     The partial pressure of species $i$ in a gas mixture, $P_{i}$ (see Dalton's law in Section~\ref{Section:04:RaoultsLaw}), is defined for both ideal and real gas mixtures as
      \begin{displaymath}
        P_{i} = y_{i}P,
      \end{displaymath}
@@ -2961,41 +2961,90 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
      \begin{equation}
        P_{i}^{\text{igm}}(N,T,V,y) = \frc{n_{i}}{\summation[n_{j}]{j=1}{\mathcal{C}}}P = \frc{n_{i}}{\summation[n_{j}]{j=1}{\mathcal{C}}}\left[\summation[n_{j}\frc{RT}{V}]{j=1}{\mathcal{C}}\right] = \frc{n_{i}RT}{V} = P^{\text{ig}}\left(n_{i},V,T\right),\label{Mod5_IGM4}
      \end{equation}
-     \ie for ideal gas mixtures, the pressure of species $i$ is equal to the pressure that would be exerted if the same number of moles of that species, $n_{i}$, alone were contained in the same volume at $T$ and $P$. %As there is {\bf no} energy of interaction, the effect on each species of the mixture at $T$ and $P$ are:
-     %\begin{itemize}
-     %  \item $P\rightarrow P_{i}$: reducing pressure from $P$ to $P_{i}$;
-     %  \item expanding each gas from its initial volume $V_{i}=n_{i}RT/P$ to $V=\summation[n_{i}RT/P]{}{}$.
-     %\end{itemize}
-
+     \ie for ideal gas mixtures, the partial pressure of species $i$ is equal to the pressure that would be exerted if the same number of moles of that species, $n_{i}$, alone were contained in the same volume, $V$, at $T$ and $P$. 
 \medskip
 
-     The entropy of an idel gas depends on the pressure, 
+     As there is {\bf no} effective interaction in an ideal gas mixture, the effect on each species of the mixture at constant $T$ and $P$ is equivalent to:
+     \begin{itemize}
+       \item reducing the pressure from $P$ to $P_{i}$, or;
+       \item expanding each gas from its initial volume $V_{i}=n_{i}RT/P$ to $V=\summation[n_{i}RT/P]{}{}$.
+     \end{itemize}
+     Thus using the entropy relations below for ideal gases $\left(\text{based on } S=S(T,P) \text{ and } S=S(T,V)\right)$ that have not been derived in this notes,
        \begin{displaymath}
-         dS^{\text{ig}} = - Rd\left(\ln{P}\right)\;\;\;\text{ and at constant } T,
-       \end{displaymath},
-
-
-
-\footnote{Here we will use a entropy relation that has not been derived in this notes,
-       \begin{displaymath}
-         dS = C_{p}d\left(\ln{T}\right) - Rd\left(\ln{P}\right)\;\;\;\text{ and at constant } T\;\;\Rightarrow\;\; dS = - Rd\left(\ln{P}\right)
-     \end{displaymath}},
-     \begin{displaymath}
-       \overline{S}_{i}^{\text{igm}}(T,P,y) - \overline{s}_{i}^{\text{ig}}(T,P) = -R\ln{\frc{P_{i}}{P}} = -R\ln{y_{i}},
+           dS =
+         \begin{cases}
+              C_{p}d\left(\ln{T}\right) - Rd\left(\ln{P}\right), \\
+              C_{v}d\left(\ln{T}\right) + Rd\left(\ln{V}\right).
+         \end{cases}          
      \end{displaymath}
+     leading to (assuming constant $T$),
+       \begin{equation}
+           \overline{S}_{i}^{\text{igm}}(T,P,y) - \overline{s}_{i}^{\text{ig}}(T,P) =
+         \begin{cases}
+              -R\ln{\frc{P_{i}}{P}} = -R\ln{y_{i}}\;\;\;\text{ or }, \\
+               R\ln{\frc{V}{V_{i}}} = R\ln{\frc{\summation[n_{j}RT/P]{j}{}}{n_{i}RT/P}} = -R\ln{y_{i}}
+         \end{cases}          
+     \end{equation}
      for the whole mixture, the molar entropy change of mixing, $\Delta_{\text{mix}}\overline{S}^{\text{igm}}$ (see Eqn.~\ref{Mod5_GibbsDuhem1h}) can be obtained from
      \begin{displaymath}
-          \Delta_{\text{mix}}S^{\text{igm}} = \summation[n\left(\overline{S}_{i}^{\text{igm}}(T,P,y) - \overline{s}_{i}^{\text{ig}}(T,P) \right) ]{i=1}{\mathcal{C}} = -R\summation[n_{i}\ln{y_{i}}]{i=1}{\mathcal{C}},
+          \Delta_{\text{mix}}S^{\text{igm}} = \summation[n_{i}\left(\overline{S}_{i}^{\text{igm}}(T,P,y) - \overline{s}_{i}^{\text{ig}}(T,P) \right) ]{i=1}{\mathcal{C}} = -R\summation[n_{i}\ln{y_{i}}]{i=1}{\mathcal{C}},
      \end{displaymath}
-     if this equation is divided by the total number of moles,
-     \begin{displaymath}
-       \Delta_{\text{mix}}\overline{S}^{\text{igm}} = - R \summation[y_{i}\ln{y_{i}}]{i=1}{\mathcal{C}}
-     \end{displaymath}
+     if this equation is divided by the total number of moles, $\summation[n_{j}]{j=1}{\mathcal{C}}$,
+     \begin{equation}
+       \Delta_{\text{mix}}\overline{s}^{\text{igm}} = - R \summation[y_{i}\ln{y_{i}}]{i=1}{\mathcal{C}}.
+     \end{equation}
+\medskip
+  
+     With volume, internal energy and entropy change of mixing, other thermodynamic potentials can be readily obtained. For enthalpy,
+     \begin{eqnarray}
+          && \overline{H}_{i}^{\text{igm}}(T,P,y) = \overline{h}_{i}^{\text{ig}}(T,P) \nonumber \\
+          && \overline{H}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{h}_{i}^{\text{ig}}(T,P)]{i=1}{\mathcal{C}},
+     \end{eqnarray}
+     and for Gibbs free energy from $G=H-TS$,
+     \begin{eqnarray}
+       \overline{G}_{i}^{\text{igm}}(T,P,y) &=& \overline{H}_{i}^{\text{igm}}(T,P,y) - T\overline{S}_{i}^{\text{igm}}(T,P,y) \nonumber \\
+                                        &=& \overline{h}_{i}^{\text{ig}}(T,P) - T\left[ \overline{s}_{i}^{\text{ig}}(T,P) - R\ln{y_{i}}\right] \nonumber \\
+                                        &=& \overline{g}_{i}^{\text{ig}}(T,P) + RT\ln{y_{i}},
+     \end{eqnarray}
+     and the Gibbs free energy change of mixing,
+     \begin{eqnarray}
+        \Delta_{\text{mix}}\overline{g}_{i}^{\text{igm}} &=& \summation[y_{i}\left(\overline{G}_{i}^{\text{igm}}(T,P,y)-\overline{g}_{i}^{\text{ig}}(T,P)\right)]{i=1}{\mathcal{C}} \nonumber \\
+                                        &=& RT\summation[y_{i}\ln{y_{i}}]{i=1}{\mathcal{C}} \nonumber 
+     \end{eqnarray}
+
+
+ \begin{table}\scriptsize
+     \begin{tabular}{ | c | c | c | c |}%\scriptsize
+ \hline
+        {\bf Property}    &   {\bf Partial Molar}   &  {\bf Change of Mixing}                    &  {\bf Molar Property} \\
+                          &   {\bf Property}        &  $\left(\mathbf{\Delta_{\text{mix}}}\right)$  &                       \\
+ \hline
+            Volume        &   $\overline{V}_{i}^{\text{igm}}(T,y) = \overline{v}_{i}^{\text{ig}}(T)$ & $\Delta_{\text{mix}} \overline{v}^{\text{igm}}=0 $ & $\overline{v}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{v}_{i}^{\text{ig}}(T,P)]{}{}$ \\
+         Internal Energy  &   $\overline{U}_{i}^{\text{igm}}(T,y) = \overline{u}_{i}^{\text{ig}}(T)$ & $\Delta_{\text{mix}} \overline{u}^{\text{igm}}=0 $ & $\overline{u}^{\text{igm}}(T,y) = \summation[y_{i}\overline{u}_{i}^{\text{ig}}(T)]{}{}$ \\
+         Enthalpy         &   $\overline{H}_{i}^{\text{igm}}(T,y) = \overline{h}_{i}^{\text{ig}}(T)$ & $\Delta_{\text{mix}} \overline{h}^{\text{igm}}=0 $ & $\overline{h}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{h}_{i}^{\text{ig}}(T,P)]{}{}$ \\
+         Entropy          &   $\overline{S}_{i}^{\text{igm}}(T,P,y) = \overline{s}_{i}^{\text{ig}}(T,P)-R\ln{y_{i}}$ & $\Delta_{\text{mix}} \overline{s}^{\text{igm}}=-R\summation[x_{i}\ln{y_{i}}]{}{}$ & $\overline{s}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{s}_{i}^{\text{ig}}(T,P)]{}{}-R\summation[y_{i}\ln{y_{i}}]{}{}$ \\
+         Gibbs Energy     &   $\overline{G}_{i}^{\text{igm}}(T,P,y) = \overline{g}_{i}^{\text{ig}}(T,P)+RT\ln{y_{i}}$ & $\Delta_{\text{mix}} \overline{g}^{\text{igm}}=-RT\summation[y_{i}\ln{y_{i}}]{}{}$ & $\overline{g}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{g}_{i}^{\text{ig}}(T,P)]{}{} + RT\summation[y_{i}\ln{y_{i}}]{}{}$ \\
+         Helmholtz Energy &   $\overline{A}_{i}^{\text{igm}}(T,P,y) = \overline{a}_{i}^{\text{ig}}(T,P)+RT\ln{y_{i}}$ & $\Delta_{\text{mix}} \overline{a}^{\text{igm}}=-RT\summation[y_{i}\ln{y_{i}}]{}{}$ & $\overline{a}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{a}_{i}^{\text{ig}}(T,P)]{}{} + RT\summation[y_{i}\ln{y_{i}}]{}{}$ \\ 
+ \hline
+     \end{tabular}
+     \caption{Properties of ideal gas mixtures.}\label{Mod5_TableIGM}  
+ \end{table}
      
-     
-     
-     
-     
+     Partial molar properties, molar properties and change of mixing of molar properties for the main thermodynamic functions are summarised in Table~\ref{Mod5_TableIGM}.
+%
+   \end{subequations}
+
+
+      
+%%% SUBSECTION
+\subsection{Fugacity Coefficient}\label{Section:05:FugacityCoefficient}
+   \begin{subequations}
+%
+      In  Section~\ref{Section:05:FugacitySection} (Eqn.~\ref{Mod05_fugacity1b}), a formal definition of fugacity was introduced,
+       \begin{displaymath}
+          \mu_{i}= RT\ln{\overline{f}_{i}} + C_{i}(T),
+       \end{displaymath}
+       where $\overline{f}_{i}$ is the fugacity of species $i$ in the mixture
 %
    \end{subequations}
 
