@@ -2525,7 +2525,7 @@ Vapour-liquid equilibrium of pure components and mixtures were the focus of stud
 
 This is mainly due to the fact that EOS were originally (and cubic EOS in particular) to represent weak inter-molecular forces between gaseous molecules at relatively large distances (\ie {\it mean free path}). As pressure increases $\left(P\rightarrow \infty\right)$ and the distance between molecules tends to zero $\left(d\rightarrow 0\right)$, the accuracy of equations of state to predict $PVT$ behaviour also decreases, as the attractive and repulsive forces between molecules become stronger. 
 
-Molecules in liquid phase are held together at close distances by strong attractive forces, however these forces are not strong enough to keep them in fixed positions (as inter/intraforces in the solid phase) and the molecules are free to move past, slide over and collide with other molecules. A fraction of the molecules (mostly with higher energy) may be able to break such attractive forces and `escape' towards the vapour phase. 
+Molecules in liquid phase are held together at close distances by strong attractive forces, however these forces are not strong enough to keep them in fixed positions (as inter-/intra-molecular forces in the solid phase) and the molecules are free to move past, slide over and collide with other molecules. A fraction of the molecules (mostly with higher energy) may be able to break such attractive forces and `escape' towards the vapour phase. 
 
 Kinetic energy in gaseous molecules are larger than the attractive forces, leading to large distances between molecules and a tendency to occupy the whole volume of the system. The large kinetic energy in gaseous molecules also lead to continuous collisions between molecules and with the system (container) walls. During collisions, although total momentum is conserved, individual energies (and velocities) may decrease and molecules may move to a system with lower kinetic energy, \ie liquid phase.
 
@@ -2543,9 +2543,9 @@ where $\overline{G}_{i}$ is the {\it partial molar Gibbs free energy}. This lead
 
 \medskip
 
-The main assumptions for ideal gas behaviour assumes that molecules of gas are massless particles with no interaction between them (\ie volume of the molecules is negligibly small compared with the volume occupied by the gas or simply the distance between gaseous molecules are often infinitely large, $d\rightarrow \infty$), except during elastic collisions over negligible duration. These conditions can only be met by fluids at sufficiently high temperature and relatively low pressure when large distances between molecules and high velocity overcome any interaction. The concept of ideality for liquids also exists and is based on the assumption that inter-molecular forces are the same between all molecules in solution. This assumption may be correct for pure non-polar substances (\ie in solutions with no major inter/intramolecular forces).
+The main assumptions for ideal gas behaviour assume that molecules of gas are massless particles with no interaction between them (\ie volume of the molecules is negligibly small compared with the volume occupied by the gas or simply the distance between gaseous molecules are often infinitely large, $d\rightarrow \infty$), except during elastic collisions over negligible duration. These conditions can only be met by fluids at sufficiently high temperature and relatively low pressure when large distances between molecules and high velocity overcome any interaction. The concept of ideality for liquids also exists and is based on the assumption that inter-molecular forces are the same between all molecules in solution. This assumption may be correct for pure non-polar substances (\ie in solutions with no major inter-/intra-molecular forces).
 
-Thus, the aim of this Module is to define thermodynamic properties of real solutions based on properties of ideal solutions. Excess properties (Section~\ref{Section:04:ExcessProperties}) plays a role similar to that of residual properties for gases. In order to study solution properties at low to moderate pressures, {\it activity coefficient}, based on the definition of {\it fugacity}, is used. The {\it activity coefficient}, derived from the {\it excess Gibbs free energy}, is a measure of the extent of non-ideality of a real solution and helps describing phase equilibria of mixtures at low and moderate pressures.
+Thus, the aim of this Module is to define thermodynamic properties of real solutions based on properties of ideal solutions. Excess properties (Section~\ref{Section:04:ExcessProperties}) plays a role similar to that of residual properties (Section~\ref{Section:03:ResidualProperties}) for gases. In order to study solution properties at low to moderate pressures, {\it activity coefficient}, based on the definition of {\it fugacity}, is used. The {\it activity coefficient}, derived from the {\it excess Gibbs free energy}, is a measure of the extent of non-ideality of a real solution and helps describing phase equilibria of mixtures at low and moderate pressures.
 
 
 %%% SUBSECTION
@@ -2567,7 +2567,7 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
     && \Partial[G]{P}{T} = V = \Partial[n\mu]{P}{T} = n\Partial[\mu]{P}{T} \nonumber \\
     && \Partial[\mu]{P}{T} = \frc{V}{n} = \overline{v}\label{Mod05_fugacity1}
   \end{eqnarray}
-  where $\underline{v}$ is the molar volume. For ideal gas,
+  where $\underline{v}$ is the molar volume. For an ideal gas,
   \begin{displaymath}
      \Partial[\mu^{\text{ig}}]{P}{T} = \frc{RT}{P},
   \end{displaymath}
@@ -2579,11 +2579,11 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
   \begin{equation}
     \mu = RT\ln{f} + C(T),\label{Mod05_fugacity1b}
   \end{equation}
-  where $f$ is the {\it fugacity of a real gas}, \ie \blue{a representation of the pressure of an ideal gas that has the same chemical potential as the real gas.} Since the {\it fugacity} has the \underline{units of pressure}, it is often referred as a `fictitious pressure'.  The definition of fugacity from Eqn.~\ref{Mod05_fugacity1b} is entirely general and can be readily extended to both liquids and solids. Now, replacing Eqn.~\ref{Mod05_fugacity1b} in the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7}, 
+  where $f$ is the {\it fugacity of a real gas}, \ie \blue{a representation of the pressure of an ideal gas that has the same chemical potential as the real gas.} Since the {\it fugacity} has the \underline{units of pressure}, it is often referred as a `fictitious pressure'.  The definition of fugacity from Eqn.~\ref{Mod05_fugacity1b} is entirely general and can be readily extended to both liquids and solids. Now, replacing Eqn.~\ref{Mod05_fugacity1b} in the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7}, at constant temperature,
   \begin{equation}
-    RT\Partial[\left(\ln{f}\right)]{P}{T} = \overline{v},\label{Mod05_fugacity1c}
+    RT\Partial[\left(\ln{f}\right)]{P}{T} = \overline{v}.\label{Mod05_fugacity1c}
   \end{equation}
-      {\it fugacity} can be obtained by integrating this equation holding $T$ constant. As pressure tends to zero (lower limit of the left-hand-side integration), the fluid behaves as an ideal gas. We can thus state that the fugacity of a pure component is equal to the pressure in the limit of zero pressure, \ie
+  {\it Fugacity} can be obtained by integrating this equation holding $T$ constant. As pressure tends to zero (lower limit of the left-hand-side integration), the fluid behaves as an ideal gas. We can thus state that the fugacity of a pure component is equal to the pressure in the limit of zero pressure, \ie
       \begin{shaded}
         \begin{equation}
            \lim\limits_{P \rightarrow 0} \frc{f}{P} = 1.\label{Mod05_fugacity1d}
@@ -2592,14 +2592,14 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
 
   \noindent  In a \underline{mixture} containing $n$ moles of $\mathcal{C}$ chemical species, Eqn.~\ref{Mod05_fugacity1c} becomes,
       \begin{eqnarray}
-        && RT\Partial[\left(\ln{f_{i}}\right)]{P}{T,n} = \overline{v}_{i},\label{Mod05_fugacity1e1} \\
+        && RT\Partial[\left(\ln{f_{i}}\right)]{P}{T,n} = \overline{v}_{i},\;\;\;\;\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}\label{Mod05_fugacity1e1} \\
         && RT\Partial[\left(\ln{\overline{f}_{i}}\right)]{P}{T,n} = \overline{V}_{i},\label{Mod05_fugacity1e2}
       \end{eqnarray}
       where $f_{i}$ is the {\it fugacity of pure component $i$} and $\overline{f}_{i}$ is the {\it fugacity of component $i$ in the mixture}. $\overline{v}_{i}$ and $\overline{V}_{i}$ are the molar volume of pure component $i$ and, of component $i$ in the mixture. If we subtract Eqn.~\ref{Mod05_fugacity1e1} from ~\ref{Mod05_fugacity1e2} and integrate the result from $P'$ to $P$ at constant $T$,
       \begin{displaymath}
         RT\Partial[\left(\ln{\frc{\overline{f}_{i}}{f_{i}}}\right)]{P}{T,n} = \overline{V}_{i} - \overline{v}_{i} \;\;\Longrightarrow \;\;  RT\left[\left.\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)}\right|_{P'}^{P}\right] = \int\limits_{P'}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP
       \end{displaymath}
-      As $P'\rightarrow 0$,
+      Assuming that $P'$ tends to $0$,
       \begin{equation}
         RT\left[\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)} - \lim\limits_{P'\rightarrow 0}\ln\left(\frc{\overline{f}_{i}}{f_{i}}\right)\right] = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP.\label{Mod05_fugacity1f}
       \end{equation}
@@ -2643,57 +2643,6 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
         These expressions are called \red{\it Lewis-Randall rules} and they describe relations between phase compositions and fugacities.
       \end{shaded}
       
-\medskip
-    
-      In a mixture (based on Eqn.~\ref{Mod05_fugacity1b}),
-  \begin{equation}
-    \mu = RT\ln{f} + C(T),\label{Mod05_fugacity2b}
-  \end{equation}
-  where $f$ is the {\it fugacity of a real gas}, \ie \blue{a representation of the pressure of an ideal gas that has the same chemical potential as the real gas.} Since the {\it fugacity} has the \underline{units of pressure}, it is often referred as a `fictitious pressure'.  The definition of fugacity from Eqn.~\ref{Mod05_fugacity2b} is entirely general and can be readily extended to both liquids and solids. Now, replacing Eqn.~\ref{Mod05_fugacity2b} in the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7},
-  \begin{equation}
-    RT\Partial[\left(\ln{f}\right)]{P}{T} = \overline{v},\label{Mod05_fugacity2c}
-  \end{equation}
-      {\it fugacity} can be obtained by integrating this equation holding $T$ constant. As pressure tends to zero (lower limit of the left-hand-side integration), the fluid behaves as an ideal gas. We can thus state that the fugacity of a pure component is equal to the pressure in the limit of zero pressure, \ie
-      \begin{shaded}
-        \begin{equation}
-           \lim\limits_{P \rightarrow 0} \frc{f}{P} = 1.\label{Mod05_fugacity2d}
-        \end{equation}
-      \end{shaded}
-
-  \noindent  In a \underline{mixture} containing $n$ moles of $\mathcal{C}$ chemical species, Eqn.~\ref{Mod05_fugacity2c} becomes,
-      \begin{eqnarray}
-        && RT\Partial[\left(\ln{f_{i}}\right)]{P}{T,n} = \overline{v}_{i},\label{Mod05_fugacity2e1} \\
-        && RT\Partial[\left(\ln{\overline{f}_{i}}\right)]{P}{T,n} = \overline{V}_{i},\label{Mod05_fugacity2e2}
-      \end{eqnarray}
-      where $f_{i}$ is the {\it fugacity of pure component $i$} and $\overline{f}_{i}$ is the {\it fugacity of component $i$ in the mixture}. $\overline{v}_{i}$ and $\overline{V}_{i}$ are the molar volume of pure component $i$ and, of component $i$ in the mixture. If we subtract Eqn.~\ref{Mod05_fugacity2e1} from ~\ref{Mod05_fugacity2e2} and integrate the result from $P'$ to $P$ at constant $T$,
-      \begin{displaymath}
-        RT\Partial[\left(\ln{\frc{\overline{f}_{i}}{f_{i}}}\right)]{P}{T,n} = \overline{V}_{i} - \overline{v}_{i} \;\;\Longrightarrow \;\;  RT\left[\left.\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)}\right|_{P'}^{P}\right] = \int\limits_{P'}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP
-      \end{displaymath}
-      As $P'\rightarrow 0$,
-      \begin{equation}
-        RT\left[\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)} - \lim\limits_{P'\rightarrow 0}\ln\left(\frc{\overline{f}_{i}}{f_{i}}\right)\right] = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP.\label{Mod05_fugacity2f}
-      \end{equation}
-      When $P'\rightarrow 0$
-      \begin{displaymath}
-        \begin{cases}
-          f_{i} \rightarrow P', \\
-          \overline{f}_{i} \rightarrow y_{i}P',
-        \end{cases}
-      \end{displaymath}
-      and the limiting term in the previous equation becomes,
-      \begin{displaymath}
-        \lim\limits_{P'\rightarrow 0}\ln\left(\frc{\overline{f}_{i}}{f_{i}}\right) \rightarrow \ln{\left(\frc{y_{i}P'}{P'}\right)} = \ln{y_{i}}
-      \end{displaymath}
-      Thus Eqn.~\ref{Mod05_fugacity2f} becomes,
-        \begin{displaymath}
-          RT\left[\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)} - \ln{y_{i}}\right] = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP
-        \end{displaymath}
-      \begin{shaded}
-        \begin{equation}
-           RT\ln{\left(\frc{\overline{f}_{i}}{y_{i}f_{i}}\right)} = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP. \label{Mod05_fugacity2g}
-        \end{equation}
-      \end{shaded}
-  \noindent This expression relates fugacity of a pure component $i$ and the fugacity of the same component $i$ in a mixture with $\mathcal{C}$ chemical components during continuous change in pressure. The term in brackets in the left-hand side represents in the ratio between partial pressures between real and ideal fluids in a mixture.
 \end{subequations}
 
       
@@ -2701,32 +2650,13 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
 \subsection{Activity and Activity Coefficient }\label{Section:05:ActivitySection}
    \begin{subequations}
         
-      For an ideal mixture of ideal gases, the partial pressure of species $i$ is the fugacity of component $i$ in the mixture, \ie
-         \begin{displaymath}
-            \mfr[\overline{f}]{i}{V} = y_{i}P = P_{i}.
-         \end{displaymath}
-      Now, for an ideal mixture of real fluids,
-         \begin{displaymath}
-            \mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L},
-         \end{displaymath}
-      \ie the fugacity of a component in a mixture is a function of the fugacity of the pure component.
-      \begin{shaded}
-         An \underline{ideal solution} is a mixture in which,
-        \begin{equation}
-          \mfr[\overline{f}]{i}{V} = y_{i}P = P_{i}\;\;\;\text{ and }\;\;\; \mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}\label{Mod05_activity1}
-        \end{equation}
-        These expressions are called \red{\it Lewis-Randall rules} and they describe relations between phase compositions and fugacities.
-      \end{shaded}
-      
-\medskip
-    
       In a mixture (based on Eqn.~\ref{Mod05_fugacity1b}),
         \begin{displaymath}
            \mu_{i} = RT\ln{\overline{f}_{i}} + C_{i}(T),
         \end{displaymath}
       consider a reference-state, where a species $i$ of a multi-component system is pure at temperature $T$ and at reference-state pressure, $P_{\text{ref}}$,
         \begin{equation}
-           \mu_{i} - \mu_{i}^{\circ} = RT\ln{\left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)},\label{Mod05_activity1a},
+           \mu_{i} - \mu_{i}^{\circ} = RT\ln{\left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)},\label{Mod05_activity1a}
         \end{equation}
       where superscript $^{\circ}$ stands for {\it reference state}. 
         \begin{shaded}
@@ -2758,9 +2688,10 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
               \begin{equation}
                  \mu_{i} = \overline{g}^{\circ}_{i} + RT\ln{\frc{y_{i}P}{P_{\text{ref}}}}.\label{Mod05_activity1e}
               \end{equation}
-             This expression allows the calculation of the chemical potential of the vapour phase in a mixture subjected to a change in pressure based on composition and temperature. Molar Gibbs energy at reference conditions for several chemical species are often tabulated and can be found in any chemical engineering handbook.
+             This expression allows the calculation of the chemical potential of the vapour phase in a mixture subjected to a change in pressure based on composition and temperature. Molar Gibbs energy at reference conditions, $\overline{g}^{\circ}_{i}$, for several chemical species are often tabulated and can be found in any chemical engineering handbook.
 \medskip
-        \noindent Finally we can now define the \underline{\blue{activity coefficient}}, $\gamma_{i}$, as
+             
+        \noindent Finally, we can now define the \underline{\blue{activity coefficient}}, $\gamma_{i}$, as
           \begin{equation}
               a_{i} = \frc{y_{i}f_{i}}{f_{i}^{\circ}}\;\;\;\;\Rightarrow \;\;\;\; \gamma_{i} = \frc{a_{i}}{y_{i}} = \frc{f_{i}}{f_{i}^{\circ}}\label{Mod05_activity1f}
           \end{equation}
@@ -2781,27 +2712,33 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
 %%% SUBSECTION
 \subsection{Henry's Law}\label{Section:05:HenryLaw}
  %
-      Now that the concepts of fugacity and activity coefficient were introduced, we can return to the special VLE condition in which the solute is very diluted in the mixture (Section~\ref{Section:04:HenryLaw}). In such cases,  \ie at {\it infinite dilution}, the fugacity of the solute in the mixture is zero, 
-         \begin{displaymath}
-                x_{i} \rightarrow 0 \;\;\Rightarrow \;\; \overline{f}_{i} = 0.
-         \end{displaymath}
-      Thus, the ratio $\frac{\overline{f}_{i}}{x_{i}}$ $\left(\text{from } \gamma_{i}=\frac{\overline{f}_{i}}{x_{i}f_{i}}\right)$ is undetermined. Applying {\it l'H\^opital's rule} (see Appendix D4)\footnote{The L'H\^opital rule states that for a limit,
+Now that the concepts of fugacity and activity coefficient were introduced, we can return to the special VLE condition in which the solute is very diluted in the mixture (Section~\ref{Section:04:HenryLaw}). In such cases, the fugacity of a very dilute chemical species in a liquid mixture (\eg dissolved gases or solid of limited solubility) is experimentally found to be a linear function of its low composition (\ie mole fraction)\footnote{It is clear that the division in the limiting term,
+  \begin{displaymath}
+    \lim\limits_{x_{i}\rightarrow 0}\frc{\overline{f_{i}}}{x_{i}}
+  \end{displaymath}
+  is undetermined as when $x_{i}\rightarrow 0,\;\;f_{i}=0$, \ie at infinite dilution of a solute $i$ in solution, the fugacity of this component is null. In order to solve this mathematical problem, we can use the L'H\^opital rule (see Appendix D4) which states that for a limit,
          \begin{displaymath}
                  \lim\limits_{x\rightarrow a}\frc{f(x)}{g(x)},
          \end{displaymath}
          if the numerator and denominator are finite at $a$, and $g(a)=0$, then
          \begin{displaymath}
-                 \lim\limits_{x\rightarrow a}\frc{f(x)}{g(x)} =  \lim\limits_{x\rightarrow a}\frc{f'(a)}{g'(a)}
+                 \lim\limits_{x\rightarrow a}\frc{f(x)}{g(x)} =  \lim\limits_{x\rightarrow a}\frc{f'(a)}{g'(a)}.
          \end{displaymath}
-     },
-         \begin{equation}
-             \lim\limits_{x_{i}\rightarrow 0}\frc{\overline{f_{i}}}{x_{i}} = \left(\frc{d \overline{f_{i}}}{d x_{i}}\right)_{x_{i}=0} \equiv \mathcal{H}_{i}\;\;\;\Rightarrow\;\;\; \overline{f_{i}} = x_{i}\mathcal{H}_{i},\label{Mod05_HenryLaw1} 
-         \end{equation}
-         where $\mathcal{H}$ is the Henry's constant originally defined in Eqn.~\ref{Mod04_HenryLaw} as,
+         Therefore, the limiting dilution case can be solved as
+         \begin{displaymath}
+                 \lim\limits_{x_{i}\rightarrow 0}\frc{\overline{f_{i}}}{x_{i}} = \left(\frc{d \overline{f_{i}}}{d x_{i}}\right)_{x_{i}=0},
+         \end{displaymath}
+}, \ie   
+      \begin{eqnarray}
+        && \lim\limits_{x_{i}\rightarrow 0}\frc{\overline{f_{i}}}{x_{i}} = \left(\frc{d \overline{f_{i}}}{d x_{i}}\right)_{x_{i}=0}  \equiv \mathcal{H}_{i}, \nonumber \\
+        && \mfr[\overline{f}]{i}{L}(T,P,x) = x_{i}\mathcal{H}_{i}(T,P)\;\;\;\;\text{ as } x_{i}\rightarrow 0.
+      \end{eqnarray}      
+This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law constant}, and is dependent on the solute-solvent pair, temperature and pressure. This experimentally-defined constant was first introduced in Eqn.~\ref{Mod04_HenryLaw} as, in equilibrium conditions (at $P$, $T$ and $n$ constants), $\mfr[\overline{f}]{i}{V}=\mfr[\overline{f}]{i}{L}$,
          \begin{shaded}
            \begin{displaymath}
-             P_{i} = y_{i}P = x_{i}\mathcal{H}_{i}.
+             P_{i} = y_{i}P = x_{i}\mathcal{H}_{i},
            \end{displaymath}
+           with $\mfr[\overline{f}]{i}{V}=y_{i}P$.
         \end{shaded}
 %
 
@@ -2814,7 +2751,7 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
          \begin{displaymath}
             \overline{M}_{i} = \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}},
          \end{displaymath}
-        \ie the change of the total property $nM$ of a mixture of $\mathcal{C}$ species resulting from the addition at constant $T$ and $P$ of infinitesimal amount of species $i$ to a prescribed amount of solution.  It is important to bear in mind that \underline{\it partial molar property} of a substance is different from {\it molar property} of the same substance in a pure state at the same $T$ and $P$. This is due to inter/intramolecular forces that imposes interactions between species in solution.
+        \ie the change of the total property $nM$ of a mixture of $\mathcal{C}$ species resulting from the addition at constant $T$ and $P$ of infinitesimal amount of species $i$ to a prescribed amount of solution.  It is important to bear in mind that \underline{\it partial molar property} of a substance is different from {\it molar property} of the same substance in a pure state at the same $T$ and $P$. This is due to inter-/intra-molecular forces that imposes interactions between species in solution.
 \medskip
 
       Equation~\ref{Mod04_PartialProperties2} is a general expression for the change of any extensive property, $M$
@@ -2841,7 +2778,7 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
         \begin{equation}
            \underbrace{\left[dM - \Partial[M]{T}{P,x}dT - \Partial[M]{P}{T,x}dP - \summation[\overline{M}_{i}dx_{i}]{i}{}\right]}_{A}n + \underbrace{\left[M-\summation[\overline{M}_{i}x_{i}]{i}{}\right]}_{B}dn = 0\label{Mod5_GibbsDuhem1a}
         \end{equation}
-      Equation~\ref{Mod5_GibbsDuhem1a} is valid for any arbitrary values of $n$ and $dn$, therefore $n$ and $dn$ should be independent of each other. This is only true if the coefficients $A$ and $B$ are zero:
+      Equation~\ref{Mod5_GibbsDuhem1a} is valid for any arbitrary values of $n$ and $dn$, therefore $n$ and $dn$ should be independent of each other. Thus, this expression is only true if the coefficients $A$ and $B$ are zero:
           \begin{eqnarray}
               A &=& dM - \Partial[M]{T}{P,x}dT - \Partial[M]{P}{T,x}dP - \summation[\overline{M}_{i}dx_{i}]{i}{} = 0 \nonumber \\
               dM &=& \Partial[M]{T}{P,x}dT + \Partial[M]{P}{T,x}dP + \summation[\overline{M}_{i}dx_{i}]{i}{}, \label{Mod5_GibbsDuhem1b}
