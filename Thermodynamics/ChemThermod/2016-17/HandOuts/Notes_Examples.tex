@@ -2794,7 +2794,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
              \begin{equation}
                  \Partial[M]{T}{P,x}dT + \Partial[M]{P}{T,x}dP - \summation[x_{i}d\overline{M}_{i}]{i}{} = 0.\label{Mod5_GibbsDuhem1e}
              \end{equation}
-             The \blue{GDE} must be satisfied for all changes in $P$, $T$ and $\underline{M}_{i}$.
+             The \blue{GDE} must be satisfied for all changes in $P$, $T$ and $\overline{M}_{i}$.
           \medskip
 
              \noindent For changes at constant temperature and pressure conditions, the \blue{GDE} becomes
@@ -2842,7 +2842,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
           \end{displaymath}
       leads to 
           \begin{eqnarray}
-             && \cancel{\red{x_{1}d\overline{M}_{1}}} + \overline{M}_{1}dx_{1} + \cancelto{\red{0 \text{ (due to GDE)}}}{\red{x_{2}d\overline{M}_{2}}} - \overline{M}_{2}dx_{1} = dM \nonumber \\
+             && \cancel{\red{x_{1}d\overline{M}_{1}}} + \overline{M}_{1}dx_{1} + \cancelto{\red{=0 \text{ (due to GDE, Eqn.~\ref{Mod5_GibbsDuhem1f})}}}{\red{x_{2}d\overline{M}_{2}}} - \overline{M}_{2}dx_{1} = dM \nonumber \\
              && dM = \overline{M}_{1}dx_{1} - \overline{M}_{2}dx_{1} \nonumber \\
              && \frc{dM}{dx_{1}} = \overline{M}_{1} - \overline{M}_{2} \label{Mod5_GibbsDuhem1j}
           \end{eqnarray}
@@ -2850,15 +2850,19 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
              Using Eqn.~\ref{Mod5_GibbsDuhem1i} in Eqn.~\ref{Mod5_GibbsDuhem1j},
                \begin{eqnarray}
                   && \frc{dM}{dx_{1}} = \overline{M}_{1} - \left(\frc{M-\overline{M}_{1}x_{1}}{x_{2}}\right) \nonumber \\
-                  && x_{2}\frc{dM}{dx_{1}} =  \underbrace{x_{2}\overline{M}_{1}}_{\left(1-x_{1}\right)} - M + \overline{M}_{1}x_{1} \nonumber \\
-                  && \overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}} \label{Mod5_GibbsDuhem1k} \\
-                  && \overline{M}_{2} = M - x_{1}\frc{dM}{dx_{1}} \label{Mod5_GibbsDuhem1l}
-              \end{eqnarray}
+                 && x_{2}\frc{dM}{dx_{1}} =  \underbrace{x_{2}\overline{M}_{1}}_{\left(1-x_{1}\right)\overline{M}_{1}} - M + \overline{M}_{1}x_{1} \nonumber
+               \end{eqnarray}
+               \begin{equation}
+                 \begin{cases}
+                    \overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}},\\% \label{Mod5_GibbsDuhem1k} \\
+                    \overline{M}_{2} = M - x_{1}\frc{dM}{dx_{1}} \label{Mod5_GibbsDuhem1k}
+                 \end{cases}
+              \end{equation}
             In binary solutions, the partial molar properties can be easily calculated from these two  expressions as a function of composition at constant $T$ and $P$. %From the GDE,
               \begin{eqnarray}
                    && x_{1}d\overline{M}_{1} + x_{2}d\overline{M}_{2} = 0 \;\;\;\;\;\blue{\times\frc{1}{dx_{1}}} \nonumber \\
-                   && x_{1}\frc{d\overline{M}_{1}}{dx_{1}} + x_{2}\frc{d\overline{M}_{2}}{dx_{1}} = 0 \;\;\;\;\;\blue{\times\frc{1}{x_{1}}}\label{Mod5_GibbsDuhem1m} \\
-                   && \frc{d\overline{M}_{1}}{dx_{1}} + \frc{x_{2}}{x_{1}}\frc{d\overline{M}_{2}}{dx_{1}} = 0. \label{Mod5_GibbsDuhem1n} 
+                   && x_{1}\frc{d\overline{M}_{1}}{dx_{1}} + x_{2}\frc{d\overline{M}_{2}}{dx_{1}} = 0 \;\;\;\;\;\blue{\times\frc{1}{x_{1}}}\nonumber \\ %\label{Mod5_GibbsDuhem1l} \\
+                   && \frc{d\overline{M}_{1}}{dx_{1}} + \frc{x_{2}}{x_{1}}\frc{d\overline{M}_{2}}{dx_{1}} = 0. \label{Mod5_GibbsDuhem1l} 
               \end{eqnarray}
           \end{shaded}
  %
@@ -2872,19 +2876,19 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
      \begin{displaymath}
         PV = nRT \;\;\;\Rightarrow\;\;\; P\overline{v} = RT
      \end{displaymath}
-     In an {\it ideal gas mixture} (igm), the EOS will be similar,
+     In an {\it ideal gas mixture} (igm), the EOS has a similar format,
      \begin{equation}
        PV^{\text{igm}} = \underbrace{\left(n_{1}+n_{2}+\cdots+n_{\mathcal{C}}\right)}_{N\text{ moles}}RT = \left(\summation[n_{i}]{i=1}{\mathcal{C}}\right)RT = NRT.\label{Mod5_IGM1} 
      \end{equation}
      The internal energy, $U^{\text{igm}}$, is just the summation of the internal energies of the individual components of the mixture,
      \begin{equation}
-       U^{\text{igm}}(T,N) = \summation[n_{i}\underbrace{\overline{u}_{i}^{\text{ig}}}_{\frac{u^{\text{ig}}}{n_{i}}}(T)]{i=1}{\mathcal{C}},\label{Mod5_IGM2} 
+       U^{\text{igm}}(T,N) = \summation[n_{i}\overline{u}_{i}^{\text{ig}}(T)]{i=1}{\mathcal{C}},\label{Mod5_IGM2} 
      \end{equation}
-     where $\overline{u}_{i}^{\text{ig}}$ is the molar internal energy.We can change the notation on Eqns.~\ref{Mod5_IGM1}-\ref{Mod5_IGM2} to replace the number of moles by molar fraction, $y_{i}$, of the gas mixture, and to obtain the {\it partial molar internal energy}, $\overline{U}_{i}^{\text{igm}}(T,y)$
+     where $\overline{u}_{i}^{\text{ig}}=\frac{U_{i}^{\text{ig}}}{n_{i}}$ is the molar internal energy.We can change the notation on Eqns.~\ref{Mod5_IGM1}-\ref{Mod5_IGM2} to replace the number of moles by molar fraction, $y_{i}$, of the gas mixture, and to obtain the {\it partial molar internal energy}, $\overline{U}_{i}^{\text{igm}}(T,y)$
      \begin{equation}
        \overline{U}_{i}^{\text{igm}}(T,y) = \Partial[U^{\text{igm}}(T,N)]{n_{i}}{T,P,n_{j\ne i}} = \left[\frc{\partial\summation[n_{j}\overline{u}_{j}^{\text{ig}}(T)]{j=1}{\mathcal{C}}}{\partial n_{i}}\right]_{T,P,n_{j\ne i}}  = \overline{u}_{i}^{\text{ig}}(T)\label{Mod5_IGM3}
      \end{equation} 
-     This expression indicates that the partial molar internal energy of species $i$ in an ideal gas mixture at a given tempereature is equal to the pure component molar internal energy of that component as an ideal gas at the same temperature. We can also obtain the {\it partial molar volume}, $\overline{V}_{i}^{\text{igm}}$, with the same conclusion,
+     This expression indicates that the partial molar internal energy of species $i$ in an ideal gas mixture at a given tempereature is equal to the pure component molar internal energy of that component behaving as an ideal gas at the same temperature. We can also obtain the {\it partial molar volume}, $\overline{V}_{i}^{\text{igm}}$, with the same conclusion,
      \begin{equation}
        \overline{V}_{i}^{\text{igm}}(T,P,y) = \Partial[V^{\text{igm}}(T,P,N)]{n_{i}}{T,P,n_{j\ne i}} = \left[\frc{\partial\summation[n_{j} \frc{RT}{P}]{j=1}{\mathcal{C}}}{\partial n_{i}}\right]_{T,P,n_{j\ne i}} = \frc{RT}{P} = \overline{v}_{i}^{\text{ig}}(T,P).\label{Mod5_IGM4}
      \end{equation}
