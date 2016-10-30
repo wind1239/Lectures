@@ -2989,7 +2989,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
        \begin{equation}
          \phi = \frc{f}{P}.
        \end{equation}
-       For pure ideal gases $f_{i}^{\text{ig}}=P$ (obtained from the definition of fugacity $\lim\limits_{P\rightarrow 0}\frac{f}{P}=1$) and $\phi^{\text{ig}}=1.$
+       For pure ideal gases $f^{\text{ig}}=P$ (obtained from the definition of fugacity $\lim\limits_{P\rightarrow 0}\frac{f}{P}=1$) and $\phi^{\text{ig}}=1.$
        \begin{shaded}
          \noindent The definition of fugacity coefficient can be extended to {\it real gas mixtures} and {\it real liquid solutions} as,
          \begin{eqnarray}
@@ -2997,7 +2997,106 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
            \mfr[\phi]{i}{L} &=& \frc{\mfr[\overline{f}]{i}{L}}{x_{i}P_{i}^{\text{sat}}}.
          \end{eqnarray}
        \end{shaded}
-       
+
+\medskip
+       For a single component in a closed system behaving as an ideal gas, the fundamental thermodynamic relation is valid,
+         \begin{displaymath}
+            dG = VdP - SdT,
+         \end{displaymath}
+         at constant temperature, a pure gas $i$, this relation reduces to,
+         \begin{displaymath}
+            dG_{i}^{\text{ig}} = V_{i}^{\text{ig}}dP = RT\frc{dP}{P} = RTd\ln{P}.
+         \end{displaymath}
+         Integrating this expression leads to,
+         \begin{displaymath}
+             G_{i}^{\text{ig}} = RT\ln{P} + C_{i}(T),
+         \end{displaymath}
+         where $C_{i}$ is an integration constant. With the same procedure, but now for a real fluid, we can obtain a relation between the Gibbs free energy of species $i$ and the fugacity at constant $T$,
+         \begin{displaymath} 
+             G_{i} = RT\ln{f_{i}} + C_{i}(T).
+         \end{displaymath}
+         Subtracting these expressions results in the {\it residual Gibbs free energy},
+         \begin{equation}
+            G_{i}^{R} = G_{i} - G_{i}^{\text{ig}} = RT\ln{f_{i}}{P} = RT\ln{\phi_{i}}.
+         \end{equation}
+         Using the Gibbs free energy generating function, Eqn.~\ref{Mod03_ResidualProperties_GeneratingGibbsFunction3}, %$\frc{G^{R}}{RT} =  \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}$,
+         \begin{equation}
+            \ln{\phi_{i}} = \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}
+         \end{equation}
+\bigskip
+
+         During phase change from saturated liquid to saturated vapour,
+         \begin{equation}
+            \mfr[G]{i}{V} - \mfr[G]{i}{L} = RT\ln{\frc{\mfr[f]{i}{V}}{\mfr[f]{i}{L}}},\label{Mod5_FugacityCoeff1}
+         \end{equation}
+         however, from Section~\ref{Section:03:ClapeyronRelations}, we studied that during phase transition \blue{$dG=0$}, \ie
+         \begin{displaymath}
+            \mfr[G]{i}{V} - \mfr[G]{i}{L} = 0 = RT\ln{\frc{\mfr[f]{i}{V}}{\mfr[f]{i}{L}}}
+         \end{displaymath}
+         \begin{shaded}
+            \begin{equation}
+               \mfr[f]{i}{V} = \mfr[f]{i}{L} = \mfr[f]{i}{\text{sat}} \;\;\text{ and }\;\; \mfr[\phi]{i}{V} = \mfr[\phi]{i}{L} = \mfr[\phi]{i}{\text{sat}}.
+            \end{equation}
+         \end{shaded}
+%
+   \end{subequations}
+
+%%% SUBSECTION
+\subsection{Expression for Fugacity of a Pure Liquid}\label{Section:05:FugacityCoefficient_Liquid}
+%
+   \begin{subequations}
+%
+         We can write the fugacity of a pure liquid species $i$ as,
+         \begin{displaymath}
+            \mfr[f]{i}{L}(P) = \underbrace{\frc{\mfr[f]{i}{V}\left(P_{i}^{\text{sat}}\right)}{P_{i}^{\text{sat}}}}_{\blue{A}} \underbrace{\frc{\mfr[f]{i}{L}\left(P_{i}^{\text{sat}}\right)}{\mfr[f]{i}{V}\left(P_{i}^{\text{sat}}\right)}}_{\blue{B}} \underbrace{\frc{\mfr[f]{i}{L}\left(P\right)}{\mfr[f]{i}{L}\left(P_{i}^{\text{sat}}\right)}}_{\blue{C}} P_{i}^{\text{sat}}.
+         \end{displaymath}
+         with
+         \begin{description}
+%
+             \item[\blue{(A):}] vapour phase fugacity coefficient, $\phi_{i}^{\text{sat}}$,
+                \begin{equation}
+                   \ln{\phi_{i}^{\text{sat}}} = \int\limits_{0}^{P_{i}^{\text{sat}}}\left(\mfr[Z]{i}{V}-1\right)\frc{dP}{P},\;\;\;\;\text{ at constant } T;
+                \end{equation}
+%
+             \item[\blue{(B):}] $=1$ as $\mfr[f]{i}{L}\left(P_{i}^{\text{sat}}\right) = \mfr[f]{i}{V}\left(P_{i}^{\text{sat}}\right)$;
+%
+             \item[\blue{(C):}] effect of pressure on fugacity of pure liquid $i$. From $G_{i} - G_{i}^{\text{sat}} = \int\limits_{P_{i}^{\text{sat}}}^{P}\mfr[V]{i}{L}dP$ (at constant $T$), \blue{C} becomes (based on Eqn.~\ref{Mod5_FugacityCoeff1}),
+                 \begin{eqnarray}
+                     \blue{C} = \frc{\mfr[f]{i}{L}\left(P\right)}{\mfr[f]{i}{L}\left(P_{i}^{\text{sat}}\right)} &=& \exp\left[\frc{1}{RT}\int\limits_{P_{i}^{\text{sat}}}{P}\mfr[V]{i}{L}dP\right] \nonumber \\
+                              \mfr[f]{i}{L}\left(P\right) &=& \underbrace{\mfr[f]{i}{L}\left(P_{i}^{\text{sat}}\right)}_{\mfr[\phi]{i}{\text{sat}}=\frc{\mfr[f]{i}{\text{sat}}}{P_{i}^{\text{sat}}}}  \underbrace{\exp{\left[\frc{1}{RT}\int\limits_{P_{i}^{\text{sat}}}{P}\mfr[V]{i}{L}dP\right]}}_{\text{Poynting-pressure factor}},\;\;\;\text{ assuming constant } \mfr[V]{i}{L} \nonumber \\
+                              \mfr[f]{i}{L}\left(P\right) &=& \mfr[\phi]{i}{\text{sat}}P_{i}^{\text{sat}}\exp{\left[\frc{\mfr[V]{i}{L}\left(P - P_{i}^{\text{sat}}\right)}{RT}\right]}
+                 \end{eqnarray}
+                 The \blue{Poynting-pressure factor} indicates the increase in fugacity due to the fact that system pressure is larger than the vapour pressure of the liquid. As the molar volume of the liquid phase is much smaller that the molar volume of the vapour phase, $\mfr[V]{}{L} <<<< \mfr[V]{}{V}$, the Poynting-pressure factor is only important at high pressure or at very low temperature conditions.
+         \end{description}
+         
+         \noindent Therefore, in order to calculate the fugacity of pure liquids, $\mfr[f]{i}{L}(P)$, we need:
+               \begin{itemize}
+                  \item $\mfr[Z]{i}{V}$ (obtained from either EOS, experiments or generalised correlations) to compute $\mfr[\phi]{i}{\text{sat}}$;
+                  \item liquid phase molar volume, $\mfr[V]{}{L}$ (usually the value for saturated liquid);
+                  \item a value for $P_{i}^{\text{sat}}$.
+               \end{itemize}
+%
+   \end{subequations}
+
+%%% SUBSECTION
+\subsection{Relation between Residual Property and Species Fugacity Coefficients in Mixtures}\label{Section:05:FugacityCoefficient_Residual}
+%
+   \begin{subequations}
+%
+        We can extend the definition of fugacity coefficient for mixture of gases or liquid solutions, \ie, from the definition of partial residual Gibbs energy,
+            \begin{displaymath}
+               \overline{G}^{R} = \overline{G}_{i} - \overline{G}_{i}^{\text{ig}} = \mu_{i} - \mu_{i}^{R}
+            \end{displaymath}
+        and for the chemical potential, $\mu_{i}$,
+            \begin{displaymath}
+               \mu_{i} - \mu_{i}^{\text{ig}} = RT\ln{\frc{\overline{f}_{i}}{y_{i}P}},
+            \end{displaymath}
+        thus
+            \begin{displaymath}
+               \overline{G}^{R} = RT\ln{\overline{\phi}_{i}},\;\;\;\text{ with }\;\; \overline{\phi}_{i} = \frc{\overline{f}_{i}}{y_{i}P}.
+            \end{displaymath}
+ 
+
 %
    \end{subequations}
 
