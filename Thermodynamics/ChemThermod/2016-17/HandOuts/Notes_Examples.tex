@@ -3101,12 +3101,65 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
    \end{subequations}
 
 %%% SUBSECTION
-\subsection{Ideal Solution Model}\label{Section:05:FugacityCoefficient_Residual}
+\subsection{Ideal Solution Model}\label{Section:05:IdealSolution}
 %
    \begin{subequations}
 %
+      We have seen that the chemical potential of an ideal gas mixture model is (Table~\ref{Mod5_TableIGM}),
+         \begin{displaymath}
+              \mu_{i}^{\text{igm}} = \overline{G}_{i}^{\text{igm}}(T,P,y) = \overline{g}_{i}^{\text{ig}}(T,P)+RT\ln{y_{i}}.
+         \end{displaymath}
+      Using a similar method we can extend this expression for ideal solutions,
+         \begin{equation}
+              \mu_{i}^{\text{id}} = \overline{G}_{i}^{\text{id}}(T,P,x) = \overline{g}_{i}^{\text{ig}}(T,P)+RT\ln{x_{i}}.
+         \end{equation}
+     Similarly to Section~\ref{Section:05:IGM}, we can also define the partial molar volume, $\overline{V}_{i}^{\text{id}}$, entropy, $\overline{S}_{i}^{\text{id}}$, and enthalpy, $\overline{H}_{i}^{\text{id}}$
+         \begin{eqnarray}
+            \overline{V}_{i}^{\text{id}} &=& \Partial[\overline{G}_{i}^{\text{id}}]{P}{T,x} = \Partial[G_{i}]{P}{T} = V_{i},  \\
+            \overline{S}_{i}^{\text{id}} &=& -\Partial[\overline{G}_{i}^{\text{id}}]{T}{P,x} = \Partial[G_{i}]{T}{P} - R\ln{x_{i}} = S_{i} -R\ln{x_{i}}, \\
+            \overline{H}_{i}^{\text{id}} &=& \overline{G}_{i}^{\text{id}} + R\overline{S}_{i}^{\text{id}} = H_{i}.
+         \end{eqnarray}
+     And the summability relations for ideal solutions, 
+        \begin{displaymath}
+            M^{\text{id}} = \summation[x_{i}\overline{M}_{i}^{\text{id}}]{}{},
+        \end{displaymath} 
+    thus, 
+        \begin{eqnarray}
+           && G^{\text{id}} = \summation[x_{i}G_{i}]{}{} + RT\summation[x_{i}\ln{x_{i}}]{}{}, \\
+           && S^{\text{id}} = \summation[x_{i}S_{i}]{}{} - R\summation[x_{i}\ln{x_{i}}]{}{}, \\
+           && V^{\text{id}} = \summation[x_{i}V_{i}]{}{}, \\
+           && H^{\text{id}} = \summation[x_{i}H_{i}]{}{}, 
+        \end{eqnarray}
 
+%
+   \end{subequations}
 
+%%% SUBSECTION
+\subsection{Defining Activity Coefficient based on Excess Properties}\label{Section:05:ActivityCoeffExcessProp}
+%
+   \begin{subequations}
+%
+      In Section~\ref{Section:03:GibbsGeneratingFunction}, the generating function of the Gibbs free energy was formally defined. Such definition can be extended (now considering that Gibbs free energy depends on temperature, pressure and number of moles) to study the excess Gibbs free energy,
+        \begin{equation}
+           d\left(\frc{nG^{E}}{RT}\right) = \frc{nV^{E}}{RT}dP - \frc{nH^{E}}{RT^{2}}dT + \summation[\frc{\overline{G}_{i}^{E}}{RT}dn_{i}]{i}{}.\label{Mod5_ActivityCoeffExcessProp1}
+        \end{equation}
+        The excess Gibbs free energy of species $i$ is obtained from,
+        \begin{eqnarray}
+            \overline{G}_{i}^{E} &=&  \overline{G}_{i} -G _{i}^{\text{id}} = \left[RT\ln{\overline{f}_{i}}+C_{i}(T)\right] - \left[RT\ln{x_{i}f_{i}}+C_{i}(T)\right] \nonumber \\
+                                &=&  RT\ln{\left(\frc{\overline{f}_{i}}{x_{i}f_{i}}\right)} = RT\ln{\gamma_{i}}\label{Mod5_ActivityCoeffExcessProp2}
+        \end{eqnarray}
+        \begin{shaded}
+            Replacing this expression in Eqn.~\ref{Mod5_ActivityCoeffExcessProp1},
+              \begin{equation}
+                 d\left(\frc{nG^{E}}{RT}\right) = \frc{nV^{E}}{RT}dP - \frc{nH^{E}}{RT^{2}}dT + \summation[\ln{\gamma_{i}}dn_{i}]{i}{}.\label{Mod5_ActivityCoeffExcessProp2}
+              \end{equation}
+            And we can also define,
+               \begin{eqnarray}
+                   && \frc{V^{E}}{RT} = \left[\frc{\partial \left(\frac{G^{E}}{RT}\right)}{\partial P}\right]_{T,x} \\
+                   && \frc{H^{E}}{RT} = -T\left[\frc{\partial \left(\frac{G^{E}}{RT}\right)}{\partial P}\right]_{P,x} \\
+                   && \ln{\gamma_{i}} = \left[\frc{\partial \left(\frac{G^{E}}{RT}\right)}{\partial P}\right]_{T,P,n_{j\ne i}} 
+               \end{eqnarray}
+        \end{shaded}
 %
    \end{subequations}
 
