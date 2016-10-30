@@ -2910,33 +2910,33 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
        \item reducing the pressure from $P$ to $P_{i}$, or;
        \item expanding each gas from its initial volume $V_{i}=n_{i}RT/P$ to $V=\summation[n_{i}RT/P]{}{}$.
      \end{itemize}
-     Thus using the entropy relations below for ideal gases $\left(\text{based on } S=S(T,P) \text{ and } S=S(T,V)\right)$ that have not been derived in this notes,
+     Thus using the entropy relations below for ideal gases\footnote{These relations have not been derived in this Notes, but can be obtained assuming $S=S(T,P)$ and $S=S(T,V)$, definitions of coefficients of thermal expansion, $\beta$, and isothermal compressibility, $\kappa$, Eqn.~\ref{Mod02_Compressibilityexpansivity}, and Maxwell relations.},
        \begin{displaymath}
            dS =
          \begin{cases}
               C_{p}d\left(\ln{T}\right) - Rd\left(\ln{P}\right), \\
-              C_{v}d\left(\ln{T}\right) + Rd\left(\ln{V}\right).
+              C_{v}d\left(\ln{T}\right) + Rd\left(\ln{V}\right),
          \end{cases}          
      \end{displaymath}
      leading to (assuming constant $T$),
-       \begin{equation}
+       \begin{displaymath}
            \overline{S}_{i}^{\text{igm}}(T,P,y) - \overline{s}_{i}^{\text{ig}}(T,P) =
          \begin{cases}
               -R\ln{\frc{P_{i}}{P}} = -R\ln{y_{i}}\;\;\;\text{ or }, \\
-               R\ln{\frc{V}{V_{i}}} = R\ln{\frc{\summation[n_{j}RT/P]{j}{}}{n_{i}RT/P}} = -R\ln{y_{i}}
+               R\ln{\frc{V}{V_{i}}} = R\ln{\frc{\summation[n_{j}RT/P]{j}{}}{n_{i}RT/P}} = -R\ln{y_{i}},
          \end{cases}          
-     \end{equation}
+     \end{displaymath}
      for the whole mixture, the molar entropy change of mixing, $\Delta_{\text{mix}}\overline{S}^{\text{igm}}$ (see Eqn.~\ref{Mod5_GibbsDuhem1h}) can be obtained from
      \begin{displaymath}
-          \Delta_{\text{mix}}S^{\text{igm}} = \summation[n_{i}\left(\overline{S}_{i}^{\text{igm}}(T,P,y) - \overline{s}_{i}^{\text{ig}}(T,P) \right) ]{i=1}{\mathcal{C}} = -R\summation[n_{i}\ln{y_{i}}]{i=1}{\mathcal{C}},
+          \Delta_{\text{mix}}S^{\text{igm}} = \summation[n_{i}\left(\overline{S}_{i}^{\text{igm}}(T,P,y) - \overline{s}_{i}^{\text{ig}}(T,P) \right) ]{i=1}{\mathcal{C}} = -R\summation[n_{i}\ln{y_{i}}]{i=1}{\mathcal{C}}.
      \end{displaymath}
-     if this equation is divided by the total number of moles, $\summation[n_{j}]{j=1}{\mathcal{C}}$,
+     If this expression is divided by the total number of moles, $\summation[n_{j}]{j=1}{\mathcal{C}}$,
      \begin{equation}
        \Delta_{\text{mix}}\overline{s}^{\text{igm}} = - R \summation[y_{i}\ln{y_{i}}]{i=1}{\mathcal{C}}.
      \end{equation}
 \medskip
   
-     With volume, internal energy and entropy change of mixing, other thermodynamic potentials can be readily obtained. For enthalpy,
+     \noindent With volume, internal energy and entropy change of mixing, partial molar properties of other thermodynamic potentials can be readily obtained. For enthalpy,
      \begin{eqnarray}
           && \overline{H}_{i}^{\text{igm}}(T,P,y) = \overline{h}_{i}^{\text{ig}}(T,P) \nonumber \\
           && \overline{H}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{h}_{i}^{\text{ig}}(T,P)]{i=1}{\mathcal{C}},
@@ -2963,7 +2963,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
             Volume        &   $\overline{V}_{i}^{\text{igm}}(T,y) = \overline{v}_{i}^{\text{ig}}(T)$ & $\Delta_{\text{mix}} \overline{v}^{\text{igm}}=0 $ & $\overline{v}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{v}_{i}^{\text{ig}}(T,P)]{}{}$ \\
          Internal Energy  &   $\overline{U}_{i}^{\text{igm}}(T,y) = \overline{u}_{i}^{\text{ig}}(T)$ & $\Delta_{\text{mix}} \overline{u}^{\text{igm}}=0 $ & $\overline{u}^{\text{igm}}(T,y) = \summation[y_{i}\overline{u}_{i}^{\text{ig}}(T)]{}{}$ \\
          Enthalpy         &   $\overline{H}_{i}^{\text{igm}}(T,y) = \overline{h}_{i}^{\text{ig}}(T)$ & $\Delta_{\text{mix}} \overline{h}^{\text{igm}}=0 $ & $\overline{h}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{h}_{i}^{\text{ig}}(T,P)]{}{}$ \\
-         Entropy          &   $\overline{S}_{i}^{\text{igm}}(T,P,y) = \overline{s}_{i}^{\text{ig}}(T,P)-R\ln{y_{i}}$ & $\Delta_{\text{mix}} \overline{s}^{\text{igm}}=-R\summation[x_{i}\ln{y_{i}}]{}{}$ & $\overline{s}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{s}_{i}^{\text{ig}}(T,P)]{}{}-R\summation[y_{i}\ln{y_{i}}]{}{}$ \\
+         Entropy          &   $\overline{S}_{i}^{\text{igm}}(T,P,y) = \overline{s}_{i}^{\text{ig}}(T,P)-R\ln{y_{i}}$ & $\Delta_{\text{mix}} \overline{s}^{\text{igm}}=-R\summation[y_{i}\ln{y_{i}}]{}{}$ & $\overline{s}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{s}_{i}^{\text{ig}}(T,P)]{}{}-R\summation[y_{i}\ln{y_{i}}]{}{}$ \\
          Gibbs Energy     &   $\overline{G}_{i}^{\text{igm}}(T,P,y) = \overline{g}_{i}^{\text{ig}}(T,P)+RT\ln{y_{i}}$ & $\Delta_{\text{mix}} \overline{g}^{\text{igm}}=-RT\summation[y_{i}\ln{y_{i}}]{}{}$ & $\overline{g}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{g}_{i}^{\text{ig}}(T,P)]{}{} + RT\summation[y_{i}\ln{y_{i}}]{}{}$ \\
          Helmholtz Energy &   $\overline{A}_{i}^{\text{igm}}(T,P,y) = \overline{a}_{i}^{\text{ig}}(T,P)+RT\ln{y_{i}}$ & $\Delta_{\text{mix}} \overline{a}^{\text{igm}}=-RT\summation[y_{i}\ln{y_{i}}]{}{}$ & $\overline{a}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{a}_{i}^{\text{ig}}(T,P)]{}{} + RT\summation[y_{i}\ln{y_{i}}]{}{}$ \\ 
  \hline
