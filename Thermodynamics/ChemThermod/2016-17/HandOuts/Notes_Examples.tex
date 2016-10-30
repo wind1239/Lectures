@@ -2978,14 +2978,26 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
 
       
 %%% SUBSECTION
-\subsection{Fugacity Coefficient}\label{Section:05:FugacityCoefficient}
+\subsection{Fugacity Coefficient of Species in Mixtures}\label{Section:05:FugacityCoefficient}
    \begin{subequations}
 %
       In  Section~\ref{Section:05:FugacitySection} (Eqn.~\ref{Mod05_fugacity1b}), a formal definition of fugacity was introduced,
        \begin{displaymath}
           \mu_{i}= RT\ln{\overline{f}_{i}} + C_{i}(T),
        \end{displaymath}
-       where $\overline{f}_{i}$ is the fugacity of species $i$ in the mixture. For ideal gases $f_{i}^{\text{ig}}=P$ (obtained from the definition of fugacity $\lim\limits_{P\rightarrow 0}\frac{f}{P}=1$)
+       where $\overline{f}_{i}$ is the fugacity of species $i$ in the mixture. For pure fluids, the \blue{fugacity coefficient}, $\phi$, can be defined as,
+       \begin{equation}
+         \phi = \frc{f}{P}.
+       \end{equation}
+       For pure ideal gases $f_{i}^{\text{ig}}=P$ (obtained from the definition of fugacity $\lim\limits_{P\rightarrow 0}\frac{f}{P}=1$) and $\phi^{\text{ig}}=1.$
+       \begin{shaded}
+         \noindent The definition of fugacity coefficient can be extended to {\it real gas mixtures} and {\it real liquid solutions} as,
+         \begin{eqnarray}
+           \mfr[\phi]{i}{V} &=& \frc{\mfr[\overline{f}]{i}{V}}{y_{i}P}\;\;\text{ and, }\\
+           \mfr[\phi]{i}{L} &=& \frc{\mfr[\overline{f}]{i}{L}}{x_{i}P_{i}^{\text{sat}}}.
+         \end{eqnarray}
+       \end{shaded}
+       
 %
    \end{subequations}
 
