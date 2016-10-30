@@ -33,7 +33,7 @@
 
 % Title page layout
 \begin{frame}
-  \titlepage
+  \titlepage 
   \vfill%
   \begin{center}
     \includegraphics[clip,width=0.8\textwidth]{\logoimage}
@@ -68,16 +68,17 @@
  \frametitle{Objectives}
     \begin{columns}
        \begin{column}[l]{0.6\linewidth}
-         \hspace{-.5cm}\includegraphics[width=1.1\columnwidth,clip]{./Pics/HE_Utube}
+         \hspace{-.70cm}\includegraphics[width=1.1\columnwidth,clip]{./Pics/HE_Utube}
        \end{column}
        \begin{column}[l]{0.4\linewidth}
           \begin{enumerate}
-              \item<1-> In this module, the main design elements for heat exchangers will be study;
-              \item<2-> Heat exchangers (HE) are key-elements in any industrial process from power generation, chemical processing, electronics cooling, refrigeration to automotive, food $\&$ drink, bio-medical etc;
-              \item<3-> In this module, we will focus on fundamental aspects of design and operation of HE.
+              \item<1-> Heat exchangers (HE) are key-elements in any industrial process from power generation, chemical processing, electronics cooling, refrigeration to automotive, food $\&$ drink, bio-medical etc;
           \end{enumerate}
        \end{column}      
     \end{columns}
+          \begin{enumerate}\setcounter{enumi}{1}
+              \item<2-> In this module, we will focus on fundamental aspects of design and operation of HE.
+          \end{enumerate}
 \end{frame}
 
 
@@ -101,41 +102,10 @@
 \end{frame}
 
 
-
-
 %%%
-%%% Slide
+%%% SECTION
 %%%
-\begin{frame}
- \frametitle{Introduction}
-    \begin{columns}
-       \begin{column}[l]{0.58\linewidth}
-         \includegraphics[width=1.1\columnwidth,clip]{./Pics/HeatExchangers_Examples}
-       \end{column}
-       \begin{column}[l]{0.42\linewidth}
-          \begin{enumerate}\scriptsize
-              \item<1-> Heat exchangers are devices that permits \underline{efficient} transfer of heat from a hot fluid to a cold fluid without any, or with direct contact of fluids.used to transfer heat between two or more fluid streams at different temperatures;
-              \item<2-> They are widely used in a number of industrial applications such as power generation, chemical processing, electronics cooling, refrigeration, and automotive;
-              \item<3-> Heat exchangers (HE) are classified according to flow arrangement and type of construction.
-              \item<3-> In general there are 3 main types of HE:
-                \begin{enumerate}\scriptsize
-                  \item<3-> \blue{Recuperative}: heat is transferred from one fluid to another through a dividing wall;
-                  \item<3-> \blue{Regenerative}: heat from a hot fluid is stored in a thermal storage medium before being transferred to a cold fluid;
-                  \item<3-> \blue{Evaporative}: heat from hot fluid is removed by partial evaporation.
-                \end{enumerate}
-               \item<4-> Our main focus on this module is to study \underline{\blue{Recuperative HE}}.
-          \end{enumerate}
-       \end{column}      
-    \end{columns}
-\end{frame}
-
-
-
-
-%%%
-%%%  SECTION
-%%%
-\section{Design of Heat Exchangers}
+\section{Heat Exchangers} 
 
 %%% SUBSECTION
 \subsection{Introduction}
@@ -144,14 +114,118 @@
 %%% Slide
 %%%
 \begin{frame}
-  \frametitle{Introduction}
+ \frametitle{Introduction}
+    \begin{enumerate}%\scriptsize
+        \item<1-> Heat exchangers are devices that permits \underline{efficient} transfer of heat from a hot fluid to a cold fluid without any, or with direct contact of fluids;
+        \item<2-> In other words, they are equipment that are used to thermal energy transfer (\ie \blue{enthalpy}) between:
+            \begin{enumerate}%\scriptsize
+               \item<2-> two or more fluids;
+               \item<2-> solid surface and a fluid or;
+               \item<2-> solid particulates and a fluid;
+            \end{enumerate}
+            at different temperature and in thermal contact;
+       \item<3-> The heat transfer to the working fluid may occur through
+            \begin{enumerate}%\scriptsize
+               \item<3-> internal energy sources, \eg electrical heaters and nuclear fuel elements;
+               \item<3-> combustion and chemical reaction, \eg boilers, fired-heaters and fluidised-bed exchangers;
+               \item<3-> mechanical devices, \eg scraped surface exchangers, agitated vessels and stirred tank reactors.
+            \end{enumerate}
+   \end{enumerate}
+\end{frame}
+
+
+%%% SUBSECTION
+\subsection{Classification}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{HE Classification}
+    Heat exchangers may be classified by:
+      \begin{enumerate}%\scriptsize
+          \item<1-> Number of fluids: 2-, 3- or N-fluids;
+          \item<2-> Transfer process:
+             \begin{enumerate}
+                 \item<2-> indirect contact type: direct transfer type (\ie single- and multiphase flow system); storage type and fluidised beds;
+                 \item<2-> direct contact type: immiscible fluids; gas-liquid; and liquid-vapour;
+             \end{enumerate}
+          \item<3-> Heat transfer mechanisms:
+             \begin{enumerate}
+                 \item<3-> single-phase convection on both sides;  
+                 \item<3-> single-phase convection on one side and two-phase onvection on the other side; 
+                 \item<3-> two-phase convection on both sides;
+                 \item<3-> combined convection and radiative heat transfer.
+             \end{enumerate}
+   \end{enumerate}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{HE Classification}
+      \begin{enumerate}\setcounter{enumi}{3}
+          \item<1-> Flow arrangements:
+             \begin{enumerate}
+                 \item<1-> single-pass: counterflow; parallel flow; cross-flow; split-flow; divided-flow;
+                 \item<2-> multi-pass: 
+                    \begin{enumerate}
+                       \item<2-> extended surface: cross-counter flow; cross-parallel flow; compound flow;
+                       \item<2-> shell-and-tube: parallel counter flow (m-shell passes and n-tube passes); split flow; divide flow;
+                       \item<2-> plate: fluid 1 $m$ passes and fluid 2 $n$ passes;
+                    \end{enumerate}
+             \end{enumerate}
+          \item<3-> Construction:
+              \begin{enumerate}
+                 \item<3-> tubular: double pipe; shell-and-tube (cross-flow and parallel-flow to tubes); spiral tube; pipe-coils;
+                 \item<3-> plate-type;
+                 \item<3-> extended surface: plate-fin; tube-fin;
+                 \item<3-> regenerative: rotary; fixed matrix; rotating hoods
+              \end{enumerate}
+   \end{enumerate}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{HE Classification}
+    \begin{columns}
+       \begin{column}[l]{0.58\linewidth}
+         \includegraphics[width=1.1\columnwidth,clip]{./Pics/HeatExchangers_Examples}
+       \end{column}
+       \begin{column}[l]{0.42\linewidth}
+          \begin{enumerate}\setcounter{enumi}{5}%\scriptsize
+              \item<1-> A more general classification that encompass some of the previous characteristics, includes 3 main types of HE:
+                \begin{enumerate}
+                  \item<1-> \blue{Recuperative}: heat is transferred from one fluid to another through a dividing wall;
+                  \item<2-> \blue{Regenerative}: heat from a hot fluid is stored in a thermal storage medium before being transferred to a cold fluid;
+                  \item<3-> \blue{Evaporative}: heat from hot fluid is removed by partial evaporation.
+                \end{enumerate}
+          \end{enumerate}
+       \end{column}      
+    \end{columns}
+          \begin{enumerate}\setcounter{enumi}{6}%\scriptsize
+               \item<4-> Our main focus on this module is to study \underline{\blue{Recuperative HE}}.
+          \end{enumerate}
+\end{frame}
+
+
+%%% SUBSECTION
+\subsection{HE Configurations}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Configurations and HT mechanisms}
     \begin{columns}
        \begin{column}[l]{0.5\linewidth}
          \includegraphics[width=1.3\columnwidth,clip]{./Pics/HeatExchangers_Classification}
        \end{column}
        \begin{column}[l]{0.5\linewidth}
          \begin{enumerate}\scriptsize
-            \item<1-> The main objective of HE is to transfer heat from a fluid to another fluid;
             \item<1-> The basic configuration of a HE is a fluid flowing through a tube whereas another fluid (at different temperature) flows outside;
             \item<2-> Heat through this HE configuration occur via 3 mechanisms:
               \begin{enumerate}\scriptsize
@@ -178,11 +252,13 @@
 %%% Slide
 %%%
 \begin{frame}
-  \frametitle{Introduction}
+  \frametitle{Configurations and HT mechanisms}
     \begin{center}
          \includegraphics[width=1.\columnwidth,height=0.65\columnwidth,clip]{./Pics/HeatExchangers_Classification2}
     \end{center}
 \end{frame}
+
+
 
 
 %%% SUBSECTION
@@ -219,7 +295,7 @@
                \visible<3->{\begin{equation}
                   \mathcal{R} = R_{i} + R_{\text{wall}} + R_{o} = \frc{1}{h_{i}A_{i}} + \frc{\ln{D_{o}/D_{i}}}{2\pi \kappa L} + \frc{1}{h_{o}A_{o}} 
                \end{equation}}     
-            \item<4-> Thus the heat transfer rate between the hot to the cold fluids can be expressed as,
+            \item<4-> Thus the heat transfer rate between hot to the cold fluids can be expressed as,
                \visible<4->{\begin{equation}\label{HE:NewtonEqn}
                   \blue{\dot{\mathcal{Q}} =} \frc{\Delta T}{\mathcal{R}} = \blue{U A \Delta T} = U_{i}A_{i}\Delta T = U_{o}A_{o}\Delta T
                \end{equation}
@@ -236,7 +312,7 @@
 %%%
 \begin{frame}
   \frametitle{Overall Heat Transfer Coefficient Calculations}
-     \begin{enumerate}\setcounter{enumi}{4}\scriptsize
+     \begin{enumerate}\setcounter{enumi}{4}%\scriptsize
         \item<1-> Eliminating $\Delta T$ and inverting $\dot{\mathcal{Q}}$,
           \visible<1->{\begin{equation}
              \frc{1}{U_{i}A_{i}} = \frc{1}{U_{o}A_{o}} = \mathcal{R} \left(=\frc{1}{U A_{s}}\right) = \frc{1}{h_{i}A_{i}} + R_{\text{wall}} + \frc{1}{h_{o}A_{o}} \label{HE:Ucalc1}
@@ -248,6 +324,49 @@
           \end{equation}} 
      \end{enumerate}
 
+\end{frame}
+
+
+%%%
+%%% Slide (Cengel Example 13.1)
+%%%
+\begin{frame}
+  \frametitle{Overall Heat Transfer Coefficient Calculations -- Example 1 (Tutorial P11)}
+Hot oil is to be cooled in a double-tube counter-flow HE. The copper inner tubes have diameter of 2cm and negligible thickness. The inner diameter of the outer tube (shell) is 3cm. Water flows through the tube at a rate of 0.5 kg/s, and the oil through the shell at a rate of 0.8 kg/s. Taking the average temperatures of the water and the oil to be 45$^{\circ}$C and 80$^{\circ}$C, respectively, determine the overall heat transfer coefficient of this HE. Given, 
+\begin{enumerate} 
+    \item Water at 45$^{\circ}$C: $\rho=990$kg/m$^{3}$, $\kappa=0.637$W/(m.K), $Pr=3.91$, $\nu=\mu/\rho=0.602\times 10^{-6}$m$^{2}$/s; 
+    \item Oil at 80$^{\circ}$C: $\rho=852$kg/m$^{3}$, $\kappa=0.138$W/(m.K), $Pr=490$, $\nu=37.5\times 10^{-6}$m$^{2}$/s
+\end{enumerate}
+The inner convective heat transfer coefficient, $h_{i}$, can be obtained from
+\begin{displaymath}
+       Nu = \frc{h_{i}D_{h}}{\kappa} =
+   \begin{cases}
+       4.36  & \text{(for laminar flows),} \\
+       0.023\Re^{0.8}\Pr^{0.4} & \text{(for turbulent flows),} \\
+   \end{cases}
+\end{displaymath}
+and the outter convective heat transfer coefficient, $h_{o}$ is 75.2 W.$\left(\text{m}^{2}.\text{K}\right)$.
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Overall Heat Transfer Coefficient Calculations -- Fouling}
+    \begin{columns}
+       \begin{column}[l]{0.5\linewidth}
+         \includegraphics[width=1.1\columnwidth,clip]{./Pics/HE_Fouling}
+       \end{column}
+       \begin{column}[l]{0.5\linewidth}
+          \begin{enumerate}\scriptsize
+              \item<1-> During HE life-time, residues from working fluids may deposit along the tube walls decreasing the heat transfer capacity of the HE whilst increasing the resistance to fluid flow, resulting in large {\bf pressure drop};
+              \item<1-> This residue is called \blue{Fouling} and its growth decreases the \blue{performance} of HE with time.
+          \end{enumerate}
+       \end{column}      
+    \end{columns}
+
      \visible<4->{\begin{block}{\begin{center}\scriptsize Fouling Factor\end{center}}\scriptsize
           \begin{equation}\scriptsize
              \frc{1}{U_{i}A_{i}} = \frc{1}{U_{o}A_{o}} = \mathcal{R} \left(=\frc{1}{U A_{s}}\right) = \frc{1}{h_{i}A_{i}} + \blue{\frc{R_{\text{f,i}}}{A_{i}}} + R_{\text{wall}} + \blue{\frc{R_{\text{f,o}}}{A_{o}}} + \frc{1}{h_{o}A_{o}} \label{HE:Ucalc3}
@@ -258,42 +377,24 @@
 
 
 %%%
-%%% Slide (Cengel Example 13.1)
-%%%
-\begin{frame}
-  \frametitle{Overall Heat Transfer Coefficient Calculations -- Example 1}
-     \begin{enumerate}
-          \item Hot oil is to be cooled in a double-tube counter-flow HE. The copper inner tubes have diameter of 2cm and negligible thickness. The inner diameter of the outer tube (shell) is 3cm. Water flows through the tube at a rate of 0.5 kg/s, and the oil through the shell at a rate of 0.8 kg/s. Taking the average temperatures of the water and the oil to be 45$^{\circ}$C and 80$^{\circ}$C, respectively, determine the overall heat transfer coefficient of this HE. Given, 
-       \begin{enumerate}[(a)]
-          \item Water at 45$^{\circ}$C: $\rho=990$kg/m$^{3}$, $\kappa=0.637$W/(m.K), $Pr=3.91$, $\nu=\mu/\rho=0.602\times 10^{-6}$m$^{2}$/s; 
-          \item Oil at 80$^{\circ}$C: $\rho=852$kg/m$^{3}$, $\kappa=0.138$W/(m.K), $Pr=490$, $\nu=37.5\times 10^{-6}$m$^{2}$/s
-       \end{enumerate}
-     \end{enumerate}
-
-\end{frame}
-
-
-%%%
 %%% Slide (Cengel Example 13.2)
 %%%
 \begin{frame}
-  \frametitle{Overall Heat Transfer Coefficient Calculations -- Example 2}
-     \begin{enumerate}\setcounter{enumi}{1}
-          \item A double-pipe (shell-and-tube) heat exchanger is constructed of a stainless steel ($\kappa=$ 15.1 W/(m.$^{\circ}$C) inner tube of inner diameter D$_{i}=$ 1.5 cm and outer diameter D$_{o}=$ 1.9 cm and an outer shell of inner diameter 3.2 cm. The convective heat transfer coefficient is h$_{i}=$ 800 W/(m$^{2}.^{\circ}$C) on the inner surface of the tube and h$_{o}=$ 1200 W/(m$^{2}.^{\circ}$C) on the outer surface. For a fouling factor R$_{f,i}=$ 0.0004 m$^{2}.^{\circ}$C/W on the tube side and R$_{f,o}=$ 0.0001 m$^{2}.^{\circ}$C/W on the shell side, determine:
-              \begin{enumerate}
-                  \item The thermal resistance of the heat exchanger per unit length and; 
-                  \item The overall heat transfer coefficients, U$_{i}$ and U$_{o}$ based on the inner and outer surface areas of the tube, respectively.
-              \end{enumerate}
+  \frametitle{Overall Heat Transfer Coefficient Calculations -- Example 2 (Tutorial P12)}
 
-     \end{enumerate}
+A double-pipe (shell-and-tube) heat exchanger is constructed of a stainless steel ($\kappa=$ 15.1 W/(m.$^{\circ}$C)) inner tube of inner diameter D$_{i}=$ 1.5 cm and outer diameter D$_{o}=$ 1.9 cm and an outer shell of inner diameter 3.2 cm. The convective heat transfer coefficient is h$_{i}=$ 800 W/(m$^{2}.^{\circ}$C) on the inner surface of the tube and h$_{o}=$ 1200 W/(m$^{2}.^{\circ}$C) on the outer surface. For a fouling factor R$_{f,i}=$ 0.0004 m$^{2}.^{\circ}$C/W on the tube side and R$_{f,o}=$ 0.0001 m$^{2}.^{\circ}$C/W on the shell side, determine:
+\begin{enumerate}
+   \item The thermal resistance of the heat exchanger per unit length and; 
+   \item The overall heat transfer coefficients, U$_{i}$ and U$_{o}$ based on the inner and outer surface areas of the tube, respectively.
+\end{enumerate}
 
 \end{frame}
 
 %%%
-%%% SUBSECTION
+%%% SECTION
 %%%
 
-\subsection{Analysis Heat Exchangers}
+\section{Analysis Heat Exchangers}
 
 %%%
 %%% Slide 
@@ -306,18 +407,28 @@
                &&\dot{\mathcal{Q}}_{\text{hot}} + \dot{\mathcal{Q}}_{\text{cold}} = 0 \nonumber \\
                && \dot{m}_{\text{hot}}C_{p,\text{hot}}\left(T_{\text{hot,out}}-T_{\text{hot,in}}\right) + \dot{m}_{\text{cold}}C_{p,\text{cold}}\left(T_{\text{cold,out}}-T_{\text{cold,in}}\right) = 0 \label{HE:energyconservation}
              \end{eqnarray}}
-          \item<2-> The product $\dot{m}_{i}C_{p,i}$ is called as {\it heat capacity rate} and represents the rate of heat transfer needed to change the temperature of the fluid by 1$^{\circ}$C as it flows through the HE;
+          \item<2-> The product $\dot{m}_{i}C_{p,i}$ is called as \underline{\it heat capacity rate} and represents the rate of heat transfer needed to change the temperature of the fluid by 1$^{\circ}$C as it flows through the HE;
           %\item<2-> Thus fluids with large {\it heat capacity rate} will produce {\it small temperature change};
-          \item<2-> In the heat transfer rate equation in Eqn.~\ref{HE:NewtonEqn},
+          \item<2-> In the heat transfer rate equation, Eqn.~\ref{HE:NewtonEqn},
             \visible<2->{\begin{displaymath}
                 \dot{Q} = U A \Delta T_{m}
             \end{displaymath}
             $\Delta T_{m}$ is an \blue{averaged} temperaterature difference between two fluids.}
-          \item<3-> However $\Delta T_{m}$ and $U$ are not constants and vary along the HE. We can average $U$ by using the relations Eqns.~\ref{HE:Ucalc1}-\ref{HE:Ucalc3} and an average convective heat transfer coefficient for each fluid;
-          \item<4-> For $\Delta T_{m}$, two methods are comonly used in thermal engineering systems:
+     \end{enumerate}
+
+\end{frame}
+
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+  \frametitle{Introduction}
+     \begin{enumerate}\setcounter{enumi}{3}
+          \item<1-> However $\Delta T_{m}$ and $U$ are not constants and vary along the HE. We can average $U$ by using the relations Eqns.~\ref{HE:Ucalc1}-\ref{HE:Ucalc3} and an average convective heat transfer coefficient for each fluid;
+          \item<2-> For $\Delta T_{m}$, two methods are comonly used in thermal engineering systems:
              \begin{enumerate}
-                \item<4-> Log-mean temperature difference method (or \blue{LMTD});
-                \item<4-> Effectiveness-NTU method.
+                \item<2-> Log-mean temperature difference method (or \blue{LMTD});
+                \item<2-> Effectiveness-NTU method.
              \end{enumerate}
      \end{enumerate}
 
@@ -337,11 +448,35 @@
           \item<2-> After rearranging this equation and applying it into Eqn.~\ref{HE:NewtonEqn},
              \visible<2->{\begin{block}{\begin{center} LMTD Method\end{center}}
                \begin{equation}
-                   \dot{\mathcal{Q}} = U A_{s} \Delta T_{\text{lm}}\;\text{ with }\;  \Delta T_{\text{lm}} = \frc{\left(T_{\text{hot,out}} - T_{\text{cold,out}}\right)-\left(T_{\text{hot,in}} - T_{\text{cold,in}}\right)}{\ln{\left(\frc{T_{\text{hot,out}} - T_{\text{cold,out}}}{T_{\text{hot,in}} - T_{\text{cold,in}}}\right)}}.
+                   \dot{\mathcal{Q}} = U A_{s} \Delta T_{\text{lm}}\;\text{ with }\;\;\Delta T_{\text{lm}} = \frc{\Delta T_{2} - \Delta T_{1}}{\ln{\frc{\Delta T_{2}}{\Delta T_{1}}}} = \frc{\Delta T_{1} - \Delta T_{2}}{\ln{\frc{\Delta T_{1}}{\Delta T_{2}}}}
                \end{equation}
+               where,
+                  \begin{displaymath}
+                      \text{Parallel flows:}
+                         \begin{cases}
+                             \Delta T_{1} = T_{\text{hot,in}}-T_{\text{cold,in}} \\
+                             \Delta T_{2} = T_{\text{hot,out}}-T_{\text{cold,out}} \\
+                         \end{cases}
+                  \end{displaymath}
+                  \begin{displaymath}
+                      \text{Counter flows:}
+                         \begin{cases}
+                             \Delta T_{1} = T_{\text{hot,in}}-T_{\text{cold,out}} \\
+                             \Delta T_{2} = T_{\text{hot,out}}-T_{\text{cold,in}} \\
+                         \end{cases}
+                  \end{displaymath}
              \end{block} }
-          \item<2-> For \blue{cross-flow and multipass shell-and-tube HE}, we need to use a correction factor, 
-               \visible<2->{\begin{equation}
+     \end{enumerate}
+
+\end{frame}
+%%%
+%%% Slide 
+%%%
+\begin{frame}
+  \frametitle{Log-Mean Temperature Difference (LMTD) Method}
+     \begin{enumerate}\setcounter{enumi}{2}
+          \item<1-> For \blue{cross-flow and multipass shell-and-tube HE}, we need to use a correction factor, 
+               \visible<1->{\begin{equation}
                    \dot{\mathcal{Q}} = U A_{s} F \Delta T_{\text{lm}},
                \end{equation}
                where the \blue{correction factor F} for different geometries can be found in {\it Appendix 1}.}
@@ -353,14 +488,12 @@
 %%% Slide 
 %%%
 \begin{frame}
-  \frametitle{Log-Mean Temperature Difference (LMTD) Method -- Example 3}
-     \begin{enumerate}\setcounter{enumi}{2}
-         \item Water at the rate of 68 kg/min is heated from 35 to 75$^{\circ}$C by an oil having a specific heat of 1.9 kJ/(kg.$^{\circ}$C). The fluids are used in a counterflow double-pipe HE, and the oil enters the exchanger at 110$^{\circ}$C and leaves at 75$^{\circ}$C. The overall heat-transfer coefficient is 320 W/(m$^{2}.^{\circ}$C). Given heat capacity of water (at constant pressure) of 4.18 kJ/(kg.$^{\circ}$C),
-            \begin{enumerate}
-               \item Calculate the HE area;
-               \item Now assume that the HE is a shell-and-tube with water making one shell pass and the oil making two tube passes. Calculate the new HE. Assume that the overall heat-transfer coefficient remains the same.
-            \end{enumerate}
-     \end{enumerate}
+  \frametitle{Log-Mean Temperature Difference (LMTD) Method -- Example 3 (Tutorial P13)}
+Water at the rate of 68 kg/min is heated from 35 to 75$^{\circ}$C by an oil having a specific heat of 1.9 kJ/(kg.$^{\circ}$C). The fluids are used in a counterflow double-pipe HE, and the oil enters the exchanger at 110$^{\circ}$C and leaves at 75$^{\circ}$C. The overall heat-transfer coefficient is 320 W/(m$^{2}.^{\circ}$C). Given heat capacity of water (at constant pressure) of 4.18 kJ/(kg.$^{\circ}$C),
+\begin{enumerate}
+   \item Calculate the HE area;
+   \item Now assume that the HE is a shell-and-tube with water making one shell pass and the oil making two tube passes. Calculate the new HE. Assume that the overall heat-transfer coefficient remains the same. 
+\end{enumerate}
 \end{frame}
 
 %%%
@@ -392,7 +525,7 @@
 \begin{frame}
   \frametitle{The Effectiveness-NTU Method}
      \begin{enumerate}\setcounter{enumi}{4}
-          \item<1-> The \blue{effectiveness-NTU method} was designed to simplify such HE analysis;
+          \item<1-> The \blue{effectiveness-NTU method} ({\it number of transfer units}) was designed to simplify such HE analysis;
           \item<2-> The \blue{heat transfer effectiveness, $\epsilon$} is defined as
               \visible<2->{\begin{equation}
                 \epsilon = \frc{\dot{\mathcal{Q}}}{\dot{\mathcal{Q}}_{\text{max}}} = \frc{\text{Actual heat transfer rate}}{\text{Maximum possible heat transfer rate}}
@@ -492,30 +625,52 @@
 
 \subsection{Appendix 1: Correction-factor plot for LMTD Method}\label{appendix1}
 
-
-{
-  \includepdf[pages=-,fitpaper]{./Pics/LMTD_Plot.pdf}
-}
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Correction-factor plot for LMTD Method}
-        \begin{center}
-          \includegraphics[width=.9\columnwidth,height=.65\columnwidth,clip]{./Pics/LMTD_Plot2}
-        \end{center}
+  \frametitle{Appendix 1: Correction-factor plot for LMTD Method}
+    \begin{center}
+         \includegraphics[width=1.\columnwidth,height=0.65\columnwidth,clip]{./Pics/HE_FFactor1}
+    \end{center}
 \end{frame}
- 
 
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Appendix 1: Correction-factor plot for LMTD Method}
+    \begin{center}
+         \includegraphics[width=1.\columnwidth,height=0.65\columnwidth,clip]{./Pics/HE_FFactor2}
+    \end{center}
+\end{frame}
 
 %%%
 %%% Appendix
 %%%
-\subsection{Appendix 2: Effectiveness-NTU plots and Expressions}\label{appendix2}
+\subsection{Appendix 2: Effectiveness-NTU Plots and Expressions}\label{appendix2}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Appendix 2: Effectiveness-NTU Plots and Expressions}
+    \begin{center}
+         \includegraphics[width=1.\columnwidth,height=0.65\columnwidth,clip]{./Pics/HE_NTU1}
+    \end{center}
+\end{frame}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Appendix 2: Effectiveness-NTU Plots and Expressions}
+    \begin{center}
+         \includegraphics[width=1.\columnwidth,height=0.65\columnwidth,clip]{./Pics/HE_NTU2}
+    \end{center}
+\end{frame}
 
 
-{
-  \includepdf[pages=-,fitpaper]{./Pics/NTU.pdf}
-}
+%{
+%  \includepdf[pages=-,fitpaper]{./Pics/NTU.pdf}
+%}
 
 \end{document}
