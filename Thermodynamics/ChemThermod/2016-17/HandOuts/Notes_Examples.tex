@@ -2180,7 +2180,7 @@ Values for $K_{i}$ are tabulated for a large number of hydrocarbons at several p
 
 
 %%% SUBSUBSECTION
-\subsubsection{Flash Distillation}
+\subsubsection{Flash Distillation}\label{Section:04:FlashDistillation}
 
 Flash distillation is a common process in chemical industry to obtain solutions with the required enrichment from a feed-stock. Figure~\ref{Mod04Fig06} shows a schematic of this process, where a liquid stream (\ie with pressure equal to or larger than its bubble point pressure) with molar fraction $F$ and overall composition $z_{i}$ is injected into a separation vessel through a pressure reduction valve. The sudden reduction in pressure leads to partial evaporation (\ie {\it flash}) of the liquid feed resulting in the formation of a vapour and a liquid stream. Vapour and Liquid streams have molar fraction $V$ and $L$, respectively, with compositions of $y_{i}$ and $x_{i}$. 
   \begin{figure}[h]
@@ -2716,7 +2716,7 @@ Now that the concepts of fugacity and activity coefficient were introduced, we c
   \begin{displaymath}
     \lim\limits_{x_{i}\rightarrow 0}\frc{\overline{f_{i}}}{x_{i}}
   \end{displaymath}
-  is undetermined as when $x_{i}\rightarrow 0,\;\;f_{i}=0$, \ie at infinite dilution of a solute $i$ in solution, the fugacity of this component is null. In order to solve this mathematical problem, we can use the L'H\^opital rule (see Appendix D4) which states that for a limit,
+  is undetermined as $f_{i}=0\text{ when }x_{i}\rightarrow 0$, \ie at infinite dilution of a solute $i$ in solution, the fugacity of this component is null. In order to solve this mathematical problem, we can use the L'H\^opital rule (see Appendix D4) which states that for a limit,
          \begin{displaymath}
                  \lim\limits_{x\rightarrow a}\frc{f(x)}{g(x)},
          \end{displaymath}
@@ -2789,7 +2789,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
               M &=& \summation[\overline{M}_{i}x_{i}]{i}{}\label{Mod5_GibbsDuhem1c} \\
              \text{as } nM = n\summation[\overline{M}_{i}x_{i}]{i}{} &\Rightarrow& dM = \summation[x_{i}d \overline{M}_{i}]{i}{} + \summation[\overline{M}_{i}dx_{i}]{i}{}\label{Mod5_GibbsDuhem1d}
           \end{eqnarray}
-      Replacing Eqn.~\ref{Mod5_GibbsDuhem1d} in Eqn.~\ref{Mod5_GibbsDuhem1b} leads to the \blue{\it Gibbs-Duhem Equation (GDE)}
+      Replacing Eqn.~\ref{Mod5_GibbsDuhem1d} in Eqn.~\ref{Mod5_GibbsDuhem1b} leads to the \blue{\it Gibbs-Duhem Equation (GDE)},
           \begin{shaded}
              \begin{equation}
                  \Partial[M]{T}{P,x}dT + \Partial[M]{P}{T,x}dP - \summation[x_{i}d\overline{M}_{i}]{i}{} = 0.\label{Mod5_GibbsDuhem1e}
@@ -2805,7 +2805,9 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
                \begin{equation}
                    \summation[x_{i}\frc{d\overline{M}_{i}}{dx_{j}}]{i}{} = 0, \;\;\;\text{ at constant } T\text{ and } P.\label{Mod5_GibbsDuhem1g}
                \end{equation}
-             Equations~\ref{Mod5_GibbsDuhem1f}-\ref{Mod5_GibbsDuhem1g} imply that partial molar properties of various species, $\overline{M}_{i}$, are \underline{not} independent. Some key-properties,
+             Equations~\ref{Mod5_GibbsDuhem1f}-\ref{Mod5_GibbsDuhem1g} imply that partial molar properties of various species, $\overline{M}_{i}$, are \underline{not} independent. 
+
+             \noindent Some key-properties,
                \begin{displaymath}
                    \begin{cases}
                        \lim\limits_{x_{i}\rightarrow 0}\overline{M}_{i} = \overline{M}_{i}^{\infty} & \text{\ie at infinite dilutions;} \\
@@ -2880,7 +2882,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
      \begin{equation}
        PV^{\text{igm}} = \underbrace{\left(n_{1}+n_{2}+\cdots+n_{\mathcal{C}}\right)}_{N\text{ moles}}RT = \left(\summation[n_{i}]{i=1}{\mathcal{C}}\right)RT = NRT.\label{Mod5_IGM1} 
      \end{equation}
-     The internal energy, $U^{\text{igm}}$, is just the summation of the internal energies of the individual components of the mixture,
+     The internal energy of the gaseous mixture, $U^{\text{igm}}$, is just the summation of the internal energies of the individual components of the mixture,
      \begin{equation}
        U^{\text{igm}}(T,N) = \summation[n_{i}\overline{u}_{i}^{\text{ig}}(T)]{i=1}{\mathcal{C}},\label{Mod5_IGM2} 
      \end{equation}
@@ -2989,7 +2991,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
        \begin{equation}
          \phi = \frc{f}{P}.
        \end{equation}
-       For pure ideal gases $f^{\text{ig}}=P$ (obtained from the definition of fugacity $\lim\limits_{P\rightarrow 0}\frac{f}{P}=1$) and $\phi^{\text{ig}}=1.$
+       For pure ideal gases, $f^{\text{ig}}=P$ (obtained from the definition of fugacity $\lim\limits_{P\rightarrow 0}\frac{f}{P}=1$) and $\phi^{\text{ig}}=1.$
        \begin{shaded}
          \noindent The definition of fugacity coefficient can be extended to {\it real gas mixtures} and {\it real liquid solutions} as,
          \begin{eqnarray}
@@ -3025,7 +3027,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
          \end{equation}
 \bigskip
 
-         During phase change from saturated liquid to saturated vapour,
+         \noindent During phase change from saturated liquid to saturated vapour,
          \begin{equation}
             \mfr[G]{i}{V} - \mfr[G]{i}{L} = RT\ln{\frc{\mfr[f]{i}{V}}{\mfr[f]{i}{L}}},\label{Mod5_FugacityCoeff1}
          \end{equation}
@@ -3488,13 +3490,67 @@ with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i
           \begin{center}
               \includegraphics[width=0.75\columnwidth,clip]{./../Pics/Example04_Pic}
           \end{center}
-
-
 \end{itemize}
 
 
+\clearpage
+            
+%%%
+%%% EXAMPLE:  NPTEl (Ex 6.3)
+%%%
+   \item\label{Mod05Ex06} What is the change in entropy when 0.6 m$^{3}$ of CO$_{2}$ and 0.4 m$^{3}$ of N$_{2}$, each at 1 bar and 25 $^{\circ}$C blend to form a gas mixture at the same conditions. Assume ideal gas behaviour and that {\it mole fraction = volume fraction}. 
 
-              
+% SOLUTION
+       \noindent{\bf Solution:} For an ideal gas, with the assumption of {\it mole fraction = volume fraction}, \ie $y_{1} = 0.6$ and $y_{2} = 0.4$, with CO$_{2}$:1 and N$_{2}$:2.
+      \begin{displaymath}
+          \Delta_{\text{mix}}\overline{s}^{\text{igm}} = -R\summation[y_{i}\ln{y_{i}}]{i=1}{2} = 5.5954 \text{ J.(mol.K)}^{-1}
+      \end{displaymath}
+
+
+\clearpage
+            
+%%%
+%%% EXAMPLE:  SM&VN 10.20 (pg 350)
+%%%
+   \item\label{Mod05Ex07}  For the acetone (Ket) / methanol (MetOH) system, a vapour mixture of $z_{\text{Ket}}$ = 0.25 and $z_{\text{MetOH}}$ = 0.75 is cooled to temperature $T$ in the two-phase region and flows into a separation chamber at a pressure of 1 bar. If the composition of the liquid product is $x_{\text{Ket}}$ = 0.175, calculate $T$  and $y_{\text{Ket}}$. For liquid mixture, assume that
+\begin{displaymath}
+\ln\gamma_{1} = 0.64x_{2}^{2} \;\;\;\;\;\text{ and }\;\;\;\;\;\ln\gamma_{2}=0.64x_{1}^{2}
+\end{displaymath}
+For the Antoine equation, 
+\begin{displaymath}
+\ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{T + C} \;\;\left(\text{ [P] = kPa and [T] = }^{\circ}\text{C}\right)
+\end{displaymath}
+$A_{\text{Ket}}$ = 14.3145, $B_{\text{Ket}}$ = 2756.22$^{\circ}$C, $C_{\text{Ket}}$ = 228.060$^{\circ}$C, $A_{\text{MetOH}}$ = 16.5785, $B_{\text{MetOH}}$ = 3638.27$^{\circ}$C, $C_{\text{MetOH}}$ = 239.50$^{\circ}$C.
+
+% SOLUTION
+       \noindent{\bf Solution:} This is a typical flash problem for separation of acetone (1) and methanol (2). The feed stream contains 25$\%$-mol of acetone, \ie $z_{1}=0.25$, and after the separation at 1 bar, the resulting liquid stream contains 17.5$\%$-mol, \ie $x_{1}=0.175$. The problem requires temperature of the separation and composition of the gas stream, $y_{i}$. As $\gamma_{i}$ is given, we can consider that the liquid mixture is {\bf not ideal}, therefore the modified Raoult's law can be used,
+\begin{displaymath}
+    y_{i}P = x_{i}\gamma_{i}P_{i}^{\text{sat}} \;\;\;\longrightarrow y_{1}=\frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P}
+\end{displaymath}
+    
+  \begin{figure}[h]
+     \begin{center}
+         \includegraphics[width=.25\linewidth,clip]{./Figs/FlashDistillation}
+     \end{center}
+     \caption{Schematic of a flash process, Example~\ref{Mod05Ex07}.}
+  \end{figure}
+
+ Using the material balance derived in Section~\ref{Section:04:FlashDistillation},
+\begin{eqnarray}
+    && Fz_{1} = x_{1}L + y_{1}V\;\;\text{ and for } \;F=1\;\text{ (\ie normalised stream fractions)}\;\;\;\longrightarrow F = L + V = 1,\text{ leading to} \nonumber \\
+    && z_{1} = x_{1}L + \frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{p}\left(1-L\right)\;(\star)\;\; \text{ with }\;\; P=\summation[P_{i}]{i}{} = y_{1}P + y_{2}P = x_{1}\gamma_{1}P_{1}^{\text{sat}} + x_{2}\gamma_{2}P_{2}^{\text{sat}}\;(\dagger),\nonumber
+\end{eqnarray}
+therefore, we have 2 equations and 2 unknowns, $L$ and $T$. Let's solve ($\dagger$) first for $T$ with $\gamma_{1}=1.5459$ and $\gamma_{2}=1.0198$
+   \begin{displaymath}
+       P = x_{1}\gamma_{1}P_{1}^{\text{sat}} + x_{2}\gamma_{2}P_{2}^{\text{sat}} = 100 \text{ kPa} \;\;\;\Rightarrow\;\;\; T = 59.5309\text{ K}
+   \end{displaymath}
+ With $T$, we can solve ($\star$) for $L$,
+   \begin{eqnarray}
+       && z_{1} = x_{1}L + \frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{p}\left(1-L\right) \nonumber \\
+       && L = \frc{z_{1} - \frac{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P}}{x_{1} - \frac{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P}} = 0.4306\;\;\rightarrow \;\; V = 0.5694 \nonumber \\
+       && y_{1} = \frac{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P} = 0.3067\;\;\rightarrow \;\; y_{2} = 0.6933\nonumber
+   \end{eqnarray}
+ 
 
 
 
