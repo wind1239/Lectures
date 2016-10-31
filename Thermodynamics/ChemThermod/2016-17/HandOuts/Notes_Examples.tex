@@ -6,7 +6,7 @@
 \usepackage{natbib}
 \usepackage{pdfpages,enumerate}% ,enumitem}
 \usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
-\usepackage{framed,comment}
+\usepackage{framed,comment,lscape}
 \definecolor{shadecolor}{gray}{0.9}
 
 \pagestyle{empty}
@@ -3168,20 +3168,337 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
 \subsection{Activity Coefficient Models}\label{Section:05:ActivityCoeffModels}
 %
    \begin{subequations}
-      The activity coefficient is by far the most critical parameter for assessment of liquid solutions behaviour, in particular during phase equilibria. The activity coefficient, $\gamma_{i}$ plays a similar role as the compressibility factor, $Z$, for gases. We can investigate the dependency of $\gamma_{i}$ with respect to
+      The activity coefficient, $\gamma_{i}$, is by far the most critical parameter for assessment of liquid solutions behaviour, in particular during phase equilibria, due to its relationship with the excess Gibbs energy, $G^{E}$ (Eqn.~\ref{Mod5_ActivityCoeffExcessProp2}). For solutions, the activity coefficient plays a similar role as the compressibility factor, $Z$, for gases. As $G^{E}$ depends on $T$, $P$ and $n$, it is important to define relations of $\gamma_{i}$ with respect to these properties, 
       \begin{enumerate}[a)]
           \item Temperature:
              \begin{equation}
-                \ln{\gamma_{i}}\left(T_{2}\right) - \ln{\gamma_{i}}\left(T_{1}\right) = \int\limits_{T{i}}^{T_{2}} \Partial[\ln{\gamma_{i}}]{T}{P,n}dT,\;\;\text{ where }\;\; \Partial[\ln{\gamma_{i}}]{T}{P,n} = -\frc{\overline{H}_{i}-H_{i}^{\text{id}}}{RT^{2}}
+                \ln{\gamma_{i}}\left(T_{2}\right) - \ln{\gamma_{i}}\left(T_{1}\right) = \int\limits_{T{i}}^{T_{2}} \Partial[\ln{\gamma_{i}}]{T}{P,n}dT,\;\;\text{ where }\;\; \Partial[\ln{\gamma_{i}}]{T}{P,n} = -\frc{\overline{H}_{i}-H_{i}^{\text{id}}}{RT^{2}};
              \end{equation}
           \item Pressure:
              \begin{equation}
-                \ln{\gamma_{i}}\left(P_{2}\right) - \ln{\gamma_{i}}\left(P_{1}\right) = \int\limits_{P{i}}^{P_{2}} \Partial[\ln{\gamma_{i}}]{P}{T,n}dT,\;\;\text{ where }\;\; \Partial[\ln{\gamma_{i}}]{T}{P,n} = \frc{\overline{V}_{i}-V_{i}^{\text{id}}}{RT}
+                \ln{\gamma_{i}}\left(P_{2}\right) - \ln{\gamma_{i}}\left(P_{1}\right) = \int\limits_{P{i}}^{P_{2}} \Partial[\ln{\gamma_{i}}]{P}{T,n}dT,\;\;\text{ where }\;\; \Partial[\ln{\gamma_{i}}]{P}{T,n} = \frc{\overline{V}_{i}-V_{i}^{\text{id}}}{RT}.
              \end{equation}
       \end{enumerate}
 
+%%% TABLE 1
+\begin{table}[h]
+  \begin{center}
+     \begin{tabular}{|l l|} 
+\hline
+         {\bf System Type}                    &  {\bf Models} \\
+\hline
+            Species of similar size and shape &   1-parameter Margules \\
+            Moderately non-ideal mixtures     &   2-parameter Margules, Van Laar, Regular Solution\\
+            Strongly non-ideal mixtures       &   Wilson, NRTL, UNIQUAC \\
+            Solutions with miscibility gaps   &   NRTL, UNIQUAC \\
+\hline 
+     \end{tabular}
+     \caption{Applicability of activity coefficient models.}\label{Mod05_TableActivityModels1}
+  \end{center}
+\end{table}
+   
+     Similarly to EOS for gases, several empirical and semi-empirical relations were developed for the dependence of $G^{E}$ $\left(\text{and therefore } \gamma_{i}\right)$ with composition. Such relations, often called {\it activity coefficient models}, were designed to predict Gibbs free energy behaviour in solutions regardless the inter-intra-molecular forces involved (\ie taking into account effects of molar mass, polarity, charged/ionic solutions etc). These models are divided into two major groups depending upon (a) molecular size (\ie molar mass) and shape (stereochemistry) of species and (b) inter-/intra-molecular interaction energies:
+        \begin{enumerate}[Group 1:]
+            \item Homogeneous Mixtures Models are used when inter-/intra-molecular interaction energies between species are moderate. These models assume that molecules are homogeneously distributed over the solution volume with no difference between overall macroscopic composition and microscopic (local) composition around a single central molecule. Examples of such models include Mergules, Van Laar, Regular Solution models etc;
+            \item Local Compositions Models are used when the species in solution are of different size and shape (\eg polymers and organic solvents, solutions involving isomers, ionic solutions etc). Examples of such models include Wilson, NRTL (Non-Random Two Liquid), UNIQUAC (Universal Quasi-Chemical), UNIFAC (UNIQUAC Functional Activity Coefficients) models etc.
+        \end{enumerate}
+        Group 1 models are often used moderate deviation from ideal solution behaviour, whereas Group 2 models are used for strongly non-ideal solutions (Table~\ref{Mod05_TableActivityModels1}). Most of these models contain 2 to 3 parameters, however some may contain larger number of parameters to improve the accuracy of prediction but are more computationally demanding. Some of these models may be found in Table~\ref{Mod05_TableActivityModels2}.
+
+\bigskip
+
+       \begin{shaded}
+           Using Eqn.~\ref{Mod5_ActivityCoeffExcessProp2} for the partial molar Gibbs free energy for component $i$ along with $G^{E}=\summation[x_{i}\overline{G}_{i}^{E}]{}{}$ leads to \blue{GDE},
+             \begin{equation}
+                  \frc{G^{E}}{RT} = \summation[x_{i}\ln{\gamma_{i}}]{}{}\;\;\;\text{ and } \;\;\; \summation[x_{i}d\left(\ln{\gamma_{i}}\right)]{}{}=0,\;\;\text{ at constant } T\text{ and } P.\label{Mod5_ActivityCoeffModels1}
+             \end{equation}
+           For binary mixtures,
+             \begin{displaymath}
+                 \begin{cases}
+                      \frc{G^{E}}{RT} = x_{1}\ln{\gamma_{1}} + x_{1}\ln{\gamma_{1}},  \\
+                      x_{1}d\left(\ln{\gamma_{1}}\right) + x_{2}d\left(\ln{\gamma_{2}}\right) = 0.
+                 \end{cases}
+             \end{displaymath}
+       \end{shaded}
+
+
+%%% TABLE 2
+\begin{landscape}
+\begin{table}[h]
+  \begin{center}
+     \begin{tabular}{l |l | l  | c  }
+\hline
+         {\bf Model}         &  $\mathbf{\frc{G^{E}}{RT}=}$   &   $\mathbf{\ln{\gamma_{i}}}$     & {\bf Binary } \\
+                             &                                &                                  & {\bf Parameters} \\
+\hline
+      1-Parameter Margules   &     $Ax_{1}x_{2}$                &   $\ln{\gamma_{1}} = Ax_{2}^{2}$  &  $A$ \\
+                             &                                &   $\ln{\gamma_{2}} = Ax_{1}^{2}$   &\\
+\hline
+      2-Parameter Margules   &     $x_{1}x_{2}\left(A_{21}x_{1}+A_{12}x_{2}\right)$ &   $\ln{\gamma_{1}} = x_{2}^{2}\left[A_{12}+2x_{1}\left(A_{21}-A_{12}\right)\right]$ & $A_{21}, A_{21}$\\
+                             &                                                 &   $\ln{\gamma_{2}} = x_{1}^{2}\left[A_{21}+2x_{2}\left(A_{12}-A_{21}\right)\right]$ & \\
+\hline
+     van Laar                & $x_{1}x_{2}\frc{A_{12}A_{21}}{A_{12}x_{1}+A_{21}x_{2}}$ & $\ln{\gamma_{1}} = A_{12}\left(1+\frc{A_{12}x_{1}}{A_{21}x_{2}}\right)^{-2}$ & $A_{21}, A_{21}$ \\
+                             &                                                  &  $\ln{\gamma_{2}} = A_{21}\left(1+\frc{A_{21}x_{2}}{A_{12}x_{1}}\right)^{-2}$ & \\
+\hline
+     Wilson                  & $-\summation[x_{i}\ln{\left(x_{i}+\summation[\Lambda_{ij}x_{j}]{j\ne i}{}\right)}]{i}{}$ &  $\ln{\gamma_{1}} = -\ln{\left(x_{1}+x_{2}\Lambda_{12}\right)}+x_{2}\left(\frc{\Lambda_{12}}{x_{1}+x_{2}\Lambda_{12}}-\frc{\Lambda_{21}}{x_{1}\Lambda_{21}+x_{2}}\right)$ & $\Lambda_{21}, \Lambda_{21}$\\
+                             &                                                  &  $\ln{\gamma_{2}} = -\ln{\left(x_{1}\Lambda_{21}+x_{2}\right)}+x_{1}\left(\frc{\Lambda_{12}}{x_{1}+x_{2}\Lambda_{12}}-\frc{\Lambda_{21}}{x_{1}\Lambda_{21}+x_{2}}\right)$ & \\
+\hline
+     NRTL                    &$x_{1}x_{2}\left(\frc{\mathcal{G}_{21}\tau_{21}}{x_{1}+x_{2}\mathcal{G}_{21}}+\frc{\mathcal{G}_{12}\tau_{12}}{x_{2}+x_{1}\mathcal{G}_{12}}\right)$ & $\ln{\gamma_{1}} = x_{2}^{2}\left[\tau_{21}\left(\frc{\mathcal{G}_{21}}{x_{1}+x_{2}\mathcal{G}_{21}}\right)^{2} + \frc{\mathcal{G}_{12}\tau_{12}}{\left(x_{2}+x_{1}\mathcal{G}_{12}\right)^{2}}\right]$ & $\alpha,\; b_{12},\; b_{21}$ \\
+                             & where $\mathcal{G}_{ij}=\exp{\left(-\alpha\tau_{ij}\right)},\;\tau_{ij}=\frc{b_{ij}}{RT}$ & $\ln{\gamma_{2}} = x_{1}^{2}\left[\tau_{12}\left(\frc{\mathcal{G}_{12}}{x_{2}+x_{1}\mathcal{G}_{12}}\right)^{2} + \frc{\mathcal{G}_{21}\tau_{21}}{\left(x_{1}+x_{2}\mathcal{G}_{21}\right)^{2}}\right]$ & \\
+ 
+\hline          
+     \end{tabular}
+     \caption{Selected Activity Models for binary systems.}\label{Mod05_TableActivityModels2}
+  \end{center}
+\end{table}
+\end{landscape}
+
+%      2-Parameter Margules   &     $Ax_{1}x_{2}$                &   $\ln{\gamma_{1}} = Ax_{2}^{2}$ \\
+%                             &                                &   $\ln{\gamma_{2}} = Ax_{1}^{2}$ \\
 %
    \end{subequations}
+
+
+\clearpage
+
+%%% SUBSECTION
+\subsection{Examples}
+
+\begin{enumerate}[1)]
+%%%
+%%% EXAMPLE 
+%%%
+   \item\label{Mod05Ex01} At 25$^{\circ}$C and atmospheric pressure, the volume change of mixing of a binary liquid mixture of species 1 and 2 is given by,
+       \begin{displaymath}
+          \Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right)\;\;\;\;\text{ with }\;\;\;\left[\Delta V\right] = \text{cm}^{3}.\text{mol}^{-1}
+       \end{displaymath}
+       with molar volumes of $V_{1} = 110\;\text{cm}^{3}.\text{mol}^{-1}$ and $V_{2} = 90\;\text{cm}^{3}.\text{mol}^{-1}$. Determine the partial molar volumes, $\overline{V}_{1}$ and $\overline{V}_{2}$, in a mixture containing 40$\%$-mol of species 1.
+
+% SOLUTION
+       \noindent{\bf Solution:} The mixture contains 40$\%$-mol of species 1, \ie $x_{1}=0.40$ and $x_{2}=1-x_{1}=0.60$. The partial molar volumes, $\overline{V}_{i}$, can be obtained from Eqn.~\ref{Mod5_GibbsDuhem1k}, 
+               \begin{displaymath}
+                 \begin{cases}
+                    \overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}},\\
+                    \overline{M}_{2} = M - x_{1}\frc{dM}{dx_{1}},
+                 \end{cases}
+              \end{displaymath}
+              with $M=V$. Therefore the first step is to calculate the molar volume of the solution, $V$,
+                 \begin{displaymath}
+                    V^{E} = V - V^{\text{id}} = V - \summation[x_{i}V_{i}]{i=1}{2} = V - \underbrace{\left(x_{1}V_{1} + x_{2}V_{2}\right)}_{98\text{ cm}^{3}.\text{mol}^{-1}},
+                 \end{displaymath}
+              with the excess volume, $V^{E}=\Delta V$, obtained from the given expression,
+                 \begin{displaymath}
+                    V^{E} = \Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right) = 7.92\text{ cm}^{3}.\text{mol}^{-1}
+                 \end{displaymath}
+              therefore $V=105.92\text{ cm}^{3}.\text{mol}^{-1}$.
+\medskip
+
+              Now using Eqn.~\ref{Mod5_GibbsDuhem1k} to calculate the partial molar volume $\overline{V}_{i}$,
+                 \begin{eqnarray}
+                    \overline{V}_{1} &=& V + x_{2}\frc{dV}{dx_{1}} = V + x_{2}\frc{d}{dx_{1}} \left(\overbrace{\Delta V}^{V^{E}} + x_{1}V_{1} + x_{2}V_{2}\right) \nonumber \\
+                         &=& V + x_{2}\frc{d}{dx_{1}} \left[x_{1}x_{2}\left(45x_{1}+25x_{2}\right)+x_{1}V_{1}+x_{2}V_{2}\right] = 190.28\text{ cm}^{3}.\text{mol}^{-1}, \nonumber
+                 \end{eqnarray}
+              with the same procedure for $\overline{V}_{2}=49.68\text{ cm}^{3}.\text{mol}^{-1}$. We can check if our calculations are correct with,
+                 \begin{displaymath}
+                      V = \summation[x_{i}\overline{V}_{i}]{}{} = x_{1}\overline{V}_{1} + x_{2}\overline{V}_{2} = 105.92\text{ cm}^{3}.\text{mol}^{-1}.
+                 \end{displaymath}
+
+\clearpage
+            
+%%%
+%%% EXAMPLE: Johannes Problem 2 (Tutorial 5)
+%%%
+   \item\label{Mod05Ex02}  A process stream contains light species 1 and heavy species 2. A relatively pure liquid stream containing mostly 2 is obtained through a single-stage liquid/vapour separator. Specifications on the equilibrium composition are: $x_{1}$ = 0.002 and $y_{1}$ = 0.950. Assuming that the modified Raoult's law applies, 
+\begin{displaymath}
+  y_{i} P = x_{i}\gamma_{i}P_{i}^{\text{sat}}
+\end{displaymath} 
+Determine $T$ and $P$ for the separator. Given the activity coefficients for the liquid phase,
+\begin{displaymath}
+\ln\gamma_{1} = 0.93x_{2}^{2} \;\;\;\;\;\text{ and }\;\;\;\;\;\ln\gamma_{2}=0.93x_{1}^{2}
+\end{displaymath}
+\begin{displaymath}
+\ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{T}\;\;\;\text{with [P] = bar and [T] = K}
+\end{displaymath} 
+$A_{1}$ =10.08, $B_{1}$ = 2572.0 K, $A_{2}$ = 11.63 and $B_{2}$ = 6254.0 K.
+
+% SOLUTION
+       \noindent{\bf Solution:} This problem requires calculating $T$ and $P$ at the vapour-liquid equilibrium of a binary mixture whereas compositions of both phases are given,
+            \begin{displaymath}
+               \begin{cases}
+                  x_{1} = 0.002 \Leftrightarrow x_{2} = 0.998,\\
+                  y_{1} = 0.950 \Leftrightarrow y_{2} = 0.050.
+               \end{cases}
+            \end{displaymath}
+            For this composition, we can also obtain the actitivity coefficient, $\gamma_{i}$,
+            \begin{displaymath}
+               \begin{cases}
+                  \ln{\gamma_{1}} = 0.93x_{2}^{2} \Leftrightarrow \gamma_{1} = 2.5251,\\
+                   ln{\gamma_{2}} = 0.93x_{1}^{2} \Leftrightarrow \gamma_{2} = 1.0000.
+               \end{cases}
+            \end{displaymath}
+            Now, the current modified Raoult's law results in 2 non-linear equations (for both components in the mixture) and two unknowns ($T$ and $P$). These expresssions can be manipulated to be a function of only one unknown, $T$,
+            \begin{eqnarray}
+                y_{i} P &=& x_{i}\gamma_{i}P_{i}^{\text{sat}} \nonumber \\
+                     P &=& \frc{x_{i}\gamma_{i}P_{i}^{\text{sat}}}{y_{i}} =  \frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{y_{1}} = \frc{x_{2}\gamma_{2}P_{2}^{\text{sat}}}{y_{2}} \nonumber \\
+                \frc{P_{1}^{\text{sat}}}{P_{2}^{\text{sat}}}  &=& \frc{x_{2}\gamma_{2}y_{1}}{x_{1}\gamma_{1}y_{2}} \nonumber \\
+                \exp{\left[A_{1}-\frc{B_{1}}{T}-A_{2}+\frc{B_{2}}{T}\right]} &=& \underbrace{\frc{x_{2}\gamma_{2}y_{1}}{x_{1}\gamma_{1}y_{2}}}_{= 3754.7028} \nonumber \\
+                         T&=& 376.4532\text{ K} \nonumber
+            \end{eqnarray}
+            Pressure can now be easily obtained from,
+            \begin{displaymath}
+                 P = \frc{x_{i}\gamma_{i}P_{i}^{\text{sat}}}{y_{i}} = 0.1368\text{ bar}.
+            \end{displaymath}
+            
+   
+\clearpage
+            
+%%%
+%%% EXAMPLE:  Nguyen (Ex 5.3.1)  
+%%%
+   \item\label{Mod05Ex03} Find the bubble point pressure and vapor composition for a liquid mixture of 41.2 mol-$\%$ ethanol (1) and n-hexane (2) at 331 K. Given the Van Laar activity model equations:
+\begin{displaymath}
+\ln\gamma_{1} = \frc{A}{\left[1+\frc{A x_{1}}{B x_{2}}\right]^{2}}\;\;\;\; \ln\gamma_{2} = \frc{B}{\left[1+\frc{B x_{2}}{A x_{1}}\right]^{2}}\
+\end{displaymath}
+with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i}^{\text{sat}}\text{ in kPa and } T\text{ in K}\right)$ can be expressed as,
+\begin{displaymath}
+   \ln P_{1}^{\text{sat}} = 16.1952 - \frc{3423.53}{T-55.7152} \;\;\;\text{ and }\;\;\; \ln P_{2}^{\text{sat}} = 14.0568 - \frc{2825.42}{T-42.7089}
+\end{displaymath}
+
+% SOLUTION
+       \noindent{\bf Solution:} 
+
+   \begin{itemize}
+      \item At 331 K,  $P_{1}^{\text{sat}}=$ 42.90 kPa and $P_{2}^{\text{sat}}=$ 70.54 kPa.
+      \item For the liquid solution with $x_{1}=0.412$ and $x_{2}=1-x_{1}=0.588$, the Van Laar equation,
+         \begin{eqnarray}
+            \ln\gamma_{1} = \frc{2.409}{\left[1+\frc{2.409 x_{1}}{1.970 x_{2}}\right]^{2}} & \Longrightarrow & \gamma_{1} = 2.0111 \nonumber \\
+            \ln\gamma_{2} = \frc{1.970}{\left[1+\frc{1.970 x_{1}}{2.409 x_{1}}\right]^{2}} & \Longrightarrow & \gamma_{2} = 1.5244 \nonumber
+         \end{eqnarray}
+      \item Partial pressure of ethanol and n-hexane are obtained from,
+         \begin{displaymath}
+             P_{1} = x_{1}\gamma_{1}P_{1}^{\text{sat}} = 35.55 \text{ kPa and }P_{2} = x_{2}\gamma_{2}P_{2}^{\text{sat}} = 63.22 \text{ kPa}
+         \end{displaymath}
+      \item The bubble point pressure is
+         \begin{displaymath}
+             P = P_{1} + P_{2} = 98.77 \text{ kPa}
+         \end{displaymath}
+      \item The composition of the vapour phase is
+         \begin{displaymath}
+            y_{1} = \frc{P_{1}}{P} = 0.3599\;\;\text{ and }\;\; y_{2} = \frc{P_{2}}{P} = 0.6401
+         \end{displaymath}
+   \end{itemize}
+
+\clearpage
+            
+%%%
+%%% EXAMPLE:  Nguyen (Ex 5.3.2)  
+%%%
+   \item\label{Mod05Ex04} Calculate the bubble point temperature and vapor composition for a liquid mixture of 1 mol-$\%$ acetone (1) and water (2) at 101.3 KPa. Given the Wilson activity model:
+   \begin{eqnarray}
+       &&\ln\gamma_{1} = -\ln\left(x_{1}+x_{2}C_{12}\right) + x_{2}\left(\frc{C_{12}}{x_{1}+x_{2}C_{12}}-\frc{C_{21}}{x_{2}+x_{1}C_{21}}\right) \nonumber \\
+       &&\ln\gamma_{2} = -\ln\left(x_{2}+x_{1}C_{21}\right) + x_{1}\left(\frc{C_{21}}{x_{2}+x_{1}C_{21}}-\frc{C_{12}}{x_{1}+x_{2}C_{12}}\right) \nonumber
+   \end{eqnarray}
+   with $C_{12}=$0.1173 and $C_{21}=$0.4227. Also, the vapour pressure $\left(\text{with } P_{i}^{\text{sat}}\text{ in kPa and } T\text{ in K}\right)$ is given by,
+\begin{displaymath}
+   \ln P_{1}^{\text{sat}} = 14.71712 - \frc{2975.95}{T-34.5228} \;\;\;\; \ln P_{2}^{\text{sat}} = 16.5362 - \frc{3985.44}{T-38.9974}
+\end{displaymath}
+
+% SOLUTION
+       \noindent{\bf Solution:} 
+
+   \begin{itemize}
+      \item Since the vapour mole fractions are unknown, we should start from the main composition constraint, $\sum\limits_{i=1}^{2}y_{i} = 1$.  
+      \item Replacing $y_{i}=x_{i}\gamma_{i}P_{i}^{\text{sat}}/P$,
+         \begin{displaymath}
+            x_{1}\gamma_{1}P_{1}^{\text{sat}} + x_{2}\gamma_{2}P_{2}^{\text{sat}} = P
+         \end{displaymath}
+      \item For $x_{1} = 0.01$, $x_{2}=0.99$, $C_{12}=$0.1173 and $C_{21}=$0.4227, $\gamma_{1}=$ 13.0695 and $\gamma_{2}=$ 1.0007
+      \item With these numerical values, we can replace into the equation above,
+         \begin{displaymath}
+            (0.01)(13.0695)\exp\left[14.71712 - \frc{2975.95}{T-34.5228}\right] + (0.99)(1.0007)\exp\left[16.5362 - \frc{3985.44}{T-38.9974}\right] =  101.3
+         \end{displaymath}
+         Resulting in  $T= 361.71$ K -- the bubble point temperature of this acetone-water mixture.
+      \item At this temperature, the saturation pressure of acetone and water are $P_{1}^{\text{sat}}= 276.32$ kPa and $P_{2}^{\text{sat}} = 65.78$ kPa, respectively.
+      \item The vapour composition is
+         \begin{displaymath}
+             y_{1} =\frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P} = 0.3565\;\;\;\text{ and }\;\;\;\; y_{2} = 0.6435.
+         \end{displaymath} 
+   \end{itemize}
+\clearpage
+            
+%%%
+%%% EXAMPLE:  ttp://people.cst.cmich.edu/teckl1mm/PChemI/Chm351Ch7aF01.htm
+%%%
+   \item\label{Mod05Ex05} The experimental value of the partial molar volume $\left(\text{cm}^{3}\text{.mol}^{-1}\right)$ of a aqueous solution of K$_{2}$SO$_{4}$ is given by
+                \begin{displaymath}
+                   \overline{V}_{A} = 32.280 + 18.216 m^{1/2},
+                \end{displaymath} 
+ where $m$ is the molality (= number of moles per kg of water) of the K$_{2}$SO$_{4}$ . Use the Gibbs-Duhem equation to derive an equation for the partial molar volume of water in the solution. Plot $\overline{V}_{i}\;\;\times m$, with $0.0\leq m\leq 0.1$. The molar volume of pure water at 298.15 K is 18.079 cm$^{3}$.mol$^{-1}$ and the molar mass of pure water is 18 g.mol$^{-1}$.
+
+% SOLUTION
+       \noindent{\bf Solution:} For an easy notation, let's take K$_{2}$SO$_{4}$: $A$ and Water: $w$.
+\begin{itemize}
+  \item The Gibbs-Duhem equation for the partial molar volumes can be expressed as,
+     \begin{displaymath}
+        \sum\limits x_{i}d\overline{V}_{i} = x_{A} d\overline{V}_{A} + x_{w} d\overline{V}_{w} = 0,
+     \end{displaymath}
+     that after rearranging and integrating,
+     \begin{displaymath}
+        \int\limits_{\overline{V}_{w}=V_{w}^{\circ}}^{\overline{V}_{w}}d\overline{V}_{w} = \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{x_{A}}{x_{w}} d\overline{V}_{A},
+     \end{displaymath}
+     where $V_{w}^{\circ}$ is the molar volume of pure water at reference conditions (\ie at $T=$ 25$^{\circ}$C).
+
+  \item We can change the integration variable from $\overline{V}_{A}$ to $m$,
+      \begin{displaymath}
+         \overline{V}_{A} = 32.280 + 18.216 m^{1/2} \rightarrow \frc{d\overline{V}_{A}}{dm} = \frc{1}{2}\cdot 18.216 m^{-1/2} 
+      \end{displaymath} 
+  
+  \item Now, replacing it into the integral above,
+       \begin{eqnarray}
+          && \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{x_{A}}{x_{w}} \frc{1}{2}\cdot 18.216 m^{-1/2} dm \hspace{1cm} \red{\cdot\frc{n}{n}} \nonumber \\
+          && \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{n_{A}}{n_{w}} \frc{1}{2}\cdot 18.216 m^{-1/2} dm, \nonumber
+       \end{eqnarray}
+       where $n$ is the total number of moles in the solution.
+
+  \item From the definition of molality, i.e., number of moles of K$_{2}$SO$_{4}$ per kg of water,
+       \begin{displaymath}
+           m = \frc{n_{A}}{n_{w}M_{w}} \Longrightarrow m\cdot M_{w} = \frc{n_{A}}{n_{w}},
+       \end{displaymath}
+       where $n_{A}$, $n_{w}$ are the number of moles of K$_{2}$SO$_{4}$ and water, respectively. $M_{w}$ is the molar mass of water.
+
+  \item Replacing in the equation above, 
+      \begin{eqnarray}
+         \overline{V}_{w} - V_{w}^{\circ} &=& -\int\limits_{0}^{m} m\cdot M_{w} \frc{1}{2}\cdot 18.216 m^{-1/2} dm \nonumber \\
+                                       &=& -9.108\; M_{w} \left. \frc{2}{3} m^{3/2}\right|_{0}^{m} \nonumber \\
+         \blue{\left(\text{where }\right.}&& \blue{\left. M_{w} = 18 \frc{\text{g}}{\text{mol}} = 0.018 \frc{\text{kg}}{\text{mol}}\right)} \nonumber \\
+         \overline{V}_{w} &=&  18.079 - 0.1093 m^{3/2} \nonumber 
+      \end{eqnarray}
+
+  \item In order to plot $\overline{V}_{i}\;\;\times m$, with $0.0\leq m\leq 0.1$, we can use the defined equations above to set  up the table:  
+        \begin{center}
+          \begin{tabular}{|c | c c |}
+            \hline
+            ${\bf m (gmol/kg)}$ & ${\bf \overline{V}_{A}}$ & ${\bf \overline{V}_{w}}$ \\
+            \hline
+              0.00  & 32.2800 &  18.0790 \\
+              0.05  & 36.6353 &  18.0778 \\
+              0.10  & 38.0404 &  18.0755 \\
+             \hline
+          \end{tabular}
+        \end{center}
+          \begin{center}
+              \includegraphics[width=0.75\columnwidth,clip]{./../Pics/Example04_Pic}
+          \end{center}
+
+
+\end{itemize}
+
+
+
+              
+
+
+
+\end{enumerate}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
