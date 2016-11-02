@@ -405,9 +405,9 @@ Horizontal pipes
   V/A & \text{for $\text{Bi}<0.1$}
 \end{align*}
 
-{\bf 1-D Transient Heat Conduction:}\\*
+{\bf 1-D Transient Heat Conduction:}
 \begin{align*}
-   Fo = \frac{\alpha \Delta t}{\left(\Delta x\right)^{2}}
+   Fo = \frac{\alpha \Delta t}{\left(\Delta x\right)^{2}} = \tau
 \end{align*}
 
 
@@ -419,9 +419,12 @@ Horizontal pipes
    \theta_{\text{sph}} = \frac{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\frac{\sin{\left(\frac{\lambda_{1}r}{r_{0}}\right)}}{\frac{\lambda_{1}r}{r_{0}}}
 \end{align*}
 
+\begin{align*}
+   \theta_{0,\text{wall}} = \theta_{0,\text{cyl}} = \theta_{0,\text{sph}} = \frac{T_{0}-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}e^{-\lambda_{1}^{2}\tau}
+\end{align*}
 
 \begin{align*}
-   \left(\frac{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{wall}} = 1 - \theta_{0,\text{wall}}\frac{\sin{\lambda_{1}}}{\lambda_{1}},\;\;\left(\frac{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{cyl}} = 1- 2\theta_{0,\text{cyl}}\frac{\mathbf{J_{1}}}{\lambda_{1}}
+   \left(\frac{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{wall}} = 1 - \theta_{0,\text{wall}}\frac{\sin{\lambda_{1}}}{\lambda_{1}},\;\;\left(\frac{\mathcal{Q}}{\mathcal{Q}_{\text{max}}}\right)_{\text{cyl}} = 1- 2\theta_{0,\text{cyl}}\frac{\mathbf{J_{1}\left(\lambda_{1}\right)}}{\lambda_{1}}
 \end{align*}
 
 \begin{align*}
@@ -447,19 +450,44 @@ Horizontal pipes
   \mathcal{R} = R_{i} + R_{\text{wall}} + R_{o} = \frac{1}{h_{i}A_{i}} + \frac{\ln{D_{o}/D_{i}}}{2\pi \kappa L} + \frac{1}{h_{o}A_{o}} 
 \end{align*}
 
-{\bf Fouling Factor:}*
+{\bf Fouling Factor:}
 \begin{align*}
    \mathcal{R} = \frac{1}{h_{i}A_{i}} + \frac{R_{\text{f,i}}}{A_{i}} + R_{\text{wall}} + \frac{R_{\text{f,o}}}{A_{o}} + \frac{1}{h_{o}A_{o}}
 \end{align*}
 
-{\bf LMTD Method:}\\*
+{\bf LMTD Method:}
 \begin{align*}
-   \dot{\mathcal{Q}} = U A_{s} \Delta T_{\text{lm}}\;\text{ with }\;  \Delta T_{\text{lm}} = \frac{\left(T_{\text{hot,out}} - T_{\text{cold,out}}\right)-\left(T_{\text{hot,in}} - T_{\text{cold,in}}\right)}{\ln{\left(\frac{T_{\text{hot,out}} - T_{\text{cold,out}}}{T_{\text{hot,in}} - T_{\text{cold,in}}}\right)}}.
+        \dot{\mathcal{Q}} = U A_{s} \Delta T_{\text{lm}}\;\text{ with }\;\;\Delta T_{\text{lm}} = \frac{\Delta T_{2} - \Delta T_{1}}{\ln{\frac{\Delta T_{2}}{\Delta T_{1}}}} = \frac{\Delta T_{1} - \Delta T_{2}}{\ln{\frac{\Delta T_{1}}{\Delta T_{2}}}}
+\end{align*}
+\begin{displaymath}
+   \text{Parallel flows:}
+   \begin{cases}
+      \Delta T_{1} = T_{\text{hot,in}}-T_{\text{cold,in}} \\
+      \Delta T_{2} = T_{\text{hot,out}}-T_{\text{cold,out}} \\
+   \end{cases}
+\end{displaymath}
+\begin{displaymath}
+   \text{Counter flows:}
+   \begin{cases}
+      \Delta T_{1} = T_{\text{hot,in}}-T_{\text{cold,out}} \\
+      \Delta T_{2} = T_{\text{hot,out}}-T_{\text{cold,in}} \\
+   \end{cases}
+\end{displaymath}
+
+
+{\bf $\epsilon$-NTU Method:}
+\begin{align*}
+   \epsilon = \frac{\dot{\mathcal{Q}}}{\dot{\mathcal{Q}}_{\text{max}}},\;\;\text{ with } \dot{\mathcal{Q}}_{\text{max}} = \mathcal{C}_{\text{min}}\left(T_{\text{hot,in}}-T_{\text{cold,in}}\right)\;\;\text{ and }\;\;\mathcal{C}_{\text{min}} = Min\left\{\dot{m}_{\text{hot}}C_{p,\text{hot}}, \dot{m}_{\text{cold}}C_{p,\text{cold}}\right\}
+\end{align*}
+
+
+\begin{align*}
+  \text{NTU} = \frac{UA_{s}}{C_{\text{min}}} 
 \end{align*}
 
 \begin{figure}[h!]%
   \begin{center}%
-    \includegraphics[width=0.8\textwidth,clip]{figures/NTU}
+    \includegraphics[width=0.8\textwidth,clip]{figures/HE_NTU1}
   \end{center}
   \caption{NTU relations}
 \end{figure}
