@@ -11,7 +11,7 @@ default:	Module_01.pdf Tutorial_01.pdf Notes_Examples.tex \
 		EquationsList.pdf FeedBack_2015-16.pdf \
 		Extra_Examples.pdf Extra_Examples2.pdf \
 		ExtraExample_Mods_4-5.pdf ExtraExample_Mods_6.pdf \
-		FormativeAssessment.pdf
+		FormativeAssessment.pdf Errata1.pdf
 
 Module_01.pdf:		Module_01.tex
 Tutorial_01.pdf:	Tutorial_01.tex
@@ -37,6 +37,7 @@ Extra_Examples2.pdf:	Extra_Examples2.tex
 ExtraExample_Mods_4-5.pdf:	ExtraExample_Mods_4-5.tex
 ExtraExample_Mods_6.pdf:	ExtraExample_Mods_6.tex
 FormativeAssessment.pdf:	FormativeAssessment.tex
+Errata1.pdf:			Errata1.tex
 %.pdf:	%.tex
 	rm -f $*.pdf
 	pdflatex $<
