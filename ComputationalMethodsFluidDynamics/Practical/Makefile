@@ -1,7 +1,8 @@
 
-default:	Assignment_01.pdf
+default:	Assignment_01.pdf  CFDAssignment_2016-17.pdf
 
 Assignment_01.pdf: Assignment_01.tex
+CFDAssignment_2016-17.pdf:	CFDAssignment_2016-17.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
