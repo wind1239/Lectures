@@ -4,7 +4,7 @@
 \usepackage{graphicx}
 \usepackage{wrapfig,pdfpages}% Include figure files
 %\usepackage{dcolumn,enumerate}% Align table columns on decimal point
-\usepackage{enumerate,enumitem}% Align table columns on decimal point
+\usepackage{enumerate}%,enumitem}% Align table columns on decimal point
 \usepackage{bm,dpfloat}% bold math
 %\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
 \usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
@@ -33,6 +33,8 @@
 %\usepackage{pdflscape}
 \usepackage{soul} %% use \hl to higlight text
 
+\usepackage{framed}
+\definecolor{shadecolor}{gray}{0.9}
 %\usepackage{booktabs}
 %\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 
@@ -248,12 +250,11 @@
 \newcommand{\blue}{\textcolor{blue}}
 \newcommand{\green}{\textcolor{green}}
 \newcommand{\purple}{\textcolor{purple}}
+\newcommand\Rey{\mbox{\textit{Re}}\,\,}
+\newcommand\bfr[1]{\textcolor[rgb]{1,0.00,0.00}{\textbf{\textsf{#1}}}}
+\newcommand\ra{$\rightarrow$}
+\newcommand\cm{\textcolor[rgb]{0.00,0.50,0.00}{\checkmark}\,\,}
 
-\newlist{ExList}{enumerate}{1}
-\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
-
-\newlist{ProbList}{enumerate}{1}
-\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%                              %%%%%%%
@@ -272,214 +273,148 @@
 
 \begin{document}
 
+\bigskip
 \begin{center}
-  \Large{\bf Flow through Concentric Pipes}
+\Large{\bf Part\,1. 3D CFD of a Mixing Elbow}
 \end{center}
 
+\section{Introduction}
+Building on the knowledge of our previous practicals, in the first part of this exercise you will solve a three-dimensional turbulent fluid flow and heat transfer problem in a mixing elbow. The mixing elbow configuration is encountered in piping systems in power plants and process industries. 
 
+It is often important to predict flow and temperature fields in the area of the mixing region in order to properly design a junction. The specification of the mixing elbow are given in Figure~\ref{Design1:Sketch1}. The roughness of the pipe wall material is 2\,mm (roughness height). 
+\begin{figure}[H]
 \begin{center}
-  \large{Figure}
+\includegraphics[width=0.95\textwidth,clip]{./Pics/elbow_sketch.png}
 \end{center}
-
-
-
-
-
-\begin{enumerate}[label=\bfseries Problem \arabic*:]
-%%%
-%%% PROBLEM 1
-%%%
-   \item\label{Problem1} {\bf Flow in Concentric Pipes}
-
-In this problem, laminar and turbulent free jets will be simulated in a prescribed 2-D axisymmetric geometry. The term `free' means that the jet flow enters a domain unconfined by any boundaries. The simulated domain, Fig.~\ref{EG501V_Assignment:Sketch1}, has a length of 1.0 m and low and high width of 0.205 and 0.305 m, respectively. Line AD is the centerline of the full domain.
-
-Air is injected through a narrow inlet region on the left-hand side border (AB) with a prescribed inlet velocity. Boundary conditions can be summarised as (a) no flux is allowed across border AD %and BC \hl{(there is flux across BC I think? - it is a pressure inlet}) 
-and (b) Dirichlet radial fluid velocity at border (AB),
-         \[ u_{x}( x=0, y, t) = \begin{cases}
-             1\,m/s & \text{ if } \;\;\;0\leq y\leq 0.005 \text{ m}; \\
-             0\,m/s & \text{ elsewhere.}
-         \end{cases}\]
-        % \hl{mention what boundary CD is?}
-We can consider that, initially, the domain contains air at rest, i.e., $\underline{u}\left(\underline{x},t=0\right)=0$. Two case-scenarios will be analysed here, laminar and turbulent jets. Initial mesh and simulation setup can be downloaded from {\it MyAberdeen}.
-
-
-\begin{figure}[h]
-\begin{center}
-%\includegraphics[width=15.cm,height=8.cm,clip]{./Pics/Sketch_Prob1b}
-%\includegraphics[width=15.cm,height=8.cm,clip]{./Pics/mesh.png}
-\includegraphics[width=14.cm,height=8.cm,clip]{./Pics/free_jet_mesh.png}
-\caption{Initial sketch of the free jet simulation problem. }
-\label{EG501V_Assignment:Sketch1}
-\end{center}
+\caption{Sketch of the 3D mixing elbow. Dimensions in meters.}\label{Design1:Sketch1}
 \end{figure}
 
-\begin{enumerate}[label=\bfseries Task 1.\arabic*]
+%%%
+%%% SECTION
+%%%
+\section{Numerical Simulation}
 
-%%% Task 1
-\item\label{Practical1:Task1} {\bf Laminar Free Jet}
-  \begin{enumerate}
-     \item Check if the flow is laminar;
-     \item\label{Task1:MeshIndependenceCriteria} Check for mesh-independence:
-        \begin{itemize}
-            \item Perform the simulation with the current setup and plot {\it velocity magnitude} $\times$ {\it x-position} $\left(\mathbf{u}\times\mathbf{X}\right)$ along the centreline;
-            \item Smoothly increase the mesh resolution (i.e., refine the mesh), re-run the simulation and plot the resulting $\mathbf{u}\times\mathbf{X}$;
-            \item Repeat this procedure until the computed solution is mesh-independent;
-            \item The solution is considered to be mesh-independent when there is no change in calculated fields as the grid is refined, i.e., no changes in the $\mathbf{u}\times\mathbf{X}$ plot;
+%%% SUBSECTION
+\subsection{Creating the 3D Geometry}
+Add a new \bfr{Geometry} component to your \emph{workbench} and ensure that your analysis type is set to \bfr{3D}. Open \bfr{Geometry} and set your units to \bfr{Meter}. Insert a new sketch by clicking  \includegraphics[width=.4cm]{./Pics/new_sketch.png} in the \bfr{YZPlane}, select \includegraphics[width=.4cm]{./Pics/normal_to.png} to obtain a view normal to the sketch plane. Draw an \bfr{Arc by Center} with the centre at the origin and radius of \bfr{5\,cm} as shown below and enclose the ends of the arc with a vertical line. Create a new sketch in the \bfr{XYPlane} and draw a horizontal line from the origin in positive x-direction and a vertical line as shown below. Give each line a dimension of \bfr{35\,cm}.
+\begin{figure}[H] 
+\begin{center}
+\includegraphics[height=0.4\textwidth,clip]{./Pics/semi_circle.png}\quad
+\includegraphics[height=0.4\textwidth,clip]{./Pics/hor_vert_line.png}
+\end{center}
+\end{figure}
+Next apply a fillet to the edge between the horizontal and vertical line, select the \bfr{Modify} menu and select \includegraphics[width=1cm]{./Pics/fillet.png}.  Specify a small radius of, say, 0.01\,cm in the radius cell \includegraphics[width=2cm]{./Pics/fillet_radius.png}. While holding \bfr{Ctrl} select the horizontal and vertical line, after selecting the vertical line you will see that the fillet is applied. Now use the radius dimensioning tool to set the radius of the fillet to 0.15\,m. Go back to the \bfr{Modeling Tab}, select the sketch in the \emph{Tree Outline}, in the \emph{Details View} change the sketch visibility to \bfr{Always Show Sketch}. Repeat this procedure for the initial sketch you made in the YZPlane. Select \includegraphics[width=1.4cm]{./Pics/sweep.png} from the toolbar and in the \emph{Tree Outline} select the sketch you made in the \bfr{YZPlane}, then in the \emph{Details View} click the \bfr{Apply} button - your sketch should now have appeared in the \emph{Profile} box. Now select the yellow \bfr{Not selected} box in the \emph{Path} box and select in the \emph{Tree Outline} the sketch you made in the \bfr{XYPlane} and click \bfr{Apply} in the \emph{Details View}. Click the \includegraphics[width=1.4cm]{./Pics/generate_button.png} button to create the pipe elbow.
+
+\bigskip
+Create a new plane by clicking \includegraphics[width=0.4cm]{./Pics/new_plane.png} in the \emph{Sketch Toolbar}, note how \emph{Plane4} has appeared in the \emph{Tree Outline}. In the details view select the \bfr{XYPlane} in the \emph{Base Plane} option box, select the \bfr{ZXPlane} in the \emph{Tree Outline} and click \bfr{Apply} in the \emph{Details View}. Select \bfr{Offset Y} as the option for \emph{Transform 1 (RMB)}, and apply an offset of \bfr{0.35}\,m as option in the \emph{FD1, Value1} box which has appeared. Using \emph{Transform 1 (RMB)} apply another \bfr{Offset Z} of \bfr{-0.05}\,m. Note how the origin of your newly create plane appears under the centreline of the vertical pipe segment and in the same plane as the bottom of the horizontal pipe segment as shown below. Click \includegraphics[width=1.4cm]{./Pics/generate_button.png} to create the plane. Now is a good time to inspect your geometry using the various button in the \emph{rotation mode toolbar}.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.6\textwidth,clip]{./Pics/new_plane_origin.png}
+\end{center}
+\end{figure}
+Select your newly created plane in the \emph{Tree Outline} and obtain a view normal to the plane, zoom in if necessary to see the origin of the newly created plane. Draw another enclosed semi-circle with the origin at its center using \bfr{Arc by Center} and give it a radius of \bfr{1.25\,cm}. Obtain an isometric view by selecting \includegraphics[width=0.4cm]{./Pics/isometric_view1.png} in the \emph{rotation mode toolbar} or click on \includegraphics[width=0.3cm]{./Pics/isometric_view2.png} symbol in the lower right corner of your \emph{Graphics Window}. Use the rotation tools to see where the circle has appeared in relation to your pipe geometry. With the sketch still selected, click \includegraphics[width=1.4cm]{./Pics/extrude.png} and select \bfr{Apply} in the \emph{Details View}. Change the \emph{Direction} to \bfr{Normal} and change the \emph{Depth} of the extrusion to \bfr{0.1\,m}. Press \includegraphics[width=1.4cm]{./Pics/generate_button.png} to create the extrusion. Use the rotation tools again to inspect the model. \bfr{Save} your project and close the \emph{DesignModeler} window.
+
+%%% SUBSECTION
+\subsection{Mesh Generation}
+Add the \bfr{Mesh} component to your workbench, connect your created Geometry to this component, and open the \bfr{Meshing} tool. First create five \emph{named selections}; two inlets, one outlet, the pipewall and the symmetry plane. Note that you now have used the face select tool \includegraphics[width=0.4cm]{./Pics/select_faces.png} to assign names to the faces. Give sensible names to the inlets and also note that the pipewall consists of 4\,faces and the symmetry plane of 3\,faces.
+
+Click on the \bfr{Mesh} in the \emph{Tree Outline} and note how the \emph{Details window} contains many expandable mesh setting categories, these are called to \emph{Global Mesh Controls}. There are also \emph{Local Mesh Controls} which are accessed by right-clicking the mesh in the \emph{Tree Outline} and selecting insert, or through \includegraphics[width=2.4cm]{./Pics/mesh_control.png} in the mesh toolbar. More information about the Mesh Control options can be obtained by accessing the \emph{ANSYS Help}. {\bf We strongly encourage you the look at the \emph{Global Mesh Controls} section as part of the \emph{Meshing User's Guide} in order to understand the various mesh settings that you might require later on.}
+
+\medskip
+
+Change the \emph{Physics Preference} to \bfr{CFD} and ensure that the \emph{Solver Preference} is set to \bfr{Fluent}. Expand the \emph{Sizing} and \emph{Inflation} categories. With the \emph{Sizing} option you control the cell sizes of your mesh in various ways, while \emph{Inflation} allows us to refine the mesh near the walls to capture the near-wall flow more accurately. Right-click on \bfr{Mesh} in the \emph{Tree Outline} and select \bfr{Generate Mesh}. By default a mesh consisting of tetrahedron shaped cells is created (i.e. \emph{Tetrahedral Mesh}). Use the rotation tools to explore your mesh and note the refinement of the mesh in, and near, the small inlet pipe.
+
+\medskip
+Under \emph{Sizing} set the \emph{Relevance Centre} to \emph{medium} and also set the \emph{Span Angle Centre} to \emph{Coarse}. Now change \emph{Use Automatic Inflation} to \bfr{All Faces in Chosen Named Selection} and for \emph{Named Selection} choose your \bfr{pipewall} (or whichever name you have assigned to it). Set the \emph{maximum layers} to \bfr{3}, we'll leave the other settings at their default values for now. You can change the \emph{Maximum Layers} to increase the amount of layers near the wall should that be required or alternatively near wall inflation might not be necessary at all in which can you can switch it off. Now in the \bfr{Tree outline} right-click on the Mesh and select \bfr{Update} or \bfr{Generate Mesh}. If you now look at the \emph{Statistics} menu you will see that there are approximately 8500 elements in your mesh. Now under the \emph{Defaults} category use the \emph{Relevance} slider to obtain \emph{approximately} 20k elements. You may need to adjust the slider a few times and re-generate the mesh to obtain an appropriate mesh resolution. Note that you do not need exactly 20k elements a couple of hundred more or less is OK. Inspect the inlets and outlet of your model to check how \emph{Inflation} has impacted on the mesh. The isometric view of your pipe should look as follows:
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.6\textwidth,clip]{./Pics/isom_view_pipe.png}
+\end{center}
+\end{figure}
+Close the meshing window and \bfr{save} your project.
+
+%%% SUBSECTION
+\subsection{Model Setup}
+Now you can set-up the Fluent model and perform the simulation. Setting up Fluent is very similar to what you have done in the previous labs so we will not repeat that here. A couple of things to note:
+\begin{itemize}
+\item[-] use the $k-\varepsilon$ turbulence model;
+\item[-] edit the \emph{Cell Zone Conditions} such that the \emph{Zone Name} is fluid with \emph{Material Name} set the to the fluid which you created in the \emph{Materials} section;
+\item[-] in the \emph{solution methods} set the \emph{spatial discretization} to \emph{Second Order Upwind};
+\item[-] in the residual monitor set the \emph{Absolute criteria} for continuity, momentum and energy to $10^{-4}$ and for $k$ and epsilon to $10^{-3}$;
+\item[-] create a surface monitor, name  it \texttt{outlet\_temp\_avg}, select for \emph{Report Type} the option \emph{Mass-Weighted Average} and select \emph{Temperature...} and \emph{Static Temperature} as Field Variable and select \emph{outlet} as the surface. This will create a monitor for the average outlet temperature. Tick the \emph{Plot} box so that it will be displayed. In the Monitors menu select \includegraphics[width=2.4cm]{./Pics/convergence_manager.png}, you will see that \texttt{outlet\_temp\_avg} is available as a convergence monitor. Sicne we are particularly interested in the outlet temperature we will set it as our 8$^\mathrm{th}$ monitor, set the stop criterion to 1e-6, and set the other two options to 15 and 10, respectively;
+\item[-] you can use hybrid initialisation or standard initialisation;
+\end{itemize}
+
+
+
+\section{Tasks}
+\subsection{Single Phase Flow Mixing through a 90 Degree Bend}\label{Task:Section1}
+ For this first set of numerical simulations, a cold liquid water flows through the main pipeline at 20 $^{\circ}$C $\left(\text{and 0.4 m.s}^{-1}\right)$ and hot liquid water $\left(\text{1.2 m.s}^{-1}\right)$ is injected along the pipe elbow at 40 $^{\circ}$C (see Fig.~\ref{Design1:Sketch1}). Assume that both fluid streams are incompressible and both pipes are fully insulated (i.e., adiabatic or zero heat flux conditions).
+    
+     
+    \begin{shaded}
+    Perform simulations with mesh resolutions of (approximately) 20k, 40k and 60k elements. \emph{Plot and compare} the numerical results of the velocity at centreline of the pipe outlet for these mesh grids. We often assume that \emph{solution mesh independence} (also known as \emph{mesh convergence}) is achieved when there is no improvement of the solution (mainly for either velocity or pressure fluctuation fields)  after increasing mesh resolution. In our case, extract (i.e., export)  the values of velocity magnitudes at the centreline of the pipe outlet for the four mesh grids. Using either Matlab or Excel, calculate the error of two sets of velocity magnitude vectors obtained from simulations of two consecutive grid resolutions, 
+        \begin{displaymath}
+           \mathcal{E} = \frac{\sum\limits_{i=1}^{N}\left(\frac{\left|v_{i}^{(k)}-v_{i}^{(k-1)}\right|}{v_{i}^{(k-1)}}\right)}{N}\times 100\;\;\;\;\left(\%\right)
+        \end{displaymath}
+        where $v^{(k)}$ is the vector representing the velocity magnitudes at grid resolution $k$ and $N$ is the number of sample points (i.e., length of the velocity magnitude vectors). 
+        \medskip
+        
+        In engineering design problems in which detailed fluid flow dynamics is required, a numerical solution is assumed mesh-independent if $\mathcal{E} \le 0.1\%$. Before we reach the required grid resolution a number of simulations with coarse grids are often performed for testing different aspects of solution methods, thermo-physical properties, boundary conditions etc, towards an optimal design. Here, for the remaining numerical simulations you should use a mesh grid resolution with 60k elements.
+        \medskip
+        
+        In the report, you should include and comment on (based on simulations performed with 60k mesh resolution)
+    \begin{enumerate}
+        \item Plot $y^{+}\;\times$ {\it x-position} along the pipewall;
+        \item Velocity vectors overlapped with temperature contour-plot for the symmetry plane;
+        \item Plot temperature $\times$ {\it x-position} at centreline of the pipe outlet;
+    \end{enumerate}
+    \end{shaded}
+    
+\subsection{Pre-Heated Mixed System}
+Use a similar simulation setup as Section~\ref{Task:Section1} (with mesh resolution of 60k), but now:
+    \begin{enumerate}[i)]
+       \item Split the horizontal pipe domain before the 90$^{\circ}$ bend into three segments of 5, 10 and 5\,cm, the procedure is similar to the one in the previous practical;
+       \item In the second segment ($5\le x \le 15$ cm), impose:
+       \begin{itemize}
+          \item Case 1: prescribed heat flux boundary condition of 100 kW.m$^{-2}$;
+          \item Case 2: prescribed wall temperature of 30$^{\circ}$C;
         \end{itemize}
-     \item From the simulation performed with the final mesh, plot $\left(\frc{\mathbf{u}}{\mathbf{u}_{\text{max}}}\times \frc{\mathbf{X}}{\mathbf{D}}\right)$, where $\mathbf{u}_{\text{max}}$ is the maximum velocity and $\mathbf{D}=$ 0.01 m is the nozzle inlet diameter (= characteristic length-scale).
-     \item\label{Task1:StreamFunction} Also, obtain the contour plot of the stream function;
-     \item Repeat the simulation using 1$^{\text{st}}$-order accurate scheme for the momentum equation and compare the plots.
-  \end{enumerate}
-
-%%% Task 2
-\item\label{Practical1:Task2} {\bf Turbulent Free Jet}
-  \begin{enumerate}
-     \item Using the same initial simulation set-up used in~\ref{Practical1:Task1} (including fluid density, inlet velocity and diameter), modify the simulation conditions to ensure a Reynolds number of 10$^{5}$;
-     \item Use the standard $k-\epsilon$ turbulence model. The $k-\epsilon$ terms must be specified on all boundaries;
-     \item In {\it Solution Setup} $\rightarrow$ {\it Boundary Conditions}, edit both {\it Farfield} and {\it Inlet boundaries}. Select {\it `Intensity and Hydraulic Diameter'} as the turbulence specification method;
-     \item At the {\it Inlet 1} windows, modify the {\it Specification Method} for {\it Turbulence} to \blue{\it Intensity and Hydraulic Diameter}. The intensity should be $I=5\%$, and the hydraulic diameter should be $d_{H}=0.01 m$;
-     \item At the {\it Inlet 2} and {\it Farfield} boundaries windows, modify the {\it Specification Method} for {\it Turbulence} to \blue{\it K and Epsilon}. Both should be zero;
-     \item In the {\it `Monitors'}, edit the residual monitors and ensure that the residual criteria for both $k$ and $\epsilon$ are 10$^{-6}$;
-     \item Repeat steps \red{(ii)}-\red{(iv)} from~\ref{Practical1:Task1};
-     \item Plot the turbulent kinetic energy along the centreline, i.e., $k\times\mathbf{X}$;
-     \item Plot $\left(\frc{\mathbf{u}}{\mathbf{u}_{\text{max}}}\times \frc{\mathbf{X}}{\mathbf{D}}\right)$ for $Re=\left[ 10^{2}\; 10^{3}\; 10^{4}\; 10^{5}\; 10^{6}\right]$. 
-  \end{enumerate}
-\end{enumerate}
-
+    \end{enumerate}
+    
+    \begin{shaded}    
+    Repeat the plots highlighted in Section~\ref{Task:Section1} and comment on the differences of:
+    \begin{enumerate}
+      \item temperature profiles along the symmetry plane;
+      \item velocity profiles along the symmetry plane;
+      \item temperature profiles at centreline of the pipe outlet.
+    \end{enumerate}
+    \end{shaded}
+    
 \clearpage
-
-%%%
-%%% PROBLEM 2
-%%%
-   \item\label{Problem2} {\bf Simulation of Idealised 2-D Waste Flow Discharge}
-
-A team of engineers and consultants are designing a new industrial unit near the coast (Fig.~\ref{EG501V_Assignment:Sketch2}). Cold sea water is used as cooling fluid for main the process and all for heat exchangers and condensers of the unit, and then returned back to the sea through a pipeline of 0.5 m diameter at 700 m$^{3}$/h (properties of returned water and sea water are assumed the same, $\rho=$ 1000 kg/m$^{3}$, $\mu=$ 0.001 kg/(m.s)). The seabed consists of uniform sand with mean diameter $D_{50}$ of 0.001 m.
-
-\begin{figure}[h]
-\vbox{\hbox{\hspace{2cm}
-\includegraphics[width=13.cm,height=8.cm,clip]{./Pics/problem_sketch.png}}
-\vspace{-0.cm}
-\hbox{\hspace{3cm}
-\includegraphics[width=10.cm,height=6.cm,clip]{./Pics/Sketch_Prob2b}}}\vspace{-1.5cm}
-\caption{Physical domain of the waste flow discharge (top) and initial sketch of simulation problem. Dimensions are: $\overline{AB}=$ 50.0 m, $\overline{BC}=$ 8.0 m, $\overline{DE}=$ 7.5 m, $\overline{EF}=$ 0.5 m and $\overline{AF}=$ 0.0 m.} \label{EG501V_Assignment:Sketch2}
-\end{figure}
-
-%\begin{figure}[h]
-%\begin{center}
-%\includegraphics[width=13.cm,height=8.cm,clip]{./Pics/Sketch_Prob2b}\vspace{-1.5cm}
-%\caption{Initial sketch of the waste flow discharge simulation problem. The dimensions are: $\overline{AB}=$ 50.0 m, $\overline{BC}=$ 8.0 m, $\overline{DE}=$ 7.5 m, $\overline{EF}=$ 0.5 m and $\overline{AF}=$ 0.0 m.} \label{EG501V_Assignment:Sketch2}
-%\end{center}
-%\end{figure}
-
-To study the effect of the discharged flow on the surrounding environment the team decided to simplify the problem to a rectangular domain (ABCD in Fig.~\ref{EG501V_Assignment:Sketch2}) assuming that the waste water is introduced through an inlet ($\overline{EF}$ in Fig.~\ref{EG501V_Assignment:Sketch2}) as fully developed turbulent flow with $Re=$ 5$\times$10$^{5}$. Boundary conditions may be summarised as,
-\begin{itemize}
-  \item Non-slip (wall) condition in $\overline{\text{AB}}$;
-  \item Outflow (pressure) condition in  $\overline{\text{BC}}$;
-  \item Free inflow condition in  $\overline{\text{CD}}$, $\overline{\text{AF}}$ and $\overline{\text{ED}}$;
-  \item Power-law velocity profile in $\overline{\text{EF}}$ of
-    \begin{equation}
-        \left.u_{x}\right|_{\overline{\text{EF}}} = 1.1437 u^{\text{aver}} \left(1 - \sqrt{\left(\frac{y}{r}\right)^{2}}\right)^{1/n} \label{Prob2:TurbVelProfileEqn}
-    \end{equation}
-    where $u^{\text{aver}}$ is the average velocity calculated from the volumetric flow rate, $n=7$ and $y=0$ at the center of the pipe of radius $r$. From past CFD simulations the team knows that this profile gives a good description of the fully developed turbulent velocity profile in a pipe. You can include this velocity profile through the {\it User-Defined Function} (UDF) functionality within {\it ANSYS}. {\it UDF}'s allow user to prescribe spatial- and/or time-dependent flow parameter conditions:
-    \begin{itemize}
-        \item Download and open the {\it C}-based code available in {\it MyAberdeen} -- {\it UDF$\_$turbulent$\_$velocity$\_$profile.c}. The code describes the imposed velocity profile, Eqn.~\ref{Prob2:TurbVelProfileEqn};
-        \item Modify the code to take into account the average velocity (currently, $U$ is defined as `{\it xxx}');
-        \item In {\it Fluent} Toolbar, select: {\it Define} $\rightarrow$ {\it User-Defined} $\rightarrow$ {\it Functions} $\rightarrow$ {\it Interpreted};
-        \item In the {\it `Source File Name'} (within the {\it Interpreted UDFs} windows), browse and select the C-based code file. {\it `CPP Command Name'} and {\it `Stack Size'}  should be kept as {\it cpp} and 10000, respectively. Keep the two remaining box-options un-ticked;
-        \item Click on 'Interpret'. Messages will be displayed in the {\it Fluent} terminal. Make sure that there are {\bf \underline{no error messages}}.
-        \item When setting up the inlet velocity (within {\it `Boundary Conditions'}) to the appropriate {\it `zone'} name, select {\it Momentum} $\rightarrow$ {\it Velocity Specification Method: Magnitude and Direction} $\rightarrow$ {\it Velocity Magnitude}. Change from {\it `constant'} to {\it `udf inlet$\_$x$\_$velocity'}.
-    \end{itemize}
-\end{itemize}
-The team also assumed that the fluid in the simulated domain was at rest, i.e., $\underline{u}=0$.
-
-
-
-\begin{enumerate}[label=\bfseries Task 2.\arabic*]
-
-\item\label{Practical2:Task1} {\bf Assessing the Impact of Waste Flow Discharge in the Seabed}
+\begin{center}
+\Large{\bf Deliverables}
+\end{center}
+General instructions for the Final Report (containing parts 1 and 2 of the assignment):
+\begin{enumerate}[1)]
+\begin{shaded}
+\item Part 2 of this Assignment will be released in \emph{MyAberdeen} on November 9$^{\text{th}}$ at noon.
+\end{shaded}
+  \item Write a report containing:
   \begin{enumerate}
-  \item Build up the simulation suite (geometry, mesh, boundary and initial conditions, and solution methods) for the domain sketched in Fig.~\ref{EG501V_Assignment:Sketch2};
-     \item Investigate the grid resolution that leads to mesh-independent solution. How many cells and nodes have you used?
-     \item From the simulation performed with this mesh,
-         \begin{enumerate}
-            \item Plot {\it velocity magnitude} $\times$ {\it x-position} along $y =\frc{1}{2}\cdot$ ({\it pipe diameter});
-            \item Obtain the contour plot of the stream function;
-            \item Plot $y \;\times$ {\it velocity magnitude};
-            \item Plot $y^{+}\;\times$ {\it x-position};
-            \item Plot {\it wall shear stress} $\times$ {\it x-position} along $\overline{\text{AB}}$;
-         \end{enumerate}
-  \end{enumerate}
-
-
-\item\label{Practical2:Task2} {\bf Design the Discharge Flow}
-
-In addition to the boundary and initial conditions described previously, assume that the fluid in the main domain, $T\left(\underline{x}\right)$, is at uniform temperature of 12$^{\circ}$C, and the inlet flow (waste water) is at 80$^{\circ}$C. Thermal equations are solved in {\it Fluent} by enabling {\it `Energy'} in {\it `Models'} and adding the appropriate boundary and initial conditions in {\it `Boundary Conditions'} and {\it 'Solution Initialization'} options.
-
-Due to environmental laws, any flow discharge in body water should be constraint to avoid damage to the seabed and the aquatic environment. Two main conditions are:
-   \begin{itemize}
-        \item No erosion of the seabed. This is achieved when the non-dimensional shear stress (called Shields parameter $\theta$) on the seabed is less than the critical value $\theta_{\text{crit}}=0.05$.
-         The Shields parameter is related to the wall shear stress, $\tau$, as follows:
-            \begin{displaymath}
-               \theta = \frc{\tau}{\left(\rho_{s}-\rho\right)g D_{50}},
-            \end{displaymath}
-             where $\rho_{s}=$ 2650 kg/m$^{3}$ is the density of the sand particles;
-        \item Sea water temperature distribution at a distance $L$ from the discharge coordinates,
-         \[ T \begin{cases}
-             \leq 30^{\circ}C & \text{ at } \;\;\; 20 \leq L \leq 25 m; \\
-             \leq 25^{\circ}C & \text{ at } \;\;\; 35 \leq L \leq 40 m.
-         \end{cases}\]
-   \end{itemize}
-
-Using the simulation set-up developed in~\ref{Practical2:Task1}, modify the design of the waste water discharge system  to ensure that the conditions above are met. A few potential candidates are
-   \begin{enumerate}
-      \item Pipe diameter $\left(\overline{\text{EF}}\right)$;
-      \item Pipe height $\left(\overline{\text{AF}} > 0\right)$;
-      \item Inlet temperature may be reduced to up to 45$^{\circ}$C by pre-cooling the flow stream before discharge. Also, thermal boundary conditions can be changed;
-   \end{enumerate}
-
-\end{enumerate}
-
-\end{enumerate}
-
-
-
-
-{\bf Some tips to speed up simulations:}
-\begin{itemize}
-\item In the {\it `Fluent launcher'} choose {\it Parallel} under {\it Processing Options} and select $>1$ Processes (depends on the number of cores of the PC you are using, leave 1 for non Fluent tasks);
-\item Try to keep mesh resolution $\leq$ 30k cells;
-\item Turbulent simulations can be speeded up by starting off the calculation without any turbulence, to do this go to {\it solution controls$\rightarrow$equations} and deselect {\it Turbulence}. Run the simulation and after, say, 1000 iterations (or when the simulation is converged) stop the simulation and switch back on {\it Turbulence} and continue the run until it has converged.;
-\item under {\it Run Calculation} set to reporting interval to 50 or 100. This way the convergence information will not be displayed in the console on every iteration;
-\item {\bf Furthermore:} warning message displayed in the fluent console related to {\it `turbulent viscosity limited to viscosity ratio of (...)'} and {\it `reversed flow on (...)'} can be ignored.
-\end{itemize}
-
-
-
-\clearpage
-
-
-
-
-{\bf Deliverables:}
-\begin{enumerate}
-  \item Write a report containing (\underline{maximum of 20 pages} including cover page, table of contents, bibliography and appendices) and :
-  \begin{enumerate}
-    \item A brief introduction of
-       \begin{enumerate}%[(a)]
-          \item Flow conservative and constitutive equations used in the performed simulations;
-          \item Summary of finite volume methods and solution methods used in the simulations;
-          \item Overview of Turbulence models including the $k$-$\epsilon$ model;
-       \end{enumerate}
-    \item Summary of all simulation set-ups including,
-       \begin{enumerate}% [(a)]
-          \item Initial and boundary conditions;
+    \item Summary of {\bf all simulation set-ups} including,
+       \begin{enumerate} [(a)]
+          \item Initial and boundary conditions (for each simulation);
           \item Mesh information/quality;
           \item Numerical schemes (i.e., solution methods) and sub-models used.
        \end{enumerate}
-    \item {\bf Summary of the numerical results (incl. figures displaying the data), findings, interpretation and \underline{analysis} along with concluding remarks.}
+    \item Summary of the numerical results (incl. figures displaying the data -- shaded areas above), findings, interpretation and \underline{analysis} along with concluding remarks.
   \end{enumerate}
-%
-\item {\bf Prepare the report as \underline{PDF file} and submit it through {\it Turnitin} (with the appropriate plagiarism cover sheet) by Sunday, November 29$^{th}$ 2015, 23:59h at the latest. Also, submit a hard-copy of the report to the UG office by November 30$^{th}$, 15.00h.}
+  
+  \item Report should contain no more than (\underline{maximum}) 25 pages including cover page, bibliography and appendices (if any);
+
+\item {\bf Prepare the report (containing results of Parts 1 and 2 of this assignment) as \underline{PDF file} and submit it through {\it Turnitin} (with the appropriate plagiarism cover sheet) by Friday, November 25$^{\text{th}}$ 2016, noon at the latest. Also, submit a hard-copy of the report to the UG office by November 25$^{\text{th}}$, 15.00h.}
 %
 %\item Feedback will be provided on December YY$^{th}$ 2015.
 %
@@ -495,11 +430,5 @@ If late or non-submission is due to medical or other circumstances out with your
 \item Note that the submitted work is part of the continuous assessment which will contribute 40$\%$ to your EG501V mark.
 
 \end{enumerate}
-
-%\end{enumerate}
-
-
-\clearpage
-
 
 \end{document}
