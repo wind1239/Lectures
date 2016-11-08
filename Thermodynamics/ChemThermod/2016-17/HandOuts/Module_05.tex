@@ -9,10 +9,10 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-%\documentclass[10pt,compress,unknownkeysallowed]{beamer}
+\documentclass[10pt,compress,unknownkeysallowed]{beamer}
 %Draft or handout mode
 %\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
-\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
 
 \renewcommand{\insertframenumber}{\theframenumber}
 \renewcommand{\theframenumber}{\thesection-\arabic{framenumber}}
@@ -271,9 +271,11 @@
  \frametitle{Aims and Objectives}
    \begin{enumerate}
      \item<1-> In the previous Modules we have focused primarily on thermodynamic systems comprising pure substances and mixtures in VLE;
-     \item<1-> Last lecture we derived chemical potential and fugacity expressions for pure chemical species and mixtures of gases;
-     \item<1-> From this, we also derived the activity and activity coefficient;
-     \item<1-> This module will focus on thermodynamic description of solutions and how the aforementioned properties can be used to determine the properties of ideal and real liquid solutions. 
+     %\item<1-> Last lecture we derived chemical potential and fugacity expressions for pure chemical species and mixtures of gases;
+     %\item<1-> From this, we also derived the activity and activity coefficient;
+     \item<1-> In this module, five new thermodynamic functions will be introduced, chemical potential, fugacity, activity, activity coefficient and fugacity coefficient;
+     \item<1-> These functions help describe the non-ideality of solutions in the same way as the compressibility factor, $Z$, helped with gases;
+     \item<1-> This module will focus on thermodynamic description of solutions and how these functions can be used to determine the properties of ideal and real liquid solutions. 
    \end{enumerate}
 \end{frame}
 
@@ -374,7 +376,7 @@
        \end{displaymath}}
   \end{enumerate}
   \visible<3->{\begin{block}{}
-     \textcolor{blue}{Multiphase systems at $T$ and $P$ are in equilibrium when the chemical potential $\left(\mu\right)$ of each species is the the same in {\bf all phases}.}
+     \textcolor{blue}{Multiphase systems at $T$ and $P$ are in equilibrium when the chemical potential $\left(\mu\right)$ of each species is the same in {\bf all phases}.}
   \end{block}}
 \end{frame}
 \normalsize
@@ -546,7 +548,7 @@
 \begin{frame}
   \frametitle{Fugacity and Fugacity Coefficient in Pure Species}
   \begin{enumerate}%\setcounter{enumi}{2}
-      \item<1-> In Module 4 we derived \blue{chemical potential, $\mu$} and \blue{fugacity, $f$} for pure species and mixtures,
+      \item<1-> The \blue{chemical potential, $\mu$} and \blue{fugacity, $f$} for pure species and mixtures are related from,
           \visible<1->{\begin{displaymath}
              \frc{G_{i}}{n} = \mu_{i} = RT\ln f_{i} + \mathcal{C}_{i}, \;\;\;\; f^{\text{ig}}_{i} = P 
           \end{displaymath}} 
@@ -627,7 +629,7 @@
              G^{\text{id}} = \sum\limits_{i}x_{i}G_{i} + RT\sum\limits_{i}x_{i}\ln x_{i}, && S^{\text{id}} = \sum\limits_{i}x_{i}S_{i}-R\sum\limits_{i}x_{i}\ln x_{i} \nonumber \\
               V^{\text{id}} = \sum\limits_{i}x_{i}V_{i}   && H^{\text{id}} = \sum\limits_{i}x_{i}H_{i} \nonumber
           \end{eqnarray}}
-      \item<3-> From last module, \blue{Lewis-Randall rule}:
+      \item<3-> \blue{Lewis-Randall rule}:
           \visible<3->{\begin{displaymath}
              \mu_{i}=\mathcal{C}_{i}\left(T\right)+RT\ln\overline{f}_{i} \;\;\text{ and } \;\; G_{i}=\mathcal{C}_{i}\left(T\right)+RT\ln f_{i}
           \end{displaymath}
@@ -716,34 +718,20 @@
 \normalsize
 
 %%%
-%%% Slide
+%%% Slide 
 %%%
 \scriptsize
-\begin{frame}
+\begin{frame} 
   \frametitle{Excess Properties}
      \begin{center}
        \begin{figure}
-         \includegraphics[width=9.cm, height=6.5cm,clip]{./Figs/ExcessProperties_Plot}
+         \includegraphics[width=9.cm, height=6.5cm,clip]{../Pics/ExcessProperties_Plot}
           \caption{\scriptsize Excess properties at 50$^{\circ}$C for the following binary liquid systems: (a) chloroform / n-heptane,(b) acetone / methanol, (c) acetone / chloroform, (d) ethanol / n-heptane, (e) ethanol / chloroform and (f) ethanol / water (Extracted from {\it Smith, Van Ness and Abott}). }
        \end{figure}
      \end{center}
 \end{frame}
 \normalsize
 
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{Example 1}
-    At 25$^{\circ}$C and atmospheric pressure the volume change of mixing of a binary liquid mixture of species $1$ and $2$ is given by,
-    \begin{displaymath}
-       \Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right)\;\;\;\;\text{ with }\;\;\;\; \left[\Delta V\right] = \frc{cm^{3}}{gmol}
-    \end{displaymath}
-    with $V_{1}$ = 110 cm$^{3}$.gmol$^{-1}$ and $V_{2}$ = 90 cm$^{3}$.gmol$^{-1}$. Determine the partial volumes, $\overline{V}_{1}$ and $\overline{V}_{2}$ in a mixture containing 40$\%$-mol of species $1$.
-      
-\end{frame}
-\normalsize
 
 %%%
 %%% SUBSECTION
@@ -820,8 +808,9 @@
 \normalsize
 
 
-
-
+%%%
+%%% SECTION
+%%%
 \section{Summary}
 
 %%%
@@ -836,6 +825,26 @@
      \item Brief description of activity coefficient models currently used in simulators.
    \end{enumerate}
 \end{frame}
+
+%%%
+%%%  SECTION
+%%%
+\section{Examples}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize 
+\begin{frame}
+ \frametitle{Example 1}\label{Ex1}
+    \blue{At 25$^{\circ}$C and atmospheric pressure, the volume change of mixing of a binary liquid mixture of species 1 and 2 is given by,}
+       \begin{displaymath}
+          \blue{\Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right)\;\;\;\;\text{ with }\;\;\;\left[\Delta V\right] = \text{cm}^{3}.\text{mol}^{-1}}
+       \end{displaymath}
+       \blue{with molar volumes of $V_{1} = 110\;\text{cm}^{3}.\text{mol}^{-1}$ and $V_{2} = 90\;\text{cm}^{3}.\text{mol}^{-1}$. Determine the partial molar volumes, $\overline{V}_{1}$ and $\overline{V}_{2}$, in a mixture containing 40$\%$-mol of species 1.}
+
+\end{frame}
+
 
 
 \end{document}
