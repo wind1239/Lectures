@@ -8,7 +8,7 @@
 \usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
 \usepackage{framed,comment,lscape}
 \definecolor{shadecolor}{gray}{0.9}
-
+\usepackage{wrapfig}
 \pagestyle{empty}
 \def\newblock{\hskip .11em plus .33em minus .07em}
 
@@ -98,6 +98,37 @@
 \newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
 \newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}} 
 \newcommand{\summation}[3][error]{\sum\limits_{#2}^{#3}#1}
+
+
+
+%%%%%%%%%% Chemical Reactions %%%%%%%%%%%%%%%%
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[version=3]{mhchem}
+\makeatletter
+\newcounter{reaction}
+%%% >> for article <<
+\renewcommand\thereaction{R6.\,\arabic{reaction}}
+%%% << for article <<
+%%% >> for report and book >>
+%\renewcommand\thereaction{C\,\thechapter.\arabic{reaction}}
+%\@addtoreset{reaction}{chapter}
+%%% << for report and book <<
+\newcommand\reactiontag{\refstepcounter{reaction}\tag{\thereaction}}
+\newcommand\reaction@[2][]{\begin{equation}\ce{#2}%
+\ifx\@empty#1\@empty\else\label{#1}\fi%
+\reactiontag\end{equation}}
+\newcommand\reaction@nonumber[1]{\begin{equation*}\ce{#1}%
+\end{equation*}}
+\newcommand\reaction{\@ifstar{\reaction@nonumber}{\reaction@}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 
 \begin{document}
 
@@ -3565,6 +3596,363 @@ therefore, we have 2 equations and 2 unknowns, $L$ and $T$. Let's solve ($\dagge
 %%% SECTION
 %%%
 \section{Module 06: Chemical Reaction Equilibrium}\label{Section:06}
+
+%%% SUBSECTION
+\subsection{Introduction}\label{Section:06:Introduction}
+In the previous Modules, we have studied thermodynamic behaviour of gases and liquids at equilibrium conditions assuming that species do not react. However, in many industrial, environmental and bio-medical applications, chemical reactions are the driving force behind successful processes. 
+
+      \begin{wrapfigure}{r}{0.5\textwidth}%{figure}[hpt]
+         \begin{center}
+           \includegraphics[width=0.5\columnwidth,clip]{./Figs/Mod06_SchematicEqReaction_Temp_b.pdf}
+           \vspace{-.1cm}\caption{Sketch of equilibrium reaction and temperature.}\label{Mod06Fig01}
+         \end{center}
+       \end{wrapfigure}%{figure}
+Reactive systems are often characterised in terms of the maximum possible yield of the target product(s) at prescribed conditions, starting from the reactants (\ie raw materials). From chemical reactions theory (\ie {\it chemical kinetics}), rates of reaction are often strongly influenced by the temperature. In several cases, reaction rates rise as temperature increases. In fact, reaction data from several applications (from combustion and geochemistry to biochemistry) show that conversion rate from reactants to products does not increase {\it monotonically}, but rather it reaches a {\it maximum} of conversion and smoothly decreases as schematically shown in Fig.~\ref{Mod06Fig01}.
+
+Consider a chemical reaction in the gaseous phase,
+     \reaction[chemreaction:reaction1]{A (g) + B (g) <=> C (g) + D (g)}
+
+\noindent where initially $\left(\text{\ie at time } t_{0}=0\right)$ there are just reactants $A$ and $B$ in a {\it closed system}. Molecules of $A$ and $B$ are in continuous and random movement and collide with each other forming products $C$ and $D$. At this stage, the consumption/depletion of molecules of $A$ and $B$ dominates the dynamics in the system. However, as the process continues $\left(\text{\ie at } t > t_{0}\right)$, the amount of molecules (\ie number of moles) of $C$ and $D$ increases and these species become dominant in the system. Collisions between $A$ and $B$ may still occur, but as they are no longer abundant, conversion from reactants to products get smaller, however molecules of $C$ and $D$ (both also in gaseous form) also collide and may produce $A$ and $B$. 
+
+Thus, while initially the {\it forward} reaction dominates, as reaction progress the {\it backward} reaction becomes increasingly relevant, which eventually leads into two reaction rates of equal value. After this stage, the concentration of all species in the system is invariant (\ie constant) with no tendency to change except if a perturbation is imposed to the system (\eg addition/removal of heat, increase/decrease of pressure, addition/removal of species etc). At such conditions, the reaction is said to be in {\it equilibrium}. 
+
+In the application of {\it chemical reaction equilibrium} to problems relevant to industry, the aim is to ensure {\it maximum} conversion at prescribed pressure and temperature conditions. Reactions for which the conversion is (approximately) 100$\%$ are often referred as {\it irreversible}, whereas reactions that have lower conversion rates are called {\it reversible}. Reaction conditions are, thus, critical to achieve the maximum possible conversion rate. The main aim of this module is to study the thermodynamic relations necessary to predict equilibrium conversion of {\it homogeneous chemical reactions}. 
+
+%%% SUBSECTION
+\subsection{Notation for Chemical Reactions}\label{Section:06:Notation}
+\begin{subequations}
+    For a chemical reaction in general form:
+        \reaction[chemreaction:reaction]{\nu_{1} A_{1} + \nu_{2} A_{2}  + ... \nu_{k} A_{k} <=> \nu_{l} A_{l} + \nu_{m} A_{m} + ... + \nu_{\mathcal{C}} A_{\mathcal{C}} }
+    where $\nu_{i}$ is the molar stoichiometric coefficient, $A_{i}$ are chemical species and $\mathcal{C}$ is the total number of species in the system. For convention, positive $\nu$ stands for products whereas negative $\nu$ is for reactants, and the reaction can be expressed as an ordinary algebraic equation,
+    \begin{displaymath}
+       \nu_{l} A_{l} + \nu_{m} A_{m} + ... + \nu_{\mathcal{C}} A_{\mathcal{C}} - \left(\nu_{1} A_{1} + \nu_{2} A_{2}  + ... \nu_{k} A_{k}\right) = 0,
+    \end{displaymath}
+    or simply
+    \begin{equation}
+      \summation[\nu_{i}A_{i}]{i=1}{\mathcal{C}} = 0.\label{Mod6:Eqn:1}
+    \end{equation}
+\bigskip
+
+    Let's consider, for example, the reaction for production of synthesis gas (or syngas, a mixture of hydrogen and carbon monoxide) from natural gas, 
+        \reaction[chemreaction:syngas]{ CH_{4} + H_{2}O <=> CO + 3 H_{2} }
+    the molar stoichiometric coefficients are $\nu_{CH_{4}}=\nu_{H_{2}O}=-1$, $\nu_{CO}=1$ and $\nu_{H_{2}}=3$, and the reaction can be written in equation form as,
+    \begin{displaymath}
+       CO + 3 H_{2} - CH_{4} - H_{2}O = 0.
+    \end{displaymath}
+    This steam reforming reaction indicates that as CH$_{4}$ is consumed (along with the water), CO and H$_{2}$ are produced. More specifically, if there are, initially, 1 mol of CH$_{4}$ and 1 mol of H$_{2}$O and 0 mol of CO and H$_{2}$,
+     \begin{center}
+        \begin{tabular}{ l | c c c c c c c}
+                           & CH$_{4}$  & + & H$_{2}$O & $\Longleftrightarrow$ &  CO & + & 3 H$_{2}$ \\
+                 $t = 0 $  &   1      &   &    1     &                       &  0 &    &   0      \\
+              $t = t_{i} $  &   X      &   &    X     &                       &  X &    &   3X      \\
+        \hline
+                           &  1-X     &   &  1-X     &                       &   X  &    & 3X
+     \end{tabular}
+    \end{center}
+    Thus, as reaction progress $X$ moles of CH$_{4}$ and H$_{2}$O are consumed whereas $X$ and $3X$ moles of CO and H$_{2}$, respectively, are formed. As the reaction needs to be stoichiometrically balanced,
+    \begin{displaymath}
+       \frc{d n_{CH_{4}}}{\nu_{CH_{4}}} = \frc{d n_{H_{2}O}}{\nu_{H_{2}O}} = \frc{d n_{CO}}{\nu_{CO}} = \frc{d n_{H_{2}}}{\nu_{H_{2}}},
+    \end{displaymath}
+    where $n_{i}$ is the number of moles of species $i$. This relation can be generalised for {\it any} chemical reaction as,
+    \begin{displaymath}
+       \frc{d n_{1}}{\nu_{1}} = \frc{d n_{2}}{\nu_{2}} = \cdots = \frc{d n_{\mathcal{C}}}{\nu_{\mathcal{C}}}.
+    \end{displaymath}
+    \begin{shaded}
+       These equalities lead to the definition of \underline{reaction coordinate}, \blue{$\varepsilon$}, as the {\it extension in which a reaction has taken place},
+       \begin{equation}
+          \frc{d n_{1}}{\nu_{1}} = \frc{d n_{2}}{\nu_{2}} = \cdots = \frc{d n_{\mathcal{C}}}{\nu_{\mathcal{C}}} = d\varepsilon.\label{Mod6:Eqn:1a}
+       \end{equation}
+       Assuming  that at $t=0$, the initial composition is $n_{i} = n_{i,0}$ and the reaction has not started  yet, \ie $\varepsilon=0$. Integrating Eqn.~\ref{Mod6:Eqn:1a} from $t=0$ to $t_{i}$,
+       \begin{eqnarray}
+           && \int\limits_{n_{i,0}}^{n_{i}} dn_{i} = \nu_{i}\int\limits_{0}^{\varepsilon}d\varepsilon \nonumber \\
+           && n_{i} = n_{i,0} + \nu_{i}\varepsilon,\;\;\;\;\forall i=\left\{1,2,\cdots,\mathcal{C}\right\}\label{Mod6:Eqn:1b}
+       \end{eqnarray}
+       For a total number of moles $n$, 
+       \begin{equation}
+            n = \summation[n_{i}]{i=1}{\mathcal{C}} = \summation[n_{i,0}]{i=1}{\mathcal{C}} + \varepsilon \summation[\nu_{i}]{i=1}{\mathcal{C}},\label{Mod6:Eqn:1c}
+       \end{equation}
+       or in compressed notation format,
+       \begin{equation}
+          n = n_{0} + \nu\varepsilon,\label{Mod6:Eqn:1d}
+       \end{equation}
+       where $n_{0}=\summation[n_{i,0}]{}{}$, $\nu=\summation[\nu_{i}]{}{}$ and $n=\summation[n_{i}]{}{}$. Now, we can define the composition (as mole fraction) of species $i$,
+       \begin{equation}
+          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0} + \nu\varepsilon}.\label{Mod6:Eqn:1e}
+       \end{equation}
+    \end{shaded}
+
+    From the initial steam reforming reaction example, let's assume that initially there are 2 moles of CH$_{4}$, 1 mol of H$_{2}$O, 1 mol of CO and 4 moles of H$_{2}$ in a closed system. Note that before the reaction starts there are already products in the system. The overall molar stoichiometric coefficient is
+    \begin{displaymath}
+         \nu = \summation[\nu_{i}]{}{} = -1 -1 + 1+ 3 = 2,
+    \end{displaymath}
+    and the initial number of moles, $n_{0}=\summation[n_{i,0}]{}{} = 2+1+1+4 = 8$. The gaseous composition will be expressed by Eqn.~\ref{Mod6:Eqn:1e},
+    \begin{displaymath}
+          y_{i} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0} + \nu\varepsilon}
+          \begin{cases}
+               y_{CH_{4}} = \frc{2-\varepsilon}{8+2\varepsilon},\;\;\; y_{H_{2}O} = \frc{1-\varepsilon}{8+2\varepsilon} \\
+               y_{CO} = \frc{1 + \varepsilon}{8+2\varepsilon},\;\;\; y_{H_{2}} = \frc{4+\varepsilon}{8+2\varepsilon} \\
+          \end{cases}
+    \end{displaymath}
+
+\end{subequations}
+%%% SUBSECTION
+\subsection{Standard Enthalpy and Gibbs Free Energy of Reaction}\label{Section:06:EnthalpyGibbsReaction}
+
+%%% SUBSECTION
+\subsection{Reaction Coordinate}\label{Section:06:ReactionCoordinate}
+
+%%% SUBSECTION
+\subsection{Criteria for Chemical Reaction Equilibrium}\label{Section:06:CriteriaEquibrium}
+
+%%% SUBSECTION
+\subsection{Equilibrium Constant of Reactions}\label{Section:06:EquilibriumConstantReactions}
+
+%%% SUBSECTION
+\subsection{Reaction Equilibria in Multiple Reactions}\label{Section:06:MultipleReactions}
+
+%%% SUBSECTION
+\subsection{}\label{Section:06:}
+
+\clearpage
+
+%%% SUBSECTION
+\subsection{Examples}
+
+\begin{enumerate}[1)]
+
+%%%
+%%% Elliot & Lira (Ex 3.4)  
+%%%
+\item\label{Example:1} Five moles of hydrogen, two moles of CO and 1.5 moles of CH$_{3}$OH vapour are combined in a closed system methanol synthesis reactor at 500 K and 1 MPa. Develop expressions for the mole fractions of the species in terms of the reaction coordinate. The components are known to reacto with the following stoichiometry:
+  \begin{displaymath}
+      2 H_{2} (g) + CO (g) \Longleftrightarrow CH_{3}OH (g).
+  \end{displaymath}
+
+\bigskip
+
+{\large{\bf Solution:}}
+
+   \begin{itemize}
+      \item We need to develop expressions for each species in the gaseous form. In the equilibrium, the molar stoichiometric coefficient and the initial number of moles are:
+         \begin{displaymath}
+            \nu = \sum\limits_{i}\nu_{i}= (-2)+(-1)+(+1)= -2 \;\;\text{ and }\;\; n_{0} = \sum\limits_{i}n_{i,0}= 5 + 2 + 1.5 = 8.5,
+         \end{displaymath} 
+         respectively.
+      \item The mole fraction of each species is given by
+         \begin{displaymath}
+           y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0}+\nu_{i}\epsilon}{n_{0}+\nu\epsilon}.
+         \end{displaymath}
+         with the total number of moles in equilibrium given by $n=8.5-2\epsilon$.
+         \begin{displaymath}
+           y_{\text{H}_{2}} = \frc{5-2\epsilon}{8.5-2\epsilon},\;\;\; y_{\text{CO}} = \frc{2-\epsilon}{8.5-2\epsilon}\;\;\text{ and }\;\; y_{\text{CH}_{3}\text{OH}}=\frc{1.5+\epsilon}{8.5-2\epsilon}
+         \end{displaymath}
+   \end{itemize}
+\clearpage
+
+\begin{comment}
+%%%
+%%%   
+%%%
+\item\label{Example:2} Consider the chemical reaction,
+         \begin{displaymath}
+             C_{2}H_{4} (g) + H_{2}O (g) \Longleftrightarrow  C_{2}H_{5}OH (g).
+         \end{displaymath}
+         If an equimolar mixture of ethylene and water vapour is fed to a reactor which is maintained at 500 K and 40 bar, determine the equilibrium constant, assuming that the reaction mixture behaves like an ideal gas. Assume the following ideal gas specific heat data:
+         \begin{displaymath}
+             C_{p}^{\text{ig}} = a + bT + cT^{2} + dT^{3} + eT^{-2},
+         \end{displaymath}
+         where C$_{p}^{\text{ig}}$ is expressed in {\it J/mol} and $T$ in $K$. Also,
+         \begin{center}
+            \begin{tabular}{|c|c c c c c|}
+                \hline
+                {\it Species}    & $a$    &  $b\times 10^{3}$  & $c\times 10^{6}$ & $d\times 10^{9}$  & $e\times10^{-5}$ \\
+                \hline
+                C$_{2}$H$_{4}$    & 20.691 &   205.346          & -99.793         & 18.825           & --               \\
+                H$_{2}$O         & 4.196  &  154.565           & -81.076         &  16.813          & --               \\
+                C$_{2}$H$_{5}$OH  & 28.850 &  12.055            & --              &  --              & 1.006           \\
+                \hline
+            \end{tabular}
+         \end{center}
+         The standard state enthalpy and Gibbs energy of reaction are $\Delta H^{0}_{\text{R},298}=-52.7$ kJ/mol and $\Delta G^{0}_{\text{R},298}=14.5$ kJ/mol. In order to calculate the enthalpy of reaction at temperature $T$, $\Delta H^{0}_{T}$, you should use,
+         \begin{displaymath}
+            \Delta H^{0}_{T} = \Delta H^{0}_{\text{R},298} + \int\limits_{T_{0}}^{T} \Delta C_{p} dT = \Delta H^{0}_{\text{R},298} + \int\limits_{T_{0}}^{T}\left(\Delta a + \Delta bT + \Delta cT^{2} + \Delta dT^{3} + \Delta eT^{-2}\right) dT
+         \end{displaymath} 
+         where $\Delta a= \sum\limits_{i} \nu_{i}a_{i}$, $\Delta b= \sum\limits_{i} \nu_{i}b_{i}$, $\Delta c= \sum\limits_{i} \nu_{i}c_{i}$, $\Delta d= \sum\limits_{i} \nu_{i}d_{i}$ and $\Delta e= \sum\limits_{i} \nu_{i}e_{i}$.  Also, given the Van't Hoff equation:
+         \begin{displaymath}
+            \frc{d}{dT}\left(\Delta G^{0}/RT\right) = -\frc{\Delta H^{0}}{RT^{2}}.
+         \end{displaymath}
+
+
+\bigskip
+
+{\large{\bf Solution:}}
+
+   \begin{itemize}
+      \item We first need to obtain the integral expression for the heat of reaction at temperature $T$,
+         \begin{displaymath}
+            \Delta H^{0}_{T} = \Delta H^{0}_{\text{R},298} + \int\limits_{T_{0}}^{T} \Delta C_{p} dT = \Delta H^{0}_{\text{R},298} + \int\limits_{T_{0}}^{T}\left(\Delta a + \Delta bT + \Delta cT^{2} + \Delta dT^{3} + \Delta eT^{-2}\right) dT
+         \end{displaymath} 
+         with 
+         \begin{center}
+             \begin{tabular}{r l c}
+                $\Delta a =$ & $(+1).(28.850)-\left[(-1).(20.691)+(-1).(4.196)\right]=$ & 3.963 \\
+                $\Delta b =$ & $\left\{(+1).(12.055)- \left[(-1).(205.346)+(-1).(154.565)\right]\right\}\times 10^{-3}=$ & 0.37197 \\
+                $\Delta c =$ & $\left\{(+1).(0)-\left[(-1).(-99.793)+(-1).(-81.076)\right]\right\}\times 10^{-6}=$       & -1.8087$\times$10$^{-4}$  \\
+                $\Delta d =$ & $\left\{(+1).(0)-\left[(-1).(18.825)+(-1).(16.813)\right]\right\}\times 10^{-9}=$         & 3.5638$\times$10$^{-8}$\\
+                $\Delta e =$ & $\left\{(+1).(1.006)-\left[(-1).(0)+(-1).(0)\right]\right\}\times 10^{5}=$                & 1.006$\times$10$^{5}$ \\
+             \end{tabular}
+         \end{center}
+         Thus,
+         \begin{eqnarray}
+            \Delta H^{0}_{T} &=& \Delta H^{0}_{\text{R},298} + \int\limits_{T_{0}}^{T} \Delta C_{p} dT = \Delta H^{0}_{\text{R},298} + \int\limits_{T_{0}}^{T}\left(\Delta a + \Delta bT + \Delta cT^{2} + \Delta dT^{3} + \Delta eT^{-2}\right) dT \nonumber \\
+            &=& -52.7 + \int\limits_{T_{0}}^{T} \left(3.963 + 0.37197 T - 1.8087\times 10^{-4} T^{2} + 3.5638\times 10^{-8} T^{3} + \frc{1.006 \times 10^{5}}{T^{-2}} \right)dT \nonumber
+         \end{eqnarray}
+%
+      \item We can calculate the Gibbs energy of the reaction through the Van't Hoff equation:
+         \begin{displaymath}
+                \frc{d}{dT}\left(\Delta G^{0}/RT\right) = -\frc{\Delta H^{0}}{RT^{2}}.
+         \end{displaymath}
+         Integrating this equation from the standard state temperature, 298.15 K, to $T=$ 500 K
+
+          
+   \end{itemize}
+\clearpage
+\end{comment}
+
+%%%
+%%%   Nguyen (Ex 6.6.1)  
+%%%
+\item\label{Example:2} Ethylene is produced from the decomposition of ethane,
+       \begin{displaymath}
+          C_{2}H_{6} (g) \Longleftrightarrow C_{2}H_{4} (g) + H_{2} (g) 
+       \end{displaymath} 
+       Determine the equilibrium composition at 1000$^{\circ}$C and 1 bar. Assume that, initially, there is 1 mol of ethane. Given,
+       \begin{center}
+           \begin{tabular}{|c c c c|}
+           \hline
+                                        &  C$_{2}$H$_{6}$ (g) & C$_{2}$H$_{4}$ (g) &  H$_{2}$ (g)  \\ 
+           \hline
+             $\Delta G^{0}_{\text{f,298}}$  &  -32.84            &  68.15           & 0.0           \\
+                   (kJ/mol)             &                    &                  &               \\
+           \hline
+             $\Delta H^{0}_{\text{f,298}}$  &  -84.68            &  52.26           & 0.0           \\
+                   (kJ/mol)             &                    &                  &               \\
+           \hline 
+           \end{tabular}
+       \end{center}
+       where $\Delta G^{0}_{\text{f,298}}$ and $\Delta H^{0}_{\text{f,298}}$ are the standard state Gibbs energy and enthalpy of formation. 
+
+\bigskip
+
+{\large{\bf Solution:}}
+
+   \begin{itemize}
+      \item First we need to determine the standard state Gibbs energy of reaction,
+         \begin{eqnarray}
+             \Delta G^{0}_{\text{r,298}} &=& \sum\limits_{i}\nu_{i}\left(\Delta G^{0}_{\text{f,298}}\right)_{i} \nonumber \\
+                                     &=& (+1).(68.15)+ (1).(0.0) + (-1).(-32.84) = 100.99\; \text{kJ/mol} \nonumber
+         \end{eqnarray}
+      \item The equilibrium constant can be calculated from,
+         \begin{displaymath}
+            K = \exp\left(-\frc{\Delta G^{0}_{\text{r,298}}}{RT}\right) = exp\left(-\frc{100.99\times 10^{3}}{(8.314).(298.15)}\right) = 2.0246\times 10^{-18}
+         \end{displaymath}
+      \item The Van't Hoff equation can be used to calculate the equilibrium constant at temperature $T$,
+         \begin{displaymath}
+            \frc{\partial\left(\ln K\right)}{\partial T} = \frc{\Delta H^{0}_{\text{r}}}{RT^{2}}
+         \end{displaymath}
+      \item Before we can integrate the Van't Hoff equation, we first need to determine the standard heat of reaction, $\Delta H^{0}_{\text{r}}$,
+         \begin{eqnarray}
+            \Delta H^{0}_{\text{r}} &=& \sum\limits_{i} \nu_{i}\left(\Delta H^{0}_{\text{f,298}}\right)_{i} \nonumber \\
+                                 &=& (+1).(52.26) + (+1).(0.0) + (-1).(-84.68) = 136.94\;\text{kJ/mol}\nonumber
+         \end{eqnarray}
+      \item Now integrating the Van't Hoff equation from 298.15 K to 1273.15 K,
+         \begin{eqnarray}
+            \ln\frc{K_{1273}}{K_{298}} &=& -\frc{\Delta H^{0}_{\text{r}}}{R}\left(\frc{1}{T}-\frc{1}{298.15}\right) \nonumber \\
+            \ln\frc{K_{1273}}{2.0246\times 10^{-18}} &=& -\frc{136.94\times 10^{3}}{8.314}\left(\frc{1}{1273.15}-\frc{1}{298.15}\right) \nonumber \\
+            K_{1273} &=& 4.7859 \nonumber
+         \end{eqnarray} 
+      \item The equilibrium constant $K$ can also be expressed as a function of the components' activities,
+         \begin{displaymath}
+            K = \frc{a_{\text{C}_{2}\text{H}_{4}}a_{\text{H}_{2}}}{a_{\text{C}_{2}\text{H}_{6}}} = \frc{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{4}}}{f^{0}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{\overline{f}_{\text{H}_{2}}}{f^{0}_{\text{H}_{2}}}\right)}{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{6}}}{f^{0}_{\text{C}_{2}\text{H}_{6}}}\right)}
+         \end{displaymath}
+         Assuming ideal gas behaviour, $\overline{f}_{i}=P_{i}$, $f_{i}^{0}=P^{0}_{\text{C}_{2}\text{H}_{6}}=P^{0}_{\text{C}_{2}\text{H}_{4}}=P^{0}_{\text{H}_{2}}=$ 1 bar. Thus,
+         \begin{displaymath}
+            K = \frc{a_{\text{C}_{2}\text{H}_{4}}a_{\text{H}_{2}}}{a_{\text{C}_{2}\text{H}_{6}}} = \frc{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{4}}}{f^{0}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{\overline{f}_{\text{H}_{2}}}{f^{0}_{\text{H}_{2}}}\right)}{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{6}}}{f^{0}_{\text{C}_{2}\text{H}_{6}}}\right)} = \frc{\left(\frc{P_{\text{C}_{2}\text{H}_{4}}}{P^{0}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{P_{\text{H}_{2}}}{P^{0}_{\text{H}_{2}}}\right)}{\left(\frc{P_{\text{C}_{2}\text{H}_{6}}}{P^{0}_{\text{C}_{2}\text{H}_{6}}}\right)} = \frc{\left(\frc{y_{\text{C}_{2}\text{H}_{4}}P}{1\text{ bar}}\right)\left(\frc{y_{\text{H}_{2}}P}{1\text{ bar}}\right)}{\left(\frc{y_{\text{C}_{2}\text{H}_{6}}P}{1\text{ bar}}\right)}          
+         \end{displaymath}
+         Since $P=$ 1 bar,
+         \begin{displaymath}
+            K = \frc{\left(\frc{y_{\text{C}_{2}\text{H}_{4}}P}{1\text{ bar}}\right)\left(\frc{y_{\text{H}_{2}}P}{1\text{ bar}}\right)}{\left(\frc{y_{\text{C}_{2}\text{H}_{6}}P}{1\text{ bar}}\right)} = \frc{y_{\text{C}_{2}\text{H}_{4}} y_{\text{H}_{2}}}{y_{\text{C}_{2}\text{H}_{6}}} = 4.7859
+         \end{displaymath}
+
+      \item The composition of each species in equilibrium is given by,
+         \begin{displaymath}
+           y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0}+\nu_{i}\epsilon}{n_{0}+\nu\epsilon}.
+         \end{displaymath}
+         with 
+         \begin{displaymath}
+            \nu = \sum\limits_{i}\nu_{i}= (-1)+(+1)+(+1)= 1 \;\;\text{ and }\;\; n_{0} = \sum\limits_{i}n_{i,0}= 1 + 0 + 0 = 1,
+         \end{displaymath} 
+      \item Thus,
+         \begin{displaymath}
+             y_{\text{C}_{2}\text{H}_{6}} = \frc{1-\epsilon}{1+\epsilon},\;\;y_{\text{C}_{2}\text{H}_{4}} = \frc{\epsilon}{1+\epsilon}\;\text{ and }\;y_{\text{H}_{2}} = \frc{\epsilon}{1+\epsilon}
+         \end{displaymath}
+      \item Replacing the compositions in the expression for $K$,
+         \begin{eqnarray}
+            K  &=& \frc{y_{\text{C}_{2}\text{H}_{4}} y_{\text{H}_{2}}}{y_{\text{C}_{2}\text{H}_{6}}} = 4.7859 \nonumber \\
+               &&  \frc{\left(\frc{\epsilon}{1+\epsilon}\right)^{2}}{\left(\frc{1-\epsilon}{1+\epsilon}\right)} =4.7859 \nonumber \\
+            &&\epsilon = 0.9095 \nonumber
+         \end{eqnarray}
+        The equilibrium concentration of C$_{2}$H$_{4}$(g) is $y_{\text{C}_{2}\text{H}_{4}} =$ 0.4763.
+
+   \end{itemize}
+\clearpage
+
+
+%%%
+%%%   Nguyen (Ex 6.7.2) 
+%%%
+\item\label{Example:3} Determine the equilibrium conversion for the isomerisation reaction of methylcyclopentane $\left(\text{CH}_{3}\text{C}_{5}\text{H}_{9}\right)$ to cyclohexane $\left(\text{C}_{6}\text{H}_{12}\right)$ at 25$^{\circ}$C. Gibbs energies of formation are given at 25$^{\circ}$C as: \\
+$\left(\Delta G^{0}_{\text{f,298}}\right)_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}} =$ 31.72 kJ/mol and $\left(\Delta G^{0}_{\text{f,298}}\right)_{\text{C}_{6}\text{H}_{12}} = $ 26.89 kJ/mol. Also, assume that the isomerisation occurs at relatively low pressure, therefore $\frc{f_{i}}{f^{0}_{i}}=1$.
+
+
+\bigskip
+
+{\large{\bf Solution:}}
+
+   \begin{itemize}
+      \item We need to determine the equilibrium constant at room temperature
+         \begin{eqnarray}
+           \Delta G^{0}_{r,298} &=& \sum\limits_{i}\nu_{i}\Delta G^{0}_{\text{f,298}} \nonumber \\
+                             &=& (+1).\left(\Delta G^{0}_{\text{f,298}}\right)_{\text{C}_{6}\text{H}_{12}} + (-1).\left(\Delta G^{0}_{\text{f,298}}\right)_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}} \nonumber \\ 
+                             &=& 26.89-31.72 = -4.83 \text{kJ/mol} \nonumber
+         \end{eqnarray}
+      \item The equilibrium constant is
+         \begin{displaymath}
+             K = \exp\left(-\frc{\Delta G^{0}_{r,298}}{RT}\right) = \exp\left(-\frc{-4830}{(8.314).(298.15)}\right) = 7.0182
+         \end{displaymath}
+      \item The equilibrium constant can also be obtained from 
+         \begin{displaymath}
+            K = \prod\limits_{i}\left(\frc{\overline{f}_{i}}{f^{0}_{i}}\right)^{\nu_{i}} = \prod\limits_{i}\left(\frc{x_{i}\gamma_{i}f_{i}}{f^{0}_{i}}\right)^{\nu_{i}}
+         \end{displaymath}
+      \item Except for very high pressure, the ratio $\frc{f_{i}}{f^{0}_{i}}=\exp\left[\frc{V\left(P-1\right)}{RT}\right]$ is close to unity, therefore,
+         \begin{displaymath}
+            K = \prod\limits_{i}\left(\frc{x_{i}\gamma_{i}f_{i}}{f^{0}_{i}}\right)^{\nu_{i}} = \prod\limits_{i}\left(x_{i}\gamma_{i}\right)^{\nu_{i}}
+         \end{displaymath}
+      \item For ideal solution,
+         \begin{eqnarray}
+            K &=& \prod\limits_{i}\left(x_{i}\gamma_{i}\right)^{\nu_{i}} = \prod\limits_{i}\left(x_{i}\right)^{\nu_{i}} \nonumber \\
+               &=& x_{\text{C}_{6}\text{H}_{12}}.x_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}}^{-1} \nonumber \\
+               &=& \epsilon\left(1-\epsilon\right)^{-1} = 7.0182 \nonumber \\
+              && \epsilon = 0.8753
+         \end{eqnarray}
+         Thus 87,5$\%$ of the liquid exists as cyclohexane.
+
+
+   \end{itemize}
+\clearpage
+
+
+\end{enumerate}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
