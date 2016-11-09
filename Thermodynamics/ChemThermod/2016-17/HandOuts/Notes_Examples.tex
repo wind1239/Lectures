@@ -3619,7 +3619,7 @@ Thus, while initially the {\it forward} reaction dominates, as reaction progress
 In the application of {\it chemical reaction equilibrium} to problems relevant to industry, the aim is to ensure {\it maximum} conversion at prescribed pressure and temperature conditions. Reactions for which the conversion is (approximately) 100$\%$ are often referred as {\it irreversible}, whereas reactions that have lower conversion rates are called {\it reversible}. Reaction conditions are, thus, critical to achieve the maximum possible conversion rate. The main aim of this module is to study the thermodynamic relations necessary to predict equilibrium conversion of {\it homogeneous chemical reactions}. 
 
 %%% SUBSECTION
-\subsection{Notation for Chemical Reactions}\label{Section:06:Notation}
+\subsection{Reaction Coordinate}\label{Section:06:ReactionCoordinate}
 \begin{subequations}
     For a chemical reaction in general form:
         \reaction[chemreaction:reaction]{\nu_{1} A_{1} + \nu_{2} A_{2}  + ... \nu_{k} A_{k} <=> \nu_{l} A_{l} + \nu_{m} A_{m} + ... + \nu_{\mathcal{C}} A_{\mathcal{C}} }
@@ -3681,11 +3681,11 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
        \end{equation}
     \end{shaded}
 
-    From the initial steam reforming reaction example, let's assume that initially there are 2 moles of CH$_{4}$, 1 mol of H$_{2}$O, 1 mol of CO and 4 moles of H$_{2}$ in a closed system. Note that before the reaction starts there are already products in the system. The overall molar stoichiometric coefficient is
+    From the initial steam reforming reaction example, let's assume that initially there are 2 moles of CH$_{4}$, 1 mol of H$_{2}$O, 1 mol of CO and 4 moles of H$_{2}$ in a closed system. Thus, the initial number of moles, $n_{0}=\summation[n_{i,0}]{}{} = 2+1+1+4 = 8$. Note that before the reaction starts there are already products in the system. The overall molar stoichiometric coefficient is
     \begin{displaymath}
-         \nu = \summation[\nu_{i}]{}{} = -1 -1 + 1+ 3 = 2,
+         \nu = \summation[\nu_{i}]{}{} = -1 -1 + 1+ 3 = 2.
     \end{displaymath}
-    and the initial number of moles, $n_{0}=\summation[n_{i,0}]{}{} = 2+1+1+4 = 8$. The gaseous composition will be expressed by Eqn.~\ref{Mod6:Eqn:1e},
+    The gaseous composition is expressed by Eqn.~\ref{Mod6:Eqn:1e},
     \begin{displaymath}
           y_{i} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0} + \nu\varepsilon}
           \begin{cases}
@@ -3694,12 +3694,75 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
           \end{cases}
     \end{displaymath}
 
+\bigskip
+
+    Given the set of reactions below for the formation of CO and CO$_{2}$, 
+          \reaction[chemreaction:FormationCO2]{ C + O_{2} <=> CO_{2}} 
+          \reaction[chemreaction:FormationCO]{2C + O_{2} <=> 2CO }
+          \reaction[chemreaction:FormationCO-CO2]{2CO + O_{2} <=> 2CO_{2}}
+    It is easy to notice that, \ref{chemreaction:FormationCO} + \ref{chemreaction:FormationCO-CO2} = \ref{chemreaction:FormationCO2}. In matricial form (adopting the stoichiometric notation),
+    \begin{center}
+      \begin{tabular}{ c | c c c c }
+                                          & C   & O$_{2}$ & CO & CO$_{2}$ \\
+\hline
+       \ref{chemreaction:FormationCO2}    & -1  & -1     & 0   &   1 \\
+       \ref{chemreaction:FormationCO}     & -2  & -1     & 2   &   0 \\
+       \ref{chemreaction:FormationCO-CO2} & 0   & -1     & -2  &   2 
+      \end{tabular}
+    \end{center}
+    Row 1 (\ref{chemreaction:FormationCO2}) is a linear combination of rows 2 and 3 (\ie Row 1 = 0.5 $\times$ Row 2 + 0.5 $\times$ Row 3). This indicates that 2 out of the 3 rows of the matrix are {\it linearly independent} and one of them is {\it linearly dependent}, \ie it can be written as a linear combination of the other two rows. Such linear algebra fundamental concept, linear independency\footnote{A finite set $\mathcal{S}=\left\{\mathbf{x_{1}}, \mathbf{x_{2}}, \cdots, \mathbf{x_{m}}\right\}$ of vectors in $\mathbb{R}^{n}$ space is said to be {\bf linearly dependent} if there exist scalars (\ie real numbers), $\alpha_{1}, \alpha_{2}, \cdots, \alpha_{m}$ (not all of them equal to zero), such that
+    \begin{displaymath}
+       \alpha_{1}\mathbf{x_{1}} + \alpha_{2}\mathbf{x_{2}} + \cdots + \alpha_{m}\mathbf{x_{m}} = 0.
+    \end{displaymath}
+    If a set of vectors is said to be linearly dependent, then at least one vector can be expressed as a {\it linear combination} of the others. A good review of linear dependence in vector space can be found in \href{http://linear.ups.edu/html/section-LI.html}{http://linear.ups.edu/html/section-LI.html}.} in vector space, is extended to define independent chemical reactions, \ie the smallest set of reactions that, when linearly combined results in {\it all possible chemical reactions} among the species present in the system. 
+
+    In the following set of reactions,
+          \reaction[chemreaction:O2]{ 2 O <=> O_{2}} 
+          \reaction[chemreaction:FormationCO-b]{ C + O <=> CO }
+          \reaction[chemreaction:FormationCO2-b]{C + 2O <=> CO_{2}}
+    none of them can be expressed as a linear combination of the remaining reactions. These are, thus, {\it independent reactions}, and several chemical reactions can be written as combinations of this set. Combining these reactions to eliminate reaction~\ref{chemreaction:O2} (fusion of atomic oxygen),
+          \begin{displaymath}
+             \text{Independent reactions:}
+                \begin{cases}
+                   2 C + O_{2} \Longleftrightarrow 2 CO \;\;\;\;\; (2\ref{chemreaction:FormationCO-b} - \ref{chemreaction:O2}) \\
+                   C + O_{2} \Longleftrightarrow CO_{2} \;\;\;\;\;\;\; (\ref{chemreaction:FormationCO2-b}-\ref{chemreaction:O2})
+                \end{cases}
+          \end{displaymath}
+    provide a reduction of the order of the system (from three reactions/equations to just 2 independent reactions/equations). Other sets of 2 reactions can be readily obtained from linear combinations of reactions~\ref{chemreaction:O2}-~\ref{chemreaction:FormationCO2-b}, \eg
+          \begin{displaymath}
+             \text{Independent reactions:}
+             \begin{cases}
+                CO_{2} \Longleftrightarrow CO + O \;\;\;\; (\ref{chemreaction:FormationCO-b}-\ref{chemreaction:FormationCO2-b}) \\
+                2O  \Longleftrightarrow O_{2},
+             \end{cases}
+          \end{displaymath}
+    These reactions results in single reaction: 
+          \reaction[chemreaction:CO2-CO-O2]{2CO_{2} <=>  2CO + O_{2}}
+    \begin{shaded}
+       Thus, for a set of \underline{independent chemical reactions}, Eqn.~\ref{Mod6:Eqn:1b} can be rewritten as,
+          \begin{equation}
+             n_{i} = n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j}{},\label{Mod6:Eqn:1f}
+          \end{equation}
+       where $i$ refers to chemical species, whereas $j$ refers to reactions,
+          \begin{displaymath}
+             n = \summation[n_{i,0}]{i}{} + \summation[\summation[\nu_{ij}\varepsilon_{j}]{i}{}]{j}{} = n_{0} + \summation[\left(\summation[\nu_{ij}]{j}{}\right)\varepsilon_{j}]{i}{},
+          \end{displaymath}
+       where $\nu_{j}=\summation[\nu_{ij}]{i}{}$, thus
+          \begin{equation}
+             n = n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{}.\label{Mod6:Eqn:1g}
+          \end{equation}
+       Now, for composition of species $i$,
+       \begin{equation}
+          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j}{}}{n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{}}.\label{Mod6:Eqn:1h}
+       \end{equation}       
+    \end{shaded}
+
+
+
 \end{subequations}
 %%% SUBSECTION
 \subsection{Standard Enthalpy and Gibbs Free Energy of Reaction}\label{Section:06:EnthalpyGibbsReaction}
 
-%%% SUBSECTION
-\subsection{Reaction Coordinate}\label{Section:06:ReactionCoordinate}
 
 %%% SUBSECTION
 \subsection{Criteria for Chemical Reaction Equilibrium}\label{Section:06:CriteriaEquibrium}
