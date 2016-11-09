@@ -3603,8 +3603,8 @@ In the previous Modules, we have studied thermodynamic behaviour of gases and li
 
       \begin{wrapfigure}{r}{0.5\textwidth}%{figure}[hpt]
          \begin{center}
-           \includegraphics[width=0.5\columnwidth,clip]{./Figs/Mod06_SchematicEqReaction_Temp_b.pdf}
-           \vspace{-.1cm}\caption{Sketch of equilibrium reaction and temperature.}\label{Mod06Fig01}
+           \includegraphics[width=0.5\columnwidth,clip]{./Figs/Mod06_SchematicEqReaction_Temp_b}
+           \caption{Sketch of equilibrium reaction and temperature.}\label{Mod06Fig01}
          \end{center}
        \end{wrapfigure}%{figure}
 Reactive systems are often characterised in terms of the maximum possible yield of the target product(s) at prescribed conditions, starting from the reactants (\ie raw materials). From chemical reactions theory (\ie {\it chemical kinetics}), rates of reaction are often strongly influenced by the temperature. In several cases, reaction rates rise as temperature increases. In fact, reaction data from several applications (from combustion and geochemistry to biochemistry) show that conversion rate from reactants to products does not increase {\it monotonically}, but rather it reaches a {\it maximum} of conversion and smoothly decreases as schematically shown in Fig.~\ref{Mod06Fig01}.
@@ -3757,18 +3757,106 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
        \end{equation}       
     \end{shaded}
 
-    
+\bigskip
+
+    As an example, let's consider the steam reforming reactions,
+          \begin{displaymath}
+              \begin{cases}
+                  CH_{4} + H_{2}O \Longleftrightarrow CO + 3 H_{2}, \\
+                  CH_{4} + 2H_{2}O \Longleftrightarrow CO_{2} + 4 H_{2}.
+              \end{cases}
+          \end{displaymath}
+    Consider that at $t=0$, there are 2 moles of methane and 3 moles of water in the system $\left(\text{\ie } n_{0}=5\right)$. Let's obtain expressions for the gaseous compositions. As a initial step, a table with species ($i$) and reactions ($j$) may be expressed as,
+    \begin{center}
+       \begin{tabular}{ c | c c c c c | c} 
+          $(i=)$  & CH$_{4}$ & H$_{2}$O & CO & CO$_{2}$ & H$_{2}$ &  \\
+\hline
+            $j$   &         &         &     &         &        & $\nu_{j}$ \\
+\hline
+             1    &   -1    &    -1   &   1 &    0    &   3    &    2 \\
+             2    &   -1    &    -2   &   0 &    1    &   4    &    2 \\
+       \end{tabular}
+    \end{center}
+    therefore,
+      \begin{displaymath}
+         n = n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{} = 5 + 2\varepsilon_{1} + 2\varepsilon_{2},
+      \end{displaymath}
+    and compositions are (from Eqn.~\ref{Mod6:Eqn:1h}),
+    \begin{displaymath}
+        \begin{cases}
+            y_{CH_{4}} = \frc{2 - \varepsilon_{1} - \varepsilon_{2}}{5 + 2\varepsilon_{1} + 2\varepsilon_{2}},\;\;\; y_{H_{2}O} = \frc{3 - \varepsilon_{1} - 2\varepsilon_{2}}{5 + 2\varepsilon_{1} + 2\varepsilon_{2}}, \\
+            y_{CO}   = \frc{\varepsilon_{1}}{5 + 2\varepsilon_{1} + 2\varepsilon_{2}},\;\;\; y_{CO_{2}} = \frc{\varepsilon_{2}}{5 + 2\varepsilon_{1} + 2\varepsilon_{2}} \;\;\text{ and }\;\;\;y_{H_{2}} = \frc{3\varepsilon_{1}+4\varepsilon_{2}}{5 + 2\varepsilon_{1} + 2\varepsilon_{2}}  \\
+        \end{cases}
+    \end{displaymath}
+
+\end{subequations}
+
+
+%%% SUBSECTION
+\subsection{Criteria for Chemical Reaction Equilibrium}\label{Section:06:CriteriaEquibrium}
+\begin{subequations}
+
+   For simplicity of the analysis, let's assume {\it single homogeneous (\ie one-phase system) chemical reaction}. The total Gibbs free energy of a system is obtained from
+     \begin{equation}
+         G^{t} = \summation[n_{i}G_{i}]{i=1}{\mathcal{C}} = \summation[\left(n_{i,0}+\nu_{i}\varepsilon\right)G_{i}]{i=1}{\mathcal{C}}\label{Mod6:Eqn:2a}
+     \end{equation}
+   where $G_{i}$ is the molar Gibbs free energy. At equilibrium (Fig.~\ref{Mod06Fig02}), $\left(dG^{t}\right)_{T,P} = 0$, \ie
+       \begin{eqnarray}
+          && dG^{t} = d(nG) = ndG + Gdn \;\;\;\; \blue{\times \frc{1}{d\varepsilon}} \nonumber \\
+          && \frc{dG^{t}}{d\varepsilon} = n\frc{dG}{d\varepsilon} + G\frc{G dn}{d\varepsilon} = 0 \nonumber \\
+          && \text{in a closed system, } dn = 0 \Longrightarrow \frc{dG^{t}}{d\varepsilon} = \frc{dG}{d\varepsilon} = 0\;\;\text{ (equilibrium criteria).} \nonumber
+       \end{eqnarray}
+      \begin{figure}[hpt]
+         \begin{center}
+           \includegraphics[width=0.5\columnwidth,clip]{./Figs/Mod06_SchematicEquilibriumGibbs_b}
+           \caption{Sketch of equilibrium Gibbs free energy.}\label{Mod06Fig02}
+         \end{center}
+      \end{figure} 
+   Differentiating Eqn.~\ref{Mod6:Eqn:2a} \wrt $\varepsilon$,
+       \begin{eqnarray}
+           && \frc{dG^{t}}{d\varepsilon} = \cancelto{0}{\frc{d}{d\varepsilon}\summation[n_{i,0}G_{i}]{i}{}} + \frc{d}{d\varepsilon}\left[\summation[\left(\nu_{i}\varepsilon\right)G_{i}]{i}{}\right] \nonumber \\
+           && \text{ where } \frc{d}{d\varepsilon}\left(\nu_{i}\varepsilon G_{i}\right) = \nu_{i}G_{i}\cancelto{1}{\frc{d\varepsilon}{d\varepsilon}} + \nu_{i}\varepsilon\cancelto{0}{\frc{d G_{i}}{d\varepsilon}} = \nu_{i}G_{i} \;\left(\text{where } \nu_{i} \text{ is constant}\right) \nonumber \\
+           && \summation[\nu_{i}G_{i}]{i}{} = 0 = \summation[\nu_{i}\mu_{i}]{i}{}.\label{Mod6:Eqn:2b}
+       \end{eqnarray}
+   The {\it chemical potential} was previously defined for mixtures (see Eqn.~\ref{Mod05_fugacity1b}) as,
+       \begin{displaymath}
+           \mu_{i} = RT\ln{\overline{f}_{i}} + C_{i}(T),
+       \end{displaymath}
+   where $\overline{f}_{i}$ is the fugacity of component $i$ in the mixture\footnote{In Module~\ref{Section:05}, we have studied forms to calculate $\mfr[\overline{f}]{i}{j}$:
+      \begin{enumerate}[a)]
+          \item ideal gases: $\mfr[\overline{f}]{i}{\text{ig}} =  y_{i}P=P_{i}$ (Dalton law);
+          \item real gases: $\mfr[\overline{\phi}]{i}{V}  = \frc{\mfr[\overline{f}]{i}{V}}{y_{i}P}$;
+          \item ideal solution: $\mfr[\overline{f}]{i}{\text{is}} = x_{i}\mfr[f]{i}{L}$ (Lewis-Randall rule);
+          \item real solution: $\mfr[\overline{f}]{i}{L} = x_{i}\gamma_{i}\mfr[f]{i}{L}$.
+      \end{enumerate}
+}. At {\it standard state} $\left(\text{\ie pure component at 25}^{\circ}\text{C}\right)$, the Gibbs free energy is 
+      \begin{displaymath}
+            G_{i}^{\circ} = RT\ln{f_{i}^{\circ}} + C_{i}(T)
+      \end{displaymath}
+      Subtracting the equation above from the previous one,
+      \begin{equation}
+         \mu_{i} - G_{i}^{\circ} = RT\ln{\frc{\overline{f}_{i}}{f_{i}^{\circ}}}.\label{Mod6:Eqn:2c}
+      \end{equation}
+      Now, if Eqn.~\ref{Mod6:Eqn:2c} is substituted in Eqn.~\ref{Mod6:Eqn:2b} and eliminating $\mu_{i}$\footnote{Here {\it log} properties (see Appendix C) are used to obtain the product $\prod$,
+         \begin{eqnarray}
+            \summation[\ln{\left(\frc{a_{i}}{b_{i}}\right)^{n_{i}}}]{i}{\mathcal{Z}} &=& \ln{\left(\frc{a_{1}}{b_{1}}\right)^{n_{1}}} + \ln{\left(\frc{a_{2}}{b_{2}}\right)^{n_{2}}}  + \ln{\left(\frc{a_{3}}{b_{3}}\right)^{n_{3}}} + \cdots + \ln{\left(\frc{a_{\mathcal{Z}}}{b_{\mathcal{Z}}}\right)^{n_{\mathcal{Z}}}} \nonumber \\
+                                                                                 &=& \ln{\left[\left(\frc{a_{1}}{b_{1}}\right)^{n_{1}} \cdot \left(\frc{a_{2}}{b_{2}}\right)^{n_{2}} \cdot \left(\frc{a_{3}}{b_{3}}\right)^{n_{3}} \cdots \left(\frc{a_{\mathcal{Z}}}{b_{\mathcal{Z}}}\right)^{n_{\mathcal{Z}}} \right]}  \nonumber \\
+                                                                                 &=& \ln{\left[\prod\limits_{i=1}^{\mathcal{Z}} \left(\frc{a_{i}}{b_{i}}\right)^{n_{i}}\right]}  \nonumber
+                    \end{eqnarray}
+},
+      \begin{eqnarray}
+         && \summation[\nu_{i}\mu_{i}]{i}{} = \summation[\nu_{i}\left(G_{i}^{\circ} + RT\ln{\frc{\overline{f}_{i}}{f_{i}^{\circ}}}\right)]{i}{} = 0 \nonumber \\
+         && \summation[\nu_{i}G_{i}^{\circ}]{i}{} + RT\summation[\ln{\left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}}}]{i}{} = 0 \nonumber \\
+         && \ln{\left[\prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}}\right]} = -\frc{\summation[\nu_{i}G_{i}^{\circ}]{i}{}}{RT} \nonumber \\
+      \end{eqnarray}
+       
+
 
 
 
 \end{subequations}
 %%% SUBSECTION
 \subsection{Standard Enthalpy and Gibbs Free Energy of Reaction}\label{Section:06:EnthalpyGibbsReaction}
-
-
-%%% SUBSECTION
-\subsection{Criteria for Chemical Reaction Equilibrium}\label{Section:06:CriteriaEquibrium}
-
 %%% SUBSECTION
 \subsection{Equilibrium Constant of Reactions}\label{Section:06:EquilibriumConstantReactions}
 
