@@ -3629,7 +3629,7 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
     \end{displaymath}
     or simply
     \begin{equation}
-      \summation[\nu_{i}A_{i}]{i=1}{\mathcal{C}} = 0.\label{Mod6:Eqn:1}
+      \summation[\nu_{i}A_{i}]{i=1}{\mathcal{C}} = 0.\label{Mod6:Eqn:2}
     \end{equation}
 \bigskip
 
@@ -3660,24 +3660,24 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
     \begin{shaded}
        These equalities lead to the definition of \underline{reaction coordinate}, \blue{$\varepsilon$}, as the {\it extension in which a reaction has taken place},
        \begin{equation}
-          \frc{d n_{1}}{\nu_{1}} = \frc{d n_{2}}{\nu_{2}} = \cdots = \frc{d n_{\mathcal{C}}}{\nu_{\mathcal{C}}} = d\varepsilon.\label{Mod6:Eqn:1a}
+          \frc{d n_{1}}{\nu_{1}} = \frc{d n_{2}}{\nu_{2}} = \cdots = \frc{d n_{\mathcal{C}}}{\nu_{\mathcal{C}}} = d\varepsilon.\label{Mod6:Eqn:2a}
        \end{equation}
-       Assuming  that at $t=0$, the initial composition is $n_{i} = n_{i,0}$ and the reaction has not started  yet, \ie $\varepsilon=0$. Integrating Eqn.~\ref{Mod6:Eqn:1a} from $t=0$ to $t_{i}$,
+       Assuming  that at $t=0$, the initial composition is $n_{i} = n_{i,0}$ and the reaction has not started  yet, \ie $\varepsilon=0$. Integrating Eqn.~\ref{Mod6:Eqn:2a} from $t=0$ to $t_{i}$,
        \begin{eqnarray}
            && \int\limits_{n_{i,0}}^{n_{i}} dn_{i} = \nu_{i}\int\limits_{0}^{\varepsilon}d\varepsilon \nonumber \\
-           && n_{i} = n_{i,0} + \nu_{i}\varepsilon,\;\;\;\;\forall i=\left\{1,2,\cdots,\mathcal{C}\right\}\label{Mod6:Eqn:1b}
+           && n_{i} = n_{i,0} + \nu_{i}\varepsilon,\;\;\;\;\forall i=\left\{1,2,\cdots,\mathcal{C}\right\}\label{Mod6:Eqn:2b}
        \end{eqnarray}
        For a total number of moles $n$, 
        \begin{equation}
-            n = \summation[n_{i}]{i=1}{\mathcal{C}} = \summation[n_{i,0}]{i=1}{\mathcal{C}} + \varepsilon \summation[\nu_{i}]{i=1}{\mathcal{C}},\label{Mod6:Eqn:1c}
+            n = \summation[n_{i}]{i=1}{\mathcal{C}} = \summation[n_{i,0}]{i=1}{\mathcal{C}} + \varepsilon \summation[\nu_{i}]{i=1}{\mathcal{C}},\label{Mod6:Eqn:2c}
        \end{equation}
        or in compressed notation format,
        \begin{equation}
-          n = n_{0} + \nu\varepsilon,\label{Mod6:Eqn:1d}
+          n = n_{0} + \nu\varepsilon,\label{Mod6:Eqn:2d}
        \end{equation}
        where $n_{0}=\summation[n_{i,0}]{}{}$, $\nu=\summation[\nu_{i}]{}{}$ and $n=\summation[n_{i}]{}{}$. Now, we can define the composition (as mole fraction) of species $i$,
        \begin{equation}
-          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0} + \nu\varepsilon}.\label{Mod6:Eqn:1e}
+          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0} + \nu\varepsilon}.\label{Mod6:Eqn:2e}
        \end{equation}
     \end{shaded}
 
@@ -3685,7 +3685,7 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
     \begin{displaymath}
          \nu = \summation[\nu_{i}]{}{} = -1 -1 + 1+ 3 = 2.
     \end{displaymath}
-    The gaseous composition is expressed by Eqn.~\ref{Mod6:Eqn:1e},
+    The gaseous composition is expressed by Eqn.~\ref{Mod6:Eqn:2e},
     \begin{displaymath}
           y_{i} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0} + \nu\varepsilon}
           \begin{cases}
@@ -3739,9 +3739,9 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
     These reactions results in single reaction: 
           \reaction[chemreaction:CO2-CO-O2]{2CO_{2} <=>  2CO + O_{2}}
     \begin{shaded}
-       Thus, for a set of \underline{independent chemical reactions}, Eqn.~\ref{Mod6:Eqn:1b} can be rewritten as,
+       Thus, for a set of \underline{independent chemical reactions}, Eqn.~\ref{Mod6:Eqn:2b} can be rewritten as,
           \begin{equation}
-             n_{i} = n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j}{},\label{Mod6:Eqn:1f}
+             n_{i} = n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j}{},\label{Mod6:Eqn:2f}
           \end{equation}
        where $i$ refers to chemical species, whereas $j$ refers to reactions,
           \begin{displaymath}
@@ -3749,11 +3749,11 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
           \end{displaymath}
        where $\nu_{j}=\summation[\nu_{ij}]{i}{}$, thus
           \begin{equation}
-             n = n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{}.\label{Mod6:Eqn:1g}
+             n = n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{}.\label{Mod6:Eqn:2g}
           \end{equation}
        Now, for composition of species $i$,
        \begin{equation}
-          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j}{}}{n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{}}.\label{Mod6:Eqn:1h}
+          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j}{}}{n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{}}.\label{Mod6:Eqn:2h}
        \end{equation}       
     \end{shaded}
 
@@ -3781,7 +3781,7 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
       \begin{displaymath}
          n = n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{} = 5 + 2\varepsilon_{1} + 2\varepsilon_{2},
       \end{displaymath}
-    and compositions are (from Eqn.~\ref{Mod6:Eqn:1h}),
+    and compositions are (from Eqn.~\ref{Mod6:Eqn:2h}),
     \begin{displaymath}
         \begin{cases}
             y_{CH_{4}} = \frc{2 - \varepsilon_{1} - \varepsilon_{2}}{5 + 2\varepsilon_{1} + 2\varepsilon_{2}},\;\;\; y_{H_{2}O} = \frc{3 - \varepsilon_{1} - 2\varepsilon_{2}}{5 + 2\varepsilon_{1} + 2\varepsilon_{2}}, \\
@@ -3791,14 +3791,38 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
 
 \end{subequations}
 
+%%% SUBSECTION
+\subsection{Standard Enthalpy of Reaction}\label{Section:06:EnthalpyGibbsReaction}
+\begin{subequations}
+   Given the homogeneous (\ie in a single-phase system) chemical reaction
+     \reaction[chemreaction:simplehomogeneousreaction]{\nu_{A}A + \nu_{B}B <=> \nu_{C}C + \nu_{D}D}
+   the {\it standard enthalpy of reaction}, $\Delta H^{\circ}_{\text{r}}$ is the heat associated with a chemical reaction that occurs at constant temperature $T$ and at {\it standard pressure} $P$ of 101.325 kPa (\ie 1 atm). In other words, it is the change in enthalpy that occurs when $\nu_{A}$ moles of $A$ and $\nu_{B}$ moles of $B$ at standard state and temperature $T$ are fully converted into $\nu_{C}$ moles of $C$ and $\nu_{D}$ moles of $D$ at standard states and at the same temperature $T$. {\it Standard states} commonly used are:
+   \begin{enumerate}[a)]
+       \item Gases: pure substance in the ideal gas state at 1 atm;
+       \item Liquids and solids: pure liquid or solid at 1 atm.
+   \end{enumerate}
+   In the literature, data on standard enthalpy of reaction is typically reported at 25$^{\circ}$C. Using the sign convention for molar stoichiometric coefficient, the standard enthalpy of reaction is
+   \begin{equation}
+      \Delta H^{\circ}_{\text{r}} = \summation[\nu_{i}\Delta H^{\circ}_{i,f}]{i}{},\label{Mod6:Eqn:3a}
+   \end{equation}
+   where $\Delta H^{\circ}_{i,f}$ is the {\it standard enthalpy of formation}, \ie the standard enthalpy of a reaction in which {\it one mole of a given substance is formed from elements}. The elements are assumed to react at the most stable phase at a given temperature and standard pressure conditions. Data basis of the {\it standard enthalpy of formation} for common chemical species can be found in any chemical engineering handbook and on thermodynamic textbooks.
+
+   In a similar way, we can extend Eqn.~\ref{Mod6:Eqn:3a} to all thermodynamic functions, $M=\left\{U, H, A, G, S\right\}$, as
+   \begin{equation}
+      \Delta M^{\circ}_{\text{r}} = \summation[\nu_{i}\Delta M^{\circ}_{i,f}]{i}{}.\label{Mod6:Eqn:3b}
+   \end{equation}
+  
+\end{subequations}
+
+
 
 %%% SUBSECTION
 \subsection{Criteria for Chemical Reaction Equilibrium}\label{Section:06:CriteriaEquibrium}
 \begin{subequations}
 
-   For simplicity of the analysis, let's assume {\it single homogeneous (\ie one-phase system) chemical reaction}. The total Gibbs free energy of a system is obtained from
+   For simplicity of the analysis, let's assume {\it single homogeneous chemical reaction}. The total Gibbs free energy of a system is obtained from
      \begin{equation}
-         G^{t} = \summation[n_{i}G_{i}]{i=1}{\mathcal{C}} = \summation[\left(n_{i,0}+\nu_{i}\varepsilon\right)G_{i}]{i=1}{\mathcal{C}}\label{Mod6:Eqn:2a}
+         G^{t} = \summation[n_{i}G_{i}]{i=1}{\mathcal{C}} = \summation[\left(n_{i,0}+\nu_{i}\varepsilon\right)G_{i}]{i=1}{\mathcal{C}}\label{Mod6:Eqn:4a}
      \end{equation}
    where $G_{i}$ is the molar Gibbs free energy. At equilibrium (Fig.~\ref{Mod06Fig02}), $\left(dG^{t}\right)_{T,P} = 0$, \ie
        \begin{eqnarray}
@@ -3812,12 +3836,27 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
            \caption{Sketch of equilibrium Gibbs free energy.}\label{Mod06Fig02}
          \end{center}
       \end{figure} 
-   Differentiating Eqn.~\ref{Mod6:Eqn:2a} \wrt $\varepsilon$,
-       \begin{eqnarray}
-           && \frc{dG^{t}}{d\varepsilon} = \cancelto{0}{\frc{d}{d\varepsilon}\summation[n_{i,0}G_{i}]{i}{}} + \frc{d}{d\varepsilon}\left[\summation[\left(\nu_{i}\varepsilon\right)G_{i}]{i}{}\right] \nonumber \\
-           && \text{ where } \frc{d}{d\varepsilon}\left(\nu_{i}\varepsilon G_{i}\right) = \nu_{i}G_{i}\cancelto{1}{\frc{d\varepsilon}{d\varepsilon}} + \nu_{i}\varepsilon\cancelto{0}{\frc{d G_{i}}{d\varepsilon}} = \nu_{i}G_{i} \;\left(\text{where } \nu_{i} \text{ is constant}\right) \nonumber \\
-           && \summation[\nu_{i}G_{i}]{i}{} = 0 = \summation[\nu_{i}\mu_{i}]{i}{}.\label{Mod6:Eqn:2b}
-       \end{eqnarray}
+   Differentiating Eqn.~\ref{Mod6:Eqn:4a} \wrt $\varepsilon$,
+       \begin{displaymath}
+           \frc{dG^{t}}{d\varepsilon} = \cancelto{0}{\frc{d}{d\varepsilon}\summation[n_{i,0}G_{i}]{i}{}} + \frc{d}{d\varepsilon}\left[\summation[\left(\nu_{i}\varepsilon\right)G_{i}]{i}{}\right] = 0,
+       \end{displaymath}
+   where the summation in brackets can be simplified as,
+       \begin{displaymath}
+           \frc{d}{d\varepsilon}\left(\nu_{i}\varepsilon G_{i}\right) = \nu_{i}G_{i}\cancelto{1}{\frc{d\varepsilon}{d\varepsilon}} + \nu_{i}\varepsilon\cancelto{0}{\frc{d G_{i}}{d\varepsilon}} = \nu_{i}G_{i}
+       \end{displaymath} 
+   with $\nu_{i}$ constant, leading to
+        \begin{equation}
+           \summation[\nu_{i}G_{i}]{i}{} = 0 = \summation[\nu_{i}\mu_{i}]{i}{}.\label{Mod6:Eqn:4b}
+        \end{equation}
+\end{subequations}
+
+
+%%% SUBSECTION
+\subsection{Equilibrium Constant of Reactions}\label{Section:06:EquilibriumConstantReactions}
+
+\subsubsection{Van't Hoff Equation}
+\begin{subequations}
+
    The {\it chemical potential} was previously defined for mixtures (see Eqn.~\ref{Mod05_fugacity1b}) as,
        \begin{displaymath}
            \mu_{i} = RT\ln{\overline{f}_{i}} + C_{i}(T),
@@ -3829,36 +3868,117 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
           \item ideal solution: $\mfr[\overline{f}]{i}{\text{is}} = x_{i}\mfr[f]{i}{L}$ (Lewis-Randall rule);
           \item real solution: $\mfr[\overline{f}]{i}{L} = x_{i}\gamma_{i}\mfr[f]{i}{L}$.
       \end{enumerate}
-}. At {\it standard state} $\left(\text{\ie pure component at 25}^{\circ}\text{C}\right)$, the Gibbs free energy is 
+}. At {\it standard state} (\ie pure component at 25$^{\circ}$C and 1 atm), the Gibbs free energy of formation of species $i$ is 
       \begin{displaymath}
             G_{i}^{\circ} = RT\ln{f_{i}^{\circ}} + C_{i}(T)
       \end{displaymath}
       Subtracting the equation above from the previous one,
       \begin{equation}
-         \mu_{i} - G_{i}^{\circ} = RT\ln{\frc{\overline{f}_{i}}{f_{i}^{\circ}}}.\label{Mod6:Eqn:2c}
+         \mu_{i} - G_{i}^{\circ} = RT\ln{\frc{\overline{f}_{i}}{f_{i}^{\circ}}}.\label{Mod6:Eqn:5a}
       \end{equation}
-      Now, if Eqn.~\ref{Mod6:Eqn:2c} is substituted in Eqn.~\ref{Mod6:Eqn:2b} and eliminating $\mu_{i}$\footnote{Here {\it log} properties (see Appendix C) are used to obtain the product $\prod$,
+      Now, if Eqn.~\ref{Mod6:Eqn:5a} is substituted in Eqn.~\ref{Mod6:Eqn:4b}, eliminating $\mu_{i}$\footnote{Here {\it log} properties (see Appendix C) are used to obtain the product $\prod$,
          \begin{eqnarray}
-            \summation[\ln{\left(\frc{a_{i}}{b_{i}}\right)^{n_{i}}}]{i}{\mathcal{Z}} &=& \ln{\left(\frc{a_{1}}{b_{1}}\right)^{n_{1}}} + \ln{\left(\frc{a_{2}}{b_{2}}\right)^{n_{2}}}  + \ln{\left(\frc{a_{3}}{b_{3}}\right)^{n_{3}}} + \cdots + \ln{\left(\frc{a_{\mathcal{Z}}}{b_{\mathcal{Z}}}\right)^{n_{\mathcal{Z}}}} \nonumber \\
+            \summation[\ln{\left(\frc{a_{i}}{b_{i}}\right)^{n_{i}}}]{i=1}{\mathcal{Z}} &=& \ln{\left(\frc{a_{1}}{b_{1}}\right)^{n_{1}}} + \ln{\left(\frc{a_{2}}{b_{2}}\right)^{n_{2}}}  + \ln{\left(\frc{a_{3}}{b_{3}}\right)^{n_{3}}} + \cdots + \ln{\left(\frc{a_{\mathcal{Z}}}{b_{\mathcal{Z}}}\right)^{n_{\mathcal{Z}}}} \nonumber \\
                                                                                  &=& \ln{\left[\left(\frc{a_{1}}{b_{1}}\right)^{n_{1}} \cdot \left(\frc{a_{2}}{b_{2}}\right)^{n_{2}} \cdot \left(\frc{a_{3}}{b_{3}}\right)^{n_{3}} \cdots \left(\frc{a_{\mathcal{Z}}}{b_{\mathcal{Z}}}\right)^{n_{\mathcal{Z}}} \right]}  \nonumber \\
                                                                                  &=& \ln{\left[\prod\limits_{i=1}^{\mathcal{Z}} \left(\frc{a_{i}}{b_{i}}\right)^{n_{i}}\right]}  \nonumber
                     \end{eqnarray}
 },
       \begin{eqnarray}
-         && \summation[\nu_{i}\mu_{i}]{i}{} = \summation[\nu_{i}\left(G_{i}^{\circ} + RT\ln{\frc{\overline{f}_{i}}{f_{i}^{\circ}}}\right)]{i}{} = 0 \nonumber \\
-         && \summation[\nu_{i}G_{i}^{\circ}]{i}{} + RT\summation[\ln{\left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}}}]{i}{} = 0 \nonumber \\
-         && \ln{\left[\prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}}\right]} = -\frc{\summation[\nu_{i}G_{i}^{\circ}]{i}{}}{RT} \nonumber \\
+         && \summation[\nu_{i}\mu_{i}]{i}{} = \summation[\nu_{i}\left(G_{i}^{\circ} + RT\ln{\frc{\overline{f}_{i}}{f_{i}^{\circ}}}\right)]{i}{} = 0 \;\;\;\Longleftrightarrow \;\;\; \summation[\nu_{i}G_{i}^{\circ}]{i}{} + RT\summation[\ln{\left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}}}]{i}{} = 0,  \nonumber \\
+         && \ln{\left[\prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}}\right]} = -\frc{\summation[\nu_{i}G_{i}^{\circ}]{i}{}}{RT} \;\;\;\Longleftrightarrow \;\;\; \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}} = \exp{\left[-\frc{\summation[\nu_{i}G_{i}^{\circ}]{i}{}}{RT}\right]}\label{Mod6:Eqn:5b}
       \end{eqnarray}
-       
+      \begin{shaded}
+         We have defined the standard state Gibbs energy of reaction in Eqn.~\ref{Mod6:Eqn:3b},
+         \begin{displaymath}
+           \Delta G^{\circ}_{\text{r}} = \summation[\nu_{i} G^{\circ}_{i,f}]{i}{}\;\;\;\;\text{ and defining }\;\;\;\;\Delta G^{\circ} \equiv \summation[\Delta G^{\circ}_{\text{r}}]{i}{},
+         \end{displaymath}
+         as the {\it standard Gibbs free energy change of reaction}, \ie the Gibbs free energy change of reaction with each species (reactants and products) in its standard state (pure species at 1 atm) and at system temperature. Now, defining the \blue{\it equilibrium constant}, \blue{$K$},
+         \begin{displaymath}
+            K = \exp{\left[-\frc{\Delta G^{\circ}}{RT}\right]}
+         \end{displaymath}
+         and replacing in Eqn.~\ref{Mod6:Eqn:5b},
+         \begin{equation}
+            K = \prod_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}} = \prod_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}},\label{Mod6:Eqn:5c}
+         \end{equation}
+         where $a_{i}$ is the activity of species $i$ in the reaction mixture. The equilibrium constant $K$ depends on the system temperature, \ie $K=K(T)$, and therefore is important to be able to define it at any conditions. The {\it Van't Hoff equation} provides a critically important way to correlate $K$ and the enthalpy of reaction. Using Eqn.~\ref{Mod03_GibbsGeneratingFunctionPConst} (for constant pressure conditions) at standard state,
+         \begin{displaymath}
+              H^{\circ}_{i} = -RT^{2} \frc{d}{dT}\left(G_{i}^{\circ}/RT\right) \;\;\;\;\Longrightarrow \;\;\;\; \Delta H^{\circ} = -RT^{2} \frc{d}{dT}\left(\Delta G^{\circ}/RT\right),\label{Mod6:Eqn:5d}
+         \end{displaymath}
+         where $\Delta H^{\circ}$ is the standard heat (or enthalpy) of reaction. Replacing $\Delta G^{\circ}/RT=-\ln{K}$ in the equation above leads to the \blue{Van't Hoff equation}
+         \begin{equation}
+             \frc{d\left(\ln{K}\right)}{dT} = \frc{\Delta H^{\circ}}{RT^{2}}\;\;\;\text { or }\;\;\;\;  \frc{d}{dT}\left(\Delta G^{\circ}/RT\right) = -\frc{d\left(\ln{K}\right)}{dT} = -\frc{\Delta H^{\circ}}{RT^{2}}   \label{Mod6:Eqn:5e}
+         \end{equation}
+      \end{shaded}
 
-
-
+      \noindent The Van't Hoff equation can be integrated between two temperature levels,
+      \begin{displaymath}
+           \int\limits_{K_{1}}^{K_{2}}d\left(\ln{K}\right) = \int\limits_{T_{1}}^{T_{2}}\frc{\Delta H^{\circ}}{RT^{2}} dT \;\;\;\Longrightarrow \;\;\; \left(\ln{K_{2}}-\ln{K_{1}}\right) = -\frc{\Delta H^{\circ}}{R}\left(\frc{1}{T_{2}}-\frc{1}{T_{1}}\right).
+      \end{displaymath}
+      For a qualitative analysis, we can plot $\ln{K} \times 1/T$, and the slope of the linear equation $\left(\text{\ie } y=ax+b,\text{ where }\right.$ $\left.y=\ln{K}\text{ and }x=\frac{1}{T}\right)$ is $-\Delta H^{\circ}/R$. Let's consider reactions for formation of carbon and nitrogen monoxides,
+         \reaction[chemreaction:FormationCO]{C + \frac{1}{2}O_{2} <=> CO}
+         \reaction[chemreaction:FormationNO]{\frac{1}{2}N_{2} + \frac{1}{2}O_{2} <=> NO}
+      with $\ln{K} \times 1/T$ plot for these reactions in Fig.~\ref{Mod06Fig03}. We can qualitatively analyse the behaviour of the equilibrium constant at 1666.67 K and 833.33 K,
+      \begin{figure}[hpt] 
+         \begin{center}
+           \includegraphics[width=0.5\columnwidth,angle=90,clip]{./Figs/Mod06_SchematicVantHoff_b}
+           \caption{(Left) Sketch of equilibrium constants as a function of temperature for reactions~\ref{chemreaction:FormationCO} and~\ref{chemreaction:FormationNO}. Data extracted from Smith, Van Ness and Abbott (6$^{\text{th}}$ Edition). (Right) Reaction coordinate $\times$ temperature -- qualitative analysis for enthermic/exothermic reactions based on the standard heat of reaction.}\label{Mod06Fig03}
+         \end{center}
+      \end{figure} 
+     
+      \begin{eqnarray}
+         && -\left[\frc{\Delta H^{\circ}}{R}\right]_{\ref{chemreaction:FormationCO}} =  \frc{27 - 19}{12-6} = 1.3333, \nonumber \\
+         && -\left[\frc{\Delta H^{\circ}}{R}\right]_{\ref{chemreaction:FormationNO}} =  \frc{-12 - (-5)}{12-6} = -1.1667, \nonumber
+      \end{eqnarray}
+      Reactions that present positive $\Delta H^{\circ}$ (\ie negative slope) are called {\it endothermic}, \ie equilibrium constant rises as the temperature is increased (or in other words, heat is given to the reactive system to promote the reaction). Similarly, negative $\Delta H^{\circ}$ (\ie positive slope) are called {\it exothermic}, \ie an increase in temperature leads to a decrease in the equilibrium constant.
 
 \end{subequations}
-%%% SUBSECTION
-\subsection{Standard Enthalpy and Gibbs Free Energy of Reaction}\label{Section:06:EnthalpyGibbsReaction}
-%%% SUBSECTION
-\subsection{Equilibrium Constant of Reactions}\label{Section:06:EquilibriumConstantReactions}
+
+
+%%% SUBSUBSECTION
+\subsubsection{Dependence of $K$ with Temperature}\label{Section:06:K_Temperature}
+\begin{subequations}
+    The fundamental thermodynamic relation for the Gibbs free energy at stadard state conditions,
+       \begin{displaymath}
+           G_{i}^{\circ} = H_{i}^{\circ} - TS_{i}^{\circ},
+       \end{displaymath}
+   can be extended to chemical reactions at standard state conditions (using Eqn.~\ref{Mod6:Eqn:3b})
+       \begin{equation}
+           \underbrace{\summation[\nu_{i}G_{i}^{\circ}]{}{}}_{\Delta G^{\circ}} =  \underbrace{\summation[\nu_{i}H_{i}^{\circ}]{}{}}_{\Delta H^{\circ}} - T \underbrace{\summation[\nu_{i}S_{i}^{\circ}]{}{}}_{\Delta S^{\circ}},\label{Mod6:Eqn:6a}
+       \end{equation}
+   where,
+   \begin{enumerate}[i)]
+       \item standard heat (enthalpy) of reaction $\left(\Delta H^{\circ}\right)$: starting from the definition of heat capacity at constant pressure, $C_{p}=\Partial[H]{T}{P}$, at standard conditions,
+            \begin{eqnarray}
+                 && dH_{i}^{\circ} = C_{p_{i}}^{\circ} dT \hspace{4cm}\blue{\left(\times \summation[\nu_{i}]{}{}\right)} \nonumber \\
+                 && \summation[\nu_{i}dH_{i}^{\circ}]{}{} = \summation[\nu_{i}C_{p_{i}}^{\circ} dT]{}{} \nonumber \\
+                 && \summation[d\left(\nu_{i}H_{i}^{\circ}\right)]{}{} = d\underbrace{\summation[\nu_{i}H_{i}^{\circ}]{}{}}_{\Delta H^{\circ}} = \underbrace{\summation[\nu_{i}C_{p_{i}}^{\circ}]{}{}}_{\Delta C_{p}^{\circ}}dT \nonumber \\
+                 && \int d\left(\Delta H^{\circ}\right) = \int \Delta C_{p}^{\circ} dT \nonumber \\
+                 && \Delta H^{\circ} - \Delta H^{\circ}_{0} = \blue{R}\int\limits_{T_{0}}^{T} \frc{\Delta C_{p}^{\circ}}{\blue{R}} dT \nonumber
+            \end{eqnarray}
+            here $R$ is acting as an {\it artifact} that will vanish in a later stage.
+
+       \item standard entropy of reaction $\left(\Delta S^{\circ}\right)$: from the relation $\Partial[S]{T}{P}=\frc{C_{p}}{T}$,
+            \begin{eqnarray}
+                 && dS_{i}^{\circ} = C_{p_{i}}^{\circ} \frc{dT}{T} \nonumber \\
+                 && \int d\left(\Delta S^{\circ}\right) = \int\limits_{T_{0}}^{T}\Delta C_{p}^{\circ}\frc{dT}{T} \nonumber \\
+                 && \Delta S^{\circ} - \Delta S^{\circ}_{0} = \blue{R}\int\limits_{T_{0}}^{T}\frc{\Delta C_{p}^{\circ}}{\blue{R}} \frc{dT}{T} \nonumber 
+            \end{eqnarray}
+   \end{enumerate}
+  Replacing these two terms in Eqn.~\ref{Mod6:Eqn:6a} to obtain $\Delta G^{\circ}$
+     \begin{eqnarray}
+         \Delta G^{\circ} &=&  \Delta H^{\circ}_{0} + \blue{R}\int\limits_{T_{0}}^{T} \frc{\Delta C_{p}^{\circ}}{\blue{R}} dT - T\overbrace{\Delta S^{\circ}_{0}}^{\frc{\Delta H^{\circ}_{0}-\Delta G^{\circ}_{0}}{T_{0}}} - \blue{R}T\int\limits_{T_{0}}^{T}\frc{\Delta C_{p}^{\circ}}{\blue{R}} \frc{dT}{T} \;\;\;\;\; \blue{\times\left(\frc{1}{RT}\right)} \nonumber \\ 
+         \underbrace{\frc{\Delta G^{\circ}}{RT}}_{-\ln{K}} &=&  \frc{\Delta G^{\circ}_{0}-\Delta H^{\circ}_{0}}{RT_{0}} + \frc{\Delta H^{\circ}_{0}}{RT} + \frc{1}{T}\int\limits_{T_{0}}^{T} \frc{\Delta C_{p}^{\circ}}{R}dT - \int\limits_{T_{0}}^{T}\frc{\Delta C_{p}^{\circ}}{R}dT \label{Mod6:Eqn:6b}
+     \end{eqnarray}
+  The standard heat capacities, $\Delta C_{p}^{\circ}=\summation[\nu_{i}C_{p_{i}}^{\circ}]{}{}$ are often expressed as polynomials of the temperature for a range of chemical species. This ensures a sensitivity of this thermophysical parameter with respect to the temperature. In such cases, Eqn.~\ref{Mod6:Eqn:6b} can only be solved numerically with the integrals ranging from the standard (or reference) temperature, $T_{0}$, to $T$. In addition, $\Delta G^{\circ}_{0}$ and $\Delta H^{\circ}_{0}$, Gibbs free energy and enthalpy of reaction at standard pressure conditions (\ie 1 atm) and at reference (or standad) temperature conditions (\ie 298.15 K) are tabulated and readily available in the literature for a number of (relatively) simple chemical reactions.
+
+\end{subequations}
+
+%%% SUBSUBSECTION
+\subsubsection{Dependence of $K$ with Composition}\label{Section:06:K_Composition}
+\begin{subequations}
+
+\end{subequations}
+
 
 %%% SUBSECTION
 \subsection{Reaction Equilibria in Multiple Reactions}\label{Section:06:MultipleReactions}
