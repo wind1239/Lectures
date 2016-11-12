@@ -3622,7 +3622,35 @@ Consider a chemical reaction in the gaseous phase,
 
 Thus, while initially the {\it forward} reaction dominates, as reaction progress the {\it backward} reaction becomes increasingly relevant, which eventually leads into two reaction rates of equal value. After this stage, the concentration of all species in the system is invariant (\ie constant) with no tendency to change except if a perturbation is imposed to the system (\eg addition/removal of heat, increase/decrease of pressure, addition/removal of species etc). At such conditions, the reaction is said to be in {\it equilibrium}. The aim of the study of {\it chemical kinetics} is to investigate the mechanisms that leads to optimal reactions (\ie `faster' and with larger conversion ratio), whereas \blue{reaction thermodynamics} investigates the conditions at {\it equilibrium}.
 
-In the application of {\it chemical reaction equilibrium} to problems relevant to industry, the aim is to ensure {\it maximum} conversion at prescribed pressure and temperature conditions. Reactions for which the conversion is (approximately) 100$\%$ are often referred as {\it irreversible}, whereas reactions that have lower conversion rates are called {\it reversible}. Several chemical reactions of industrial interest occur in a single phase (either solid, liquid or gas), such reactions are called {\it homogeneous}. However, most reactions progress in different phases (either because reactants are at distinct phase, or because they need a catalyst that is only stable at a prescribed phase or, because reactants and products are at different phases)  
+In the application of {\it chemical reaction equilibrium} to problems relevant to industry, the aim is to ensure {\it maximum} conversion at prescribed pressure and temperature conditions. Reactions for which the conversion is (approximately) 100$\%$ are often referred as \blue{\it irreversible}, whereas reactions that have lower conversion rates are called \blue{\it reversible}. Chemical reactions that occur in a single phase (either solid, liquid or gas) are called \blue{\it homogeneous}, \eg
+\begin{enumerate}[a)]
+    \item formation of NO$_{\text{x}} \left(\text{NO and NO}_{2}\right)$ in atmospheric pollution:
+        \begin{eqnarray}
+           N_{2} (g) + O_{2} (g) &\Longleftrightarrow& 2 NO (g), \nonumber \\
+           \frac{1}{2} N_{2} (g) + O_{2} (g) &\Longleftrightarrow& NO_{2} (g), \nonumber
+        \end{eqnarray}
+    \item {\it Fischer esterification} reaction of ethanol and acetic acid to produce ethyl acetate:
+        \begin{displaymath}
+           CH_{3}CH_{2}OH (l) + CH_{3}COOH (l) \Longleftrightarrow CH_{3}COOCH_{2}CH_{3} (l),
+        \end{displaymath}
+\end{enumerate}
+Reactions that progress at different phases are called \blue{\it heterogeneous}, \eg
+\begin{enumerate}[a)]
+    \item strong acid-alkali reactions:
+        \begin{eqnarray}
+           H_{2}SO_{4} (\text{aq.}) + 2 NaOH (\text{aq.}) &\Longleftrightarrow&  Na_{2}SO_{4} (s) + H_{2}O (l) \nonumber \\
+           HCl (\text{aq.}) + KOH (\text{aq.}) &\Longleftrightarrow& KCl (s) + H_{2}O (l), \nonumber \\
+           2 HCl (\text{aq.}) + Mg(OH)_{2} (s)  &\Longleftrightarrow& MgCl_{2} (s) + 2 H_{2}O (l), \nonumber 
+        \end{eqnarray}
+    \item combustion of natural gas:
+        \begin{displaymath}
+           CH_{4} (g) + O_{2} (g) \Longleftrightarrow CO_{2} (g) + H_{2}O (l),
+        \end{displaymath}
+    \item reduction of solid oxides:
+        \begin{displaymath}
+           NiO (s) + H_{2} (g) \Longleftrightarrow Ni (s) + H_{2}O (l). 
+        \end{displaymath}        
+\end{enumerate}
 
 Reaction conditions are, thus, critical to achieve the maximum possible conversion rate. The main aim of this module is to study the thermodynamic relations necessary to predict equilibrium conversion of {\it homogeneous chemical reactions}. 
 
@@ -3631,7 +3659,7 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
 \begin{subequations}
     For a chemical reaction in general form:
         \reaction[chemreaction:reaction]{\nu_{1} A_{1} + \nu_{2} A_{2}  + ... \nu_{k} A_{k} <=> \nu_{l} A_{l} + \nu_{m} A_{m} + ... + \nu_{\mathcal{C}} A_{\mathcal{C}} }
-    where $\nu_{i}$ is the molar stoichiometric coefficient, $A_{i}$ are chemical species and $\mathcal{C}$ is the total number of species in the system. For convention, positive $\nu$ stands for products whereas negative $\nu$ is for reactants, and the reaction can be expressed as an ordinary algebraic equation,
+    where $\nu_{i}$ is the molar stoichiometric coefficient, $A_{i}$ are chemical species and $\mathcal{C}$ is the total number of species in the system. For convention, positive $\nu$ stands for products whereas negative $\nu$ is for reactants, and the reaction can be expressed as an algebraic equation,
     \begin{displaymath}
        \nu_{l} A_{l} + \nu_{m} A_{m} + ... + \nu_{\mathcal{C}} A_{\mathcal{C}} - \left(\nu_{1} A_{1} + \nu_{2} A_{2}  + ... \nu_{k} A_{k}\right) = 0,
     \end{displaymath}
@@ -3666,11 +3694,11 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
        \frc{d n_{1}}{\nu_{1}} = \frc{d n_{2}}{\nu_{2}} = \cdots = \frc{d n_{\mathcal{C}}}{\nu_{\mathcal{C}}}.
     \end{displaymath}
     \begin{shaded}
-       These equalities lead to the definition of \underline{reaction coordinate}, \blue{$\varepsilon$}, as the {\it extension in which a reaction has taken place},
+       These equalities lead to the definition of \underline{reaction coordinate}, \blue{$\varepsilon$}, the {\it extension in which a reaction has taken place},
        \begin{equation}
           \frc{d n_{1}}{\nu_{1}} = \frc{d n_{2}}{\nu_{2}} = \cdots = \frc{d n_{\mathcal{C}}}{\nu_{\mathcal{C}}} = d\varepsilon.\label{Mod6:Eqn:2a}
        \end{equation}
-       Assuming  that at $t=0$, the initial composition is $n_{i} = n_{i,0}$ and the reaction has not started  yet, \ie $\varepsilon=0$. Integrating Eqn.~\ref{Mod6:Eqn:2a} from $t=0$ to $t_{i}$,
+       Assuming  that at $t=t_{0}=0$ the initial composition is $n_{i} = n_{i,0}$ and the reaction has not started yet, \ie $\varepsilon=0$. Integrating Eqn.~\ref{Mod6:Eqn:2a} from $t_{0}$ to $t_{i}$,
        \begin{eqnarray}
            && \int\limits_{n_{i,0}}^{n_{i}} dn_{i} = \nu_{i}\int\limits_{0}^{\varepsilon}d\varepsilon \nonumber \\
            && n_{i} = n_{i,0} + \nu_{i}\varepsilon,\;\;\;\;\forall i=\left\{1,2,\cdots,\mathcal{C}\right\}\label{Mod6:Eqn:2b}
@@ -3704,9 +3732,9 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
 
 \bigskip
 
-    Given the set of reactions below for the formation of CO and CO$_{2}$, 
-          \reaction[chemreaction:FormationCO2]{ C + O_{2} <=> CO_{2}} 
-          \reaction[chemreaction:FormationCO]{2C + O_{2} <=> 2CO }
+Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
+          \reaction[chemreaction:FormationCO2]{ C + O_{2} <=> CO_{2}}
+          \reaction[chemreaction:FormationCO]{2C + O_{2} <=> 2CO } 
           \reaction[chemreaction:FormationCO-CO2]{2CO + O_{2} <=> 2CO_{2}}
     It is easy to notice that, \ref{chemreaction:FormationCO} + \ref{chemreaction:FormationCO-CO2} = \ref{chemreaction:FormationCO2}. In matricial form (adopting the stoichiometric notation),
     \begin{center}
@@ -3755,14 +3783,15 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
           \begin{displaymath}
              n = \summation[n_{i,0}]{i}{} + \summation[\summation[\nu_{ij}\varepsilon_{j}]{i}{}]{j}{} = n_{0} + \summation[\left(\summation[\nu_{ij}]{j}{}\right)\varepsilon_{j}]{i}{},
           \end{displaymath}
-       where $\nu_{j}=\summation[\nu_{ij}]{i}{}$, thus
+       For simplicity of notation, let's use $\nu_{j}=\summation[\nu_{ij}]{i}{}$, thus
           \begin{equation}
              n = n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{}.\label{Mod6:Eqn:2g}
           \end{equation}
-       Now, for composition of species $i$,
+       Now, for composition of species $i$ in multiple reactions $j$,
        \begin{equation}
-          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j}{}}{n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{}}.\label{Mod6:Eqn:2h}
-       \end{equation}       
+          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j=1}{\mathcal{R}}}{n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j=1}{\mathcal{R}}},\label{Mod6:Eqn:2h}
+       \end{equation}
+       where $\mathcal{R}$ is the number of independent chemical reactions.
     \end{shaded}
 
 \bigskip
@@ -3802,7 +3831,7 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
 %%% SUBSECTION
 \subsection{Standard Enthalpy of Reaction}\label{Section:06:EnthalpyGibbsReaction}
 \begin{subequations}
-   Given the homogeneous (\ie in a single-phase system) chemical reaction
+   Given the homogeneous chemical reaction,
      \reaction[chemreaction:simplehomogeneousreaction]{\nu_{A}A + \nu_{B}B <=> \nu_{C}C + \nu_{D}D}
    the {\it standard enthalpy of reaction}, $\Delta H^{\circ}_{\text{r}}$ is the heat associated with a chemical reaction that occurs at constant temperature $T$ and at {\it standard pressure} $P$ of 101.325 kPa (\ie 1 atm). In other words, it is the change in enthalpy that occurs when $\nu_{A}$ moles of $A$ and $\nu_{B}$ moles of $B$ at standard state and temperature $T$ are fully converted into $\nu_{C}$ moles of $C$ and $\nu_{D}$ moles of $D$ at standard states and at the same temperature $T$. {\it Standard states} commonly used are:
    \begin{enumerate}[a)]
@@ -3873,7 +3902,7 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
       \begin{enumerate}[a)]
           \item ideal gases: $\mfr[\overline{f}]{i}{\text{ig}} =  y_{i}P=P_{i}$ (Dalton law);
           \item real gases: $\mfr[\overline{\phi}]{i}{V}  = \frc{\mfr[\overline{f}]{i}{V}}{y_{i}P}$;
-          \item ideal solution: $\mfr[\overline{f}]{i}{\text{is}} = x_{i}\mfr[f]{i}{L}$ (Lewis-Randall rule);
+          \item ideal solution: $\mfr[\overline{f}]{i}{\text{id}} = x_{i}\mfr[f]{i}{L}$ (Lewis-Randall rule);
           \item real solution: $\mfr[\overline{f}]{i}{L} = x_{i}\gamma_{i}\mfr[f]{i}{L}$.
       \end{enumerate}
 }. At {\it standard state} (\ie pure component at 1 atm), the partial molar Gibbs free energy
@@ -3913,7 +3942,7 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
 
 %%% SUBSUBSECTION
 \subsubsection{Dependence of $K$ with Temperature}\label{Section:06:K_Temperature}
-      The equilibrium constant $K$ is strongly dependent on the system temperature, and therefore is important to be able to define it at any reaction conditions. The {\it Van't Hoff} equation provides a way to correlate $K$ and the enthalpy of reaction. Using Eqn.~\ref {Mod03_GibbsGeneratingFunctionPConst} (for constant pressure conditions) at standard state, 
+      The equilibrium constant $K$ is strongly dependent on the system temperature, and therefore it is important to be able to define it at any reaction conditions. The {\it Van't Hoff} equation provides a way to correlate $K$ and the enthalpy of reaction, using Eqn.~\ref {Mod03_GibbsGeneratingFunctionPConst} (for constant pressure conditions) at standard state, 
       \begin{displaymath}
           \overline{H}_{i}^{\circ} = -RT^{2}\frc{d}{dT}\left(\overline{G}_{i}^{\circ}/RT\right) \;\;\;\;\Longrightarrow\;\;\;\;\; \Delta H^{\circ}_{r} = -RT^{2}\frc{d}{dT}\left(\Delta G^{\circ}_{r}/RT\right),
       \end{displaymath}
@@ -3937,7 +3966,7 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
       \begin{figure}[hpt] 
          \begin{center}
            \includegraphics[width=0.5\columnwidth,angle=90,clip]{./Figs/Mod06_SchematicVantHoff_b}
-           \caption{(Left) Sketch of equilibrium constants as a function of temperature for reactions~\ref{chemreaction:FormationCO} and~\ref{chemreaction:FormationNO}. Data extracted from Smith, Van Ness and Abbott (6$^{\text{th}}$ Edition). (Right) Reaction coordinate $\times$ temperature -- qualitative analysis for enthermic/exothermic reactions based on the standard heat of reaction.}\label{Mod06Fig03}
+           \caption{(Left) Sketch of equilibrium constants as a function of temperature for reactions~\ref{chemreaction:FormationCO} and~\ref{chemreaction:FormationNO}. Data extracted from Smith, Van Ness and Abbott (6$^{\text{th}}$ Edition). (Right) Reaction coordinate $\times$ temperature -- qualitative analysis for endothermic/exothermic reactions based on the standard heat of reaction.}\label{Mod06Fig03}
          \end{center}
       \end{figure} 
      
@@ -3945,7 +3974,7 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
          && -\left[\frc{\Delta H^{\circ}}{R}\right]_{\ref{chemreaction:FormationCO}} =  \frc{27 - 19}{12-6} = 1.3333, \nonumber \\
          && -\left[\frc{\Delta H^{\circ}}{R}\right]_{\ref{chemreaction:FormationNO}} =  \frc{-12 - (-5)}{12-6} = -1.1667, \nonumber
       \end{eqnarray}
-      Reactions that present positive $\Delta H^{\circ}$ (\ie negative slope) are called {\it endothermic}, \ie equilibrium constant rises as the temperature is increased (or in other words, heat is given to the reactive system to promote the reaction). Similarly, negative $\Delta H^{\circ}$ (\ie positive slope) are called {\it exothermic}, \ie an increase in temperature leads to a decrease in the equilibrium constant.
+      Reactions that present positive $\Delta H^{\circ}$ (\ie negative slope) are called {\it endothermic}, \ie equilibrium constant rises as the temperature is increased (or in other words, heat is given to the reactive system to promote the reaction). Similarly, negative $\Delta H^{\circ}$ (\ie positive slope) are called {\it exothermic}, \ie an increase in temperature leads to a decrease in the equilibrium constant (heat is transferred from the reactive system to the surroundings).
 
 \begin{comment}
 %%% SUBSUBSECTION
@@ -4020,12 +4049,12 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
     \begin{displaymath}
        \frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}} = \frc{\gamma_{i}x_{i}f_{i}}{\overline{f}_{i}^{\circ}} = \gamma_{i}x_{i}\left(\frc{f_{i}}{\overline{f}_{i}^{\circ}}\right).
     \end{displaymath}
-    The fugacity ratio in brackets can be obtained by manipulating the Maxwell relation $\Partial[G]{P}{T}=V$, and integrating from standard state to $T$ and $P$,
+    The fugacity ratio in brackets can be obtained by manipulating the Maxwell relation, $\Partial[G]{P}{T}=V$, and integrating from standard state to $T$ and $P$,
     \begin{eqnarray}
           G_{i}-G_{i}^{\circ} &=& \int\limits_{P^{\circ}}^{P}V_{i}dP \nonumber  \\
           RT\ln{\left(\frc{f_{i}}{f_{i}^{\circ}}\right)} &=& \int\limits_{P^{\circ}}^{P}V_{i}dP \;\;\;\Longrightarrow\;\;\; \ln{\left(\frc{f_{i}}{f_{i}^{\circ}}\right)} = \frc{V_{i}\left(P-P^{\circ}\right)}{RT}, \nonumber
     \end{eqnarray}
-    assuming that fluids at liquid are incompressible $\left(\text{\ie } V_{i} \text{ is constant}\right)$. Now, replacing in the original equation\footnote{Here, properties of exponents (see Appendix C) are used to operate over the thermodynamic properties. Given the set of reals $a_{i}$ and $b_{i}$ $\forall i\in\left\{1,2,\cdots, z\right\}$ and constants $c$ and $d$:
+    assuming that fluids at liquid phase are incompressible $\left(\text{\ie } V_{i} \text{ is constant}\right)$. Now, replacing in the original equation\footnote{Here, properties of exponents (see Appendix C) are used to operate over the thermodynamic properties. Given the set of reals $a_{i}$ and $b_{i}$ $\forall i\in\left\{1,2,\cdots, z\right\}$ and constants $c$ and $d$:
    \begin{enumerate}[a)]
        \item $\left(e^{c}\right)^{d} = e^{cd}$;
        \item $e^{a_{1}b_{1}c}\cdot e^{a_{2}b_{2}c}\cdots e^{a_{z}b_{z}c} = e^{c\left(a_{1}b_{1}+a_{2}b_{2}+\cdots+a_{z}b_{z}\right)}$.
@@ -4044,12 +4073,12 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
        \begin{enumerate}[a)]
            \item At room pressure conditions, $P^{\circ}-P=0$ and
               \begin{equation}
-                 \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} = K\;\;\;\;\blue{\text{ (for liquid phase at room pressure conditions).}}\label{Mod6:Eqn:5g}
+                 K = \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} \;\;\;\;\blue{\text{ (for liquid phase at room pressure conditions).}}\label{Mod6:Eqn:5g}
               \end{equation}
               Although at first sight this equation may seem relatively simple to solve, activity coefficient models are often necessary to be used making it complex to solve, in such cases iterative methods are commonly employed;
            \item For ideal solutions, $\gamma=1$ and Eqn.~\ref{Mod6:Eqn:5g} becomes,
               \begin{equation}
-                 \prod\limits_{i=1}^{\mathcal{C}}x_{i}^{\nu_{i}} = K\;\;\;\;\blue{\text{ (for ideal solutions).}}\label{Mod6:Eqn:5h}
+                 K = \prod\limits_{i=1}^{\mathcal{C}}x_{i}^{\nu_{i}} \;\;\;\;\blue{\text{ (for ideal solutions).}}\label{Mod6:Eqn:5h}
               \end{equation}              
        \end{enumerate}
     \end{shaded}
@@ -4062,8 +4091,6 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
 %%% SUBSECTION
 \subsection{Reaction Equilibria in Multiple Reactions}\label{Section:06:MultipleReactions}
 
-%%% SUBSECTION
-\subsection{}\label{Section:06:}
 
 \clearpage
 
