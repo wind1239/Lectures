@@ -3822,13 +3822,13 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
 
    For simplicity of the analysis, let's assume {\it single homogeneous chemical reaction}. The total Gibbs free energy of a system is obtained from
      \begin{equation}
-         G^{t} = \summation[n_{i}G_{i}]{i=1}{\mathcal{C}} = \summation[\left(n_{i,0}+\nu_{i}\varepsilon\right)G_{i}]{i=1}{\mathcal{C}}\label{Mod6:Eqn:4a}
+         G^{t} = \summation[n_{i}\overline{G}_{i}]{i=1}{\mathcal{C}} = \summation[\left(n_{i,0}+\nu_{i}\varepsilon\right)\overline{G}_{i}]{i=1}{\mathcal{C}}\label{Mod6:Eqn:4a}
      \end{equation}
-   where $G_{i}$ is the molar Gibbs free energy. At equilibrium (Fig.~\ref{Mod06Fig02}), $\left(dG^{t}\right)_{T,P} = 0$, \ie
+   where $\overline{G}_{i}$ is the partial molar Gibbs free energy. At equilibrium (Fig.~\ref{Mod06Fig02}), $\left(dG^{t}\right)_{T,P} = 0$, \ie
        \begin{eqnarray}
-          && dG^{t} = d(nG) = ndG + Gdn \;\;\;\; \blue{\times \frc{1}{d\varepsilon}} \nonumber \\
-          && \frc{dG^{t}}{d\varepsilon} = n\frc{dG}{d\varepsilon} + G\frc{G dn}{d\varepsilon} = 0 \nonumber \\
-          && \text{in a closed system, } dn = 0 \Longrightarrow \frc{dG^{t}}{d\varepsilon} = \frc{dG}{d\varepsilon} = 0\;\;\text{ (equilibrium criteria).} \nonumber
+          && dG^{t} = d(n\overline{G}) = nd\overline{G} + \overline{G}dn \;\;\;\; \blue{\times \frc{1}{d\varepsilon}} \nonumber \\
+          && \frc{dG^{t}}{d\varepsilon} = n\frc{d\overline{G}}{d\varepsilon} + G\frc{\overline{G} dn}{d\varepsilon} = 0 \nonumber \\
+          && \text{in a closed system, } dn = 0 \Longrightarrow \frc{dG^{t}}{d\varepsilon} = \frc{d\overline{G}}{d\varepsilon} = 0\;\;\text{ (equilibrium criteria).} \nonumber
        \end{eqnarray}
       \begin{figure}[hpt]
          \begin{center}
@@ -3838,28 +3838,28 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
       \end{figure} 
    Differentiating Eqn.~\ref{Mod6:Eqn:4a} \wrt $\varepsilon$,
        \begin{displaymath}
-           \frc{dG^{t}}{d\varepsilon} = \cancelto{0}{\frc{d}{d\varepsilon}\summation[n_{i,0}G_{i}]{i}{}} + \frc{d}{d\varepsilon}\left[\summation[\left(\nu_{i}\varepsilon\right)G_{i}]{i}{}\right] = 0,
+           \frc{dG^{t}}{d\varepsilon} = \cancelto{0}{\frc{d}{d\varepsilon}\summation[n_{i,0}\overline{G}_{i}]{i}{}} + \frc{d}{d\varepsilon}\left[\summation[\left(\nu_{i}\varepsilon\right)\overline{G}_{i}]{i}{}\right] = 0,
        \end{displaymath}
    where the summation in brackets can be simplified as,
        \begin{displaymath}
-           \frc{d}{d\varepsilon}\left(\nu_{i}\varepsilon G_{i}\right) = \nu_{i}G_{i}\cancelto{1}{\frc{d\varepsilon}{d\varepsilon}} + \nu_{i}\varepsilon\cancelto{0}{\frc{d G_{i}}{d\varepsilon}} = \nu_{i}G_{i}
+           \frc{d}{d\varepsilon}\left(\nu_{i}\varepsilon \overline{G}_{i}\right) = \nu_{i}G_{i}\cancelto{1}{\frc{d\varepsilon}{d\varepsilon}} + \nu_{i}\varepsilon\cancelto{0}{\frc{d \overline{G}_{i}}{d\varepsilon}} = \nu_{i}\overline{G}_{i}
        \end{displaymath} 
    with $\nu_{i}$ constant, leading to
-        \begin{equation}
-           \summation[\nu_{i}G_{i}]{i}{} = 0 = \summation[\nu_{i}\mu_{i}]{i}{}.\label{Mod6:Eqn:4b}
-        \end{equation}
+        \begin{shaded}
+          \begin{equation}
+             \summation[\nu_{i}\overline{G}_{i}]{i}{} = 0 = \summation[\nu_{i}\mu_{i}]{i}{}.\label{Mod6:Eqn:4b}
+          \end{equation}
+        \end{shaded}
 \end{subequations}
 
 
 %%% SUBSECTION
 \subsection{Equilibrium Constant of Reactions}\label{Section:06:EquilibriumConstantReactions}
-
-\subsubsection{Van't Hoff Equation}
 \begin{subequations}
 
    The {\it chemical potential} was previously defined for mixtures (see Eqn.~\ref{Mod05_fugacity1b}) as,
        \begin{displaymath}
-           \mu_{i} = RT\ln{\overline{f}_{i}} + C_{i}(T),
+           \mu_{i} = \Partial[\left(nG\right)]{n_{i}}{T,P,n_{j\ne i}} = \overline{G}_{i} = RT\ln{\overline{f}_{i}} + C_{i}(T),
        \end{displaymath}
    where $\overline{f}_{i}$ is the fugacity of component $i$ in the mixture\footnote{In Module~\ref{Section:05}, we have studied forms to calculate $\mfr[\overline{f}]{i}{j}$:
       \begin{enumerate}[a)]
@@ -3868,46 +3868,54 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
           \item ideal solution: $\mfr[\overline{f}]{i}{\text{is}} = x_{i}\mfr[f]{i}{L}$ (Lewis-Randall rule);
           \item real solution: $\mfr[\overline{f}]{i}{L} = x_{i}\gamma_{i}\mfr[f]{i}{L}$.
       \end{enumerate}
-}. At {\it standard state} (\ie pure component at 25$^{\circ}$C and 1 atm), the Gibbs free energy of formation of species $i$ is 
+}. At {\it standard state} (\ie pure component at 1 atm), the partial molar Gibbs free energy
       \begin{displaymath}
-            G_{i}^{\circ} = RT\ln{f_{i}^{\circ}} + C_{i}(T)
+            \overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right) = RT\ln{\overline{f}_{i}^{\circ}} + C_{i}(T),
       \end{displaymath}
-      Subtracting the equation above from the previous one,
+      where $x_{i}^{\circ}$ is usually assumed to be composition of the pure component $\left(\text{\ie }x_{i}^{\circ}=1\right)$, or infinite diluition state $\left(\text{\ie }x_{i}^{\circ}=0\right)$ or ideal 1 molal solution, depending on the species.  $\overline{f}_{i}^{\circ}$ is the fugacity of component $i$ in the mixture at standard conditions. Subtracting the equation above from the previous one,
       \begin{equation}
-         \mu_{i} - G_{i}^{\circ} = RT\ln{\frc{\overline{f}_{i}}{f_{i}^{\circ}}}.\label{Mod6:Eqn:5a}
+         \overline{G}\left(T,P, x_{i}\right)  - \overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right) = RT\ln{\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}}.\label{Mod6:Eqn:5a}
       \end{equation}
-      Now, if Eqn.~\ref{Mod6:Eqn:5a} is substituted in Eqn.~\ref{Mod6:Eqn:4b}, eliminating $\mu_{i}$\footnote{Here {\it log} properties (see Appendix C) are used to obtain the product $\prod$,
+      The log-term was previously (Eqn.~\ref{Mod05_activity1b}) defined as the activity, \ie $a_{i} = \frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}$, and if Eqn.~\ref{Mod6:Eqn:5a} is substituted in Eqn.~\ref{Mod6:Eqn:4b},
+      \begin{displaymath}
+         0 = \summation[\nu_{i}\overline{G}_{i}]{i}{} = \underbrace{\summation[\nu_{i}\overline{G}_{i}^{\circ}]{i}{}}_{\Delta G_{r}^{\circ}} + RT\summation[\nu_{i}\ln{a_{i}}]{i}{}
+      \end{displaymath}
+      where $\Delta G_{r}^{\circ} = \summation[\nu_{i}\overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right)]{i}{}$ is the Gibbs energy change on reaction with each species (reactants and products) in its standard state or state of unity activity. Using logarithm properties, we can simplify this expression and introduce the {\it product}, $\prod$,\footnote{See Appendix C for log-properties. In summary, for a set of reals $a_{i}$, $b_{i}$ and $n_{i}$ $\forall i\in\left\{1,2,\cdots, z\right\}$, with $b_{i}\ne 0$,
          \begin{eqnarray}
-            \summation[\ln{\left(\frc{a_{i}}{b_{i}}\right)^{n_{i}}}]{i=1}{\mathcal{Z}} &=& \ln{\left(\frc{a_{1}}{b_{1}}\right)^{n_{1}}} + \ln{\left(\frc{a_{2}}{b_{2}}\right)^{n_{2}}}  + \ln{\left(\frc{a_{3}}{b_{3}}\right)^{n_{3}}} + \cdots + \ln{\left(\frc{a_{\mathcal{Z}}}{b_{\mathcal{Z}}}\right)^{n_{\mathcal{Z}}}} \nonumber \\
-                                                                                 &=& \ln{\left[\left(\frc{a_{1}}{b_{1}}\right)^{n_{1}} \cdot \left(\frc{a_{2}}{b_{2}}\right)^{n_{2}} \cdot \left(\frc{a_{3}}{b_{3}}\right)^{n_{3}} \cdots \left(\frc{a_{\mathcal{Z}}}{b_{\mathcal{Z}}}\right)^{n_{\mathcal{Z}}} \right]}  \nonumber \\
-                                                                                 &=& \ln{\left[\prod\limits_{i=1}^{\mathcal{Z}} \left(\frc{a_{i}}{b_{i}}\right)^{n_{i}}\right]}  \nonumber
+           \summation[\nu_{i}\ln{\frc{a_{i}}{b_{i}}}]{i=1}{z} =  \summation[\ln{\left(\frc{a_{i}}{b_{i}}\right)^{n_{i}}}]{i=1}{z} &=& \ln{\left(\frc{a_{1}}{b_{1}}\right)^{n_{1}}} + \ln{\left(\frc{a_{2}}{b_{2}}\right)^{n_{2}}}  + \ln{\left(\frc{a_{3}}{b_{3}}\right)^{n_{3}}} + \cdots + \ln{\left(\frc{a_{z}}{b_{z}}\right)^{n_{z}}} \nonumber \\
+                                                                                 &=& \ln{\left[\left(\frc{a_{1}}{b_{1}}\right)^{n_{1}} \cdot \left(\frc{a_{2}}{b_{2}}\right)^{n_{2}} \cdot \left(\frc{a_{3}}{b_{3}}\right)^{n_{3}} \cdots \left(\frc{a_{z}}{b_{z}}\right)^{n_{z}} \right]}  \nonumber \\
+                                                                                 &=& \ln{\left[\prod\limits_{i=1}^{z} \left(\frc{a_{i}}{b_{i}}\right)^{n_{i}}\right]}  \nonumber
                     \end{eqnarray}
-},
-      \begin{eqnarray}
-         && \summation[\nu_{i}\mu_{i}]{i}{} = \summation[\nu_{i}\left(G_{i}^{\circ} + RT\ln{\frc{\overline{f}_{i}}{f_{i}^{\circ}}}\right)]{i}{} = 0 \;\;\;\Longleftrightarrow \;\;\; \summation[\nu_{i}G_{i}^{\circ}]{i}{} + RT\summation[\ln{\left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}}}]{i}{} = 0,  \nonumber \\
-         && \ln{\left[\prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}}\right]} = -\frc{\summation[\nu_{i}G_{i}^{\circ}]{i}{}}{RT} \;\;\;\Longleftrightarrow \;\;\; \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}} = \exp{\left[-\frc{\summation[\nu_{i}G_{i}^{\circ}]{i}{}}{RT}\right]}\label{Mod6:Eqn:5b}
-      \end{eqnarray}
+}
       \begin{shaded}
-         We have defined the standard state Gibbs energy of reaction in Eqn.~\ref{Mod6:Eqn:3b},
          \begin{displaymath}
-           \Delta G^{\circ}_{\text{r}} = \summation[\nu_{i} G^{\circ}_{i,f}]{i}{}\;\;\;\;\text{ and defining }\;\;\;\;\Delta G^{\circ} \equiv \summation[\Delta G^{\circ}_{\text{r}}]{i}{},
+             \ln{\prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}}} = - \frc{\Delta G_{r}^{\circ}}{RT} \;\;\;\;\;\; \Longleftrightarrow \;\;\;\;\; \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}} = \underbrace{\exp{\left[- \frc{\Delta G_{r}^{\circ}}{RT}\right]}}_{K},
          \end{displaymath}
-         as the {\it standard Gibbs free energy change of reaction}, \ie the Gibbs free energy change of reaction with each species (reactants and products) in its standard state (pure species at 1 atm) and at system temperature. Now, defining the \blue{\it equilibrium constant}, \blue{$K$},
-         \begin{displaymath}
-            K = \exp{\left[-\frc{\Delta G^{\circ}}{RT}\right]}
-         \end{displaymath}
-         and replacing in Eqn.~\ref{Mod6:Eqn:5b},
+         \blue{$K$} is the \blue{\it equilibrium constant} and is a function of the system temperature, \ie $K=K(T)$,
          \begin{equation}
-            K = \prod_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)^{\nu_{i}} = \prod_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}},\label{Mod6:Eqn:5c}
+             K(T) = \exp{\left[- \frc{\Delta G_{r}^{\circ}}{RT}\right]} = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}}. \label{Mod6:Eqn:5b}
          \end{equation}
-         where $a_{i}$ is the activity of species $i$ in the reaction mixture. The equilibrium constant $K$ depends on the system temperature, \ie $K=K(T)$, and therefore is important to be able to define it at any conditions. The {\it Van't Hoff equation} provides a critically important way to correlate $K$ and the enthalpy of reaction. Using Eqn.~\ref{Mod03_GibbsGeneratingFunctionPConst} (for constant pressure conditions) at standard state,
+         If the standard state of each chemical species in the reaction is chosen to be $T=298.15$ K and $P= 1$ atm,
          \begin{displaymath}
-              H^{\circ}_{i} = -RT^{2} \frc{d}{dT}\left(G_{i}^{\circ}/RT\right) \;\;\;\;\Longrightarrow \;\;\;\; \Delta H^{\circ} = -RT^{2} \frc{d}{dT}\left(\Delta G^{\circ}/RT\right),\label{Mod6:Eqn:5d}
+              \Delta G_{r}^{\circ} \left(T=298.15\text{ K}\right) = \summation[\nu_{i}\Delta G_{i,f}^{\circ}\left(T=298.15\text{ K}\right)]{i}{},
          \end{displaymath}
-         where $\Delta H^{\circ}$ is the standard heat (or enthalpy) of reaction. Replacing $\Delta G^{\circ}/RT=-\ln{K}$ in the equation above leads to the \blue{Van't Hoff equation}
-         \begin{equation}
-             \frc{d\left(\ln{K}\right)}{dT} = \frc{\Delta H^{\circ}}{RT^{2}}\;\;\;\text { or }\;\;\;\;  \frc{d}{dT}\left(\Delta G^{\circ}/RT\right) = -\frc{d\left(\ln{K}\right)}{dT} = -\frc{\Delta H^{\circ}}{RT^{2}}   \label{Mod6:Eqn:5e}
-         \end{equation}
+         where $\Delta G_{i,f}^{\circ}$ is the standard state Gibbs free energy of formation, briefly discussed in Section~\ref{Section:06:EnthalpyGibbsReaction}.
+      \end{shaded}
+
+
+%%% SUBSUBSECTION
+\subsubsection{Dependence of $K$ with Temperature}\label{Section:06:K_Temperature}
+      The equilibrium constant $K$ is strongly dependent on the system temperature, and therefore is important to be able to define it at any reaction conditions. The {\it Van't Hoff} equation provides a way to correlate $K$ and the enthalpy of reaction. Using Eqn.~\ref {Mod03_GibbsGeneratingFunctionPConst} (for constant pressure conditions) at standard state, 
+      \begin{displaymath}
+          \overline{H}_{i}^{\circ} = -RT^{2}\frc{d}{dT}\left(\overline{G}_{i}^{\circ}/RT\right) \;\;\;\;\Longrightarrow\;\;\;\;\; \Delta H^{\circ}_{r} = -RT^{2}\frc{d}{dT}\left(\Delta G^{\circ}_{r}/RT\right),
+      \end{displaymath}
+      where $\Delta H^{\circ}_{r}$ is the standard heat (or enthalpy) of reaction. 
+  
+      \begin{shaded}
+      \noindent Replacing Eqn.~\ref{Mod6:Eqn:5b} in the relation above leads to the \blue{\it Van't Hoff equation},
+      \begin{equation}
+         \frc{d\left(\ln{K}\right)}{dT} = \frc{\Delta H^{\circ}_{r}}{RT^{2}} \;\;\;\;\;\text{ or }\;\;\;\;\; \frc{d}{dT}\left(\Delta G^{\circ}_{r}/RT\right) = -\frc{d\left(\ln{K}\right)}{dT} = -\frc{\Delta H^{\circ}_{r}}{RT^{2}}\label{Mod6:Eqn:5c}
+      \end{equation}
       \end{shaded}
 
       \noindent The Van't Hoff equation can be integrated between two temperature levels,
@@ -3931,9 +3939,7 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
       \end{eqnarray}
       Reactions that present positive $\Delta H^{\circ}$ (\ie negative slope) are called {\it endothermic}, \ie equilibrium constant rises as the temperature is increased (or in other words, heat is given to the reactive system to promote the reaction). Similarly, negative $\Delta H^{\circ}$ (\ie positive slope) are called {\it exothermic}, \ie an increase in temperature leads to a decrease in the equilibrium constant.
 
-\end{subequations}
-
-
+\begin{comment}
 %%% SUBSUBSECTION
 \subsubsection{Dependence of $K$ with Temperature}\label{Section:06:K_Temperature}
 \begin{subequations}
@@ -3972,10 +3978,75 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
   The standard heat capacities, $\Delta C_{p}^{\circ}=\summation[\nu_{i}C_{p_{i}}^{\circ}]{}{}$ are often expressed as polynomials of the temperature for a range of chemical species. This ensures a sensitivity of this thermophysical parameter with respect to the temperature. In such cases, Eqn.~\ref{Mod6:Eqn:6b} can only be solved numerically with the integrals ranging from the standard (or reference) temperature, $T_{0}$, to $T$. In addition, $\Delta G^{\circ}_{0}$ and $\Delta H^{\circ}_{0}$, Gibbs free energy and enthalpy of reaction at standard pressure conditions (\ie 1 atm) and at reference (or standad) temperature conditions (\ie 298.15 K) are tabulated and readily available in the literature for a number of (relatively) simple chemical reactions.
 
 \end{subequations}
+\end{comment}
 
 %%% SUBSUBSECTION
 \subsubsection{Dependence of $K$ with Composition}\label{Section:06:K_Composition}
-\begin{subequations}
+    Recall that in Eqn.~\ref{Mod6:Eqn:5b}, the equilibrium constant $K$ was defined as function of the activities of the reactive mixture,
+    \begin{displaymath}
+       K = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}} = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i}}.
+    \end{displaymath}
+    As the standard state of a gas is the ideal gas state at $P^{\circ}=1\text{ atm}$, the fugacity of an ideal gas in the standard state is equal to its pressure $\overline{f}_{i}^{\circ}=P^{\circ}$ for each reactive species $i$, thus
+    \begin{displaymath}
+       K = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{P^{\circ}}\right)^{\nu_{i}},
+    \end{displaymath}
+    however, for the gaseous phase $\overline{f}_{i} = \overline{\phi}_{i}y_{i}P$,
+    \begin{displaymath}
+        K = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{\phi}_{i}y_{i}P}{P^{\circ}}\right)^{\nu_{i}} = \left[\prod\limits_{i=1}^{\mathcal{C}} \left(\overline{\phi}_{i}y_{i}\right)^{\nu_{i}}\right]\left(\frc{P}{P^{\circ}}\right)^{\summation[\nu_{i}]{i}{} }.
+    \end{displaymath}
+    \begin{shaded}    
+       \noindent Defining $\nu=\summation[\nu_{i}]{i}{}$,
+       \begin{equation}
+           \prod\limits_{i=1}^{\mathcal{C}} \left(\overline{\phi}_{i}y_{i}\right)^{\nu_{i}} = K\left(\frc{P}{P^{\circ}}\right)^{-\nu}\;\;\;\;\blue{\text{ (for gaseous phase).}}\label{Mod6:Eqn:5d}
+       \end{equation}
+       At low pressure or high temperature, the fluid behaves as an ideal gas, \ie $\overline{\phi}_{i}=1$, thus
+       \begin{equation}
+           \prod\limits_{i=1}^{\mathcal{C}} y_{i}^{\nu_{i}} = K\left(\frc{P}{P^{\circ}}\right)^{-\nu}\;\;\;\;\blue{\text{ (for ideal gases).}}\label{Mod6:Eqn:5e}
+       \end{equation}
+    \end{shaded}
+    Now, for the liquid phase the expression previously defined 
+    \begin{displaymath}
+       K = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i}},
+    \end{displaymath}
+    still holds, and for {\it pure liquid} $i$ at $T$ and 1 atm, using $\overline{f}_{i} = \gamma_{i}x_{i}f_{i}$ (Eqn.~\ref{Mod05_activity1g}), where $f_{i}$ is the fugacity of pure component $i$ in the liquid phase at $P$ and $T$. Hence,
+    \begin{displaymath}
+       \frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}} = \frc{\gamma_{i}x_{i}f_{i}}{\overline{f}_{i}^{\circ}} = \gamma_{i}x_{i}\left(\frc{f_{i}}{\overline{f}_{i}^{\circ}}\right).
+    \end{displaymath}
+    The fugacity ratio in brackets can be obtained by manipulating the Maxwell relation $\Partial[G]{P}{T}=V$, and integrating from standard state to $T$ and $P$,
+    \begin{eqnarray}
+          G_{i}-G_{i}^{\circ} &=& \int\limits_{P^{\circ}}^{P}V_{i}dP \nonumber  \\
+          RT\ln{\left(\frc{f_{i}}{f_{i}^{\circ}}\right)} &=& \int\limits_{P^{\circ}}^{P}V_{i}dP \;\;\;\Longrightarrow\;\;\; \ln{\left(\frc{f_{i}}{f_{i}^{\circ}}\right)} = \frc{V_{i}\left(P-P^{\circ}\right)}{RT}, \nonumber
+    \end{eqnarray}
+    assuming that fluids at liquid are incompressible $\left(\text{\ie } V_{i} \text{ is constant}\right)$. Now, replacing in the original equation\footnote{Here, properties of exponents (see Appendix C) are used to operate over the thermodynamic properties. Given the set of reals $a_{i}$ and $b_{i}$ $\forall i\in\left\{1,2,\cdots, z\right\}$ and a constants $c$ and $d$:
+   \begin{enumerate}[a)]
+       \item $\left(e^{c}\right)^{d} = e^{cd}$;
+       \item $e^{a_{1}b_{1}c}\cdot e^{a_{2}b_{2}c}\cdots e^{a_{z}b_{z}c} = e^{c\left(a_{1}b_{1}+a_{2}b_{2}+\cdots+a_{z}b_{z}\right)}$.
+   \end{enumerate}
+}
+    \begin{eqnarray}
+          K &=& \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i}} = \prod\limits_{i=1}^{\mathcal{C}} \left[\gamma_{i}x_{i}\left(\frc{f_{i}}{\overline{f}_{i}^{\circ}}\right)\right]^{\nu_{i}} \nonumber \\
+            &=& \prod\limits_{i=1}^{\mathcal{C}} \left[\gamma_{i}x_{i}\exp{\left(\frc{V_{i}\left(P-P^{\circ}\right)}{RT}\right)}\right]^{\nu_{i}}  = \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} \times \left\{\exp{\left[\summation[\frc{V_{i}\left(P-P^{\circ}\right)}{RT}]{i}{}\right]}\right\}^{\nu_{i}} \nonumber \\
+            &=& \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} \times \exp{\left[\frc{P-P^{\circ}}{RT}\summation[V_{i}\nu_{i}]{i=1}{\mathcal{C}}\right]}\nonumber
+    \end{eqnarray}
+    \begin{shaded}
+       \begin{equation}
+           \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} = K\exp{\left[\frc{P^{\circ}-P}{RT}\summation[V_{i}\nu_{i}]{i=1}{\mathcal{C}}\right]}\;\;\;\;\blue{\text{ (for liquid phase).}}\label{Mod6:Eqn:5f}
+       \end{equation}
+       Simplifications:
+       \begin{enumerate}[a)]
+           \item At room pressure conditions, $P^{\circ}-P=0$ and
+              \begin{equation}
+                 \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} = K\;\;\;\;\blue{\text{ (for liquid phase at room pressure conditions).}}\label{Mod6:Eqn:5g}
+              \end{equation}
+              Although this equation seems relatively simple to solve, activity coefficient models will need to be used, making it rather complex to solve it iteratively.
+           \item For ideal solutions, $\gamma=1$ and Eqn.~\ref{Mod6:Eqn:5g} becomes,
+              \begin{equation}
+                 \prod\limits_{i=1}^{\mathcal{C}}x_{i}^{\nu_{i}} = K\;\;\;\;\blue{\text{ (for ideal solutions).}}\label{Mod6:Eqn:5h}
+              \end{equation}              
+       \end{enumerate}
+    \end{shaded}
+     
+       
 
 \end{subequations}
 
