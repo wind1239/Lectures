@@ -3607,16 +3607,24 @@ In the previous Modules, we have studied thermodynamic behaviour of gases and li
            \caption{Sketch of equilibrium reaction and temperature.}\label{Mod06Fig01}
          \end{center}
        \end{wrapfigure}%{figure}
-Reactive systems are often characterised in terms of the maximum possible yield of the target product(s) at prescribed conditions, starting from the reactants (\ie raw materials). From chemical reactions theory (\ie {\it chemical kinetics}), rates of reaction are often strongly influenced by the temperature. In several cases, reaction rates rise as temperature increases. In fact, reaction data from several applications (from combustion and geochemistry to biochemistry) show that conversion rate from reactants to products does not increase {\it monotonically}, but rather it reaches a {\it maximum} of conversion and smoothly decreases as schematically shown in Fig.~\ref{Mod06Fig01}.
+      Reactive systems are often characterised in terms of the maximum possible yield of the target product(s) at prescribed conditions, starting from the reactants (\ie raw materials). From {\it chemical kinetics} theory, rates of reaction and the reaction mechanisms\footnote{Here, it is important to define two terms commonly used in chemical kinetics theory:
+        \begin{enumerate}[a)]
+           \item {\it rate of reaction}: changes in the reactants concentrations with time, $\mfr[C]{}{\text{react}}=\mfr[C]{}{\text{react}}(t)$ (\ie `speed' of the reaction) and,
+           \item {\it mechanisms of reactions}: stages of the reaction (in molecular level) that leads to the consumption of reactants and intermediate products, and production of final and intermediate products.
+        \end{enumerate}
+         }
+        are often strongly influenced by temperature and pressure conditions. In several cases, reaction rates rise as temperature increases and in reactions involving gaseous phases, increasing of pressure may also lead to `faster' reactive conversions. In fact, reaction data from several applications (from combustion and geochemistry to biochemistry) show that conversion rates from reactants to products do not increase {\it monotonically}, but rather reach a {\it maximum} of conversion and smoothly decrease as schematically shown in Fig.~\ref{Mod06Fig01}.
 
 Consider a chemical reaction in the gaseous phase,
      \reaction[chemreaction:reaction1]{A (g) + B (g) <=> C (g) + D (g)}
 
-\noindent where initially $\left(\text{\ie at time } t_{0}=0\right)$ there are just reactants $A$ and $B$ in a {\it closed system}. Molecules of $A$ and $B$ are in continuous and random movement and collide with each other forming products $C$ and $D$. At this stage, the consumption/depletion of molecules of $A$ and $B$ dominates the dynamics in the system. However, as the process continues $\left(\text{\ie at } t > t_{0}\right)$, the amount of molecules (\ie number of moles) of $C$ and $D$ increases and these species become dominant in the system. Collisions between $A$ and $B$ may still occur, but as they are no longer abundant, conversion from reactants to products get smaller, however molecules of $C$ and $D$ (both also in gaseous form) also collide and may produce $A$ and $B$. 
+\noindent where initially $\left(\text{\ie at time } t_{0}=0\right)$ there are just gaseous reactants $A$ and $B$ in a {\it closed system}. Molecules of $A$ and $B$ are in continuous and random movement and collide with each other forming products $C$ and $D$. At this stage, the consumption/depletion of molecules of $A$ and $B$ dominates the dynamics in the system. However, as the process continues $\left(\text{\ie at } t > t_{0}\right)$, the amount of molecules (\ie number of moles) of $C$ and $D$ increases and these species become dominant in the system. Collisions between $A$ and $B$ may still occur, but as they are no longer abundant, conversion from reactants to products get smaller, however molecules of $C$ and $D$ (both also in gaseous form) also collide and may produce $A$ and $B$. 
 
-Thus, while initially the {\it forward} reaction dominates, as reaction progress the {\it backward} reaction becomes increasingly relevant, which eventually leads into two reaction rates of equal value. After this stage, the concentration of all species in the system is invariant (\ie constant) with no tendency to change except if a perturbation is imposed to the system (\eg addition/removal of heat, increase/decrease of pressure, addition/removal of species etc). At such conditions, the reaction is said to be in {\it equilibrium}. 
+Thus, while initially the {\it forward} reaction dominates, as reaction progress the {\it backward} reaction becomes increasingly relevant, which eventually leads into two reaction rates of equal value. After this stage, the concentration of all species in the system is invariant (\ie constant) with no tendency to change except if a perturbation is imposed to the system (\eg addition/removal of heat, increase/decrease of pressure, addition/removal of species etc). At such conditions, the reaction is said to be in {\it equilibrium}. The aim of the study of {\it chemical kinetics} is to investigate the mechanisms that leads to optimal reactions (\ie `faster' and with larger conversion ratio), whereas \blue{reaction thermodynamics} investigates the conditions at {\it equilibrium}.
 
-In the application of {\it chemical reaction equilibrium} to problems relevant to industry, the aim is to ensure {\it maximum} conversion at prescribed pressure and temperature conditions. Reactions for which the conversion is (approximately) 100$\%$ are often referred as {\it irreversible}, whereas reactions that have lower conversion rates are called {\it reversible}. Reaction conditions are, thus, critical to achieve the maximum possible conversion rate. The main aim of this module is to study the thermodynamic relations necessary to predict equilibrium conversion of {\it homogeneous chemical reactions}. 
+In the application of {\it chemical reaction equilibrium} to problems relevant to industry, the aim is to ensure {\it maximum} conversion at prescribed pressure and temperature conditions. Reactions for which the conversion is (approximately) 100$\%$ are often referred as {\it irreversible}, whereas reactions that have lower conversion rates are called {\it reversible}. Several chemical reactions of industrial interest occur in a single phase (either solid, liquid or gas), such reactions are called {\it homogeneous}. However, most reactions progress in different phases (either because reactants are at distinct phase, or because they need a catalyst that is only stable at a prescribed phase or, because reactants and products are at different phases)  
+
+Reaction conditions are, thus, critical to achieve the maximum possible conversion rate. The main aim of this module is to study the thermodynamic relations necessary to predict equilibrium conversion of {\it homogeneous chemical reactions}. 
 
 %%% SUBSECTION
 \subsection{Reaction Coordinate}\label{Section:06:ReactionCoordinate}
@@ -4017,12 +4025,12 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
           G_{i}-G_{i}^{\circ} &=& \int\limits_{P^{\circ}}^{P}V_{i}dP \nonumber  \\
           RT\ln{\left(\frc{f_{i}}{f_{i}^{\circ}}\right)} &=& \int\limits_{P^{\circ}}^{P}V_{i}dP \;\;\;\Longrightarrow\;\;\; \ln{\left(\frc{f_{i}}{f_{i}^{\circ}}\right)} = \frc{V_{i}\left(P-P^{\circ}\right)}{RT}, \nonumber
     \end{eqnarray}
-    assuming that fluids at liquid are incompressible $\left(\text{\ie } V_{i} \text{ is constant}\right)$. Now, replacing in the original equation\footnote{Here, properties of exponents (see Appendix C) are used to operate over the thermodynamic properties. Given the set of reals $a_{i}$ and $b_{i}$ $\forall i\in\left\{1,2,\cdots, z\right\}$ and a constants $c$ and $d$:
+    assuming that fluids at liquid are incompressible $\left(\text{\ie } V_{i} \text{ is constant}\right)$. Now, replacing in the original equation\footnote{Here, properties of exponents (see Appendix C) are used to operate over the thermodynamic properties. Given the set of reals $a_{i}$ and $b_{i}$ $\forall i\in\left\{1,2,\cdots, z\right\}$ and constants $c$ and $d$:
    \begin{enumerate}[a)]
        \item $\left(e^{c}\right)^{d} = e^{cd}$;
        \item $e^{a_{1}b_{1}c}\cdot e^{a_{2}b_{2}c}\cdots e^{a_{z}b_{z}c} = e^{c\left(a_{1}b_{1}+a_{2}b_{2}+\cdots+a_{z}b_{z}\right)}$.
    \end{enumerate}
-}
+},
     \begin{eqnarray}
           K &=& \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i}} = \prod\limits_{i=1}^{\mathcal{C}} \left[\gamma_{i}x_{i}\left(\frc{f_{i}}{\overline{f}_{i}^{\circ}}\right)\right]^{\nu_{i}} \nonumber \\
             &=& \prod\limits_{i=1}^{\mathcal{C}} \left[\gamma_{i}x_{i}\exp{\left(\frc{V_{i}\left(P-P^{\circ}\right)}{RT}\right)}\right]^{\nu_{i}}  = \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} \times \left\{\exp{\left[\summation[\frc{V_{i}\left(P-P^{\circ}\right)}{RT}]{i}{}\right]}\right\}^{\nu_{i}} \nonumber \\
@@ -4038,7 +4046,7 @@ In the application of {\it chemical reaction equilibrium} to problems relevant t
               \begin{equation}
                  \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} = K\;\;\;\;\blue{\text{ (for liquid phase at room pressure conditions).}}\label{Mod6:Eqn:5g}
               \end{equation}
-              Although this equation seems relatively simple to solve, activity coefficient models will need to be used, making it rather complex to solve it iteratively.
+              Although at first sight this equation may seem relatively simple to solve, activity coefficient models are often necessary to be used making it complex to solve, in such cases iterative methods are commonly employed;
            \item For ideal solutions, $\gamma=1$ and Eqn.~\ref{Mod6:Eqn:5g} becomes,
               \begin{equation}
                  \prod\limits_{i=1}^{\mathcal{C}}x_{i}^{\nu_{i}} = K\;\;\;\;\blue{\text{ (for ideal solutions).}}\label{Mod6:Eqn:5h}
