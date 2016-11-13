@@ -3715,6 +3715,7 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
        \begin{equation}
           y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0} + \nu\varepsilon}.\label{Mod6:Eqn:2e}
        \end{equation}
+       For a \underline{inert species} $k$, \ie chemical compound that does not react but is present in the reactive system, $\nu_{k}=0$. 
     \end{shaded}
 
     From the initial steam reforming reaction example, let's assume that initially there are 2 moles of CH$_{4}$, 1 mol of H$_{2}$O, 1 mol of CO and 4 moles of H$_{2}$ in a closed system. Thus, the initial number of moles, $n_{0}=\summation[n_{i,0}]{}{} = 2+1+1+4 = 8$. Note that before the reaction starts there are already products in the system. The overall molar stoichiometric coefficient is
@@ -4390,6 +4391,19 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
          \begin{displaymath}
              K = \exp\left(-\frc{\Delta G^{\circ}_{r,298}}{RT}\right) = 0.1484 = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)}
          \end{displaymath}
+         Composition and reaction coordinate are related through
+         \begin{displaymath}
+            y_{i} = \frc{n_{i,0} - \nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
+         \end{displaymath}
+         where, assuming that the initial number of moles are $n_{N_{2}O_{4},0}=1$ and $n_{NO_{2},0}=0$, an $\nu= 2-1 = 1$,
+         \begin{displaymath}
+            y_{N_{2}O_{4}} = \frc{1-\varepsilon}{1+\varepsilon}\;\;\;\;\;\text{ and }\;\;\;\;\;\; y_{NO_{2}} = \frc{2\varepsilon}{1+\varepsilon},
+         \end{displaymath}
+         leading to
+         \begin{displaymath}
+             K = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)} = \frc{\left(\frc{2\varepsilon}{1+\varepsilon}\right)^{2}}{\left(\frc{1-\varepsilon}{1+\varepsilon}\right)} = 0.1484 \;\;\;\;\Longrightarrow\;\;\;\; \varepsilon = 0.1891
+         \end{displaymath}
+         Thus: $y_{NO_{2}} = 0.3181$ and $y_{N_{2}O_{4}} = 0.6819$.
 
          
 \clearpage
@@ -4401,12 +4415,118 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
   \begin{displaymath}
      N_{2}O_{4} (g) \Longleftrightarrow 2 NO_{2} (g)
   \end{displaymath}
-  and the mole fractions of $NO_{2}$ and $N_{2}O_{4}$ present at equilibrium?
-
+  and the mole fractions of $NO_{2}$ and $N_{2}O_{4}$ present at equilibrium? Assume that the gas mixture behaves as an ideal gas and the Gibbs energies of formation at 25$^{\circ}$C are:
+  \begin{displaymath}
+     \left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} = 97.89 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} = 51.31 \text{ kJ.mol}^{-1}.
+  \end{displaymath}
 
 \bigskip
 
-{\bf Solution:} 
+{\bf Solution:} Here, nitrogen is an inert species, \ie it is used to dilute the reactant gas, $N_{2}O_{4}$, but do not participate in the decomposition reaction, thus $\nu_{N_{2}}=0$. In Example~\ref{Example:4}, we have already calculated the equilibrium constant, $K = 0.1484$, and used 
+         \begin{displaymath}
+            y_{i} = \frc{n_{i,0} - \nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
+         \end{displaymath}
+         to calculate the equilibrium composition. The overall molar stoichiometric coefficient $\nu= 2-1-0 = 1$ remains the same, however, now the initial reactive composition is (assuming 1 mol of the reactant mixture) $n_{N_{2}O_{4},0} = 0.2$, $n_{N_{2},0} = 0.8$ and $n_{NO_{2},0}=0$. 
+         \begin{displaymath}
+           y_{N_{2}O_{4}} = \frc{0.2-\varepsilon}{1+\varepsilon},\;\;\;\;\; y_{N_{2}} = \frc{0.8}{1+\varepsilon}\;\;\;\text{ and }\;\;\;y_{NO_{2}} = \frc{2\varepsilon}{1+\varepsilon}.
+         \end{displaymath}
+         Leading to
+         \begin{displaymath}
+             K = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)} = \frc{\left(\frc{2\varepsilon}{1+\varepsilon}\right)^{2}}{\left(\frc{0.2-\varepsilon}{1+\varepsilon}\right)} = 0.1484 \;\;\;\;\Longrightarrow\;\;\;\; \varepsilon = 0.0715,
+         \end{displaymath}
+         with equilibrium compositions of $y_{NO_{2}} = 0.1335$, $y_{N_{2}O_{4}} = 0.1199$ and $y_{N_{2}} = 0.7466$. 
+         
+\clearpage
+
+
+%%%
+%%%  Sandler (Ex 13.1.3, pg. 718)
+%%%
+\item\label{Example:6} Calculate the equilibrium extent of decomposition of nitrogen tetroxide $\left(N_{2}O_{4}\right)$,
+  \begin{displaymath}
+     N_{2}O_{4} (g) \Longleftrightarrow 2 NO_{2} (g)
+  \end{displaymath}
+  at 250 K and 400 K and 1 atm. Assume that the gas mixture behaves as an ideal gas and the Gibbs energies of formation at 25$^{\circ}$C are:
+  \begin{displaymath}
+     \left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} = 97.89 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} = 51.31 \text{ kJ.mol}^{-1}.
+  \end{displaymath}
+  Also, the standard enthalpy of reaction at 25$^{\circ}$C is 56.189 kJ.mol$^{-1}$. Heat capacity for both gases are expressed in a polynomial form,
+  \begin{displaymath}
+    C_{p} = a + bT + CT^{2} + dT^{3},
+  \end{displaymath}
+  where
+  \begin{center}
+    \begin{tabular}{ l | c c c c }
+      \hline
+                          &  $a$     &  $b\times 10^{-2}$  & $c\times 10^{-5}$  & $d\times 10^{-9}$ \\
+      \hline
+      NO$_{2}$             &  22.929 &      5.711          & -3.519            & 7.866 \\
+      N$_{2}$O$_{4}$       &   33.054 &      18.661         &    -11.339        &  -- 
+    \end{tabular}
+  \end{center}
+      
+
+\bigskip
+
+{\bf Solution:} In order to calculate composition at equilibrium, we need to calculate the equilibrium constant, $K$, at 250 K and 400 K through the Van't Hoff equation,
+\begin{displaymath}
+    \frc{d\left(\ln{K}\right)}{dT} = \frc{\Delta H^{\circ}_{r}}{RT^{2}} \;\;\;\Longrightarrow \;\;\; \ln{\left(\frc{K(T)}{K(298.15\text{ K})}\right)} = \int\limits_{298.15\text{ K}}^{T}\frc{\Delta H^{\circ}_{r}}{RT^{2}}dT.
+\end{displaymath}
+We have already calculated $K$ at 298.15 at Example~\ref{Example:4}, $K= 0.1484$. The standard heat of reaction is obtained from the fundamental enthalpy relation, $dH= C_{p}dT$, and 
+\begin{displaymath}
+     \Delta H^{\circ}_{r} = \summation[\nu_{i}\Delta H^{\circ}_{i,f}]{i}{} \;\;\;\Longrightarrow\;\;\; \int\limits_{\Delta H^{\circ}_{r,298.15}}^{\Delta H^{\circ}_{r,T}}d\left(\Delta H^{\circ}_{r}\right) = \int\limits_{298.15\text{ K}}^{T}\summation[\nu_{i} C_{p,i}]{i}{}dT.
+\end{displaymath}
+The first in this calculation is to obtain an expression for the right-hand side integration, \ie the summation term $\Delta C_{p}^{\circ} = \summation[\nu_{i} C_{p,i}]{i}{}$, using (for simplicity in the notation) $NO_{2}$:1 and $N_{2}O_{4}$:2,
+\begin{eqnarray}
+   \Delta C_{p}^{\circ} &=& \summation[\nu_{i} C_{p,i}]{i}{} = (+2) \left(a_{1}+b_{1}T+c_{1}T^{2}+d_{1}T^{3}\right) + (-1)\left(a_{2}+b_{2}T+c_{2}T^{2}+d_{2}T^{3}\right) \nonumber \\
+                     &=& 12.804 - 7.239\times 10^{-2}T + 4.301\times 10^{-5} T^{2} + 15.732\times 10^{-9}T^{3} \nonumber 
+\end{eqnarray}
+And the integration becomes $\left(\text{with }\Delta H^{\circ}_{r,298.15} = 56189\text{ J.mol}^{-1}\right)$
+\begin{eqnarray}
+    && \Delta H^{\circ}_{r}(T) - \Delta H^{\circ}_{r,298.15} = \int\Delta C_{p}^{\circ}dT \nonumber \\
+    && \Delta H^{\circ}_{r}(T) = 56189 + 12.804 T - \frc{7.239\times 10^{-2}}{2}T^{2} + \frc{4.301\times 10^{-5}}{3}T^{3} + \frc{15.732\times 10^{-9}}{4}T^{4} \nonumber
+\end{eqnarray}
+Now applying into the Van't Hoff equation,
+\begin{eqnarray}
+  \ln{\left(\frc{K(T)}{K_{298.15\text{ K}}}\right)} &=& \int\limits_{298.15\text{ K}}^{T}\frc{\Delta H^{\circ}_{r}}{RT^{2}}dT \nonumber \\
+                                                &=& \frc{1}{R}\int\limits_{298.15\text{ K}}^{T} \left[\frc{56189}{T^{2}} + \frc{12.804}{T} - \frc{7.239\times 10^{-2}}{2} + \frc{4.301\times 10^{-5}}{3}T + \frc{15.732\times 10^{-9}}{4}T^{2}\right]dT \nonumber \\
+                                                &=& \frc{1}{R}\left[-\frc{56189}{T} + 12.804\ln{T} - \frc{7.239\times 10^{-2}}{2}T + \frc{4.301\times 10^{-5}}{6}T^{2} + \frc{15.732\times 10^{-9}}{12}T^{3}\right]_{298.15\text{ K}}^{T} \nonumber
+\end{eqnarray}
+Solving this integral for
+\begin{displaymath}
+  \begin{cases}
+      K_{250\text{ K}} = 1.7298\times 10^{-3} \\
+      K_{400\text{ K}} = 51.4338
+  \end{cases}  
+\end{displaymath}
+Now, using the expression obtained in Example~\ref{Example:4}, assuming that the initial number of moles are $n_{N_{2}O_{4},0}=1$ and $n_{NO_{2},0}=0$, an $\nu= 2-1 = 1$,
+         \begin{displaymath}
+            y_{N_{2}O_{4}} = \frc{1-\varepsilon}{1+\varepsilon}\;\;\;\;\;\text{ and }\;\;\;\;\;\; y_{NO_{2}} = \frc{2\varepsilon}{1+\varepsilon},
+         \end{displaymath}
+         leading to
+         \begin{displaymath}
+             K = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)} = \frc{\left(\frc{2\varepsilon}{1+\varepsilon}\right)^{2}}{\left(\frc{1-\varepsilon}{1+\varepsilon}\right)}
+         \end{displaymath}
+         Solving for
+         \begin{displaymath}
+           \begin{cases}
+             K_{250\text{ K}}   = 1.7298\times10^{-3} \;\;\Longrightarrow \varepsilon = 0.02079 \;\;\Longrightarrow \;\; y_{NO_{2}} = 0.0407 \text{ and } y_{N_{2}O_{4}} = 0.9593 \\
+             K_{298.15\text{ K}} = 0.1484 \hspace{1.cm} \Longrightarrow  \varepsilon = 0.1891  \hspace{.35cm} \Longrightarrow \;\; y_{NO_{2}} = 0.3181 \text{ and } y_{N_{2}O_{4}} = 0.6819 \\
+             K_{400\text{ K}}   = 51.4331 \hspace{1.2cm} \Longrightarrow \varepsilon = 0.9632  \hspace{.35cm} \Longrightarrow \;\;  y_{NO_{2}} = 0.9813 \text{ and } y_{N_{2}O_{4}} = 0.0187 \\
+           \end{cases}
+         \end{displaymath}
+         
+
+
+
+
+
+  
+
+
+
+
+
 
 
 
