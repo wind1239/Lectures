@@ -1,8 +1,8 @@
 % Aberdeen style guide should be followed when using this
 % layout. Their template powerpoint slide is used to extract the
 % Aberdeen color and logo but is otherwise ignored (it has little or
-% no formatting in it anyway).
-%
+% no formatting in it anyway).   
+% 
 % http://www.abdn.ac.uk/documents/style-guide.pdf
 
 %%%%%%%%%%%%%%%%%%%% Document Class Settings %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -65,8 +65,8 @@
    \begin{enumerate}
      \item<1-> In the previous modules we studied thermodynamic relations in non-reactive systems;
      \item<1-> In Modules 4 and 5 we focused on systems involving mixtures of components in gas and liquid phases behaving as ideal and non-ideal gases and solutions;
-     \item<2-> Most of the thermodynamic relations can be readily extended to systems involving single and multiple reactions across single and multiple phases;
-     \item<2-> The aim of this module is to study equilibrium state of homogeneous (i.e., single phase) chemical reactions.
+     \item<2-> Most of the thermodynamic relations can be extended to systems involving single and multiple reactions across single and multiple phases;
+     \item<2-> The aim of this module is to study equilibrium state of homogeneous (\ie single phase) chemical reactions.
    \end{enumerate}
 \end{frame}
 
@@ -88,10 +88,83 @@
 \end{frame}
 
 
-%%%
+%%%  
 %%% SECTION
 %%%
 \section{Introduction}
+
+%%% SECTION
+\subsection{Chemical Reactions}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Kinetics $\times$ Thermodynamics}
+
+  \begin{block}{\begin{center}General Chemical Reaction\end{center}}
+     Given the chemical reaction below
+        \reaction{ A (g) <=>[r_{k}] B (g) + C (g) }
+  \end{block}  
+
+   \begin{enumerate}[a)]
+       \item<1-> $r_{k}$ represents the rate of reaction, \ie the `speed' of the reaction. The rate of reaction measures how 'fast' or 'slow' reactant ($A$) has been consumed and products ($C$ and $D$) have been produced;
+       \item<1-> Therefore, the rate of reaction is proportional to the amount of chemical species in the system, \eg
+             \begin{displaymath}
+                  r_{k} = \kappa [A]^{m_{1}}[B]^{m_{2}}[C]^{m_{3}},
+             \end{displaymath}
+             where the proportionality constant $\kappa$ is the {\it rate constant}, [$\Theta$] is the concentration of the chemical species and the coefficients $m_{i}$ are the order of the reactant;
+       \item<1-> \blue{Chemical Kinetics} studies reactions' progress, \ie `speed' of consumption of reactants and production of products and mechanisms of reactions;
+   \end{enumerate}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Kinetics $\times$ Thermodynamics}
+
+  \begin{block}{\begin{center}General Chemical Reaction\end{center}}
+     Given the chemical reaction below
+        \reaction[chemreaction:reaction0b]{ A (g) <=>[K_{e}] B (g) + C (g) }
+  \end{block}  
+
+   \begin{enumerate}[a)]
+       \item<1-> $K_{e}$ is the thermodynamic equilibrium constant and `measures how much product and reactants exist in the mixture at equilibrium',
+       \item<1-> The equilibrium constant takes into account the conditions ($T$ and $P$) that lead a given set of reactions into equilibrium, \eg
+             \begin{displaymath}
+                  K_{e} = \frc{a_{B}a_{C}}{a_{A}}
+             \end{displaymath}
+             where $a_{i}$ is activity of  chemical species. 
+       \item<1-> \blue{Chemical Reaction Thermodynamics } studies state functions and conditions necessary to {\it maximum} conversion of species;
+       \item<1-> Reactions that leads to $\sim$100$\%$ of conversion are called \blue{irreversible}, whereas;
+       \item<1-> Reactions that have conversion rates significantly smaller than 100$\%$ are called \blue{reversible}.
+   \end{enumerate}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Homogeneous $\times$ Heterogeneous Chemical Reactions}
+  \visible<1->{\begin{block}{\begin{center}Homogeneous Chemical Reaction\end{center}}
+        \reaction[chemreaction:reaction0c]{ A (g) <=> B (g) + C (g) }
+        Reactions that occur in a single phase (either gaseous, liquid or solid) are called \blue{homogeneous} reactions.
+  \end{block} } 
+
+  \visible<1->{\begin{block}{\begin{center}Heterogeneous Chemical Reaction\end{center}}
+        \reaction[chemreaction:reaction0c]{ A (g) <=> B (s) + C (g) }
+        Reactions that occur in multiple phases are called \blue{heterogeneous} reactions.
+  \end{block}  }
+\end{frame}
+\normalsize
+
+
 
 %%%
 %%% Slide
@@ -105,18 +178,15 @@
   \end{block}
 
   \begin{enumerate}
-%    \item<1-> General chemical reaction: 
-%        \visible<1->{\reaction[chemreaction:reaction]{\nu_{1} A_{1} + \nu_{2} A_{2}  + ... \nu_{k} A_{k} <=>[\text{K$_{e}$}] \nu_{l} A_{l} + \nu_{m} A_{m} + ... + \nu_{z} A_{z} \nonumber}
-%        where $\nu_{i}$ represent \blue{molar stoichiometric coefficients} and $A_{i}$ are chemical species.}
-    \item<2-> Change in quantities as reaction progresses:
+    \item<1-> Change in quantities as reaction progresses:
         \visible<2->{\begin{displaymath}
            \frc{d n_{1}}{\nu_{1}}  =  \frc{d n_{2}}{\nu_{2}} = \cdots =  \frc{d n_{k}}{\nu_{k}} = \cdots = \frc{d n_{z}}{\nu_{z}}  \blue{\Longrightarrow \frc{d n_{i}}{\nu_{i}} = \text{constant} }
         \end{displaymath}}
-    \item<3-> Reaction coordinate $\varepsilon$,
+    \item<1-> Reaction coordinate $\varepsilon$,
         \visible<3->{\begin{displaymath}
            \frc{d n_{i}}{\nu_{i}} =  d \varepsilon_{i} \hspace{.5cm}\Longleftrightarrow\hspace{.5cm} d n_{i} = \nu_{i} d\varepsilon 
         \end{displaymath}}
-    \item<4-> Mole fractions of species:
+    \item<1-> Mole fractions of species:
         \visible<4->{\begin{displaymath}
            y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0}+\nu_{i}\varepsilon}{n_{0}+\nu\varepsilon}
         \end{displaymath}}     
@@ -178,7 +248,7 @@
      \end{column}
      \begin{column}[l]{0.5\linewidth}%\scriptsize
         \begin{itemize} 
-           \item<1-> From Module 04 we studied that the equilibrium criteria can be described as function of state properties (i.e., $G$, $S$, $U$ and $A$);
+           \item<1-> From Module 04 we studied that the equilibrium criteria can be described as function of state properties (i.e., $G$, $S$, $U$, $H$ and $A$);
            \item<2-> In reactive systems, at constant $T$ and $P$, the equilibrium is reached when the \blue{total Gibbs energy} is \red{minimum}, i.e., 
                \visible<1->{\begin{displaymath}
                   \left(d G^{t}\right)_{T,P} = 0 
@@ -202,22 +272,26 @@
 \begin{frame}
   \frametitle{Reaction Equilibrium: Equilibrium Constant}
       \begin{enumerate} 
-         \item<1-> Criterion:
+        \item<1-> The total Gibbs free energy of a system of homogeneous chemical reactions can be represented by the individual contributions for reacting species,
             \visible<1->{\begin{displaymath}
-                \sum\limits_{i} \nu_{i}\mu_{i} = 0      
+                G^{t} = \summation[n_{i}\overline{G}_{i}]{i=1}{\mathcal{C}} = \summation[\left(n_{i,0}+\nu_{i}\varepsilon\right)\overline{G}_{i}]{i=1}{\mathcal{C}}
+            \end{displaymath}
+            leading to }
+            \visible<2->{\begin{displaymath}
+                \summation[\nu_{i}\overline{G}_{i}]{i=1}{\mathcal{C}} = 0  = \summation[\nu_{i}\mu_{i}]{i=1}{\mathcal{C}} \;\;\;\red{\text{(equilibrium criteria)}}
             \end{displaymath}}
-         \item<2-> Equilibrium constant $K$:
-               \visible<2->{\begin{displaymath}
-                  \prod\limits_{i}\left(\frc{\overline{f}_{i}}{f_{i}^{0}}\right)^{\nu_{i}} = K =\exp\left(\frc{-\Delta G^{0}}{RT}\right)
-               \end{displaymath}}
-         \item<3-> Standard heat of reaction:
-               \visible<2->{\begin{displaymath}
-                   \Delta H^{0} = -RT^{2}\left[\frc{d \left(\frac{\Delta G^{0}}{RT}\right)}{d T }\right]
-               \end{displaymath}}
+        \item<2-> Defining the {\it standard state} \blue{$\left(^{\circ}\right)$} as the state in which
+            \begin{enumerate}
+               \item<2-> $P=1$ atm {\bf and};
+               \item<2-> component is pure $\left(\text{\ie } x_{i}^{\circ}=1\right)$ {\bf or } component at infinite dilution $\left(\text{\ie } x_{i}^{\infty}=x_{i}^{\circ}=0\right)$ {\bf or} {\it ideal 1 molal solution}.
+            \end{enumerate}
+         \item<3-> \blue{(Gibbs at reaction conditions - Gibbs at standard conditions)} is represented by {\it activities} of the reacting species, \ie
+            \visible<3->{\begin{displaymath}
+                \overline{G}\left(T,P, x_{i}\right)  - \overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right) = RT\ln{\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}} = RT\ln{a_{i}}
+            \end{displaymath}}
+
       \end{enumerate}
 \end{frame}
-\normalsize
-
 
 %%%
 %%% Slide
@@ -225,28 +299,19 @@
 %\scriptsize
 \begin{frame}
   \frametitle{Reaction Equilibrium: Equilibrium Constant}
-  \begin{columns}
-     \begin{column}[l]{0.5\linewidth}\scriptsize
-          \hspace{-3.1cm}\includegraphics[width=1.5\columnwidth,clip]{./../Pics/ChemicalReactions_EquilConstPlot}
-     \end{column}
-     \begin{column}[l]{0.5\linewidth}%\scriptsize
-        \begin{enumerate} \setcounter{enumi}{3}
-            \item<1-> Temperature Effects:
-                \begin{enumerate}%\scriptsize
-                   \item<1-> On equilibrium constant:
-                      \visible<1->{\begin{displaymath}\scriptsize
-                         \frc{d\ln K}{d T} = \frc{\Delta H^{0}}{RT^{2}}
-                      \end{displaymath}}
-                   \item<2-> On standard heat of reaction:
-                      \visible<2->{\begin{displaymath}\scriptsize
-                         \Delta H^{0} = \Delta H_{0}^{0} + R\int\limits_{T_{0}}^{T} \frc{\Delta C_{p}}{R}dT
-                      \end{displaymath}}
-                \end{enumerate}
-        \end{enumerate}
-     \end{column}
-  \end{columns}
+      \begin{block}{\begin{center}Equilibrium Constant\end{center}}
+            Let's consider the generic chemical reaction,
+               \begin{displaymath}
+                   \nu_{1} A_{1} + \nu_{2} A_{2}  + \cdots  \Longleftrightarrow \nu_{m} A_{m} + \nu_{n} A_{n} + \cdots  
+               \end{displaymath} 
+            The equilibrium constant $K$ is expressed as,
+               \begin{displaymath}
+                  \blue{K = \exp\left(\frc{-\Delta G_{r}^{\circ}}{RT}\right) = \prod\limits_{i=1}^{\mathcal{C}}\left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i}} = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}}}
+               \end{displaymath}
+               where $\Delta G_{r}^{\circ}=\summation[\nu_{i}\overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right)]{i}{}$ is the Gibbs energy change on reaction with each species (reactants and products) in its standard state.
+      \end{block}
+
 \end{frame}
-\normalsize
 
 
 %%%
@@ -254,24 +319,85 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Reaction Equilibrium: Equilibrium Constant}
-        \begin{enumerate} \setcounter{enumi}{4}
-            \item<1-> Composition Effects:
-                \begin{enumerate}%\scriptsize
-                   \item<1-> In gas-phase reactions:
-                      \visible<1->{\begin{displaymath}\scriptsize
-                         \red{\prod\limits_{i}\left(y_{i}\phi_{i}\right)^{\nu_{i}} =K \left(\frc{P}{P^{0}}\right)^{-\nu},\hspace{1cm}\text{where } \nu=\sum\limits_{i}\nu_{i}}
-                      \end{displaymath}}
-                   \item<2-> In liquid phase reactions:
-                      \visible<2->{\begin{displaymath}\scriptsize
-                        \prod\limits_{i}\left(y_{i}\gamma_{i}\right)^{\nu_{i}} = K\exp\left[\frc{P^{0}-P}{RT}\sum\limits_{i}\left(\nu_{i}V_{i}\right)\right]^{-\nu},
-                      \end{displaymath}}
-                   \visible<2->{assuming that the liquid is incompressible with molar volume $V_{i}$.}
-                   %\item<3-> Equilibrium conversion \blue{$\varepsilon_{e}$}
-                \end{enumerate} 
-        \end{enumerate}
+  \frametitle{Reaction Equilibrium:  Dependence of $K$ with Temperature } 
+     \begin{center}
+          \includegraphics[width=.95\columnwidth,height=0.65\columnwidth,clip]{./../Pics/ChemicalReactions_EquilConstPlotb} 
+     \end{center} 
+
 \end{frame}
-\normalsize
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Reaction Equilibrium:  Dependence of $K$ with Temperature } 
+
+      \begin{enumerate} \setcounter{enumi}{3} 
+         \item<1-> If the standard state of each chemical species in the reaction is chosen to be $T=298.15$ K and $P= 1$ atm,
+         \begin{displaymath}
+              \Delta G_{r}^{\circ} \left(T=298.15\text{ K}\right) = \summation[\nu_{i}\Delta G_{i,f}^{\circ}\left(T=298.15\text{ K}\right)]{i}{},
+         \end{displaymath}
+         where $\Delta G_{i,f}^{\circ}$ is the standard state Gibbs free energy of formation, which can be obtained for a large number of chemical species in any Chemical Engineering Handbook.
+      \end{enumerate}
+
+      \visible<2->{\begin{block}{\begin{center}Van't Hoff Equation\end{center}}
+            The Van't Hoff equation can help obtaining the {\it equilibrium constant} at any temperature by integrating from $T=298.15$,
+               \begin{displaymath}
+                 \frc{d\left(\ln{K}\right)}{dT} = \frc{\Delta H^{\circ}_{r}}{RT^{2}} \;\;\;\;\;\text{ or }\;\;\;\;\; \frc{d}{dT}\left(\Delta G^{\circ}_{r}/RT\right) = -\frc{d\left(\ln{K}\right)}{dT} = -\frc{\Delta H^{\circ}_{r}}{RT^{2}}
+               \end{displaymath} 
+            where $\Delta H^{\circ}_{r}$ is the {\it standard heat (or enthalpy) of reaction}.
+      \end{block}}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Reaction Equilibrium:  Dependence of $K$ with Composition } 
+      \begin{enumerate} \setcounter{enumi}{4} 
+         \item<1-> From 
+           \begin{displaymath}
+                K = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}} = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i}},
+           \end{displaymath} 
+         \item<2-> And considering for gaseous species that $\overline{f}_{i}^{\circ}=P^{\circ}=1$ atm and $\overline{f}_{i} = \overline{\phi}_{i}y_{i}P$;
+      \end{enumerate}
+
+      \visible<3->{\begin{block}{\begin{center}Gaseous Phase\end{center}}
+               \begin{eqnarray}
+                  && \prod\limits_{i=1}^{\mathcal{C}} \left(\overline{\phi}_{i}y_{i}\right)^{\nu_{i}} = K\left(\frc{P}{P^{\circ}}\right)^{-\nu}\;\;\;\;\blue{\text{ (for gaseous phase).}} \nonumber\\
+                  && \prod\limits_{i=1}^{\mathcal{C}} y_{i}^{\nu_{i}} = K\left(\frc{P}{P^{\circ}}\right)^{-\nu}\;\;\;\;\blue{\text{ (for ideal gases).}}\nonumber
+               \end{eqnarray} 
+      \end{block}
+      where $\nu=\summation[\nu_{i}]{i}{}$,}
+\end{frame}
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Reaction Equilibrium:  Dependence of $K$ with Composition } 
+      \begin{enumerate} \setcounter{enumi}{6} 
+         \item<1-> From 
+           \begin{displaymath}
+                K = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}} = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i}},
+           \end{displaymath} 
+         \item<2-> And using $\overline{f}_{i} = \gamma_{i}x_{i}f_{i}$, where $f_{i}$ is the fugacity of pure component $i$ in the liquid phase at $P$ and $T$
+      \end{enumerate}
+
+      \visible<3->{\begin{block}{\begin{center}Liquid Phase\end{center}}
+               \begin{displaymath}
+                     \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} = K\exp{\left[\frc{P^{\circ}-P}{RT}\summation[V_{i}\nu_{i}]{i=1}{\mathcal{C}}\right]}\;\;\;\;\blue{\text{ (for liquid phase).}}
+               \end{displaymath} 
+           and for the following particular cases,
+               \begin{displaymath}
+                      K = 
+                          \begin{cases}
+                               \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}}  & \blue{\text{ (for liquid phase at room pressure conditions);}}  \\
+                               \prod\limits_{i=1}^{\mathcal{C}}x_{i}^{\nu_{i}}  & \blue{\text{ (for ideal solutions).}} 
+                          \end{cases}
+               \end{displaymath}
+      \end{block}}
+\end{frame}
 
 %%%
 %%% SUBSECTION
@@ -307,22 +433,27 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Multi-Reaction Equilibrium}
-     \begin{enumerate} %\setcounter{enumi}{4}
-        \item<1-> For a gas phase system (ideal gas):
-            \visible<1->{\begin{displaymath}
-               \red{\prod_{i}\left(y_{i}\right)^{\nu_{i,j}} = \left(\frc{P}{P^{0}}\right)^{-\nu_{i,j}}K_{j}}
-            \end{displaymath}}
-        \item<2-> Elemental material balance,
-            \visible<2->{\begin{displaymath}
-               \sum\limits_{i}n_{i}a_{ik} = A_{k}
-            \end{displaymath}
-            where \blue{$k$} and \blue{$i$} represent element and molecular species. \blue{$A$} is the total number of atomic masses and \blue{$a$} is the number of atoms.}
-        \item<3-> Standard Gibbs energy change:
-            \visible<3->{\begin{displaymath}  
-               \Delta G^{0}_{f_{i}} + RT\ln\left(\frc{y_{i}\overline{\phi}_{i}P}{P^{0}}\right) + \sum\limits_{k}\lambda_{k}a_{ik} = 0\;\;\;i=1,2,\cdots,\mathcal{C}
-               \end{displaymath}} 
-     \end{enumerate}
+  \frametitle{Multiple Simultaneous Reactions}
+      Let's consider a set of $\mathcal{R}$ {\it independent reactions} involving $\mathcal{C}$ chemical species, 
+               \begin{eqnarray}
+                     \nu_{1,1}A_{1,1} (g) + \nu_{2,1}A_{2,1} &\Longleftrightarrow& \nu_{3,1}A_{3,1} (g) + \nu_{4,1}A_{4,1} (g) \nonumber\\
+                     \nu_{5,2}A_{5,2} (g) + \nu_{6,2}A_{6,2} &\Longleftrightarrow& \nu_{7,2}A_{7,2} (g) + \nu_{8,2}A_{8,2} (g)  \nonumber\\
+                                 \vdots               &\Longleftrightarrow&     \vdots                         \nonumber\\
+                     \nu_{\mathcal{C}-3,\mathcal{R}}A_{\mathcal{C}-3,\mathcal{R}} (g) + \nu_{\mathcal{C}-2,\mathcal{R}}A_{\mathcal{C}-2,\mathcal{R}} &\Longleftrightarrow& \nu_{\mathcal{C}-1,\mathcal{R}}A_{\mathcal{C}-1,\mathcal{R}} (g) + \nu_{\mathcal{C},\mathcal{R}}A_{\mathcal{C},\mathcal{R}} (g) \nonumber
+               \end{eqnarray}
+      the equilibrium constant for each reaction is given by an extension of the previous equations
+
+        \visible<1->{\begin{block}{\begin{center}Simultaneous Reactions\end{center}}
+               \begin{displaymath}
+                      K = 
+                          \begin{cases}
+                               \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{P^{\circ}}\right)^{\nu_{i,j}}, & \blue{\text{(gas phase),}} \\
+                                                                   & \\
+                               \left(\frc{P}{P^{\circ}}\right)^{-\nu_{i,j}}\prod\limits_{i=1}^{\mathcal{C}} \left(y_{i}\right)^{\nu_{i,j}}, &\blue{\text{(ideal gas mixture).}}
+                          \end{cases}
+               \end{displaymath}
+      \end{block}}
+
 \end{frame}
 \normalsize
 
