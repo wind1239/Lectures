@@ -1,6 +1,6 @@
 
-\documentclass[calculator,allquestions,datasheet,solutions]{exam_newMarcus2}
-%\documentclass[calculator,allquestions,datasheet]{exam_newMarcus2}
+%\documentclass[calculator,allquestions,datasheet,solutions]{exam_newMarcus2}
+\documentclass[calculator,allquestions,datasheet]{exam_newMarcus2}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -115,7 +115,7 @@ In a saturated liquid mixture of benzene and toluene containing 45 mol$\%$ of be
 and replacing the Raoult law, $y_{i}=\frac{x_{i}P_{i}^{\text{sat}}}{P}$, in the constraint relation,~\solmarks{1/10}
 \begin{eqnarray}
    P &=& x_{1}P_{1}^{\text{sat}} + x_{2}P_{2}^{\text{sat}} \nonumber \\
-     &=& x_{1}\exp{\left(A_{1}-\frc{B_{1}}{T+C_{1}}\right)} + x_{2}\exp{\left(A_{2}-\frc{B_{2}}{T+C_{2}}\right)} 
+     &=& x_{1}\exp{\left(A_{1}-\frc{B_{1}}{T+C_{1}}\right)} + x_{2}\exp{\left(A_{2}-\frc{B_{2}}{T+C_{2}}\right)}  \nonumber
 \end{eqnarray}
 Solving this non-linear equation we obtain the bubble temperature of the benzene-toluene mixture as $T=391.79$ K.~\solmarks{3/10} In order to calculate the compositions, we should use the Raoult's relation with P$_{1}^{\text{sat}} = 289.01$ kPa~\solmarks{1/10},~\solmarks{4/10}
 \begin{displaymath}
@@ -132,7 +132,7 @@ Solving this non-linear equation we obtain the bubble temperature of the benzene
 and replacing the Raoult law, $y_{i}=\frac{x_{i}P_{i}^{\text{sat}}}{P}$, in the constraint relation,~\solmarks{1/10}
 \begin{eqnarray}
    P &=& x_{1}P_{1}^{\text{sat}} + x_{2}P_{2}^{\text{sat}} \nonumber \\
-     &=& x_{1}\exp{\left(A_{1}-\frc{B_{1}}{T+C_{1}}\right)} + x_{2}\exp{\left(A_{2}-\frc{B_{2}}{T+C_{2}}\right)} 
+     &=& x_{1}\exp{\left(A_{1}-\frc{B_{1}}{T+C_{1}}\right)} + x_{2}\exp{\left(A_{2}-\frc{B_{2}}{T+C_{2}}\right)}  \nonumber
 \end{eqnarray}
 Solving this equation for $T = 400$ K results in $P=245.28$ kPa.~\solmarks{3/10} In order to calculate the compositions, we should use the Raoult's relation with P$_{1}^{\text{sat}} = 352.16$ kPa~\solmarks{1/10},~\solmarks{4/10}
 \begin{displaymath}
@@ -148,7 +148,7 @@ For this problem, benzene and toluene mixtures may be considered as ideal and yo
 \begin{displaymath}
    \ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{T + C}
 \end{displaymath} 
-with [P] = bar, [T] = K, [B] = K and [C] = K.
+with [P] = kPa, [T] = K, [B] = K and [C] = K.
     \begin{center}
        \begin{tabular}{l | c c c}   
            {\bf Species}  &   {\bf A } &  {\bf B } &  {\bf C } \\
@@ -185,11 +185,11 @@ Determine:
                 \end{displaymath}
             Thus, the standard free Gibbs energy change of the mixture at 25$^{\circ}$C can be obtained from the~\solmarks{3/8}
               \begin{displaymath}
-                  \Delta G^{\circ}_{\text{mix},298} =  \Delta G^{\circ}_{\text{mix},1} + 2 \Delta G^{\circ}_{\text{mix},2} = 1.07 \text{kcal.mol}^{-1} = 4479.88 \text{J.mol}^{-1}
+                  \Delta G^{\circ}_{298} =  \Delta G^{\circ}_{1} + 2 \Delta G^{\circ}_{2} = 1.07 \text{ kcal.mol}^{-1} = 4479.88 \text{ J.mol}^{-1}
               \end{displaymath}
            The equilibrium constant at 25$^{\circ}$C is given by~\solmarks{3/8} 
           \begin{displaymath}
-              K_{\text{eq},298} = \exp{\left[-\frc{\Delta G^{\circ}_{\text{mix},298}}{R T}\right]} = 0.1641
+              K_{\text{eq},298} = \exp{\left[-\frc{\Delta G^{\circ}_{298}}{R T}\right]} = 0.1641
           \end{displaymath}
 }
 % 
@@ -232,15 +232,17 @@ Determine:
         For this problem, you should consider the following reaction data:   
        \begin{center}
           \begin{tabular}{c l l l}
-             (1) &$N_{2}O_{4}\text{(g)}\Leftrightarrow N_{2}\text{(g)} + 2O_{2}\text{(g)}$; & $\Delta G^{\circ}_{\text{mix},1} = -\left(\Delta G^{\circ}_{f,298}\right)_{N_{2}O_{4}}$ & =  23.41 kcal.mol$^{-1}$  \\
-             (2) & $0.5N_{2}\text{(g)}+O_{2}\text{(g)}\Leftrightarrow NO_{2}\text{(g)}$; & $\Delta G^{\circ}_{\text{mix},2} = \left(\Delta G^{\circ}_{f,298}\right)_{NO_{2}}$ & = 12.24 kcal.mol$^{-1}$ 
+             (1) &$N_{2}O_{4}\text{(g)}\Leftrightarrow N_{2}\text{(g)} + 2O_{2}\text{(g)}$; & $\left(\Delta G^{\circ}_{f,298}\right)_{N_{2}O_{4}}$ & =  -23.41 kcal.mol$^{-1}$  \\
+% & $\Delta G^{\circ}_{\text{mix},1} = -\left(\Delta G^{\circ}_{f,298}\right)_{N_{2}O_{4}}$ & =  23.41 kcal.mol$^{-1}$  \\
+             (2) & $0.5N_{2}\text{(g)}+O_{2}\text{(g)}\Leftrightarrow NO_{2}\text{(g)}$; & $\left(\Delta G^{\circ}_{f,298}\right)_{NO_{2}}$ & = 12.24 kcal.mol$^{-1}$ 
+%$\Delta G^{\circ}_{\text{mix},2} = \left(\Delta G^{\circ}_{f,298}\right)_{NO_{2}}$ & = 12.24 kcal.mol$^{-1}$ 
           \end{tabular}
        \end{center}
           where $G^{\circ}_{f,298}$ is the standard molar free Gibbs energy of formation. Also, the equilibrium constant at 25$^{\circ}$C is given by
           \begin{displaymath}
-              K_{\text{eq},298} = \exp{\left[-\frc{\Delta G^{\circ}_{\text{mix},298}}{R T}\right]}
+              K_{\text{eq},298} = \exp{\left[-\frc{\Delta G^{\circ}_{298}}{R T}\right]}
           \end{displaymath}
-          where $R\left(=8.314\frc{\text{J}}{\text{mol.K}}\right)$ is the molar gas constant and $\Delta G^{\circ}_{\text{mix},298}$ is the standard free Gibbs energy change of the mixture. Assume ideal gas behaviour.
+          where $R\left(=8.314\frc{\text{J}}{\text{mol.K}}\right)$ is the molar gas constant and $\Delta G^{\circ}_{298}$ is the standard free Gibbs energy change of the mixture. Assume ideal gas behaviour.
 %
 \end{question}
 
@@ -342,7 +344,7 @@ and ${\bf y_{1}=\frc{\mathcal{H}_{1}x_{1}}{P}=0.9}$.~\solmarks{5/10}
     {\bf B}  &    0.89                           & 1.8 $x_{A}^{2}$
 \end{tabular} 
 \end{center}
-Assuming that $y_{i}P = x_{i}\gamma_{i}P_{i}^{\text{sat}}$ (where $\gamma_{i}$ is the activity coefficient of species $i$) is valid, calculate the pressure $P$ and the vapour mole fraction $y_{A}$ for a liquid mole fraction $x_{A}=0.65$.~\marks{10}
+Assuming that $y_{i}P = x_{i}\gamma_{i}P_{i}^{\text{sat}}$ (where $\gamma_{i}$ is the activity coefficient of species $i$) is valid, calculate the pressure $P$ and the vapour mole fraction $y_{A}$ for a liquid mole fraction of $x_{A}=0.65$.~\marks{10}
 %
 \solution{With $x_{A}$ =0.65 and $x_{B}$=0.35, we can calculate the activity coefficients, $\gamma_{A}$ and $\gamma_{B}$, and apply in~\solmarks{5/10}
      \begin{displaymath}
