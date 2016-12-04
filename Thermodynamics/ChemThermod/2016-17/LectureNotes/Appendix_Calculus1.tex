@@ -167,16 +167,16 @@ thus,
 %%% SUBSECTION
 \subsection{Total Differentials:} Given a function $\phi\left(x_{1},x_{2},x_{3},\cdots,x_{n-1},x_{n}\right)$ of $n$ independent variables, the {\it total differential} of $\phi$, $d\phi$, is defined as
   \begin{eqnarray}
-     \d{\phi} &=& \sum\limits_{i=1}^{n}\left(\frc{\partial \phi}{\partial x_{i}}\right)_{x_{j\neq i}}\d{x_{i}} \nonumber \\
-     &=& \left(\frc{\partial\phi}{\partial x_{1}}\right)_{x_{2},\cdots,x_{n}}\d{x_{1}} + \left(\frc{\partial\phi}{\partial x_{2}}\right)_{x_{1},x_{3},\cdots,x_{n}}\d{x_{2}} + \cdots +  \left(\frc{\partial\phi}{\partial x_{n}}\right)_{x_{1},x_{2},\cdots,x_{n-1}}\d{x_{n}} \nonumber 
+     d\phi &=& \sum\limits_{i=1}^{n}\left(\frc{\partial \phi}{\partial x_{i}}\right)_{x_{j\neq i}} d x_{i} \nonumber \\
+     &=& \left(\frc{\partial\phi}{\partial x_{1}}\right)_{x_{2},\cdots,x_{n}} d x_{1} + \left(\frc{\partial\phi}{\partial x_{2}}\right)_{x_{1},x_{3},\cdots,x_{n}} dx_{2} + \cdots +  \left(\frc{\partial\phi}{\partial x_{n}}\right)_{x_{1},x_{2},\cdots,x_{n-1}} d x_{n} \nonumber 
   \end{eqnarray}
-where $\d{x_{i}}$ is an infinitesimal small increment in $x_{i}$.
+where $d x_{i}$ is an infinitesimal small increment in $x_{i}$.
 
 \noindent
 {\bf Example:} Infinitesimal changes in the ideal gas pressure are expressed as,
   \begin{eqnarray}
-     \d{P} &=& \left(\frc{\partial P}{\partial n}\right)_{V,T}\d{n} + \left(\frc{\partial P}{\partial V}\right)_{n,T}\d{V} + \left(\frc{\partial P}{\partial T}\right)_{n,V}\d{T} \nonumber \\
-     &=& \frc{R T}{V}\d{n} - \frc{n R T}{V^{2}}\d{V} + \frc{n R}{V}\d{T}. \nonumber 
+      d P &=& \left(\frc{\partial P}{\partial n}\right)_{V,T}\d{n} + \left(\frc{\partial P}{\partial V}\right)_{n,T}\d{V} + \left(\frc{\partial P}{\partial T}\right)_{n,V}\d{T} \nonumber \\
+     &=& \frc{R T}{V} d n - \frc{n R T}{V^{2}} d V + \frc{n R}{V} d T. \nonumber 
   \end{eqnarray}
 
 %%% SUBSECTION
@@ -264,23 +264,23 @@ if the limit on the right side exists (or is $\infty$ or $-\infty$).
 \subsection{Exact and Inexact Differential}\index{Line integral!Exact differential}\index{Line integral!Inexact differential}
 Consider that $\mathbf{\Psi}$ is a function of the independent variables $x_{j}$ (with $j=1,2,\cdots,n$),  $\Psi_{i}=\Psi_{i}\left(x_{1},x_{2},\cdots,x_{n}\right)$. An infinitesimal quantity,
    \begin{displaymath}
-      dz = \sum\limits_{i=1}^{n} \Psi_{i}\left(x_{1},x_{2},\cdots,x_{n}\right)\d{x_{i}} =  \Psi_{1}\d{x_{1}} + \Psi_{2}\d{x_{2}} +\cdots + \Psi_{n}\d{x_{n}},
+      dz = \sum\limits_{i=1}^{n} \Psi_{i}\left(x_{1},x_{2},\cdots,x_{n}\right) d x_{i} =  \Psi_{1} d x_{1} + \Psi_{2} d x_{2} +\cdots + \Psi_{n} d x_{n},
    \end{displaymath}
 is called {\it linear differential}\index{Linear differential}. If we focus on a two-dimensional problem, i.e., $\mathbf{\Psi}=\left\{M(x,y),N(x,y)\right\}$,
    \begin{equation}
-      dz = M\d{x} + N\d{y}\label{Appendix_Calculus:Eqn:ExactLinearDifferential}
+      dz = M d x + N d y\label{Appendix_Calculus:Eqn:ExactLinearDifferential}
    \end{equation}
 
 \medskip
-Equation~\ref{Appendix_Calculus:Eqn:ExactLinearDifferential} is an {\it exact differential}\index{Exact differential} if, and only if, there is a function of $x$ and $y$, $\Phi(x,y)$, such that $\d{\Phi}=\d{z}$ for all values of $x$ and $y$. This is equivalent to
+Equation~\ref{Appendix_Calculus:Eqn:ExactLinearDifferential} is an {\it exact differential}\index{Exact differential} if, and only if, there is a function of $x$ and $y$, $\Phi(x,y)$, such that $d \Phi= d z$ for all values of $x$ and $y$. This is equivalent to
    \begin{displaymath}
         \Partial[M]{y}{x} = \Partial[N]{x}{y}.
    \end{displaymath}
 The equation
    \begin{equation}
-      dw = M^{\prime}\d{x} + N^{\prime}\d{y},\label{Appendix_Calculus:Eqn:InexactLinearDifferential}
+      dw = M^{\prime} d x + N^{\prime} d y,\label{Appendix_Calculus:Eqn:InexactLinearDifferential}
    \end{equation}
- is an {\it inexact differential}\index{Inexact differential} if, and only if, there is no function $\Phi(x,y)$, such that $\d{\Phi}=\d{w}$ for all values of $x$ and $y$, thus,
+ is an {\it inexact differential}\index{Inexact differential} if, and only if, there is no function $\Phi(x,y)$, such that $d \Phi = d w$ for all values of $x$ and $y$, thus,
    \begin{displaymath}
         \Partial[M^{\prime}]{y}{x} \neq \Partial[N^{\prime}]{x}{y}.
    \end{displaymath}
@@ -291,7 +291,7 @@ The equation
 \begin{theorem}
    If {\bf F} is a gradient or conservative vector field, i.e., $\mathbf{F}=\mathbf{\nabla}f(x,y)=\langle f_{x}, f_{y}\rangle$ for a {\it potential function} $f$ for the field, and $\mathcal{C}$ is a curve with endpoints $P_{0}=\left(x_{0},y_{0}\right)$ and $P_{1}=\left(x_{1},y_{1}\right)$,
       \begin{eqnarray}
-         \int\limits_{\mathcal{C}}\mathbf{F}\cdot\d{\mathbf{r}} &=& \int\limits_{\mathcal{C}}\mathbf{\nabla}f\d{\mathbf{r}} = \left.f(x,y)\right|_{P_{0}}^{P_{1}}\\
+         \int\limits_{\mathcal{C}}\mathbf{F}\cdot d\mathbf{r} &=& \int\limits_{\mathcal{C}}\mathbf{\nabla}f d \mathbf{r} = \left.f(x,y)\right|_{P_{0}}^{P_{1}}\\
                                                            &=& f\left(P_{1}\right)-f\left(P_{0}\right) = f\left(x_{1},y_{1}\right) - f\left(x_{0},y_{0}\right)\nonumber.
       \end{eqnarray}
 \end{theorem} 
@@ -300,6 +300,6 @@ That is, for gradient fields the line integral is independent of the path taken,
 
 The line integral of a vector field over a {\it simple} (i.e., non-intersecting) {\it closed} (i.e., no endpoints) curve $\mathcal{C}$ is denoted as,\index{Line integral}
         \begin{equation}
-           \oint_{\mathcal{C}}\mathbf{F}\cdot\d{\mathbf{r}} = 0,
+           \oint_{\mathcal{C}}\mathbf{F}\cdot d \mathbf{r} = 0,
         \end{equation}
 i.e., the line integral around all closed paths is 0 $\leftrightarrow$ -- {\it path independence}. \cite{NumericalRecipes,Atkinson_Book}

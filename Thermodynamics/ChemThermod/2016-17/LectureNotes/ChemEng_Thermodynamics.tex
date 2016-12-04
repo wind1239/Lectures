@@ -54,7 +54,7 @@
 \usepackage{perpage}
 \MakeSorted{figure}
 %\usepackage{pdflscape}
-\usepackage{framed}
+\usepackage{framed,comment,lscape}
 \definecolor{shadecolor}{gray}{0.9}
 
 % Appendix allows the inclusion of a line for "appendices", which otherwise won't get the right page number. You must
@@ -128,7 +128,7 @@
 \renewcommand{\baselinestretch}{1.5}
 
 \newenvironment{VarDescription}[1]%
-  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}% 
     \settowidth{\labelwidth}{\textbf{#1:}}%
     \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
   {\end{list}}
@@ -139,24 +139,6 @@
 %%%%%%                              %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Text abbreviations.
-\newcommand{\ie}{{\em{i.e., }}}
-\newcommand{\eg}{{\em{e.g., }}}
-\newcommand{\cf}{{\em{cf., }}}
-\newcommand{\fetch}{FETCH }
-\newcommand{\fmips}{FETCH-MIPS }
-\newcommand{\bw}{B$\$$W }
-\newcommand{\fluidity}{Fluidity }
-\newcommand{\event}{{EVENT }}
-\newcommand{\gem}{GEM }
-\newcommand{\radiant}{RADIANT }
-\newcommand{\wrt}{with respect to}
-\newcommand{\lhs}{left hand side}
-\newcommand{\rhs}{right hand side}
-\newcommand{\vv}{V$\&$V }
-\newcommand{\cse}{CS$\&$E }
-\newcommand{\amcg}{\href{http://amcg.ese.ic.ac.uk}{AMCG }}
-% Commands definining mathematical notation.
 
 % This is for quantities which are physically vectors.
 \renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
@@ -289,8 +271,12 @@
 \newcommand{\blue}{\textcolor{blue}}
 \newcommand{\green}{\textcolor{green}}
 \newcommand{\purple}{\textcolor{purple}}
-\newcommand{\PNDG}[3][error]{P$_{#1}$DG-P$_{#2}$DG$_{#3}$}
+\newcommand{\eg}{{\it e.g., }}
+\newcommand{\ie}{{\it i.e., }}
+\newcommand{\wrt}{{\it wrt }}
 \newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
+\newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}} 
+\newcommand{\summation}[3][error]{\sum\limits_{#2}^{#3}#1}
 %{P$_{#1}$DG-P$_{#2}$DG}%$_{#3}$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -311,9 +297,35 @@
 
 \newcounter{qcounter}
 \newcounter{mcounter}
-\includeonly{Module_01, Module_02}
-%\includeonly{model_introduction, model_reservoir_equations, model_description}
 \DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+%%%%%%%%%% Chemical Reactions %%%%%%%%%%%%%%%%
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[version=3]{mhchem}
+\makeatletter
+\newcounter{reaction}
+%%% >> for article <<
+\renewcommand\thereaction{R6.\,\arabic{reaction}}
+%%% << for article <<
+%%% >> for report and book >>
+%\renewcommand\thereaction{C\,\thechapter.\arabic{reaction}}
+%\@addtoreset{reaction}{chapter}
+%%% << for report and book <<
+\newcommand\reactiontag{\refstepcounter{reaction}\tag{\thereaction}}
+\newcommand\reaction@[2][]{\begin{equation}\ce{#2}%
+\ifx\@empty#1\@empty\else\label{#1}\fi%
+\reactiontag\end{equation}}
+\newcommand\reaction@nonumber[1]{\begin{equation*}\ce{#1}%
+\end{equation*}}
+\newcommand\reaction{\@ifstar{\reaction@nonumber}{\reaction@}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \begin{document}
 
@@ -389,16 +401,20 @@
 \pagenumbering{arabic}% Arabic page numbers (and reset to 1)
 
 \part{Introduction and Review of Basic Concepts}
-\input{Chapter_Introduction.tex} % Introduction and Review of Thermodynamics
+\input{Chapter_Introduction} % Introduction and Review of Thermodynamics
+\input{Chapter_VolumetricPropertiesPureFluids}
 
-\part{Thermodynamic Properties of Fluids}
-\input{Module_02} % Volumetric Properties of Pure Fluids
-
-\part{Power and Refrigeration}
+\part{Thermodynamic Properties of Fluids}  
+\input{Chapter_ThermodynamicPropertiesPureFluids} % Volumetric Properties of Pure Fluids
+\input{Chapter_VapourLiquidEquilibrium}
 
 \part{Liquid Solutions}
+\input{Chapter_SolutionThermodynamics}
 
 \part{Fundamental Chemical Reactions}
+\input{Chapter_ChemicalReactionEquilibrium}
+
+\part{Power and Refrigeration}
 
 \pagebreak
 
@@ -408,8 +424,8 @@
 \part{Appendices}
      \input{Appendix_ConversionTable}
      \input{Appendix_SaturatedTables}
-     \input{Appendix_LogTable}
-     \input{Appendix_Calculus1}
+     \input{Appendix_LogTable} 
+     \input{Appendix_Calculus1}   
      \input{Appendix_NumMethods}
      \input{Appendix_Examples}
   \end{appendix}
