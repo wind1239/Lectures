@@ -1,6 +1,6 @@
 
-%\documentclass[calculator,allquestions,datasheet,solutions]{exam_newMarcus2}
-\documentclass[calculator,allquestions,datasheet]{exam_newMarcus2}
+\documentclass[calculator,allquestions,datasheet,solutions]{exam_newMarcus2}
+%\documentclass[calculator,allquestions,datasheet]{exam_newMarcus2}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -87,7 +87,7 @@ Now for the fugacity equation, either
 && \text{or} \nonumber \\
 &&  \ln{\left(\frc{f}{P}\right)} = -\ln{\left(1-\frc{B}{Z}\right)} - \frc{A}{Z} - \ln{Z} +\left(Z-1\right) \nonumber
 \end{eqnarray}
-leads to $f =\; 1.32\times 10^{6}$ Pa.~\solmarks{8/13}
+leads to $f =\; 1.3250\times 10^{6}\text{ Pa} = 1.3250\text{ MPa}$.~\solmarks{8/13}
 
 }
 %====================
@@ -179,7 +179,7 @@ Determine:
 %
       \item Equilibrium constant of this reaction.~\marks{8}
 %======================
-         \solution{ The reaction $N_{2}O_{4}\text{(g)} \Leftrightarrow 2 NO_{2}\text{(g)}$ may be obtained by combining reactions (1) and (2), i.e.,~\solmarks{2/8}
+         \solution{The reaction $N_{2}O_{4}\text{(g)} \Leftrightarrow 2 NO_{2}\text{(g)}$ may be obtained by combining the linearly independent chemical reactions $(1)$ and $(2)$, i.e.,~\solmarks{2/8}
                 \begin{displaymath}
                      \text{(1) + 2(2)} \Longrightarrow N_{2}O_{4}\text{(g)} \Leftrightarrow 2 NO_{2}\text{(g)}
                 \end{displaymath}
@@ -197,31 +197,27 @@ Determine:
 %======================
          \solution{ The equilibrium constant can also be obtained as a function of the species' activities,~\solmarks{2/12}
              \begin{displaymath} 
-                 K = \frc{a^{2}_{NO_{2}}}{a_{N_{2}O_{4}}} = \frc{\left(\frc{\hat{f}_{NO_{2}}}{f^{\circ}_{NO_{2}}}\right)^{2}}{\left(\frc{\hat{f}_{N_{2}O_{4}}}{f^{\circ}_{N_{2}O_{4}}}\right)}
+                 K = \frc{a^{2}_{NO_{2}}}{a_{N_{2}O_{4}}} = \frc{\left(\frc{\overline{f}_{NO_{2}}}{f^{\circ}_{NO_{2}}}\right)^{2}}{\left(\frc{\overline{f}_{N_{2}O_{4}}}{f^{\circ}_{N_{2}O_{4}}}\right)}
              \end{displaymath}
-             Assuming ideal gas behaviour, $\hat{f}_{i}=P_{i}$, $f^{\circ}_{i}=P^{\circ}_{NO_{2}}=P^{\circ}_{N_{2}O_{4}} =$ 1 atm,~\solmarks{2/12}
+             Assuming ideal gas behaviour, $\overline{f}_{i}=P_{i}$, $f^{\circ}_{i}=P^{\circ}_{NO_{2}}=P^{\circ}_{N_{2}O_{4}} =$ 1 atm,~\solmarks{2/12}
              \begin{displaymath} 
-                 K = \frc{a^{2}_{NO_{2}}}{a_{N_{2}O_{4}}} = \frc{\left(\frc{\hat{f}_{NO_{2}}}{f^{\circ}_{NO_{2}}}\right)^{2}}{\left(\frc{\hat{f}_{N_{2}O_{4}}}{f^{\circ}_{N_{2}O_{4}}}\right)} = \frc{\left(\frc{P_{NO_{2}}}{P^{\circ}_{NO_{2}}}\right)^{2}}{\left(\frc{P_{N_{2}O_{4}}}{P^{\circ}_{N_{2}O_{4}}}\right)} = \frc{\left(\frc{P.y_{NO_{2}}}{1\text{ atm}}\right)^{2}}{\left(\frc{P.y_{N_{2}O_{4}}}{1 \text{ atm}}\right)}  
+                 K = \frc{a^{2}_{NO_{2}}}{a_{N_{2}O_{4}}} = \frc{\left(\frc{\overline{f}_{NO_{2}}}{f^{\circ}_{NO_{2}}}\right)^{2}}{\left(\frc{\overline{f}_{N_{2}O_{4}}}{f^{\circ}_{N_{2}O_{4}}}\right)} = \frc{\left(\frc{P_{NO_{2}}}{P^{\circ}_{NO_{2}}}\right)^{2}}{\left(\frc{P_{N_{2}O_{4}}}{P^{\circ}_{N_{2}O_{4}}}\right)} = \frc{\left(\frc{P.y_{NO_{2}}}{1\text{ atm}}\right)^{2}}{\left(\frc{P.y_{N_{2}O_{4}}}{1 \text{ atm}}\right)}  
              \end{displaymath}
              As $P=$ 1 atm,~\solmarks{1/12}
              \begin{displaymath} 
                  K = \frc{\left(\frc{P.y_{NO_{2}}}{1\text{ atm}}\right)^{2}}{\left(\frc{P.y_{N_{2}O_{4}}}{1 \text{ atm}}\right)}  = \frc{y^{2}_{NO_{2}}}{y_{N_{2}O_{4}}} 
              \end{displaymath}
-             During the reaction,~\solmarks{1/12}
-              \begin{center}
-                   \begin{tabular}{c | c c c}
-                                   & N$_{2}$O$_{4}$  & NO$_{2}$  & Total \\
-                         Initial   &  1            &  0        &  1    \\
-                         Final     &  1 - $\xi$    &  2$\xi$   & 1 + $\xi$       
-                   \end{tabular}
-              \end{center}
-              The mole fractions of N$_{2}$O$_{4}$ and NO$_{2}$ can be expressed as~\solmarks{2/12}
+             Assuming that initially there are 1 mole of N$_{2}$O$_{4}$ and 0 mole of NO$_{2}$, the gaseous composition during the equilibrium is expressed by
+             \begin{displaymath}
+               y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0}+\nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
+             \end{displaymath}
+             with $n_{N_{2}O_{4},0}=1$, $n_{NO_{2},0}=0$, $\nu_{N_{2}O_{4}}=-1$, $\nu_{NO_{2}}=2$ and $\nu = 1$~\solmarks{1/12}. Thus, the compositions in equilibrium are~\solmarks{2/12}
               \begin{displaymath}
-                  y_{N_{2}O_{4}} = \frc{1-\xi}{1+\xi} \hspace{2cm}\text{ and }\hspace{2cm} y_{NO_{2}}= \frc{2\xi}{1+\xi}
+                  y_{N_{2}O_{4}} = \frc{1-\varepsilon}{1+\varepsilon} \hspace{2cm}\text{ and }\hspace{2cm} y_{NO_{2}}= \frc{2\varepsilon}{1+\varepsilon}
               \end{displaymath}
-              and be replaced in the previous equation with $K_{\text{eq},298}= 0.1641$ (from (a))~\solmarks{2/12}
+              Replacing these expressions in the previous equation with $K_{\text{eq},298}= 0.1641$ (from (a))~\solmarks{2/12}
               \begin{displaymath}
-                 K =  \frc{y^{2}_{NO_{2}}}{y_{N_{2}O_{4}}} = \frc{\left(\frc{2\xi}{1+\xi}\right)^{2}}{\frc{1-\xi}{1+\xi}} = 0.1641 \Longrightarrow \xi = 0.1985
+                 K =  \frc{y^{2}_{NO_{2}}}{y_{N_{2}O_{4}}} = \frc{\left(\frc{2\varepsilon}{1+\varepsilon}\right)^{2}}{\frc{1-\varepsilon}{1+\varepsilon}} = 0.1641 \Longrightarrow \varepsilon = 0.1985
              \end{displaymath}
             The equilibrium composition is $y_{N_{2}O_{4}}=0.6688$ and $y_{NO_{2}}=0.3312$.~\solmarks{2/12}
 }
@@ -276,8 +272,8 @@ Determine:
                   \end{displaymath}
              The volume of pure methanol and water for the solution are:~\solmarks{4/8}
                   \begin{eqnarray}
-                       && V^{\text{pure}}_{1}= x_{1}n_{T}V_{1} = 1017.11\text{ cm}^{3}\nonumber \\
-                       && V^{\text{pure}}_{2}= x_{2}n_{T}V_{2} = 1052.87\text{ cm}^{3}\nonumber 
+                       && V^{\text{pure}}_{1}= x_{1}n_{T}V_{1} = 1017.1116\text{ cm}^{3}\nonumber \\
+                       && V^{\text{pure}}_{2}= x_{2}n_{T}V_{2} = 1052.8759\text{ cm}^{3}\nonumber 
                   \end{eqnarray}
 }
 %
@@ -296,17 +292,18 @@ Determine:
              \end{displaymath}
              thus~\solmarks{3/12}
              \begin{displaymath}
-                 \ln{\gamma_{1}} = \frc{\overline{G}^{E}_{1}}{RT} = \frc{G^{E}}{RT} + x_{2}\frc{\d G^{E}/RT}{\d x_{1}} \;\text{ and }\; \ln{\gamma_{2}} = \frc{\overline{G}^{E}_{2}}{RT} = \frc{G^{E}}{RT} - x_{1}\frc{\d G^{E}/RT}{\d x_{2}}
+                 \ln{\gamma_{1}} = \frc{\overline{G}^{E}_{1}}{RT} = \frc{G^{E}}{RT} + x_{2}\frc{\d \left(G^{E}/RT\right)}{\d x_{1}} \;\text{ and }\; \ln{\gamma_{2}} = \frc{\overline{G}^{E}_{2}}{RT} = \frc{G^{E}}{RT} - x_{1}\frc{\d \left(G^{E}/RT\right)}{\d x_{1}}
              \end{displaymath}
              with~\solmarks{5/12}
              \begin{displaymath}
-                 \frc{\d G^{E}/RT}{\d x_{1}} = \left(1-2x_{1}\right)A + \left(3-4x_{1}\right)Bx_{1}^{2}
+                 \frc{G^{E}}{R T} = x_{1}x_{2} \left(A + B x_{1}^{2}\right)\;\Longrightarrow\; \frc{\d \left(G^{E}/RT\right)}{\d x_{1}} = \left(1-2x_{1}\right)A + \left(3-4x_{1}\right)Bx_{1}^{2}
              \end{displaymath}
-             The activity coefficient is then given by,~\solmarks{2/12}
+             The activity coefficient $\left(\text{as a function of } A, B, x_{1} \text{ and } x_{2}\right)$ is then given by,~\solmarks{2/12}
              \begin{eqnarray}
-                  && \ln{\gamma_{1}} = x_{1}\left(1-x_{1}\right)\left(A+Bx_{1}^{2}\right) + \left(1-x_{1}\right)\left[\left(1-2x_{1}\right)A + \left(3-4x_{1}\right)Bx_{1}\right] \nonumber \\
-                  && \ln{\gamma_{2}} = x_{1}\left(1-x_{1}\right)\left(A+Bx_{1}^{2}\right) + x_{1}\left[\left(1-2x_{1}\right)A + \left(3-4x_{1}\right)Bx_{1}\right] \nonumber 
+                  && \ln{\gamma_{1}} = x_{1}x_{2}\left(A+Bx_{1}^{2}\right) + x_{2}\left[\left(1-2x_{1}\right)A + \left(3-4x_{1}\right)Bx_{1}\right] \nonumber \\
+                  && \ln{\gamma_{2}} = x_{1}x_{2}\left(A+Bx_{1}^{2}\right) - x_{1}\left[\left(1-2x_{1}\right)A + \left(3-4x_{1}\right)Bx_{1}\right] \nonumber 
              \end{eqnarray}
+             Alternatively, one could also further develop/simplify the equations above considering $x_{1}=1-x_{2}$.
                 
 }
 %
@@ -328,11 +325,11 @@ Determine:
 \begin{displaymath}
 y_{1}P=\mathcal{H}_{1}x_{1};\;\;\text{ and }\;\; y_{2}P= x_{2}P_{2}^{\text{sat}}
 \end{displaymath}
-with $x_{1}+x_{2}=1$. Thus $P = y_{1}P + y_{2}P$ becomes,~\solmarks{5/10}
+with $x_{1}+x_{2}=1$. Thus $P = \sum\limits_{i=1}^{2}y_{i}P = y_{1}P + y_{2}P$ becomes,~\solmarks{5/10}
 \begin{displaymath}
-P = \mathcal{H}_{1}x_{1}+\left(1-x_{1}\right)P_{2}^{\text{sat}} \;\;\Longrightarrow {\bf x_{1} = 4.502\times 10^{-3}}
+P = \mathcal{H}_{1}x_{1}+\left(1-x_{1}\right)P_{2}^{\text{sat}} \;\;\Longrightarrow {\bf x_{1} = 4.5023\times 10^{-3}}
 \end{displaymath}
-and ${\bf y_{1}=\frc{\mathcal{H}_{1}x_{1}}{P}=0.9}$.~\solmarks{5/10}
+and ${\bf y_{1}=\frc{\mathcal{H}_{1}x_{1}}{P}=0.9005}$.~\solmarks{5/10}
 }
 %
 % SM&VN 10.19 
@@ -346,9 +343,9 @@ and ${\bf y_{1}=\frc{\mathcal{H}_{1}x_{1}}{P}=0.9}$.~\solmarks{5/10}
 \end{center}
 Assuming that $y_{i}P = x_{i}\gamma_{i}P_{i}^{\text{sat}}$ (where $\gamma_{i}$ is the activity coefficient of species $i$) is valid, calculate the pressure $P$ and the vapour mole fraction $y_{A}$ for a liquid mole fraction of $x_{A}=0.65$.~\marks{10}
 %
-\solution{With $x_{A}$ =0.65 and $x_{B}$=0.35, we can calculate the activity coefficients, $\gamma_{A}$ and $\gamma_{B}$, and apply in~\solmarks{5/10}
+\solution{With $x_{A}$ =0.65 and $x_{B}$=0.35, we can calculate the activity coefficients, $\mathbf{\gamma_{A}=1.2467}$ and $\mathbf{\gamma_{B}=2.1393}$~\solmarks{2/10}, and apply in~\solmarks{3/10}
      \begin{displaymath}
-         P = x_{A}\gamma_{A} P_{A}^{\text{sat}} + x_{B}\gamma_{B} P_{B}^{\text{sat}} =  1.671 \text{ bar}.
+         P = x_{A}\gamma_{A} P_{A}^{\text{sat}} + x_{B}\gamma_{B} P_{B}^{\text{sat}} =  \mathbf{1.6712} \text{ {\bf bar}}.
      \end{displaymath}
 The vapour mole fraction is obtained from~\solmarks{5/10}
      \begin{displaymath} 
