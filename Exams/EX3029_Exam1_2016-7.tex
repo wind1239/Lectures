@@ -1,6 +1,6 @@
 
-\documentclass[calculator,allquestions,datasheet,solutions]{exam_newMarcus2}
-%\documentclass[calculator,allquestions,datasheet]{exam_newMarcus2}
+%\documentclass[calculator,allquestions,datasheet,solutions]{exam_newMarcus2}
+\documentclass[calculator,allquestions,datasheet]{exam_newMarcus2}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -76,18 +76,20 @@ Z^{3} -(1+B)Z^{2} +AZ -AB = 0
 Use the largest real root of the cubic polynomial equation in $Z$ to represent the gaseous phase.~\marks{13}
 
 %====================
-\solution{Solving the cubic polynomial in $Z$, with $B=bP/(RT)$ and $A=aP/(RT)^{2}$,~\solmarks{5/13}
-\begin{eqnarray}
-Z^{3} -(1+B)Z^{2} +AZ -AB = 0 & \Longrightarrow& A = 7.7095\times 10^{-2}\; ;\; B = 2.3281\times 10^{-2} \nonumber \\ 
- &\Longrightarrow& Z = 0.9436 \nonumber
-\end{eqnarray}
-Now for the fugacity equation, either
+\solution{Solving the cubic polynomial in $Z$,
+\begin{displaymath}
+Z^{3} -(1+B)Z^{2} +AZ -AB = 0 \Longrightarrow  Z = 0.9436 \nonumber
+\end{displaymath}
+with $B=bP/(RT)= 2.3281\times 10^{-2}$ and $A=aP/(RT)^{2}= 7.7095\times 10^{-2}$~\solmarks{2/13}, leads to $Z = 0.9436$~\solmarks{3/13}. Now for the fugacity equation, either
 \begin{eqnarray}
 && \ln{\left(\frc{f}{P}\right)} = -\ln{\left(1-\frc{b}{V}\right)} - \frc{a}{RTV} - \ln{Z} +\left(Z-1\right) \nonumber \\
 && \text{or} \nonumber \\
 &&  \ln{\left(\frc{f}{P}\right)} = -\ln{\left(1-\frc{B}{Z}\right)} - \frc{A}{Z} - \ln{Z} +\left(Z-1\right) \nonumber
 \end{eqnarray}
-leads to $f =\; 1.3250\times 10^{6}\text{ Pa} = 1.3250\text{ MPa}$.~\solmarks{8/13}
+leads to $f =\; 1.3250\times 10^{6}\text{ Pa} = 1.3250\text{ MPa}$.~\solmarks{8/13}. If the first equation was used to calculate $f$, then one needs to calculate the molar volume of the gaseous CO$_{2}$ through
+\begin{displaymath}
+  V = \frc{ZRT}{P} = 1.7371\times 10^{-3} \text{ m}^{3}.\text{mol}^{-1}
+  \end{displaymath}
 
 }
 %====================
@@ -215,7 +217,7 @@ Determine:
               \begin{displaymath}
                   y_{N_{2}O_{4}} = \frc{1-\varepsilon}{1+\varepsilon} \hspace{2cm}\text{ and }\hspace{2cm} y_{NO_{2}}= \frc{2\varepsilon}{1+\varepsilon}
               \end{displaymath}
-              Replacing these expressions in the previous equation with $K_{\text{eq},298}= 0.1641$ (from (a))~\solmarks{2/12}
+              Here any initial conditions are acceptable (i.e., any initial number of moles for both species), however this would change the expressions for $y_{N_{2}O_{4}}$ and $y_{NO_{2}}$. Replacing these expressions in the previous equation with $K_{\text{eq},298}= 0.1641$ (from (a))~\solmarks{2/12}
               \begin{displaymath}
                  K =  \frc{y^{2}_{NO_{2}}}{y_{N_{2}O_{4}}} = \frc{\left(\frc{2\varepsilon}{1+\varepsilon}\right)^{2}}{\frc{1-\varepsilon}{1+\varepsilon}} = 0.1641 \Longrightarrow \varepsilon = 0.1985
              \end{displaymath}
@@ -286,24 +288,24 @@ Determine:
                \ln{\gamma_{i}} = \frc{\overline{G}_{i}^{E}}{RT}.
        \end{displaymath} 
 %======================
-         \solution{ For a binary mixture:~\solmarks{2/12}
+         \solution{ For a binary mixture, the partial molar property, $\overline{M}$ can be defined as,~\solmarks{2/12}
              \begin{displaymath}
                   \overline{M}_{1} = M + x_{2}\frc{\d M}{\d x_{1}} \hspace{2cm} \text{ and } \hspace{2cm} \overline{M}_{2} = M - x_{1}\frc{\d M}{\d x_{1}}
              \end{displaymath}
-             thus~\solmarks{3/12}
+             thus with $\overline{M}_{i}=\frc{\overline{G}^{E}_{i}}{RT}$,~\solmarks{3/12}
              \begin{displaymath}
-                 \ln{\gamma_{1}} = \frc{\overline{G}^{E}_{1}}{RT} = \frc{G^{E}}{RT} + x_{2}\frc{\d \left(G^{E}/RT\right)}{\d x_{1}} \;\text{ and }\; \ln{\gamma_{2}} = \frc{\overline{G}^{E}_{2}}{RT} = \frc{G^{E}}{RT} - x_{1}\frc{\d \left(G^{E}/RT\right)}{\d x_{1}}
+                 \ln{\gamma_{1}} = \frc{\overline{G}^{E}_{1}}{RT} = \frc{G^{E}}{RT} + x_{2}\frc{\d \left(G^{E}/RT\right)}{\d x_{1}} \;\text{ and }\; \ln{\gamma_{2}} = \frc{\overline{G}^{E}_{2}}{RT} = \frc{G^{E}}{RT} - x_{1}\frc{\d \left(G^{E}/RT\right)}{\d x_{1}}.
              \end{displaymath}
-             with~\solmarks{5/12}
+             Replacing $x_{2}=1-x_{1}$ in $\frc{G^{E}}{R T} = x_{1}x_{2} \left(A + B x_{1}^{2}\right)$ and differentiating $G^{E}/(RT)$ {\it w.r.t.} $x_{1}$,~\solmarks{5/12}
              \begin{displaymath}
-                 \frc{G^{E}}{R T} = x_{1}x_{2} \left(A + B x_{1}^{2}\right)\;\Longrightarrow\; \frc{\d \left(G^{E}/RT\right)}{\d x_{1}} = \left(1-2x_{1}\right)A + \left(3-4x_{1}\right)Bx_{1}^{2}
+                 \frc{\d \left(G^{E}/RT\right)}{\d x_{1}} = \left(1-2x_{1}\right)A + \left(3-4x_{1}\right)Bx_{1}^{2}
              \end{displaymath}
              The activity coefficient $\left(\text{as a function of } A, B, x_{1} \text{ and } x_{2}\right)$ is then given by,~\solmarks{2/12}
              \begin{eqnarray}
                   && \ln{\gamma_{1}} = x_{1}x_{2}\left(A+Bx_{1}^{2}\right) + x_{2}\left[\left(1-2x_{1}\right)A + \left(3-4x_{1}\right)Bx_{1}\right] \nonumber \\
                   && \ln{\gamma_{2}} = x_{1}x_{2}\left(A+Bx_{1}^{2}\right) - x_{1}\left[\left(1-2x_{1}\right)A + \left(3-4x_{1}\right)Bx_{1}\right] \nonumber 
              \end{eqnarray}
-             Alternatively, one could also further develop/simplify the equations above considering $x_{1}=1-x_{2}$.
+             Alternatively, one could also further develop/simplify the equations above considering $x_{2}=1-x_{1}$.
                 
 }
 %
@@ -321,11 +323,11 @@ Determine:
 % SM&VN 10.13
 \item A concentrated binary solution containing mainly species $2$ $\left(\text{though } x_{2}\not= 1\right)$ is in equilibrium with a vapour phase containing both species $1$ and $2$. Pressure and temperature of this two-phase system are 1 bar and 298.15 K. Given $\mathcal{H}_{1}$ = 200 bar (Henry constant) and P$_{2}^{\text{sat}}$ = 0.10 bar, calculate $x_{1}$ and $y_{1}$.~\marks{10}
 %
-\solution{Assuming that at 1 bar the vapour phase behaves as an ideal gas. The vapour phases fugacities are then equal to the partial pressures. Assume the Lewis/Randall rule applies to concentrated species $2$ and that Henry's law applies to dilute species $1$, therefore,
+\solution{Assuming that at 1 bar the vapour phase behaves as an ideal gas. The vapour phases fugacities are then equal to the partial pressures. Assume the Lewis-Randall rule applies to the concentrated species $2$ and that Henry's law applies to the diluted species $1$, therefore,
 \begin{displaymath}
 y_{1}P=\mathcal{H}_{1}x_{1};\;\;\text{ and }\;\; y_{2}P= x_{2}P_{2}^{\text{sat}}
 \end{displaymath}
-with $x_{1}+x_{2}=1$. Thus $P = \sum\limits_{i=1}^{2}y_{i}P = y_{1}P + y_{2}P$ becomes,~\solmarks{5/10}
+with $x_{1}+x_{2}=1$ and $y_{1}+y_{2}=1$. As $P = \sum\limits_{i=1}^{2}y_{i}P = y_{1}P + y_{2}P$,~\solmarks{5/10}
 \begin{displaymath}
 P = \mathcal{H}_{1}x_{1}+\left(1-x_{1}\right)P_{2}^{\text{sat}} \;\;\Longrightarrow {\bf x_{1} = 4.5023\times 10^{-3}}
 \end{displaymath}
