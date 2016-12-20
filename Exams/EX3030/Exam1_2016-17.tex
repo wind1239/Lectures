@@ -1,4 +1,4 @@
-\documentclass[calculator,datasheet,handbook]{exam}
+\documentclass[calculator,datasheet,handbook,solutions]{exam}
 % The full list of class options are
 % calculator : Allows approved calculator use.
 % datasheet : Adds a note that data sheet are attached to the exam.
@@ -689,55 +689,57 @@
       \item The time $t_{\text{air}}$ required for {\it Stage 1} of the annealing process to be completed;\marks{5}
         \solution{ The first step is to check if the lumped-capacitance method can be used:\solmarks{1}
           \begin{displaymath}
-            Bi = \frac{h L_{c}}{\kappa} = 8.33\times 10^{-4}
+            \mathbf{Bi =} \frac{h L_{c}}{\kappa} = \mathbf{8.33\times 10^{-4}}
           \end{displaymath}
-          As $Bi$ number is smaller than 0.1\solmarks{1} and the lumped-capacitance method can be used in this stage, i.e., temperature changes uniformily throughout the sphere,\solmarks{3}
+          As $\mathbf{Bi < 0.1}$~\solmarks{1}, the lumped-capacitance method can be used in this stage, i.e., temperature changes uniformily throughout the sphere,\solmarks{3}
           \begin{eqnarray}
             && \frac{T(t)-T_{\infty}}{T_{0}-T_{\infty}} = \exp{\left[-\frac{h}{L_{c}\rho C_{p}}t\right]} \nonumber \\
-            && \frac{335-20}{400-20} = \exp{\left[-\frac{10 t}{\frac{5\times 10^{-3}}{3}\times 3000 \times 1000}\right]} \;\;\Rightarrow \;\; t = 93.80\; s \nonumber
+            && \frac{335-20}{400-20} = \exp{\left[-\frac{10 t}{\frac{5\times 10^{-3}}{3}\times 3000 \times 1000}\right]} \;\;\Rightarrow \;\; \mathbf{t = 93.80 \text{ s}} \nonumber
           \end{eqnarray}     
           }
       \item The time $t_{\text{water}}$ required for {\it Stage 2} of the annealing process during which the center of the sphere cools from 335$^{\circ}$C (the condition at the completion of {\it Stage 1}) to 50$^{\circ}$C.\marks{6}
         \solution{ Checking if the lumped-capacitance method can be used:
           \begin{displaymath}
-              Bi = \frac{h L_{c}}{\kappa} = 0.5 > 0.1,
+              \mathbf{Bi = \frac{h L_{c}}{\kappa} = 0.5 > 0.1},
           \end{displaymath}
-          therefore the lumped method can not be used. In order to use the Tables for the analytical solution, we need to calculate the $Bi$ number based on $r_{0}$\solmarks{1}
+          therefore the {\bf lumped-capacitance method can not be used}~\solmarks{1}. In order to use the Tables for the analytical solution, we need to calculate the $Bi$ number based on $r_{0}$, 
           \begin{displaymath}
             Bi = \frac{hr_{0}}{\kappa}=1.5
           \end{displaymath}
-          From the Table with coefficients for the one-term approximate solution of 1D transient conduction in spheres, we can obtain $\lambda_{1}$ = 1.7998 and $A_{1}$ = 1.3763\solmarks{2} to be applied into
+          From the Table with coefficients for the one-term approximate solution of 1D transient conduction in spheres, we can obtain $\mathbf{\lambda_{1} = 1.7998}$ and $\mathbf{A_{1} = 1.3763}$\solmarks{2} to be applied into
           \begin{displaymath}
-              \theta_{\text{centre}} = \frac{T_{0}-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}\exp{\left[-\lambda_{1}^{2}\tau\right]},
+              \theta_{\text{centre}} = \frac{T_{0}-T_{\infty}}{T_{i}-T_{\infty}} = \frac{50-20}{335-20}=A_{1}\exp{\left[-\lambda_{1}^{2}\tau\right]},
           \end{displaymath}
-          where $\tau=\frac{\alpha t}{r_{0}^{2}}$ with $\alpha=\frac{\kappa}{\rho C_{p}}$ = 6.67$\times$ 10$^{-6}$ m$^{2}$.s$^{-1}$.\solmarks{1}.
-          Solving the equation above results in $\tau$ = 0.8245\solmarks{1}, and $t$ is obtained from the Fourier number,\solmarks{1}
+          where $\tau=\alpha t.r_{0}^{-2}$ with $\mathbf{\alpha=\kappa.\left(\rho C_{p}\right)^{-1} = 6.67\times 10^{-6} \text{ m}^{2}.\text{s}^{-1}}$.\solmarks{1}
+          
+          Solving the equation above results in $\mathbf{\tau = 0.8245}$\solmarks{1}, and $t$ is obtained from the Fourier number,\solmarks{1}
           \begin{displaymath}
-            \tau = \frac{\alpha t}{r_{0}^{2}} \;\;\Rightarrow \;\; t = 3.09\text{ s}
+            \mathbf{\tau =} \frac{\alpha t}{r_{0}^{2}} \;\;\Rightarrow \;\; \mathbf{t = 3.09}\text{ {\bf s}}
           \end{displaymath}        
           }
    \end{enumerate}
+   %
    \item A double-pipe (shell-and-tube) heat exchanger is constructed of a stainless steel ($\kappa=$ 15.1 W/(m.$^{\circ}$C) inner tube of inner diameter D$_{i}=$ 1.5 cm and outer diameter D$_{o}=$ 1.9 cm and an outer shell of inner diameter 3.2 cm. The convective heat transfer coefficient is h$_{i}=$ 800 W/(m$^{2}.^{\circ}$C) on the inner surface of the tube and h$_{o}=$ 1200 W/(m$^{2}.^{\circ}$C) on the outer surface. For a fouling factor R$_{f,i}=$ 0.0004 m$^{2}.^{\circ}$C/W on the tube side and R$_{f,o}=$ 0.0001 m$^{2}.^{\circ}$C/W on the shell side, determine:%%% Slide (Cengel Example 13.1)
 \begin{enumerate}
    \item The thermal resistance of the heat exchanger per unit length $\left(\text{in }^{\circ}\text{C/W}\right)$ and; \marks{3}
-     \solution{ The total heat resistance of the heat exchanger through the pipes per unit length is\solmarks{3}
+     \solution{ The total thermal resistance, $R$, of the heat exchanger through the pipes per unit length is\solmarks{1}
        \begin{displaymath}
-           R = \frac{1}{h_{i}A_{i}} + \frac{R_{fi}}{A_{i}} + \frac{\ln{\left(\frac{D_{0}}{D_{i}}\right)}}{2\pi\kappa L} + \frac{R_{f0}}{A_{0}} + \frac{1}{h_{0}A_{0}}
+           R = \frac{1}{h_{i}A_{i}} + \frac{R_{fi}}{A_{i}} + \frac{\ln{\left(\frac{D_{0}}{D_{i}}\right)}}{2\pi\kappa L} + \frac{R_{f0}}{A_{0}} + \frac{1}{h_{0}A_{0}},
        \end{displaymath}
-       resulting in $R$ = 0.0867 $^{\circ}$C.W$^{\-1}$\solmarks{2}
-       }
+     where $A_{i}=0.04712$ m$^{2}$ and $A_{0}=0.5969$ m$^{2}$, resulting in $\mathbf{R = 5.3145\times 10^{-2\circ}}${\bf C.W}$^{-1}$\solmarks{2}}
+       
    \item The overall heat transfer coefficients, U$_{i}$ and U$_{o}$ $\left(\text{in W/}\left(\text{m}^{2}.^{\circ}\text{C}\right)\right)$ based on the inner and outer surface areas of the tube, respectively.\marks{6}
-     \solution{The overall heat transfer coefficient based on the inner and the outter surface areas of the tube per length are\solmarks{2}
+     \solution{The overall heat transfer coefficient based on the inner and the outter surface areas of the tube per length are
        \begin{displaymath}
          R = \frac{1}{UA} = \frac{1}{U_{i}A_{i}} = \frac{1}{U_{0}A_{0}},
        \end{displaymath}
-       thus for $U_{i}$\solmarks{2}
+       thus for $U_{i}$\solmarks{3}
        \begin{displaymath}
-         U_{i} = \frac{1}{R A_{i}} = 317 \frac{\text{W}}{\text{m}^{2}.^{\circ}\text{C}}
+         U_{i} = \frac{1}{R A_{i}} = 399.3303 \frac{\text{W}}{\text{m}^{2}.^{\circ}\text{C}}
        \end{displaymath}
-       and for $U_{0}$\solmarks{2}
+       and for $U_{0}$\solmarks{3}
        \begin{displaymath}
-         U_{i} = \frac{1}{R A_{0}} = 238 \frac{\text{W}}{\text{m}^{2}.^{\circ}\text{C}}
+         U_{0} = \frac{1}{R A_{0}} = 315.2461 \frac{\text{W}}{\text{m}^{2}.^{\circ}\text{C}}
        \end{displaymath}
        }
 \end{enumerate}
