@@ -19,9 +19,7 @@
 \usepackage{cancel}
 
 % \usepackage{algorithm}
-\usepackage[linesnumbered,lined,boxed,commentsnumbered]{algorithm2e} 
-%[ruled,vlined][linesnumbered,lined,boxed,commentsnumbered]
-
+\usepackage[linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
 \usepackage[noend]{algpseudocode} 
 \makeatletter
 \def\BState{\State\hskip-\ALG@thistlm}
@@ -51,8 +49,8 @@
 %\usepackage{doi}
 \usepackage{longtable}
 \usepackage{float}
-\usepackage{perpage}
-\MakeSorted{figure}
+%\usepackage{perpage}
+%\MakeSorted{figure}
 %\usepackage{pdflscape}
 \usepackage{framed,comment,lscape}
 \definecolor{shadecolor}{gray}{0.9}
@@ -68,9 +66,11 @@
 \pagestyle{fancy}%%%%
 % with this we ensure that the chapter and section
 % headings are in lowercase
-%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-\renewcommand*\thesection{\arabic{section}}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+%\renewcommand*\thesection{\arabic{section}}
+
+
 \fancyhf{} %delete the current section for header and footer
 %\fancyhead[LE,RO]{\bfseries\thepage}
 %\fancyfoot[LE,RO]{\bfseries\thepage}
@@ -83,7 +83,7 @@
 \renewcommand{\headrulewidth}{0pt} % and the line
 }
 
-\def\newblock{\hskip .11em plus .33em minus .07em}
+\def\newblock{\hskip .11em plus .33em minus .07em} 
 \usepackage{color}
 
 \theoremstyle{definition}
@@ -153,45 +153,6 @@
 \DeclareMathOperator{\sgn}{sgn}
 
 %\newcommand\qed{\hfill\mbox{$\Box$}}
-\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
-\newcommand{\inner}[2]{\langle#1,#2\rangle}
-\renewcommand\leq{\leqslant}
-\renewcommand\geq{\geqslant}
-\renewcommand\le{\leqslant}
-\renewcommand\ge{\geqslant}
-\renewcommand\epsilon{\varepsilon}
-\newcommand\eps{\varepsilon}
-\newcommand{\bmF}{\vec{F}}
-\newcommand{\bmphi}{\vec{\phi}}
-\newcommand{\bmn}{\vec{n}}
-\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
-\newcommand{\bmi}{\vec{i}}
-\newcommand{\bmj}{\vec{j}}
-\newcommand{\bmk}{\vec{k}}
-\newcommand{\bmx}{\vec{x}}
-\newcommand{\bmu}{\vec{u}}
-\newcommand{\bmv}{\vec{v}}
-\newcommand{\bmr}{\vec{r}}
-\newcommand{\bma}{\vec{a}}
-\newcommand{\bmg}{\vec{g}}
-\newcommand{\bmU}{\vec{U}}
-\newcommand{\bmI}{\vec{I}}
-\newcommand{\bmq}{\vec{q}}
-\newcommand{\bmT}{\vec{T}}
-\newcommand{\bmM}{\vec{M}}
-\newcommand{\bmtau}{\vec{\tau}}
-\newcommand{\bmOmega}{\vec{\Omega}}
-\newcommand{\pp}{\partial}
-\newcommand{\kaptens}{\tensor{\kappa}}
-\newcommand{\tautens}{\tensor{\tau}}
-\newcommand{\sigtens}{\tensor{\sigma}}
-\newcommand{\etens}{\tensor{\dot\epsilon}}
-\newcommand{\ktens}{\tensor{k}}
-\newcommand{\half}{{\textstyle \frac{1}{2}}}
-\newcommand{\tote}{E}
-\newcommand{\inte}{e}
-\newcommand{\strt}{\dot\epsilon}
-\newcommand{\modu}{|\bmu|}
 % Derivatives
 \renewcommand{\d}{\mathrm{d}}
 \newcommand{\D}{\mathrm{D}}
@@ -208,22 +169,6 @@
 \newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
 \newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
 % Norms
-\newcommand{\Ltwo}{\ensuremath{L_2} }
-% Basis functions
-\newcommand{\Qone}{\ensuremath{Q_1} }
-\newcommand{\Qtwo}{\ensuremath{Q_2} }
-\newcommand{\Qthree}{\ensuremath{Q_3} }
-\newcommand{\QN}{\ensuremath{Q_N} }
-\newcommand{\Pzero}{\ensuremath{P_0} }
-\newcommand{\Pone}{\ensuremath{P_1} }
-\newcommand{\Ptwo}{\ensuremath{P_2} }
-\newcommand{\Pthree}{\ensuremath{P_3} }
-\newcommand{\PN}{\ensuremath{P_N} }
-\newcommand{\Poo}{\ensuremath{P_1P_1} }
-\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
-
-\newcommand{\metric}{\tensor{M}}
-\newcommand{\configureflag}[1]{\texttt{#1}}
 
 % Units
 \newcommand{\m}[1][]{\unit[#1]{m}}
@@ -244,28 +189,8 @@
 % Dimensionless numbers
 \newcommand{\dimensionless}[1]{\mathrm{#1}}
 \renewcommand{\Re}{\dimensionless{Re}}
-\newcommand{\Ro}{\dimensionless{Ro}}
-\newcommand{\Fr}{\dimensionless{Fr}}
-\newcommand{\Bu}{\dimensionless{Bu}}
-\newcommand{\Ri}{\dimensionless{Ri}}
-\renewcommand{\Pr}{\dimensionless{Pr}}
-\newcommand{\Pe}{\dimensionless{Pe}}
-\newcommand{\Ek}{\dimensionless{Ek}}
-\newcommand{\Gr}{\dimensionless{Gr}}
-\newcommand{\Ra}{\dimensionless{Ra}}
-\newcommand{\Sh}{\dimensionless{Sh}}
-\newcommand{\Sc}{\dimensionless{Sc}}
 
-
-% Journals
-\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
-\newcommand{\NED}{{\it Nuclear Engineering and Design}}
-\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
-\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
-\newcommand{\HT}{{\it Heat Transfer}}   
-\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
-
-
+% Other symbols
 \newcommand{\frc}{\displaystyle\frac}
 \newcommand{\red}{\textcolor{red}}
 \newcommand{\blue}{\textcolor{blue}}
@@ -277,7 +202,6 @@
 \newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
 \newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}} 
 \newcommand{\summation}[3][error]{\sum\limits_{#2}^{#3}#1}
-%{P$_{#1}$DG-P$_{#2}$DG}%$_{#3}$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%                              %%%%%%%
@@ -401,34 +325,34 @@
 \pagenumbering{arabic}% Arabic page numbers (and reset to 1)
 
 \part{Introduction and Review of Basic Concepts}
-\input{Chapter_Introduction} % Introduction and Review of Thermodynamics
-\input{Chapter_VolumetricPropertiesPureFluids}
+  \input{Chapter_Introduction} % Introduction and Review of Thermodynamics
 
-\part{Thermodynamic Properties of Fluids}  
-\input{Chapter_ThermodynamicPropertiesPureFluids} % Volumetric Properties of Pure Fluids
-\input{Chapter_VapourLiquidEquilibrium}
+%\part{Thermodynamic Properties of Fluids}  
+%  \input{Chapter_VolumetricPropertiesPureFluids}
+%  \input{Chapter_ThermodynamicPropertiesPureFluids} % Volumetric Properties of Pure Fluids
+%  \input{Chapter_VapourLiquidEquilibrium}
 
-\part{Liquid Solutions}
-\input{Chapter_SolutionThermodynamics}
+%\part{Liquid Solutions}
+%  \input{Chapter_SolutionThermodynamics}
 
-\part{Fundamental Chemical Reactions}
-\input{Chapter_ChemicalReactionEquilibrium}
+%\part{Fundamental Chemical Reactions}
+%  \input{Chapter_ChemicalReactionEquilibrium}
 
-\part{Power and Refrigeration}
+%\part{Power and Refrigeration}
 
 \pagebreak
 
 \cleardoublepage
 
-  \begin{appendix}
-\part{Appendices}
-     \input{Appendix_ConversionTable}
-     \input{Appendix_SaturatedTables}
-     \input{Appendix_LogTable} 
-     \input{Appendix_Calculus1}   
-     \input{Appendix_NumMethods}
-     \input{Appendix_Examples}
-  \end{appendix}
+%  \begin{appendix}
+%     \part{Appendices}
+%       \input{Appendix_ConversionTable}
+%       \input{Appendix_SaturatedTables}
+%       \input{Appendix_LogTable} 
+%       \input{Appendix_Calculus1}   
+%       \input{Appendix_NumMethods}
+%       \input{Appendix_Examples}
+%  \end{appendix}
 
 \cleardoublepage
 

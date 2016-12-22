@@ -16,14 +16,36 @@
 %%%
 %%% SECTION
 %%%
-\section{Introduction}\label{Chapter:Introduction:Section:Introduction}
-Thermodynamics studies global properties of the matter and the process (\eg thermal, chemical, mechanical, nuclear etc) in which these properties may be altered. The study of thermodynamics may be divided into two main areas, {\it classical} and {\it statistical} thermodynamics. In the latter, matter is assumed to be formed by assemblies of particles (\ie atoms), and properties' changes of each assemble are obtained from quantum mechanics. {\it Classical thermodynamics} studies the macroscopic change of properties, \ie it is assumed that matter is formed by a large quantity of particles' assemblies that has properties representing the interactions between these assemblies. 
+   \section{Introduction}\label{Chapter:Introduction:Section:Introduction}
 
-%%% Subsection
-\subsection{System, Surroundings and Boundaries}\label{Chapter:Introduction:Section:Introduction:SystemSurroundingsBoundaries}\index{System}\index{System!Boundaries}\index{System!Surroundings}
-In practice, any thermodynamic analysis starts by defining the domain of interest, which can be a volume in space or quantity of matter (Fig.~\ref{Chapter:Introduction:Fig:Domain} a). This domain is called {\it system} -- \ie any 3-D region of physical space on which we want to proceed our analysis, and the remaining of the space is called {\it surroundings} (or {\it neighbourhood}) limited by {\it boundaries}. The {\it boundary} is a surface that encloses the {\it system} and separates it fro the {\it surroundings}. For example, in Fig.~\ref{Chapter:Introduction:Fig:Domain}(b), nitrogen gas is contained in a pressure vessel with prescribed wall thickness. In this case, the interior of the vessel with N$_{2}$ is the {\it system}, whereas the wall (in contact with the gas) is the border of the system. 
+   The word `{\it thermodynamics}' stems from Greek roots, {\it therme}: heat and {\it dynamis}: power -- `movement of heat', and was used by the first time by W. Thomson (Lord Kevin)\cite{Thomson_1849} in 1849. Thermodynamics studies global properties of the matter and the process (\eg thermal, chemical, mechanical, nuclear etc) in which these properties may be altered. In other words, the quantification of inter-relation between energy and the change of properties of any physical system.
 
-%%% Figure
+   For most practical applications, thermodynamics deals with interactions between thermal energy (\ie heat and temperature) and mechanical (\ie work) and/or chemical (\ie chemical potential) energies. \cite{Borgnakke_Book} defined thermodynamics as the `the science that deals with heat and work and those properties of matter that relate to heat and work.'
+
+   \medskip
+   
+   The study of thermodynamics may be divided into two main areas, {\it classical} and {\it statistical} thermodynamics. The latter investigates the macroscopic properties of systems comprising of a large number of subsystems (\ie particles or atoms). Properties of such systems are controlled by the motion of each set (or assembly) of particles, which can be determined by applying probabilistic theories and methods to laws of motion.
+
+   {\it Classical thermodynamics} studies the macroscopic change of properties, \ie it is assumed that matter is formed by a large quantity of particles assemblies that has properties representing the interactions between these assemblies. The extent of such changes due to transfer of energy to or from the system is described by fundamental equations of thermodynamics which are derived from observations known as `{\it Laws of Thermodynamics}'. These laws are postulates that describe the nature of interactions of systems and energy.
+
+   This document will focus only on the study of fundamentals of {\it classical thermodynamics} and its application on environmental and industrial problems. 
+
+%%%
+%%% SECTION
+%%%
+   \section{Main Elements of Thermodynamics Analysis}\label{Chapter:Introduction:Section:ThermodAnalysis}
+
+   The first stage in the analysis of any thermodynamic problem is to identify the domain in which all energy and/or forces are transferred to or from.
+   
+% Figure
+     \begin{center}
+   \begin{figure}[h]\label{Chapter:Introduction:Fig:Domain}
+       \hbox{\includegraphics[width=8cm, height=8cm]{./../Pics/Fig_SystemDefinition}}
+        \caption{System and control volumes: (a,b) schematics of systems and associated borders, (c) cylinder-piston system with extensive/intensive properties.}
+   \end{figure}
+     \end{center}
+   
+% Figure
       \begin{figure}[h]%
           \vbox{\hbox{
              \hspace{0.cm}\hbox{\includegraphics[width=8cm, height=8cm]{./../Pics/Fig_SystemDefinition}}
@@ -34,9 +56,14 @@ In practice, any thermodynamic analysis starts by defining the domain of interes
              \hspace{3cm}\hbox{\includegraphics[width=0.7\columnwidth,clip]{./../Pics/Fig_SystemDefinition3}}
              \vspace{.1cm}
               \hbox{\hspace{8cm}(c)}}
-        \label{Chapter:Introduction:Fig:Domain}
+        \label{IIIChapter:Introduction:Fig:Domain2}
         \caption{System and control volumes: (a,b) schematics of systems and associated borders, (c) cylinder-piston system with extensive/intensive properties.}
       \end{figure}
+
+%%% Subsection
+   \subsection{System, Surroundings and Boundaries}\label{Chapter:Introduction:Section:Introduction:SystemSurroundingsBoundaries}\index{System}\index{System!Boundaries}\index{System!Surroundings}
+   In practice, any thermodynamic analysis starts by defining the domain of interest, which can be a volume in space or quantity of matter (Fig.~\ref{Chapter:Introduction:Fig:Domain} a). This domain is called {\it system}, \ie any 3-D region of physical space on which we want to proceed our analysis, and the remaining of the space is called {\it surroundings} (or {\it neighbourhood}) limited by {\it boundaries}. The {\it boundary} is a surface that encloses the {\it system} and separates it fro the {\it surroundings}. For example, in Fig.~\ref{Chapter:Introduction:Fig:Domain}(b), nitrogen gas is contained in a pressure vessel with prescribed wall thickness. In this case, the interior of the vessel with N$_{2}$ is the {\it system}, whereas the wall (in contact with the gas) is the border of the system. 
+
 
 For convenience, sometimes we may want to divide the {\it system} into multiple {\it sub-systems} and analyse them individually, or to combine several small {\it systems} into a larger {\it super-systems}. The choice depends on the conditions of the domain of interest and how mass and energy flows across the {\it sub-systems}. If mass and energy are allowed to flow across the {\it boundaries}, we say that the {\it system} is {\bf open}, otherwise if only the energy is allowed to flow (\ie be transferred) across the {\it boundaries}, the {\it system} is assumed to be {\bf closed}. If both energy and mass can not be transferred across the {\it boundaries} the system is assumed {\bf isolated}, in such case, where there is no energy flow, the boundary is called {\bf adiabatic} (Table~\ref{Chapter:Introduction:Table:System}).\index{System!Open}\index{System!Closed}\index{System!Isolated}\index{System!Adiabatic}\index{Adiabatic}
 
@@ -100,7 +127,7 @@ blablabla \cite{batchelor_1967} \cite{SmithVanNess_Book}
 This is the example.
 \end{exmp}
 
-
+\begin{comment}
 %%%
 %%% SECTION 1
 %%%
@@ -565,7 +592,7 @@ Although in general $\displaystyle\oint\limits_{C} \delta Q\ne 0$ and $\displays
          \end{displaymath}
 %
 \end{enumerate}
-
+\end{comment}
 
 
 %%%
