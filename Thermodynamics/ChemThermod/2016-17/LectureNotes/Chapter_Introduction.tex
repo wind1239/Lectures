@@ -38,35 +38,34 @@
    The first stage in the analysis of any thermodynamic problem is to identify the domain in which all energy and/or forces are transferred to or from.
    
 % Figure
+   \begin{figure}[h]
      \begin{center}
-   \begin{figure}[h]\label{Chapter:Introduction:Fig:Domain}
-       \hbox{\includegraphics[width=8cm, height=8cm]{./../Pics/Fig_SystemDefinition}}
-        \caption{System and control volumes: (a,b) schematics of systems and associated borders, (c) cylinder-piston system with extensive/intensive properties.}
-   \end{figure}
+       \includegraphics[width=8cm, height=8cm]{./../Pics/Fig_SystemDefinition}
+       \caption{Elements of a thermodynamic problem: system and surroundings separated by well-defined borders.}\label{Chapter:Introduction:Fig:Domain}
      \end{center}
+   \end{figure}
    
 % Figure
-      \begin{figure}[h]%
-          \vbox{\hbox{
-             \hspace{0.cm}\hbox{\includegraphics[width=8cm, height=8cm]{./../Pics/Fig_SystemDefinition}}
-             \hspace{0.cm}\hbox{\includegraphics[width=9cm, height=5cm]{./../Pics/Fig_SystemDefinition2}}}
-             \vspace{.1cm}
-              \hbox{\hspace{3.5cm}(a)\hspace{8cm}(b)}
-             \vspace{.5cm}
-             \hspace{3cm}\hbox{\includegraphics[width=0.7\columnwidth,clip]{./../Pics/Fig_SystemDefinition3}}
-             \vspace{.1cm}
-              \hbox{\hspace{8cm}(c)}}
-        \label{IIIChapter:Introduction:Fig:Domain2}
-        \caption{System and control volumes: (a,b) schematics of systems and associated borders, (c) cylinder-piston system with extensive/intensive properties.}
-      \end{figure}
-
+   \begin{figure}[h]
+     \begin{center}
+       \includegraphics[width=9cm, height=7cm]{./../Pics/Fig_SystemDefinition2}
+        \caption{Example of a defined thermodynamic problem: cylinder stored in a room. N$_{2}$-gas contained in the cylinder is the system, whereas the remaining of the room is the surroundings. Cylinder's wall is the border of the system.}\label{Chapter:Introduction:Fig:Domain2}
+     \end{center}
+   \end{figure}
+   
 %%% Subsection
    \subsection{System, Surroundings and Boundaries}\label{Chapter:Introduction:Section:Introduction:SystemSurroundingsBoundaries}\index{System}\index{System!Boundaries}\index{System!Surroundings}
-   In practice, any thermodynamic analysis starts by defining the domain of interest, which can be a volume in space or quantity of matter (Fig.~\ref{Chapter:Introduction:Fig:Domain} a). This domain is called {\it system}, \ie any 3-D region of physical space on which we want to proceed our analysis, and the remaining of the space is called {\it surroundings} (or {\it neighbourhood}) limited by {\it boundaries}. The {\it boundary} is a surface that encloses the {\it system} and separates it fro the {\it surroundings}. For example, in Fig.~\ref{Chapter:Introduction:Fig:Domain}(b), nitrogen gas is contained in a pressure vessel with prescribed wall thickness. In this case, the interior of the vessel with N$_{2}$ is the {\it system}, whereas the wall (in contact with the gas) is the border of the system. 
+   In practice, any thermodynamic analysis starts by defining the domain of interest, which can be a volume in space or quantity of matter (Fig.~\ref{Chapter:Introduction:Fig:Domain}). This domain is called {\it system}, \ie any 3-D region of physical space with prescribed mass; the remaining of the domain is called {\it surroundings} (or {\it neighbourhood}) which is limited by {\it boundaries}. The {\it boundary} is a surface that encloses the {\it system} and separates it from the {\it surroundings}. For example, in Fig.~\ref{Chapter:Introduction:Fig:Domain2}, nitrogen gas is contained in a cylinder with prescribed wall thickness. In this case, the interior of the vessel with N$_{2}$ is the {\it system}, whereas the wall is the border of the system. 
+   
+% Figure
+   \begin{figure}[h]
+     \begin{center}
+        \includegraphics[width=0.7\columnwidth,clip]{./../Pics/Fig_SystemDefinition3}
+        \caption{Cylinder-piston system with extensive/intensive properties.}\label{Chapter:Introduction:Fig:Domain3}
+     \end{center}
+   \end{figure}
 
-
-For convenience, sometimes we may want to divide the {\it system} into multiple {\it sub-systems} and analyse them individually, or to combine several small {\it systems} into a larger {\it super-systems}. The choice depends on the conditions of the domain of interest and how mass and energy flows across the {\it sub-systems}. If mass and energy are allowed to flow across the {\it boundaries}, we say that the {\it system} is {\bf open}, otherwise if only the energy is allowed to flow (\ie be transferred) across the {\it boundaries}, the {\it system} is assumed to be {\bf closed}. If both energy and mass can not be transferred across the {\it boundaries} the system is assumed {\bf isolated}, in such case, where there is no energy flow, the boundary is called {\bf adiabatic} (Table~\ref{Chapter:Introduction:Table:System}).\index{System!Open}\index{System!Closed}\index{System!Isolated}\index{System!Adiabatic}\index{Adiabatic}
-
+   For convenience, sometimes we may want to divide the {\it system} into multiple {\it sub-systems} and analyse them individually, or to combine several small {\it systems} into larger {\it super-systems}. The choice depends on the conditions of the domain of interest and how mass and energy flow across the {\it sub-systems}.
 
 %%% Table
    \begin{table}[h]
@@ -80,16 +79,22 @@ For convenience, sometimes we may want to divide the {\it system} into multiple 
          {\bf Closed} & {\it no}   & {\it yes}    \\
          {\bf Isolated}&{\it no}   & {\it no}     \\
          \hline 
-      \end{tabular}  \label{Chapter:Introduction:Table:System}
-        \caption{System and control volumes: energy and mass transfer.}
+      \end{tabular}  
+        \caption{System and control volumes: energy and mass transfer.}\label{Chapter:Introduction:Table:System}
      \end{center}
    \end{table}
+   
+   If mass and energy are allowed to flow across the {\it boundaries}, we say that the {\it system} is {\bf open}, otherwise if only the energy is allowed to flow (\ie be transferred) across the {\it boundaries}, the {\it system} is assumed to be {\bf closed}. If both energy and mass can not be transferred across the {\it boundaries} the system is assumed {\bf isolated}, in such case, where there is no energy flow, the boundary is called {\bf adiabatic} (Table~\ref{Chapter:Introduction:Table:System}).\index{System!Open}\index{System!Closed}\index{System!Isolated}\index{System!Adiabatic}\index{Adiabatic}
+
+   In the example depicted in Fig.~\ref{Chapter:Introduction:Fig:Domain2}, assuming an ordinary industrial N$_{2}$-gas (at subzero temperature) cylinder, if the valve is closed, then there is no fluid flow from the cylinder to the room, but heat is flowing from the environment to the cylinder cavity. Such system is said to be {\bf closed}.
 
 %%% Subsection
-\subsection{Extensive and Intensive Properties}\label{Chapter:Introduction:Section:Introduction:ExtensiveIntensiveProperties}\index{Extensive Properties}\index{Intensive Properties}\index{System!Extensive Properties}\index{System!Intensive Properties}
-A quantitative property of a system describes a macroscopic characteristic in which it may vary with time (\ie time-dependent property). Thermodynamic properties may be classified as either extensive or intensive. An extensive property is a property that depends on the amount of substance (\ie size) in the system. Examples of extensive properties are total mass, total volume, total internal energy etc. An intensive property is a property that is independent of the amount of substance, examples are temperature, mass, density, molar volume, concentration and pressure.
+   \subsection{Properties and State of Substances}\label{Chapter:Introduction:Section:Introduction:ExtensiveIntensiveProperties}\index{Extensive Properties}\index{Intensive Properties}\index{System!Extensive Properties}\index{System!Intensive Properties}
+   The {\it material} in a system is composed of phases (e.g., solid, liquid, gas) with distinct physical and chemical properties, thus there are explicit {\it boundaries} (\ie interfaces) between phases. A quantitative property of a system (\eg temperature and pressure) describes macroscopic characteristics, which may vary with time (\ie time-dependent property). Two states of the matter are equivalent if they have the same properties, \eg in a cylinder-piston system (Fig.~\ref{Chapter:Introduction:Fig:Domain3}) containing {\it n} moles of pure gas, if {\it state 1} is defined by temperature $T_{1}$ and pressure $P_{1}$, and {\it state 3} is defined is by temperature $T_{3}$ and $P_{3}$, state 1 is equivalent to state 3 {\it if and only if} $T_{1} = T_{2}$ and $P_{1} = P_{2}$.
 
+   Thermodynamic properties may be classified as either {\bf extensive} or {\bf intensive}. An extensive property is a property that depends on the mass (or extent) of the substance (\ie size) in the system. Examples of extensive properties are total mass, total volume, total internal energy etc. An intensive property is a property that is independent of the mass of the substance, examples are temperature and pressure.
 
+   Thus, for example, if a system is cut in half, its intensive properties remain unchanged, while extensive properties are cut in half. The ratio of an extensive property to the mass (\ie property per unit mass) is called {\bf specific property}. The ratio of an extensive property to the number of moles of the substance in the system (\ie property per mole) is referred as {\bf molar property}.
 
 
 
