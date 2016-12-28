@@ -154,8 +154,13 @@
 %%%
    \section{Introduction to Properties of Gases}\label{Chapter:Introduction:Section:PropertiesOfGases}\index{Gases}
    \begin{subequations}
-     The physical condition (\ie state) of a substance is defined by its physical properties. For example, the state of a pure fluid is specified by volume ($V$), mass (through the number of moles, $n$), pressure ($P$) and temperature ($T$).
 
+   The physical condition (\ie state) of a substance is defined by its physical properties. For example, the state of a pure fluid is specified by volume ($V$), mass (through the number of moles, $n$), pressure ($P$) and temperature ($T$).
+   
+%%%
+%%% SUBSECTION
+%%%
+   \subsection{Ideal Gases}\label{Chapter:Introduction:Section:IdealGases}\index{Gases!Ideal gas}
      Laboratory experiments with fluids revealed that if three of these properties (\eg $V, n, T$) are specified, the state of the fluid is naturally defined, and the forth property (\ie $P$) is fixed. Mathematically, this can be represented by a functional often referred as {\bf equation of state}\index{Equation of State} (EOS),
      \begin{displaymath}
        P = f(T,V,n).
@@ -163,25 +168,35 @@
      This {\it EOS} states that if $T$, $n$ and $V$ are known for a particular fluid, then the pressure of the system for the fluid at this state can be readily determined. The state and properties of any chemical species can be described by an specific equation of state; for example, for an {\it ideal gas}, the equation of state take the form of
      \begin{shaded}
        \begin{equation}
-         P=\frc{n R T}{V},\label{Chpt01:Eqn:IdealEOS}
+         P=\frc{n R T}{V},\label{Chpt01:Eqn:IdealEOS}\index{EOS!Ideal gas}
        \end{equation}
        where $R$ is the universal gas constant (Table~\ref{Chapter:Introduction:Table:RConst}).
      \end{shaded}
      The ideal gas EOS, Eqn.~\ref{Chpt01:Eqn:IdealEOS}, was derived based on experimental observations of gas behaviour at low pressures, that led to three important relationships:
      \begin{enumerate}[a)]
         \item {\bf Boyle's law}: for isothermal processes in closed systems (\ie $T$ and $n$ are constant), an increase in pressure leads to a decrease in volume, \ie $P$ and $V$ are inversely proportional to each other, 
-          \begin{equation}
-            P_{1}V_{1} = P_{2}V_{2} \hspace{.5cm} \Leftrightarrow\hspace{.5cm} PV=\text{constant}.
-          \end{equation}
+          \begin{displaymath}
+            PV=\text{constant}.
+          \end{displaymath}
         \item Isochoric {\bf Charles' law}: for processes in closed systems (\ie $V$ and $n$ are constant), an increase in temperature leads to an increase in pressure, \ie $T$ and $P$ are directly proportional to each other,
-          \begin{equation}
-            \frc{P_{1}}{T_{1}} = \frc{P_{2}}{T_{2}} \hspace{.5cm} \Leftrightarrow \hspace{.5cm} PT^{-1} = \text{constant}.
-          \end{equation}
+          \begin{displaymath}
+            PT^{-1} = \text{constant}.
+          \end{displaymath}
         \item Isobaric {\bf Charles' law}: for processes in closed systems (\ie $P$ and $n$ are constant), an increase in temperature leads to an increase in volume, \ie $T$ and $V$ are directly proportional to each other,
-          \begin{equation}
-             \frc{V_{1}}{T_{1}} = \frc{V_{2}}{T_{2}} \hspace{.5cm} \Leftrightarrow  \hspace{.5cm} VT^{-1} = \text{constant}.
-          \end{equation}
+          \begin{displaymath}
+             VT^{-1} = \text{constant}.
+          \end{displaymath}
      \end{enumerate}
+     These three relations can be merged into a single expression,
+     \begin{equation}
+       \frc{PV}{T} = \text{constant},
+       \begin{cases}
+         P_{1}V_{1} = P_{2}V_{2}, \\
+         \frc{P_{1}}{T_{1}} = \frc{P_{2}}{T_{2}}, \\
+         \frc{V_{1}}{T_{1}} = \frc{V_{2}}{T_{2}}
+       \end{cases]
+     \end{equation}
+     
    
 
    \begin{table}[h]
