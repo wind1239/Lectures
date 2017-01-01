@@ -18,6 +18,9 @@
 % expressions in math.
 \usepackage{cancel}
 
+%\usepackage[sort&compress,square,comma,authoryear]{natbib}
+\usepackage[sort&compress,comma,round]{natbib}
+
 % \usepackage{algorithm}
 \usepackage[linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
 \usepackage[noend]{algpseudocode} 
@@ -247,8 +250,17 @@
 \newcommand\reaction{\@ifstar{\reaction@nonumber}{\reaction@}}
 \makeatother
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%  ENVIRONMENTAL VARIABLES FOR  EXAMPLES     %%%%%%%%%%
+\newcounter{examplecounter}
+\newenvironment{example}{\begin{quote}%
+    \refstepcounter{examplecounter}%
+  \textbf{Example \arabic{examplecounter}}%
+  \quad
+}{%
+\end{quote}%
+}
 
 
 \begin{document}
@@ -344,23 +356,23 @@
 
 \cleardoublepage
 
-%  \begin{appendix}
+  \begin{appendix}
 %     \part{Appendices}
 %       \input{Appendix_ConversionTable}
 %       \input{Appendix_SaturatedTables}
 %       \input{Appendix_LogTable} 
 %       \input{Appendix_Calculus1}   
 %       \input{Appendix_NumMethods}
-%       \input{Appendix_Examples}
-%  \end{appendix}
+       \input{Appendix_Examples}
+  \end{appendix}
 
 \cleardoublepage
 
 \pagebreak
 
-%\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 \bibliography{refbib}
-\bibliographystyle{unsrt}
+%\bibliographystyle{unsrt}
 
 \cleardoublepage
 \phantomsection
