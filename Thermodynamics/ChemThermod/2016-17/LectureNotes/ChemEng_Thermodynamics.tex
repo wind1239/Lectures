@@ -1,3 +1,5 @@
+
+\PassOptionsToPackage{svgnames}{xcolor}
 \documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{book}
 
 %\usepackage[gather]{chapterbib}
@@ -261,6 +263,53 @@
 }{%
 \end{quote}%
 }
+%%%%%%%  ENVIRONMENTAL VARIABLES FOR Tutorial Problems   %%%%%%%%%%
+\newcounter{problemcounter}
+\newenvironment{problem}{\begin{quote}%
+    \refstepcounter{problemcounter}%
+  \textbf{Problem \arabic{problemcounter}}%
+  \quad
+}{%
+\end{quote}%
+}
+
+%%%%%%%  ENVIRONMENTAL VARIABLES FOR  BLOCKS   %%%%%%%%%%
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\tcbuselibrary{skins,breakable}
+\usetikzlibrary{shadings,shadows}
+\newenvironment{LearningObjectivesBlock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightGreen,colframe=DarkGreen,%
+    colbacklower=LimeGreen!75!LightGreen,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{FinalSummaryBlock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightCoral,colframe=DarkRed,%
+    colbacklower=Tomato!75!LightCoral,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{MyBlock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightGray,colframe=DarkGray,%
+    colbacklower=DarkGray!75!LightGray,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{MyExample}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightGray,colframe=DarkGray,%
+    colbacklower=DarkGray!75!LightGray,%
+    title=#1]}%
+    {\endtcolorbox}
+
 
 
 \begin{document}
@@ -338,6 +387,7 @@
 
 \part{Introduction and Review of Basic Concepts}
   \input{Chapter_Introduction} % Introduction and Review of Thermodynamics
+  \input{Chapter_PropertyGases} % Introduction to gas properties
 
 %\part{Thermodynamic Properties of Fluids}  
 %  \input{Chapter_VolumetricPropertiesPureFluids}

@@ -1,0 +1,107 @@
+
+%%%
+%%% CHAPTER
+%%%
+\chapter{Introduction to Properties of Gases}\label{Chapter:Intro_Property_of_Gases}
+
+   \begin{LearningObjectivesBlock}{Learning Objectives}
+      Upon completion of this chapter, you will
+        \begin{enumerate}
+           \item identify the main elements in a thermodynamic system;
+           \item understand the concept of thermodynamic equilibrium;
+           \item state the zeroth law of thermodynamics.
+        \end{enumerate}
+\medskip
+     Recommended reading: Chapter 1 of \citet{Atkins_Book,Adamson_BookChapter}.
+   \end{LearningObjectivesBlock}
+
+   
+%%%
+%%% SECTION
+%%%
+     \section{Introduction}\label{Chapter:Intro_Property_of_Gases:Section:Intro}
+
+   The physical condition (\ie state) of a substance is defined by its physical properties. For example, the state of a pure fluid is specified by volume ($V$), mass (through the number of moles, $n$), pressure ($P$) and temperature ($T$). Laboratory experiments with fluids revealed that if three of these properties (\eg $V, n, T$) are specified, the state of the fluid is naturally defined, and the forth property (\ie $P$) is fixed. Mathematically, this can be represented by a functional often referred as {\bf equation of state}\index{Equation of State} (EOS)\index{EOS|see {Equation of State}},
+     \begin{displaymath}
+       P = f(T,V,n).
+     \end{displaymath}
+     This functional states that if $T$, $n$ and $V$ are known for a particular fluid, then the pressure of the system for the fluid at this state can be readily determined. The state and properties of any chemical species can be described by an specific equation of state.
+   
+%%%
+%%% SECTION
+%%%
+     \section{Ideal Gases}\label{Chapter:Intro_Property_of_Gases:Section:IdealGases}\index{Gases!Ideal gas}
+
+     \noindent A fluid is assumed to behave as an {\it ideal gas} if the following two assumptions are true:
+     \begin{enumerate}[i)]
+       \item molecules of gases are massless particles;
+       \item there are {\bf no} interaction between the gas particles due to,
+         \begin{enumerate}[a)]
+           \item volume of the molecules is negligibly small compared with the volume occupied by the gas, or;
+           \item the distance between gaseous molecules are infinitely large $\left(d\rightarrow \infty\right)$, except during elastic collisions over negligible duration.
+         \end{enumerate}
+     \end{enumerate}
+     \noindent These lead to an obvious conclusion that for a gas to behave as an ideal gas the pressure should be infinitely small, \ie $P\rightarrow 0$. The $PVT$ behaviour of fluids was initially investigated through experimental observations at low pressures, that led to three important intuitive relationships:
+     \begin{itemize}
+       \item For isothermal processes in closed systems (\ie $T$ and $n$ are constant), $P$ and $V$ are inversely proportional to each other, \ie an increase in pressure leads to a decrease in volume,
+          \begin{displaymath}
+             P \propto \frc{1}{V},
+          \end{displaymath}          
+%          
+       \item For isochoric processes in closed systems (\ie $V$ and $n$ are constant), $T$ and $P$ are directly proportional to each other, \ie an increase in temperature leads to an increase in pressure,
+          \begin{displaymath}
+            T \propto P,
+          \end{displaymath}         
+%
+       \item For isobaric processes in closed systems (\ie $P$ and $n$ are constant), $T$ and $V$ are directly proportional to each other, \ie an increase in temperature leads to an increase in volume.
+          \begin{displaymath}
+            T\propto V
+          \end{displaymath}          
+     \end{itemize}
+     \begin{shaded}
+        These proportionality relations can be merged into a single expression,
+          \begin{equation}
+            \frc{P V}{n T} = R \;\;\Longleftrightarrow \;\;
+              \begin{cases}
+                P_{1}V_{1} = P_{2}V_{2}, & \text{if } T \text{ and } n \text{ are constant (Boyle's Law)},  \\
+         \\
+                P_{1}T_{1}^{-1} = P_{2}T_{2}^{-1}, & \text{if } V \text{ and } n \text{ are constant (Gay-Lussac's law)}, \\
+         \\
+                V_{1}T_{1}^{-1} = V_{2}T_{2}^{-1}, & \text{if } P \text{ and } n \text{ are constant (Charles' law)}.
+             \end{cases}\label{Chapter:Intro_Property_of_Gases:Eqn:IdealEOS}\index{Equation of State!Ideal gas}
+          \end{equation}
+        The constant of proportionality, $R$, which is found experimentally to be the same for all gases, is called {\bf universal gas constant} (Table~\ref{Chapter:Intro_Property_of_Gases:Table:RConst}). This expression, 
+          \begin{equation}
+             P=\frc{n R T}{V},\label{Chapter:Intro_Property_of_Gases:Eqn:IdealEOS}\index{Equation of State!Ideal gas}
+          \end{equation}\index{Equation of State!Ideal gas}
+        is called {\bf ideal gas equation of state} and becomes increasingly accurate for any gas as pressure tends to zero.
+     \end{shaded}
+     
+
+     
+   \begin{table}[h]
+     \begin{center}
+     \begin{tabular}{||c c||}
+       \hline\hline
+           $\mathbf{R}$   & {\bf Units} $\mathbf{\left(\text{V.P.T}^{-1}\text{n}^{-1}\right)}$ \\
+           \hline\hline
+           8.3145    &  J.K$^{-1}$.mol$^{-1}$  \\
+           8.3145    &  kJ.K$^{-1}$.kmol$^{-1}$  \\
+           8.3145    &  l.kPa.K$^{-1}$.mol$^{-1}$  \\
+           8.3145$\times$10$^{-3}$    & cm$^{3}$.kPa.K$^{-1}$.mol$^{-1}$  \\
+           8.3145    &  m$^{3}$.Pa.K$^{-1}$.mol$^{-1}$  \\
+           8.3145$\times$10$^{-5}$    &  m$^{3}$.bar.K$^{-1}$.mol$^{-1}$  \\
+           8.2057$\times$10$^{-2}$ &  l.atm.K$^{-1}$.mol$^{-1}$  \\
+           \hline\hline           
+     \end{tabular}
+     \caption{Gas constant, $R$.}\label{Chapter:Intro_Property_of_Gases:Table:RConst}\index{Universal gas constant}\index{R|see {Universal gas constant}}\index{Gas constant|see {Universal gas constant}}
+     \end{center}
+   \end{table}
+   
+
+   
+\begin{FinalSummaryBlock}{Summary}
+    In this chapter, some fundamental concepts of thermodynamic properties were revised and the their relationships with energy were introduced. Heat and work, two of the most important forms of energy exchange studied in thermodynamics, were introduced. The Zeroth law of thermodynamics was introduced and its application to temperature measurement was briefly explored.
+
+    Most of these fundamentals concepts are familiar to you through other engineering courses. However, the remaining of this document strongly relies on this concepts and ideas, and you should understand all these concepts before moving forward.
+\end{FinalSummaryBlock}
