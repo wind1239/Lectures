@@ -34,14 +34,14 @@
 
      \noindent A fluid is assumed to behave as an {\it ideal gas} if the following two assumptions are true:
      \begin{enumerate}[i)]
-       \item molecules of gases are massless particles;
+       \item molecules of gases are considered as massless particles;
        \item there are {\bf no} interaction between the gas particles due to,
          \begin{enumerate}[a)]
            \item volume of the molecules is negligibly small compared with the volume occupied by the gas, or;
            \item the distance between gaseous molecules are infinitely large $\left(d\rightarrow \infty\right)$, except during elastic collisions over negligible duration.
          \end{enumerate}
      \end{enumerate}
-     \noindent These lead to an obvious conclusion that for a gas to behave as an ideal gas the pressure should be infinitely small, \ie $P\rightarrow 0$. The $PVT$ behaviour of fluids was initially investigated through experimental observations at low pressures, that led to three important intuitive relationships:
+     \noindent These lead to an obvious conclusion that for a gas to behave as an ideal gas the pressure should be infinitely small, \ie $P\rightarrow 0$. The $PVT$ behaviour of fluids was initially investigated through experimental observations of gases at low pressures that led to three intuitive relationships:
      \begin{itemize}
        \item For isothermal processes in closed systems (\ie $T$ and $n$ are constant), $P$ and $V$ are inversely proportional to each other, \ie an increase in pressure leads to a decrease in volume,
           \begin{displaymath}
@@ -55,7 +55,7 @@
 %
        \item For isobaric processes in closed systems (\ie $P$ and $n$ are constant), $T$ and $V$ are directly proportional to each other, \ie an increase in temperature leads to an increase in volume.
           \begin{displaymath}
-            T\propto V
+            T\propto V.
           \end{displaymath}          
      \end{itemize}
      \begin{shaded}
@@ -74,10 +74,8 @@
           \begin{equation}
              P=\frc{n R T}{V},\label{Chapter:Intro_Property_of_Gases:Eqn:IdealEOS}\index{Equation of State!Ideal gas}
           \end{equation}\index{Equation of State!Ideal gas}
-        is called {\bf ideal gas equation of state} and becomes increasingly accurate for any gas as pressure tends to zero.
+        is called {\bf ideal gas equation of state} and becomes increasingly accurate for any gas as pressure tends to zero $\left(P\rightarrow 0\right)$.
      \end{shaded}
-     
-
      
    \begin{table}[h]
      \begin{center}
@@ -98,8 +96,45 @@
      \end{center}
    \end{table}
    
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:Intro_Property_of_Gases:Example1}
+       In an industrial process, nitrogen is heated to 650.15 K in a vessel of constant volume. If it enters the vessel at 43 atm and 298.15 K, what pressure would it exert at the working temperature if it behaved as an ideal gas?
 
+       {\it This problem deals with a gas that undertakes an isochoric (\ie constant volume) process. Nitrogen gas at $P_{1} = 43$ atm and $T_{1} = 298.15$ K is compressed to pressure $P_{2}$ 'till temperature reaches $T_{2} = 650.15$ K.
+
+         Using the ideal gas equation for states 1 and 2,}
+       \begin{eqnarray}
+         && \left(\frc{PV}{nT}\right)_{1} = R = \left(\frc{PV}{nT}\right)_{2},\;\;\;\text{ with } V_{1}=V_{2} \text{ and }\;\; n_{1}=n_{2}\nonumber \\
+         && \frc{P_{1}}{T_{1}} = \frc{P_{2}}{T_{2}} \;\;\Rightarrow \;\; P_{2}= 93.7664 \text{ atm } \nonumber
+         \end{eqnarray}
+     \end{example}
+   \end{MyExample}
+
+\medskip
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:Intro_Property_of_Gases:Example2}
+       500 kg of helium gas is stored in a tank at 50$^{\circ}$C and 2.5 bar. The fluid is then transferred to a pressure vessel where it is isothermically compressed to 73 bar.  What is the volume occupied by {\it He} in such conditions? Assume ideal gas behaviour. Molar mass ({\it MW})of helium is 4.0026 g.mol$^{-1}$.
+
+       {\it In this problem, we need to calculate the volume of helium at the pressure vessel after isothermal compression. However, not all necessary conditions are known, \ie}
+       \begin{displaymath}
+         \frc{P_{1}V_{1}}{n_{1} R T_{1}} = \frc{P_{2}V_{2}}{n_{2} R T_{2}} \Longrightarrow P_{1}V_{1} = P_{2}V_{2},\;\;\;\;\text{where }R\text{ and } n_{i}\text{ are constants},
+       \end{displaymath}
+           {\it thus there is 1 equation and 2 unknowns, $V_{1}$ and $V_{2}$. In order to solve this problem, we need to first compute $n_{1}$ and $V_{1}$ via, }
+           \begin{displaymath}
+              V_{1} = \frc{n_{1}R T_{1}}{P_{1}} = 1342.5427\;\text{m}^{3},\;\;\;\text{ where } n_{1} = \frc{m_{1}}{MW_{1}} =  124918.8028\text{ moles}.
+           \end{displaymath}
+           {\it With $V_{1}$, we can now calculate the volume after compression, $V_{2}$}
+           \begin{displaymath}
+              P_{1}V_{1} = P_{2}V_{2} \;\;\; \Longrightarrow\;\;\; V_{2} = 45.9775 \text{m}^{3}
+           \end{displaymath}
+           
+     \end{example}
+   \end{MyExample}
    
+
+\clearpage   
 \begin{FinalSummaryBlock}{Summary}
     In this chapter, some fundamental concepts of thermodynamic properties were revised and the their relationships with energy were introduced. Heat and work, two of the most important forms of energy exchange studied in thermodynamics, were introduced. The Zeroth law of thermodynamics was introduced and its application to temperature measurement was briefly explored.
 

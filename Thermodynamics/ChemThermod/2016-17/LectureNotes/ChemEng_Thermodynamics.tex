@@ -1,7 +1,6 @@
 
 \PassOptionsToPackage{svgnames}{xcolor}
 \documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{book}
-
 %\usepackage[gather]{chapterbib}
 
 \usepackage{graphicx,wrapfig}% Include figure files
@@ -9,7 +8,11 @@
 \usepackage{enumerate}% Align table columns on decimal point
 \usepackage{bm,dpfloat}% bold math
 \usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
-\usepackage{amsfonts,amsmath,amsthm,amssymb,stmaryrd,indentfirst}
+\usepackage{amsfonts,amsthm,amssymb,stmaryrd,indentfirst}
+\usepackage{amsmath}% ,example}
+%\numberwithin{Answer}{chapter}
+%\numberwithin{Exercise}{chapter}
+
 \usepackage{times,psfrag,pdfpages}
 %\usepackage{natbib} 
 \usepackage{color}
@@ -221,7 +224,7 @@
 \setcounter{secnumdepth}{3}%
 \setcounter{tocdepth}{3}%
 
-%\usepackage{chngcntr}
+\usepackage{chngcntr}
 %\counterwithout{figure}{chapter}
 
 \newcounter{qcounter}
@@ -237,10 +240,10 @@
 \makeatletter
 \newcounter{reaction}
 %%% >> for article <<
-\renewcommand\thereaction{R6.\,\arabic{reaction}}
+%\renewcommand\thereaction{R6.\,\arabic{reaction}}
 %%% << for article <<
 %%% >> for report and book >>
-%\renewcommand\thereaction{C\,\thechapter.\arabic{reaction}}
+\renewcommand\thereaction{C\,\thechapter.\arabic{reaction}}
 %\@addtoreset{reaction}{chapter}
 %%% << for report and book <<
 \newcommand\reactiontag{\refstepcounter{reaction}\tag{\thereaction}}
@@ -258,7 +261,7 @@
 \newcounter{examplecounter}
 \newenvironment{example}{\begin{quote}%
     \refstepcounter{examplecounter}%
-  \textbf{Example \arabic{examplecounter}}%
+  \textbf{Example \thechapter.\arabic{examplecounter}}% 
   \quad
 }{%
 \end{quote}%
@@ -386,7 +389,15 @@
 \pagenumbering{arabic}% Arabic page numbers (and reset to 1)
 
 \part{Introduction and Review of Basic Concepts}
+
+   \begin{shaded}
+     Contents of this Part are not examinable. They were designed to help with some of the notations and definitions used in the remaining of this Notes. 
+   \end{shaded}
+   
+
   \input{Chapter_Introduction} % Introduction and Review of Thermodynamics
+
+  \setcounter{examplecounter}{0}
   \input{Chapter_PropertyGases} % Introduction to gas properties
 
 %\part{Thermodynamic Properties of Fluids}  
