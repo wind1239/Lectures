@@ -134,6 +134,80 @@
    \end{MyExample}
    
 
+%%%
+%%% SECTION
+%%%
+   \section{Gas Mixtures}\label{Chapter:Intro_Property_of_Gases:Section:MixtureGases}\index{Gases!Mixture of gases}\index{Gases!Dalton's law}\index{Dalton's law|see {Gases}}\index{Pressure!Partial}\index{Partial pressure|see {Pressure}}
+
+   \begin{subequations}
+     Let's consider a gaseous mixture containing $\mathcal{N}$ chemical species. In several applications it is necessary to determine the pressure that each gas exerts in the whole system, \ie the contribution of each gas in the total pressure of the mixture. This contribution is often referred as {\it partial pressure}, $P_{i}$, of the gas {\it i} in a gas mixture and is defined as
+     \begin{equation}
+        P_{i} = y_{i}P,\label{Chapter:Intro_Property_of_Gases:Eqn:PartialPressure_1}
+     \end{equation}
+     where $P$ is the total pressure and $y_{i}$ is the mole fraction of component $i$,
+     \begin{displaymath}
+        y_{i} = \frc{n_{i}}{n},\;\;\;\text{ with }\;\;i=1,\cdots,\mathcal{N}.
+     \end{displaymath}
+     The sum of the partial pressures of all components in the gaseous mixture is
+     \begin{equation}
+       \summation[P_{i}]{i=1}{\mathcal{N}} = P\label{Chapter:Intro_Property_of_Gases:Eqn:PartialPressure_2}
+     \end{equation}
+     This equation is also known as {\it Dalton's law} and it is valid for any gaseous mixtures, ideal or real gases. It can be stated as
+     \begin{shaded}
+       ``The pressure exerted by a mixture of gases is the sum of the pressures that each one would exist if it occupied the container alone'' \citep{Atkins_Book}.
+     \end{shaded}
+
+   \end{subequations}
+   
+
+\medskip
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:Intro_Property_of_Gases:Example3}
+       A gaseous mixture of methane, ethane and ethylene is stored in a tank at 6 atm. The composition (in weight) of the mixture is 42.16$\%$ of CH$_{4}$ and 32.11$\%$ of C$_{2}$H$_{6}$. What is the partial pressure of each gas in the mixture? Molar mass ({\it MW}) of methane, ethane and ethylene are 16.04 g.mol$^{-1}$, 30.07 g.mol$^{-1}$ and 28.05 g.mol$^{-1}$, respectively.
+
+       {\it Partial pressure of CH$_{4}$, C$_{2}$H$_{6}$ and C$_{2}$H$_{4}$ can be obtained from Eqn.~\ref{Chapter:Intro_Property_of_Gases:Eqn:PartialPressure_1}, however we first need to calculate the number of moles of each species in the mixture,}
+       \begin{displaymath}
+         \begin{cases}
+           n_{\text{CH}_{4}} = \frc{m_{\text{CH}_{4}}}{MW_{\text{CH}_{4}}} = \frc{42.16}{16.04}= 2.6284\text{ moles},  \\
+           n_{\text{C}_{2}\text{H}_{6}} = \frc{m_{\text{C}_{2}\text{H}_{6}}}{MW_{\text{C}_{2}\text{H}_{6}}} = \frc{32.11}{30.07}= 1.0678\text{ moles},  \\
+           n_{\text{C}_{2}\text{H}_{4}} = \frc{m_{\text{C}_{2}\text{H}_{4}}}{MW_{\text{C}_{2}\text{H}_{4}}} = \frc{25.73}{28.05}= 0.9173\text{ moles}. 
+         \end{cases}
+       \end{displaymath}
+       The mole fraction of each species can be obtained, considering
+       \begin{displaymath}
+         n = \summation[n_{i}]{i=1}{3} = n_{\text{CH}_{4}}+n_{\text{C}_{2}\text{H}_{6}}+n_{\text{C}_{2}\text{H}_{4}} = 4.6135
+       \end{displaymath}
+       thus,
+       \begin{displaymath}
+         \begin{cases}
+           y_{\text{CH}_{4}} = \frc{n_{\text{CH}_{4}}}{n} = 0.5697  \\
+           y_{\text{C}_{2}\text{H}_{6}} = \frc{n_{\text{C}_{2}\text{H}_{6}}}{n} = 0.2315,  \\
+           y_{\text{C}_{2}\text{H}_{4}} = \frc{n_{\text{C}_{2}\text{H}_{4}}}{n} = 0.1988. 
+         \end{cases}
+       \end{displaymath}
+       With $y_{i}$, we can finally calculate the partial pressure of each gas:
+       \begin{displaymath}
+         \begin{cases}
+           P_{\text{CH}_{4}} = P\cdot y_{\text{CH}_{4}} = 3.4182\text{ atm}  \\
+           P_{\text{C}_{2}\text{H}_{6}} = P\cdot y_{\text{C}_{2}\text{H}_{6}} = 1.3890\text{ atm},  \\
+           P_{\text{C}_{2}\text{H}_{4}} = P\cdot y_{\text{C}_{2}\text{H}_{4}} = 1.1928\text{ atm}. 
+         \end{cases}
+       \end{displaymath}
+       We can check if the calculations are correct by
+       \begin{displaymath}
+         \begin{cases}
+           \summation[y_{i}]{i=1}{3} = 1.0000  & \text{ and } \\
+           \summation[P_{i}]{i=1}{3} = P = 6\text{ atm} & \\
+         \end{cases}
+       \end{displaymath}
+           
+     \end{example}
+   \end{MyExample}
+   
+
+
+   
 \clearpage   
 \begin{FinalSummaryBlock}{Summary}
     In this chapter, some fundamental concepts of thermodynamic properties were revised and the their relationships with energy were introduced. Heat and work, two of the most important forms of energy exchange studied in thermodynamics, were introduced. The Zeroth law of thermodynamics was introduced and its application to temperature measurement was briefly explored.
