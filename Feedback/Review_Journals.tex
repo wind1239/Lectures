@@ -49,7 +49,7 @@
     \end{landscape}
     \clearpage% Flush page
 }
-\vfill
+\vfill 
 \clearpage
 
 %%%%%%%
@@ -61,35 +61,27 @@
 \end{center}
 
 \medskip
+The manuscript aims to investigate flow characteristics in compact cross-flow heat exchangers in MSR systems. The paper is relatively well-written with a small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives (see attached scanned document).  However, the manuscript is insightful despite a limited overview of the main subject areas, e.g., fluid flow in confined domains and turbulence models.
 
-The manuscript aims to investigate power transients during xenon oscillations in WWER-1000 reactors. The paper is relatively well-written with a relatively small number of typos and unrevised sentences. A few sentences are confusing and disconnected with no clear objectives (see attached scanned document).  However, the manuscript is insightful although it introduced a limited overview of the main subject areas, e.g., reactor physics design, thermo-hydraulics, neutron-radiation and coupling models.
-
-In fact, from the title I was expecting (a) a comprehensive overview, study and analysis of WWER-1000 reactors with focus on mechanisms (mechanical and neutronics) of control rods (safety control) and methods for fluid - neutronics - nuclear data coupling; (b) an in-depth investigation of the impact of control-rod movements in the neutronics. Unfortunately, none of them was achieved in this manuscript, (a) and (b)  were extremely limited. This manuscript focuses (partially) on (b), and although an extensive quantity of data was generated the analysis was superficial and lacked rigorous structure. In addition, the manuscript fails to clearly state objectives and the novelty of the work -- most of the analysis was conducted before for PWR -- what is the expected difference (of power density output fluctuation due to control rod movement and xenon distribution fluctuations) ? The manuscript however fails to highlight:
-  \begin{itemize}
-    \item Aim and objectives of the work;
-    \item Novelty.
-  \end{itemize}
-  A few comments:
+In fact, from the title I was expecting (a) a comprehensive overview of RANS models commonly used in MSR systems; (b) analysis of flow dynamics in confined domains with emphasis on boundary conditions and turbulence submodels for specific fluid flow characteristics. Unfortunately, none of them was achieved in this manuscript, (a) and (b) were extremely limited. This manuscript focuses (partially) on (b), and although an extensive quantity of data was generated the analysis was superficial and lacked rigorous structure. In addition, the manuscript fails to clearly state an specific aim and the novelty of the work. A few comments:
 \begin{enumerate}[(a)] 
 %
-    \item Several terms were used without and/or before being defined, e.g., BNPP , FSAR, BOC, EOC etc (see attached document);
-    \item Several terms in Eqns 1-18 were not defined either in the main text or in the nomenclature table, e.g., $G_{m}$ and $z$ in Eqns. 4-6, $c$ and $\overline{K}_{f}$ in Eqns. 14-15, all terms in Eqns. 16-18 (see attached document);
-    \item Some of the thermo-hydraulic equations do not look correct, in particular Eqn. 11. Again I would expect a full explanation of the models used for the thermo-hydraulic model as it would strongly impact on power distribution;
-    \item It is seems that the thermal energy equation (Eqn. 6) is parametrised (or non-dimensionalised) and solved semi-analytically through Eqns. 6-8. Is this correct? How is this solution linked with continuity and momentum equation?
-    \item Paper's title refers to coupling, however it is not clear how this is actually done. Figures 1, 8-9 attempt to summarise the coupling but it is not really clear how the authors dealt with: (a) time-step size differences between fluid and neutronic models (in the transient calculations), (b) number of energy groups used in the MCNP calculations;
-    \item Section 5 (last sentence of the second paragraph) -- comments -re Figs. 4-6: $T_{c,o}$ and $P$ plots do not match at all. Why?
-      \item It is clear how Figs. 14-19 prove that control rod movements has limited impact in xenon distribution and power oscillation. In fact, these figures were poorly explained and the conclusions were fully based on the obtained results. 
+    \item A few terms were used without and/or before being defined, e.g., $V_{d}$, $\rho$, $U_{f}$, {\it PER}, {\it SYM} etc (see attached document);
+    \item The manuscript focus on numerical simulations involving RANS-based turbulence models. However it is not clear if the performed simulations were for single-phase or multiphase.It would help if all set of equations were shown with a summary of the methods chosen within STARCCM+;
+    \item What is the mesh resolution used in the numerical simulations? 
+    \item In Section 4.1, the authors assessed mesh-independency by comparing pressure drops of mesh with different resolutions. Although this approach is accepted by the CFD community, it is often used by continuously reducing the mesh size 'till convergence is achieved (i.e., solution is mesh-independent). However here the authors used an ``{\it optimal}'' fine mesh {\it M4} as benchmark and just compared it with coarser grid. I am wondering why this mesh was chosen? Another (more traditional way) way to assess mesh independency is by PSD analysis of pressure and velocity fluctuations. 
+    \item Mesh independency was also assessed using an empirical correlation introduced by Zukauskas and Ulinskas (text-book), unfortunately I am not familiar with this approach, thus it would be easier if the authors added this pressure drop correlation into the manuscript.
+    \item The impact of turbulence submodels on pressure drop were investigated the manuscript through the comparison against the empirical ZU correlation. The analysis was superficial as no info is given on the setup used for each simulation. In addition, what is the proofed accuracy of this correlation? 
 \end{enumerate}
 
 In summary, the subject of the manuscript is interesting, however the paper still needs to be considerably improved before being considered for publication. The results are insightful and the novelty of the manuscript must be highlighted. 
 
 \medskip
-In the scanned copy, PE stands for `Poor English, the authors should consider revise the sentence(s)'.
 %%%
 %%% Appendix
 %%% 
 {
-  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_PNUCENE_D16_00455.pdf}} 
+  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_PNUCENE_D16_00533.pdf}} 
 
 
 \clearpage
@@ -141,7 +133,7 @@ In the scanned copy, PE stands for `Poor English, the authors should consider re
 %%%%%%%
 
 \begin{center}
-  {\Large Review of the Manuscript BJCE-2016-0044.R1 `Challenge Analysis and Schemes Desgn for the CFD Simulation of PWR' by C. Chen {\it et al.}}
+  {\Large Review of the Manuscript PNUCENE-D-16-00308 `Challenge Analysis and Schemes Desgn for the CFD Simulation of PWR' by C. Chen {\it et al.}}
 \end{center}
 
 \medskip
@@ -232,10 +224,10 @@ In the scanned copy,
 
 
 %%%
-%%% Appendix
+%%% Appendix 
 %%%
-{
-  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_BJCE_2016_0044R1.pdf}}
+%{
+%  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_BJCE_2016_0044R1.pdf}}
 
 
 \clearpage
