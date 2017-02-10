@@ -5,11 +5,13 @@
 \chapter{Introduction to Properties of Gases}\label{Chapter:Intro_Property_of_Gases}
 
    \begin{LearningObjectivesBlock}{Learning Objectives}
-      Upon completion of this chapter, you will
+      Upon completion of this chapter, you will be able to
         \begin{enumerate}
-           \item identify the main elements in a thermodynamic system;
-           \item understand the concept of thermodynamic equilibrium;
-           \item state the zeroth law of thermodynamics.
+           \item define ideal gas and identify the main assumptions;
+           \item differentiate an ideal from a real gas through state conditions;
+           \item explain Boyle's, Gay-Lussac's and Charles' laws for ideal gases;
+           \item define and explain the equation of state for ideal gases;
+           \item state the Dalton's law for gaseous mixtures.
         \end{enumerate}
 \medskip
      Recommended reading: Chapter 1 of \citet{Atkins_Book,Adamson_BookChapter}.
@@ -37,11 +39,11 @@
        \item molecules of gases are considered as {\bf massless} particles;
        \item there are {\bf no} interaction between the gas particles due to,
          \begin{enumerate}[a)]
-           \item volume of the molecules is negligibly small compared with the volume occupied by the gas, or;
+           \item volume of the molecules is negligibly small compared with the volume occupied by the gas, and/or;
            \item the distance between gaseous molecules are infinitely large $\left(d\rightarrow \infty\right)$, except during elastic collisions over negligible duration.
          \end{enumerate}
      \end{enumerate}
-     \noindent These lead to an obvious conclusion that for a gas to behave as an ideal gas the pressure should be infinitely small, \ie $P\rightarrow 0$. The $PVT$ behaviour of fluids was initially investigated through experimental observations of gases at low pressures that led to three intuitive relationships:
+     \noindent These lead to an obvious conclusion that for a gas to behave as an ideal gas the pressure should be infinitely small, \ie $P\rightarrow 0$. In practical engineering calculations, we assume that a fluid behaves as an ideal gas at low to moderate pressures. The $PVT$ behaviour of fluids was initially investigated through experimental observations of gases at low pressures that led to three intuitive relationships:
      \begin{itemize}
        \item For isothermal processes in closed systems (\ie $T$ and $n$ are constant), $P$ and $V$ are inversely proportional to each other, \ie an increase in pressure leads to a decrease in volume,
           \begin{displaymath}
@@ -115,7 +117,7 @@
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
      \begin{example}\label{Chapter:Intro_Property_of_Gases:Example2}
-       500 kg of helium gas is stored in a tank at 50$^{\circ}$C and 2.5 bar. The fluid is then transferred to a pressure vessel where it is isothermically compressed to 73 bar.  What is the volume occupied by {\it He} in such conditions? Assume ideal gas behaviour. Molar mass ({\it MW})of helium is 4.0026 g.mol$^{-1}$.
+       500 kg of helium gas is stored in a tank at 50$^{\circ}$C and 2.5 bar. The fluid is then transferred to a pressure vessel where it is isothermically compressed to 73 bar.  What is the volume occupied by {\it He} in such conditions? Assume ideal gas behaviour. Molar mass ({\it MW}) of helium is 4.0026 g.mol$^{-1}$.
 
        {\it In this problem, we need to calculate the volume of helium at the pressure vessel after isothermal compression. However, not all necessary conditions are known, \ie}
        \begin{displaymath}
@@ -133,6 +135,62 @@
      \end{example}
    \end{MyExample}
    
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:Intro_Property_of_Gases:Example3}
+       \citep{Atkins_Book} 
+       \begin{enumerate}[a)]
+           \item Deduce a relation between pressure and mass density $\left(\rho\right)$ of an ideal gas of molar mass $MW$;
+           \item After careful measurement of the density of dimethyl ether at relatively low pressure conditions, a chemical engineering student obtained the following experimental data at 25$^{\circ}$C,
+               \begin{center}
+                  \begin{tabular}{c c c c c c}
+                     $\mathbf{P}$ [kPa]  & 12.223 & 25.20 & 36.97 & 85.23 & 101.3 \\
+                     $\mathbf{\rho}\;\left[\text{kg.m}^{-3}\right]$ & 0.225  &  0.456  &  0.664 & 1.468 & 1.734  
+                  \end{tabular}
+               \end{center}
+               Obtain the molar mass of dimethyl ether at each pressure coordinate and compare with the real value of 46.07 g.mol$^{-1}$. What conclusions could be drawn from this data?
+       \end{enumerate}
+\medskip
+
+       \begin{enumerate}[a)]
+           \item {\it The first part of the problem requires the development of a mathematical relation between $P$ and $\rho$. Defining} $\rho=\frc{m}{V}$ {\it which can be allocated in the ideal EOS} $\left(\text{ and }n=\frc{m}{MW}\right)$,
+              \begin{eqnarray}
+                 P &=& \frc{n R T }{V} = \frc{m}{MW}\frc{R T}{V} \\ 
+                   &=& \frc{\rho R T}{MW}
+              \end{eqnarray}
+%
+           \item {\it We can use the relation derived in part (a) to calculate the molar mass of dimethyl ether at each pressure coordinate, thus}
+              \begin{displaymath}
+                  \begin{cases}
+                     MW_{1} = \frc{\rho_{1} R T}{P_{1}} = \frc{0.225\text{ kg.m}^{-3}\cdot 8.3145\text{ m}^{3}\text{.Pa.}\left(\text{K.mol}\right)^{-1}\cdot 298.15\text{ K}}{12.223\times 10^{3}\text{ Pa}} = 45.6326 \text{ g.mol}^{-1} \\
+                     MW_{2} = \frc{\rho_{2} R T}{P_{2}} = \frc{0.456\text{ kg.m}^{-3}\cdot 8.3145\text{ m}^{3}\text{.Pa.}\left(\text{K.mol}\right)^{-1}\cdot 298.15\text{ K}}{25.20\times 10^{3}\text{ Pa}} = 44.8575 \text{ g.mol}^{-1} \\
+                     MW_{3} = \frc{\rho_{3} R T}{P_{3}} = \frc{0.664\text{ kg.m}^{-3}\cdot 8.3145\text{ m}^{3}\text{.Pa.}\left(\text{K.mol}\right)^{-1}\cdot 298.15\text{ K}}{36.97\times 10^{3}\text{ Pa}} = 44.5235 \text{ g.mol}^{-1} \\
+                     MW_{4} = \frc{\rho_{4} R T}{P_{4}} = \frc{1.468\text{ kg.m}^{-3}\cdot 8.3145\text{ m}^{3}\text{.Pa.}\left(\text{K.mol}\right)^{-1}\cdot 298.15\text{ K}}{85.23\times 10^{3}\text{ Pa}} = 42.6977 \text{ g.mol}^{-1} \\
+                     MW_{5} = \frc{\rho_{5} R T}{P_{5}} = \frc{1.734\text{ kg.m}^{-3}\cdot 8.3145\text{ m}^{3}\text{.Pa.}\left(\text{K.mol}\right)^{-1}\cdot 298.15\text{ K}}{101.3\times 10^{3}\text{ Pa}} = 42.4337 \text{ g.mol}^{-1} \\
+                  \end{cases} 
+              \end{displaymath}
+              {\it We can compare these values with the real molar mass through the relative error ($\%$),}
+                 \begin{displaymath}
+                      \epsilon = \frc{\left| MW_{i} - MW^{\text{exp}}\right|}{MW^{\text{exp}}}\times 100,
+                 \end{displaymath}
+                 {\it leading to}
+               \begin{center}
+                  \begin{tabular}{c |c c c c c}
+                     $\mathbf{P}$ [kPa]                            & 12.223  & 25.20   & 36.97   & 85.23   & 101.3    \\
+                     $\mathbf{\rho}\;\left[\text{kg.m}^{-3}\right]$ &  0.225  &  0.456  &  0.664  &  1.468  &   1.734  \\
+                     $\mathbf{MW}\;\left[\text{g.mol}^{-1}\right]$  & 45.6326 & 44.8575 & 44.5235 & 42.6977 &  45.4337 \\
+                     $\mathbf{\varepsilon}\;\left[\%\right]$       &  0.9494 &  2.6319 &  3.3568 &  7.3199 &   7.8930
+                  \end{tabular}
+               \end{center}
+               {\it From this data, it is clear that as $P\rightarrow 0$ dimethyl ether behaves similar to an ideal gas. However, as pressure increases the ideal gas EOS becomes less accurate.} 
+
+                
+       \end{enumerate}
+
+           
+     \end{example}
+   \end{MyExample}
+   
 
 %%%
 %%% SECTION
@@ -144,15 +202,19 @@
      \begin{equation}
         P_{i} = y_{i}P,\label{Chapter:Intro_Property_of_Gases:Eqn:PartialPressure_1}
      \end{equation}
-     where $P$ is the total pressure and $y_{i}$ is the mole fraction of component $i$,
+     where $P$ is the total pressure and $y_{i}$ is the {\it mole fraction} of component $i$,\index{Mole fraction}
      \begin{displaymath}
         y_{i} = \frc{n_{i}}{n},\;\;\;\text{ with }\;\;i=1,\cdots,\mathcal{N}.
      \end{displaymath}
-     The sum of the partial pressures of all components in the gaseous mixture is
+     The mole fraction is a normalised quantity and as such it must sum to unity, 
+     \begin{displaymath}
+        \summation[y_{i}]{i=1}{\mathcal{N}} = 1
+     \end{displaymath}
+     If we sum up the partial pressures of all components in the gaseous mixture, the total pressure of the system is recovered, \ie
      \begin{equation}
-       \summation[P_{i}]{i=1}{\mathcal{N}} = P\label{Chapter:Intro_Property_of_Gases:Eqn:PartialPressure_2}
+       \summation[P_{i}]{i=1}{\mathcal{N}} = \summation[y_{i}P]{i=1}{\mathcal{N}} = P\label{Chapter:Intro_Property_of_Gases:Eqn:PartialPressure_2}
      \end{equation}
-     This equation is also known as {\it Dalton's law} and it is valid for any gaseous mixtures, ideal or real gases. It can be stated as
+     This equation is also known as {\it Dalton's law} and it is valid for any ideal or real gaseous mixtures. It can be stated as
      \begin{shaded}
        ``The pressure exerted by a mixture of gases is the sum of the pressures that each one would exist if it occupied the container alone'' \citep{Atkins_Book}.
      \end{shaded}
@@ -163,22 +225,23 @@
 \medskip
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:Intro_Property_of_Gases:Example3}
+     \begin{example}\label{Chapter:Intro_Property_of_Gases:Example4}
        A gaseous mixture of methane, ethane and ethylene is stored in a tank at 6 atm. The composition (in weight) of the mixture is 42.16$\%$ of CH$_{4}$ and 32.11$\%$ of C$_{2}$H$_{6}$. What is the partial pressure of each gas in the mixture? Molar mass ({\it MW}) of methane, ethane and ethylene are 16.04 g.mol$^{-1}$, 30.07 g.mol$^{-1}$ and 28.05 g.mol$^{-1}$, respectively.
+\medskip
 
-       {\it Partial pressure of CH$_{4}$, C$_{2}$H$_{6}$ and C$_{2}$H$_{4}$ can be obtained from Eqn.~\ref{Chapter:Intro_Property_of_Gases:Eqn:PartialPressure_1}, however we first need to calculate the number of moles of each species in the mixture,}
+       {\it Partial pressure of CH$_{4}$, C$_{2}$H$_{6}$ and C$_{2}$H$_{4}$ can be obtained from Eqn.~\ref{Chapter:Intro_Property_of_Gases:Eqn:PartialPressure_1}, however we first need to calculate the number of moles of each species in the mixture. Assuming a 100 g mixture,}
        \begin{displaymath}
          \begin{cases}
-           n_{\text{CH}_{4}} = \frc{m_{\text{CH}_{4}}}{MW_{\text{CH}_{4}}} = \frc{42.16}{16.04}= 2.6284\text{ moles},  \\
-           n_{\text{C}_{2}\text{H}_{6}} = \frc{m_{\text{C}_{2}\text{H}_{6}}}{MW_{\text{C}_{2}\text{H}_{6}}} = \frc{32.11}{30.07}= 1.0678\text{ moles},  \\
-           n_{\text{C}_{2}\text{H}_{4}} = \frc{m_{\text{C}_{2}\text{H}_{4}}}{MW_{\text{C}_{2}\text{H}_{4}}} = \frc{25.73}{28.05}= 0.9173\text{ moles}. 
+           n_{\text{CH}_{4}} = \frc{m_{\text{CH}_{4}}}{MW_{\text{CH}_{4}}} = \frc{42.16\text{ g}}{16.04\text{ g.mol}^{-1}}= 2.6284\text{ moles},  \\
+           n_{\text{C}_{2}\text{H}_{6}} = \frc{m_{\text{C}_{2}\text{H}_{6}}}{MW_{\text{C}_{2}\text{H}_{6}}} = \frc{32.11\text{ g}}{30.07\text{ g.mol}^{-1}}= 1.0678\text{ moles},  \\
+           n_{\text{C}_{2}\text{H}_{4}} = \frc{m_{\text{C}_{2}\text{H}_{4}}}{MW_{\text{C}_{2}\text{H}_{4}}} = \frc{25.73\text{ g}}{28.05\text{ g.mol}^{-1}}= 0.9173\text{ moles}. 
          \end{cases}
        \end{displaymath}
-       The mole fraction of each species can be obtained, considering
+       {\it The mole fraction of each species can be obtained, considering}
        \begin{displaymath}
-         n = \summation[n_{i}]{i=1}{3} = n_{\text{CH}_{4}}+n_{\text{C}_{2}\text{H}_{6}}+n_{\text{C}_{2}\text{H}_{4}} = 4.6135
+         n = \summation[n_{i}]{i=1}{3} = n_{\text{CH}_{4}}+n_{\text{C}_{2}\text{H}_{6}}+n_{\text{C}_{2}\text{H}_{4}} = 4.6135\text{ moles}
        \end{displaymath}
-       thus,
+       {\it thus,}
        \begin{displaymath}
          \begin{cases}
            y_{\text{CH}_{4}} = \frc{n_{\text{CH}_{4}}}{n} = 0.5697  \\
@@ -186,7 +249,7 @@
            y_{\text{C}_{2}\text{H}_{4}} = \frc{n_{\text{C}_{2}\text{H}_{4}}}{n} = 0.1988. 
          \end{cases}
        \end{displaymath}
-       With $y_{i}$, we can finally calculate the partial pressure of each gas:
+       {\it With $y_{i}$ we can finally calculate the partial pressure of each gas:}
        \begin{displaymath}
          \begin{cases}
            P_{\text{CH}_{4}} = P\cdot y_{\text{CH}_{4}} = 3.4182\text{ atm}  \\
@@ -194,23 +257,66 @@
            P_{\text{C}_{2}\text{H}_{4}} = P\cdot y_{\text{C}_{2}\text{H}_{4}} = 1.1928\text{ atm}. 
          \end{cases}
        \end{displaymath}
-       We can check if the calculations are correct by
+       {\it We can check if the calculations are correct by}
        \begin{displaymath}
          \begin{cases}
-           \summation[y_{i}]{i=1}{3} = 1.0000  & \text{ and } \\
+           \summation[y_{i}]{i=1}{3} = 1.0000  & \textit{ and } \\
            \summation[P_{i}]{i=1}{3} = P = 6\text{ atm} & \\
          \end{cases}
        \end{displaymath}
            
      \end{example}
    \end{MyExample}
-   
+\medskip
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:Intro_Property_of_Gases:Example5}
+       \citep{Atkins_Book} A vessel of volume 22.4 dm$^{3}$ contains 2.0 mol H$_{2}$ and 1.0 mol N$_{2}$ at 273.15 K. Calculate (a) the mole fractions of each component, (b) their partial pressures, and (c) their total pressure. Assume ideal gas behaviour.
+\medskip
+
+      {\it Here we want to calculate the partial pressure of gaseous mixture of hydrogen and nitrogen contained in a vessel of 22.4 dm$^{3}$ at 273.15 K. Partial pressures can be obtained from the total pressure of the system and the mole fraction of the gases, } $P_{i}=y_{i}P$, {\it thus we first need to obtain $P$ through the ideal gas EOS, with} $n=n_{H_{2}}+n_{N_{2}}=3$,
+      \begin{displaymath}
+        P = \frc{n R T }{V} = \frc{3\text{ mol } \cdot 8.3145\times 10^{-5}\text{ m}^{3}\text{.bar.}\left(\text{K.mol}\right)^{-1}\cdot 273.15\text{ K}}{22.4\times 10^{-3}\text{ m}^{3}} = 3.0417\text{ bar, }
+      \end{displaymath}
+      {\it and the mole fraction of both gasses,}
+       \begin{displaymath}
+         \begin{cases}
+           y_{\text{H}_{2}} = \frc{n_{\text{H}_{2}}}{n} = 0.6667  \\
+           y_{\text{N}_{2}} = \frc{n_{\text{N}_{2}}}{n} = 0.3333  
+         \end{cases}
+       \end{displaymath}
+       {\it Now we can finally compute partial pressures:}
+       \begin{displaymath}
+         \begin{cases}
+           P_{\text{H}_{2}} = Py_{\text{H}_{2}} = 2.0279\text{ bar},  \\
+           P_{\text{N}_{2}} = Py_{\text{N}_{2}} = 1.0138\text{ bar}.
+         \end{cases}
+       \end{displaymath}
+
+
+       {\it We can check if the calculations are correct by}
+       \begin{displaymath}
+         \begin{cases}
+           \summation[y_{i}]{i=1}{2} = 1.0000  & \textit{ and } \\
+           \summation[P_{i}]{i=1}{2} = P = 3.0417\text{ bar} & \\
+         \end{cases}
+       \end{displaymath}
+           
+     \end{example}
+   \end{MyExample}
+\medskip
+
 
 
    
 \clearpage   
 \begin{FinalSummaryBlock}{Summary}
-    In this chapter, some fundamental concepts of thermodynamic properties were revised and the their relationships with energy were introduced. Heat and work, two of the most important forms of energy exchange studied in thermodynamics, were introduced. The Zeroth law of thermodynamics was introduced and its application to temperature measurement was briefly explored.
-
-    Most of these fundamentals concepts are familiar to you through other engineering courses. However, the remaining of this document strongly relies on this concepts and ideas, and you should understand all these concepts before moving forward.
+    \begin{itemize}
+       \item A fluid behaves as an ideal gas at low to moderate pressures $\left(\text{\ie } P\rightarrow 0\right)$
+       \item Equation of state is function that correlates pressure, volume, temperature and the amount of chemical component(s);
+       \item An ideal gas obeys the ideal gas equation of state (Eqn.~\ref{Chapter:Intro_Property_of_Gases:Eqn:IdealEOS});
+       \item Partial pressure of a gas in a gaseous mixture is defined as the pressure that the gas would exerted by itself (Eqn.~\ref{Chapter:Intro_Property_of_Gases:Eqn:PartialPressure_1});
+       \item Dalton's law states that the pressure exerted by a mixture of gases is the sum of the partial pressures of the gases.
+    \end{itemize}
 \end{FinalSummaryBlock}
