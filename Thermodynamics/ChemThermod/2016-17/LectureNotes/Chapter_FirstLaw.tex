@@ -69,11 +69,76 @@
       \begin{equation}
         \frc{d\mfr[E]{}{\text{cv}}}{dt} = \mfr[\dot{E}]{}{\text{cv}} = \dot{Q} + \dot{W},\label{Chapter:FirstLaw:Eqn:TotalEnergy2}
       \end{equation}
-      where the {\it dot} symbol $\left(\dot{ }\right)$ over the variables represents the rate of change, \ie $\frc{d\left[\; \right]}{dt}$. Equation~\ref{Chapter:FirstLaw:Eqn:TotalEnergy2} represents the rate of change (\ie {\it instantaneous rate}) of the total energy stored in the control volume, where part of the system's energy can be transferred from or into the surroundings of the control volume. In most cases, we are interested in finite changes of properties from the beginning of the process to its end, rather than instantaneous rate evaluations. In such cases, we just need to integrate the energy equation (Eqn.~\ref{Chapter:FirstLaw:Eqn:TotalEnergy2}) \wrt time, \ie from time $t_{1}$ to $t_{2}$, or we can simply multiply by $dt$,
+      where the {\it dot} symbol $\left(\dot{ }\right)$ over the variables represents the rate of change, \ie $\frc{d\left[\; \right]}{dt}$. Equation~\ref{Chapter:FirstLaw:Eqn:TotalEnergy2} represents the rate of change (\ie {\it instantaneous rate}) of the total energy stored in the control volume, where part of the system's energy can be transferred from or into the surroundings of the control volume. In most cases, we are interested in finite changes of properties from the beginning of the process to its end, rather than instantaneous rate evaluations. In such cases, we just need to integrate the energy equation (Eqn.~\ref{Chapter:FirstLaw:Eqn:TotalEnergy1}) \wrt time, \ie from time $t_{1}$ to $t_{2}$, then after multiplying it by $dt$,
       \begin{equation}
-        \mfr[dE]{}{\text{cv}} = dU + dE_{\text{K}} + d E_{\text{P}} = \delta Q + \delta W,\label{Chapter:FirstLaw:Eqn:TotalEnergy3}\footnote{Here, it is important to differentiate three mathematical symbols commonly used in thermodynamics: $d$, $\delta$, $\partial$. $d$ represents the {\it exact (or total) differential} (see Appendix~\ref{Appendix_Calculus:TotalDifferential}) }
+        \mfr[dE]{}{\text{cv}} = dU + dE_{\text{K}} + d E_{\text{P}} = \delta Q + \delta W,\label{Chapter:FirstLaw:Eqn:TotalEnergy3}\footnote{Here, it is important to differentiate three mathematical symbols commonly used in thermodynamics: $d$, $\partial$ and $\delta$. $d$ and $\partial$ represent {\it exact (or total)} (Appendix~\ref{Appendix_Calculus:TotalDifferential}) and {\it partial} (Appendix~\ref{Appendix_Calculus:PartialDifferential}) differentials, respectively. $\delta$ is often used in thermodynamics study to represent {\it inexact differential} for heat and work as these variables are path-dependent. For simplicity, throughout this document we will only use of $d$ and $\partial$ symbols.}
       \end{equation}
+      we can integrate it from {\it state 1} $\left(\text{\ie at time }t_{1}\right)$ to {\it state 2} as,
+      \begin{displaymath}
+        \text{\bf Left-hand side: } \int\limits_{\mfr[E]{1}{cv}}^{\mfr[E]{2}{cv}}d\mfr[E]{}{cv} = \mfr[E]{t_{2}}{cv} - \mfr[E]{t_{1}}{cv} = \mfr[E]{2}{cv} - \mfr[E]{1}{cv},
+      \end{displaymath}
+      \begin{displaymath}
+        \text{\bf Right-hand side: } \int\limits_{t_{1}}^{t_{2}} \left|\dot{Q} + \dot{W}\right|dt = \int\limits_{\text{path}}\delta Q +  \int\limits_{\text{path}}\delta W = Q_{1-2} + W_{1-2},
+      \end{displaymath}
+      leading to
+      \begin{equation}
+          \mfr[E]{2}{cv} - \mfr[E]{1}{cv} = \left[U_{2}-U_{1}\right] + \left[\frc{1}{2}m\left(v_{2}^{2}-v_{1}^{2}\right)\right] + \left[m g \left(z_{2}-z_{1}\right)\right] = Q_{1-2} + W_{1-2}.\label{Chapter:FirstLaw:Eqn:TotalEnergy3}
+      \end{equation}
+      Equation~\ref{Chapter:FirstLaw:Eqn:TotalEnergy3} describes the energy balance of a system with the surroundings, where the state functions (here represented by the total, internal, kinetic and potential energies) are path-independent, whereas {\bf changes in heat and work depend on the path used in the process}. 
+     \end{subequations}
 
-       The internal energy of a system may be changed in any of the following ways: producing or receiving work and/or have heat being removed or added to the system. Heat and work are equivalent ways of changing a system's internal energy \citep{Atkins_Book}. It was experimentally observed that in isolated systems there is {\bf no} change in the internal energy.
+%%%
+%%% SECTION
+%%%
+     \section{The First Law of Thermodynamics}\label{Chapter:FirstLaw:Section:FirstLaw}\index{Laws of Thermodynamics ! First law}
+     \begin{subequations}
+         Thermal energy is macro-scale representation of micro-scale changes in mechanical energy, namely work and heat. In a molecular scale, atoms and molecules are in random motion that can be associated with the kinetic energy of these `particles'. Tracking the motion and energy of each particle is addressed by a field of sciences called statistical (or quantum) thermodynamics, here we are interested in the consequences of the particles' motion -- \ie oscillations in temperature as a measure of the average molecular-scale kinetic energy.
+
+         \begin{shaded}
+            \begin{center} {\bf Sign Notation}\end{center} 
+              Before we proceed stating the {\it First Law}, we should define a sign notation used for all quantities in this document. Thus any form of energy:
+              \begin{itemize}
+                  \item Added to the system is assumed {\bf positive}, and;
+                  \item Removed from the system is assumed {\bf negative}.
+              \end{itemize}
+              Hence:
+              \begin{itemize}
+                 \renewcommand{\labelitemi}{$\star$}
+                 \item heat added to the system by the neighbourhood is \blue{positive};
+                 \item heat removed from the system to the neighbourhood is \red{negative};
+                 \item work produced by the system and transferred to the neighbourhood is \red{negative};
+                 \item work produced by the neighbourhood and transferred to the system is \blue{positive}.
+              \end{itemize}
+         \end{shaded}
+
+         In most thermodynamic systems, changes in kinetic and potential energies are often assumed negligible\footnote{Here, we are assuming that such systems are not movable \wrt frames of reference.}, and Eqn.~\ref{Chapter:FirstLaw:Eqn:TotalEnergy3} becomes
+            \begin{equation}
+               \mfr[E]{2}{cv} - \mfr[E]{1}{cv} = U_{2}-U_{1} = Q_{1-2} + W_{1-2},\label{Chapter:FirstLaw:Eqn:FirstLaw1}
+            \end{equation}
+         in such cases, the internal energy of a system may be changed in any of the following ways: producing or receiving work and/or have heat being removed or added to the system. Heat and work are equivalent ways of changing a system's internal energy. It was experimentally observed that in isolated systems there is {\bf no} change in the internal energy.
+
+         \begin{shaded}
+            The {\it First Law of Thermodynamics} is effectively a statement of energy conservation: `the only way the energy of a closed system can be changed are through transfer of energy by work or heat' \citep{Moran_Book}. In other words: `the internal energy of an isolated system is constant' \citep{Atkins_Book}. Mathematically, these statements can be readily represented in differential form (\ie during infinitesimal changes in the state of the system) by,
+            \begin{equation}
+               d U = \delta Q + \delta W,\label{Chapter:FirstLaw:Eqn:FirstLaw2}
+            \end{equation}
+            
+         \end{shaded}
+
+   
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:FirstLaw:Example1}\citep{Atkins_Book}
+        In a power station, the water pump is located in an isolated room. The electric motor of this pump produces 15 kJ of energy as mechanical work and loose 2 kJ of heat to the surroundings. Calculate the change in internal energy of the motor.  
+
+       {\it Here, the system is the electrical motor whereas the surroundings is the room. The work produced by the motor is $\delta W= -15$ kJ and the heat transferred from the engine to the room is $\delta Q = -2$ kJ, therefore }
+          \begin{eqnarray}
+             dU = \Delta U &=&  \delta Q + \delta W \nonumber \\
+                &=& -15 -2 = -17\text{ kJ} \nonumber
+          \end{eqnarray}
+     \end{example}
+   \end{MyExample}
+
+
 
      \end{subequations}
