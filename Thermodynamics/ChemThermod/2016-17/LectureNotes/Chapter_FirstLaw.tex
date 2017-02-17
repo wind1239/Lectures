@@ -176,17 +176,44 @@
      \section{Work Done at Moving Boundary}\label{Chapter:FirstLaw:Section:Work}
      \begin{subequations}
         In Section~\ref{Chapter:Introduction:Section:ThermodynamicWorkHeat}, the work produced by (or exerted on) the system was defined by Eqn.~\ref{Chpt01_Work2},
+           \begin{equation}
+              dW = -PdV \;\;\Longrightarrow \;\; W = - \int\limits_{V_{1}}^{V_{2}} PdV,\label{Chapter:FirstLaw:Eqn:Work1}
+           \end{equation}
+        where $P$ is the pressure and $V$ is the variable volume. Let's consider a system comprising a cylinder containing a compressible gas $\left(\text{with }V_{1}\text{ and } P_{g} = P_{1}\right)$ with a movable piston (Fig.~\ref{Chapter:FirstLaw:Fig:Work1}). An external pressure $\left(P_{\text{ext}} > P_{1}\right)$ is imposed on the piston and continuously compress the gas until the pressures are equalised $\left(P_{\text{ext}} = P_{g} = P_{2}\right)$. At the end of such compression (\ie at state 2) $V_{2}<V_{1}$ and the work $W$ is positive, \ie energy is transferred to the system through the application of an external force. Now, let's assume that at state 2, $P_{\text{ext}}$ is replaced by a new pressure, $P^{\star}_{\text{ext}}=P_{1}$, such that $P^{\star}_{\text{ext}} < P_{\text{ext}} \left(= P_{g} = P_{2}\right)$. As the new pressure is smaller than the pressure inside the cylinder $\left(P_{2}\right)$, the gas will expand until the external and internal pressure are equal, \ie $P_{g} = P^{\star}_{\text{ext}} = P_{1}$. At the end of such expansion from $V_{2}$ to $V_{1}$, the work
            \begin{displaymath}
-              dW = -PdV \;\;\Longrightarrow \;\; W = - \int\limits_{V_{1}}^{V_{2}} PdV
+              W = - \int\limits_{V_{2}}^{V_{1}} PdV,
            \end{displaymath}
-        where $P$ is the pressure and $V$ is the variable volume. Let's consider a system comprising a cylinder containing a compressible gas $\left(\text{with }V_{1}\text{ and } P_{g} = P_{1}\right)$ with a movable piston (Fig.~\ref{Chapter:FirstLaw:Fig:Work1}). An external pressure $\left(P_{\text{ext}} > P_{1}\right)$ is imposed on the piston and continuously compress the gas until the pressures are equalised $\left(P_{\text{ext}} = P_{g} = P_{2}\right)$. At the end of such compression (\ie at state 2) $V_{2}<V_{1}$
-
-     \end{subequations}
-
+           is negative, \ie energy is transferred from the system to the neighbourhood. In these expansion and compression processes, two scenarios may occur: constant or variable pressures. Equation~\ref{Chapter:FirstLaw:Eqn:Work1} is solved according with these scenarios.
+\medskip
 % Figure
    \begin{figure}[h]
      \begin{center}
         \includegraphics[width=0.7\columnwidth,clip]{./Figs/Chp3_PistonCylinder1}
-        \caption{Cylinder-piston system: work into the system as a result of an external force.}\label{Chapter:FirstLaw:Fig:Work1}
+        \caption{Compression and expansion of a piston as a result of an external force.}\label{Chapter:FirstLaw:Fig:Work1}
      \end{center}
    \end{figure}
+\medskip
+
+
+%%%
+%%% SECTION
+%%%
+     \subsection{Expansion/Compression under Constant Pressure}\label{Chapter:FirstLaw:Section:Work_ConstantPressure}
+        If the external pressure $P_{\text{ext}}$ is constant, the integral (Eqn.~\ref{Chapter:FirstLaw:Eqn:Work1}) can be readily solved,
+           \begin{shaded}
+             \begin{equation}
+                dW = -PdV \;\;\Longrightarrow \;\; W = - P\int\limits_{V_{1}}^{V_{2}} dV = - P\left(V_{2}-V_{1}\right) = -P\Delta V,\label{Chapter:FirstLaw:Eqn:Work_ConstPressure}
+             \end{equation}
+           \end{shaded}
+\medskip
+% Figure
+   \begin{figure}[h]
+     \begin{center}
+        \includegraphics[width=0.7\columnwidth,clip]{./Figs/Chp3_PistonCylinder2}
+        \caption{Compression and expansion of a piston as a result of an external force.}\label{Chapter:FirstLaw:Fig:Work1}
+     \end{center}
+   \end{figure}
+\medskip
+
+     \end{subequations}
+
