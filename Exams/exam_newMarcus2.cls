@@ -36,6 +36,12 @@
 \DeclareOption{steamtables}
 {\@steamtablesallowedtrue}
 
+\newif\if@unitconverterallowed
+\@unitconverterallowedfalse
+\DeclareOption{unitconverter}
+{\@unitconverterallowedtrue}
+
+
 \newif\if@datasheetattached
 \@datasheetattachedfalse
 \DeclareOption{datasheet}
@@ -202,6 +208,7 @@
         \fi 
         \if@datasheetattached%
       \item Data sheets are attached to the paper.%
+      \item Physical constants and unit conversion factors are available in Appendix A, at the end of the paper.%
         \fi
       \end{enumerate}
     }
