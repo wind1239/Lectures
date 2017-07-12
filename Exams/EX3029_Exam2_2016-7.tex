@@ -1,6 +1,6 @@
 
-%\documentclass[calculator,allquestions,datasheet,solutions]{exam_newMarcus2}
-\documentclass[calculator,allquestions,datasheet,resit]{exam_newMarcus2}
+\documentclass[calculator,allquestions,datasheet,solutions]{exam_newMarcus2}
+%\documentclass[calculator,allquestions,datasheet,resit]{exam_newMarcus2}
 %\documentclass[calculator,steamtables,allquestions,datasheet,resit,solution]{exam_newMarcus2}
 
 % The full list of class options are
@@ -106,7 +106,7 @@ $R$ = 8.314$\times$ 10$^{-5}\;\text{bar m}^{3} \left(\text{mol K}\right)^{-1}$, 
 \end{displaymath}
 Now substituting the variables by their values~\solmarks{3/9}
 \begin{displaymath}
-    \left(\frc{\partial P}{\partial T}\right)_{V} = \left(\frc{\partial S}{\partial V}\right)_{T} = 2271.30 \frc{\text{kJ}}{\text{m}^{3}.\text{K}}
+  \left(\frc{\partial P}{\partial T}\right)_{V} = \left(\frc{\partial S}{\partial V}\right)_{T} = 3.2342\times 10^{-3} \text{bar.K}^{-1} = 3.2342\times 10^{-1}\frc{\text{kJ}}{\text{m}^{3}.\text{K}}
 \end{displaymath}
 
 }
@@ -306,9 +306,9 @@ In a petrochemical plant, propane is transferred from the storage tank to a dehy
        Therefore, the variation of molar internal energy is~\solmarks{2/7}
        \begin{eqnarray}
          \Delta U &=& \int\limits_{0.001\text{ m}^{3}}^{0.04\text{ m}^{3}}\left[T\left(\frc{\partial P}{\partial T}\right)_{V}-P\right]\d V = \int\limits_{0.001\text{ m}^{3}}^{0.04\text{ m}^{3}} \frc{a}{V^{2}} \d V = -\left.\frc{a}{V}\right|_{0.001\text{ m}^{3}}^{0.04\text{ m}^{3}} \nonumber \\
-                  &=& 9.126\times 10^{-3}\frc{\text{m}^{3}.\text{bar}}{\text{mol}} = 912.60\text{ J.mol}^{-1}, \nonumber
+                  &=& 8.8979\frc{\text{m}^{3}.\text{bar}}{\text{mol}} = 889790\text{ J.mol}^{-1}, \nonumber
        \end{eqnarray}
-       And the work is $W= \Delta U - Q=312.60\text{ J.mol}^{-1}$~\solmarks{2/7}
+       And the work is $W= \Delta U - Q=889.19\text{ kJ.mol}^{-1}$~\solmarks{2/7}
 
 }
 %
@@ -367,7 +367,7 @@ with the thermodynamic data at 25$^{\circ}$C,
           \begin{displaymath}
                \frc{\d}{\d T} \ln{K_{\text{eq}}} = \frc{\Delta H^{\circ}_{\text{mix},298}}{RT^{2}},
           \end{displaymath}
-          As data is available at 25$^{\circ}$C (= 298.15 K) and we need it at 60$^{\circ}$C, we can integrate the Van't Hoff equation assuming constant $\Delta H^{\circ}_{298}$,~\solmarks{3/13}
+          As data is available at 25$^{\circ}$C (= 298.15 K) and we need it at 60$^{\circ}$C, we can integrate the Van't Hoff equation assuming constant $\Delta H^{\circ}_{298}$,~\solmarks{5/13}
           \begin{eqnarray}
              \Delta H^{\circ}_{\text{mix},298} = \Delta H^{\circ}_{f, 298} &=& \sum \nu_{i}\left(\Delta H^{\circ}_{f, 298}\right)_{i} \nonumber \\
                                                          &=& \left(\Delta H^{\circ}_{f, 298}\right)_{CO_{2}} + 3\left(\Delta H^{\circ}_{f, 298}\right)_{H_{2}} - \left(\Delta H^{\circ}_{f, 298}\right)_{H_{2}O} - \left(\Delta H^{\circ}_{f, 298}\right)_{CH_{3}OH} \nonumber \\
@@ -377,16 +377,16 @@ with the thermodynamic data at 25$^{\circ}$C,
           \begin{displaymath} 
               K_{\text{eq},298} = \exp{\left[-\frc{\Delta G^{\circ}_{\text{mix},298}}{R T} \right]},
           \end{displaymath}
-          therefore, we first need to obtain $\Delta G^{\circ}_{\text{mix},298}$,~\solmarks{2/13}
+          therefore, we first need to obtain $\Delta G^{\circ}_{\text{mix},298}$, %solmarks{2/13}
           \begin{eqnarray}
              \Delta G^{\circ}_{\text{mix},298} &=& \left(\Delta G^{\circ}_{f, 298}\right)_{CO_{2}} + 3\left(\Delta G^{\circ}_{f, 298}\right)_{H_{2}} - \left(\Delta G^{\circ}_{f, 298}\right)_{H_{2}O} - \left(\Delta G^{\circ}_{f, 298}\right)_{CH_{3}OH} \nonumber \\
                                                          &=& -3.83 \text{kJ.mol}^{-1} \nonumber
           \end{eqnarray}
-          Thus,~\solmarks{2/13}
+          Thus,%\solmarks{2/13}
           \begin{displaymath} 
               K_{\text{eq},298} = \exp{\left[-\frc{\Delta G^{\circ}_{\text{mix},298}}{R T} \right]} = \exp{\left[-\frc{3830}{8.314 \times 298.15 } \right]}=4.6884
           \end{displaymath}
-           Now, we can proceed with the integration of the Van't Hoff equation,~\solmarks{6/13}
+           Now, we can proceed with the integration of the Van't Hoff equation,~\solmarks{8/13}
           \begin{displaymath} 
               \frc{\d}{\d T} \left(\ln{K_{\text{eq}}}\right) = \frc{\Delta H^{\circ}_{\text{mix},298}}{RT^{2}} \Longrightarrow \int\limits_{K_{\text{eq}}^{298.15\text{K}}}^{K_{\text{eq}}^{333.15\text{K}}} \d\left(\ln{K_{\text{eq}}}\right) = \frc{\Delta H^{\circ}_{\text{mix},298}}{R}\int\limits_{298.15\text{K}}^{333.15\text{K}}\frc{1}{T^{2}}\d T
           \end{displaymath}
