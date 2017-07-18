@@ -39,19 +39,19 @@
 %%%
      \section{Introduction}\label{Chapter:FirstLaw:Section:Intro}\index{Work}\index{Heat}\index{Energy}
      In Section~\ref{Chapter:Introduction:Section:ThermodAnalysis}, the main elements in the thermodynamic analysis were introduced, namely {\bf open, closed and isolated systems}, {\bf surroundings} and {\bf boundaries}. The concept of {\bf energy}, {\bf work} and {\bf heat}, pivotal entities in the study of thermodynamics systems, were also defined as,
-     \begin{description}
-        \item[Work] is motion against an opposing force (Eqn.~\ref{Chpt01_Work1});
-        \item[Energy] of a system is its capacity to produce work, and; 
-        \item[Heat] is the transfer of energy across the boundary caused by a temperature gradient at the boundary \citep{Devoe_Book}.
-     \end{description}
-     These definitions are based on observations of systems in a macro-scale, and are critical for mass and energy balances necessary for this chapter. ADD MORE TEXT HERE !!
+     \begin{itemize}
+        \item {\bf Work} is motion against an opposing force (Eqn.~\ref{Chpt01_Work1});
+        \item {\bf Energy} of a system is its capacity to produce work, and; 
+        \item {\bf Heat} is the transfer of energy across the boundary caused by temperature gradient \citep{Devoe_Book}.
+     \end{itemize}
+     These definitions are based on observations of systems in a macro-scale, and are critical for mass and energy balances necessary for this chapter. 
 
 %%%
 %%% SECTION
 %%%
      \section{The Internal Energy}\label{Chapter:FirstLaw:Section:ThermalEnergy}\index{Internal Energy}\index{Energy!Internal|see{Internal Energy}}
      \begin{subequations}
-        A system, with a prescribed amount of mass, contains energy in the form of {\bf internal energy} ($U$, inherent in the internal structure), kinetic energy (linked to the motion) and potential energy (associated with external forces acting upon the mass). The total energy, $E$, associated of the system can then be expressed as 
+        A system, with a prescribed amount of mass, contains energy in the form of {\bf internal energy} ($U$, inherent in the internal structure), kinetic energy (linked to the motion) and potential energy (associated with external forces acting upon the mass). The total energy, $E$, associated to the system can then be expressed as 
         \begin{displaymath}
             E = \text{Internal} + \text{Kinetic} + \text{Potential} = U + E_{\text{K}} + E_{\text{P}},
         \end{displaymath}
@@ -62,14 +62,14 @@
         where the kinetic energy\footnote{Kinetic energy has three components: vibrational (due to the energy associated with vibration of the body), rotational (associated with the rotation motion) and translational (associated with the motion from one spatial coordinate to another).} is assumed to be due to the translational motion (thus vibrational and rotational motion are neglected) and the potential energy to be due to the constant gravitational force. In Eqn.~\ref{Chapter:FirstLaw:Eqn:TotalEnergy1}, $u$, $e_{\text{K}}$ and $e_{\text{P}}$ are specific internal, kinetic and potential energies, respectively. Kinetic and potential energy are associated with the physical state and location (spatial coordinates) of the system, and are commonly named {\it mechanical energy}\index{Energy!Mechanical}.  The internal energy is a characteristic of the thermodynamic state of the mass and is often labelled as {\it thermal energy}\index{Energy!Thermal}.
       
        \begin{shaded}
-          The internal energy is a {\it state function} as its value depends only on the current state of the system and is independent of processes undertook by the system, \ie it is a function of the properties that determine the current state of the system.
+          The internal energy is a {\it state function}, \ie its value depends only on the current state of the system and is independent of processes undertook by the system. In other words, it is a function of the properties that determine the current state of the system.
        \end{shaded}
 
-       Let's consider a {\it control volume} with a prescribed mass; an {\it energy balance} can be performed over this control volume assuming that energy can not be created or destroyed but just transformed. Thus, any change in energy must be due to an energy transfer into or out of the control volume, which can be represented as work ($W$) or heat ($Q$) transfers,
+       Let's consider a {\it control volume} with a prescribed mass; an {\it energy balance} can be performed over this control volume assuming that energy can not be created or destroyed but just transformed. Thus, any change in energy must be due to the transfer of energy into or out of the control volume, which can be represented as work ($W$) or heat ($Q$) transfers,
       \begin{equation}
         \frc{d\mfr[E]{}{\text{cv}}}{dt} = \mfr[\dot{E}]{}{\text{cv}} = \dot{Q} + \dot{W},\label{Chapter:FirstLaw:Eqn:TotalEnergy2}
       \end{equation}
-      where the {\it dot} symbol $\left(\dot{ }\right)$ over the variables represents the rate of change, \ie $\frc{d\left[\; \right]}{dt}$. Equation~\ref{Chapter:FirstLaw:Eqn:TotalEnergy2} represents the rate of change (\ie {\it instantaneous rate}) of the total energy stored in the control volume, where part of the system's energy can be transferred from or into the surroundings of the control volume. In most cases, we are interested in finite changes of properties from the beginning of the process to its end, rather than instantaneous rate evaluations. In such cases, we just need to integrate the energy equation (Eqn.~\ref{Chapter:FirstLaw:Eqn:TotalEnergy1}) \wrt time, \ie from time $t_{1}$ to $t_{2}$, then after multiplying it by $dt$,
+      where the {\it dot} symbol $\left(\mathbf{\dot{ }}\right)$ over the variables represents the rate of change, \ie $\frc{d\left[\; \right]}{dt}$. Equation~\ref{Chapter:FirstLaw:Eqn:TotalEnergy2} represents the rate of change (\ie {\it instantaneous rate}) of the total energy stored in the control volume, where part of the system's energy can be transferred from or into the surroundings of the control volume. In most cases, we are interested in finite changes of properties from the beginning of the process to its end, rather than instantaneous rate evaluations. In such cases, we just need to integrate the energy equation (Eqn.~\ref{Chapter:FirstLaw:Eqn:TotalEnergy1}) \wrt time, \ie from time $t_{1}$ to $t_{2}$, then after multiplying it by $dt$,
       \begin{equation}
         \mfr[dE]{}{\text{cv}} = dU + dE_{\text{K}} + d E_{\text{P}} = \delta Q + \delta W,\label{Chapter:FirstLaw:Eqn:TotalEnergy3}\footnote{Here, it is important to differentiate three mathematical symbols commonly used in thermodynamics: $d$, $\partial$ and $\delta$. $d$ and $\partial$ represent {\it exact (or total)} (Appendix~\ref{Appendix_Calculus:TotalDifferential}) and {\it partial} (Appendix~\ref{Appendix_Calculus:PartialDifferential}) differentials, respectively. $\delta$ is often used in thermodynamics study to represent {\it inexact differential} for heat and work as these variables are path-dependent. For simplicity, throughout this document we will only use of $d$ and $\partial$ symbols.}
       \end{equation}
@@ -92,19 +92,19 @@
 %%%
      \section{Exact and Inexact Differentials}\label{Chapter:FirstLaw:Section:ExactInexactDiff}\index{Exact differential}
      \begin{subequations}
-         In Chapter~\ref{Chapter:Introduction}, we briefly defined {\it state functions}\index{State function} as thermodynamic properties that are independent of the process. For example, when water is boiled isobarically from 15$^{\circ}$C to 100$^{\circ}$C, there are infinite ways that the boiling can progress (\eg intense heat in the first 5 mins and a moderate one afterwards 'till boiling or continuous moderate heating, etc). The rate of change of the internal energy is calculated based {\bf only} on the initial and final states. The way in which the heating of water is conducted does not affect the calculation of $\Delta U$. Processes that describe the changes of state (\eg from state 1 at 15$^{\circ}$C to state 2 at 100$^{\circ}$C) are often called {\bf path functions}\index{Path function}. Examples of path functions are heat ($Q$) and work ($W$), whereas $U$ is a state function. 
+         In Chapter~\ref{Chapter:Introduction}, we briefly defined {\it state functions}\index{State function} as thermodynamic properties that are independent of the process. For example, when water is boiled isobarically from 15$^{\circ}$C to 100$^{\circ}$C, there are infinite ways in which boiling can progress (\eg intense heat in the first 5 mins and a moderate one afterwards 'till boiling or continuous moderate heating, etc). The rate of change of the internal energy is calculated based {\bf only} on the initial and final states. The way in which the heating of water is conducted does not affect the calculation of $\Delta U$. Processes that describe the changes of state (\eg from state 1 at 15$^{\circ}$C to state 2 at 100$^{\circ}$C) are often called {\bf path functions}\index{Path function}. Examples of path functions are heat ($Q$) and work ($W$), whereas $U$ is a state function. 
 
-        Figure~\ref{Chapter:FirstLaw:Fig:StateFunctions} shows three distinct processes (paths I-III) in which the internal energy dropped from $U_{1}$ to $U_{2}$ due to changes in heat and work. If the system is taken through any these paths, the overall change from $U_{1}$ to $U_{2}$ is the sum (\ie integral) of all the infinitesimal changes along the path,
+        Figure~\ref{Chapter:FirstLaw:Fig:StateFunctions} shows three distinct processes (paths I-III) in which the internal energy dropped from $U_{1}$ to $U_{2}$ due to changes in heat and work. If the system is taken through any of these paths, the overall change from $U_{1}$ to $U_{2}$ is the sum (\ie integral) of all the infinitesimal changes along the path,
         \begin{displaymath}
              \Delta U = \int\limits_{1}^{2} dU.
         \end{displaymath}
-        The value of $\Delta U$ depends on the initial (1) and final (2) states of the system but is independent of the path between them. Such path-independence of the integral is represented by $dU$ which is said to be an {\bf exact differential} (\ie an infinitesimal quantity in which the results after integration are independent of the path between states 1 and 2.)\index{Exact differential}. If the system is heated , the total energy transferred as heat is the sum (\ie integral) of all individual contributions throughout the pathway,
+        The value of $\Delta U$ depends on the initial (1) and final (2) states of the system but is independent of the path between them. Such path-independence of the integral is represented by $dU$ which is said to be an {\bf exact differential} (\ie an infinitesimal quantity in which the results after integration are independent of the path between states 1 and 2.)\index{Exact differential}. If the system is heated, the total energy transferred as heat is the sum (\ie integral) of all individual contributions throughout the pathway,
         \begin{displaymath}
              Q = \int\limits_{1,\text{path}}^{2}dQ.
         \end{displaymath}
         As heat is not a state function and the path affects the integration, the left-hand side is written as $Q$ rather than $\Delta Q$, \ie heat {\bf can not} be expressed as just $Q_{2}-Q_{1}$. Such path-dependent quantity is expressed by saying that $dQ$ (or $\delta Q$) is an {\bf inexact differential}\index{Inexact differential} (\ie an infinitesimal quantity in which the results after integration between initial and final states depends on the path).
 
-        In a similar way, the work done in a system (or produced by) is also a path function and as such can be represented as either $dW$ or $\delta W$.
+        In a similar way, the work done in  (or produced by) a system is also a path function and as such can be represented as either $dW$ or $\delta W$.
 
      \end{subequations}
 
@@ -112,7 +112,7 @@
    \begin{figure}[h]
      \begin{center}
        \includegraphics[width=9cm, height=9cm]{./Figs/Chp3_State-PathFunctions}
-        \caption{State function: Change of internal function as a result of work and heat being exerted into the system by 3 distinct paths. Note that regardless the chosen path (from state 1 to state 2), $U_{1}$ and $U_{2}$ remains the same, although the amount of heat (represented here by changes in temperature, $T$) and work (\ie changes in volume, $V$) may vary significantly.}\label{Chapter:FirstLaw:Fig:StateFunctions}
+        \caption{State function: Change of internal function as a result of work and heat being exerted into the system by 3 distinct paths. Note that regardless the chosen path (from state 1 to state 2), $U_{1}$ and $U_{2}$ remain the same, although the amount of heat (represented here by changes in temperature, $T$) and work (\ie changes in volume, $V$) may vary significantly.}\label{Chapter:FirstLaw:Fig:StateFunctions}
      \end{center}
    \end{figure}
 
