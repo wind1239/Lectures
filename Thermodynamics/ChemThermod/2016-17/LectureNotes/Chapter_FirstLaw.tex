@@ -95,7 +95,7 @@
 %%% SECTION
 %%%
      \section{Exact and Inexact Differentials}\label{Chapter:FirstLaw:Section:ExactInexactDiff}\index{Exact differential}
-     \begin{subequations}
+     %\begin{subequations}
          In Chapter~\ref{Chapter:Introduction}, we briefly defined {\it state functions}\index{State function} as thermodynamic properties that are independent of the process. For example, when water is boiled isobarically from 15$^{\circ}$C to 100$^{\circ}$C, there are infinite ways in which boiling can progress (\eg intense heat in the first 5 mins and a moderate one afterwards 'till boiling or continuous moderate heating, etc). The rate of change of the internal energy is calculated based {\bf only} on the initial and final states. The way in which the heating of water is conducted does not affect the calculation of $\Delta U$. Processes that describe the changes of state (\eg from state 1 at 15$^{\circ}$C to state 2 at 100$^{\circ}$C) are often called {\bf path functions}\index{Path function}. Examples of path functions are heat ($Q$) and work ($W$), whereas $U$ is a state function. 
 
         Figure~\ref{Chapter:FirstLaw:Fig:StateFunctions} shows three distinct processes (paths I-III) in which the internal energy dropped from $U_{1}$ to $U_{2}$ due to changes in heat and work. If the system is taken through any of these paths, the overall change from $U_{1}$ to $U_{2}$ is the sum (\ie integral) of all the infinitesimal changes along the path,
@@ -106,11 +106,9 @@
         \begin{displaymath}
              Q = \int\limits_{1,\text{path}}^{2}dQ.
         \end{displaymath}
-        As heat is not a state function and the path affects the integration, the left-hand side is written as $Q$ rather than $\Delta Q$, \ie heat {\bf can not} be expressed as just $Q_{2}-Q_{1}$. Such path-dependent quantity is expressed by saying that $\delta Q$ is an {\bf inexact differential}\index{Inexact differential}, \ie an infinitesimal quantity in which the results after integration between initial and final states depends on the path.
+        As heat is not a state function and the path affects the integration, the left-hand side is written as $Q$ rather than $\Delta Q$, \ie heat {\bf can not} be expressed as just $Q_{2}-Q_{1}$. Such path-dependent quantity is expressed by saying that $\delta Q$ is an {\bf inexact differential}\index{Inexact differential}, \ie an infinitesimal quantity in which the results after integration between initial and final states depends on the path.  In a similar way, the work done in  (or produced by) a system is also a path function and as such can be represented as either $\delta W$\footnote{In most thermodynamic text-books, exact and inexact differential operators, $d$ and $\delta$, are often used interchangeably for path-dependent quantities.}
 
-        In a similar way, the work done in  (or produced by) a system is also a path function and as such can be represented as either $\delta W$\footnote{In most thermodynamic text-books, exact and inexact differential operators, $d$ and $\delta$, are often used interchangeably for path-dependent quantities.}
-
-     \end{subequations}
+     %\end{subequations}
 
 % Figure
    \begin{figure}[h]
@@ -130,17 +128,42 @@
      \item {\bf Reversible process} (also known as quasi-static process) is a process which can be stopped at any stage and reversed so that the system and the surroundings are exactly restored to their original states;
      \item {\bf Irreversible process} is a process in which heat is transferred through a finite temperature, thus it is not possible to return both the system and the surroundings to their original states.
    \end{itemize}
-   A good set of definitions, characteristics and examples of these two processes are given by Table~\ref{Chapter:FirstLaw:TableDiffRevIrrev}. Irreversibilities are of two types:
+   Irreversibilities are of two types:
    \begin{itemize}
       \item {\it external irreversibilities} which are associated with dissipating effects outside the working fluid, \eg mechanical friction during a process due to some external force;
       \item {\it internal irreversibilities} which are associated with dissipating effects within the working fluid, \eg viscosity and inertial of a gas.
    \end{itemize}
+   A set of definitions, characteristics and examples of these two processes are given by Table~\ref{Chapter:FirstLaw:TableDiffRevIrrev}. 
    
+   
+%%%
+%%% SECTION
+%%%
+     \section{The First Law of Thermodynamics}\label{Chapter:FirstLaw:Section:FirstLaw}\index{Laws of Thermodynamics ! First law}
+     \begin{subequations}
+         Thermal energy is a macro-scale representation of micro-scale changes in mechanical energy (\ie work and heat). In a molecular scale, atoms and molecules are in random motion that can be associated with the kinetic energy of these `particles'. Tracking the motion and energy of each particle is addressed by a field of science called statistical (or quantum) thermodynamics; here we are interested in the consequences of the particles' motion, \ie oscillations in temperature as a measure of the average molecular-scale kinetic energy.
+
+         \begin{shaded}
+            \begin{center} {\bf Sign Notation}\end{center} 
+              Before we proceed stating the {\it First Law}, we should define a sign notation used for all quantities in this document. Thus any form of energy:
+              \begin{itemize}
+                  \item Added to the system is assumed \blue{positive}, and;
+                  \item Removed from the system is assumed \red{negative}.
+              \end{itemize}
+              Hence:
+              \begin{itemize}
+                 \renewcommand{\labelitemi}{$\star$}
+                 \item heat added to the system by the neighbourhood is \blue{positive};
+                 \item heat removed from the system to the neighbourhood is \red{negative};
+                 \item work produced by the system and transferred to the neighbourhood is \red{negative};
+                 \item work produced by the neighbourhood and transferred to the system is \blue{positive}.
+              \end{itemize}
+         \end{shaded}
 
    %%%
    %%%
    \begin{landscape}
-     \begin{table}[!htb]
+     \begin{table}
        \begin{tabular}{||l | l||}
          \hline\hline
              {\bf Reversible process} (RP)                                    &         {\bf Irreversible process}  (IP)                          \\
@@ -172,60 +195,11 @@
    \end{landscape}
    
 
-Thermodynamic processes may have the change of state occuring in two ways. One is the change of
-state occuring so that if the system is to restore its original state, it can be had by reversing the factors
-responsible for occurrence of the process. Other change of state may occur such that the above
-restoration of original state is not possible. Thermodynamic system that is capable of restoring its
-original state by reversing the factors responsible for occurrence of the process is called reversible
-system and the thermodynamic process involved is called reversible process. Thus, upon reversal of a
-process there shall be no trace of the process being ocurred, i.e. state changes during the forward
-direction of occurrence of a process are exactly similar to the states passed through by the system
-during the reversed direction of the process. It is quite obvious that the such reversibility can be realised
-only if the system maintains its thermodynamic equilibrium throughout the occurrence of process.
-
-   We shall find it useful to have in hand definitions for so-called reversible and irreversible
-processes. Let us take
-• Reversible process: A process in which it is possible to return both the system
-and surroundings to their original states.
-• Irreversible process: A process in which it is impossible to return both the system
-and surroundings to their original states.
-Now, it may be possible to restore the system to its original state but not the surroundings
-(or the surroundings to its original state but not the system). Such a process is irreversible.
-We shall often study reversible processes as they represent an ideal of the most we can
-ever hope to achieve. Some common engineering idealizations of reversible processes include
-• frictionless motion,
-• ideal inviscid flow of a fluid over an airfoil.
-
-
-%%%
-%%% SECTION
-%%%
-     \section{The First Law of Thermodynamics}\label{Chapter:FirstLaw:Section:FirstLaw}\index{Laws of Thermodynamics ! First law}
-     \begin{subequations}
-         Thermal energy is macro-scale representation of micro-scale changes in mechanical energy, namely work and heat. In a molecular scale, atoms and molecules are in random motion that can be associated with the kinetic energy of these `particles'. Tracking the motion and energy of each particle is addressed by a field of sciences called statistical (or quantum) thermodynamics, here we are interested in the consequences of the particles' motion -- \ie oscillations in temperature as a measure of the average molecular-scale kinetic energy.
-
-         \begin{shaded}
-            \begin{center} {\bf Sign Notation}\end{center} 
-              Before we proceed stating the {\it First Law}, we should define a sign notation used for all quantities in this document. Thus any form of energy:
-              \begin{itemize}
-                  \item Added to the system is assumed {\bf positive}, and;
-                  \item Removed from the system is assumed {\bf negative}.
-              \end{itemize}
-              Hence:
-              \begin{itemize}
-                 \renewcommand{\labelitemi}{$\star$}
-                 \item heat added to the system by the neighbourhood is \blue{positive};
-                 \item heat removed from the system to the neighbourhood is \red{negative};
-                 \item work produced by the system and transferred to the neighbourhood is \red{negative};
-                 \item work produced by the neighbourhood and transferred to the system is \blue{positive}.
-              \end{itemize}
-         \end{shaded}
-
          In most thermodynamic systems, changes in kinetic and potential energies are often assumed negligible\footnote{Here, we are assuming that such systems are not movable \wrt frames of reference.}, and Eqn.~\ref{Chapter:FirstLaw:Eqn:TotalEnergy3} becomes
             \begin{equation}
                \mfr[E]{2}{cv} - \mfr[E]{1}{cv} = U_{2}-U_{1} = Q_{1-2} + W_{1-2},\label{Chapter:FirstLaw:Eqn:FirstLaw1}
             \end{equation}
-         in such cases, the internal energy of a system may be changed in any of the following ways: producing or receiving work and/or have heat being removed or added to the system. Heat and work are equivalent ways of changing a system's internal energy. It was experimentally observed that in isolated systems there is {\bf no} change in the internal energy.
+         in such cases, the internal energy of a system may be changed in any of the following ways: producing or receiving work and/or have heat being removed or added to the system. Heat and work are equivalent ways of changing the system's internal energy. It was experimentally observed that in isolated systems there is {\bf no} change in the internal energy.
 
          \begin{shaded}
             The {\it First Law of Thermodynamics} is effectively a statement of energy conservation: `the only way the energy of a closed system can be changed are through transfer of energy by work or heat' \citep{Moran_Book}. In other words: `the internal energy of an isolated system is constant' \citep{Atkins_Book}. Mathematically, these statements can be readily represented in differential form (\ie during infinitesimal changes in the state of the system) by,
@@ -234,7 +208,6 @@ ever hope to achieve. Some common engineering idealizations of reversible proces
             \end{equation}
             
          \end{shaded}
-
    
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
@@ -270,7 +243,7 @@ ever hope to achieve. Some common engineering idealizations of reversible proces
 % Figure
    \begin{figure}[h]
      \begin{center}
-        \includegraphics[width=0.7\columnwidth,clip]{./Figs/Chp3_PistonCylinder1}
+        \includegraphics[width=0.7\columnwidth,clip]{./Figs/Chp3_PistonCylinder1}\vspace{-2cm}
         \caption{Compression and expansion of a piston as a result of an external force.}\label{Chapter:FirstLaw:Fig:Work1}
      \end{center}
    \end{figure}
@@ -287,16 +260,38 @@ ever hope to achieve. Some common engineering idealizations of reversible proces
                 dW = -PdV \;\;\Longrightarrow \;\; W = - P\int\limits_{V_{1}}^{V_{2}} dV = - P\left(V_{2}-V_{1}\right) = -P\Delta V.\label{Chapter:FirstLaw:Eqn:Work_ConstPressure}
              \end{equation}
            \end{shaded}
+           This integral can be graphically illustrated by the area under the $PV$ curve of Fig.~\ref{Chapter:FirstLaw:Fig:Work2}a. The work is equal to area beneath the horizontal line at $P=P_{\text{ext}}$ lying between $V_{1}$ and $V_{2}$.
            
-\medskip
 % Figure
-   \begin{figure}[h]
-     \begin{center}
-        \includegraphics[width=0.7\columnwidth,clip]{./Figs/Chp3_PistonCylinder2}
-        \caption{Ideal gas expansion under isothermal conditions: (Left) irreversible work at constant external pressure is equal to the blue area (Eqn.~\ref{Chapter:FirstLaw:Eqn:Work_ConstPressure}); (right) reversible work from $V_{1}$ to $V_{2}$ is given by the are below the curve (\ie blue and hatched area).}\label{Chapter:FirstLaw:Fig:Work2}
-     \end{center}
+\begin{figure}[h]
+  \vbox{
+     \hbox{\hspace{2cm}\includegraphics[width=0.7\columnwidth,clip]{./Figs/Chp3_PistonCylinder2}}
+     \vspace{-1.cm}
+     \hbox{\hspace{5cm}(a)\hspace{4.5cm}(b)}}%\vspace{-0.cm}
+        \caption{Ideal gas expansion under isothermal conditions: (a) irreversible work at constant external pressure is equal to the blue area (Eqn.~\ref{Chapter:FirstLaw:Eqn:Work_ConstPressure}); (b) reversible work from $V_{1}$ to $V_{2}$ is given by the are below the curve (\ie blue and hatched area).}\label{Chapter:FirstLaw:Fig:Work2}
    \end{figure}
-\medskip
 
+%%%
+%%% SECTION
+%%%
+     \subsection{Reversible Expansion}\label{Chapter:FirstLaw:Section:Work_ReversibleExpansion}
+     In reversible processes, changes in the state can be reversed by infinitesimal modification of a variable
+
+A reversible change in thermodynamics is a change that can be reversed by an
+infinitesimal modification of a variable. The key word ‘infinitesimal’ sharpens the
+everyday meaning of the word ‘reversible’ as something that can change direction. We
+say that a system is in equilibrium with its surroundings if an infinitesimal change
+in the conditions in opposite directions results in opposite changes in its state. One
+example of reversibility that we have encountered already is the thermal equilibrium
+of two systems with the same temperature. The transfer of energy as heat between the
+two is reversible because, if the temperature of either system is lowered infinitesim-
+ally, then energy flows into the system with the lower temperature. If the temperature
+of either system at thermal equilibrium is raised infinitesimally, then energy flows out
+of the hotter system.
+
+
+
+
+     
      \end{subequations}
 
