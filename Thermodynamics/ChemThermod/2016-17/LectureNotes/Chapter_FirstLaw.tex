@@ -268,29 +268,36 @@
      \hbox{\hspace{2cm}\includegraphics[width=0.7\columnwidth,clip]{./Figs/Chp3_PistonCylinder2}}
      \vspace{-1.cm}
      \hbox{\hspace{5cm}(a)\hspace{4.5cm}(b)}}%\vspace{-0.cm}
-        \caption{Ideal gas expansion under isothermal conditions: (a) irreversible work at constant external pressure is equal to the blue area (Eqn.~\ref{Chapter:FirstLaw:Eqn:Work_ConstPressure}); (b) reversible work from $V_{1}$ to $V_{2}$ is given by the are below the curve (\ie blue and hatched area).}\label{Chapter:FirstLaw:Fig:Work2}
+        \caption{Ideal gas expansion under isothermal conditions: (a) irreversible work at constant external pressure is equal to the blue area (Eqn.~\ref{Chapter:FirstLaw:Eqn:Work_ConstPressure}); (b) reversible work from $V_{1}$ to $V_{2}$ is given by the area below the curve (\ie blue and hatched areas).}\label{Chapter:FirstLaw:Fig:Work2}
    \end{figure}
 
 %%%
 %%% SECTION
 %%%
      \subsection{Reversible Expansion}\label{Chapter:FirstLaw:Section:Work_ReversibleExpansion}
-     In reversible processes, changes in the state can be reversed by infinitesimal modification of a variable
+     In reversible processes, changes in the state can be reversed by infinitesimal modification of relevant properties. Let's suppose a gas confined in the piston-cylinder system (Fig.~\ref{Chapter:FirstLaw:Fig:Work1}) at stage 2. If the external pressure, $P_{\text{ext}}$ is set equal to the gas pressure, $P_{2}$, thus there is no movement of the piston as the system is in mechanical equilibrium with the surroundings. Any infinitesimal change in $P_{\text{ext}}$ leads to changes in volume, \ie an infinitesimal reduction in the external pressure results in slight expansion of the gas (increase of the volume), whereas an infinitesimal increase of the external pressure leads to slight gas contraction (decrease of the volume).
 
-A reversible change in thermodynamics is a change that can be reversed by an
-infinitesimal modification of a variable. The key word ‘infinitesimal’ sharpens the
-everyday meaning of the word ‘reversible’ as something that can change direction. We
-say that a system is in equilibrium with its surroundings if an infinitesimal change
-in the conditions in opposite directions results in opposite changes in its state. One
-example of reversibility that we have encountered already is the thermal equilibrium
-of two systems with the same temperature. The transfer of energy as heat between the
-two is reversible because, if the temperature of either system is lowered infinitesim-
-ally, then energy flows into the system with the lower temperature. If the temperature
-of either system at thermal equilibrium is raised infinitesimally, then energy flows out
-of the hotter system.
+     In both scenarios, the change is reversible, however if the external pressure differs measurably from the internal (gas) pressure, then changing $P_{\text{ext}}$ infinitesimally will not change the volume of the gas (\ie the direction of the piston movement). Such a system is not in mechanical equilibrium with its surroundings and the expansion/contraction is thermodynamically irreversible.
 
+     For reversible expansion, $P_{\text{ext}}$ is assumed to be equal to $P$ (internal gas pressure) at each stage of the expansion, $P_{\text{ext}}=P$,
+           \begin{shaded}
+             \begin{equation}
+                dW_{\text{rev}} = -P_{\text{ext}}dV = -PdV \;\;\Longrightarrow \;\; W_{\text{rev}} = -\int\limits_{V_{1}}^{V_{2}}PdV.\label{Chapter:FirstLaw:Eqn:Work_ReversibleExpansion}
+             \end{equation}
+             The integral can only be evaluated once the behaviour of the confined pressure is known and can be expressed by an algebraic equation as a function of the volume.
+           \end{shaded}
 
+           \begin{MyBlock}{Isothermal Reversible Expansion}
+             Let's suppose a scenario in which an ideal gas undergoes an isothermal reversible expansion. In such scenario, the system (\eg piston-cylinder) remains in thermal equilibrium with its surrounding at a prescribed and constant temperature (\eg a constant temperature bath). In this case, $T$, $R$ and $n$ (closed system) are constants and may be taken outside the integral (Eqn.~\ref{Chapter:FirstLaw:Eqn:Work_ReversibleExpansion}), and the integral from $V_{1}$ to $V_{2}$ becomes,
+             \begin{equation}
+               W_{\text{rev}} = -\int\limits_{V_{1}}^{V_{2}}PdV = -n R T\int\limits_{V_{1}}^{V_{2}}\frc{dV}{V} = -n R T\ln{\frc{V_{2}}{V_{1}}}.\label{Chapter:FirstLaw:Eqn:Work_IsothermalReversibleExpansion}
+             \end{equation}
+             If the final volume is larger than the initial volume $\left(V_{2} > V_{1}\right)$ (as in any expansion), the logarithm term in Eqn.~\ref{Chapter:FirstLaw:Eqn:Work_IsothermalReversibleExpansion} is positive, thus $W_{\text{rev}}$ is negative, \ie, the system has produced work. Similarly, if the gas undergoes a compression $\left(\text{and therefore } V_{2} < V_{1}\right)$, thus $W_{\text{rev}}$ is positive as the logarithm term is negative.
 
+             The work produced during the isothermal reversible expansion of an ideal gas is graphically represented in Fig.~\ref{Chapter:FirstLaw:Fig:Work2}b. Reversible work (integral $PdV$) is the (blue + hatched) area under the ideal gas EOS curve from $V_{1}$ to $V_{2}$, whereas the area in blue is effectively the irreversible work at a constant external pressure $P_{\text{ext}} = P_{2}$. Such graphical representation shows that reversible work is larger than the corresponding irreversible work of a similar system.
+
+           \end{MyBlock}
+     
 
      
      \end{subequations}
