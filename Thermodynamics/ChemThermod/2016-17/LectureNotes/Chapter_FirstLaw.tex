@@ -122,7 +122,7 @@
 %%%
 %%% SECTION
 %%%
-   \section{Reversible and Irreversible Processes}\label{Chapter:FirstLaw:Section:Reversibility}\index{Reversible process}\index{Irreversible process}
+   \section{Reversible and Irreversible Processes}\label{Chapter:FirstLaw:Section:Reversibility}\index{Process!Reversible}\index{Process!Irreversible}
    Thermodynamic processes may change the state in two distinct ways:
    \begin{itemize}
      \item {\bf Reversible process} (also known as quasi-static process) is a process which can be stopped at any stage and reversed so that the system and the surroundings are exactly restored to their original states;
@@ -296,8 +296,6 @@
 
              The work produced during the isothermal reversible expansion of an ideal gas is graphically represented in Fig.~\ref{Chapter:FirstLaw:Fig:Work2}b. Reversible work (integral $PdV$) is the (blue + hatched) area under the ideal gas EOS curve from $V_{1}$ to $V_{2}$, whereas the area in blue is effectively the irreversible work at a constant external pressure $P_{\text{ext}} = P_{2}$. Such graphical representation shows that reversible work is larger than the corresponding irreversible work of a similar system.
            \end{MyBlock}
-     
-     \end{subequations}
 
 
    % Example
@@ -346,10 +344,34 @@
          \end{eqnarray}
          {\it As indicated by the sign, the work is produced by the system and exerted into the surroundings.}
    \end{MyExample}
+   
+%%%
+%%% SECTION
+%%%
+   \subsection{Work for Compressible Fluids}\label{Chapter:FirstLaw:Section:WorkCompressibleFluids}
+   In the previous sections, the path-dependence of the work added or produced -- $W=-\int PdV$, was a result of the different ways to compress/expand fluids, represented by the area under a curve in a $PV$ diagram (Fig.~\ref{Chapter:FirstLaw:Fig:Work_PV}). The area under the curve defined by path $A$ is clearly different from the one defined under the curve of path $B$, in fact
+   \begin{displaymath}
+     W_{12}^{A} > W_{12}^{B},
+   \end{displaymath}
+   as the work depends on the path selected, and not only on the initial and final coordinates. Several real thermodynamics processes are often described by {\it polytropic processes}\index{Process!Polytropic} in which,
+   \begin{equation}
+     PV^{n} = \text{constant} = C, \hspace{.5cm} \text{ with }\label{Chapter:FirstLaw:Eqn:PolytropicProcess}
+     \begin{cases}
+       n = 0,  & \text{ isobaric;}\\
+       n = 1, & \text{ isothermal (for ideal gases);} \\
+       0 < n < 1 \text{ or } 1 < n < \infty, & \text{ polytropic;} \\
+       n = \infty, & \text{ isochoric.}
+     \end{cases}
+   \end{equation}
+   where $n$ is the (positive) polytropic exponent.
+   
+   
 
 % Figure
 \begin{figure}[h]
   \vbox{
      \hbox{\hspace{2cm}\includegraphics[width=0.7\columnwidth,clip]{./Figs/Chp3_PistonCylinder_PV}}}
-        \caption{Ideal gas expansion under isothermal conditions: (a) irreversible work at constant external pressure is equal to the blue area (Eqn.~\ref{Chapter:FirstLaw:Eqn:Work_ConstPressure}); (b) reversible work from $V_{1}$ to $V_{2}$ is given by the area below the curve (\ie blue and hatched areas).}\label{Chapter:FirstLaw:Fig:Work_PV}
+        \caption{Gas expansion under different conditions represented by 2 paths.}\label{Chapter:FirstLaw:Fig:Work_PV}
    \end{figure}
+
+     \end{subequations}
