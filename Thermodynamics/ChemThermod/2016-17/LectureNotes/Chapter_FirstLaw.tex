@@ -89,12 +89,11 @@
           \mfr[E]{2}{cv} - \mfr[E]{1}{cv} = \left[U_{2}-U_{1}\right] + \left[\frc{1}{2}m\left(v_{2}^{2}-v_{1}^{2}\right)\right] + \left[m g \left(z_{2}-z_{1}\right)\right] = Q_{1-2} + W_{1-2}.\label{Chapter:FirstLaw:Eqn:TotalEnergy3}
       \end{equation}
       Equation~\ref{Chapter:FirstLaw:Eqn:TotalEnergy3} describes the energy balance of a system with the surroundings, where the state functions (here represented by the total, internal, kinetic and potential energies) are path-independent, whereas {\bf changes in heat and work depend on the path used in the process}. 
-     \end{subequations}
 
 %%%
 %%% SECTION
 %%%
-     \section{Exact and Inexact Differentials}\label{Chapter:FirstLaw:Section:ExactInexactDiff}\index{Exact differential}
+     \subsection{Exact and Inexact Differentials}\label{Chapter:FirstLaw:Section:ExactInexactDiff}\index{Exact differential}
      %\begin{subequations}
          In Chapter~\ref{Chapter:Introduction}, we briefly defined {\it state functions}\index{State function} as thermodynamic properties that are independent of the process. For example, when water is boiled isobarically from 15$^{\circ}$C to 100$^{\circ}$C, there are infinite ways in which boiling can progress (\eg intense heat in the first 5 mins and a moderate one afterwards 'till boiling or continuous moderate heating, etc). The rate of change of the internal energy is calculated based {\bf only} on the initial and final states. The way in which the heating of water is conducted does not affect the calculation of $\Delta U$. Processes that describe the changes of state (\eg from state 1 at 15$^{\circ}$C to state 2 at 100$^{\circ}$C) are often called {\bf path functions}\index{Path function}. Examples of path functions are heat ($Q$) and work ($W$), whereas $U$ is a state function. 
 
@@ -118,6 +117,13 @@
      \end{center}
    \end{figure}
 
+%%%
+%%% SECTION
+%%%
+     \subsection{Heat Capacity}\label{Chapter:FirstLaw:Section:HeatCapacity}\index{Heat Capacity ! Constant Volume}\index{$C_{v}$| see{ Heat Capacity}}
+
+
+     \end{subequations}
 
 %%%
 %%% SECTION
@@ -344,29 +350,29 @@
          \end{eqnarray}
          {\it As indicated by the sign, the work is produced by the system and exerted into the surroundings.}
    \end{MyExample}
+     \end{subequations}
    
 %%%
 %%% SECTION
 %%%
-   \subsection{Work for Compressible Fluids}\label{Chapter:FirstLaw:Section:WorkCompressibleFluids}
+   \section{Polytropic Processes}\label{Chapter:FirstLaw:Section:PolytropicProcesses}\index{Process!Polytropic}
    In the previous sections, the path-dependence of the work added or produced -- $W=-\int PdV$, was a result of the different ways to compress/expand fluids, represented by the area under a curve in a $PV$ diagram (Fig.~\ref{Chapter:FirstLaw:Fig:Work_PV}). The area under the curve defined by path $A$ is clearly different from the one defined under the curve of path $B$, in fact
    \begin{displaymath}
      W_{12}^{A} > W_{12}^{B},
    \end{displaymath}
-   as the work depends on the path selected, and not only on the initial and final coordinates. Several real thermodynamics processes are often described by {\it polytropic processes}\index{Process!Polytropic} in which,
+   as the work depends on the path selected, and not only on the initial and final coordinates. Several real thermodynamics processes are often described by {\it polytropic processes} in which,
    \begin{equation}
      PV^{n} = \text{constant} = C, \hspace{.5cm} \text{ with }\label{Chapter:FirstLaw:Eqn:PolytropicProcess}
      \begin{cases}
        n = 0,  & \text{ isobaric;}\\
        n = 1, & \text{ isothermal (for ideal gases);} \\
        0 < n < 1 \text{ or } 1 < n < \infty, & \text{ polytropic;} \\
+       n = \gamma = \frc{C_{p}}{C_{v}}, & \text{ adiabatic (\ie isentropic) process;}\\
        n = \infty, & \text{ isochoric.}
      \end{cases}
    \end{equation}
    where $n$ is the (positive) polytropic exponent.
    
-   
-
 % Figure
 \begin{figure}[h]
   \vbox{
@@ -374,4 +380,18 @@
         \caption{Gas expansion under different conditions represented by 2 paths.}\label{Chapter:FirstLaw:Fig:Work_PV}
    \end{figure}
 
+   
+%%%
+%%% SECTION
+%%%
+   \section{Reversible Adiabatic Processes}\label{Chapter:FirstLaw:Section:ReversibleAdiabaticProcesses}\index{Process!Adiabatic}
+     \begin{subequations}
+
+       A process is named {\it adiabatic} when no heat is transferred to or from the system (\ie $Q$ = 0),
+         \begin{equation}
+           dU = \cancelto{0}{\delta Q} + \delta W \;\;\Longrightarrow\;\; \Delta U = U_{2}-U_{1}= W.
+         \end{equation}
+       This equation is valid for both reversible and irreversible processes\index{Process!Reversible}\index{Process!Irreversible}, and can only be ensured if a perfect thermal insulation is achieved. 
+       
+     
      \end{subequations}
