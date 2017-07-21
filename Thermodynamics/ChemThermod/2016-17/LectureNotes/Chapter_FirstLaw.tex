@@ -317,6 +317,32 @@
          \begin{displaymath}
            W_{\text{rev}} = -\int\limits_{V_{1}}^{V_{2}}PdV = - \int\limits_{V_{1}}^{V_{2}} \frc{C}{V}dV = -C\int\limits_{V_{1}}^{V_{2}} \frc{dV}{V} = -C \ln{\frc{V_{2}}{V_{1}}} = 4.8283\text{ bar.m}^{3} = 482.83\text{ kJ}.
          \end{displaymath}
-         {\it As the product of the logarithm term has {\bf no units}, the unit of the work is the same as $C$, \ie bar.m$^{3}$.}
+         {\it As the product of the logarithm term has {\bf no units}, the unit of the work is the same as $C$, \ie bar.m$^{3}$. Also, note that the work is positive, therefore the transfer of energy as work occurs from the surroundings to the piston-cylinder system.}
      \end{example}
+   \end{MyExample}
+
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:FirstLaw:Example3}\citep{Rajput_Book}
+       A fluid at pressure of 3 bar and with specific volume of 0.18 m$^{3}.\text{kg}^{-1}$ is allocated in a piston-cylinder system and expands reversibly to 0.6 bar according to an experimental relation, $P = Cv^{-2}$, where $C$ is a constant and $v$ is the specific volume. Calculate the work $\left(\text{in kJ.kg}^{-1}\right)$ done by the fluid on the piston.
+     \end{example}
+
+     {\it The work from the reversible process can be obtained by integrating Eqn.~\ref{Chapter:FirstLaw:Eqn:Work_ReversibleExpansion} from $v_{1}$ to $v_{2}$,}
+         \begin{displaymath}
+           W_{\text{rev}} = -\int\limits_{v_{1}}^{v_{2}}Pdv = -\int\limits_{v_{1}}^{v_{2}}\frc{C}{v^{2}}dv = -C\int\limits_{v_{1}}^{v_{2}}\frc{dv}{v^{2}} = -C\left.\left(-\frc{1}{v}\right)\right|_{v_{1}}^{v_{2}}
+         \end{displaymath}
+     {\it Note that in this example we are integrating based on the specific volume ($v$) instead of the total volume ($V$). Such change of volume-based property does not alter the expression for work, we just need to make sure that all calculations are conducted in a consistent way throughout the problem. In order to solve this expression, we also need to calculate the fluid volume after the expansion, $v_{2}$, and the constant $C$.
+
+     We can calculate both unknowns through the given experimental relation,} 
+         \begin{eqnarray}
+           && C = P_{1}v_{1}^{2} = 0.0972\text{ bar.m}^{6}\text{.kg}^{-2} \nonumber \\
+           && P_{1}v_{1}^{2} = C = P_{2}v_{2}^{2}\;\; \Longrightarrow \;\; v_{2} = 0.4025\text{ m}^{3}\text{.kg}^{-1} \nonumber
+         \end{eqnarray}
+     {\it Now, solving the integral with $v_{2}$ and $C$,}
+         \begin{eqnarray}
+           W_{\text{rev}} &=& -\int\limits_{v_{1}}^{v_{2}}Pdv = -C\left.\left(-\frc{1}{v}\right)\right|_{v_{1}}^{v_{2}} = -C\left(-\frc{1}{v_{2}}+\frc{1}{v_{1}}\right) = -2.9851\times 10^{-1}\text{ bar.m}^{3}\text{.kg}^{-1} \nonumber \\
+                       &=& -29.8510\text{ kJ}\text{.kg}^{-1} \nonumber
+         \end{eqnarray}
+         {\it As indicated by the sign, the work is produced by the system and exerted into the surroundings.}
    \end{MyExample}
