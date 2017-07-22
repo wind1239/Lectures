@@ -90,10 +90,12 @@
       \end{equation}
       Equation~\ref{Chapter:FirstLaw:Eqn:TotalEnergy3} describes the energy balance of a system with the surroundings, where the state functions (here represented by the total, internal, kinetic and potential energies) are path-independent, whereas {\bf changes in heat and work depend on the path used in the process}. 
 
+     \end{subequations}
+
 %%%
 %%% SECTION
 %%%
-     \subsection{Exact and Inexact Differentials}\label{Chapter:FirstLaw:Section:ExactInexactDiff}\index{Exact differential}
+     \section{Exact and Inexact Differentials}\label{Chapter:FirstLaw:Section:ExactInexactDiff}\index{Exact differential}
      %\begin{subequations}
          In Chapter~\ref{Chapter:Introduction}, we briefly defined {\it state functions}\index{State function} as thermodynamic properties that are independent of the process. For example, when water is boiled isobarically from 15$^{\circ}$C to 100$^{\circ}$C, there are infinite ways in which boiling can progress (\eg intense heat in the first 5 mins and a moderate one afterwards 'till boiling or continuous moderate heating, etc). The rate of change of the internal energy is calculated based {\bf only} on the initial and final states. The way in which the heating of water is conducted does not affect the calculation of $\Delta U$. Processes that describe the changes of state (\eg from state 1 at 15$^{\circ}$C to state 2 at 100$^{\circ}$C) are often called {\bf path functions}\index{Path function}. Examples of path functions are heat ($Q$) and work ($W$), whereas $U$ is a state function. 
 
@@ -117,12 +119,10 @@
      \end{center}
    \end{figure}
 
-     \end{subequations}
-
 %%%
 %%% SECTION
 %%%
-     \subsection{Enthalpy}\label{Chapter:FirstLaw:Section:Enthalpy}\index{Enthalpy}
+     \section{Enthalpy}\label{Chapter:FirstLaw:Section:Enthalpy}\index{Enthalpy}
         \begin{subequations}
           Let's consider a gas contained in a piston-cylinder system undergoing a quasi-static isobaric process. Let's also assume that there are no changes in kinetic and potential energies and that the only work done during the process is the one associated with the piston's movement. The first law stated that the internal energy is a result of changes in work and heat,
           \begin{displaymath}
@@ -132,8 +132,17 @@
              Replacing the work into the first law equation
              \begin{eqnarray}
                 \delta Q &=& dU - \delta W = U_{2} - U_{1} + P_{2}V_{2} - P_{1}V_{1}\nonumber \\
-                         &=& \left(U_{2}-P_{2}V_{2}\right) - \left(U_{1}-P_{1}V_{1}\right)
+                         &=& \left(U_{2}+P_{2}V_{2}\right) - \left(U_{1}+P_{1}V_{1}\right).\label{Chapter:FirstLaw:Eqn:EnthalpyDefinition1}
              \end{eqnarray}
+             The terms in brackets, $U+PV$, are thermodynamic properties that depend only on the state of the system and, as such, define a new extensive property, the {\it enthalpy},
+             \begin{equation}
+               H\equiv U + PV.\label{Chapter:FirstLaw:Eqn:EnthalpyDefinition2}
+             \end{equation}
+             Replacing Eqn.~\ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition1} in \ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition2}
+             \begin{equation}
+               \delta Q = \overbrace{\left(U_{2}+P_{2}V_{2}\right)}^{H_{2}} - \overbrace{\left(U_{1}+P_{1}V_{1}\right)}^{H_{1}} = H_{2}-H_{1} = \Delta H,\label{Chapter:FirstLaw:Eqn:EnthalpyDefinition3}
+             \end{equation}
+             \ie the {\it change in enthalpy leads to the heat transfer for isobaric processes}. 
           \end{shaded}
        
         \end{subequations}
@@ -141,8 +150,41 @@
 %%%
 %%% SECTION
 %%%
-     \subsection{Heat Capacity}\label{Chapter:FirstLaw:Section:HeatCapacity}\index{Heat Capacity ! Constant Volume}\index{$C_{v}$| see{ Heat Capacity}}
+    \section{Heat Capacities}\label{Chapter:FirstLaw:Section:HeatCapacity}
+      \begin{subequations}
 
+        %%% Subsection
+        \subsection{Constant Volume and Constant Pressure Heat Capacities}\index{Heat Capacity ! Constant Volume}\index{Heat Capacity ! Constant Pressure}\index{$C_{v}$| see{ Heat Capacity}}\index{$C_{p}$| see{ Heat Capacity}}
+            {\it Specific heat capacity} can be defined as the amount of heat necessary to increase the temperature of a unit mass of material by one degree. Mathematically, it can be defined as
+            \begin{displaymath}
+              C\equiv \frc{1}{m}\frc{\delta Q}{\delta T}.
+            \end{displaymath}
+            As $Q$ is path-dependent, $C$ also is, and from the first law
+            \begin{displaymath}
+              \delta Q = dU - \delta W \;\;\Longrightarrow\;\; dU + PdV,
+            \end{displaymath}
+            two properties can be defined depending upon the path:
+            \begin{enumerate}[(i)]
+              \item Constant volume: in which the term $PdV$ vanishes and the specific heat at constant volume $\left(C_{v}\right)$ is
+                \begin{equation}
+                  C_{v} = \frc{1}{m}\left(\frc{\delta Q}{\delta T}\right)_{V} = \frc{1}{m}\left(\frc{\partial U}{\partial T}\right)_{V} = \left(\frc{\partial u}{\partial T}\right)_{V}\label{Chapter:FirstLaw:Eqn:HeatCapacityConstVolume1}
+                \end{equation}
+              \item Constant pressure: in which the work term can be integrated at constant pressure, hence the heat transfer can be expressed in terms of the enthalpy change (Eqn.~\ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition3}),
+                \begin{equation}
+                  C_{p} = \frc{1}{m}\left(\frc{\delta Q}{\delta T}\right)_{P} = \frc{1}{m}\left(\frc{\partial H}{\partial T}\right)_{P} = \left(\frc{\partial h}{\partial T}\right)_{P}\label{Chapter:FirstLaw:Eqn:HeatCapacityConstPressure1}
+                \end{equation}
+            \end{enumerate}
+            $C_{p}\left(T,P\right)$ and $C_{v}\left(T,v\right)$ are thermodynamic properties for general materials and can vary with the independent variables $\left(T, P, v\right)$.
+            
+        %%% Subsection
+        \subsection{Caloric Equations of State for Ideal Gases}\label{Chapter:FirstLaw:Section:HeatCapacity:IdealGas}
+          For ideal gases, one can use the fundamental thermodynamic relation that defined enthalpy (Eqn.~\ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition2}) and the ideal gas EOS, $Pv=RT$ (Eqn.~\ref{Chapter:Intro_Property_of_Gases:Eqn:IdealEOS}), to define the enthalpy
+          \begin{displaymath}
+            h = u(T) + RT,
+          \end{displaymath}
+          of an ideal gas as a function of $T$ only, \ie $h=h(T)$. 
+            
+        \end{subequations}
 %%%
 %%% SECTION
 %%%
