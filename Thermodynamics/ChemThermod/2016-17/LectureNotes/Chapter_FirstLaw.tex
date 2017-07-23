@@ -118,73 +118,6 @@
         \caption{State function: Change of internal function as a result of work and heat being exerted into the system by 3 distinct paths. Note that regardless the chosen path (from state 1 to state 2), $U_{1}$ and $U_{2}$ remain the same, although the amount of heat (represented here by changes in temperature, $T$) and work (\ie changes in volume, $V$) may vary significantly.}\label{Chapter:FirstLaw:Fig:StateFunctions}
      \end{center}
    \end{figure}
-
-%%%
-%%% SECTION
-%%%
-     \section{Enthalpy}\label{Chapter:FirstLaw:Section:Enthalpy}\index{Enthalpy}
-        \begin{subequations}
-          Let's consider a gas contained in a piston-cylinder system undergoing a quasi-static isobaric process. Let's also assume that there are no changes in kinetic and potential energies and that the only work done during the process is the one associated with the piston's movement. The first law stated that the internal energy is a result of changes in work and heat,
-          \begin{displaymath}
-            dU = \delta Q + \delta W,\;\;\;\text{ and } \;\;\; \delta W = -\int\limits_{1}^{2} PdV = -P\left(V_{2}-V_{1}\right).
-          \end{displaymath}
-          \begin{shaded}
-             Replacing the work into the first law equation
-             \begin{eqnarray}
-                \delta Q &=& dU - \delta W = U_{2} - U_{1} + P_{2}V_{2} - P_{1}V_{1}\nonumber \\
-                         &=& \left(U_{2}+P_{2}V_{2}\right) - \left(U_{1}+P_{1}V_{1}\right).\label{Chapter:FirstLaw:Eqn:EnthalpyDefinition1}
-             \end{eqnarray}
-             The terms in brackets, $U+PV$, are thermodynamic properties that depend only on the state of the system and, as such, define a new extensive property, the {\it enthalpy},
-             \begin{equation}
-               H\equiv U + PV.\label{Chapter:FirstLaw:Eqn:EnthalpyDefinition2}
-             \end{equation}
-             Replacing Eqn.~\ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition1} in \ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition2}
-             \begin{equation}
-               \delta Q = \overbrace{\left(U_{2}+P_{2}V_{2}\right)}^{H_{2}} - \overbrace{\left(U_{1}+P_{1}V_{1}\right)}^{H_{1}} = H_{2}-H_{1} = \Delta H,\label{Chapter:FirstLaw:Eqn:EnthalpyDefinition3}
-             \end{equation}
-             \ie the {\it change in enthalpy leads to the heat transfer for isobaric processes}. 
-          \end{shaded}
-       
-        \end{subequations}
-
-%%%
-%%% SECTION
-%%%
-    \section{Heat Capacities}\label{Chapter:FirstLaw:Section:HeatCapacity}
-      \begin{subequations}
-
-        %%% Subsection
-        \subsection{Constant Volume and Constant Pressure Heat Capacities}\index{Heat Capacity ! Constant Volume}\index{Heat Capacity ! Constant Pressure}\index{$C_{v}$| see{ Heat Capacity}}\index{$C_{p}$| see{ Heat Capacity}}
-            {\it Specific heat capacity} can be defined as the amount of heat necessary to increase the temperature of a unit mass of material by one degree. Mathematically, it can be defined as
-            \begin{displaymath}
-              C\equiv \frc{1}{m}\frc{\delta Q}{\delta T}.
-            \end{displaymath}
-            As $Q$ is path-dependent, $C$ also is, and from the first law
-            \begin{displaymath}
-              \delta Q = dU - \delta W \;\;\Longrightarrow\;\; dU + PdV,
-            \end{displaymath}
-            two properties can be defined depending upon the path:
-            \begin{enumerate}[(i)]
-              \item Constant volume: in which the term $PdV$ vanishes and the specific heat at constant volume $\left(C_{v}\right)$ is
-                \begin{equation}
-                  C_{v} = \frc{1}{m}\left(\frc{\delta Q}{\delta T}\right)_{V} = \frc{1}{m}\left(\frc{\partial U}{\partial T}\right)_{V} = \left(\frc{\partial u}{\partial T}\right)_{V}\label{Chapter:FirstLaw:Eqn:HeatCapacityConstVolume1}
-                \end{equation}
-              \item Constant pressure: in which the work term can be integrated at constant pressure, hence the heat transfer can be expressed in terms of the enthalpy change (Eqn.~\ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition3}),
-                \begin{equation}
-                  C_{p} = \frc{1}{m}\left(\frc{\delta Q}{\delta T}\right)_{P} = \frc{1}{m}\left(\frc{\partial H}{\partial T}\right)_{P} = \left(\frc{\partial h}{\partial T}\right)_{P}\label{Chapter:FirstLaw:Eqn:HeatCapacityConstPressure1}
-                \end{equation}
-            \end{enumerate}
-            $C_{p}\left(T,P\right)$ and $C_{v}\left(T,v\right)$ are thermodynamic properties for general materials and can vary with the independent variables $\left(T, P, v\right)$.
-            
-        %%% Subsection
-        \subsection{Caloric Equations of State for Ideal Gases}\label{Chapter:FirstLaw:Section:HeatCapacity:IdealGas}
-          For ideal gases, one can use the fundamental thermodynamic relation that defined enthalpy (Eqn.~\ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition2}) and the ideal gas EOS, $Pv=RT$ (Eqn.~\ref{Chapter:Intro_Property_of_Gases:Eqn:IdealEOS}), to define the enthalpy
-          \begin{displaymath}
-            h = u(T) + RT,
-          \end{displaymath}
-          of an ideal gas as a function of $T$ only, \ie $h=h(T)$. 
-            
-        \end{subequations}
 %%%
 %%% SECTION
 %%%
@@ -290,6 +223,110 @@
 
      \end{subequations}
 
+
+%%%
+%%% SECTION
+%%%
+     \section{Enthalpy}\label{Chapter:FirstLaw:Section:Enthalpy}\index{Enthalpy}
+        \begin{subequations}
+          Let's consider a gas contained in a piston-cylinder system undergoing a quasi-static isobaric process. Let's also assume that there are no changes in kinetic and potential energies and that the only work done during the process is the one associated with the piston's movement. The first law stated that the internal energy is a result of changes in work and heat,
+          \begin{displaymath}
+            dU = \delta Q + \delta W,\;\;\;\text{ and } \;\;\; \delta W = -\int\limits_{1}^{2} PdV = -P\left(V_{2}-V_{1}\right).
+          \end{displaymath}
+          \begin{shaded}
+             Replacing the work into the first law equation
+             \begin{eqnarray}
+                \delta Q &=& dU - \delta W = U_{2} - U_{1} + P_{2}V_{2} - P_{1}V_{1}\nonumber \\
+                         &=& \left(U_{2}+P_{2}V_{2}\right) - \left(U_{1}+P_{1}V_{1}\right).\label{Chapter:FirstLaw:Eqn:EnthalpyDefinition1}
+             \end{eqnarray}
+             The terms in brackets, $U+PV$, are thermodynamic properties that depend only on the state of the system and, as such, define a new extensive property, the {\it enthalpy},
+             \begin{equation}
+               H\equiv U + PV.\label{Chapter:FirstLaw:Eqn:EnthalpyDefinition2}
+             \end{equation}
+             Replacing Eqn.~\ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition1} in \ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition2}
+             \begin{equation}
+               \delta Q = \overbrace{\left(U_{2}+P_{2}V_{2}\right)}^{H_{2}} - \overbrace{\left(U_{1}+P_{1}V_{1}\right)}^{H_{1}} = H_{2}-H_{1} = \Delta H,\label{Chapter:FirstLaw:Eqn:EnthalpyDefinition3}
+             \end{equation}
+             \ie the {\it change in enthalpy leads to the heat transfer for isobaric processes}. 
+          \end{shaded}
+       
+        \end{subequations}
+
+%%%
+%%% SECTION
+%%%
+    \section{Heat Capacities}\label{Chapter:FirstLaw:Section:HeatCapacity}
+      \begin{subequations}
+
+        %%% Subsection
+        \subsection{Constant Volume and Constant Pressure Heat Capacities}\index{Heat Capacity ! Constant Volume}\index{Heat Capacity ! Constant Pressure}\index{$C_{v}$| see{ Heat Capacity}}\index{$C_{p}$| see{ Heat Capacity}}
+            {\it Specific heat capacity} can be defined as the amount of heat necessary to increase the temperature of a unit mass of material by one degree. Mathematically, it can be defined as
+            \begin{displaymath}
+              C\equiv \frc{1}{m}\frc{\delta Q}{\delta T}.
+            \end{displaymath}
+            As $Q$ is path-dependent, $C$ also is, and from the first law
+            \begin{displaymath}
+              \delta Q = dU - \delta W \;\;\Longrightarrow\;\; dU + PdV,
+            \end{displaymath}
+            two properties can be defined depending upon the path:
+            \begin{enumerate}[(i)]
+              \item Constant volume: in which the term $PdV$ vanishes and the specific heat at constant volume $\left(C_{v}\right)$ is
+                \begin{equation}
+                  C_{v} = \frc{1}{m}\left(\frc{\delta Q}{\delta T}\right)_{V} = \frc{1}{m}\left(\frc{\partial U}{\partial T}\right)_{V} = \left(\frc{\partial u}{\partial T}\right)_{V}\label{Chapter:FirstLaw:Eqn:HeatCapacityConstVolume1}
+                \end{equation}
+              \item Constant pressure: in which the work term can be integrated at constant pressure, hence the heat transfer can be expressed in terms of the enthalpy change (Eqn.~\ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition3}),
+                \begin{equation}
+                  C_{p} = \frc{1}{m}\left(\frc{\delta Q}{\delta T}\right)_{P} = \frc{1}{m}\left(\frc{\partial H}{\partial T}\right)_{P} = \left(\frc{\partial h}{\partial T}\right)_{P}\label{Chapter:FirstLaw:Eqn:HeatCapacityConstPressure1}
+                \end{equation}
+            \end{enumerate}
+            $C_{p}\left(T,P\right)$ and $C_{v}\left(T,v\right)$ are thermodynamic properties for general materials and can vary with the independent variables $\left(T, P, v\right)$. Here, $h$ and $u$ are specific enthalpy and internal energy with units J.kg$^{-1}$.
+            
+        %%% Subsection
+        \subsection{Heat Capacity Relations for Ideal Gases}\label{Chapter:FirstLaw:Section:HeatCapacity:IdealGas}
+          For ideal gases, one can use the fundamental thermodynamic relation that defined enthalpy (Eqn.~\ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition2}) and the ideal gas EOS, $Pv=RT$ (Eqn.~\ref{Chapter:Intro_Property_of_Gases:Eqn:IdealEOS}), to redefine the specific enthalpy
+          \begin{equation}
+            h = u(T) + RT,\label{Chapter:FirstLaw:Eqn:EnthalpyDefinition4}
+          \end{equation}
+          of an ideal gas as a function of $T$ only, \ie $h=h(T)$.  The specific heat of an ideal gas at contant volume is expressed as
+          \begin{displaymath}
+             C_{v}(T,v) = \left(\frc{\partial u}{\partial T}\right)_{v} = \frc{d}{dT}\left(u(T)\right) = C_{v}(T).
+          \end{displaymath}
+          In other words, $C_{v}$ is property that can be expressed as function of $T$ and $v$ (thus being defined as a partial differential equation with the differential operator $\partial$), however if a process is assumed isochoric (\ie constant volume) this property becomes a function of only the temperature (and therefore defined as an ordinary differential equation with the differential operator $d$),
+                \begin{equation}
+                  du = C_{v}(T)dT.\label{Chapter:FirstLaw:Eqn:HeatCapacityConstVolume2}
+                \end{equation}
+          A similar argument can be used for $C_{p}$ in isobaric processes, leading to
+                \begin{equation}
+                  dh = C_{p}(T)dT.\label{Chapter:FirstLaw:Eqn:HeatCapacityConstPressure2}
+                \end{equation}
+          \begin{shaded}
+             Differentiating Eqn.~\ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition4} and replacing $du$ and $dh$,
+                \begin{eqnarray}
+                   && dh = du + RdT \nonumber \\
+                   && C_{p}(T)dT = C_{v}(T)dT + RdT \;\;\;\Longrightarrow C_{p}(T) = C_{v} + R \nonumber \\
+                   && C_{p}(T) - C_{v}(T) = R.\label{Chapter:FirstLaw:Eqn:HeatCapacitiesRelation_IdealGas1}
+                \end{eqnarray}
+             A useful relationship in engineering thermodynamics is the ratio of specific heats (or isentropic index),
+                \begin{equation}
+                  \gamma = \frc{C_{p}}{C_{v}},\label{Chapter:FirstLaw:Eqn:HeatCapacitiesRelation1}
+                \end{equation}
+             which is valid for any material. For an ideal gas, this relation reduces to 
+                \begin{equation}
+                  \gamma = \frc{C_{v}(T)+R}{C_{v}(T)} = 1 + \frc{R}{C_{v}(T)}.\label{Chapter:FirstLaw:Eqn:HeatCapacitiesRelation_IdealGas2}
+                \end{equation}
+             Other heat capacity based relations for ideal gases can be obtained from Eqns.~\ref{Chapter:FirstLaw:Eqn:FirstLaw2}, \ref{Chapter:FirstLaw:Eqn:EnthalpyDefinition2} and \ref{Chapter:Intro_Property_of_Gases:Eqn:IdealEOS}:
+                \begin{equation}
+                   \delta Q = 
+                      \begin{cases}
+                         C_{p}dT - \frc{RT}{P}dP, \label{Chapter:FirstLaw:Eqn:HeatCapacitiesRelation_IdealGas3} \\
+                         \frc{C_{p}}{R}PdV + \frc{C_{v}}{R}VdP.
+                      \end{cases}
+                \end{equation}
+                These relations, although apparently simple, reveal the dependence of heat transfer on temperature, pressure and volume in processes involving ideal gases.
+          \end{shaded}
+
+
+        \end{subequations}
 
 %%%
 %%% SECTION
@@ -447,11 +484,46 @@
    \section{Reversible Adiabatic Processes}\label{Chapter:FirstLaw:Section:ReversibleAdiabaticProcesses}\index{Process!Adiabatic}
      \begin{subequations}
 
-       A process is named {\it adiabatic} when no heat is transferred to or from the system (\ie $Q$ = 0),
+       A process is named {\it adiabatic} when no heat is transferred to or from the system (\ie $\delta Q$ = 0),
          \begin{equation}
            dU = \cancelto{0}{\delta Q} + \delta W \;\;\Longrightarrow\;\; \Delta U = U_{2}-U_{1}= W.
          \end{equation}
-       This equation is valid for both reversible and irreversible processes\index{Process!Reversible}\index{Process!Irreversible}, and can only be ensured if a perfect thermal insulation is achieved. 
-       
+       This equation is valid for both reversible and irreversible processes\index{Process!Reversible}\index{Process!Irreversible}, and can only be ensured if a perfect thermal insulation is achieved.  For mechanically reversible adiabatic (\ie isentropic) compression / expansion of ideal gases,
+      \begin{eqnarray}
+          dU &=& \delta Q + \delta W \;\;\Longrightarrow \;\; \delta Q = C_{v}dT + PdV = 0 \nonumber \\
+          dT &=& -\frc{P}{C_{v}}dV  \;\; \left(\text{Constraint: } C_{v}\ne 0\right) \nonumber \\
+             &=& -\frc{RT}{V C_{v}}dV \;\; \Rightarrow \;\; \frc{dT}{T} = - \frc{R}{C_{v}}\frc{dV}{V}. \label{Chapter:FirstLaw:Eqn:AdiabaticProcesses1}
+      \end{eqnarray}
+      Integrating Eqn.~\ref{Chapter:FirstLaw:Eqn:AdiabaticProcesses1} and assuming $C_{v}$ is constant,
+           \begin{eqnarray}
+              &&\int\limits_{T_{1}}^{T_{2}} \frc{dT}{T} = \frc{R}{C_{v}}\int\limits_{V_{1}}^{V_{2}}\frc{dV}{V} \;\;\Longrightarrow\;\;  \left.\ln{T}\right|_{T_{1}}^{T_{2}} = \left.-\frc{R}{C_{v}}\ln{V}\right|_{V_{1}}^{V_{2}}\nonumber \\
+              &&\ln{\frc{T_{2}}{T_{1}}} = -\frc{R}{C_{v}}\ln{\frc{V_{2}}{V_{1}}} = \ln{\left(\frc{V_{1}}{V_{2}}\right)^{\frac{R}{C_{v}}}}\;\;\Longrightarrow\;\; \frc{T_{2}}{T_{1}} = \left(\frc{V_{1}}{V_{2}}\right)^{\frac{R}{C_{v}}} \nonumber
+           \end{eqnarray}
+           Now, using the ratio of specific heats defined in Eqn.~\ref{Chapter:FirstLaw:Eqn:HeatCapacitiesRelation_IdealGas2}, 
+           \begin{displaymath}
+              \gamma = 1 + \frc{R}{C_{v}},
+           \end{displaymath}
+           in the previous relation,
+           \begin{shaded}
+             \begin{equation}
+                TV^{\gamma-1} = \text{ constant}\label{Chapter:FirstLaw:Eqn:AdiabaticProcesses_TVGamma}
+             \end{equation}
+           \end{shaded}
+
+           Now from Eqn.~\ref{Chapter:FirstLaw:Eqn:HeatCapacitiesRelation_IdealGas3},
+           \begin{displaymath}
+               \delta Q = C_{p}dT - \frc{RT}{P}dP = 0,
+           \end{displaymath}
+           and assuming $C_{p}$ is constant and different from zero,
+           \begin{eqnarray}
+             && \int\limits_{T_{1}}^{T_{2}}\frc{dT}{T} = \frc{R}{C_{p}}\int\limits_{P_{1}}^{P_{2}}\frc{dP}{P} \;\;\Longrightarrow\;\; \left.\ln{T}\right|_{T_{1}}^{T_{2}} = \left.\frc{R}{C_{p}} \ln{P}\right|_{P_{1}}^{P_{2}} \nonumber \\
+             && \ln{\frc{T_{2}}{T_{1}}} = \ln{\left(\frc{P_{2}}{P_{1}}\right)^{\frac{R}{C_{p}}}} \;\;\Longrightarrow\;\;  \frc{T_{2}}{T_{1}} = \left(\frc{P_{2}}{P_{1}}\right)^{\frac{R}{C_{p}}}.\nonumber
+           \end{eqnarray}
+           Again, using  Eqn.~\ref{Chapter:FirstLaw:Eqn:HeatCapacitiesRelation_IdealGas2},
+           \begin{shaded}
+             \begin{equation}
+                TP^{\frac{1-\gamma}{\gamma}} = \text{ constant}\label{Chapter:FirstLaw:Eqn:AdiabaticProcesses_TPGamma}
+             \end{equation}
+           \end{shaded}
      
      \end{subequations}
