@@ -208,21 +208,60 @@
             
          \end{shaded}
    
+     \end{subequations}
+   
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
      \begin{example}\label{Chapter:FirstLaw:Example1}\citep{Atkins_Book}
         In a power station, the water pump is located in an isolated room. The electric motor of this pump produces 15 kJ of energy as mechanical work and loose 2 kJ of heat to the surroundings. Calculate the change in internal energy of the motor.  
+     \end{example}
 
-       {\it Here, the system is the electrical motor whereas the surroundings is the room. The work produced by the motor is $\delta W= -15$ kJ and the heat transferred from the engine to the room is $\delta Q = -2$ kJ, therefore }
+% SOLUTION
+       \noindent{\bf Solution:}
+       Here, the system is the electrical motor whereas the surroundings is the room. The work produced by the motor is $\delta W= -15$ kJ and the heat transferred from the engine to the room is $\delta Q = -2$ kJ, therefore 
           \begin{eqnarray}
              dU = \Delta U &=&  \delta Q + \delta W \nonumber \\
                 &=& -15 -2 = -17\text{ kJ} \nonumber
           \end{eqnarray}
-     \end{example}
    \end{MyExample}
 
-     \end{subequations}
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:FirstLaw:Example2}
+       If $P_{1}$ = 3.00 atm, $V_{1}$ = 500 cm$^{3}$, $P_{2}$ = 1.00 atm and $V_{2}$ = 2000 cm$^{3}$. Calculate the work, $W_{\text{rev}}$ (in $J$), for the expansion processes shown in Fig.~\ref{Chapter:FirstLaw:Fig:Example2}.
+     \end{example}
+     
+% SOLUTION
+       \noindent{\bf Solution:} $W_{\text{rev}}$ is related to the area below the curve. Thus, we should use the $PV$ work equation:
+           \begin{itemize}
+              \item For process {\bf (a)}: 
+                 \begin{eqnarray}
+                    d W = -PdV \Longrightarrow W &=& -P_{2}\left(V_{2}-V_{1}\right) \nonumber \\
+                                                 &=& - 1\text{ atm}\left(2000-500\right)\text{ cm}^{3} = -1500\text{ atm.cm}^{3} \nonumber 
+                 \end{eqnarray}
+                 Now we need to convert {\it atm.cm}$^{3}$ to $J$, thus using the unit conversion table:
+                 \begin{eqnarray}
+                     W &=& -1500\blue{\cancel{\text{ atm}}}.\red{\cancel{\text{cm}^{3}}} \frc{1.01325\times 10^{5}\blue{\cancel{\text{ Pa}}}}{1\blue{\cancel{\text{ atm}}}} \frc{1 \frc{\text{kg}}{\text{m.s}^{2}}}{1\blue{\cancel{\text{ Pa}}}} \frc{1\text{ m}^{3}}{ 100^{3} \red{\cancel{\text{ cm}^{3}}}} \nonumber \\
+                       &=& -151.9875 \blue{\cancel{\frc{\text{ kg.m}^{2}}{\text{s}^{2}}}} \frc{ 1 \text{ J}}{ \blue{\cancel{\frc{\text{ kg.m}^{2}}{\text{s}^{2}}}}} \nonumber\\
+                       &=& -151.9875\text{ J} \nonumber
+                 \end{eqnarray}
+%
+              \item For process {\bf (b)}, since $P$ is constant, i.e., $P_{1}=P_{2}$:
+                 \begin{eqnarray}
+                    d W = -PdV \Longrightarrow W &=& -P_{1}\left(V_{2}-V_{1}\right) \nonumber \\
+                                                 &=& - 3\text{ atm}\left(2000-500\right)\text{ cm}^{3} = -4500\text{ atm.cm}^{3} \nonumber \\
+                                                 &=& -455.9625\text{ J} \nonumber
+                 \end{eqnarray}
+           \end{itemize}
+   \end{MyExample}
 
+   %%% FIGURE
+      \begin{figure}[h]
+         \begin{center}
+           \includegraphics[width=.6\columnwidth,clip]{./Figs/Mod1Ex1}
+           \vspace{-.1cm}\caption{Expansion processes (Example~\ref{Chapter:FirstLaw:Example2}).}\label{Chapter:FirstLaw:Fig:Example2}
+         \end{center}
+       \end{figure}
 
 %%%
 %%% SECTION
@@ -328,6 +367,76 @@
 
         \end{subequations}
 
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:FirstLaw:Example3}
+       Calculate the internal energy (in $J$) when 1 mol of water is isobarically heated from 25$^{\circ}$C to 30$^{\circ}$C at 1 atm. Given: densities of water are 0.9970 g.cm$^{-3}$ at 0$^{\circ}$C and 0.9956 g.cm$^{-3}$ at 100$^{\circ}$C. Molar mass and heat capacity at constant pressure of water are 18 g.mol$^{-1}$ and 1 cal.$\left(\text{g.}^{\circ}\text{C}\right)^{-1}$, respectively.
+     \end{example}
+     
+% SOLUTION
+       \noindent{\bf Solution:} From the 1$^{\text{st}}$ Law, $U=Q+W$ ,and in order to calculate $U$ we first need to obtain heat ($Q$) and work ($W$). $Q$ can be obtained from the heat capacity equation
+          \begin{displaymath}
+             Q = m C_{p} \Delta T,
+          \end{displaymath}  
+          where $m$ is the mass of water can be obtained from
+          \begin{displaymath}
+             n = \frc{m}{MW} \Longrightarrow  m = n.MW = 1\text{ mol} . 18 \frc{\text{g}}{\text{mol}} = 18 \text{ g}
+          \end{displaymath}
+          $n$ and $MW$ are number of moles and molar mass, respectively. Now,
+          \begin{displaymath}
+             Q = m C_{p} \Delta T = 18\text{ g} . 1 \frc{\text{ cal}}{\text{g.}^{\circ}\text{C}}.\left(30-25\right)^{\circ}\text{C} = 90\text{ cal}
+          \end{displaymath}  
+          Now, we should calculate the work through $W=-P\Delta V$, however $V$ is not known, but we can obtain it from the density relation $V=m/\rho$, thus
+          \begin{displaymath}
+             W = - P\Delta V = -P\left(V_{2}-V_{1}\right) = -P\left(\frc{m}{\rho_{2}} - \frc{m}{\rho_{1}}\right) = -0.025\text{atm.cm}^{3} = -0.0006\text{ cal} 
+          \end{displaymath}
+          Now, calculating the internal energy,
+          \begin{displaymath}
+             U = Q + W = 89.9994\cancel{\text{ cal}} . \frc{ 4.186\text{ J}}{1\cancel{\text{ cal}}} = 376.7375 \text{ J}
+          \end{displaymath}
+   \end{MyExample}
+
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:FirstLaw:Example4}
+       A 0.3 m$^{3}$  tank contains oxygen initially at 100 kPa and 300 K. A paddle wheel within the tank is rotated until the pressure inside rise to 150 kPa. During the process 2 kJ of heat is lost to the surroundings. Determine the paddle-wheel work done (in kJ). Neglect the energy stored in the paddle wheel and assume the heat capacity at constant volume of oxygen is 0.6745 kJ.$\left(\text{kg.K}\right)^{1}$. Given molar mass of oxygen of 32 g.mol$^{-1}$.
+     \end{example}
+     
+% SOLUTION
+       \noindent{\bf Solution:} The volume of the tank remains constant $V_{2}=V_{1}=V=$ 0.3 m$^{3}$ during the whole process. Thus, we can define:
+            \begin{center}
+              \begin{tabular}{l l l l}
+                 Initial Condition & $P_{1}=$ 100 kPa   & $T_{1}=$ 300 K         & $V_{1}=$ 0.3 m$^{3}$  \\
+                 Final Condition   & $P_{2}=$ 150 kPa   &                       & $V_{2}=$ 0.3 m$^{3}$ \\
+                 Heat Loss         & $Q=$ -2 kJ        &                       &                    
+              \end{tabular}
+            \end{center}
+       The compression occurs in a closed system (i.e., constant mass) and, as there is no further information, we may consider that oxygen behaves as an ideal gas. The work added to the system by the paddle can be expressed by $U=Q+W$. Our first step is to calculate $T_{2}$,
+       \begin{displaymath}
+          \frc{P V}{T} = \text{ constant} \Rightarrow \frc{P_{1}V_{1}}{T_{1}} = \frc{P_{2}V_{2}}{T_{2}} \Rightarrow \frc{P_{1}}{T_{1}}=\frc{P_{2}}{T_{2}} \Rightarrow T_{2} = 450\text{ K}
+       \end{displaymath}
+        The specific internal energy can defined by the fundamental relation, $du=C_{v}dT$ (check the units for this relation!), where $C_{v}$ is the heat capacity at constant volume thus,
+       \begin{displaymath}
+          \Delta U = m\Delta u = C_{v}\Delta T = Q + W,
+       \end{displaymath}
+       therefore, we need to obtain the mass of oxygen in the tank through the ideal gas equation of state,
+       \begin{eqnarray}
+         P V = n R T \Rightarrow n = \frc{m}{MW} = \frc{P V}{R T} \Rightarrow m &=& \frc{ MW P V}{R T} \nonumber \\
+                                                      &=& \frc{ 32\frc{\text{ g}}{\text{mol}} 100\text{ kPa} . 0.3\text{ m}^{3}}{ 8.3143 \frc{\text{J}}{\text{mol.K}} 300\text{ K}} \nonumber \\
+                                                      &=& 0.3848 \frc{\text{ g.kPa.m}^{3}}{\text{J}} \frc{1 \text{ J}}{1\text{ N.m}} \frc{1000 \text{ Pa}}{1 \text{ kPa}} \frc{ 1 \text{ N.m}^{-2}}{1\text{ Pa}} \nonumber\\
+                                                      &=& 0.3848\text{ kg}\nonumber
+       \end{eqnarray}
+       Thus
+       \begin{eqnarray}
+          \Delta u = m C_{v}\Delta T = Q + W \Rightarrow W &=& m C_{v}\left(T_{2}-T_{1}\right) - Q \nonumber \\
+                                                          &=& 0.3848\text{ kg} \times 0.6745 \frc{\text{kJ}}{\text{kg.K}}\times (450-300)\text{ K} - (-2 \text{ kJ}) \nonumber \\
+                                                          &=& 40.9321\text{ kJ}. \nonumber
+       \end{eqnarray}
+       The paddle-wheel executed 40.9321 kJ of work to the system.
+   \end{MyExample}
+      
 %%%
 %%% SECTION
 %%%
@@ -403,49 +512,51 @@
 
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:FirstLaw:Example2}\citep{Rajput_Book}
+     \begin{example}\label{Chapter:FirstLaw:Example5}\citep{Rajput_Book}
        A gas contained in a piston-cylinder system undergoes a reversible compression from 1.5 to 7.5 bar. The gas behaves according to the following expression
        \begin{displaymath}
          PV = C,
        \end{displaymath}
        where [$P$] and [$V$] are in bar and m$^{3}$, respectively, and $C$ = 3 bar.m$^{3}$ Calculate the work (in kJ) done during the compression.
-       
-       {\it For a reversible compression from $P_{1}$ = 1.5 to $P_{2}$ = 7.5 bar to happen, work needs to be given to the system and can be calculated from}
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:} For a reversible compression from $P_{1}$ = 1.5 to $P_{2}$ = 7.5 bar to happen, work needs to be given to the system and can be calculated from
          \begin{displaymath}
            W_{\text{rev}} = -\int\limits_{V_{1}}^{V_{2}}PdV
          \end{displaymath}
-       {\it As the gas behaves according to the relation,} $V=\frac{3}{P}$, {\it we can readily conclude that initial and final volumes are 2.00 and 0.40 m$^{3}$, respectively. Now, integrating from $V_{1}$ to $V_{2}$ and replacing $P$ with $\frac{3}{V}$,} 
+       As the gas behaves according to the relation, $V=\frac{3}{P}$, we can readily conclude that initial and final volumes are 2.00 and 0.40 m$^{3}$, respectively. Now, integrating from $V_{1}$ to $V_{2}$ and replacing $P$ with $\frac{3}{V}$,
          \begin{displaymath}
            W_{\text{rev}} = -\int\limits_{V_{1}}^{V_{2}}PdV = - \int\limits_{V_{1}}^{V_{2}} \frc{C}{V}dV = -C\int\limits_{V_{1}}^{V_{2}} \frc{dV}{V} = -C \ln{\frc{V_{2}}{V_{1}}} = 4.8283\text{ bar.m}^{3} = 482.83\text{ kJ}.
          \end{displaymath}
-         {\it As the product of the logarithm term has {\bf no units}, the unit of the work is the same as $C$, \ie bar.m$^{3}$. Also, note that the work is positive, therefore the transfer of energy as work occurs from the surroundings to the piston-cylinder system.}
-     \end{example}
+         As the product of the logarithm term has {\bf no units}, the unit of the work is the same as $C$, \ie bar.m$^{3}$. Also, note that the work is positive, therefore the transfer of energy as work occurs from the surroundings to the piston-cylinder system.
    \end{MyExample}
 
 
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:FirstLaw:Example3}\citep{Rajput_Book}
+     \begin{example}\label{Chapter:FirstLaw:Example6}\citep{Rajput_Book}
        A fluid at pressure of 3 bar and with specific volume of 0.18 m$^{3}.\text{kg}^{-1}$ is allocated in a piston-cylinder system and expands reversibly to 0.6 bar according to an experimental relation, $P = Cv^{-2}$, where $C$ is a constant and $v$ is the specific volume. Calculate the work $\left(\text{in kJ.kg}^{-1}\right)$ done by the fluid on the piston.
      \end{example}
 
-     {\it The work from the reversible process can be obtained by integrating Eqn.~\ref{Chapter:FirstLaw:Eqn:Work_ReversibleExpansion} from $v_{1}$ to $v_{2}$,}
+% SOLUTION
+       \noindent{\bf Solution:} The work from the reversible process can be obtained by integrating Eqn.~\ref{Chapter:FirstLaw:Eqn:Work_ReversibleExpansion} from $v_{1}$ to $v_{2}$,
          \begin{displaymath}
            W_{\text{rev}} = -\int\limits_{v_{1}}^{v_{2}}Pdv = -\int\limits_{v_{1}}^{v_{2}}\frc{C}{v^{2}}dv = -C\int\limits_{v_{1}}^{v_{2}}\frc{dv}{v^{2}} = -C\left.\left(-\frc{1}{v}\right)\right|_{v_{1}}^{v_{2}}
          \end{displaymath}
-     {\it Note that in this example we are integrating based on the specific volume ($v$) instead of the total volume ($V$). Such change of volume-based property does not alter the expression for work, we just need to make sure that all calculations are conducted in a consistent way throughout the problem. In order to solve this expression, we also need to calculate the fluid volume after the expansion, $v_{2}$, and the constant $C$.
+      Note that in this example we are integrating based on the specific volume ($v$) instead of the total volume ($V$). Such change of volume-based property does not alter the expression for work, we just need to make sure that all calculations are conducted in a consistent way throughout the problem. In order to solve this expression, we also need to calculate the fluid volume after the expansion, $v_{2}$, and the constant $C$.
 
-     We can calculate both unknowns through the given experimental relation,} 
+     We can calculate both unknowns through the given experimental relation,
          \begin{eqnarray}
            && C = P_{1}v_{1}^{2} = 0.0972\text{ bar.m}^{6}\text{.kg}^{-2} \nonumber \\
            && P_{1}v_{1}^{2} = C = P_{2}v_{2}^{2}\;\; \Longrightarrow \;\; v_{2} = 0.4025\text{ m}^{3}\text{.kg}^{-1} \nonumber
          \end{eqnarray}
-     {\it Now, solving the integral with $v_{2}$ and $C$,}
+     Now, solving the integral with $v_{2}$ and $C$,
          \begin{eqnarray}
            W_{\text{rev}} &=& -\int\limits_{v_{1}}^{v_{2}}Pdv = -C\left.\left(-\frc{1}{v}\right)\right|_{v_{1}}^{v_{2}} = -C\left(-\frc{1}{v_{2}}+\frc{1}{v_{1}}\right) = -2.9851\times 10^{-1}\text{ bar.m}^{3}\text{.kg}^{-1} \nonumber \\
                        &=& -29.8510\text{ kJ}\text{.kg}^{-1} \nonumber
          \end{eqnarray}
-         {\it As indicated by the sign, the work is produced by the system and exerted into the surroundings.}
+         As indicated by the sign, the work is produced by the system and exerted into the surroundings.
    \end{MyExample}
      \end{subequations}
    
@@ -525,5 +636,74 @@
                 TP^{\frac{1-\gamma}{\gamma}} = \text{ constant}\label{Chapter:FirstLaw:Eqn:AdiabaticProcesses_TPGamma}
              \end{equation}
            \end{shaded}
-     
+           
+           Finally, integrating the right-hand side from Eqn.~\ref{Chapter:FirstLaw:Eqn:HeatCapacitiesRelation_IdealGas3},
+           \begin{eqnarray}
+               && \delta Q = \frc{C_{v}}{R}VdP + \frc{C_{p}}{R}PdV = 0 \;\; \Longrightarrow \;\; \frc{C_{v}}{\cancel{R}}VdP = -\frc{C_{p}}{\cancel{R}}PdV \;\;\Longrightarrow\;\; C_{v}\int\limits_{P_{1}}^{P_{2}} \frc{dP}{P} = -C_{p}\int\limits_{V_{1}}^{V_{2}}\frc{dV}{V} \nonumber \\
+              && \left.\ln{P}\right|_{P_{1}}^{P_{2}} = -\left.\frc{C_{p}}{C_{v}}\ln{V}\right|_{V_{1}}^{V_{2}} \;\; \Longrightarrow \;\;\frc{P_{2}}{P_{1}} = \left(\frc{V_{1}}{V_{2}}\right)^{\frac{C_{p}}{C_{v}}}\nonumber 
+           \end{eqnarray}
+           Again, using  Eqn.~\ref{Chapter:FirstLaw:Eqn:HeatCapacitiesRelation_IdealGas2},
+           \begin{shaded}
+             \begin{equation}
+                PV^{\gamma} = \text{ constant}\label{Chapter:FirstLaw:Eqn:AdiabaticProcesses_PVGamma}
+             \end{equation}
+           \end{shaded}
      \end{subequations}
+
+
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:FirstLaw:Example7}\citep{Rajput_Book}
+       Air initially occupying 1 m$^{3}$ at 1.5 bar and 20$^{\circ}$C undergoes an internally reversible compression for which $P V^{\gamma}=$ constant to a final state where the pressure is 6 bar and the temperature is 120$^{\circ}$C. Determine:
+        \begin{enumerate}[(a)]
+           \item Value of $\gamma$;
+           \item Work and the heat transfer (in kJ).
+       \end{enumerate}
+       Assume that heat capacity at constant volume and molar mass of air are 0.718 kJ.$\left(\text{kg.K}\right)^{-1}$ and 29 g.mol$^{-1}$.
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:} 
+        \begin{center}
+           \begin{tabular}{c c c c}
+               {\bf State}  &   $P$ (atm)  &   $T\;\left(^{\circ}\text{C}\right)$ & $V\;\left(\text{m}^{3}\right)$ \\
+                    1       &     1.5      &            20                      & 1  \\
+                    2       &     6.0      &            120                     &     \\              
+           \end{tabular}
+        \end{center}
+        \begin{enumerate}[(a)]
+           \item In order to calculate the isentropic index $\gamma$, we can use any of the relations learned in the lecture,
+               \begin{displaymath} 
+                   P V^{\gamma} = C, \hspace{1cm} T V^{\gamma-1} = C \hspace{1cm} \text{ and/or } \hspace{1cm} T P^{\frac{1-\gamma}{\gamma}} = C.
+               \end{displaymath}
+               Although $P$ and $V$ is the relation initially given in the problem, we do not know the final volume of air, $V_{2}$. However, initial and final pressure and temperature are known and we can make use of this relationship to obtain $\gamma$,
+               \begin{eqnarray} 
+                   T P^{\frac{1-\gamma}{\gamma}} = C \Rightarrow T_{1}P_{1}^{\frac{1-\gamma}{\gamma}} = T_{2}P_{2}^{\frac{1-\gamma}{\gamma}} \nonumber \\
+                   \left(\frc{P_{1}}{P_{2}}\right)^{\frac{1-\gamma}{\gamma}} = \frc{T_{2}}{T_{1}} \Rightarrow \frc{1-\gamma}{\gamma} = \frc{\ln{\frac{T_{2}}{T_{1}}}}{\ln{\frac{P_{1}}{P_{2}}}} \Longrightarrow \gamma = 1.2686  \nonumber
+               \end{eqnarray}
+                 
+           \item Compression work can be obtained by integrating $\d W = -P dV$ from state 1 to state 2 with $P=\frac{C}{V^{\gamma}}$,
+               \begin{eqnarray}
+                 W_{1-2} &=& -\int\limits_{V_{1}}^{V_{2}} P dV = -\int\limits_{V_{1}}^{V_{2}}\frc{C}{V^{\gamma}} dV = -\left.\frc{C}{1-\gamma}V^{1-\gamma}\right|_{V_{1}}^{V_{2}} \nonumber \\
+                         &=& -\frc{C}{1-\gamma}\left(V_{2}^{1-\gamma}-V_{1}^{1-\gamma}\right),\;\;\text{ however, as } C=P_{1}V_{1}^{\gamma}=P_{2}V_{2}^{\gamma} \nonumber \\
+                         &=& -\frc{P_{2}V_{2}^{\gamma}V_{2}^{1-\gamma} - P_{1}V_{1}^{\gamma}V_{1}^{1-\gamma}}{1-\gamma} = \frc{P_{1}V_{1}-P_{2}V_{2}}{1-\gamma} \nonumber
+               \end{eqnarray}
+               The relation above, although important, can not be used as we do not know $V_{2}$, however we can change variables through the ideal gas relation
+               \begin{eqnarray}
+                  P V = n R T &\Rightarrow& n = \frc{P V}{R T } = \frc{1.5\text{ atm} \times 1\text{ m}^{3}}{ 8.3143 \frc{\text{J}}{\text{mol.K}} 293.15\text{ K}} \frc{1.01325\times 10^{5} \text{ Pa}}{1 \text{ atm}} \frc{ 1 \text{ N.m}^{-2}}{1\text{ Pa}}\frc{1 \text{ J}}{1\text{ N.m}} = 62.3580\text{ moles}\nonumber \\
+                   % m &=& \frc{P_{1} V_{1} MW}{R T_{1}} = \frc{1.5\text{ atm} \times 1\text{ m}^{3} \times 29 \frac{\text{g}}{\text{mol}} } { 8.3143 \frc{\text{J}}{\text{mol.K}} 293.15\text{ K}} \frc{1 \text{ J}}{1\text{ N.m}} \frc{1.01325\times 10^{5} \text{ Pa}}{1 \text{ atm}} \frc{ 1 \text{ N.m}^{-2}}{1\text{ Pa}} = 1808.38 \text{ g}\nonumber\\
+                    W &=& \frc{P_{1}V_{1}-P_{2}V_{2}}{1-\gamma} = nR\frc{T_{1}- T_{2}}{1-\gamma} \nonumber \\
+                      &=& 62.3580\text{ mol} \times 8.3143 \frc{\text{J}}{\text{mol.K}} \times \frc{\left(293.15-393.15\right)\text{ K}}{1-1.2686} \nonumber \\
+                      &=& 193024.2440 \text{ J} \Longrightarrow W = -193.02 \text{ kJ} \nonumber
+               \end{eqnarray}
+              Heat ($Q$) can be obtained from
+               \begin{eqnarray}
+          \Delta u &=& m C_{v}\Delta T = n MW C_{v}\Delta T = Q + W  \nonumber \\
+             Q &=& n MW C_{v}\left(T_{2}-T_{1}\right) - W \nonumber \\
+               &=& 62.3580\text{ mol}\times 29 \frc{\text{g}}{\text{mol}} \red{\frc{1\text{ kg}}{1000\text{ g}}}\times 0.718\frc{\text{kJ}}{\text{kg.K}}\times (393.15-293.15)\text{ K} - 193.30 \text{ kJ} \nonumber \\
+                                                          &=& -63.46\text{ kJ}. \nonumber                   
+               \end{eqnarray}
+        \end{enumerate}
+   \end{MyExample}
+   
