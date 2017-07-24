@@ -42,7 +42,7 @@
      \begin{itemize}
         \item {\bf Work} is motion against an opposing force (Eqn.~\ref{Chpt01_Work1});
         \item {\bf Energy} of a system is its capacity to produce work, and; 
-        \item {\bf Heat} is the transfer of energy across the boundary caused by temperature gradient \citep{Devoe_Book}.
+        \item {\bf Heat} is the transfer of energy across boundaries caused by temperature gradient \citep{Devoe_Book}.
      \end{itemize}
      These definitions are based on observations of systems in a macro-scale, and are critical for mass and energy balances necessary for this chapter. 
 
@@ -71,7 +71,7 @@
       \end{equation}
       where the {\it dot} symbol $\left(\mathbf{\dot{ }}\right)$ over the variables represents the rate of change, \ie
       \begin{displaymath}
-        \left[^{\mathbf{\cdot}}\right] =\frc{d\left[^{\mathbf{\cdot}}\right]}{dt}.
+        \left(^{\mathbf{\cdot}}\right) =\frc{d\left[^{\mathbf{\cdot}}\right]}{dt}.
       \end{displaymath}
       Equation~\ref{Chapter:FirstLaw:Eqn:TotalEnergy2} represents the rate of change (\ie {\it instantaneous rate}) of the total energy stored in the control volume, where part of the system's energy can be transferred from or into the surroundings of the control volume. In most cases, we are interested in finite changes of properties from the beginning of the process to its end, rather than instantaneous rate evaluations. In such cases, we just need to integrate the energy equation (Eqn.~\ref{Chapter:FirstLaw:Eqn:TotalEnergy1}) \wrt time, \ie from time $t_{1}$ to $t_{2}$, then after multiplying it by $dt$,
       \begin{equation}
@@ -400,7 +400,7 @@
 
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:FirstLaw:Example4}
+     \begin{example}\label{Chapter:FirstLaw:Example4}\citep{Rajput_Book}
        A 0.3 m$^{3}$  tank contains oxygen initially at 100 kPa and 300 K. A paddle wheel within the tank is rotated until the pressure inside rise to 150 kPa. During the process 2 kJ of heat is lost to the surroundings. Determine the paddle-wheel work done (in kJ). Neglect the energy stored in the paddle wheel and assume the heat capacity at constant volume of oxygen is 0.6745 kJ.$\left(\text{kg.K}\right)^{1}$. Given molar mass of oxygen of 32 g.mol$^{-1}$.
      \end{example}
      
@@ -436,6 +436,28 @@
        \end{eqnarray}
        The paddle-wheel executed 40.9321 kJ of work to the system.
    \end{MyExample}
+   
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:FirstLaw:Example4}\citep{Atkins_Book}
+       Calculate the change in molar enthalpy of N $_{2}$(g) when it is heated from 25$^{\circ}$C to 100$^{\circ}$C. The heat capacity is given by
+       \begin{displaymath}
+         C_{p} = a + bT + \frc{c}{T^{2}}, 
+       \end{displaymath}
+       where $\left[C_{p}\right]=$ J.mol$^{-1}$.K$^{-1}$, $\left[T\right]=$ K, $a=$ = 28.58 J.mol$^{-1}$.K$^{-1}$, $b=$ 3.77$\times$10$^{-3}$ J.mol$^{-1}$ and $c=$ -0.50$\times$10$^{5}$ J.mol$^{-1}$.K. Given molar enthalpy of N $_{2}$(g) at 25$^{\circ}$C is 29.1400 J.mol$^{-1}$.
+     \end{example}
+     
+% SOLUTION
+     \noindent{\bf Solution:} As all units contain temperature in Kelvin, let's first convert them as $T_{1}=$ 298.15 K and $T_{2}=$ 373.15 K. Now, we need to calculate the change in molar enthalpy in this temperature range using the definition of heat capacity,
+        \begin{eqnarray}
+          && C_{p} = \left(\frc{\partial H}{\partial T}\right)_{P} \;\;\Longrightarrow\;\; dH = C_{p}dT \nonumber \\
+          && \int\limits_{H_{1}\left(T_{1}\right)}^{H_{2}\left(T_{2}\right)}dH = \int\limits_{T_{1}}^{T_{2}} C_{p}dT = \int\limits_{T_{1}}^{T_{2}} \left(a + bT + \frc{c}{T^{2}}\right)dT \nonumber \\
+          && H_{2}\left(T_{2}\right) - H_{1}\left(T_{1}\right) = a\left(T_{2}-T_{1}\right) + \frc{1}{2}b\left(T_{2}^{2}-T_{1}^{2}\right) - c\left(\frc{1}{T_{2}}-\frc{1}{T_{1}}\right) \nonumber 
+        \end{eqnarray}
+        Solving this expression with the constants and $H_{1}\left(T_{1}\right)=H\left(\text{298.15 K}\right)=$ 29.14 J.mol$^{-1}$, leads to $H_{2}\left(T_{2}\right) = H\left(\text{373.15 K}\right)=$ 2238.4047 J.mol$^{-1}$. Thus, change in molar enthalpy, \ie $H_{2}\left(T_{2}\right) - H_{1}\left(T_{1}\right)$,  of N $_{2}$(g) is 2209.2647 J.mol$^{-1}$.
+
+   \end{MyExample} 
+       
       
 %%%
 %%% SECTION
@@ -512,7 +534,7 @@
 
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:FirstLaw:Example5}\citep{Rajput_Book}
+     \begin{example}\label{Chapter:FirstLaw:Example6}\citep{Rajput_Book}
        A gas contained in a piston-cylinder system undergoes a reversible compression from 1.5 to 7.5 bar. The gas behaves according to the following expression
        \begin{displaymath}
          PV = C,
@@ -535,7 +557,7 @@
 
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:FirstLaw:Example6}\citep{Rajput_Book}
+     \begin{example}\label{Chapter:FirstLaw:Example7}\citep{Rajput_Book}
        A fluid at pressure of 3 bar and with specific volume of 0.18 m$^{3}.\text{kg}^{-1}$ is allocated in a piston-cylinder system and expands reversibly to 0.6 bar according to an experimental relation, $P = Cv^{-2}$, where $C$ is a constant and $v$ is the specific volume. Calculate the work $\left(\text{in kJ.kg}^{-1}\right)$ done by the fluid on the piston.
      \end{example}
 
@@ -654,7 +676,7 @@
 
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:FirstLaw:Example7}\citep{Rajput_Book}
+     \begin{example}\label{Chapter:FirstLaw:Example8}\citep{Rajput_Book}
        Air initially occupying 1 m$^{3}$ at 1.5 bar and 20$^{\circ}$C undergoes an internally reversible compression for which $P V^{\gamma}=$ constant to a final state where the pressure is 6 bar and the temperature is 120$^{\circ}$C. Determine:
         \begin{enumerate}[(a)]
            \item Value of $\gamma$;
@@ -691,7 +713,8 @@
                \end{eqnarray}
                The relation above, although important, can not be used as we do not know $V_{2}$, however we can change variables through the ideal gas relation
                \begin{eqnarray}
-                  P V = n R T &\Rightarrow& n = \frc{P V}{R T } = \frc{1.5\text{ atm} \times 1\text{ m}^{3}}{ 8.3143 \frc{\text{J}}{\text{mol.K}} 293.15\text{ K}} \frc{1.01325\times 10^{5} \text{ Pa}}{1 \text{ atm}} \frc{ 1 \text{ N.m}^{-2}}{1\text{ Pa}}\frc{1 \text{ J}}{1\text{ N.m}} = 62.3580\text{ moles}\nonumber \\
+                 P V = n R T &\Rightarrow& n = \frc{P V}{R T } = \frc{1.5\text{ atm} \times 1\text{ m}^{3}}{ 8.3143 \frc{\text{J}}{\text{mol.K}} 293.15\text{ K}} \frc{1.01325\times 10^{5} \text{ Pa}}{1 \text{ atm}} \frc{ 1 \text{ N.m}^{-2}}{1\text{ Pa}}\frc{1 \text{ J}}{1\text{ N.m}} \nonumber \\
+                 &&  n = 62.3580\text{ moles} \nonumber \\
                    % m &=& \frc{P_{1} V_{1} MW}{R T_{1}} = \frc{1.5\text{ atm} \times 1\text{ m}^{3} \times 29 \frac{\text{g}}{\text{mol}} } { 8.3143 \frc{\text{J}}{\text{mol.K}} 293.15\text{ K}} \frc{1 \text{ J}}{1\text{ N.m}} \frc{1.01325\times 10^{5} \text{ Pa}}{1 \text{ atm}} \frc{ 1 \text{ N.m}^{-2}}{1\text{ Pa}} = 1808.38 \text{ g}\nonumber\\
                     W &=& \frc{P_{1}V_{1}-P_{2}V_{2}}{1-\gamma} = nR\frc{T_{1}- T_{2}}{1-\gamma} \nonumber \\
                       &=& 62.3580\text{ mol} \times 8.3143 \frc{\text{J}}{\text{mol.K}} \times \frc{\left(293.15-393.15\right)\text{ K}}{1-1.2686} \nonumber \\
@@ -707,3 +730,37 @@
         \end{enumerate}
    \end{MyExample}
    
+
+   
+\clearpage   
+\begin{FinalSummaryBlock}{Summary}
+    \begin{itemize}
+       \item Work is the transfer of energy by motion against an opposing force;
+       \item Heat is the transfer of energy as a result of temperature differences between the system and the surroundings;
+       \item Internal energy is the energy stored in the components of the system. The internal energy of an ideal gas is a function of temperature only;
+       \item The First Law of thermodynamics states that heat and work are mutually convertible, however as energy can not be either created or destroyed, the internal energy associated with an energy conversion remains constant, $dU = \delta q + \delta w$;
+       \item The energy of an isolated system is always constant;
+       \item A reversible change is a change that can be reversed by an infinitesimal modification of a variable. Maximum work is achieved in a reversible change;
+       \item The enthalpy is defined as $H = U + PV$. The enthalpy change is the energy transferred as heat at constant pressure, $\Delta H = Q$;
+       \item Heat capacity at constant volume is defined as $C_{v}=\left(\partial U / \partial T\right)_{V}$. The heat capacity at constant pressure is defined as $C_{p}=\left(\partial H / \partial T\right)_{P}$;
+       \item In case of:
+         \begin{itemize}
+            \item Reversible isochoric process (\ie $V=$ constant):
+              \begin{displaymath}
+                \Delta U = C_{v}\left(T_{2}-T_{1}\right), \;\; W = 0\;\; Q = C_{v}\left(T_{2}-T_{1}\right);
+              \end{displaymath}
+            \item Reversible isobaric process (\ie $P=$ constant):
+              \begin{displaymath}
+                \Delta U = C_{v}\left(T_{2}-T_{1}\right), \;\; W = P\left(V_{2}-V_{1}\right)\;\; Q = C_{p}\left(T_{2}-T_{1}\right);
+              \end{displaymath}
+            \item Reversible adiabatic process (\ie $PV^{\gamma}=$ constant):
+              \begin{displaymath}
+                 \frc{T_{2}}{T_{1}} = \left(\frc{V_{1}}{V_{2}}\right)^{\gamma-1} = \left(\frc{P_{2}}{P_{1}}\right)^{\frc{\gamma-1}{\gamma}};
+              \end{displaymath}
+            \item Polytropic reversible process (\ie $PV^{n}=$ constant):
+              \begin{displaymath}
+                 \frc{T_{2}}{T_{1}} = \left(\frc{V_{1}}{V_{2}}\right)^{n-1} = \left(\frc{P_{2}}{P_{1}}\right)^{\frc{n-1}{n}}.
+              \end{displaymath}
+         \end{itemize}
+    \end{itemize}
+\end{FinalSummaryBlock}
