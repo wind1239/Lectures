@@ -7,9 +7,8 @@
    \begin{LearningObjectivesBlock}{Learning Objectives}
       Upon completion of this chapter, you will be able to
         \begin{enumerate}
-           \item Demonstrate understanding of key concepts of energy and the first law of thermodynamics;
-           \item Apply the first law of thermodynamics to assess of heat transfer and power cycles;
-           \item Conduct energy analysis of thermodynamic systems;
+           \item Demonstrate understanding of key concepts of entropy and the second law of thermodynamics;
+           \item Apply first and second laws of thermodynamics to assess of heat transfer and process reversibility;
            \item Employ energy and mass balances into thermodynamic systems to assess efficiency, and correctly observe sign conventions for work and heat transfer.
         \end{enumerate}
 \medskip
@@ -55,6 +54,40 @@ This statement clearly indicates that heat cannot spontaneously flow from a cold
 \end{shaded}
 This statement indicates that in order to achieve net work from a heat engine (\ie a device operating in cycle), there should be heat interaction between two bodies (\ie thermal reservoirs) at different temperatures (\ie thermal source or sink). 
 
+   
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SecondLaw:Example1}\citep{Rajput_Book}
+        A heat engine receives heat at the rate of 1500 kJ.min$^{-1}$ and gives an output of 8.2 kW. Determine :
+        \begin{enumerate}[a)]
+          \item Thermal efficiency;
+          \item Rate of heat rejection $\left(\text{in kJ.s}^{-1}\right)$.
+        \end{enumerate}
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}
+       The heat received by the engine (Fig.~\ref{Chapter:FirstLaw:Fig:PowerRefrigSystems}) is $Q_{1}=$ 1500 kJ.min$^{-1}$ = 25 kJ.s$^{-1}$, and the output work is $W=$ 8.2 kW = 8.2 kJ.s$^{-1}$. Thus
+       \begin{enumerate}[a)]
+         \item the thermal efficiency is defined as (Eqn.~\ref{Chapter:FirstLaw:Eqn:FirstLawCycle:PowerEfficiency}),
+           \begin{displaymath}
+             \eta_{\text{th}} = \frc{W}{Q_{1}} = 0.3280 \;\;\Longrightarrow\;\; 32.80$\%$;
+           \end{displaymath}
+         \item the rate of heat rejection is effectively a result of the energy balance on the system,
+           \begin{displaymath}
+             Q_{2}=Q_{1}-W = 16.80 \text{ kJ.s}^{-1}
+           \end{displaymath}
+           
+       \end{enumerate}
+       
+
+       Here, the system is the electrical motor whereas the surroundings is the room. The work produced by the motor is $\delta W= -15$ kJ and the heat transferred from the engine to the room is $\delta Q = -2$ kJ, therefore 
+          \begin{eqnarray}
+             dU = \Delta U &=&  \delta Q + \delta W \nonumber \\
+                &=& -15 -2 = -17\text{ kJ} \nonumber
+          \end{eqnarray}
+   \end{MyExample}
+   
 
 %%%
 %%% SECTION
@@ -199,7 +232,30 @@ This statement indicates that in order to achieve net work from a heat engine (\
                 \end{eqnarray}
                 Although this equation was derived for mechanically reversible processes, it focuses on \underline{properties only} and is independent of the process. Thus it can be used to calculate entropy changes of {\it ideal gases}. A similar expression can be obtained as a function of $C_{v}$,
                 \begin{equation}
-                   \frc{\Delta S}{R} = \int\limits_{T_{0}}^{T_{1}} \frc{C_{v}}{R}\frc{dT}{T} +  \ln{\frc{V_{1}}{V_{0}}}
+                   \frc{\Delta S}{R} = \int\limits_{T_{0}}^{T_{1}} \frc{C_{v}}{R}\frc{dT}{T} +  \ln{\frc{V_{1}}{V_{0}}}\label{Chapter:SecondLaw:Eqn:EntropyChanges2}
                 \end{equation}               
-          \end{shaded}
+           \end{shaded}
+
+           \begin{shaded}
+             Other important entropy relations for {\it any} gas:
+             \begin{enumerate}[a)]
+                \item Heating a gas at constant volume:
+                  \begin{equation}
+                    dS = C_{v}\frc{dT}{T}\label{Chapter:SecondLaw:Eqn:EntropyChanges3}
+                  \end{equation}
+                \item Heating a gas at constant pressure:
+                  \begin{equation}
+                    dS = C_{p}\frc{dT}{T}\label{Chapter:SecondLaw:Eqn:EntropyChanges4}
+                  \end{equation}
+                \item Isothermal process:
+                  \begin{equation}
+                    dS = R\frc{dV}{V}\label{Chapter:SecondLaw:Eqn:EntropyChanges5}
+                  \end{equation}
+                \item Adiabatic process (reversible):
+                  \begin{equation}
+                    dS = 0\label{Chapter:SecondLaw:Eqn:EntropyChanges6}
+                  \end{equation}
+             \end{enumerate}            
+           \end{shaded}
+           
      \end{subequations}
