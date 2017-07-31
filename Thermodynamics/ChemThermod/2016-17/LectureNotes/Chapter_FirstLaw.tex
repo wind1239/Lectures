@@ -266,6 +266,66 @@
 %%%
 %%% SECTION
 %%%
+     \section{Cycles: Representation of the First Law}\label{Chapter:FirstLaw:Section:FirstLaw_Cycle}\index{Laws of Thermodynamics ! First law}\index{Cycles}
+        \begin{subequations}
+           \begin{shaded}
+               During any cycle, the cyclic integral of heat added to a system is proportional to the cyclic integral of work done by the system.
+           \end{shaded}
+           This statement clearly indicates that during a cycle the internal energy is zero, $\left(\Delta U\right)_{\text{cycle}}=0$. The mathematical representation of the first law in a cycle is
+             \begin{equation}
+               \displaystyle\oint \delta Q = -\displaystyle\oint \delta W,\label{Chapter:FirstLaw:Eqn:FirstLawCycle}
+             \end{equation}
+             where line integral $\left(\oint\right)$ is defined in Appendix~\ref{Appendix_Calculus:Section:LineIntegral}. Two main practical systems arise from the application of the first law to the definition of cycles (Section~\ref{Chapter:Introduction:Section:Introduction:ProcessesCyclesDefinition}): power and refrigeration cycles.
+      
+%%%% SUBSECTION
+          \subsection{Power Cycles}\index{Cycles! Power }
+             Power cycles (Fig.~\ref{Chapter:FirstLaw:Fig:PowerRefrigSystems}a) are systems that deliver a net work transfer of energy to the surroundings during each cycle, where
+               \begin{displaymath}
+                  W_{cycle} = Q_{in} - Q_{out},\;\;\;\text{ with }\;\;\; Q_{in} > Q_{out}.
+               \end{displaymath}
+             The energy supplied by heat transfer to a system on a power cycle is often derived from combustion processes. Such cycles are used quantitatively describe work produced in power plants, and are often assessed through the thermal efficiency of the process,\index{Cycles! Power! Thermal efficiency }
+       \begin{equation}
+           \eta =\frc{W_{cycle}}{Q_{in}} = \frc{Q_{in} - Q_{out}}{Q_{in}} = 1 - \frc{Q_{out}}{Q_{in}} < 1.\label{Chapter:FirstLaw:Eqn:FirstLawCycle:PowerEfficiency}
+       \end{equation}
+       For reversible power cycles the ratio of heat transfer, $Q_{cold}/Q_{hot}$ depends only on the reservoirs' temperatures and can be simplified to
+       \begin{displaymath}
+          \frc{Q_{\text{cold}}}{Q_{\text{hot}}} =  \frc{T_{\text{cold}}}{T_{\text{hot}}}.
+       \end{displaymath}
+       \begin{shaded}
+           Thus the thermal efficiency of a reversible power cycle while operating between thermal reservoirs at temperatures $T_{hot}$ and $T_{cold}$ is expressed as
+          \begin{equation}
+            \eta_{\text{max}} = 1 - \frc{T_{\text{cold}}}{T_{\text{hot}}}\label{Chapter:FirstLaw:Eqn:FirstLawCycle:PowerCarnotEfficiency}
+          \end{equation}
+          $\eta_{\text{max}}$ is also known as the {\it Carnot efficiency}\index{Carnot Efficiency} and it is the maximum efficiency any power cycle can have while operating between the 2 reservoirs.
+       \end{shaded}
+
+   \begin{figure}[h]
+      \vbox{
+        \hbox{ \hspace{-1.5cm}\includegraphics[width=.7\columnwidth,clip]{./Figs/FirstLaw_Cycle_01}
+               \hspace{-2.5cm}\includegraphics[width=.7\columnwidth,clip]{./Figs/FirstLaw_Cycle_02}}
+        \vspace{-0.cm}
+        \hbox{\hspace{4cm}(a)\hspace{7cm}(b)}}
+       \caption{Schematic representation of (a) power and (b) refrigeration cycles.}\label{Chapter:FirstLaw:Fig:PowerRefrigSystems}
+   \end{figure}    
+
+%%%% SUBSECTION
+          \subsection{Refrigeration Cycles}\index{Cycles! Refrigeration }
+           Refrigeration cycles (Fig.~\ref{Chapter:FirstLaw:Fig:PowerRefrigSystems}b) are systems in which Q$_{in}$ is associated with the heat energy transferred into the system from the cold body. Q$_{out}$ is the energy discharged via heat transfer from the system to the hot body, 
+           \begin{displaymath}
+              W_{cycle} = Q_{out} - Q_{in}.
+           \end{displaymath}
+            \begin{shaded}
+               The aim of such cycles is to cool a refrigerated body or to maintain the temperature of a body bellow that of the surrounding. Refrigeration cycles are assessed through the coefficient of performance (COP)\index{Cycles!Refrigeration ! Coefficient of performance },
+                 \begin{equation}
+                   \beta = \frc{Q_{in}}{W_{cycle}} = \frc{Q_{in}}{Q_{out} - Q_{in}}.\label{Chapter:FirstLaw:Eqn:FirstLawCycle:COP}
+                 \end{equation}
+          \end{shaded}
+        \end{subequations}
+   
+
+%%%
+%%% SECTION
+%%%
      \section{Enthalpy}\label{Chapter:FirstLaw:Section:Enthalpy}\index{Enthalpy}
         \begin{subequations}
           Let's consider a gas contained in a piston-cylinder system undergoing a quasi-static isobaric process. Let's also assume that there are no changes in kinetic and potential energies and that the only work done during the process is the one associated with the piston's movement. The first law stated that the internal energy is a result of changes in work and heat,
