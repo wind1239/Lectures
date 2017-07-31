@@ -63,13 +63,140 @@ This statement indicates that in order to achieve net work from a heat engine (\
      \begin{subequations}
         In Fig.~\ref{Chapter:SecondLaw:Fig:SecondLawStatement2}, an infinitesimal amount of heat, $\delta Q^{\prime}$, is transferred from the thermal reservoir (with temperature $T_{res}$) to a reversible cyclic engine (1). The engine produces a small amount of work, $\delta W^{\prime}$, and releases an infinitesimal amount of heat, $\delta Q$ to another reservoir (at variable temperature $T$) that also releases energy in form of work $\left(\delta W\right)$ to the surroundings.
 
-
-   %%% FIGURE
+%%% FIGURE
    \begin{figure}[h]
      \begin{center}
         \includegraphics[width=.8\columnwidth,clip]{./Figs/2ndLaw_Schem2}
-     \caption{Thermal device for mathematical derivation of the Second law. }\label{Chapter:SecondLaw:Fig:SecondLawStatement2}
+     \caption{Thermal power device for mathematical derivation of the Second law. }\label{Chapter:SecondLaw:Fig:SecondLawStatement2}
      \end{center}
    \end{figure} 
 
+        Using the analogy of heat transfer ratio and temperature ratio (see power cycle systems in Section~\ref{Chapter:FirstLaw:Section:FirstLaw_Cycle}),
+           \begin{displaymath}
+              \frc{\delta Q^{\prime}}{\delta Q} = \frc{T_{res}}{T} \;\; \Longrightarrow \frc{\delta Q^{\prime}}{T_{res}} = \frc{\delta Q}{T}.
+           \end{displaymath}
+        An energy balance (in differential form) for the combined cycle (within the dotted box) is
+           \begin{eqnarray}
+              && dU = \text{Energy In} - \text{Energy Out} \nonumber \\
+              && dU = \delta Q^{\prime} - \left(\delta W + \delta W^{\prime}\right) \Longrightarrow \delta W + \delta W^{\prime} = \delta Q^{\prime} - dU. \nonumber 
+           \end{eqnarray}
+        Note that the first law is explicitly applied in the second equation above using the sign convention (\ie energy removed from the system is negative whereas energy added to the system is positive). The process is not required to be cyclic and the heat transfer $\delta Q$ is internal and does not cross the boundaries of the combined system. Thus, eliminating $\delta Q^{\prime}$,
+           \begin{displaymath}
+              \delta W + \delta W^{\prime} = T_{res}\frc{\delta Q}{T} - dU.
+           \end{displaymath}
+        If the power configuration undergoes a cyclic process,
+           \begin{displaymath}
+              \oint\delta W + \oint\delta W^{\prime} = \oint T_{res}\frc{\delta Q}{T} -\oint dU,
+           \end{displaymath}
+        and as $U$ is a thermodynamic property, the cyclic integral is equal to zero.  Integrating the equation above, and assuming that $T_{res}$ is (by definition) constant,
+           \begin{displaymath}
+              W + W^{\prime} = T_{res}\oint \frc{\delta Q}{T}. 
+           \end{displaymath}
+        From Kelvin-Planck statement of the Second Law, not all heat can be converted into work, but all work can be converted into heat, thus $W + W^{\prime}\le 0$ (\ie work is always produced in a power cycle and exported to the surroundings) and therefore 
+
+       \begin{shaded}
+           \begin{displaymath}
+             T_{res}\oint \frc{\delta Q}{T} \le 0.\label{Chapter:SecondLaw:Eqn:SecondLawMathExpression1}
+           \end{displaymath}
+           Since $T_{res}>0$ (absolute temperature), this integral equation can be divided by $T_{res}$ without changing the meaning of the inequality to obtain the mathematical representation of the Second Law,
+           \begin{equation}
+             \begin{cases}
+                \displaystyle\oint\frc{\delta Q}{T} < 0, & \;\;\text{ for irreversible processes} \\
+                \displaystyle\oint\frc{\delta Q}{T} = 0, & \;\;\text{ for reversible processes} 
+             \end{cases}\label{Chapter:SecondLaw:Eqn:SecondLawMathExpression2}
+           \end{equation}
+           This is called {\bf Clausius inequality}.\index{Clausius inequality}
+       \end{shaded}
+     \end{subequations}
+
+%%%
+%%% SECTION
+%%%
+   \section{Entropy}\label{Chapter:SecondLaw:Section:Entropy}\index{Laws of Thermodynamics ! Second law}
+     \begin{subequations}
+       Let's consider the reversible process shown in Fig.~\ref{Chapter:Introduction:Fig:CyclesSchematic}, from state 1 to 2, via path {\it A}, and returning to state 2 from either path {\it B} or {\it C}. The Clausius inequality, $\displaystyle\oint\frc{\delta Q}{T} = 0$, can be split as,
+           \begin{displaymath}
+             \begin{cases}
+                \left(\displaystyle\int_{1}^{2}\frc{\delta Q}{T}\right)_{A} + \left(\displaystyle\int_{2}^{1}\frc{\delta Q}{T}\right)_{B} = 0, \\
+                \left(\displaystyle\int_{1}^{2}\frc{\delta Q}{T}\right)_{A} + \left(\displaystyle\int_{2}^{1}\frc{\delta Q}{T}\right)_{C} = 0,
+             \end{cases}
+           \end{displaymath}
+       leading to,
+           \begin{displaymath}
+                \left(\displaystyle\int_{2}^{1}\frc{\delta Q}{T}\right)_{B} = \left(\displaystyle\int_{2}^{1}\frc{\delta Q}{T}\right)_{C} = 0.
+           \end{displaymath}
+           Since paths {\it B} and {\it C} are different and arbitrary, but $\displaystyle\int\limits_{2}^{1}\displaystyle\frac{\delta Q}{T}$ is the same on either paths -- therefore {\bf the integral is path-independent}. 
+           \begin{shaded}
+               This defines another thermodynamic property, the {\bf entropy}\index{Entropy},
+               \begin{equation}
+                  S_{2}-S_{1} = \displaystyle\int_{1}^{2}\frc{\delta Q}{T}.\label{Chapter:SecondLaw:Eqn:Entropy}
+               \end{equation}
+           \end{shaded}
+          Assuming constant mass ($m$), the intensive property entropy $\left(s=S/m\right)$, the differential form is, 
+           \begin{displaymath}
+                ds = \frc{\delta q}{T} \;\;\;\; \Longrightarrow \;\;\;\; \delta q = Tds,
+           \end{displaymath}
+           which is the heat transfer equivalent of 
+           \begin{displaymath}
+                \delta w = \displaystyle\int_{1}^{2}PdV.
+           \end{displaymath}
+ 
+           For a reversible process,
+           \begin{displaymath}
+                S_{2} - S_{1} = \displaystyle\int\limits_{1}^{2}\frc{\delta Q}{T}\;\;\text{ and } \;\; S_{1} - S_{2} = \displaystyle\int\limits_{2}^{1}\frc{\delta Q}{T},
+           \end{displaymath}
+           and from the Second law
+           \begin{displaymath}
+                0 \geq \left( \displaystyle\int\limits_{1}^{2}\frc{\delta Q}{T} \right)_{A} + \left( \displaystyle\int\limits_{2}^{1}\frc{\delta Q}{T} \right)_{B}.
+           \end{displaymath}
+       \begin{shaded}
+           These integral expressions can be combined to eliminate path $B$ and obtain a general expression of entropy of arbitrary processes
+           \begin{displaymath}
+                dS = S_{2}-S_{1} \geq \displaystyle\int\limits_{1}^{2}\frc{\delta Q}{T}
+           \end{displaymath}
+           where
+           \begin{displaymath}
+               dS
+                \begin{cases}
+                      = \frc{dQ}{T} & \;\;\text{ for reversible processes} \\
+                      > \frc{dQ}{T} & \;\;\text{ for irreversible processes}.
+                \end{cases}
+           \end{displaymath}           
+       \end{shaded}
+     \end{subequations}
+
+
+%%%
+%%% SECTION
+%%%
+   \section{Entropy Changes}\label{Chapter:SecondLaw:Section:EntropyChanges}
+     \begin{subequations}
+       From the First Law equation,
+           \begin{displaymath}
+              dU = dQ - PdV
+           \end{displaymath} 
+           If we differentiate the enthalpy equation -- $H = U + PV$.
+                \begin{displaymath}
+                    dH = dU + d(PV) = dU + PdV +VdP,
+                \end{displaymath}
+           and replace the previous equation,
+                \begin{displaymath}
+                    dH - \cancel{PdV} - VdP = dQ - \cancel{PdV} \;\;\Rightarrow \;\; dQ = dH - VdP
+                \end{displaymath}
+           For {\it ideal gas}, $C_{p}=\left(\frac{dH}{dT}\right)_{P}$ and $V=\frc{RT}{P}$,
+                \begin{eqnarray}
+                  dQ &=& C_{p}dT - \frc{RT}{P}dP\;\;\;\;\;\times\left(\frc{1}{T}\right) \nonumber \\
+                  \frc{dQ}{T} &=& \frc{C_{p}}{T}dT - \frc{R}{P}dP \nonumber \\
+                  dS &=& \frc{C_{p}}{T}dT - \frc{R}{P}dP, \nonumber
+                \end{eqnarray}
+           where $S$ is the molar entropy of ideal gas. 
+           \begin{shaded}
+              Integrating from state 0 to state 1,
+                \begin{eqnarray}
+                    \int\limits_{S_{0}}^{S_{1}} dS &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{T}dT - R\int\limits_{P_{0}}^{P_{1}}\frc{dP}{P} \nonumber \\
+                    \left(S_{1}-S_{0}\right) &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{T}dT - R\ln{\frc{P_{1}}{P_{0}}} \;\;\;\;\times\left(\frc{1}{R}\right) \nonumber \\
+                    \frc{\Delta S}{R} &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{R}\frc{dT}{T} - \ln{\frc{P_{1}}{P_{0}}} .
+                \end{eqnarray}
+           Although this equation was derived for mechanically reversible processes, it focuses on \underline{properties only} and is independent of the process. Thus it can be used to calculate entropy changes of {\it ideal gases}.
+          \end{shaded}
      \end{subequations}
