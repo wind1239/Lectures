@@ -58,7 +58,7 @@ This statement indicates that in order to achieve net work from a heat engine (\
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
      \begin{example}\label{Chapter:SecondLaw:Example1}\citep{Rajput_Book}
-        A heat engine receives heat at the rate of 1500 kJ.min$^{-1}$ and gives an output of 8.2 kW. Determine :
+        A heat engine receives heat at the rate of 1500 kJ.min$^{-1}$ and gives an output of 8.2 kW. Determine:
         \begin{enumerate}[a)]
           \item Thermal efficiency;
           \item Rate of heat rejection $\left(\text{in kJ.s}^{-1}\right)$.
@@ -79,13 +79,24 @@ This statement indicates that in order to achieve net work from a heat engine (\
            \end{displaymath}
            
        \end{enumerate}
-       
+   \end{MyExample}
+   
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SecondLaw:Example2}\citep{Rajput_Book}
+        A domestic food refrigerator maintains a temperature of -12$^{\circ}$C. The ambient air temperature is 35$^{\circ}$C. If heat leaks into the freezer at the continuous rate of 2 kJ.s$^{-1}$, determine the least power necessary to pump this heat out continuously.
+     \end{example}
 
-       Here, the system is the electrical motor whereas the surroundings is the room. The work produced by the motor is $\delta W= -15$ kJ and the heat transferred from the engine to the room is $\delta Q = -2$ kJ, therefore 
-          \begin{eqnarray}
-             dU = \Delta U &=&  \delta Q + \delta W \nonumber \\
-                &=& -15 -2 = -17\text{ kJ} \nonumber
-          \end{eqnarray}
+% SOLUTION
+       \noindent{\bf Solution:}
+       For freezer and ambient temperatures of 261.15 K and 308.15 K and assuming reversible process (see Eqn.~\ref{Chapter:FirstLaw:Eqn:FirstLawCycle:PowerEfficiency2}) based on the energy balance of the refrigeration cycle (Fig.~\ref{Chapter:FirstLaw:Fig:PowerRefrigSystems}b), 
+       \begin{displaymath}
+          \frc{Q_{2}}{Q_{1}} = \frc{T_{2}}{T_{1}} \;\;\Longrightarrow \;\;Q_{1} = \frc{Q_{2}}{T_{2}}T_{1} = \frc{2.00}{261.15}\times 308.15 = 2.3599\text{ kJ.s}^{-1},
+       \end{displaymath}
+       where $Q_{2}$ and $Q_{1}$ are the heat flowing from the cold reservoir and to the hot reservoir, respectively. Now, calculating the power (based on the energy balance in the system)
+       \begin{displaymath}
+          W = Q_{1}-Q_{2} = 0.3599\text{ kJ.s}^{-1}.
+       \end{displaymath}
    \end{MyExample}
    
 
@@ -216,25 +227,52 @@ This statement indicates that in order to achieve net work from a heat engine (\
                 \begin{displaymath}
                     dH - \cancel{PdV} - VdP = dQ - \cancel{PdV} \;\;\Rightarrow \;\; dQ = dH - VdP
                 \end{displaymath}
-           For {\it ideal gas}, $C_{p}=\left(\frac{dH}{dT}\right)_{P}$ and $V=\frc{RT}{P}$,
+           For {\it ideal gas}, $C_{p}^{\text{ig}}=\left(\frac{dH}{dT}\right)_{P}$ and $V=\frc{RT}{P}$,
                 \begin{eqnarray}
-                  dQ &=& C_{p}dT - \frc{RT}{P}dP\;\;\;\;\;\times\left(\frc{1}{T}\right) \nonumber \\
-                  \frc{dQ}{T} &=& \frc{C_{p}}{T}dT - \frc{R}{P}dP \nonumber \\
-                  dS &=& \frc{C_{p}}{T}dT - \frc{R}{P}dP, \nonumber
+                  dQ &=& C_{p}^{\text{ig}} dT - \frc{RT}{P}dP\;\;\;\;\;\times\left(\frc{1}{T}\right) \nonumber \\
+                  \frc{dQ}{T} &=& \frc{C_{p}^{\text{ig}}}{T}dT - \frc{R}{P}dP \nonumber \\
+                  dS &=& \frc{C_{p}^{\text{ig}}}{T}dT - \frc{R}{P}dP, \nonumber
                 \end{eqnarray}
            where $S$ is the molar entropy of ideal gas. 
            \begin{shaded}
               Integrating from state 0 to state 1,
                 \begin{eqnarray}
-                    \int\limits_{S_{0}}^{S_{1}} dS &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{T}dT - R\int\limits_{P_{0}}^{P_{1}}\frc{dP}{P} \nonumber \\
-                    \left(S_{1}-S_{0}\right) &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{T}dT - R\ln{\frc{P_{1}}{P_{0}}} \;\;\;\;\times\left(\frc{1}{R}\right) \nonumber \\
-                    \frc{\Delta S}{R} &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{R}\frc{dT}{T} - \ln{\frc{P_{1}}{P_{0}}}.\label{Chapter:SecondLaw:Eqn:EntropyChanges1}
+                    \int\limits_{S_{0}}^{S_{1}} dS &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}^{\text{ig}}}{T}dT - R\int\limits_{P_{0}}^{P_{1}}\frc{dP}{P} \nonumber \\
+                    \left(S_{1}-S_{0}\right) &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}^{\text{ig}}}{T}dT - R\ln{\frc{P_{1}}{P_{0}}} \;\;\;\;\times\left(\frc{1}{R}\right) \nonumber \\
+                    \frc{\Delta S}{R} &=& \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}^{\text{ig}}}{R}\frc{dT}{T} - \ln{\frc{P_{1}}{P_{0}}}.\label{Chapter:SecondLaw:Eqn:EntropyChanges1}
                 \end{eqnarray}
                 Although this equation was derived for mechanically reversible processes, it focuses on \underline{properties only} and is independent of the process. Thus it can be used to calculate entropy changes of {\it ideal gases}. A similar expression can be obtained as a function of $C_{v}$,
                 \begin{equation}
                    \frc{\Delta S}{R} = \int\limits_{T_{0}}^{T_{1}} \frc{C_{v}}{R}\frc{dT}{T} +  \ln{\frc{V_{1}}{V_{0}}}\label{Chapter:SecondLaw:Eqn:EntropyChanges2}
                 \end{equation}               
            \end{shaded}
+
+
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SecondLaw:Example3}\citep{SmithVanNess_Book}
+       For an ideal gas with constant heat capacity undergoing a reversible adiabatic (and therefore isentropic) process, Eqn.~\ref{Chapter:FirstLaw:Eqn:AdiabaticProcesses_TPGamma} can be written as
+         \begin{displaymath}
+             \frc{T_{2}}{T_{1}} = \left(\frc{P_{2}}{P_{1}}\right)^{\frac{\gamma-1}{\gamma}}.
+         \end{displaymath}
+         Show that these same equation results from application of Eqn.~\ref{Chapter:SecondLaw:Eqn:EntropyChanges1} with $\Delta S=$ 0.
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:} As $C_{p}^{\text{ig}}$ is constant and different from zero, Eqn.~\ref{Chapter:SecondLaw:Eqn:EntropyChanges1} can be rewritten as
+          \begin{displaymath}
+             \Delta S = 0 = \ln{\frc{T_{2}}{T_{1}}} - \frc{R}{C_{p}^{\text{ig}}}\ln{\frc{P_{2}}{P_{1}}}.
+          \end{displaymath}
+           Using Eqn.~\ref{Chapter:FirstLaw:Eqn:HeatCapacitiesRelation_IdealGas1} for an ideal gas with $\gamma = \frac{C_{p}^{\text{ig}}}{C_{v}^{\text{ig}}}$ (Eqn.~\ref{Chapter:FirstLaw:Eqn:HeatCapacitiesRelation1}):
+          \begin{displaymath}
+             C_{p}^{\text{ig}} = C_{v}^{\text{ig}} + R \;\;\Longrightarrow\;\; \frc{R}{C_{v}^{\text{ig}}} = \frc{\gamma-1}{\gamma},
+          \end{displaymath}
+          leading to
+          \begin{displaymath}
+             \Delta S = 0 = \ln{\frc{T_{2}}{T_{1}}} = \frc{\gamma-1}{\gamma}\ln{\frc{P_{2}}{P_{1}}} \;\;\Longrightarrow \;\; \frc{T_{2}}{T_{1}} = \left(\frc{P_{2}}{P_{1}}\right)^{\frac{\gamma-1}{\gamma}}
+          \end{displaymath}
+
+   \end{MyExample}
+
 
            \begin{shaded}
              Other important entropy relations for {\it any} gas:
@@ -259,3 +297,65 @@ This statement indicates that in order to achieve net work from a heat engine (\
            \end{shaded}
            
      \end{subequations}
+
+  
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SecondLaw:Example4}\citep{Singh_Book}
+        Calculate the change in entropy of air $\left(\text{in kJ.kg}^{-1}\text{.K}^{-1}\right)$, if it is throttled (\ie isenthalpic process, or in other words at constant enthalpy) from 5 bar, 27$^{\circ}$C to 2 bar adiabatically. Given $C_{p}=$ 1.004 kJ.(kg.K)$^{-1}$, $R=$ 8.3145 J.(mol.K)$^{-1}$. Assume ideal gas behaviour and the molar mass of air is 29 g.mol$^{-1}$.
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}
+       \begin{center}
+          \begin{tabular}{l c l}
+             $P_{1}=$ 5 bar     &                           & $P_{2}=$ 2 bar \\
+                               & \;\;$\Longrightarrow$\;\; &                \\
+             $T_{1}=$ 300.15 K  &                           & $T_{2}$
+       \end{tabular}
+       \end{center}
+       As there is no information \wrt the type of process, we can not assume a reversible adiabatic process, in which $\Delta S=$ =0. Therefore, we could use Eqn.~\ref{Chapter:SecondLaw:Eqn:EntropyChanges1} to calculate $\Delta S$, 
+       \begin{displaymath}
+          \frc{\Delta S}{R} = \frc{C_{p}^{\text{ig}}}{R}\ln{\frc{T_{2}}{T_{1}}} - \ln{\frc{P_{2}}{P_{1}}},
+       \end{displaymath}
+       although we do not know $T_{2}$. However, the expansion occurs isenthalpically, \ie 
+       \begin{eqnarray}
+            h_{1} &=& h_{2} \nonumber \\
+            C_{p}^{\text{ig}}T_{1} &=& C_{p}^{\text{ig}}T_{2} \nonumber \\
+            T_{1} &=& T_{2}, \nonumber
+       \end{eqnarray}
+       thus,
+       \begin{eqnarray}
+          \Delta S &=& C_{p}^{\text{ig}}\ln{\frc{T_{2}}{T_{1}}} - R\ln{\frc{P_{2}}{P_{1}}} \nonumber \\
+                   &=& 0.2627\text{ J.g}^{-1}\text{.K}^{-1} = 0.2627\text{ kJ.kg}^{-1}\text{.K}^{-1} \nonumber
+       \end{eqnarray}
+   \end{MyExample}
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SecondLaw:Example5}\citep{SmithVanNess_Book}
+         A rigid vessel of volume of 0.06 m$^{3}$ contains an ideal gas with $C_{v}=\frac{5}{2}R$, at 500 K and 1 bar. If 15 kJ of heat is transferred to the gas, determine the entropy of change $\left(\text{in J.K}^{-1}\right)$.
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:} 
+            We can use Eqn.~\ref{Chapter:SecondLaw:Eqn:EntropyChanges2} to calculate the entropy change,
+               \begin{displaymath}
+                  \Delta S = C_{v}\ln{\frc{T_{2}}{T_{1}}} + R\ln{\frc{V_{2}}{V_{1}}},
+               \end{displaymath}
+               as the process take place in a rigid vessel, $V_{2}=V_{1}$, and the second term vanishes. However, in order to obtain the entropy change, $T_{2}$ must be calculated. As the volume is kept constant, there is no work produced or received by the system, $\delta W=$ 0, thus
+              \begin{eqnarray}
+                  \Delta U = \delta Q = 15000\text{ J} &=& C_{v}\left(T_{2}-T_{1}\right) =  \frc{5}{2}R\left(T_{2}-T_{1}\right) \nonumber \\
+                                                       &=& \frc{5}{2} \times 8.3145\text{ J.mol}^{-1}\text{.K}^{-1}\left(T_{2}- 500\right)\text{ K}. \nonumber  
+              \end{eqnarray}
+              From the expression above, it is clear that there is an unbalance on the units as the right-hand side results in J.mol$^{-1}$ whereas the left-hand side is in J. This can be fixed by multiplying the right-hand side by the total number of moles in the vessel (\ie total energy of the system rather than the energy per mole), which can be easily calculated from the initial conditions using the ideal gas equation of state:  
+              \begin{displaymath}
+                  n = \frc{P_{1}V_{1}}{RT_{1}} = \frc{1\text{ bar}\times 0.06\text{ m}^{3}}{8.3145\times 10^{-5}\text{ bar.m}^{3}\text{.mol.K}^{-1} \times 500\text{ K}} = 1.4432\text{ moles}.
+              \end{displaymath}
+              Hence, $T_{2}=$ 1000.02 K. Now, using Eqn.~\ref{Chapter:SecondLaw:Eqn:EntropyChanges2}
+               \begin{displaymath}
+                  \Delta S = C_{v}\ln{\frc{T_{2}}{T_{1}}} + \cancelto{0}{R\ln{\frc{V_{2}}{V_{1}}}} = 14.4083\text{ J.mol}^{-1}\text{.K}^{-1}.
+               \end{displaymath}
+              $\Delta S$ can be converted to J.K$^{-1}$ by multiplying it by the number of moles, leading to 20.7941 J.K$^{-1}$.
+
+   \end{MyExample}
