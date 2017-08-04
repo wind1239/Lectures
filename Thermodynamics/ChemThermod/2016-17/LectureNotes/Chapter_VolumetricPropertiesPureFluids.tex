@@ -1,4 +1,4 @@
-\chapter{Volumetric Properties of Pure jSubstances}\label{Chapter:VolumetricPropertiesPureSubstances}
+\chapter{Volumetric Properties of Pure Substances}\label{Chapter:VolumetricPropertiesPureSubstances}
 
    \begin{LearningObjectivesBlock}{Learning Objectives}
       Upon completion of this chapter, you will be able to
@@ -74,163 +74,184 @@ A fluid in the compressed liquid state is often called {\it sub-cooled fluid} (c
 
 %%% SECTION
 %%%
-\section{Gibbs Phase Rule}\label{Chapter:VolumetricPropertiesPureSubstances:Section:GibbsPhaseRule}\index{Gibbs phase rule}
-\begin{subequations}
-  Let's consider a non-reactive system in equilibrium within $\mathcal{P}$ phases  (\ie $L$, $V$ and/or $S$) containing $\mathcal{N}$ independent chemical species.  The number of degrees of freedom for the system (\ie the number of intensive variables that may vary independently) may be expressed as,
+\section{Gibbs Phase Rule}\label{Chapter:VolumetricPropertiesPureSubstances:Section:GibbsPhaseRule}\index{Phase rule}\index{Gibbs phase rule|see {Phase rule}}\index{Phase rule !Degrees of freedom}\index{Degrees of freedom|see {Phase rule}}
+  In the $PT$ diagram (Fig.~\ref{Chapter:VolumetricPropertiesPureSubstances:Fig:PV-PT_Diagrams}b) of an arbirtrary pure substance, three regions may be clearly noted, liquid, vapor and solid. In order to fix any of such thermodynamic states, both temperature and pressure are needed, \ie a one-component, single phase system has two {\it degrees of freedom}. However, during phase transition (\eg vaporisation , fusion or sublimation lines), any change in pressure will lead to change in temperature in order to fix the thermodynamic state. Therefore, it is important to obtain precise information to set up a thermodynamic state of a multi-component and multiphase system.
+
+  Let's consider a non-reactive system in equilibrium within $\mathcal{P}$ phases  (\ie $L$, $V$ and/or $S$) containing $\mathcal{C}$ independent chemical species.  The number of degrees of freedom $\left(\Psi\right)$ for the system (\ie the number of intensive variables that may vary independently) may be expressed as,
   \begin{shaded}
     \begin{center}
-      Degrees of freedom = (Number of intensive variables) – (Number of independent equations),
+      Degrees of freedom = (Number of state variables) – (Number of independent equations),
     \end{center}
+    \noindent where
+    \begin{itemize}
+       \item Number of intensive variables: $T$, $P$ and $\left(\mathcal{C}-1\right)$ species mole fractions for each of the $\mathcal{P}$ phases;
+        \item Number of independent equations: $\left(\mathcal{C}-1\right)\mathcal{N}$;
+    \end{itemize}
+    therefore, the phase rule may be rewritten as
+    \begin{eqnarray}
+       \Psi &=& \left[2 + \left(\mathcal{C}-1\right)\mathcal{P}\right] - \left[\left(\mathcal{P}-1\right)\mathcal{C}\right] \nonumber \\
+            &=& 2 + \mathcal{C} - \mathcal{P}\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:PhaseRule}
+    \end{eqnarray}  
   \end{shaded}
-  \noindent where
-  \begin{itemize}
-    \item Number of intensive variables: $T$, $P$ and $\left(\mathcal{N}-1\right)$ species mole fractions for each of the $\mathcal{P}$ phases;
-    \item Number of independent equations: $\left(\mathcal{P}-1\right)\mathcal{N}$.
-  \end{itemize}
-  
+  The Gibbs phase rule is a relation that determines the number of independent variables that must be specified to establish the intensive state of any system at equilibrium. The degrees of freedom (\ie number of intensive properties such as temperature and pressure) determines the number of variables that must be specified to fix all other remaining phase rule variables. 
 
+For example, for a pure liquid component, the phase rule yields two degrees of freedom, \ie if temperature and pressure are specified, all other intensive properties (\eg enthalpy, entropy etc) are uniquely determined. However, if the same liquid component is in equilibrium with its vapour phase (\eg water and steam) there is {\it only} one degree of freedom. This means that either pressure or temperature may be specified to fix all other intensive properties of the system. At the triple point the number of degrees of freedom is {\it zero}, \ie any change from such state (\eg for water-steam-ice at 273.16 K and 0.006112 bar) causes at least one of the phases to vanish.
 
-  
-The complete description of the state of a system must include the value of an extensive
-variable of each phase (e.g., the volume, mass, or amount) in order to specify how much of
-the phase is present. For an equilibrium system of P phases with a total of 3 independent
-variables, we may choose the remaining 3 P variables to be intensive. The number of these
-intensive independent variables is called the number of degrees of freedom or variance,
-  
-  The Gibbs phase rule is a relation that determines the number of independent variables that must be specified to establish the intensive state of any system at equilibrium ,
-                \begin{equation}
-                    \Psi = 2 + \mathcal{C} - \mathcal{P} -\mathcal{R},\label{Mod02_GibbsPhaseRuleReactive}
-                \end{equation}
-                where $\Psi$, $\mathcal{C}$, $\mathcal{P}$ and $\mathcal{R}$ are the number of degrees of freedom of the thermodynamic system, number of chemical components, number of co-existing phases and number of independent reactions, respectively. For non-reactive systems\footnote{The Gibbs phase rule will be revisited again in Module~\ref{Section:06} -- Chemical Reaction Equilibrium.}, this relation becomes,
-                \begin{equation}
-                    \Psi = 2 + \mathcal{C} - \mathcal{P}.\label{Mod02_GibbsPhaseRule}
-                \end{equation}
-                The degrees of freedom ($\Psi$, \ie number of intensive properties such as temperature and pressure) determines the number of variables that must be specified to fix all other remaining phase rule variables. For example, for a pure liquid component, the phase rule yields two degrees of freedom, \ie if temperature and pressure are specified, all other intensive properties (\eg enthalpy, entropy etc) are uniquely determined. However, if the same liquid component is in equilibrium with its vapour phase (\eg water and steam) there is {\it only} one degree of freedom. This means that either pressure or temperature may be specified to fix all other intensive properties of the system. At the triple point (\eg water, steam and ice), the number of degrees of freedom is {\it zero}, \ie any change from such state (\eg for water-steam-ice at $\sim$ 273.15 K and 0.0061 bar) causes at least one of the phases to vanish.
-\end{subequations}
 
 %%% SECTION
-\section{PVT Behaviour of Pure Substances}\label{Chapter:VolumetricPropertiesPureSubstances:PVTBehaviour}
+\section{PVT Behaviour of Pure Substances}\label{Chapter:VolumetricPropertiesPureSubstances:Section:PVTBehaviour}\index{Gases!Ideal gas}\index{Equation of State!Ideal gas}
+     \begin{subequations}
+In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal gas equation of state (EOS) was defined as 
+     \begin{displaymath}
+        PV = RT,
+     \end{displaymath}
+     where $V$ is the molar volume. This is a relationship between macroscopic intensive properties, and is based in two main assumptions \wrt the microscopic behaviour of molecules:
+     \begin{enumerate}[(a)]
+        \item Molecules have no extension in space (\ie zero volume), and;
+        \item Molecules do not interact with each other.
+     \end{enumerate}
+     The second assumption is particularly important as it considers that atoms and molecules either do not interact or do not have electric charge or have an infinite distance between them (\ie low density conditions). However, these assumptions are rarely met in real conditions (both in the environment and in industry) and several mathematical relations have been developed to better represent the PVT behaviour of real fluids.
+
+\subsection{Generic Form of Equation of State}\label{Chapter:VolumetricPropertiesPureSubstances:CompressibilityExpansivityCoefficients}\index{Coefficient of thermal expansion}\index{Coefficient of isothermal compressibility}\index{Volume expansivity coefficient|see {Coefficient of thermal expansion}}
+     The PVT behaviour of real pure fluids can be expressed as functional, \ie a generic form of an equation of state,
+        \begin{displaymath}
+           f(P,V,T) = 0,
+        \end{displaymath}
+        however, from the Gibbs phase rule for a single phase pure component the number of degrees of freedom is equal to 2. Therefore, we can write this function in its simplest way (or EOS), 
+        \begin{displaymath}
+           V=V(T,P),
+        \end{displaymath}
+        or in differential form,
+        \begin{displaymath}
+            dV = \Partial[V]{T}{P}dT +  \Partial[V]{P}{T}dP
+        \end{displaymath}
+        \begin{shaded}
+           Defining the {\it coefficient of thermal expansion} (or {\it volume expansivity coefficient}), $\beta$, and the {\it coefficient of isothermal compressibility}, $\kappa$ as,
+           \begin{equation}
+               \beta \equiv \frc{1}{V}\Partial[V]{T}{P}\;\;\;\text{ and }\;\;\; \kappa \equiv -\frc{1}{V}\Partial[V]{P}{T}\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityExpansivity}
+           \end{equation}
+           respectively, leading to
+           \begin{equation}
+              \frc{dV}{V} = \beta dT - \kappa dP.\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityExpansivity2}
+           \end{equation}
+        \end{shaded}
+
+\subsection{Virial Equation of State}\label{Chapter:VolumetricPropertiesPureSubstances:VirialEOS}\index{Equation of State!Virial}\index{Compressibility factor|see {Equation of State}} \index{$Z$|see {Compressibility factor}}\index{Equation of State!Compressibility factor}
+     The Virial EOS was introduced by H. Kamerlingh-Omnes in 1901 to describe gas compressibily coefficient, $Z$, as a power series  in terms of $\frac{1}{V}$ for a pure gas, with two alternate forms:
+       \begin{eqnarray}
+          \frc{P V}{R T} &=& 1 + \frc{B}{V} + \frc{C}{V^{2}} + \cdots \text{ or} \label{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial1}\\
+          \frc{P V}{R T} &=& 1 + B^{\prime}P + C^{\prime}P^{2} + \cdots,\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial2} 
+       \end{eqnarray}
+       where $B$ and $C$ are the second and third virial coefficients and,
+       \begin{displaymath}
+          B = \frc{B^{\prime}}{R T}\;\;\;\text{ and }\;\;\; C^{\prime}=\frc{C-B^{2}}{\left(R T\right)^{2}}.
+       \end{displaymath}
+       Second and third terms of Eqns.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial1} and~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial2} are {\it corrections of the non-ideal behaviour of a gas}. Virial coefficients are strongly dependent on the temperature, \ie
+       \begin{displaymath}
+          B=B(T),\;\; C=C(T),\;\;D=D(T),\;\;\;\text{ etc, }
+       \end{displaymath}
+       and the more the number of coefficients (\ie the more terms in the power series) the better is the predictions of gas molar volume. 
+
+       The second virial coefficient is readily found for a large number of fluids in any chemical engineering handbook (and several textbooks), however the third and further coefficients are more difficult to obtain/calculate. The Virial EOS is often used for moderate deviations from the ideal gas behaviour through the truncated forms of Eqns.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial1} and~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial2}
+       \begin{shaded}
+          \begin{eqnarray}
+             \frc{P V}{R T} &=& 1 + \frc{B}{V} \;\;\;\;\text{ or } \label{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial1a}\\
+             Z &=& 1 + \frc{B P}{R T} = 1 + \frc{B P_{c}}{R T_{c}}\frc{P_{r}}{T_{r}},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial2b}
+          \end{eqnarray}
+          where,
+          \begin{equation}
+              T_{r} = \frc{T}{T_{c}}\;\;\;\;\text{ and }\;\;\;\; P_{r} = \frc{P}{P_{c}}\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:ReducedT-P},
+          \end{equation}
+          are {\it reduced temperature and pressure}, respectively. And,
+          \begin{equation}
+             Z = \frac{P V}{R T},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:RealEOS_Z}
+          \end{equation}
+          is the {\it compressibility factor} and can be defined as the ratio of the molar volume of a gas to the molar volume of an ideal gas at the same temperature and pressure conditions. \underline{For an ideal gas, $Z=1$}. 
+       \end{shaded}
+
+       A number of {\it generalised relations} have been developed to calculate the {\it second virial coefficients}, \eg
+        \begin{equation}
+           \frc{B P_{c}}{R T_{c}} = B^{0} + \omega B^{1},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial3}
+        \end{equation}
+        with terms $B^{0}$ and $B^{1}$ defined by,
+        \begin{displaymath}
+           B^{0} = 0.083 - \frc{0.422}{T_{r}^{1.6}}\;\;\text{ and }\;\; B^{1} = 0.139 - \frc{0.172}{T_{r}^{4.2}}.
+        \end{displaymath}
+        $\omega$ is a parameter known as \underline{Pitzer's acentric factor}\index{Acentric factor}\index{$\omega$|see {Acentric factor}}  that measures the non-sphericity of molecules,
+        \begin{displaymath}
+           \omega \equiv -1 - \log\limits_{10}{\left(P_{r}^{\text{sat}}\right)_{T_{r}=0.7}},
+        \end{displaymath}
+        where $\left(P_{r}^{\text{sat}}\right)_{T_{r}=0.7}$ is the reduced saturation vapour pressure obtained at reduced temperature of 0.7. Tabulated acentric factor for a number of chemical species can be found in any thermodynamic textbook.
+
+     \end{subequations}
+
+
+%%% SECTION
+\section{Cubic Equations of State}\label{Chapter:VolumetricPropertiesPureSubstances:Section:CubicEOS}\index{Equation of State!Cubic}
+  \begin{subequations}
+     The truncated form of the Virial EOS can be used to represent PVT behaviour of gases with reasonable accuracy at relatively low pressures. At moderate and high pressures, predicted volumetric properties deviate from expected and alternative EOS formulations have been developed. {\it Cubic EOS} are widely used in flow (\eg \href{http://www.ansys.com/Products/Fluids/ANSYS-Fluent}{Fluent}, \href{http://www.ansys.com/en-GB/Solutions/Solutions-by-Application/Fluids}{CFX}, \href{http://www.ansys.com/en-GB/Solutions/Solutions-by-Application/Fluids}{OpenFoam}, \href{https://mdx.plm.automation.siemens.com/star-cd}{Star-CD/Siemens} etc) and process (\href{http://www.openfoam.com/}{Aspen/Hysis}, \href{https://www.psenterprise.com/products/gproms}{GProms/PSE}, \href{http://www.prosim.net/en/index.php}{ProSim}, \href{https://www.honeywellprocess.com/en-US/explore/products/advanced-applications/unisim/Pages/default.aspx}{UniSim/Honeywell} etc) simulators to represent PVT behaviour of fluids, and were developed as a cubic polynomials of either the molar volume or the compressibility factor.
+
+     Cubic equations of state can result in (reasonable) accurate prediction of both gas and liquid (saturated) molar volumes and are relatively easy to implement. Since the development of the first cubic EOS in the 19$^{\text{th}}$ century, several EOS have been proposed and used by industry. Four of the most important cubic EOS are listed below.
   
-   \begin{enumerate}[i)]
-%
-%
-%
-        
-%
-        \item The ideal gas {\it equation of state} (EOS),
-                \begin{equation}
-                   P V = R T,\label{Mod02_IdealEOS}
-                \end{equation}
-                where $V$ is the molar volume. This is a relationship between the macroscopic intensive properties, and is based in two main assumptions with respect to the microscopic behaviour of molecules:
-            \begin{enumerate}[(a)]
-                \item Molecules have no extension in space (\ie zero volume), and;
-                \item Molecules \underline{do not interact with each other}.
-            \end{enumerate}
-            The second assumption is particularly important as it considers that atoms and molecules either do not interact or do not have electric charge or have an infinite distance between them (\ie low density conditions).
-%
-        \item However, these assumptions are rarely met in real conditions (both in the environment and in industry) and several mathematical relations have been developed to better represent the PVT behaviour of real fluids:
-            \begin{enumerate}[a)]
-%
-                \item The PVT behaviour of real pure fluids can be expressed as functional $f(P,V,T) = 0$. However, from the Gibbs phase rule for a single phase pure component the number of degrees of freedom is equal to 2. Therefore, we can write this function in its simplest way (or EOS), $V=V(T,P)$, or in differential form,
-                   \begin{displaymath}
-                      dV = \left(\frc{\partial V}{\partial T}\right)_{P}dT + \left(\frc{\partial V}{\partial P}\right)_{T}dP
-                   \end{displaymath}
-                   defining the {\it coefficient of thermal expansion} (or {\it volume expansivity coefficient}), $\beta$, and the {\it coefficient of isothermal compressibility}, $\kappa$ as,
-                   \begin{equation}
-                      \beta \equiv \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P}\;\;\;\text{ and }\;\;\;\kappa \equiv -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T},\label{Mod02_Compressibilityexpansivity}
-                   \end{equation}
-                   respectively, leading to
-                   \begin{equation}
-                       \frc{dV}{V} = \beta dT - \kappa dP.\label{Mod02_Compressibilityexpansivity2}
-                   \end{equation}
-%
-                \item The {\it Virial EOS} is a relation that can be derived from statistical mechanics, and is represented by power series in terms of $\frac{1}{V}$ with two alternate forms:
-                   \begin{eqnarray}
-                       \frc{P V}{R T} &=& 1 + \frc{B}{V} + \frc{C}{V^{2}} + \cdots \text{ or} \label{Mod02_Virial1}\\
-                       \frc{P V}{R T} &=& 1 + B^{\prime}P + C^{\prime}P^{2} + \cdots,\label{Mod02_Virial2} 
-                   \end{eqnarray}
-                   where $B$ and $C$ are the second and third virial coefficients and,
-                   \begin{displaymath}
-                      B = \frc{B^{\prime}}{R T}\;\;\;\text{ and }\;\;\; C^{\prime}=\frc{C-B^{2}}{\left(R T\right)^{2}}.
-                   \end{displaymath}
-                   Second and third terms of Eqns.~\ref{Mod02_Virial1} and~\ref{Mod02_Virial2} are \blue{corrections of the non-ideal behaviour of a gas}. Virial coefficients are strongly dependent on the temperature (\ie $B=B(T)$, $C=C(T)$, $D=D(T)$ etc) and the more the number of coefficients (\ie the more terms in the power series -- Eqns.~\ref{Mod02_Virial1} and~\ref{Mod02_Virial2}) the better is the predictions of the gas molar volume. The second virial coefficient is readily found for a large number of fluids in any chemical engineering handbook (and several textbooks), however the third and further coefficients are more difficult to obtain/calculate. Therefore the Virial EOS is often used for moderate deviations from the ideal gas behaviour through the truncated forms of Eqns.~\ref{Mod02_Virial1} and~\ref{Mod02_Virial2}
-                   \begin{eqnarray}
-                      \frc{P V}{R T} &=& 1 + \frc{B}{V} \;\;\;\;\text{ or } \label{Mod02_Virial1b}\\
-                      Z &=& 1 + \frc{B P}{R T} = 1 + \frc{B P_{c}}{R T_{c}}\frc{P_{r}}{T_{r}},\label{Mod02_Virial1c}
-                   \end{eqnarray}
-                   where,
-                   \begin{equation}
-                      T_{r} = \frc{T}{T_{c}}\;\;\;\;\text{ and }\;\;\;\; P_{r} = \frc{P}{P_{c}}\label{Mod02_ReducedT-P},
-                   \end{equation}
-                   are {\it reduced temperature and pressure}, respectively. $Z = \frac{P V}{R T}$ is the \underline{compressibility factor} and can be defined as the ratio of the molar volume of a gas to the molar volume of an ideal gas at the same temperature and pressure conditions -- for an ideal gas, $Z=1$. 
+%%% SubSection
+   \subsection{van der Waals (vdW) -- The First Equation of State}\label{Chapter:VolumetricPropertiesPureSubstances:Section:CubicEOS:vdW}\index{Equation of State!Cubic!van der Waals}\index{van der Walls equation of state|see {Equation of State}}
+   The van der Waals (vdW) EOS was originally developed in 1873 by \citet{vdW_1967} and has the form,
+     \begin{equation}
+        P = \frc{R T}{V-b} - \frc{a}{V^{2}},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:vdWEOS}
+     \end{equation}
+     where $a$ is called the {\it attraction parameter} and $b$ is the {\it repulsive parameter} (or {\it effective molecular volume} or {\it co-volume}), 
+     \begin{equation}
+        a = \frc{27}{64}\frc{R^{2}T_{c}^{2}}{P_{c}},\;\;\;\text{ and }\;\;\; b = \frc{1}{8}\frc{R T_{c}}{P_{c}},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:vdWEOS2}
+     \end{equation}
+     and they take into account interactions between molecules. Although this EOS is able to predict volumetric properties of gasses better than the ideal EOS, it is still very inaccurate and is studied due to historical reasons, as it was the first EOS able to predict  the transition between liquid and vapour phases.  
 
-                   A number of {\it generalised relations} have been developed to calculate the {\it second virial coefficients}, \eg
-                   \begin{displaymath}
-                      \frc{B P_{c}}{R T_{c}} = B^{0} + \omega B^{1},
-                   \end{displaymath}
-                   with terms $B^{0}$ and $B^{1}$ defined by,
-                   \begin{displaymath}
-                      B^{0} = 0.083 - \frc{0.422}{T_{r}^{1.6}}\;\;\text{ and }\;\; B^{1} = 0.139 - \frc{0.172}{T_{r}^{4.2}}.
-                   \end{displaymath}
-                   $\omega$ is a parameter known as \underline{acentric factor} that measures the non-sphericity of molecules,
-                   \begin{displaymath}
-                      \omega \equiv -1 - \log\limits_{10}{\left(P_{r}^{\text{sat}}\right)_{T_{r}=0.7}},
-                   \end{displaymath}
-                   where $\left(P_{r}^{\text{sat}}\right)_{T_{r}=0.7}$ is the reduced saturation vapour pressure obtained at reduced temperature of 0.7. Tabulated acentric factor for a number of chemical species can be found in any thermodynamic textbook.
-%
-                \item The truncated form of the {\it Virial EOS} can be used to represent PVT behaviour of gases with reasonable accuracy at relatively low pressures. At moderate and high pressures, predicted volumetric properties deviate from expected and alternative EOS formulations have been developed. \underline{Cubic EOS} are widely used in \blue{flow and process simulators} to represent PVT behaviour of fluids, and were developed as a cubic function of the molar volume (or the compressibility factor, $Z$). Cubic equations of state can result in (reasonable) accurate prediction of both gas and liquid (saturated) molar volumes and are relatively easy to implement. Since the development of the first cubic EOS in the 19$^{\text{th}}$ century, several EOS have been proposed and used by industry. Four of the most important cubic EOS are listed below:
-                   \begin{enumerate}[c.1)]
-%
-                      \item The \underline{van der Walls} (vdW) EOS was originally developed in 1873 and has the form,
-                          \begin{equation}
-                             P = \frc{R T}{V-b} - \frc{a}{V^{2}},\label{Mod02_vdWEOS}
-                          \end{equation}
-                          where $a$ is called the {\it attraction parameter} and $b$ is the {\it repulsive parameter} (or {\it effective molecular volume} or {\it co-volume}), 
-                          \begin{displaymath}
-                              a = \frc{27}{64}\frc{R^{2}T_{c}^{2}}{P_{c}},\;\;\; b = \frc{1}{8}\frc{R T_{c}}{P_{c}},
-                          \end{displaymath}
-                          and they take into account interactions between molecules. Although this EOS is able to predict volumetric properties of gasses better than the ideal EOS, it is still very inaccurate for liquids and for fluids at high pressure.  Redlich-Kwong and Soave-Redlich-Kwong EOS were formulated in the 40's and 70's and became increasingly popular in the oil $\&$ gas and petrochemical sectors. 
-%
-                      \item Redlich-Kwong (RK EOS):
-                           \begin{equation}
-                               P = \frc{R T}{V-b} - \frc{a}{V\sqrt{T}\left(V+b\right)},\label{Mod02_RKEOS}
-                           \end{equation}
-                           with,
-                          \begin{displaymath}
-                              a = \frc{0.42748 R^{2}T_{c}^{2}}{P_{c}},\; \text{ and }\;\;\; b = \frc{0.08664 R T_{c} }{P_{c}}.
-                          \end{displaymath}
-%
-                      \item Soave-Redlich-Kwong (SRK EOS):
-                           \begin{equation}
-                               P = \frc{R T}{V-b} - \frc{a\alpha}{V\left(V+b\right)},\label{Mod02_SRKEOS}
-                           \end{equation}
-                           with,
-                          \begin{eqnarray}
-                              &&a = \frc{0.427 R^{2}T_{c}^{2}}{P_{c}},\;\;\;b = \frc{0.08664 R T_{c} }{P_{c}} \nonumber \\
-                              &&\text{and }\;\;\; \alpha = \left[1 + \left( 0.48508 + 1.55171\omega - 0.15613\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}\nonumber
-                          \end{eqnarray}                          
-%
-                      \item Peng-Robinson (PR EOS): it is by far the most used EOS used in simulators and is able to predict molar volume with good accuracy,
-                           \begin{equation}
-                               P = \frc{R T}{V-b} - \frc{a\alpha}{V\left(V+b\right)+b\left(V-b\right)},\label{Mod02_PREOS}
-                           \end{equation}
-                           with,
-                          \begin{eqnarray}
-                              && a = \frc{0.45724 R^{2}T_{c}^{2}}{P_{c}},\;\;\;b = \frc{0.07780 R T_{c} }{P_{c}},\;\;\alpha = \left[1 + \kappa\left(1-\sqrt{T_{r}}\right)\right]^{2}  \nonumber \\
-                              &&\text{ and }\; \kappa = 0.37464 + 1.54226\omega - 0.26992\omega^{2} \nonumber
-                          \end{eqnarray}                
-%
-                   \end{enumerate}
-                   These EOS can be generalised and manipulated to appear as a cubic function of the compressibility factor, $Z$,
-                   \begin{equation}
-                      Z^{3} + k_{1} Z^{2} +k_{2} Z + k_{3} = 0,\label{Mod02_GeneralEOS}
-                   \end{equation}
-                   where
-                   \begin{eqnarray}
-                     && A = \frc{aP}{\left(RT\right)^{2}},\;\; B = \frc{bP}{RT},\;\; k_{1} = -1 -B + uB, \nonumber \\
-                     && k_{2} = A + w B^{2} - uB -uB^{2}\;\;\text{ and }\;\; k_{3} = - AB -w B^{2} -w B^{3}.\nonumber
-                   \end{eqnarray}
+%%% SubSection
+   \subsection{Classic Cubic Equations of State}\label{Chapter:VolumetricPropertiesPureSubstances:Section:CubicEOS:RK-SRK}\index{Equation of State!Cubic!Redlich-Kwong}\index{Redlich-Kwong equation of state|see {Equation of State}}\index{Equation of State!Cubic!Soave-Redlich-Kwong}\index{Soave-Redlich-Kwong equation of state|see {Equation of State}}\index{Equation of State!Cubic!Peng-Robinson}\index{Peng-Robinson equation of state|see {Equation of State}}
+     Redlich-Kwong \citep[RK,][]{Redlich_1949} and Soave-Redlich-Kwong \citep[SRK,][]{Soave_1972} EOS were formulated in the 40's and 70's and became increasingly popular in the oil $\&$ gas and petrochemical sectors, as they were able to predict with reasonable accuracy the PVT behaviour of gases, liquids and the transition between them.
 
+       Improvements to the vdW EOS took place nearly 70 years later when \citet{Redlich_1949} developed a new expression to take into account the impact of temperature (and therefore the kinetic energy) on the attraction parameter, $a$. The RK EOS is an empirical and algebraic expression that is sensibly more accurate than vdW and ideal gas EOS at temperatures above the critical temperature,
+        \begin{equation}
+          P = \frc{R T}{V-b} - \frc{a}{V\sqrt{T}\left(V+b\right)}.\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS}
+        \end{equation}
+        with,
+        \begin{equation}
+           a = \frc{0.42748 R^{2}T_{c}^{2.5}}{P_{c}},\;\;\; \text{ and }\;\;\; b = \frc{0.08664 R T_{c} }{P_{c}}.\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS2}
+        \end{equation}
+
+       Twenty three years later, \citet{Soave_1972} proposed a modification from the RK EOS to include the impact of sphericity and deformation of molecules through the Pitzer's acentric factor, $\omega$,\index{Acentric factor}
+       \begin{equation}
+         P = \frc{R T}{V-b} - \frc{a\alpha}{V\left(V+b\right)},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:SRKEOS}
+       \end{equation}
+       where $a$ and $b$ are obtained from Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS2} and
+       \begin{equation}
+          \alpha = \left[1 + \left( 0.480 + 1.574\omega - 0.176\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:SRKEOS2}
+       \end{equation}    
+
+       \citet{Peng_1985} proposed modifications into the SRK EOS to improve the prediction of liquid molar volumes, vapour pressure and volumetric behaviour of pure substances and binary mixtures. PR EOS is by far the most used EOS in simulators,
+        \begin{equation}
+           P = \frc{R T}{V-b} - \frc{a\alpha}{V\left(V+b\right)+b\left(V-b\right)},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:PREOS}
+        \end{equation}
+        with,
+        \begin{eqnarray}
+           && a = \frc{0.45724 R^{2}T_{c}^{2}}{P_{c}},\;\;\;b = \frc{0.07780 R T_{c} }{P_{c}},\;\;\alpha = \left[1 + \kappa\left(1-\sqrt{T_{r}}\right)\right]^{2} \label{Chapter:VolumetricPropertiesPureSubstances:Eqn:PREOS2}  \\
+           &&\text{ and }\; \kappa = 0.37464 + 1.54226\omega - 0.26992\omega^{2} \label{Chapter:VolumetricPropertiesPureSubstances:Eqn:PREOS3}
+       \end{eqnarray}       
+
+%%% SubSection
+   \subsection{General Form of Cubic Equations of State}\label{Chapter:VolumetricPropertiesPureSubstances:Section:GenericCubicEOS}
+    These equations of state (Eqns.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:vdWEOS}, \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS}, \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:SRKEOS} and \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:PREOS}) can be manipulated to become a polynomial of third order in $Z$ (compressibility factor),
+     \begin{shaded}
+        \begin{equation}
+           Z^{3} + k_{1} Z^{2} +k_{2} Z + k_{3} = 0,\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1}
+        \end{equation}
+        where
+        \begin{eqnarray}
+          && A = \frc{aP}{\left(RT\right)^{2}},\;\;\; B = \frc{bP}{RT},\;\;\; k_{1} = -1 -B + uB, \nonumber \\
+          && k_{2} = A + w B^{2} - uB -uB^{2}\;\;\;\text{ and }\;\; k_{3} = - AB -w B^{2} -w B^{3}.\nonumber
+        \end{eqnarray}
+     \end{shaded}
+
+%%%% TABLE
 \begin{table}[h]
   \begin{center}
   \begin{tabular}{ c | c c c c c }
@@ -243,24 +264,34 @@ intensive independent variables is called the number of degrees of freedom or va
         {\bf PR}  &    2    &   -1    & -1+B       & A-2B-3B$^{2}$  & -AB+B$^{2}$+B$^{3}$ \\
     \hline
   \end{tabular}
-  \caption{Values for $u$, $w$ and k$_{i}$ for vdW, RK, SRK and PR EOS --  Eqn.~\ref{Mod02_GeneralEOS}.}\label{Mod02:Table1}
+  \caption{Values for $u$, $w$ and k$_{i}$ for vdW, RK, SRK and PR EOS --  Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1}.}\label{Chapter:VolumetricPropertiesPureSubstances:Table:GeneralCubicEOS1}
   \end{center}
 \end{table}
-                   Coefficients for these expressions are listed in Table~\ref{Mod02:Table1}. Equation~\ref{Mod02_GeneralEOS} has three roots ($Z_{1}$, $Z_{2}$ and $Z_{3}$), the largest \underline{real positive root} represents the {\it vapour phase}, $Z_{\text{vap}}$, whereas the \underline{smallest real positive root} represents the {\it liquid phase}, $Z_{\text{liq}}$, the intermediate root has no physical meaning. The relevant roots for this cubic polynomial can be obtained from the following relations:
-                   \begin{eqnarray}
-                       Z_{\text{vap}} &=& 1 + \beta - q\beta \frc{Z_{\text{vap}} - \beta} {\left(Z_{\text{vap}}+\varepsilon\beta\right)\left(Z_{\text{vap}} +\sigma\beta\right)},\label{Mod02_Zvap} \\
-                       Z_{\text{liq}} &=& 1 + \beta + \left(Z_{\text{liq}} + \epsilon\beta\right)\left(Z_{\text{liq}}+\sigma\beta\right)\left(\frc{1+\beta-Z_{\text{liq}}}{q\beta}\right)\label{Mod02_Zliq}
-                   \end{eqnarray}
-                   with 
-                   \begin{displaymath}
-                      \beta=\Omega\frc{P_{r}}{T_{r}},\;\;\; \text{ and }\;\;\; q=\frc{\Psi\alpha}{\Omega T_{r}}.
-                   \end{displaymath}
-                   Parameters for these expressions are listed in Table~\ref{Mod02:Table2} with
-                   \begin{eqnarray}
-                         \alpha_{\text{SRK}} &=& \left[ 1 + \left( 0.480 + 1.574 \omega - 0.176\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}, \nonumber \\
-                         \alpha_{\text{PR}} &=& \left[ 1 + \left( 0.37464 + 1.54226 \omega - 0.26992\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}. \nonumber
-                   \end{eqnarray}
-                   Equations~\ref{Mod02_Zvap} and ~\ref{Mod02_Zliq} can be numerically solved either by a {\it calculator} or applying any method described in Appendix \red{E.2} (see Example~\ref{Mod02Ex01}).
+
+     Coefficients for these expressions are listed in Table~\ref{Chapter:VolumetricPropertiesPureSubstances:Table:GeneralCubicEOS1}. Equation~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1} has three roots $\left\{Z_{1}, Z_{2} \text{ and } Z_{3}\right\}$:
+     \begin{enumerate}[a)]
+         \item the largest real positive root represents the {\it vapour phase}, $Z_{\text{vap}}$;
+         \item the smallest real positive root represents the {\it liquid phase}, $Z_{\text{liq}}$;
+         \item the intermediate root has no physical meaning. 
+     \end{enumerate}
+     The relevant roots for this cubic polynomial can be obtained from the following relations:
+     \begin{shaded}
+        \begin{eqnarray}
+           Z_{\text{vap}} &=& 1 + \beta - q\beta \frc{Z_{\text{vap}} - \beta} {\left(Z_{\text{vap}}+\varepsilon\beta\right)\left(Z_{\text{vap}} +\sigma\beta\right)},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zvap} \\
+           Z_{\text{liq}} &=& 1 + \beta + \left(Z_{\text{liq}} + \epsilon\beta\right)\left(Z_{\text{liq}}+\sigma\beta\right)\left(\frc{1+\beta-Z_{\text{liq}}}{q\beta}\right)\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zliq}
+        \end{eqnarray}
+        with 
+         \begin{displaymath}
+           \beta=\Omega\frc{P_{r}}{T_{r}},\;\;\; \text{ and }\;\;\; q=\frc{\Psi\alpha}{\Omega T_{r}}.
+         \end{displaymath}
+         Parameters for these expressions are listed in Table~\ref{Chapter:VolumetricPropertiesPureSubstances:Table:GeneralCubicEOS2} with
+         \begin{eqnarray}
+            \alpha_{\text{SRK}} &=& \left[ 1 + \left( 0.480 + 1.574 \omega - 0.176\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}, \nonumber \\
+            \alpha_{\text{PR}} &=& \left[ 1 + \left( 0.37464 + 1.54226 \omega - 0.26992\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}. \nonumber
+        \end{eqnarray}
+     \end{shaded}
+
+       Equations~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zvap} and \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zliq} can be numerically solved either by a {\it calculator}\footnote{For the Casio FX 991ES, see online tutorial at \href{https://www.youtube.com/watch?v=DDVkBMGmVy8}{https://www.youtube.com/watch?v=DDVkBMGmVy8} or \href{https://www.thestudentroom.co.uk/revision/mathematics/making-the-most-of-your-casio-fx-991es-calculator}{https://www.thestudentroom.co.uk/revision/mathematics/making-the-most-of-your-casio-fx-991es-calculator}.} or applying any method described in Appendix~\ref{Section:RootFinderMethods}.
 
 \begin{table}[h]
     \begin{center}
@@ -274,16 +305,13 @@ intensive independent variables is called the number of degrees of freedom or va
             PR       &$\alpha_{\text{PR}}$& 1+$\sqrt{2}$   & 1-$\sqrt{2}$        & 0.07780        & 0.45724  \\
        \hline
        \end{tabular}
-  \caption{Parameters for Eqns.~\ref{Mod02_Zvap}-~\ref{Mod02_Zliq}.}\label{Mod02:Table2}
+  \caption{Parameters for Eqns.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zvap} and \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zliq}.}\label{Chapter:VolumetricPropertiesPureSubstances:Table:GeneralCubicEOS2}
   \end{center}
 \end{table}
 
-                  
 
-%
-            \end{enumerate}
-% 
-   \end{enumerate}
+     \end{subequations}
+
 
 \clearpage
 
