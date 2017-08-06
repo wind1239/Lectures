@@ -3,16 +3,31 @@
    \begin{LearningObjectivesBlock}{Learning Objectives}
       Upon completion of this chapter, you will be able to
         \begin{enumerate}
-           \item Demonstrate understanding of key concepts of entropy and the second law of thermodynamics;
-           \item Apply first and second laws of thermodynamics to assess of heat transfer and process reversibility;
-           \item Know that Clausius inequality is an alternative statement of the second law;
-           \item Demonstrate how to apply the entropy balance in a thermodynamic system;
-           \item Recognise processes that generate entropy.
+           \item Define pure substances and thermodynamic phases;
+           \item State the Gibbs phase rule and its use to define the number of degrees of freedom of a system;
+           \item Identify phases and phase transitions in a diagram;
+           \item Formulate the solution for thermodynamic problems involving the calculation of volume of pure substances;
+           \item Select appropriate equation of state for a given problem/application;
         \end{enumerate}
 \medskip
      Recommended reading: Chapters 3 of \citet{SmithVanNess_Book}, 6 of \citet{Sandler_Book}, 2 of \citet{Borgnakke_Book} or 4 of \citet{Atkins_Book}.
    \end{LearningObjectivesBlock}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+   \begin{LearningObjectivesBlock}{Learning Objectives}
+      Upon completion of this chapter, you will be able to
+        \begin{enumerate}
+           \item {\bf Knowledge:} Define, Name, Select, State 
+           \item {\bf Comprehension:} Describe, Identify, Discuss
+           \item {\bf Application:} Apply, Demonstrate, Employ, Sketch
+           \item {\bf Analysis:} Analyse, Compare, Calculate, Solve
+           \item {\bf Synthesis:} Determine, Formulate
+           \item {\bf Evaluation:} Assess, Check, Estimate, Compare, Measure, Monitor
+        \end{enumerate}
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
 %%%
 %%% SECTION
@@ -100,19 +115,19 @@ For example, for a pure liquid component, the phase rule yields two degrees of f
 
 %%% SECTION
 \section{PVT Behaviour of Pure Substances}\label{Chapter:VolumetricPropertiesPureSubstances:Section:PVTBehaviour}\index{Gases!Ideal gas}\index{Equation of State!Ideal gas}
-     \begin{subequations}
 In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal gas equation of state (EOS) was defined as 
      \begin{displaymath}
         PV = RT,
      \end{displaymath}
-     where $V$ is the molar volume. This is a relationship between macroscopic intensive properties, and is based in two main assumptions \wrt the microscopic behaviour of molecules:
+     where $V\left(=\frc{V^{t}}{n}\right)$ is the molar volume $\left(\text{V}^{t}\text{ is the total volume and } n \text{ is the number of moles}\right)$ . This is a relationship between macroscopic intensive properties, and is based in two main assumptions \wrt the microscopic behaviour of molecules:
      \begin{enumerate}[(a)]
         \item Molecules have no extension in space (\ie zero volume), and;
         \item Molecules do not interact with each other.
      \end{enumerate}
      The second assumption is particularly important as it considers that atoms and molecules either do not interact or do not have electric charge or have an infinite distance between them (\ie low density conditions). However, these assumptions are rarely met in real conditions (both in the environment and in industry) and several mathematical relations have been developed to better represent the PVT behaviour of real fluids.
 
-\subsection{Generic Form of Equation of State}\label{Chapter:VolumetricPropertiesPureSubstances:CompressibilityExpansivityCoefficients}\index{Coefficient of thermal expansion}\index{Coefficient of isothermal compressibility}\index{Volume expansivity coefficient|see {Coefficient of thermal expansion}}
+\section{Generic Form of Equations of State}\label{Chapter:VolumetricPropertiesPureSubstances:CompressibilityExpansivityCoefficients}\index{Coefficient of thermal expansion}\index{Coefficient of isothermal compressibility}\index{Volume expansivity coefficient|see {Coefficient of thermal expansion}}
+ \begin{subequations}
      The PVT behaviour of real pure fluids can be expressed as functional, \ie a generic form of an equation of state,
         \begin{displaymath}
            f(P,V,T) = 0,
@@ -135,8 +150,53 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
               \frc{dV}{V} = \beta dT - \kappa dP.\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityExpansivity2}
            \end{equation}
         \end{shaded}
+ \end{subequations}
 
-\subsection{Virial Equation of State}\label{Chapter:VolumetricPropertiesPureSubstances:VirialEOS}\index{Equation of State!Virial}\index{Compressibility factor|see {Equation of State}} \index{$Z$|see {Compressibility factor}}\index{Equation of State!Compressibility factor}
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:VolumetricPropertiesPureSubstances:Example1}
+         Derive the relations for coefficient of thermal expansion and the isothermal compressibility coefficient for
+              \begin{enumerate}[(a)]
+                  \item Ideal gas EOS;
+                  \item $V=\frc{a}{RT}+\frc{bT}{PR}$ 
+              \end{enumerate}
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}
+         Here we need to obtain expressions for 
+           \begin{eqnarray}
+                && \beta = \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P} \nonumber \\
+                && \kappa = -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T} \nonumber
+           \end{eqnarray}
+           for 
+           \begin{enumerate}[a)]
+%
+               \item Ideal gas EOS, $V=\frc{R T}{P}$,
+                    \begin{displaymath}
+                       \beta =\frc{P}{R T}\frc{R}{P} = \frc{1}{T},
+                    \end{displaymath}
+                    and 
+                    \begin{displaymath}
+                       \kappa = -\frc{P}{R T}\left(-\frc{R T}{P^{2}}\right) = \frc{1}{P}
+                    \end{displaymath}
+%
+               \item $V=\frc{a}{RT}+\frc{bT}{PR}$: Solving the partial differentials,
+                    \begin{displaymath}
+                       \left(\frc{\partial V}{\partial T}\right)_{P} = \frc{b}{PR}-\frc{a}{RT^{2}}\;\;\text{ and }\;\; \left(\frc{\partial V}{\partial P}\right)_{T} = -\frc{bT}{P^{2}R},
+                    \end{displaymath}
+                    thus
+                    \begin{eqnarray}
+                       && \beta =\frc{1}{\frc{a}{RT}+\frc{bT}{PR}}\left(\frc{b}{PR}-\frc{a}{RT^{2}}\right) = \frc{\frc{bT^{2}-aP}{PRT^{2}}}{\frc{aP+bT^{2}}{PRT}} = \frc{bT^{2}-aP}{T\left(aP+bT^{2}\right)}
+ \nonumber \\
+                       && \kappa = -\frc{1}{\frc{a}{RT}+\frc{bT}{PR}} \left(-\frc{bT}{P^{2}R}\right) = \frc{bT^{2}}{P\left(aP+bT^{2}\right)} \nonumber
+                    \end{eqnarray}           
+           \end{enumerate}
+   \end{MyExample}
+   
+
+\section{The Virial Equation of State}\label{Chapter:VolumetricPropertiesPureSubstances:VirialEOS}\index{Equation of State!Virial}\index{Compressibility factor|see {Equation of State}} \index{$Z$|see {Compressibility factor}}\index{Equation of State!Compressibility factor}
+ \begin{subequations}
      The Virial EOS was introduced by H. Kamerlingh-Omnes in 1901 to describe gas compressibily coefficient, $Z$, as a power series  in terms of $\frac{1}{V}$ for a pure gas, with two alternate forms:
        \begin{eqnarray}
           \frc{P V}{R T} &=& 1 + \frc{B}{V} + \frc{C}{V^{2}} + \cdots \text{ or} \label{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial1}\\
@@ -188,13 +248,13 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
 
 %%% SECTION
 \section{Cubic Equations of State}\label{Chapter:VolumetricPropertiesPureSubstances:Section:CubicEOS}\index{Equation of State!Cubic}
-  \begin{subequations}
-     The truncated form of the Virial EOS can be used to represent PVT behaviour of gases with reasonable accuracy at relatively low pressures. At moderate and high pressures, predicted volumetric properties deviate from expected and alternative EOS formulations have been developed. {\it Cubic EOS} are widely used in flow (\eg \href{http://www.ansys.com/Products/Fluids/ANSYS-Fluent}{Fluent}, \href{http://www.ansys.com/en-GB/Solutions/Solutions-by-Application/Fluids}{CFX}, \href{http://www.ansys.com/en-GB/Solutions/Solutions-by-Application/Fluids}{OpenFoam}, \href{https://mdx.plm.automation.siemens.com/star-cd}{Star-CD/Siemens} etc) and process (\href{http://www.openfoam.com/}{Aspen/Hysis}, \href{https://www.psenterprise.com/products/gproms}{GProms/PSE}, \href{http://www.prosim.net/en/index.php}{ProSim}, \href{https://www.honeywellprocess.com/en-US/explore/products/advanced-applications/unisim/Pages/default.aspx}{UniSim/Honeywell} etc) simulators to represent PVT behaviour of fluids, and were developed as a cubic polynomials of either the molar volume or the compressibility factor.
+     The truncated form of the Virial EOS can be used to represent PVT behaviour of gases with reasonable accuracy at relatively low pressures. At moderate and high pressures, predicted volumetric properties deviate from expected and alternative EOS formulations have been developed. {\it Cubic EOS} are widely used in flow (\eg \href{http://www.ansys.com/Products/Fluids/ANSYS-Fluent}{Fluent}, \href{http://www.ansys.com/en-GB/Solutions/Solutions-by-Application/Fluids}{CFX}, \href{http://www.ansys.com/en-GB/Solutions/Solutions-by-Application/Fluids}{OpenFoam}, \href{https://mdx.plm.automation.siemens.com/star-cd}{Star-CD/Siemens} etc) and process (\href{http://www.openfoam.com/}{Aspen/Hysis}, \href{https://www.psenterprise.com/products/gproms}{GProms/PSE}, \href{http://www.prosim.net/en/index.php}{ProSim}, \href{https://www.honeywellprocess.com/en-US/explore/products/advanced-applications/unisim/Pages/default.aspx}{UniSim/Honeywell} etc) simulators to represent PVT behaviour of fluids, and were developed as cubic polynomials of either the molar volume or the compressibility factor.
 
      Cubic equations of state can result in (reasonable) accurate prediction of both gas and liquid (saturated) molar volumes and are relatively easy to implement. Since the development of the first cubic EOS in the 19$^{\text{th}}$ century, several EOS have been proposed and used by industry. Four of the most important cubic EOS are listed below.
   
 %%% SubSection
    \subsection{van der Waals (vdW) -- The First Equation of State}\label{Chapter:VolumetricPropertiesPureSubstances:Section:CubicEOS:vdW}\index{Equation of State!Cubic!van der Waals}\index{van der Walls equation of state|see {Equation of State}}
+  \begin{subequations}
    The van der Waals (vdW) EOS was originally developed in 1873 by \citet{vdW_1967} and has the form,
      \begin{equation}
         P = \frc{R T}{V-b} - \frc{a}{V^{2}},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:vdWEOS}
@@ -204,9 +264,11 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
         a = \frc{27}{64}\frc{R^{2}T_{c}^{2}}{P_{c}},\;\;\;\text{ and }\;\;\; b = \frc{1}{8}\frc{R T_{c}}{P_{c}},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:vdWEOS2}
      \end{equation}
      and they take into account interactions between molecules. Although this EOS is able to predict volumetric properties of gasses better than the ideal EOS, it is still very inaccurate and is studied due to historical reasons, as it was the first EOS able to predict  the transition between liquid and vapour phases.  
+  \end{subequations}
 
 %%% SubSection
    \subsection{Classic Cubic Equations of State}\label{Chapter:VolumetricPropertiesPureSubstances:Section:CubicEOS:RK-SRK}\index{Equation of State!Cubic!Redlich-Kwong}\index{Redlich-Kwong equation of state|see {Equation of State}}\index{Equation of State!Cubic!Soave-Redlich-Kwong}\index{Soave-Redlich-Kwong equation of state|see {Equation of State}}\index{Equation of State!Cubic!Peng-Robinson}\index{Peng-Robinson equation of state|see {Equation of State}}
+  \begin{subequations}
      Redlich-Kwong \citep[RK,][]{Redlich_1949} and Soave-Redlich-Kwong \citep[SRK,][]{Soave_1972} EOS were formulated in the 40's and 70's and became increasingly popular in the oil $\&$ gas and petrochemical sectors, as they were able to predict with reasonable accuracy the PVT behaviour of gases, liquids and the transition between them.
 
        Improvements to the vdW EOS took place nearly 70 years later when \citet{Redlich_1949} developed a new expression to take into account the impact of temperature (and therefore the kinetic energy) on the attraction parameter, $a$. The RK EOS is an empirical and algebraic expression that is sensibly more accurate than vdW and ideal gas EOS at temperatures above the critical temperature,
@@ -216,8 +278,10 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
         with,
         \begin{equation}
            a = \frc{0.42748 R^{2}T_{c}^{2.5}}{P_{c}},\;\;\; \text{ and }\;\;\; b = \frc{0.08664 R T_{c} }{P_{c}}.\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS2}
-        \end{equation}
+        \end{equation}  
+  \end{subequations}  
 
+  \begin{subequations}
        Twenty three years later, \citet{Soave_1972} proposed a modification from the RK EOS to include the impact of sphericity and deformation of molecules through the Pitzer's acentric factor, $\omega$,\index{Acentric factor}
        \begin{equation}
          P = \frc{R T}{V-b} - \frc{a\alpha}{V\left(V+b\right)},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:SRKEOS}
@@ -225,8 +289,10 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
        where $a$ and $b$ are obtained from Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS2} and
        \begin{equation}
           \alpha = \left[1 + \left( 0.480 + 1.574\omega - 0.176\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:SRKEOS2}
-       \end{equation}    
+       \end{equation}     
+  \end{subequations}  
 
+  \begin{subequations}
        \citet{Peng_1985} proposed modifications into the SRK EOS to improve the prediction of liquid molar volumes, vapour pressure and volumetric behaviour of pure substances and binary mixtures. PR EOS is by far the most used EOS in simulators,
         \begin{equation}
            P = \frc{R T}{V-b} - \frc{a\alpha}{V\left(V+b\right)+b\left(V-b\right)},\label{Chapter:VolumetricPropertiesPureSubstances:Eqn:PREOS}
@@ -235,10 +301,12 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
         \begin{eqnarray}
            && a = \frc{0.45724 R^{2}T_{c}^{2}}{P_{c}},\;\;\;b = \frc{0.07780 R T_{c} }{P_{c}},\;\;\alpha = \left[1 + \kappa\left(1-\sqrt{T_{r}}\right)\right]^{2} \label{Chapter:VolumetricPropertiesPureSubstances:Eqn:PREOS2}  \\
            &&\text{ and }\; \kappa = 0.37464 + 1.54226\omega - 0.26992\omega^{2} \label{Chapter:VolumetricPropertiesPureSubstances:Eqn:PREOS3}
-       \end{eqnarray}       
+       \end{eqnarray}  
+  \end{subequations}     
 
 %%% SubSection
-   \subsection{General Form of Cubic Equations of State}\label{Chapter:VolumetricPropertiesPureSubstances:Section:GenericCubicEOS}
+   \subsection{General Form of Cubic Equations of State}\label{Chapter:VolumetricPropertiesPureSubstances:Section:GenericCubicEOS}\index{Equation of State!Cubic!General form}
+  \begin{subequations}
     These equations of state (Eqns.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:vdWEOS}, \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS}, \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:SRKEOS} and \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:PREOS}) can be manipulated to become a polynomial of third order in $Z$ (compressibility factor),
      \begin{shaded}
         \begin{equation}
@@ -267,7 +335,7 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
   \caption{Values for $u$, $w$ and k$_{i}$ for vdW, RK, SRK and PR EOS --  Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1}.}\label{Chapter:VolumetricPropertiesPureSubstances:Table:GeneralCubicEOS1}
   \end{center}
 \end{table}
-
+%%%
      Coefficients for these expressions are listed in Table~\ref{Chapter:VolumetricPropertiesPureSubstances:Table:GeneralCubicEOS1}. Equation~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1} has three roots $\left\{Z_{1}, Z_{2} \text{ and } Z_{3}\right\}$:
      \begin{enumerate}[a)]
          \item the largest real positive root represents the {\it vapour phase}, $Z_{\text{vap}}$;
@@ -288,10 +356,10 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
          \begin{eqnarray}
             \alpha_{\text{SRK}} &=& \left[ 1 + \left( 0.480 + 1.574 \omega - 0.176\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}, \nonumber \\
             \alpha_{\text{PR}} &=& \left[ 1 + \left( 0.37464 + 1.54226 \omega - 0.26992\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2}. \nonumber
-        \end{eqnarray}
+         \end{eqnarray}
      \end{shaded}
 
-       Equations~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zvap} and \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zliq} can be numerically solved either by a {\it calculator}\footnote{For the Casio FX 991ES, see online tutorial at \href{https://www.youtube.com/watch?v=DDVkBMGmVy8}{https://www.youtube.com/watch?v=DDVkBMGmVy8} or \href{https://www.thestudentroom.co.uk/revision/mathematics/making-the-most-of-your-casio-fx-991es-calculator}{https://www.thestudentroom.co.uk/revision/mathematics/making-the-most-of-your-casio-fx-991es-calculator}.} or applying any method described in Appendix~\ref{Section:RootFinderMethods}.
+       Equations~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zvap} and \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zliq} can be numerically solved either by a {\it calculator}\footnote{For the Casio FX 991ES calculator, see online tutorial at \href{https://www.youtube.com/watch?v=DDVkBMGmVy8}{https://www.youtube.com/watch?v=DDVkBMGmVy8} or \href{https://www.thestudentroom.co.uk/revision/mathematics/making-the-most-of-your-casio-fx-991es-calculator}{https://www.thestudentroom.co.uk/revision/mathematics/making-the-most-of-your-casio-fx-991es-calculator}.} or applying any method described in Appendix~\ref{Section:RootFinderMethods}.
 
 \begin{table}[h]
     \begin{center}
@@ -312,20 +380,15 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
 
      \end{subequations}
 
-
-\clearpage
-
-%%% SUBSECTION
-\subsection{Examples}
-
-\begin{enumerate}[1)]
-%%%
-%%% EXAMPLE 
-%%%
-\item\label{Mod02Ex01} For gaseous methane at 298K and 2 MPa, compute the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ using the SRK EOS. Given $T_{c}=$ 190.7 K, $P_{c}=$ 46.41 bar and $\omega=$ 0.011.
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:VolumetricPropertiesPureSubstances:Example2}
+        For gaseous methane at 298 K and 2 MPa, compute the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ using the SRK EOS. Given $T_{c}=$ 190.7 K, $P_{c}=$ 46.41 bar and $\omega=$ 0.011.
+     \end{example}
 
 % SOLUTION
-        \noindent{\bf Solution:} We can calculate the molar volume of a real gas using the relation $PV=ZRT$, where the compressibility factor for the gaseous fluid can be obtained from Eqn.~\ref{Mod02_Zvap},
+       \noindent{\bf Solution:}
+       We can calculate the molar volume of a real gas using the relation $PV=ZRT$ (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RealEOS_Z}), where the compressibility factor for the gaseous fluid can be obtained from Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zliq},
            \begin{displaymath}
                 Z_{\text{vap}} = 1 + \beta - q\beta \frc{Z_{\text{vap}} - \beta} {\left(Z_{\text{vap}}+\varepsilon\beta\right)\left(Z_{\text{vap}} +\sigma\beta\right)},
            \end{displaymath}
@@ -336,10 +399,10 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
                && \alpha_{\text{SRK}} = 0.7667\;\;\text{ and }\;\; q = \frc{\Psi\alpha_{\text{SRK}}}{\Omega T_{r}} = 2.4207, \nonumber 
            \end{eqnarray}
 
-           There are three ways to solve this non-linear equation, all of them involve iterative methods for root-finder
+           There are three ways to solve this non-linear equation, all of them involve iterative methods for root-finder \citep[for more information about root-finder methods see Appendix~\ref{Section:RootFinderMethods} and/or][]{Atkinson_Book_Newton,NumericalRecipes_Newton}.
            \begin{enumerate}[a)]
 %
-              \item Using a calculator, leading to $Z_{\text{vap}} = $ 0.9670. 
+              \item {\bf Solver of calculators:} this leads to $Z_{\text{vap}} = $ 0.9670. 
 %
               \item {\bf Substitution method:} In this method we rewrite the $Z_{\text{vap}}$ equation as,
                  \begin{displaymath}
@@ -371,7 +434,7 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
                  \end{center}
                  Thus after the forth iteration the solution converged to $Z_{\text{vap}}^{(4)} = 0.96696 \sim 0.9670$.
 %
-              \item {\bf Newton-Raphson Method:} This iterative method (see Appendix E.2) is based on dividing the domain in infinitesimal segments and smoothly `walking towards the solution'. It can be generalised as,
+              \item {\bf Newton-Raphson Method:} This iterative method (see Appendix~\ref{Section:RootFinderMethods}) is based on dividing the domain in infinitesimal segments and smoothly `walking towards the solution'. It can be generalised as,
                   \begin{displaymath}
                      x^{(i+1)} = x^{(i)} - \frc{F\left(x^{(i)}\right)}{F^{\prime}\left(x^{(i)}\right)},
                   \end{displaymath}  
@@ -413,14 +476,26 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
            \begin{displaymath}
               V=\frc{Z_{\text{vap}}R T}{P} = 1197.9493 \text{ cm}^{3}.\text{mol}^{-1}\sim 1197.95 \text{ cm}^{3}.\text{mol}^{-1}
            \end{displaymath}
-\clearpage
-%%%
-%%% EXAMPLE 
-%%%
-\item\label{Mod02Ex02} Calculate the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ for gaseous butane at 2.5 bar and 298 K using (a) the ideal gas equation, (b) the truncated virial EOS and (c) the PR EOS. Given $T_{c}=$ 425.1 K, $P_{c}=$ 37.96 bar and $\omega=$ 0.20.
+       
+   \end{MyExample}
+
+
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:VolumetricPropertiesPureSubstances:Example3}
+        Calculate the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ for gaseous butane at 2.5 bar and 298 K using
+        \begin{enumerate}[a)]
+           \item ideal gas EOS;
+           \item truncated virial EOS and;
+           \item PR EOS.
+        \end{enumerate}
+        Given $T_{c}=$ 425.1 K, $P_{c}=$ 37.96 bar and $\omega=$ 0.20.
+     \end{example}
 
 % SOLUTION
-        \noindent{\bf Solution:} 
+       \noindent{\bf Solution:}
+       
            \begin{enumerate}[a)]
 %
                \item Assuming that butane behaves as an ideal gas,
@@ -428,13 +503,13 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
                         V^{\text{IG}} = \frc{RT}{P} = 9910.6456 \text{ cm}^{3}.\text{mol}^{-1}
                     \end{displaymath}
 %
-               \item From Eqn.~\ref{Mod02_Virial1c},
+               \item From Eqns.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial2b} and \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RealEOS_Z},
                   \begin{displaymath}
                      Z = \frc{P V}{R T} = 1 + \frc{B P_{c}}{R T_{c}}\frc{P_{r}}{T_{r}},
                   \end{displaymath}
-                  manipulating this equation with 
+                  manipulating this equation with Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial3},
                   \begin{displaymath}
-                     \frc{B P_{c}}{R T_{c}} = B^{0} + \omega B^{1},
+                     \frc{B P_{c}}{R T_{c}} = B^{0} + \omega B^{1},\;\;\text{ with }\;\;B^{0} = 0.083 - \frc{0.422}{T_{r}^{1.6}}\;\;\text{ and }\;\; B^{1} = 0.139 - \frc{0.172}{T_{r}^{4.2}}
                   \end{displaymath}
                   leads to
                   \begin{displaymath}
@@ -446,7 +521,7 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
                   \end{displaymath}
                   Thus $V^{\text{virial}} = 9430.6465$ cm$^{3}$.mol$^{-1}$.
 %
-               \item Now, in order to calculate the molar volume using the PR EOS, we first need to calculate the compressibility factor $Z_{\text{vap}}$, Eqn.~\ref{Mod02_Zvap},
+               \item Now, in order to calculate the molar volume using the PR EOS, we first need to calculate the compressibility factor $Z_{\text{vap}}$, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zvap},
                   \begin{displaymath}
                      Z_{\text{vap}} = 1 + \beta - q\beta \frc{Z - \beta} {\left(Z+\varepsilon\beta\right)\left(Z+\sigma\beta\right)},
                   \end{displaymath}
@@ -456,49 +531,23 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
                      && \Psi = 0.45724,\;\; \sigma=1+\sqrt{2},\;\;\epsilon=1-\sqrt{2},\;\;\beta=\Omega\frc{P_{r}}{T_{r}}=7.3281\times 10^{-4},\nonumber \\
                      && \alpha_{\text{PR}} = 1.2308\;\;\text{ and }\;\; q = \frc{\Psi\alpha_{\text{PR}}}{\Omega T_{r}} = 102.9246, \nonumber 
                   \end{eqnarray}
-                  Solving numerically leads to $Z_{\text{vap}}=0.9188$ and $V=\frc{Z_{\text{vap}}RT}{P} = 9105.9012$ cm$^{3}$.mol$^{-1}$.
+                  Solving numerically (calculator) leads to $Z_{\text{vap}}=0.9188$ and $V=\frc{Z_{\text{vap}}RT}{P} = 9105.9012$ cm$^{3}$.mol$^{-1}$.
 %
            \end{enumerate}
-\clearpage
-%%%
-%%% EXAMPLE 
-%%%
-   \item\label{Mod02Ex03} Derive the relations for coefficient of thermal expansion and the isothermal compressibility coefficient for
-              \begin{enumerate}[(a)]
-                  \item Ideal gas EOS;
-                  \item $V=\frc{a}{RT}+\frc{bT}{PR}$ 
-              \end{enumerate}
+   \end{MyExample}
 
-% SOLUTION
-        \noindent{\bf Solution:} Here we need to obtain expressions for 
-           \begin{eqnarray}
-                && \beta = \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P} \nonumber \\
-                && \kappa = -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T} \nonumber
-           \end{eqnarray}
-           for 
-           \begin{enumerate}[a)]
-%
-               \item Ideal gas EOS, $V=\frc{R T}{P}$,
-                    \begin{displaymath}
-                       \beta =\frc{P}{R T}\frc{R}{P} = \frc{1}{T},
-                    \end{displaymath}
-                    and 
-                    \begin{displaymath}
-                       \kappa = -\frc{P}{R T}\left(-\frc{R T}{P^{2}}\right) = \frc{1}{P}
-                    \end{displaymath}
-%
-               \item $V=\frc{a}{RT}+\frc{bT}{PR}$: Solving the partial differentials,
-                    \begin{displaymath}
-                       \left(\frc{\partial V}{\partial T}\right)_{P} = \frc{b}{PR}-\frc{a}{RT^{2}}\;\;\text{ and }\;\; \left(\frc{\partial V}{\partial P}\right)_{T} = -\frc{bT}{P^{2}R},
-                    \end{displaymath}
-                    thus
-                    \begin{eqnarray}
-                       && \beta =\frc{1}{\frc{a}{RT}+\frc{bT}{PR}}\left(\frc{b}{PR}-\frc{a}{RT^{2}}\right) = \frc{\frc{bT^{2}-aP}{PRT^{2}}}{\frc{aP+bT^{2}}{PRT}} = \frc{bT^{2}-aP}{T\left(aP+bT^{2}\right)}
- \nonumber \\
-                       && \kappa = -\frc{1}{\frc{a}{RT}+\frc{bT}{PR}} \left(-\frc{bT}{P^{2}R}\right) = \frc{bT^{2}}{P\left(aP+bT^{2}\right)} \nonumber
-                    \end{eqnarray}
-                    
-%
-           \end{enumerate}
-%     
-\end{enumerate}
+\clearpage   
+\begin{FinalSummaryBlock}{Summary}
+    \begin{itemize}
+       \item An equation of state correlates pressure, volume, temperature and the amount of the substance (\eg number of moles);
+       \item In the limiting case, \ie low/moderate pressure and high temperature, it can be assumed that fluids behave as an ideal gas;
+       \item In general, in equilibrium pure substances can be at liquid, vapour and/or solid phases, Phase diagrams are important tools to qualitatively assess phases and conditions for such phases;
+       \item Gibbs phase rule (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:PhaseRule}) establishes the number of intensive state variables that can be changed independently without disturbing the number of phases in equilibrium;
+       \item Supercritical fluid is a dense fluid phase above its critical temperature and pressure;
+       \item The simplest form to represent the interrelationship of these state variables is through using the coefficient of thermal expansion and coefficient of isothermal compressibility (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityExpansivity2});
+       \item In real gases, molecular interactions affect the equation of state. A simple and mathematically correct way to represent such dependency is through the coefficients ($B$, $C$ $\cdots$) of the Virial equation of state (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial1});
+       \item Compressibility factor ($Z$, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RealEOS_Z}) can be defined as the ratio of real volume of a fluid and the volume of the ideal gas at the same pressure and temperature;
+       \item Four cubic equations of state were introduced here, van der Waals (vdW, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:vdWEOS}), Redlich-Kwong (RK, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS}), Soave-Redlich-Kwong (SRK, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:SRKEOS}) and Peng-Robinson (PR, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:PREOS});
+       \item These EOS can be generalised by a polynomial of the third order in $Z$ (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1}) and readily solved for both vapour and liquid phases using any iterative root-finder method.
+    \end{itemize}
+\end{FinalSummaryBlock}
