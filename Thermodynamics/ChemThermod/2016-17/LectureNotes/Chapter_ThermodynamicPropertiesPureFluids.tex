@@ -35,13 +35,13 @@
 
 %%% SECTION
 \section{Introduction}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:Introduction}
-   This chapter is an introduction to some of the mathematical underpinnings in chemical thermodyncamics. Practical applications of most of the contents of this chapters may not be promptly obvious, however this is critical to fully understand concepts, theories and practices that will be introduced in later chapters.
+   This chapter is an introduction to some of the mathematical underpinnings of chemical thermodynamics. Practical applications of most of the contents of this chapters may not be promptly obvious, however this is critical to fully understand concepts, theories and practices that will be introduced in later chapters. MORE!!
 
 %%% SECTION
 \section{Thermodynamic Property Relations for Single Phase Systems}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:ThermodynamicPropertiesSinglePhase}
      \begin{subequations}
 
-In Chapter ~\ref{Chapter:FirstLaw}, we have learnt that the First Law for reversible processes in closed systems can be written as (for $n$ moles),
+In Chapter~\ref{Chapter:FirstLaw}, we have learnt that the First Law for reversible processes in closed systems can be written as (for $n$ moles),
    \begin{equation}
        d\left(n U\right) = d Q_{\text{rev}} + d W_{\text{rev}},\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FirstLaw}
    \end{equation} 
@@ -49,24 +49,28 @@ with $d W_{\text{rev}} = -Pd(nV)$ and $d Q_{\text{rev}}=Td(nS)$,
    \begin{equation}
        d\left(n U\right) = T d(nS) - Pd(nV).\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FirstSecondLaw}
    \end{equation} 
-This relation involves {\it only state functions}, therefore it is not restricted to reversible processes. The only constraint of this relation is that it is defined for closed systems and it assumes that changes may occur between equilibrium states. Finally, Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FirstSecondLaw} involves five thermodynamic properties: $P, T, V, U$ and $S$. For $n=1$ mol, Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FirstSecondLaw} becomes,
+This relation involves {\it only state functions}, therefore it is not restricted to reversible processes. The only constraint of this relation is that it is defined for closed systems and it assumes that changes may occur between equilibrium states. Finally, Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FirstSecondLaw} involves five thermodynamic properties: $P, T, V, U$ and $S$, and for $n=1$ mol, it becomes,
+   \begin{shaded}
      \begin{equation}
-        TdS = dU + PdV,\label{Mod03_FundamentalRelation01}
+        TdS = dU + PdV,\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01}
      \end{equation}
+   \end{shaded}
 however, we know the definition of enthalpy,
      \begin{displaymath}
         dH = dU + d(PV) = dU + PdV + VdP.
      \end{displaymath}
-Replacing the above relation in Eqn.~\ref{Mod03_FundamentalRelation01},
+Replacing this relation in Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01},
+   \begin{shaded}
      \begin{equation}
-        TdS = dH - VdP.\label{Mod03_FundamentalRelation02}
+        TdS = dH - VdP.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation02}
      \end{equation}
-Equations~\ref{Mod03_FundamentalRelation01}-\ref{Mod03_FundamentalRelation02} correlate entropy changes to changes in other thermodynamic properties
+   \end{shaded}
+Equations~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01}-\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation02} correlate entropy changes to changes in other thermodynamic properties
       \begin{eqnarray}
          && dU = TdS - PdV \nonumber \\
          && dH = TdS + VdP. \nonumber 
       \end{eqnarray}
-These two fundamental relations can be used to define the two remaining thermodynamic potentials: Gibbs ($G$) free and Helmholtz free ($A$) energy functions:
+These two fundamental relations can be used to define the two remaining thermodynamic potentials, Gibbs ($G$) free and Helmholtz free ($A$) energy functions as:
       \begin{eqnarray}
          && A \equiv U -TS \nonumber \\
          && G \equiv H -TS, \nonumber 
@@ -76,77 +80,98 @@ or in differential form,
         && dA = dU -TdS - SdT \nonumber \\
         && dG = dH -TdS - SdT.\nonumber 
       \end{eqnarray}
-Using Eqns.~\ref{Mod03_FundamentalRelation01}-\ref{Mod03_FundamentalRelation02}:
+Using Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01}-\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation02}:
+   \begin{shaded}
       \begin{eqnarray}
-        && dA = - SdT - PdV, \label{Mod03_HelmholtzFundamentalRelation01}\\ 
-        && dG = - SdT + VdP. \label{Mod03_GibbsFundamentalRelation01}
+        && dA = - SdT - PdV, \label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:HelmholtzFundamentalRelation01}\\ 
+        && dG = - SdT + VdP. \label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}
       \end{eqnarray}
-These four equations, Eqns.~\ref{Mod03_FundamentalRelation01}-~\ref{Mod03_GibbsFundamentalRelation01} are known as {\it fundamental thermodynamic relations} as they correlate the five thermodynamic potentials -- $U$, $H$, $S$, $G$, and $A$ with $PVT$ properties.
+   \end{shaded}
+These four equations, Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01}-~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01} are known as {\it fundamental thermodynamic relations} as they correlate the five thermodynamic potentials -- $U$, $H$, $S$, $G$, and $A$ with $PVT$ properties.
 
 
      \end{subequations}
 
 %%% SECTION
 \section{Maxwell Relations}\label{Section:03:MaxwellRelations}
+     \begin{subequations}
 
-The four energy relations, Eqns.~\ref{Mod03_FundamentalRelation01}-~\ref{Mod03_GibbsFundamentalRelation01}, can be defined from a generic functional, 
+The thermodynamic potentials expressed in the four fundamental relations (Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01}-~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}) can be defined as a general functional, 
    \begin{displaymath}
     f = f(a,b),
    \end{displaymath}
-with the assumption that the thermodynamic potentials ($f$ above) are \blue{continuous and differentiable throughout the domain}. Therefore we can write the total derivative of function $f$ as
-   \begin{displaymath}
-         df = \underbrace{\left(\frc{\partial f}{\partial a}\right)_{b}}_{M}da + \underbrace{\left(\frc{\partial f}{\partial b}\right)_{a}}_{N}db = Mda + Ndb.
-   \end{displaymath}
+with the assumption that the thermodynamic potentials, $f$, are continuous (and differentiable) throughout the domain. Therefore, we can write the total derivative\footnote{Total derivative along with the main elements of Calculus is briefly defined in Appendix~\ref{Appendix_Calculus:TotalDifferential}.} of function $f$ as
+   \begin{equation}
+         df = \underbrace{\left(\frc{\partial f}{\partial a}\right)_{b}}_{M}da + \underbrace{\left(\frc{\partial f}{\partial b}\right)_{a}}_{N}db = Mda + Ndb.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:EqualRelation0}
+   \end{equation}
 Now, if we differentiate $M$ \wrt $b$ and $N$ \wrt $a$,
    \begin{displaymath}
          \left(\frc{\partial M}{\partial b}\right)_{a} = \frc{\partial^{2}f}{\partial a\partial b} \;\;\;\text{ and }\;\;\; \left(\frc{\partial N}{\partial a}\right)_{b} = \frc{\partial^{2}f}{\partial b\partial a},
    \end{displaymath}
 since we required that $f(a,b)$ to be \underline{continuous}, 
    \begin{equation}
-         \frc{\partial^{2}f}{\partial a\partial b} = \frc{\partial^{2}f}{\partial b\partial a}\;\;\Longrightarrow \left(\frc{\partial M}{\partial b}\right)_{a} = \left(\frc{\partial N}{\partial a}\right)_{b}\label{Mod03_EqualRelation}
+         \frc{\partial^{2}f}{\partial a\partial b} = \frc{\partial^{2}f}{\partial b\partial a}\;\;\Longrightarrow \left(\frc{\partial M}{\partial b}\right)_{a} = \left(\frc{\partial N}{\partial a}\right)_{b}\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:EqualRelation}
    \end{equation}
-Now applying Eqn.~\ref{Mod03_EqualRelation} into ~\ref{Mod03_FundamentalRelation01},
-   \begin{eqnarray}
-        df &=& Mda + Ndb, \nonumber \\
-        dU &=& TdS - PdV, \nonumber
-   \end{eqnarray}
+Now applying Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:EqualRelation} into ~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01},
+   \begin{displaymath}
+       \begin{cases}
+          df = Mda + Ndb, & \\
+          dU = TdS - PdV, &
+       \end{cases}
+   \end{displaymath}
 with $M=T$, $da=dS$, $N=-P$, $db = dV$ and $df = dU$ leading to,
-   \begin{subequations}
       \begin{shaded}
          \begin{equation}
-            \left(\frc{\partial M}{\partial b}\right)_{a} = \left(\frc{\partial N}{\partial a}\right)_{b} \;\;\;\Longrightarrow \left(\frc{\partial T}{\partial V}\right)_{S} = - \left(\frc{\partial P}{\partial S}\right)_{V}\label{Mod03_MaxwellRelation1}
+            \left(\frc{\partial M}{\partial b}\right)_{a} = \left(\frc{\partial N}{\partial a}\right)_{b} \;\;\;\Longrightarrow \left(\frc{\partial T}{\partial V}\right)_{S} = - \left(\frc{\partial P}{\partial S}\right)_{V}\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation1}
          \end{equation}
-      \end{shaded}
-Using the same procedure with  Eqn.~\ref{Mod03_FundamentalRelation02}-~\ref{Mod03_GibbsFundamentalRelation01},
-      \begin{shaded}
+Using the same procedure with  Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation02}-~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01},
            \begin{eqnarray}
-              \left(\frc{\partial T}{\partial P}\right)_{S} &=& \left(\frc{\partial V}{\partial S}\right)_{P},\label{Mod03_MaxwellRelation2} \\
-              \left(\frc{\partial S}{\partial V}\right)_{T} &=& \left(\frc{\partial P}{\partial T}\right)_{V},\label{Mod03_MaxwellRelation3} \\
-              -\left(\frc{\partial S}{\partial P}\right)_{T} &=& \left(\frc{\partial V}{\partial T}\right)_{P},\label{Mod03_MaxwellRelation4} 
+              \left(\frc{\partial T}{\partial P}\right)_{S} &=& \left(\frc{\partial V}{\partial S}\right)_{P},\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation2} \\
+              \left(\frc{\partial S}{\partial V}\right)_{T} &=& \left(\frc{\partial P}{\partial T}\right)_{V},\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation3} \\
+              -\left(\frc{\partial S}{\partial P}\right)_{T} &=& \left(\frc{\partial V}{\partial T}\right)_{P},\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation4} 
            \end{eqnarray}
       \end{shaded}
-   \end{subequations}
-The \blue{Maxwell relations}, Eqns.~\ref{Mod03_MaxwellRelation1}-~\ref{Mod03_MaxwellRelation4}, allow determining changes in entropy without directly measurement, but only with changes on the PVT properties. We can also make use of the total derivative definition and apply it into Eqns.~\ref{Mod03_FundamentalRelation01}-~\ref{Mod03_GibbsFundamentalRelation01}, thus
+Equations~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation1}-~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation4} are called as \blue{Maxwell relations}, and they allow determining changes in entropy without directly measurement, but only with changes on the PVT properties. We can also make use of the total derivative definition and apply it into Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01}-~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}, thus
    \begin{eqnarray}
                       &                            df =  \left(\frc{\partial f}{\partial a}\right)_{b}da + \left(\frc{\partial f}{\partial b}\right)_{a}db& \nonumber \\
-      dU = TdS - PdV  &\;\;\;\Longrightarrow \;\;\;& dU =  \underbrace{\left(\frc{\partial U}{\partial S}\right)_{V}}_{T}dS + \underbrace{\left(\frc{\partial U}{\partial V}\right)_{S}}_{-P}dV \nonumber \\
-      dH = TdS + VdP  &\;\;\;\Longrightarrow \;\;\;& dH =  \underbrace{\left(\frc{\partial H}{\partial S}\right)_{P}}_{T}dS + \underbrace{\left(\frc{\partial H}{\partial P}\right)_{S}}_{V}dP \nonumber \\
-      dA = -SdT - PdV &\;\;\;\Longrightarrow \;\;\;& dA =  \underbrace{\left(\frc{\partial A}{\partial T}\right)_{V}}_{-S}dT + \underbrace{\left(\frc{\partial A}{\partial V}\right)_{T}}_{-P}dV \nonumber \\
-      dG = -SdT + VdP &\;\;\;\Longrightarrow \;\;\;& dG =  \underbrace{\left(\frc{\partial G}{\partial T}\right)_{P}}_{-S}dT + \underbrace{\left(\frc{\partial G}{\partial P}\right)_{T}}_{V}dP \nonumber 
+      dU = TdS - PdV  &\;\;\;\Longleftrightarrow \;\;\;& dU =  \underbrace{\left(\frc{\partial U}{\partial S}\right)_{V}}_{T}dS + \underbrace{\left(\frc{\partial U}{\partial V}\right)_{S}}_{-P}dV \nonumber \\
+      dH = TdS + VdP  &\;\;\;\Longleftrightarrow \;\;\;& dH =  \underbrace{\left(\frc{\partial H}{\partial S}\right)_{P}}_{T}dS + \underbrace{\left(\frc{\partial H}{\partial P}\right)_{S}}_{V}dP \nonumber \\
+      dA = -SdT - PdV &\;\;\;\Longleftrightarrow \;\;\;& dA =  \underbrace{\left(\frc{\partial A}{\partial T}\right)_{V}}_{-S}dT + \underbrace{\left(\frc{\partial A}{\partial V}\right)_{T}}_{-P}dV \nonumber \\
+      dG = -SdT + VdP &\;\;\;\Longleftrightarrow \;\;\;& dG =  \underbrace{\left(\frc{\partial G}{\partial T}\right)_{P}}_{-S}dT + \underbrace{\left(\frc{\partial G}{\partial P}\right)_{T}}_{V}dP \nonumber 
    \end{eqnarray}
 Therefore
    \begin{shaded}
-      \begin{subequations}
          \begin{eqnarray}
-             \left(\frc{\partial U}{\partial S}\right)_{V} & =  T = & \left(\frc{\partial H}{\partial S}\right)_{P}\label{Mod03_MaxwellRelation5} \\
-             \left(\frc{\partial U}{\partial V}\right)_{S} & = -P = & \left(\frc{\partial A}{\partial V}\right)_{T}\label{Mod03_MaxwellRelation6} \\
-             \left(\frc{\partial H}{\partial P}\right)_{S} & =  V = & \left(\frc{\partial G}{\partial P}\right)_{T}\label{Mod03_MaxwellRelation7} \\
-             \left(\frc{\partial A}{\partial T}\right)_{V} & = -S = & \left(\frc{\partial G}{\partial T}\right)_{P}\label{Mod03_MaxwellRelation8}
+             \left(\frc{\partial U}{\partial S}\right)_{V} & =  T = & \left(\frc{\partial H}{\partial S}\right)_{P}\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation5} \\
+             \left(\frc{\partial U}{\partial V}\right)_{S} & = -P = & \left(\frc{\partial A}{\partial V}\right)_{T}\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation6} \\
+             \left(\frc{\partial H}{\partial P}\right)_{S} & =  V = & \left(\frc{\partial G}{\partial P}\right)_{T}\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation7} \\
+             \left(\frc{\partial A}{\partial T}\right)_{V} & = -S = & \left(\frc{\partial G}{\partial T}\right)_{P}\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation8}
          \end{eqnarray}
-      \end{subequations}
    \end{shaded}
-These properties relations, Eqns.~\ref{Mod03_MaxwellRelation5}-~\ref{Mod03_MaxwellRelation8}, correlate easily measurable properties -- $P$, $V$ and $T$, with non-measurable potentials -- $U$, $H$, $S$, $A$ and $G$.
+These property relations, Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation5}-~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation8}, easily correlate measurable properties ($P$, $V$ and $T$) with non-measurable potentials ($U$, $H$, $S$, $A$ and $G$).
 
+      \end{subequations}
+
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ThermodynamicPropertiesPureFluids:Example1} \citep{Balmer_Book}
+         Suppose we make a series of measurements in the laboratory and think we discovered a new thermodynamic property, call it $\eta$. Our experimental data provide an empirical equation of the form,
+          \begin{displyamth}
+             d\eta = PdV + V^{2}dP
+          \end{displaymath}
+          Is $\eta$ a new property?
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}
+        The unknown is whether or not $\eta$ is a new thermodynamic property. Using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:EqualRelation0},
+        \begin{displaymath}
+            d\eta = Mda + Ndb = PdV + V^{2}dP
+        \end{displaymath}
+          
+   \end{MyExample}
+   
 
 %%% SECTION
 \section{Relations for Internal Energy, Enthalpy and Entropy}\label{Section:03:U_H_S_Relations}
@@ -158,15 +183,15 @@ Maxwell relations can help to develop relations for changes in $U$, $H$ and $S$ 
            S = S(T,P),
         \end{cases}$ 
     \end{center}
-\ie defining {\it enthalpy} and {\it entropy} as functions of temperature and pressure. From Eqn.~\ref{Mod03_FundamentalRelation02},
+\ie defining {\it enthalpy} and {\it entropy} as functions of temperature and pressure. From Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation02},
     \begin{eqnarray}
         dH &=& TdS + VdP\;\;\text{ at constant } P\hspace{1cm} \blue{\times\left(1/dT\right)} \nonumber \\
         \Partial[H]{T}{P} &=& C_{p} = T\Partial[S]{T}{P} \nonumber \\
         \Partial[S]{T}{P} &=& \frc{C_{p}}{T}\label{Mod03_DerivedEntropyRelation1}
     \end{eqnarray}
-From Eqn.~\ref{Mod03_FundamentalRelation02} at constant $T$, multiplied by $(1/dP)$,
+From Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation02} at constant $T$, multiplied by $(1/dP)$,
     \begin{displaymath}
-       \Partial[H]{P}{T} = T\underbrace{\Partial[S]{P}{T}}_{\text{Eqn.~\ref{Mod03_MaxwellRelation4}}} + V = -T\Partial[V]{T}{P} + V.
+       \Partial[H]{P}{T} = T\underbrace{\Partial[S]{P}{T}}_{\text{Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation4}}} + V = -T\Partial[V]{T}{P} + V.
     \end{displaymath}
 Now if we write the derivatives of functions $H$ and $S$,
     \begin{displaymath}
@@ -180,7 +205,7 @@ Now if we write the derivatives of functions $H$ and $S$,
       \end{shaded}
 and using Eqn.~\ref{Mod03_DerivedEntropyRelation1},
       \begin{displaymath}
-         dS = \underbrace{\Partial[S]{T}{P}}_{\text{Eqn.~\ref{Mod03_DerivedEntropyRelation1}}}dT + \overbrace{\Partial[S]{P}{T}}^{\text{Eqn.~\ref{Mod03_MaxwellRelation4}}}dP 
+         dS = \underbrace{\Partial[S]{T}{P}}_{\text{Eqn.~\ref{Mod03_DerivedEntropyRelation1}}}dT + \overbrace{\Partial[S]{P}{T}}^{\text{Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation4}}}dP 
        \end{displaymath}
        \begin{shaded}
           \begin{equation}
@@ -218,12 +243,12 @@ using the same procedure as above starting from the derivatives of functions $U$
         dU &=& \Partial[U]{T}{V}dT + \Partial[U]{V}{T}dV, \text{ and } \nonumber \\
         dS &=& \Partial[S]{T}{V}dT + \Partial[S]{V}{T}dV. \nonumber
     \end{eqnarray} 
-From Eqn.~\ref{Mod03_FundamentalRelation01}, 
+From Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01}, 
     \begin{displaymath}
         dU = TdS - PdV,
         \begin{cases}
             \red{\times\Partial[]{T}{V}} \Longrightarrow \Partial[U]{T}{V} = T\Partial[S]{T}{V} = C_{v} \Longrightarrow  \Partial[S]{T}{V} = \frc{C_{v}}{T}\\
-            \red{\times\Partial[]{V}{T}} \Longrightarrow \underbrace{\Partial[U]{V}{T}}_{\text{Eqn.~\ref{Mod03_MaxwellRelation3}}} = T\Partial[S]{V}{T} - P \Longrightarrow \Partial[U]{V}{T} = T\Partial[P]{T}{V}-P   \\
+            \red{\times\Partial[]{V}{T}} \Longrightarrow \underbrace{\Partial[U]{V}{T}}_{\text{Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation3}}} = T\Partial[S]{V}{T} - P \Longrightarrow \Partial[U]{V}{T} = T\Partial[P]{T}{V}-P   \\
         \end{cases}
     \end{displaymath}
 Substituting these relations in the total differentials,
@@ -279,9 +304,9 @@ This relation can be used in Eqns.~\ref{Mod03_DerivedIntEnergyRelation1} and~\re
 %%% SECTION
 \section{Gibbs Free Energy as Generating Function}\label{Section:03:GibbsGeneratingFunction}
 
-The fundamental relation for the Gibbs free energy, Eqn.~\ref{Mod03_GibbsFundamentalRelation01}, demonstrated that this potential can be expressed as a function of temperature and pressure, $G=G(T,P)$. In chemical industrial (or lab) processes, both properties, $T$ and $P$, can be readily measured and controlled, and therefore used to obtain $G$. A convenient way to deal with this relation is rewriting it in dimensionless form
+The fundamental relation for the Gibbs free energy, Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}, demonstrated that this potential can be expressed as a function of temperature and pressure, $G=G(T,P)$. In chemical industrial (or lab) processes, both properties, $T$ and $P$, can be readily measured and controlled, and therefore used to obtain $G$. A convenient way to deal with this relation is rewriting it in dimensionless form
     \begin{eqnarray}
-         d\left(\frc{G}{RT}\right) &\equiv& \frc{1}{RT}dG - \frc{GR}{\left(RT\right)^{2}}dT = \frc{1}{RT}\underbrace{dG}_{\text{using Eqn.~\ref{Mod03_GibbsFundamentalRelation01}}} - \overbrace{\frc{G}{RT^{2}}}^{\text{using }G=H-TS}dT \nonumber \\
+         d\left(\frc{G}{RT}\right) &\equiv& \frc{1}{RT}dG - \frc{GR}{\left(RT\right)^{2}}dT = \frc{1}{RT}\underbrace{dG}_{\text{using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}}} - \overbrace{\frc{G}{RT^{2}}}^{\text{using }G=H-TS}dT \nonumber \\
                                     & =& \frc{V}{RT}dP - \red{\cancel{\frc{S}{RT}dT}} - \frc{H}{RT^{2}}dT + \red{\cancel{\frc{S}{RT}dT}} \nonumber
     \end{eqnarray}
 
@@ -406,7 +431,7 @@ $P^{\text{sat}}$ is the saturated pressure, \ie pressure in which phase change o
       \begin{displaymath}
           \frc{dP^{\text{sat}}}{dT} = \frc{S^{\beta}-S^{\alpha}}{V^{\beta}-V^{\alpha}} = \frc{\Delta S^{\alpha\beta}}{\Delta V^{\alpha\beta}}.
       \end{displaymath}
-We can define the {\it latent heat of phase transition} (\eg vaporisation, solidification etc), $\Delta H^{\alpha\beta}$ from Eqn.~\ref{Mod03_FundamentalRelation02} integrating with constant pressure,
+We can define the {\it latent heat of phase transition} (\eg vaporisation, solidification etc), $\Delta H^{\alpha\beta}$ from Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation02} integrating with constant pressure,
       \begin{displaymath}
           dH = TdS + VdP \;\;\Rightarrow \;\; \int\limits_{H^{\alpha}}^{H^{\beta}} dH = \int\limits_{S^{\alpha}}^{S^{\beta}} TdS \;\;\Rightarrow \;\;  H^{\beta}-H^{\alpha} = T\left(S^{\beta}-S^{\alpha}\right)  \;\;\Rightarrow \;\; \Delta H^{\alpha\beta} = T\Delta S^{\alpha\beta},
       \end{displaymath}
@@ -616,7 +641,7 @@ However, as $\left(h_{f4}-h_{f3}\right) <<<<< \left(h_{1}-h_{2}\right)$, the eff
                 \end{displaymath}
 %
             \item $ds$ = ? (specific entropy).\\
-                  From the Maxwell relations -- Eqn.~\ref{Mod03_MaxwellRelation4}, 
+                  From the Maxwell relations -- Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation4}, 
                 \begin{displaymath}
                    -\left(\frc{\partial s}{\partial P}\right)_{T} = \left(\frc{\partial v}{\partial T}\right)_{P},
                 \end{displaymath}
