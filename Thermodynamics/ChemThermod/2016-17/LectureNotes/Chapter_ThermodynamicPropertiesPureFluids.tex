@@ -157,7 +157,7 @@ These property relations, Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:E
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
      \begin{example}\label{Chapter:ThermodynamicPropertiesPureFluids:Example1} \citep{Balmer_Book}
          Suppose we make a series of measurements in the laboratory and think we discovered a new thermodynamic property, call it $\eta$. Our experimental data provide an empirical equation of the form,
-          \begin{displyamth}
+          \begin{displaymath}
              d\eta = PdV + V^{2}dP
           \end{displaymath}
           Is $\eta$ a new property?
@@ -167,11 +167,122 @@ These property relations, Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:E
        \noindent{\bf Solution:}
         The unknown is whether or not $\eta$ is a new thermodynamic property. Using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:EqualRelation0},
         \begin{displaymath}
-            d\eta = Mda + Ndb = PdV + V^{2}dP
+            d\eta = Mda + Ndb = PdV + V^{2}dP,
         \end{displaymath}
-          
+        with $M=P$, $N=V^{2}$, $a=V$ and $b=P$. The cross differentials are
+        \begin{displaymath}
+            \Partial[M]{b}{a} = \Partial[P]{P}{V} = 1\;\;\;\text{ and }\;\;\; \Partial[N]{a}{b} = \Partial[V^{2}]{V}{P} = 2V \ne \Partial[M]{b}{a}.
+        \end{displaymath}
+         Since this equality is not satisfied, $\eta$ can not be a thermodynamic property.
    \end{MyExample}
    
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ThermodynamicPropertiesPureFluids:Example2} 
+         A block of copper of 1 kg undertakes a reversible compression from 0.1 MPa to 100 MPa at constant temperature of 15$^{\circ}$C. Calculate:
+    \begin{enumerate}[a)]
+       \item Work done on the copper block during the process;
+       \item Change in entropy {\it per} kg of copper;
+       \item Heat transfer and;
+       \item Change of internal energy {\it per} kg.
+    \end{enumerate}
+    Given, 
+    \begin{itemize}
+       \item Volume expansivity coefficient: $\beta = 5\times 10^{-5}$ K$^{-1}$;
+       \item Isothermal compressibility coefficient: $\kappa = 8.6\times 10^{-12}$ m$^{2}$.N$^{-1}$;
+       \item specific volume: $v=1.14\times 10^{-4}$ m$^{3}$.kg$^{-1}$.
+    \end{itemize} 
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}
+       \begin{enumerate}[a)]
+%
+            \item The work done during the compression,
+                \begin{displaymath}
+                   w = -\int P dv,
+                \end{displaymath}
+                where $v$ is the specific volume. $\kappa$ was defined in Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityExpansivity} as,
+                \begin{displaymath}
+                   \kappa = \frc{1}{v}\left(\frc{\partial v}{\partial P}\right)_{T}\;\Longrightarrow \; v\kappa dP = - dv \;\;\text{ (with constant T)}
+                \end{displaymath}
+                For isothermal processes
+                \begin{displaymath}
+                   w = -\int P dv = - \int P\left(-v\kappa dP\right) = \frc{v}{2}\kappa\left(P_{2}^{2}-P_{1}^{2}\right) = 4.90 \frc{\text{J}}{\text{kg}}
+                \end{displaymath}
+%
+            \item $ds$ = ? (specific entropy).\\
+                  From the Maxwell relations -- Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation4}, 
+                \begin{displaymath}
+                   -\left(\frc{\partial s}{\partial P}\right)_{T} = \left(\frc{\partial v}{\partial T}\right)_{P},
+                \end{displaymath}
+                and from the definition of $\beta$,
+                \begin{eqnarray}
+                    && \beta = \frc{1}{v}\left(\frc{\partial v}{\partial T}\right)_{P} \;\;\Longrightarrow\;\; -\left(\frc{\partial s}{\partial P}\right)_{T} = \beta v \nonumber \\
+                    && ds = -\beta v dP \;\;\Longrightarrow ds = s_{2}-s_{1} = -\beta v \left(P_{2}-P_{1}\right) = -0.5694 \frc{\text{J}}{\text{kg.K}} \nonumber
+                \end{eqnarray}
+%
+            \item The heat transferred in such reversible isothermal process is
+                \begin{displaymath}
+                   dq = Tds \;\;\Longrightarrow q = T\left(s_{2}-s_{1}\right) = -164.07 \frc{\text{J}}{\text{kg}}.
+                \end{displaymath}
+%
+            \item The specific internal energy,
+                \begin{eqnarray}
+                   &&  du = q + w \nonumber \\
+                   && \left(u_{2}-u_{1}\right) = \underbrace{-164.07}_{\text{heat removed from the system}} + \overbrace{4.90}^{\text{work given to the system}} = -159.17 \frc{\text{J}}{\text{kg}}. \nonumber
+                \end{eqnarray}
+       \end{enumerate}
+   \end{MyExample}
+   
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ThermodynamicPropertiesPureFluids:Example3}  
+     Demonstrate that the derivative of molar volume \wrt temperature at constant pressure is
+     \begin{displaymath}
+         \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}},
+     \end{displaymath}
+     and obtain an expression, $\Partial[V]{T}{P}$, for the van der Waals EOS. 
+
+     \noindent{\bf Hint:} You should start the proof from the total differential of a continuous function $f(a,b)$,
+     \begin{displaymath}
+         df = \Partial[f]{a}{b}da + \Partial[f]{b}{a}db.
+     \end{displaymath}
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}
+     The total differential of a generic continuous function $f(a,b)$ is
+     \begin{displaymath}
+         df = \Partial[f]{a}{b}da + \Partial[f]{b}{a}db.
+     \end{displaymath}
+     where (from the given thermodynamic function) $f=P$, $a=T$ and $b=V$, \ie
+     \begin{displaymath}
+         dP = \Partial[P]{T}{V}dT + \Partial[P]{V}{T}dV.
+     \end{displaymath}
+     However we want a differential expression in which $P$ is constant, therefore $dP = 0$,
+     \begin{eqnarray}
+         0 &=& \Partial[P]{T}{V}dT + \Partial[P]{V}{T}dV \;\;\;\text{ at } P \text{ constant},\nonumber \\
+         \Partial[V]{T}{P} &=& -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}}.\nonumber
+     \end{eqnarray}
+
+     \medskip\noindent
+     The vdW-EOS is,
+     \begin{displaymath}
+          P = \frc{RT}{V-b} - \frc{a}{V^{2}},
+     \end{displaymath}
+     where $V$ is the molar volume and $a$ and $b$ are constants that {\it depends only on critical properties}, $P_{c}$ and $T_{c}$. Due to the non-linearity of this EOS, obtaining $\Partial[V]{T}{P}$ from a direct differentiation would be difficult. However, we can use the expression that we just derived,
+     \begin{displaymath}
+         \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}} = -\frc{\frc{R}{V-b}}{-\frc{RT}{\left(V-b\right)^{2}}+\frc{2a}{V^{3}}}
+     \end{displaymath} 
+
+   \end{MyExample}
+
+
+
+
+
 
 %%% SECTION
 \section{Relations for Internal Energy, Enthalpy and Entropy}\label{Section:03:U_H_S_Relations}
@@ -604,106 +715,8 @@ However, as $\left(h_{f4}-h_{f3}\right) <<<<< \left(h_{1}-h_{2}\right)$, the eff
 
 %%% SECTION
 \section{Examples}
+       \begin{enumerate}
 
-\begin{enumerate}[1)]
-%%%
-%%% EXAMPLE 
-%%%
-\item\label{Mod03Ex01} A block of copper of 1 kg undertakes a reversible compression from 0.1 MPa to 100 MPa at constant temperature of 15$^{\circ}$C. Calculate:
-    \begin{enumerate}[a)]
-       \item Work done on the copper block during the process;
-       \item Change in entropy {\it per} kg of copper;
-       \item Heat transfer and;
-       \item Change of internal energy {\it per} kg.
-    \end{enumerate}
-    Given, 
-    \begin{itemize}
-       \item Volume expansivity coefficient: $\beta = 5\times 10^{-5}$ K$^{-1}$;
-       \item Isothermal compressibility coefficient: $\kappa = 8.6\times 10^{-12}$ m$^{2}$.N$^{-1}$;
-       \item specific volume: $v=1.14\times 10^{-4}$ m$^{3}$.kg$^{-1}$.
-    \end{itemize} 
-
-% SOLUTION
-    \noindent{\bf Solution:} 
-       \begin{enumerate}[a)]
-%
-            \item The work done during the compression,
-                \begin{displaymath}
-                   w = -\int P dv,
-                \end{displaymath}
-                where $v$ is the specific volume. $\kappa$ was defined in Module~\ref{Section:02} as,
-                \begin{displaymath}
-                   \kappa = \frc{1}{v}\left(\frc{\partial v}{\partial P}\right)_{T}\;\Longrightarrow \; v\kappa dP = - dv \;\;\text{ (with constant T)}
-                \end{displaymath}
-                For isothermal processes
-                \begin{displaymath}
-                   w = -\int P dv = - \int P\left(-v\kappa dP\right) = \frc{v}{2}\kappa\left(P_{2}^{2}-P_{1}^{2}\right) = 4.90 \frc{\text{J}}{\text{kg}}
-                \end{displaymath}
-%
-            \item $ds$ = ? (specific entropy).\\
-                  From the Maxwell relations -- Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation4}, 
-                \begin{displaymath}
-                   -\left(\frc{\partial s}{\partial P}\right)_{T} = \left(\frc{\partial v}{\partial T}\right)_{P},
-                \end{displaymath}
-                and from the definition of $\beta$,
-                \begin{eqnarray}
-                    && \beta = \frc{1}{v}\left(\frc{\partial v}{\partial T}\right)_{P} \;\;\Longrightarrow\;\; -\left(\frc{\partial s}{\partial P}\right)_{T} = \beta v \nonumber \\
-                    && ds = -\beta v dP \;\;\Longrightarrow ds = s_{2}-s_{1} = -\beta v \left(P_{2}-P_{1}\right) = -0.5694 \frc{\text{J}}{\text{kg.K}} \nonumber
-                \end{eqnarray}
-%
-            \item The heat transferred in such reversible isothermal process is
-                \begin{displaymath}
-                   dq = Tds \;\;\Longrightarrow q = T\left(s_{2}-s_{1}\right) = -164.07 \frc{\text{J}}{\text{kg}}.
-                \end{displaymath}
-%
-            \item The specific internal energy,
-                \begin{eqnarray}
-                   &&  du = q + w \nonumber \\
-                   && \left(u_{2}-u_{1}\right) = \underbrace{-164.07}_{\text{heat removed from the system}} + \overbrace{4.90}^{\text{work given to the system}} = -159.17 \frc{\text{J}}{\text{kg}}. \nonumber
-                \end{eqnarray}
- 
-%
-       \end{enumerate} 
-
-\clearpage
-%%%
-%%% EXAMPLE 
-%%%
-\item\label{Mod03Ex02} Demonstrate that the derivative of molar volume \wrt temperature at constant pressure is
-     \begin{displaymath}
-         \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}},
-     \end{displaymath}
-     and obtain an expression for $\Partial[V]{T}{P}$ for the van der Waals EOS. {\bf Hint:} You should start the proof from the total differential of a continuous function $f(a,b)$,
-     \begin{displaymath}
-         df = \Partial[f]{a}{b}da + \Partial[f]{b}{a}db.
-     \end{displaymath}
-
-% SOLUTION
-    \noindent{\bf Solution:} The total differential of a generic continuous function $f(a,b)$ is
-     \begin{displaymath}
-         df = \Partial[f]{a}{b}da + \Partial[f]{b}{a}db.
-     \end{displaymath}
-     where (from the given thermodynamic function) $f=P$, $a=T$ and $b=V$, \ie
-     \begin{displaymath}
-         dP = \Partial[P]{T}{V}dT + \Partial[P]{V}{T}dV.
-     \end{displaymath}
-     However we want a differential expression in which $P$ is constant, therefore $dP = 0$,
-     \begin{eqnarray}
-         0 &=& \Partial[P]{T}{V}dT + \Partial[P]{V}{T}dV \;\;\;\text{ at } P \text{ constant},\nonumber \\
-         \Partial[V]{T}{P} &=& -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}}.\nonumber
-     \end{eqnarray}
-
-     \medskip\noindent
-     The vdW-EOS is,
-     \begin{displaymath}
-          P = \frc{RT}{V-b} - \frc{a}{V^{2}},
-     \end{displaymath}
-     where $V$ is the molar volume and $a$ and $b$ are constants that {\it depends only on critical properties}, $P_{c}$ and $T_{c}$. Due to the non-linearity of this EOS, obtaining $\Partial[V]{T}{P}$ from a direct differentiation would be difficult. However, we can use the expression that we just derived,
-     \begin{displaymath}
-         \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}} = -\frc{\frc{R}{V-b}}{-\frc{RT}{\left(V-b\right)^{2}}+\frc{2a}{V^{3}}}
-     \end{displaymath} 
-
-\clearpage
 %%%
 %%% EXAMPLE 
 %%%
