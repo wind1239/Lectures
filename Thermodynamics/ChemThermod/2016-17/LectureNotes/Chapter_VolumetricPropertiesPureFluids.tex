@@ -281,6 +281,67 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
         \end{equation}  
   \end{subequations}  
 
+
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:VolumetricPropertiesPureSubstances:Example2}\citep{Moran_Book}
+       A cylindrical tank containing 4.0 kg of carbon monoxide gas at -50$^{\circ}$C has an inner diameter of 0.2 m and a length of 1 m. The measured pressure was 75.90 bar. Determine the pressure (in bar) exerted by the gas using:
+       \begin{enumerate}[a)]
+         \item the ideal gas equation of state;
+         \item the van der Waals equation of state;
+         \item the Redlich–Kwong equation of state.
+       \end{enumerate}
+       Compare the results obtained. The molar mass (MW) of the CO is 28 g.mol$^{-1}$ and critical pressure and temperature are 34.5290 atm and 132.91 K, respectively.
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}
+       The molar volume of the gas is required in each part of the solution. Let us begin by evaluating it. The volume occupied by the gas is
+       \begin{displaymath}
+         V^{t} = \left(\frc{\pi D^{2}}{4}\right)L = 0.031415\text{ m}^{3},
+       \end{displaymath}
+       and there are  
+       \begin{displaymath}
+         n = \frc{m}{MW} = 142.8571 \text{ moles of CO in the tank.} 
+       \end{displaymath}
+       Thus, the molar volume is
+       \begin{displaymath}
+         V = \frc{V^{t}}{n} = 2.1991\times 10^{-4}\text{ m}^{3}\text{.mol}^{-1}.         
+       \end{displaymath}
+%       
+       \begin{enumerate}[a)]
+       \item Ideal gas EOS:
+         \begin{displaymath}
+           P = \frc{RT}{V} = 8437000.0227\text{ Pa} = 84.3700\text{ bar}
+         \end{displaymath}
+%
+       \item vdW EOS: Calculating attractive and repulsive parameters (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:vdWEOS2}),
+         \begin{displaymath}
+           a = \frc{27}{64}\frc{R^{2}T_{c}^{2}}{P_{c}} = 0.1473 \text{ Pa.m}^{6}\text{.mol}^{-2}\;\;\;\;\text{ and }\;\;\;\; b = \frc{1}{8}\frc{R T_{c}}{P_{c}} = 3.9482\times 10^{-5}\text{ m}^{3}\text{.mol}^{-1},
+         \end{displaymath}
+         now, applying these parameters into Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:vdWEOS},
+         \begin{displaymath}
+           P = \frc{R T}{V-b} - \frc{a}{V^{2}} = 7237339.2030\text{ Pa} = 72.3734\text{ bar}
+         \end{displaymath}
+%
+       \item RK EOS: Calculating attractive and repulsive parameters (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS2}),
+         \begin{eqnarray}
+           a &=& \frc{0.42748 R^{2}T_{c}^{2.5}}{P_{c}}= 1.7202\text{ m}^{6}\text{.Pa.K}^{0.5}\text{.mol}^{-2} \nonumber \\
+           b &=& \frc{0.08664 R T_{c} }{P_{c}} = 2.7366\times 10^{-5}\text{ m}^{3}\text{.mol}^{-1} \nonumber 
+           \end{eqnarray}
+         now, applying these parameters into Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS},
+         \begin{displaymath}
+           P = \frc{R T}{V-b} - \frc{a}{V\sqrt{T}\left(V+b\right)} = 7518491.6960\text{ Pa} = 75.1849\text{ bar} 
+         \end{displaymath}
+       \end{enumerate}
+       Using the standard expression for error,
+       \begin{displaymath}
+         \epsilon = \frc{\left|P^{\text{meas}}-P^{\text{calc}}\right|}{P^{\text{meas}}}\times 100\;\;\;\left(\%\right)
+       \end{displaymath}
+       In comparison to the measured value, the ideal gas EOS predicted a pressure that is 11.59$\%$ higher whereas the van der Waals EOS gives a value that is 4.65$\%$ lower. The Redlich–Kwong EOS predicted the pressure with an error of just 0.94$\%$.
+   \end{MyExample}
+  
   \begin{subequations}
        Twenty three years later, \citet{Soave_1972} proposed a modification from the RK EOS to include the impact of sphericity and deformation of molecules through the Pitzer's acentric factor, $\omega$,\index{Acentric factor}
        \begin{equation}
@@ -359,7 +420,7 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
          \end{eqnarray}
      \end{shaded}
 
-       Equations~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zvap} and \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zliq} can be numerically solved either by a {\it calculator}\footnote{For the Casio FX 991ES calculator, see online tutorial at \href{https://www.youtube.com/watch?v=DDVkBMGmVy8}{https://www.youtube.com/watch?v=DDVkBMGmVy8} or \href{https://www.thestudentroom.co.uk/revision/mathematics/making-the-most-of-your-casio-fx-991es-calculator}{https://www.thestudentroom.co.uk/revision/mathematics/making-the-most-of-your-casio-fx-991es-calculator}.} or applying any method described in Appendix~\ref{Section:RootFinderMethods}.
+       Equations~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zvap} and \ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zliq} can be numerically solved either by a {\it calculator}\footnote{For the Casio FX 991ES calculator, see online tutorial at \href{https://www.youtube.com/watch?v=DDVkBMGmVy8}{https://www.youtube.com/watch?v=DDVkBMGmVy8} or \href{https://www.thestudentroom.co.uk/revision/mathematics/making-the-most-of-your-casio-fx-991es-calculator}{https://www.thestudentroom.co.uk/revision/mathematics/making-the-most-of-your-casio-fx-991es-calculator}.} or applying any method described in Appendix~\ref{Section:RootFinderMethods}. Examples of how to apply these methods can be found in Example 5.\ref{Chapter:VolumetricPropertiesPureSubstances:Example3}.
 
 \begin{table}[h]
     \begin{center}
@@ -382,7 +443,7 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
 
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:VolumetricPropertiesPureSubstances:Example2}
+     \begin{example}\label{Chapter:VolumetricPropertiesPureSubstances:Example3}
         For gaseous methane at 298 K and 2 MPa, compute the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ using the SRK EOS. Given $T_{c}=$ 190.7 K, $P_{c}=$ 46.41 bar and $\omega=$ 0.011.
      \end{example}
 
@@ -402,7 +463,7 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
            There are three ways to solve this non-linear equation, all of them involve iterative methods for root-finder \citep[for more information about root-finder methods see Appendix~\ref{Section:RootFinderMethods} and/or][]{Atkinson_Book_Newton,NumericalRecipes_Newton}.
            \begin{enumerate}[a)]
 %
-              \item {\bf Solver of calculators:} this leads to $Z_{\text{vap}} = $ 0.9670. 
+              \item {\bf {\it Solver} of calculators:} this leads to $Z_{\text{vap}} = $ 0.9670. 
 %
               \item {\bf Substitution method:} In this method we rewrite the $Z_{\text{vap}}$ equation as,
                  \begin{displaymath}
@@ -474,7 +535,7 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
 
            Now replacing $Z_{\text{vap}} = 0.9670$ in 
            \begin{displaymath}
-              V=\frc{Z_{\text{vap}}R T}{P} = 1197.9493 \text{ cm}^{3}.\text{mol}^{-1}\sim 1197.95 \text{ cm}^{3}.\text{mol}^{-1}
+              V=\frc{Z_{\text{vap}}R T}{P} = 1197.9493 \text{ cm}^{3}.\text{mol}^{-1}
            \end{displaymath}
        
    \end{MyExample}
@@ -483,7 +544,7 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
 
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:VolumetricPropertiesPureSubstances:Example3}
+     \begin{example}\label{Chapter:VolumetricPropertiesPureSubstances:Example4}
         Calculate the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ for gaseous butane at 2.5 bar and 298 K using
         \begin{enumerate}[a)]
            \item ideal gas EOS;
@@ -536,46 +597,6 @@ In Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}, the ideal g
            \end{enumerate}
    \end{MyExample}
 
-
-   % Example
-   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:VolumetricPropertiesPureSubstances:Example4}\citep{Moran_Book}
-       A cylindrical tank containing 4.0 kg of carbon monoxide gas at -50$^{\circ}$C has an inner diameter of 0.2 m and a length of 1 m. Determine the pressure, in bar, exerted by the gas using:
-       \begin{enumerate}[a)]
-         \item the ideal gas equation of state;
-         \item the van der Waals equation of state;
-         \item the Redlich–Kwong equation of state.
-       \end{enumerate}
-       Compare the results obtained. The molar mass (MW) of the CO is 28 g.mol$^{-1}$
-     \end{example}
-
-% SOLUTION
-       \noindent{\bf Solution:}
-       The molar volume of the gas is required in each part of the solution. Let us begin by evaluating it. The volume occupied by the gas is
-       \begin{displaymath}
-         V^{t} = \left(\frc{\pi D^{2}}{4}\right)L = 0.031415\text{ m}^{3},
-       \end{displaymath}
-       and there are  
-       \begin{displaymath}
-         n = \frc{m}{MW} = 142.8571 \text{ moles of CO in the tank.} 
-       \end{displaymath}
-       Thus, the molar volume is
-       \begin{displaymath}
-         V = \frc{V^{t}}{n} = 2.1991\times 10^{-4}\text{ m}^{3}\text{.mol}^{-1}.         
-       \end{displaymath}
-%       
-       \begin{enumerate}[a)]
-       \item Ideal gas EOS:
-         \begin{displaymath}
-           P = \frc{RT}{V} = 8437000.022736574\text{ Pa} = 84.3700\text{ bar}
-         \end{displaymath}
-%
-       \item ff
-         \begin{displaymath}
-           a = \frc{27}{64}\frc{R^{2}T_{c}^{2}}{P_{c}} = 0.1473 \text{ bar.m}^{6}\text{.mol}^{2}
-%
-           \end{enumerate}
-   \end{MyExample}
 
    
 
