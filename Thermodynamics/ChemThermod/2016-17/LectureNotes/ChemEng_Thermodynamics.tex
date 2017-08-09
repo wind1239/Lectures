@@ -122,7 +122,7 @@
 %\lhead[\text{\small{WORK IN PROGRESS}}] {\text{\small{ICON/AMCG}}} 
 %-\lhead[] {\text{\small{ICON/AMCG}}} 
 %-\chead[\text{\small{FETCH Manual}}]  {\text{\small{FETCH Manual}}} %{\text{\small{JAERI Analysis Report Issue}}}
-%-\rhead[\text{\small{Commercial-in Confidence}}]{}
+%\rhead[]{}
 \rfoot[\thepage]{\thepage}
 %-\rfoot[]{}%{\text{\small{\today}}}
 %\cfoot[\text{\small{\today}}]{}% {\text{\small{\today}}}
@@ -315,6 +315,16 @@
 
 %%%% ETOC Package to introduce Local Table of Contents
 \usepackage{etoc}
+\makeatletter
+\def\etocarticlestyle{%
+    \etocsettocstyle
+    {\section *{\contentsname
+%                \@mkboth {\MakeUppercase \contentsname}
+%                         {\MakeUppercase \contentsname}
+         }
+         }
+    {}}
+    \makeatother
 
 \begin{document}
 \etocsettocdepth{subsection}
