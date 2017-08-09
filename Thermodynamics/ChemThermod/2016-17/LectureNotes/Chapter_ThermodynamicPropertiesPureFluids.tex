@@ -282,12 +282,15 @@ These property relations, Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:E
 
 %%% SECTION
    \section{Relations for Internal Energy, Enthalpy and Entropy}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:U_H_S_Relations}
+
+%%% Subsection
+     \subsection{Enthalpy and Entropy}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:H_S_Relations}
       \begin{subequations}
 
 Maxwell relations can help to develop relations for changes in $U$, $H$ and $S$ that reflect in heat and work interactions. Given
     \begin{displaymath}
        \begin{cases}
-           H = H(T,P), & \text{ and } \\
+           H = H(T,P), &  \\
            S = S(T,P), &
         \end{cases} 
     \end{displaymath}
@@ -298,7 +301,7 @@ Maxwell relations can help to develop relations for changes in $U$, $H$ and $S$ 
     at constant pressure and multiplying by $(1/dT)$,
     \begin{eqnarray}
         \Partial[H]{T}{P} &=& C_{p} = T\Partial[S]{T}{P} \nonumber \\
-        \Partial[S]{T}{P} &=& \frc{C_{p}}{T}.\label{Chapter:ThermodynamicPropertiesPureFluids:Section:DerivedEntropyRelation1}
+        \Partial[S]{T}{P} &=& \frc{C_{p}}{T}.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelation1}
     \end{eqnarray}
 Nowm using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation02} at constant $T$, multiplied by $(1/dP)$,
     \begin{displaymath}
@@ -311,82 +314,86 @@ Now if we write the total derivative of function $H$,
        dH = \Partial[H]{T}{P}dT + \Partial[H]{P}{T}dP 
     \end{displaymath}
          \begin{equation}
-            dH = C_{p}dT + \left[V - T\Partial[V]{T}{P}\right]dP.\label{Mod03_DerivedEnthalpyRelation1}
+            dH = C_{p}dT + \left[V - T\Partial[V]{T}{P}\right]dP.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEnthalpyRelation1}
          \end{equation}
       \noindent
-And the total derivative of function $S$ can be expressed as (using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:DerivedEntropyRelation1}),
+And the total derivative of function $S$ can be expressed as (using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelation1}),
       \begin{displaymath}
-         dS = \underbrace{\Partial[S]{T}{P}}_{\text{Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:DerivedEntropyRelation1}}}dT + \overbrace{\Partial[S]{P}{T}}^{\text{Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation4}}}dP 
+         dS = \underbrace{\Partial[S]{T}{P}}_{\text{Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelation1}}}dT + \overbrace{\Partial[S]{P}{T}}^{\text{Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation4}}}dP 
        \end{displaymath}
           \begin{equation}
-             dS = C_{p}\frc{dT}{T} - \Partial[V]{T}{P}dP\label{Mod03_DerivedEntropyRelations}
+             dS = C_{p}\frc{dT}{T} - \Partial[V]{T}{P}dP\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelations}
           \end{equation}
-       \end{shaded}
 
-\medskip
-
-\begin{shaded}
       \noindent
-      For an \blue{ideal gas}, $V=\frac{RT}{P}$ and $\Partial[V]{T}{P} = \frc{R}{P}$, therefore Eqn.~\ref{Mod03_DerivedEnthalpyRelation1} becomes
+      For an \blue{ideal gas}, $V=\frac{RT}{P}$ and $\Partial[V]{T}{P} = \frc{R}{P}$, therefore Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEnthalpyRelation1} becomes
          \begin{eqnarray}
             dH &=& C_{p}dT + \left[V-\overbrace{T\frc{R}{P}}^{=V}\right]dP \nonumber \\
-            dH &=& C_{p}dT,\label{Mod03_DerivedEnthalpyRelation2}
+            dH &=& C_{p}dT,\nonumber 
          \end{eqnarray}
-      and Eqn.~\ref{Mod03_DerivedEntropyRelations} becomes,
+      and Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelations} becomes,
          \begin{equation}
-            dS = C_{p}\frc{dT}{T} -\frc{R}{P}dP.\label{Mod03_DerivedEntropyRelations2}
+            dS = C_{p}\frc{dT}{T} -\frc{R}{P}dP.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelations2}
          \end{equation}
 \end{shaded}
+      \end{subequations}
 
-\bigskip
+%%% Subsection
+     \subsection{Internal Energy and Entropy}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:U_S_Relations}
+      \begin{subequations}
 
-Similarly, we can express $U$ and $S$ as functions of $T$ and $V$,
+In a similar way, $U$ and $S$ can be expressed as functions of $T$ and $V$,
     \begin{displaymath}
        \begin{cases}
-           U = U(T,V), & \text{ and } \\
-           S = S(T,V), &
+           U = U(T,V), &  \\
+           S = S(T,V). &
         \end{cases}
     \end{displaymath} 
-using the same procedure as above starting from the derivatives of functions $U$ and $S$,
-    \begin{eqnarray}
-        dU &=& \Partial[U]{T}{V}dT + \Partial[U]{V}{T}dV, \text{ and } \nonumber \\
-        dS &=& \Partial[S]{T}{V}dT + \Partial[S]{V}{T}dV. \nonumber
-    \end{eqnarray} 
+Using the same procedure as in Section~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:H_S_Relations}, starting from the derivatives of functions $U$ and $S$,
+    \begin{displaymath}
+       \begin{cases}
+           dU = \Partial[U]{T}{V}dT + \Partial[U]{V}{T}dV, & \text{ and }  \\
+           dS = \Partial[S]{T}{V}dT + \Partial[S]{V}{T}dV. &
+        \end{cases}
+    \end{displaymath} 
 From Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01}, 
     \begin{displaymath}
-        dU = TdS - PdV,
+        dU = TdS - PdV
         \begin{cases}
-            \red{\times\Partial[]{T}{V}} \Longrightarrow \Partial[U]{T}{V} = T\Partial[S]{T}{V} = C_{v} \Longrightarrow  \Partial[S]{T}{V} = \frc{C_{v}}{T}\\
-            \red{\times\Partial[]{V}{T}} \Longrightarrow \underbrace{\Partial[U]{V}{T}}_{\text{Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation3}}} = T\Partial[S]{V}{T} - P \Longrightarrow \Partial[U]{V}{T} = T\Partial[P]{T}{V}-P   \\
+            \red{\times\Partial[]{T}{V}} \Longrightarrow \Partial[U]{T}{V} = T\Partial[S]{T}{V} = C_{v} \Longrightarrow & \Partial[S]{T}{V} = \frc{C_{v}}{T} \\
+            \red{\times\Partial[]{V}{T}} \Longrightarrow \underbrace{\Partial[U]{V}{T}}_{\text{Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation3}}} = T\Partial[S]{V}{T} - P \Longrightarrow & \Partial[U]{V}{T} = T\Partial[P]{T}{V}-P    
         \end{cases}
     \end{displaymath}
+
 Substituting these relations in the total differentials,
 \begin{shaded}
   
           \begin{eqnarray}
-             dU = \Partial[U]{T}{V}dT + \Partial[U]{V}{T}dV \;\;&\Longrightarrow&\;\; dU = C_{v}dT + \left[T\Partial[P]{T}{V}-P\right]dV\label{Mod03_DerivedIntEnergyRelation1} \\
-             dS = \Partial[S]{T}{V}dT + \Partial[S]{V}{T}dV \;\;&\Longrightarrow&\;\; dS = \frc{C_{v}}{T}dT + \Partial[P]{T}{V}dV.\label{Mod03_DerivedEntropyRelations3}
+             dU = \Partial[U]{T}{V}dT + \Partial[U]{V}{T}dV \;\;& \Longrightarrow & dU = C_{v}dT + \left[T\Partial[P]{T}{V}-P\right]dV\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedIntEnergyRelation1}\\
+             dS = \Partial[S]{T}{V}dT + \Partial[S]{V}{T}dV \;\;& \Longrightarrow & dS = \frc{C_{v}}{T}dT + \Partial[P]{T}{V}dV.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelations3}
           \end{eqnarray} 
     \end{shaded}
-
-Equation~\ref{Mod02_Compressibilityexpansivity2} (Module~\ref{Section:02}) relates the isothermal compressibility, $\kappa$, expansivity, $\beta$ coefficients to $T$, $P$ and $V$,
+Using Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityExpansivity2}, which relates the isothermal compressibility ($\kappa$) and expansivity ($\beta$) coefficients to $T$, $P$ and $V$,
      \begin{eqnarray}
-        \frc{dV}{V} &=& \beta dT - \kappa dP \;\;\;\red{\times\Partial[]{T}{V} \nonumber \text{ \ie at }V\text{ constant}} \nonumber \\
+        \frc{dV}{V} &=& \beta dT - \kappa dP \;\;\;\red{\times\Partial[]{T}{V} \nonumber \text{ (\ie at V constant)}} \nonumber \\
             0       &=& \beta - \kappa\Partial[P]{T}{V} \Longrightarrow \Partial[P]{T}{V} = \frc{\beta}{\kappa} \nonumber
      \end{eqnarray}
-This relation can be used in Eqns.~\ref{Mod03_DerivedIntEnergyRelation1} and~\ref{Mod03_DerivedEntropyRelations3},
-     \begin{eqnarray}
-        dU &=& C_{v}dT + \left[T\frc{\beta}{\kappa}-P\right]dV\label{Mod03_DerivedIntEnergyRelation2} \\
-        dS &=& \frc{C_{v}}{T}dT + \frc{\beta}{\kappa}dV.\label{Mod03_DerivedEntropyRelations4}
-     \end{eqnarray}
+   \begin{shaded} 
+     This relation can be used in Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedIntEnergyRelation1} and~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelations3},
+       \begin{eqnarray}
+          dU &=& C_{v}dT + \left[T\frc{\beta}{\kappa}-P\right]dV\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedIntEnergyRelation2} \\
+          dS &=& \frc{C_{v}}{T}dT + \frc{\beta}{\kappa}dV.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelations4}
+       \end{eqnarray}
+    \end{shaded}
+ \end{subequations}
+\bigskip
 
-\begin{table}[h]
    \begin{shaded} 
        \begin{center}
            {\bf $\kappa$ and $\beta$ Relations for Liquids}
        \end{center}
-       \begin{subequations}
-          For liquids, using $\beta$ and $\kappa$ in Eqns.~\ref{Mod03_DerivedEnthalpyRelation1}-~\ref{Mod03_DerivedEntropyRelations},
+         \begin{subequations}
+          For liquids, using $\beta$ and $\kappa$ in Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEnthalpyRelation1}-~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelations},
             \begin{eqnarray}
                \Partial[S]{P}{T} &=& -\Partial[V]{T}{P} = -\beta V \nonumber \\
                \Partial[H]{P}{T} &=& V - T\Partial[V]{T}{P} = V - TV\beta = \left(1-\beta T\right)V, \nonumber
@@ -394,116 +401,129 @@ This relation can be used in Eqns.~\ref{Mod03_DerivedIntEnergyRelation1} and~\re
           leading to
             \begin{eqnarray}
                dH &=& C_{p}dT + \left(1-\beta T\right)VdP \label{Mod03_DerivedEnthalpyLiquid}\\
-               dS &=& C_{p}\frc{dT}{T} - \beta V dP.\label{Mod03_DerivedEntropyRelationsLiquid}
+               dS &=& C_{p}\frc{dT}{T} - \beta V dP.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelationsLiquid}
             \end{eqnarray}
           For internal energy, we can write,
             \begin{eqnarray}
                dU &=& dH - d(PV) = dH -PdV -VdP\;\;\;\;\blue{\times\Partial[]{P}{T}} \nonumber \\
                \Partial[U]{P}{T} &=& \underbrace{\Partial[H]{P}{T}}_{\red{\cancel{V}}-T\Partial[V]{T}{P}} - P\Partial[V]{P}{T} - \red{\cancel{V}} \nonumber \\
                                  &=& - T\underbrace{\Partial[V]{T}{P}}_{\beta V} - P \underbrace{\Partial[V]{P}{T}}_{\kappa V} \nonumber \\
-               \Partial[U]{P}{T} &=& \left(\kappa P - \beta T\right)V \label{Mod03_DerivedInternalEnergyLiquid}
+               \Partial[U]{P}{T} &=& \left(\kappa P - \beta T\right)V \label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedInternalEnergyLiquid}
             \end{eqnarray}
-          \underline{These relations are only applied to {\it liquids}.}
-       \end{subequations}
+          \underline{These relations are only applied to {\it liquids}} (\ie incompressible fluids, where $V$ is constant).
+          \end{subequations}
     \end{shaded}
-\end{table}
-      \end{subequations}
 
 %%% SECTION
-\section{Gibbs Free Energy as Generating Function}\label{Section:03:GibbsGeneratingFunction}
+\section{Gibbs Free Energy as Generating Function}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:GibbsGeneratingFunction}
 
-The fundamental relation for the Gibbs free energy, Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}, demonstrated that this potential can be expressed as a function of temperature and pressure, $G=G(T,P)$. In chemical industrial (or lab) processes, both properties, $T$ and $P$, can be readily measured and controlled, and therefore used to obtain $G$. A convenient way to deal with this relation is rewriting it in dimensionless form
+The fundamental relation for the Gibbs free energy, Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}, demonstrated that this potential can be expressed as a function of temperature and pressure, $G=G(T,P)$. In chemical processes, both properties, $T$ and $P$, can be readily measured and controlled, and therefore used to obtain $G$. A convenient way to deal with this relation is rewriting it in differential form
     \begin{eqnarray}
-         d\left(\frc{G}{RT}\right) &\equiv& \frc{1}{RT}dG - \frc{GR}{\left(RT\right)^{2}}dT = \frc{1}{RT}\underbrace{dG}_{\text{using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}}} - \overbrace{\frc{G}{RT^{2}}}^{\text{using }G=H-TS}dT \nonumber \\
-                                    & =& \frc{V}{RT}dP - \red{\cancel{\frc{S}{RT}dT}} - \frc{H}{RT^{2}}dT + \red{\cancel{\frc{S}{RT}dT}} \nonumber
+         d\left(\frc{G}{RT}\right) &\equiv& \frc{1}{RT}dG - \frc{GR}{\left(RT\right)^{2}}dT \nonumber \\
+                                   &=& \frc{1}{RT}\underbrace{dG}_{\text{using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}}} - \overbrace{\frc{G}{RT^{2}}}^{\text{using }G=H-TS}dT \nonumber \\
+                                   &=& \frc{V}{RT}dP - \red{\cancel{\frc{S}{RT}dT}} - \frc{H}{RT^{2}}dT + \red{\cancel{\frc{S}{RT}dT}} \nonumber \\
+                                   &=& \frc{V}{RT}dP - \frc{H}{RT^{2}}dT\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsGeneratingFunction}
     \end{eqnarray}
 
     \begin{subequations}
        \begin{shaded} 
           \begin{eqnarray}
-              && d\left(\frc{G}{RT}\right) = \frc{V}{RT}dP - \frc{H}{RT^{2}}dT\label{Mod03_GibbsGeneratingFunction} \\
-              && \frc{V}{RT} = \Partial[(G/RT)]{P}{T} \;\;\blue{\text{ for } T\text{ constant}},\label{Mod03_GibbsGeneratingFunctionTConst} \\
-              && \frc{H}{RT} = -T\Partial[(G/RT)]{T}{P} \;\;\blue{\text{ for } P\text{ constant}}.\label{Mod03_GibbsGeneratingFunctionPConst}
+               \frc{V}{RT} = \Partial[(G/RT)]{P}{T}   && \;\;\blue{\text{ for } T\text{ constant}},\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsGeneratingFunctionTConst} \\
+              \frc{H}{RT} = -T\Partial[(G/RT)]{T}{P}  && \;\;\blue{\text{ for } P\text{ constant}}.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsGeneratingFunctionPConst}
           \end{eqnarray}
         \end{shaded}
         With a similar procedure we can obtain generating functions from
         \begin{shaded}
            \begin{eqnarray}
-              \frc{S}{R} &=& \frc{H}{RT} - \frc{G}{RT}   \;\;\blue{\Longleftarrow \; G=H-TS \;\;\times(1/RT)}\label{Mod03_EntropyGeneratingFunction} \\
-              \frc{U}{RT} &=& \frc{H}{RT} - \frc{PV}{RT} \;\;\blue{\Longleftarrow \; U=H-PV \;\;\times(1/RT)}\label{Mod03_IntEnergyGeneratingFunction}
+              \frc{S}{R} &=& \frc{H}{RT} - \frc{G}{RT}   \;\;\blue{\Longleftarrow \; G=H-TS \;\;\times(1/RT)}\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:EntropyGeneratingFunction} \\
+              \frc{U}{RT} &=& \frc{H}{RT} - \frc{PV}{RT} \;\;\blue{\Longleftarrow \; U=H-PV \;\;\times(1/RT)}\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:IntEnergyGeneratingFunction}
            \end{eqnarray}
         \end{shaded}
     \end{subequations}
 
 
 %%% SECTION
-\section{Residual Properties}\label{Section:03:ResidualProperties}
+\section{Residual Properties}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:ResidualProperties}\index{Gases!Residual properties}\index{Residual properties|see{ Gases}}
 
+    \begin{subequations}
 Another way to calculate energy and entropy changes for real gases is by defining {\it residual properties}, \ie the difference between any extensive thermodynamic property, $M$ (\eg $V$, $U$, $H$, $S$, $G$ and $A$), in real gases and its equivalent assuming ideal gas behaviour, $M^{\text{ig}}$,
    \begin{shaded}
-      \begin{displaymath}
+      \begin{equation}
          M^{R} \equiv M - M^{\text{ig}},
-      \end{displaymath}
+      \end{equation}
    \end{shaded}
 thus \eg
-   \begin{subequations}
       \begin{equation}
-         V^{R} = V - V^{\text{ig}} = \underbrace{V}_{=\frac{zRT}{P}} - \frc{RT}{P} = \frc{RT}{P}\left(Z-1\right).\label{Mod03_ResidualProperties_V}
+         V^{R} = V - V^{\text{ig}} = \underbrace{V}_{=\frac{zRT}{P}} - \frc{RT}{P} = \frc{RT}{P}\left(Z-1\right).\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_V}
       \end{equation}
-      The {\it residual properties} concept is \underline{only} used for gases, and it is based in the idea that properties of real gases are often close of ideal gas behaviour at similar conditions. We can use the {\it generating function} concept, defined in Section~\ref{Section:03:GibbsGeneratingFunction}, to compute changes in properties based on the Gibbs free energy (Eqn.~\ref{Mod03_GibbsGeneratingFunction}),
+      The {\it residual properties} concept is \underline{only} used for gases, and it is based in the idea that properties of real gases are often close of ideal gas behaviour at similar conditions. The {\it generating function} concept, defined in Section~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:GibbsGeneratingFunction}, can be used to compute changes in properties based on the Gibbs free energy (Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsGeneratingFunction}),
       \begin{shaded}
          \begin{equation}
-            d\left(G^{R}/RT\right) = d\left(G/RT\right) - d\left(G^{\text{ig}}/RT\right) = \frc{V^{R}}{RT}dP - \frc{H^{R}}{RT^{2}}dT\label{Mod03_ResidualProperties_GeneratingGibbsFunction1}
+            d\left(G^{R}/RT\right) = d\left(G/RT\right) - d\left(G^{\text{ig}}/RT\right) = \frc{V^{R}}{RT}dP - \frc{H^{R}}{RT^{2}}dT\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingGibbsFunction1}
          \end{equation}
       \end{shaded}
     \end{subequations}
 
 %%% SUBSECTION
-   \subsection{Properties obtained at Constant Temperature}
+   \subsection{Properties obtained at Constant Temperature}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:ResidualProperties:ConstantTemperature}
+   \begin{subequations}
 
-      For processes at constant temperature, \ie, $dT=0$,
+      For processes at constant temperature (\ie $dT=0$), Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingGibbsFunction1} becomes,
           \begin{displaymath}
               d\left(G^{R}/RT\right) = \frc{V^{R}}{RT}dP,
           \end{displaymath}
           integrating from $0$ (ideal gas state) to $P$,
           \begin{eqnarray}
-              \left(\frc{G^{R}}{RT}\right)_{P} &-&  \underbrace{\left(\frc{G^{R}}{RT}\right)_{P=0}}_{\Phi \text{ (integration constant)}} =  \int\limits_{0}^{P}\overbrace{\frc{V^{R}}{RT}}^{\text{replacing by Eqn.~\ref{Mod03_ResidualProperties_V}}}dP, \nonumber \\
-              \left(\frc{G^{R}}{RT}\right)_{P} &=& \Phi + \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P},\label{Mod03_ResidualProperties_GeneratingGibbsFunction2}
+              \left(\frc{G^{R}}{RT}\right)_{P} &-&  \underbrace{\left(\frc{G^{R}}{RT}\right)_{P=0}}_{\Phi \text{ (integration constant)}} =  \int\limits_{0}^{P}\overbrace{\frc{V^{R}}{RT}}^{\text{replacing by Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_V}}}dP, \nonumber \\
+              \left(\frc{G^{R}}{RT}\right)_{P} &=& \Phi + \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingGibbsFunction2}
           \end{eqnarray}
           Differentiating this expression \wrt $T$ $\left(\text{\ie }\Partial[]{T}{}\right)$ 
           \begin{displaymath}
               \Partial[\left(G^{R}/RT\right)]{T}{} = \int\limits_{0}^{P} \left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P},
           \end{displaymath}
-          here it is important to note that in $\left.\Partial[Z]{T}{}\right|_{P}$, the index $P$ indicates that the differential in brackets is only valid for $P\ne0$, as for $P=0$ the gas is assumed ideal and $Z$ is constant equal to $1$. Now using Eqn.~\ref{Mod03_GibbsGeneratingFunctionPConst},
-          \begin{subequations}
+          here it is important to note that in $\left.\Partial[Z]{T}{}\right|_{P}$, the index $P$ indicates that the differential in brackets is only valid for $P\ne0$, as for $P=0$ the gas is assumed ideal and $Z$ is constant equal to $1$. Now using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsGeneratingFunctionPConst},
           \begin{shaded}
              \begin{equation}
-                \frc{H^{R}}{RT} = - T\int\limits_{0}^{P}\left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P}.\label{Mod03_ResidualProperties_GeneratingEnthalpyFunction2}
+                \frc{H^{R}}{RT} = - T\int\limits_{0}^{P}\left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P}.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingEnthalpyFunction2}
              \end{equation}
           \end{shaded}
-          With this expression, one can readily obtain the residual enthalpy of a real gas assuming that $\frac{\partial Z}{\partial T}$ at a prescribed pressure can be obtained by experiments or by differentiating the cubic form in $Z$ of any EOS (Eqns.~\ref{Mod02_GeneralEOS}-~\ref{Mod02_Zvap}). Now, using the fundamental relation $G = H - TS$,
-          \begin{eqnarray}
-                 G^{\text{ig}} &=& H^{\text{ig}} - TS^{\text{ig}} \nonumber \\
-                 G^{R} &=& H^{R} - TS^{R}\;\;\;\;\;\blue{\times\frc{1}{RT}} \;\;\;\Longrightarrow \;\;\; \frc{S^{R}}{R} = \frc{H^{R}}{RT} - \frc{G^{R}}{RT} \nonumber \\
-                 \frc{S^{R}}{R} &=& \underbrace{-T\int\limits_{0}^{P}\left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P}}_{\text{Eqn.~\ref{Mod03_ResidualProperties_GeneratingEnthalpyFunction2}}} \overbrace{- \Phi - \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}}^{\text{Eqn.~\ref{Mod03_ResidualProperties_GeneratingGibbsFunction2}}}\;\;\;\blue{(\text{at constant}\;\; T)}.\nonumber %\label{Mod03_ResidualProperties_GeneratingEntropyFunction1}
-          \end{eqnarray}
-          For practical applications we often require $\Delta S$,
+          With this expression, one can readily obtain the residual enthalpy of a real gas assuming that $\frac{\partial Z}{\partial T}$ at a prescribed pressure can be obtained by experiments or by differentiating the cubic form in $Z$ of any EOS (Section~\ref{Chapter:VolumetricPropertiesPureSubstances:Section:CubicEOS}). Now, using the fundamental relation $G = H - TS$,
+          \begin{displaymath}
+            \begin{cases}
+                 G^{\text{ig}} = H^{\text{ig}} - TS^{\text{ig}} &  \\
+                 G^{R} = H^{R} - TS^{R}\;\;\;\;\;\blue{\times\frc{1}{RT}} & \Longrightarrow \;\;\; \frc{S^{R}}{R} = \frc{H^{R}}{RT} - \frc{G^{R}}{RT} \nonumber \\
+            \end{cases}
+          \end{displaymath}
+\medskip
+
+          \begin{displaymath}
+                 \frc{S^{R}}{R} = \underbrace{-T\int\limits_{0}^{P}\left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P}}_{\text{Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingEnthalpyFunction2}}} \overbrace{- \Phi - \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}}^{\text{Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingGibbsFunction2}}}\;\;\;\blue{(\text{at constant}\;\; T)}.\nonumber %\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingEntropyFunction1}
+          \end{displaymath}
+          For practical applications, $\Delta S$ is often required,
           \begin{displaymath}
              \Delta S = S_{2} - S_{1} = \left(S_{2}^{\text{ig}}-S_{1}^{\text{ig}}\right) + \underbrace{\overbrace{\left(S_{2}^{R}-S_{1}^{R}\right)}^{\Phi\text{ cancels out !!}}}_{\text{Thus we can arbitrarily set }\Phi=0}
           \end{displaymath}
           Thus
           \begin{shaded}
               \begin{eqnarray}
-                  \frc{S^{R}}{R} &=& -T\int\limits_{0}^{P}\left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P} - \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P},\label{Mod03_ResidualProperties_GeneratingEntropyFunction2} \\
-                  \frc{G^{R}}{RT} &=&  \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}.\label{Mod03_ResidualProperties_GeneratingGibbsFunction3} 
+                  \frc{S^{R}}{R} &=& -T\int\limits_{0}^{P}\left.\Partial[Z]{T}{}\right|_{P}\frc{dP}{P} - \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P},\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingEntropyFunction2} \\
+                  \frc{G^{R}}{RT} &=&  \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingGibbsFunction3} 
               \end{eqnarray}
           \end{shaded}
-       \end{subequations}
+    \end{subequations}
           
 %%% SUBSECTION
-   \subsection{Residual Properties in the Zero-Pressure Limit}
+   \subsection{Residual Properties in the Zero-Pressure Limit}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:ResidualProperties:ZeroPressure}
       
-       By definition, at pressures near to zero, \ie $P\rightarrow 0$, the gas behaves as an ideal gas and $Z\rightarrow 1$. However, \underline{not all} residual properties become zero near the near-zero pressure condition. Molar volume for example,
+       By definition, at pressures near to zero, \ie 
+            \begin[displaymath}
+              P\rightarrow 0,
+            \end{displaymath}
+       gases behaves as an ideal gas and 
+            \begin[displaymath}
+              Z\rightarrow 1.
+            \end{displaymath}
+       However, \underline{not all} residual properties become zero near the near-zero pressure condition. Molar volume for example,
        \begin{displaymath}
            \lim\limits_{P\rightarrow 0}V^{R} = \lim\limits_{P\rightarrow 0}V - \lim\limits_{P\rightarrow 0}V^{\text{ig}},
        \end{displaymath}
@@ -738,7 +758,7 @@ The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the C
 \item\label{Mod03Ex04} Derive an expression for enthalpy change of a gas during an isothermal process assuming using the following EOS: $P\left(V-b\right)=RT$
 
 % SOLUTION
-    \noindent{\bf Solution:} We have seen that enthalpy change is given by Eqn.~\ref{Mod03_DerivedEnthalpyRelation1},
+    \noindent{\bf Solution:} We have seen that enthalpy change is given by Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEnthalpyRelation1},
     \begin{displaymath}
        dH = C_{p}dT + \left[V - T\Partial[V]{T}{P}\right]dP.
     \end{displaymath}
