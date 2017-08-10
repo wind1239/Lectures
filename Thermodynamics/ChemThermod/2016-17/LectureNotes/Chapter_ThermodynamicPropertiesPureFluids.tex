@@ -415,8 +415,6 @@ Using Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityEx
     \end{shaded}
 
 
-
-
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
      \begin{example}\label{Chapter:ThermodynamicPropertiesPureFluids:Example4} \citep{Balmer_Book}
@@ -424,31 +422,55 @@ Using Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityEx
            \begin{displaymath}
               P\left(v-b\right) = RT - \frc{a\left(v-b\right)}{Tv^{2}},
            \end{displaymath}
-         where $v$ is the specific volume, develop expressions based on measurable properties for the changes in:
+         where $v$ is the specific volume, $a$ and $b$ are constants. Develop expressions based on measurable properties for the changes in:
          \begin{enumerate}[a)]
             \item specific internal energy;
-            \item specific enthalpy;
-            \item specific entropy for an isothermal process.
+            \item specific enthalpy, and;
+            \item specific entropy;
          \end{enumerate}
-
-         Suppose we make a series of measurements in the laboratory and think we discovered a new thermodynamic property, call it $\eta$. Our experimental data provide an empirical equation of the form,
-          \begin{displaymath}
-             d\eta = PdV + V^{2}dP
-          \end{displaymath}
-          Is $\eta$ a new property?
+          for an isothermal process.
      \end{example}
 
 % SOLUTION
-       \noindent{\bf Solution:}
-        The unknown is whether or not $\eta$ is a new thermodynamic property. Using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:EqualRelation0},
-        \begin{displaymath}
-            d\eta = Mda + Ndb = PdV + V^{2}dP,
-        \end{displaymath}
-        with $M=P$, $N=V^{2}$, $a=V$ and $b=P$. The cross differentials are
-        \begin{displaymath}
-            \Partial[M]{b}{a} = \Partial[P]{P}{V} = 1\;\;\;\text{ and }\;\;\; \Partial[N]{a}{b} = \Partial[V^{2}]{V}{P} = 2V \ne \Partial[M]{b}{a}.
-        \end{displaymath}
-         Since this equality is not satisfied, $\eta$ can not be a thermodynamic property.
+       \noindent{\bf Solution:} The Berthelot EOS can be rewritten as an equation in $P$ as,
+           \begin{displaymath}
+              P = \frc{RT}{v-b} - \frc{a}{Tv^{2}}.
+           \end{displaymath}
+         \begin{enumerate}[a)]
+            \item Change in specific internal energy is given by Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedIntEnergyRelation1}
+                \begin{displaymath}
+                     du = C_{v}dT + \left[T\Partial[P]{T}{v}-P\right]dv,
+                \end{displaymath}
+                where
+                \begin{displaymath}
+                     \Partial[P]{T}{v} = \frc{R}{v-b} + \frc{a}{T^{2}v^{2}},
+                \end{displaymath}
+                leading to
+                \begin{eqnarray}
+                    \left(u_{2}-u_{1}\right)_{T} &=& \int\limits_{v_{1}}^{v_{2}}\left[T \left(\frc{R}{v-b} + \frc{a}{T^{2}v^{2}}\right) - \frc{RT}{v-b} + \frc{a}{Tv^{2}}\right] dv \nonumber \\
+                                               &=& \int\limits_{v_{1}}^{v_{2}}\left[\frc{a}{Tv^{2}} + \frc{a}{Tv^{2}}\right] dv \nonumber \\
+                                               &=& \frc{2a}{T}\left(\frc{1}{v_{2}}-\frc{1}{v_{1}}\right). \nonumber
+                \end{eqnarray}
+            \item Change in specific enthalpy is given by Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEnthalpyRelation1}
+                \begin{displaymath}
+                     dh = C_{p}dT + \left[v - T\Partial[v]{T}{P}\right]dP,
+                \end{displaymath}
+                however, we can not solve $\Partial[v]{T}{P}$ as it is not possible to express $v=v(T,P)$, thus we need to use the definition of specific enthalpy instead,
+                \begin{eqnarray}
+                                          h &=& u + Pv \nonumber \\
+                 \left(h_{2}-h_{1}\right)_{T} &=& \left(u_{2}-u_{1}\right)_{T} + P_{2}v_{2} - P_{1}v_{1} \nonumber \\
+                                           &=&  \frc{2a}{T}\left(\frc{1}{v_{2}}-\frc{1}{v_{1}}\right) + P_{2}v_{2} - P_{1}v_{1}\nonumber \\
+                                           &=&  \frc{3a\left(v_{2}-v_{1}\right)}{Tv_{1}v_{2}} + RT\left(\frc{v_{2}}{v_{2}-b} - \frc{v_{1}}{v_{1}-b}\right). \nonumber
+                \end{eqnarray}
+            \item Change in specific entropy is given by Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelations3}
+                \begin{eqnarray}
+                     dS &=& \frc{C_{v}}{T}dT + \Partial[P]{T}{v}dv \nonumber \\
+                    \left(s_{2}-s_{1}\right)_{T} &=& \int\limits_{v_{1}}^{v_{2}}\Partial[P]{T}{v}dv =  \int\limits_{v_{1}}^{v_{2}}\left(\frc{R}{v-b} + \frc{a}{T^{2}v^{2}}\right)dv \nonumber \\
+                    \left(s_{2}-s_{1}\right)_{T} &=& R\ln{\frc{v_{2}-b}{v_{1}-b}} + a\frc{v_{2}-v_{1}}{T^{2}v_{1}v_{2}}
+                \end{eqnarray}
+
+         \end{enumerate}
+  
    \end{MyExample}
    
 
