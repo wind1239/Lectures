@@ -414,6 +414,46 @@ Using Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityEx
           \end{subequations}
     \end{shaded}
 
+
+
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ThermodynamicPropertiesPureFluids:Example4} \citep{Balmer_Book}
+         For the Berthelot EOS,
+           \begin{displaymath}
+              P\left(v-b\right) = RT - \frc{a\left(v-b\right)}{Tv^{2}},
+           \end{displaymath}
+         where $v$ is the specific volume, develop expressions based on measurable properties for the changes in:
+         \begin{enumerate}[a)]
+            \item specific internal energy;
+            \item specific enthalpy;
+            \item specific entropy for an isothermal process.
+         \end{enumerate}
+
+         Suppose we make a series of measurements in the laboratory and think we discovered a new thermodynamic property, call it $\eta$. Our experimental data provide an empirical equation of the form,
+          \begin{displaymath}
+             d\eta = PdV + V^{2}dP
+          \end{displaymath}
+          Is $\eta$ a new property?
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}
+        The unknown is whether or not $\eta$ is a new thermodynamic property. Using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:EqualRelation0},
+        \begin{displaymath}
+            d\eta = Mda + Ndb = PdV + V^{2}dP,
+        \end{displaymath}
+        with $M=P$, $N=V^{2}$, $a=V$ and $b=P$. The cross differentials are
+        \begin{displaymath}
+            \Partial[M]{b}{a} = \Partial[P]{P}{V} = 1\;\;\;\text{ and }\;\;\; \Partial[N]{a}{b} = \Partial[V^{2}]{V}{P} = 2V \ne \Partial[M]{b}{a}.
+        \end{displaymath}
+         Since this equality is not satisfied, $\eta$ can not be a thermodynamic property.
+   \end{MyExample}
+   
+
+
+
 %%% SECTION
 \section{Gibbs Free Energy as Generating Function}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:GibbsGeneratingFunction}
 
@@ -515,15 +555,11 @@ thus \eg
 %%% SUBSECTION
    \subsection{Residual Properties in the Zero-Pressure Limit}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:ResidualProperties:ZeroPressure}
       
-       By definition, at pressures near to zero, \ie 
-            \begin{displaymath}
-              P\rightarrow 0,
-            \end{displaymath}
-       gases behaves as ideal gases and 
+       By definition, at pressures near to zero, \ie $ P\rightarrow 0$, gases behaves as ideal gases and 
             \begin{displaymath}
               Z\rightarrow 1.
             \end{displaymath}
-       However, \underline{not all} residual properties become zero near the near-zero pressure condition. Molar volume for example,
+       However, \underline{not all} residual properties vanish near the near-zero pressure condition. Molar volume for example,
        \begin{displaymath}
            \lim\limits_{P\rightarrow 0}V^{R} = \lim\limits_{P\rightarrow 0}V - \lim\limits_{P\rightarrow 0}V^{\text{ig}},
        \end{displaymath}
@@ -537,27 +573,28 @@ both terms in the r.h.s. tends to $+\infty$ and the difference is assumed undete
 
 
 %%% SUBSECTION
-       \section{Two-Phase Systems}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:Two_Phase}
+\section{Two-Phase Systems}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:Two_Phase}
 
 %%% SUBSECTION
-       \subsection{Clapeyron Relations}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:ClapeyronRelations}\index{Clapeyron relation!Equation}
+  \subsection{Clapeyron Relations}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:ClapeyronRelations}\index{Clapeyron relation!Equation}
 
-\begin{subequations}
-  When a pure component is in equilibrium, {\it all coexisting phases have the same temperature and pressure}. Therefore, the following criterion is applied,
-  \begin{shaded}
-      \begin{displaymath}
-          dG = VdP - SdT = 0 \;\;\;\;\text{ at constant } T \text{ and } P.
-      \end{displaymath}
-      This means that changes in Gibbs free energy in all coexisting phases are the same, \ie,
-      \begin{displaymath}
-          dG^{\alpha} = dG^{\beta} = dG^{\gamma} = \cdots,
-      \end{displaymath}
-      \end{shaded}
-where $\alpha$, $\beta$, $\gamma$, $\cdots$, are phases in thermodynamic equilibrium. Therefore, the Gibbs change for two given phases (\eg $\alpha$ and $beta$) can be expressed as,
-      \begin{displaymath}
-          V^{\alpha}dP^{\text{sat}} - S^{\alpha}dT = V^{\beta}dP^{\text{sat}} - S^{\beta}dT.
-      \end{displaymath}
-$P^{\text{sat}}$ is the saturated pressure, \ie pressure in which phase change occurs. This expression can be manipulated to,
+     \begin{subequations}
+        When a pure component is in equilibrium, \underline{\it all coexisting phases have the same temperature and pressure}. Therefore, the following criterion applied to the fundamental Gibbs relation (Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}) is valid,
+        \begin{shaded}
+           \begin{displaymath}
+              dG = VdP - SdT = 0 \;\;\;\;\text{ at constant } T \text{ and } P.
+           \end{displaymath}
+           This means that changes in Gibbs free energy in all coexisting phases are the same, \ie,
+           \begin{displaymath}
+              dG^{\alpha} = dG^{\beta} = dG^{\gamma} = \cdots,
+           \end{displaymath}
+           where $\alpha$, $\beta$, $\gamma$, $\cdots$, are phases in thermodynamic equilibrium. 
+        \end{shaded}
+        \noindent Therefore, the Gibbs change for two given phases (\eg $\alpha$ and $beta$) can be expressed as,
+        \begin{displaymath}
+            V^{\alpha}dP^{\text{sat}} - S^{\alpha}dT = V^{\beta}dP^{\text{sat}} - S^{\beta}dT.
+        \end{displaymath}
+$P^{\text{sat}}$ is the saturated pressure, \ie pressure in which phase change occurs. This expression can be manipulated to,\index{Saturated pressure|see {Pressure}}\index{Pressure!Saturated}
       \begin{displaymath}
           \frc{dP^{\text{sat}}}{dT} = \frc{S^{\beta}-S^{\alpha}}{V^{\beta}-V^{\alpha}} = \frc{\Delta S^{\alpha\beta}}{\Delta V^{\alpha\beta}}.
       \end{displaymath}
@@ -568,16 +605,16 @@ We can define the {\it latent heat of phase transition} (\eg vaporisation, solid
 therefore,
       \begin{shaded}
           \begin{equation}
-              \frc{dP^{\text{sat}}}{dT} = \frc{\Delta H^{\alpha\beta}}{T\Delta V^{\alpha\beta}},\label{Mod03_ClapeyronEqn} 
+              \frc{dP^{\text{sat}}}{dT} = \frc{\Delta H^{\alpha\beta}}{T\Delta V^{\alpha\beta}},\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ClapeyronEqn}
           \end{equation}
           this expression is known as {\it Clapeyron Equation} and it expresses the relation between a change in temperature and a change in pressure under the conditions of equilibrium between two phases. 
       \end{shaded}
 
-We can determine the enthalpy of vaporisation (\ie latent heat of vaporisation), $H^{\alpha\beta}=H^{\text{fg}}$, at a given $T$ by simply measuring the slope of the saturation curve on a $PT$ diagram (Fig.~\ref{Mod03Fig01}) and the specific volume of saturated liquid and saturated vapour at the given $T$. The {\it Clapeyron Equation} can be simplified for liquid-vapour (and for solid-vapour) phase changes, at low pressures
+The enthalpy of vaporisation (\ie latent heat of vaporisation), $H^{\alpha\beta}=H^{\text{fg}}$, at a given $T$ can be determined by simply measuring the slope of the saturation curve on a $PT$ diagram (Fig.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig01}) and the specific volume of saturated liquid and saturated vapour at the given $T$. The Clapeyron Equation can be simplified for liquid-vapour (and for solid-vapour) phase changes, at low pressures
       \begin{displaymath}
          V^{\text{g}} >>>> V^{\text{f}} \;\;\Longrightarrow \;\; V^{\text{fg}} = V^{\text{g}},
       \end{displaymath}
-if we treat the vapour as an ideal gas, $V^{\text{g}} = \frc{RT}{P}$, and replacing in Eqn.~\ref{Mod03_ClapeyronEqn} 
+if we treat the vapour as an ideal gas, $V^{\text{g}} = \frc{RT}{P}$, and replacing in Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ClapeyronEqn} 
       \begin{displaymath}
           \frc{dP^{\text{sat}}}{dT} = \frc{P^{\text{sat}}\Delta H^{\text{fg}}}{RT^{2}} \;\;\;\Longrightarrow \;\;\; \left(\frc{dP}{P}\right)_{\text{sat}} = \frc{\Delta H^{\text{fg}}}{R}\left(\frc{dT}{T^{2}}\right)_{\text{sat}}.
       \end{displaymath}
@@ -587,13 +624,13 @@ For infinitesimal intervals of $T$, \underline{$\Delta H^{\text{fg}}$ may be con
                \begin{center}
                    \includegraphics[width=.5\columnwidth,clip]{./../Pics/PT_Diagram2}
                \end{center} 
-               \caption{ $PT$ diagrams for a pure substance. Graphical representation of the Clapeyron relation.}\label{Mod03Fig01}
+               \caption{Graphical representation of the Clapeyron relation in a $PT$ diagram for pure substance.}\label{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig01}
            \end{figure}
       \begin{shaded}
           \begin{equation}
-             \frc{d\left(\ln{P^{\text{sat}}}\right)}{dT} = \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \;\;\; \ln{\left(\frc{P_{2}}{P_{1}}\right)_{\text{sat}}} = \frc{\Delta H^{\text{fg}}}{R}\left(\frc{1}{T_{1}}-\frc{1}{T_{2}}\right)_{\text{sat}}.\label{Mod03_ClausiusClapeyronEqn} 
+             \frc{d\left(\ln{P^{\text{sat}}}\right)}{dT} = \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \;\;\; \ln{\left(\frc{P_{2}}{P_{1}}\right)_{\text{sat}}} = \frc{\Delta H^{\text{fg}}}{R}\left(\frc{1}{T_{1}}-\frc{1}{T_{2}}\right)_{\text{sat}}.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ClausiusClapeyronEqn} 
           \end{equation} 
-This expression is known as {\it Clausius-Clapeyron equation} and is a good approximation when describing temperature and pressure dependence at boiling/condensation and at sublimation/gas deposition.
+This expression is known as {\it Clausius-Clapeyron equation} and is a good approximation when describing temperature and pressure dependence at boiling/condensation and at sublimation/gas deposition.\index{Clausius-Clapeyron equation}
       \end{shaded}
 For the dependence of the saturated vapour pressure on $T$, a number of empirical relations have been developed. The simplest expression is,
     \begin{displaymath}
@@ -602,14 +639,15 @@ For the dependence of the saturated vapour pressure on $T$, a number of empirica
 where $A$ and $B$ are constants obtained from experiments. A more `popular' relation is,
     \begin{shaded}
        \begin{equation}
-          \ln{P^{\text{sat}}} = A - \frc{B}{T+C},\label{Mod03_Antoine}
+          \ln{P^{\text{sat}}} = A - \frc{B}{T+C},\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:Antoine}
        \end{equation}
        this relation is known as {\it Antoine Equation}, where $A$, $B$ and $C$ are constants obtained experimentally.
     \end{shaded}
-This two relations, although still widely used by the fluids community are plagued with strong inaccuracy. Due to better accuracy, high-order polynomial relations have become commonly used in flow and process simulators,
+This two relations, although still widely used by the fluids community are plagued with strong inaccuracy. High-order polynomial relations, such as
     \begin{displaymath}
-       \ln{P^{\text{sat}}} = \frc{A\tau + B\tau^{1.5} + C\tau^{3} + D\tau^{6}}{1-\tau}\;\;\;\;\text{ with }\;\;\tau = 1 - T_{r}.
-    \end{displaymath}
+       \ln{P^{\text{sat}}} = \frc{A\tau + B\tau^{1.5} + C\tau^{3} + D\tau^{6}}{1-\tau}\;\;\;\;\text{ with }\;\;\tau = 1 - T_{r},
+    \end{displaymath} 
+    have become commonly used in flow and process simulators, due to better accuracy,
 \end{subequations}
 
 
