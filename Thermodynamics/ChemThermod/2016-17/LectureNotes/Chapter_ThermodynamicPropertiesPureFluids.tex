@@ -474,8 +474,6 @@ Using Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityEx
    \end{MyExample}
    
 
-
-
 %%% SECTION
 \section{Gibbs Free Energy as Generating Function}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:GibbsGeneratingFunction}
 
@@ -673,6 +671,28 @@ This two relations, although still widely used by the fluids community are plagu
 \end{subequations}
 
 
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ThermodynamicPropertiesPureFluids:Example5} 
+        The Antoine equation constants for toluene are $A=14.01415$, $B=3106.46$ K and $C=-53.15$ K (for pressure given in kPa). At 1.01325$\times$10$^{5}$ Pa, calculate the boiling temperature and the enthalpy of vaporisation at this temperature.
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}Boiling temperature can be calculated from the Antoine equation (Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:Antoine}),
+       \begin{displaymath}
+          \ln{P^{\text{sat}}} = A - \frc{B}{T+C} \;\;\;\Rightarrow \;\;\; T = \frc{B}{A-\ln{P^{\text{sat}}}} - C = \red{383.77 K}
+       \end{displaymath}
+The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the Clausius-Clapeyron equation,
+         \begin{eqnarray}
+            \frc{d}{dT} \left(\ln{P^{\text{sat}}}\right) &=& \frc{\Delta H^{\text{fg}}}{RT^{2}} \nonumber \\
+             \frc{B}{\left(T+C\right)^{2}} &=&  \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \Delta H^{\text{fg}} = 34.7984 \text{kJ.mol}^{-1}. \nonumber
+         \end{eqnarray}
+   \end{MyExample}
+   
+
+
+
 %%% SUBSECTION
    \subsection{Vapour-Liquid Equilibrium Systems}
 
@@ -811,8 +831,7 @@ The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the C
             \frc{d}{dT} \left(\ln{P^{\text{sat}}}\right) &=& \frc{\Delta H^{\text{fg}}}{RT^{2}} \nonumber \\
              \frc{B}{\left(T+C\right)^{2}} &=&  \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \Delta H^{\text{fg}} = 34.7984 \text{kJ.mol}^{-1}. \nonumber
          \end{eqnarray}
- 
-\clearpage
+\begin{comment}
 
 %%%
 %%% EXAMPLE 
@@ -829,11 +848,7 @@ The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the C
        && P\left(V-b\right)=RT \;\;\;\rightarrow\;\;\; V = \frc{RT}{P} + b \;\;\;\rightarrow\;\;\; \Partial[V]{T}{P} = \frc{R}{P}\;\;\text{ thus, } \nonumber \\
        && dH = C_{p}dT + \left(V - \frc{RT}{P}\right)dP = \blue{C_{p}dT + bdP}. \nonumber 
     \end{eqnarray}
-    
-\clearpage
-    
-\clearpage
- 
+\end{comment}
 %%%
 %%% EXAMPLE 
 %%%  
