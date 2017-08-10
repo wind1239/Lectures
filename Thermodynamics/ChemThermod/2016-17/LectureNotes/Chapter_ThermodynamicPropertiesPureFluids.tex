@@ -10,7 +10,7 @@
            \item Select appropriate equation of state for a given problem/application;
         \end{enumerate}
 \medskip
-     Recommended reading: Chapters 3 of \citet{SmithVanNess_Book}, 6 of \citet{Sandler_Book}, 2 of \citet{Borgnakke_Book} or 4 of \citet{Atkins_Book}.
+     Recommended reading: Chapters 6 of \citet{SmithVanNess_Book}, 11 of \citet{Balmer_Book}, 12 of \citet{Borgnakke_Book} or  of \citet{Atkins_Book}.
    \end{LearningObjectivesBlock}
 
 
@@ -681,20 +681,19 @@ This two relations, although still widely used by the fluids community are plagu
 % SOLUTION
        \noindent{\bf Solution:}Boiling temperature can be calculated from the Antoine equation (Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:Antoine}),
        \begin{displaymath}
-          \ln{P^{\text{sat}}} = A - \frc{B}{T+C} \;\;\;\Rightarrow \;\;\; T = \frc{B}{A-\ln{P^{\text{sat}}}} - C = \red{383.77 K}
+          \ln{P^{\text{sat}}} = A - \frc{B}{T+C} \;\;\;\Rightarrow \;\;\; T = \frc{B}{A-\ln{P^{\text{sat}}}} - C = 383.77 K
        \end{displaymath}
-The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the Clausius-Clapeyron equation,
+The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the Clausius-Clapeyron equation (Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ClausiusClapeyronEqn}),
          \begin{eqnarray}
             \frc{d}{dT} \left(\ln{P^{\text{sat}}}\right) &=& \frc{\Delta H^{\text{fg}}}{RT^{2}} \nonumber \\
-             \frc{B}{\left(T+C\right)^{2}} &=&  \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \Delta H^{\text{fg}} = 34.7984 \text{kJ.mol}^{-1}. \nonumber
+             \frc{B}{\left(T+C\right)^{2}} &=&  \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \Delta H^{\text{fg}} = 34.7984 \text{ kJ.mol}^{-1}. \nonumber
          \end{eqnarray}
    \end{MyExample}
    
 
 
-
 %%% SUBSECTION
-   \subsection{Vapour-Liquid Equilibrium Systems}
+   \subsection{Vapour-Liquid Equilibrium in Engineering Systems}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:VLE}
 
 Several processes of engineering relevance occur with fluids in phase equilibria -- either saturated vapour (\ie vapour saturated with liquid droplets) and saturated liquid (\ie liquid saturated with bubbles of vapour). In most cases, it is important to know the actual quantities of both phases in thermodynamic equilibrium, \ie the amount of vapour and liquid present in a constrained system at prescribed temperature and pressure conditions. Let assume that a closed system contains $n$ moles of a chemical species split into $\mathcal{P}$ phases,
     \begin{displaymath}
@@ -708,28 +707,25 @@ where $V$ is the molar volume. Dividing by $n$
     \begin{displaymath}
        V = \frc{\mfr[n]{}{1}}{n}\mfr[V]{}{1} + \frc{\mfr[n]{}{2}}{n}\mfr[V]{}{2} + \cdots + \frc{\mfr[n]{}{\mathcal{P}}}{n}\mfr[V]{}{\mathcal{P}}.
     \end{displaymath}
-Defining molar (or mole) fraction, $\mfr[x]{}{j}=\frc{\mfr[n]{}{j}}{n}$, where
+Defining molar (or mole) fraction of each phase, $\mfr[x]{}{j}=\frc{\mfr[n]{}{j}}{n}$, where\index{Molar fraction}
     \begin{eqnarray}
          && \sum\limits_{j=1}^{\mathcal{P}}\mfr[x]{}{j} = 1,  \nonumber \\
          && V = \mfr[x]{}{1}\mfr[V]{}{1} + \mfr[x]{}{2}\mfr[V]{}{2} + \cdots + \mfr[x]{}{\mathcal{P}}\mfr[V]{}{\mathcal{P}}.  \nonumber
     \end{eqnarray}
-For vapour-liquid systems,
+This expression represents the partition of a pure fluid throughout all $\mathcal{P}$ phases\footnote{Example, let's imagine pure CO$_{2}$ at the triple point (216.55 K and 5.17 bar). At such temperature and pressure coordinates, liquid, vapour and solid CO$_{2}$ coexist in thermodynamic equilibrium. However, there is no information of the quantity (\ie number of moles or mole fraction of each phase) in each phase.}. For vapour-liquid systems (\ie $\mathcal{P=}$ 2 and $j = L\text{ and } V$),
     \begin{eqnarray}
          && \mfr[x]{}{L} + \mfr[x]{}{V} = 1,  \nonumber \\
          && V = \mfr[x]{}{L}\mfr[V]{}{L} + \mfr[x]{}{V}\mfr[V]{}{V}. \nonumber
     \end{eqnarray}
 For a generic thermodynamic potential $M$ (= $V$, $U$, $H$, $S$ etc),
     \begin{shaded}
-       \begin{subequations}
-           \begin{equation}
-              M = \left(1-\mfr[x]{}{V}\right)\mfr[M]{}{L} + \mfr[x]{}{V}\mfr[M]{}{V}
-           \end{equation}
-           \begin{equation}
-              M = \mfr[M]{}{L} + \mfr[x]{}{V}\Delta\mfr[M]{}{LV}\label{Mod03_QualityVapour}
-           \end{equation}
-       \end{subequations}
+           \begin{eqnarray}
+              M &=& \left(1-\mfr[x]{}{V}\right)\mfr[M]{}{L} + \mfr[x]{}{V}\mfr[M]{}{V}, \nonumber \\
+                &=& \mfr[M]{}{L} + \mfr[x]{}{V}\Delta\mfr[M]{}{LV}.\label{Chapter:ThermodynamicPropertiesPureFluids:Eqn:QualityVapour}
+           \end{eqnarray}
+           $\mfr[x]{}{V}$ is called \underline{\it vapour quality}.
     \end{shaded}
-$\mfr[x]{}{V}$ is called \underline{\it vapour quality}. Thermodynamic potentials of pure substances are graphically represented by $Ph$ (pressure $\times$ specific enthalpy) and $Ts$ (temperature $\times$ specific entropy) diagrams, Fig.~\ref{Mod03Fig02}, where information on $P$, $T$, $s$, $h$, $x$ and $v$ (specific volume) can be readily extracted.
+Thermodynamic potentials of pure substances are graphically represented by $Ph$ (pressure $\times$ specific enthalpy) and $Ts$ (temperature $\times$ specific entropy) diagrams, Fig.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig02}, where information on $P$, $T$, $s$, $h$, $x$ and $v$ (specific volume) can be readily extracted.
 %
            \begin{figure}[h]
               \vbox{
@@ -737,12 +733,13 @@ $\mfr[x]{}{V}$ is called \underline{\it vapour quality}. Thermodynamic potential
                           \includegraphics[width=.5\columnwidth,clip]{./Figs/Mod3TSDiagram}}
                     \vspace{-.1cm}
                     \hbox{\hspace{4cm}(a)\hspace{8cm}(b)}}
-              \caption{ (a) $Ph$ and (b) $Ts$ diagrams for a pure substance.}\label{Mod03Fig02}
+              \caption{ (a) $Ph$ and (b) $Ts$ diagrams for a pure substance.}\label{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig02}
            \end{figure}
 %
-In the $Ph$ diagram, Fig~\ref{Mod03Fig02}a, isotherms (i.e., lines representing constant temperature) and pressure conditions determine the phase of the fluid. At the left hand-side of the {\it dome} all fluid is at liquid state, whereas at the right hand-side of the {\it dome}, all fluid is at vapour state. The region within the {\it dome} is a two-phase region, where liquid and vapour coexist in thermodynamic equilibrium. As the fluid conditions `move' from the {\it saturated liquid line} to the {\it saturated vapour line} through the {\it isotherm}, the fluid is continuously vaporised `till there is no droplets of liquid fluid. The total amount of heat given to the system -- $\Delta H^{\text{fg}}$, is the latent heat of vaporisation. In a similar way, the $Ts$ diagram, Fig~\ref{Mod03Fig02}b, shows similar features over different {\it isobars}. In addition, the {\it quality} of the vapour can also be graphically represented. In a reversible expansion from $P_{1}$ to $P_{2}$ $\left(P_{1}>P_{2}\right)$, entropy change is null, $\Delta s=0$, and is represented by a vertical line, however during irreversible expansion, $\Delta s >0$, represented by an inclined line.  
 
- $Ph$ and $Ts$ diagrams for common substances are no longer used by industry but it helps to qualitatively understand phase (and associated thermodynamic potentials) behaviour of pure substances. Quantitative information can be obtained from either saturated and superheated (Fig.~\ref{Mod03Fig03}) fluid tables or dedicated software, \eg
+           In the $Ph$ diagram, Fig.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig02}a, isotherms (i.e., lines representing constant temperature) and pressure conditions determine the phase of the fluid. At the left hand-side of the {\it dome} all fluid is at liquid state, whereas at the right hand-side of the {\it dome}, all fluid is at vapour state. The region within the {\it dome} is a two-phase region, where liquid and vapour coexist in thermodynamic equilibrium. As the fluid conditions `move' from the {\it saturated liquid line} to the {\it saturated vapour line} through the {\it isotherm}, the fluid is continuously vaporised `till there is no droplets of liquid fluid. The total amount of heat given to the system -- $\Delta H^{\text{fg}}$, is the latent heat of vaporisation. In a similar way, the $Ts$ diagram, Fig~\ref{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig02}b, shows similar features over different {\it isobars}. In addition, the {\it quality} of the vapour can also be graphically represented. In a reversible expansion from $P_{1}$ to $P_{2}$ $\left(P_{1}>P_{2}\right)$, entropy change is null, $\Delta s=0$, and is represented by a vertical line, however during irreversible expansion $\Delta s$ is larger than zero and is represented by an inclined line.\index{Isotherm}\index{Isobar}
+
+ $Ph$ and $Ts$ diagrams for common substances are no longer used by industry but it helps to qualitatively understand phase (and associated thermodynamic potentials) behaviour of pure substances. Quantitative information can be obtained from either saturated and superheated (Fig.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig03}) fluid tables or dedicated software, \eg
 \begin{itemize}
    \item \href{http://www.weatherford.com/doc/wft183650}{PVTflex$^{TM}$};
    \item \href{http://www.kbcat.com/infochem-software/flow-assurance-software-multiflash/pvt-simulation}{Multiflash$^{TM}$};
@@ -750,7 +747,7 @@ In the $Ph$ diagram, Fig~\ref{Mod03Fig02}a, isotherms (i.e., lines representing 
    \item \href{http://webbook.nist.gov/chemistry/fluid/}{NIST Website}
    \item etc.
 \end{itemize}
-In general, table of {\it saturated fluid properties}, Fig.~\ref{Mod03Fig03}a, contains information of the fluid within the {\it dome}, whereas the table of {\it superheated fluid properties} refer to the region outside (rhs) the {\it dome}. 
+In general, table of {\it saturated fluid properties}, Fig.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig03}a, contains information of the fluid within the {\it dome}, whereas the table of {\it superheated fluid properties} refer to the region outside (rhs) the {\it dome}. 
 %
    \begin{figure}[h]
       \vbox{
@@ -759,14 +756,14 @@ In general, table of {\it saturated fluid properties}, Fig.~\ref{Mod03Fig03}a, c
          \vspace{-1.5cm}
          \hbox{\hspace{4cm}(a)\hspace{7cm}(b)}
       }
-      \caption{ Table of properties of (a) saturated water-steam and (b) superheated vapour (Extracted from Moran $\&$ Saphiro, see Appendix B).}\label{Mod03Fig03}  
+      \caption{ Table of properties of (a) saturated water-steam and (b) superheated vapour \citep[Extracted from ][see Appendix~\ref{Appendix:Saturated_SH_Tables}]{Moran_Book}.}\label{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig03}
    \end{figure}
 %
     
 
 %%% SUBSECTION
-   \subsection{Industrial Applications: Power System}
-Regardless the energy source (fossil fuel, nuclear or geothermal), power plants are good applications for VLE systems as fluids are continuously vaporised and condensed by addition and extraction of heat and volume expansion. {\it Rankine thermal cycles} are system configurations for generating power and consist of four processes (Fig.~\ref{Mod03Fig04}) with associated energy balances:
+   \subsection{Industrial Applications: Power System}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:PowerSystem}
+Regardless the energy source (fossil fuel, nuclear or geothermal), power plants are good applications for VLE systems as fluids are continuously vaporised and condensed by addition and extraction of heat and volume expansion. {\it Rankine thermal cycles} are system configurations for generating power and consist of four processes (Fig.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig04}) with associated energy balances:
      \begin{itemize}
       \item \textcolor{red}{Process 1-2}: reversible adiabatic (i.e., \blue{isentropic}) expansion in the turbine (or steam engine),
             \begin{displaymath}
@@ -789,7 +786,7 @@ Regardless the energy source (fossil fuel, nuclear or geothermal), power plants 
            \begin{displaymath}
                \eta_{\text{Rankine}} = \frc{\sum W_{i}}{Q_{B}} = \frc{\left|W_{\text{net}}\right|}{Q_{B}} = \frc{\left|\left(h_{1}-h_{2}\right)+\left(h_{4}-h_{3}\right)\right|}{h_{1}-h_{4}}.
            \end{displaymath}
-     Due to engineering constraints, fluids entering and leaving the pump \underline{must be} at liquid phase, thus $h_{4}=h_{f4}$ and $h_{3}=h_{f3}$, \ie the fluid has the enthalpy of the liquid phase (from the saturated fluid table) at the prescribed temperature and pressure conditions. {\it Pumps} are able to induce the transport of liquid fluids that are often assumed incompressible, therefore
+     Due to engineering constraints, fluids entering and leaving the pump \underline{must be} at liquid phase, thus $h_{4}=h_{f4}$ and $h_{3}=h_{f3}$, \ie the fluid has the enthalpy of the liquid phase (from the saturated fluid table) at the prescribed temperature and pressure conditions. {\it Pumps} are able to induce the transport of liquid fluids which are often assumed incompressible, therefore
           \begin{displaymath}
                 Tds = dh - v dP
           \end{displaymath}
@@ -797,7 +794,7 @@ as the compression occurs isentropically, \ie $ds=0$,
           \begin{displaymath}
                 dh = v dP \Rightarrow h_{f4} = h_{f3} + v_{3}\left(P_{4}-P_{3}\right).
           \end{displaymath}
-However, as $\left(h_{f4}-h_{f3}\right) <<<<< \left(h_{1}-h_{2}\right)$, the efficiency can be considered as
+However, as $\left(h_{f4}-h_{f3}\right) <<<<< \left(h_{1}-h_{2}\right)$, the efficiency can be considered as just
            \begin{displaymath}
                \eta_{\text{Rankine}} = \frc{\left|\left(h_{1}-h_{2}\right)\right|}{h_{1}-h_{f4}}.
            \end{displaymath}     
@@ -806,37 +803,93 @@ However, as $\left(h_{f4}-h_{f3}\right) <<<<< \left(h_{1}-h_{2}\right)$, the eff
       \begin{center}
          \includegraphics[width=\columnwidth,clip]{./Figs/Mod3PowerSystemDiagram}
       \end{center}
-      \caption{ (a) Diagram of Rankine thermal cycle for power generation and associated $Ts$ diagram.}\label{Mod03Fig04}
+      \caption{ (a) Diagram of Rankine thermal cycle for power generation and associated $Ts$ diagram.}\label{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig04}
    \end{figure}
 
 
-\clearpage
 
-%%% SECTION
-\section{Examples}
-       \begin{enumerate}
-
-%%%
-%%% EXAMPLE 
-%%%
-\item\label{Mod03Ex03} The Antoine equation constants for toluene are $A=14.01415$, $B=3106.46$ K and $C=-53.15$ K (for pressure given in kPa). At 1.01325$\times$10$^{5}$ Pa, calculate the boiling temperature and the enthalpy of vaporisation at this temperature.
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ThermodynamicPropertiesPureFluids:Example6} 
+        Steam (dry and saturated) is supplied by the boiler at 15 bar and the condenser inlet pressure is 0.4 bar. Calculate the Rankine efficiency of the cycle. Neglect the pump work, assume the enthalpy of fluid leaving the pump is 317.58 kJ.kg$^{-1}$
+     \end{example}
 
 % SOLUTION
-    \noindent{\bf Solution:} Boiling temperature can be calculated from the Antoine equation,
-       \begin{displaymath}
-          \ln{P^{\text{sat}}} = A - \frc{B}{T+C} \;\;\;\Rightarrow \;\;\; T = \frc{B}{A-\ln{P^{\text{sat}}}} - C = \red{383.77 K}
-       \end{displaymath}
-The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the Clausius-Clapeyron equation,
-         \begin{eqnarray}
-            \frc{d}{dT} \left(\ln{P^{\text{sat}}}\right) &=& \frc{\Delta H^{\text{fg}}}{RT^{2}} \nonumber \\
-             \frc{B}{\left(T+C\right)^{2}} &=&  \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \Delta H^{\text{fg}} = 34.7984 \text{kJ.mol}^{-1}. \nonumber
-         \end{eqnarray}
+       \noindent{\bf Solution:}
+          At 15 bar, dry and saturated $\left(\ie x_{1}=1\right)$ steam has the following properties (from saturated table in Appendix~\ref{Appendix:Saturated_SH_Tables})\footnote{Using the same numbering as in Fig.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig04}.},
+          \begin{eqnarray}
+             T_{1} &=& T_{\text{sat}} = 198.3^{\circ}\text{C},\nonumber \\
+             h_{1} &=& h_{\text{g}} = 2792.2\; \text{kJ.kg}^{-1} \nonumber \\
+             s_{1} &=& s_{\text{g}} = 6.4448\; \text{kJ.(kg.K)}^{-1} \nonumber
+          \end{eqnarray} 
+    In the condenser, $P_{2}=0.4$ bar,
+          \begin{eqnarray}
+              T_{2} &=& T_{\text{sat}} = 75.87^{\circ}\text{C}, \nonumber \\
+              h_{\text{g}2} &=& 2636.8\;\text{kJ.kg}^{-1},\;\;\; h_{\text{f}2} = 317.58\;\text{kJ.kg}^{-1},  \nonumber \\
+              s_{\text{g}2} &=& 7.6700 \;\text{kJ.(kg.K)}^{-1},\;\;\; s_{\text{f}2} = 1.0259\;\text{kJ.(kg.K)}^{-1}. \nonumber  
+          \end{eqnarray}
+$h_{2}$ and $s_{2}$ depend on the knowledge of how vaporised the water is, in other words, we need to determine the quality of the steam, $x_{1}$ through Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:QualityVapour},
+      \begin{eqnarray}
+          h_{2} &=& h_{\text{f}2} + x_{2}\left(h_{\text{g}2} - h_{\text{f}2}\right), \nonumber \\
+          s_{2} &=& s_{\text{f}2} + x_{2}\left(s_{\text{g}2} - s_{\text{f}2}\right). \nonumber
+      \end{eqnarray}
+As we know that water is expanded isentropically in the turbine, \ie $s_{1}=s_{2}$,
+      \begin{displaymath}
+         s_{2} = s_{\text{f}2} + x_{2}\left(s_{\text{g}2} - s_{\text{f}2}\right) = s_{1} = 6.4448 \;\;\;\Rightarrow \;\;\; x_{2} = 0.8156 \;\;(81.56\% \text{ of vapour})
+      \end{displaymath}
+Thus replacing it in 
+      \begin{displaymath}
+          h_{2} = h_{\text{f}2} + x_{2}\left(h_{\text{g}2} - h_{\text{f}2}\right) = 2209.14\text{ kJ.kg}^{-1}.
+      \end{displaymath}
+The Rankine efficiency is given by
+      \begin{displaymath}
+           \eta_{\text{Rankine}} = \frc{\text{Adiabatic or Isentropic Heat Drop}}{\text{Heat Supplied}} = \frc{\left|h_{1}-h_{2}\right|}{h_{1}-h_{\text{f}4}} = 0.2356\;\;\;\rightarrow \;\;\; 23.56\%
+      \end{displaymath}
+    
+   \end{MyExample}
+
+
+\clearpage   
+\begin{FinalSummaryBlock}{Summary}
+    \begin{itemize}
+       \item An equation of state correlates pressure, volume, temperature and the amount of the substance (\eg number of moles);
+       \item In the limiting case, \ie low/moderate pressure and high temperature, it can be assumed that fluids behave as an ideal gas;
+       \item In general, in equilibrium pure substances can be at liquid, vapour and/or solid phases, Phase diagrams are important tools to qualitatively assess phases and conditions for such phases;
+       \item Gibbs phase rule (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:PhaseRule}) establishes the number of intensive state variables that can be changed independently without disturbing the number of phases in equilibrium;
+       \item Supercritical fluid is a dense fluid phase above its critical temperature and pressure;
+       \item The simplest form to represent the interrelationship of these state variables is through using the coefficient of thermal expansion and coefficient of isothermal compressibility (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityExpansivity2});
+       \item In real gases, molecular interactions affect the equation of state. A simple and mathematically correct way to represent such dependency is through the coefficients ($B$, $C$ $\cdots$) of the Virial equation of state (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial1});
+       \item Compressibility factor ($Z$, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RealEOS_Z}) can be defined as the ratio of real volume of a fluid and the volume of the ideal gas at the same pressure and temperature;
+       \item Four cubic equations of state were introduced here, van der Waals (vdW, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:vdWEOS}), Redlich-Kwong (RK, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS}), Soave-Redlich-Kwong (SRK, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:SRKEOS}) and Peng-Robinson (PR, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:PREOS});
+       \item These EOS can be generalised by a polynomial of the third order in $Z$ (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1}) and readily solved for both vapour and liquid phases using any iterative root-finder method.
+    \end{itemize}
+\end{FinalSummaryBlock}
+
+
+
 \begin{comment}
 
 %%%
 %%% EXAMPLE 
 %%%  
-\item\label{Mod03Ex04} Derive an expression for enthalpy change of a gas during an isothermal process assuming using the following EOS: $P\left(V-b\right)=RT$
+ Derive an expression for enthalpy change of a gas during an isothermal process assuming using the following EOS: $P\left(V-b\right)=RT$
+
+% SOLUTION
+    \noindent{\bf Solution:} We have seen that enthalpy change is given by Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEnthalpyRelation1},
+    \begin{displaymath}
+       dH = C_{p}dT + \left[V - T\Partial[V]{T}{P}\right]dP.
+    \end{displaymath}
+    We can rearrange the given EOS and obtain $\Partial[V]{T}{P}$,
+    \begin{eqnarray}
+       && P\left(V-b\right)=RT \;\;\;\rightarrow\;\;\; V = \frc{RT}{P} + b \;\;\;\rightarrow\;\;\; \Partial[V]{T}{P} = \frc{R}{P}\;\;\text{ thus, } \nonumber \\
+       && dH = C_{p}dT + \left(V - \frc{RT}{P}\right)dP = \blue{C_{p}dT + bdP}. \nonumber 
+    \end{eqnarray}
+%%%
+
+%%%
+%%% EXAMPLE 
+%%%  
+ Derive an expression for enthalpy change of a gas during an isothermal process assuming using the following EOS: $P\left(V-b\right)=RT$
 
 % SOLUTION
     \noindent{\bf Solution:} We have seen that enthalpy change is given by Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEnthalpyRelation1},
@@ -849,44 +902,4 @@ The enthalpy of vaporisation, $\Delta H^{\text{fg}}$, can be obtained from the C
        && dH = C_{p}dT + \left(V - \frc{RT}{P}\right)dP = \blue{C_{p}dT + bdP}. \nonumber 
     \end{eqnarray}
 \end{comment}
-%%%
-%%% EXAMPLE 
-%%%  
-\item\label{Mod03Ex06} Steam (dry and saturated) is supplied by the boiler at 15 bar and the condenser inlet pressure is 0.4 bar. Calculate the Rankine efficiency of the cycle. Neglect the pump work, assume the enthalpy of fluid leaving the pump is 317.58 kJ.kg$^{-1}$
-
-% SOLUTION  
-    \noindent{\bf Solution:} At 15 bar, dry and saturated $\left(\ie x_{1}=1\right)$ steam has the following properties (from saturated table)\footnote{Using the same numbering as in Fig.~\ref{Mod03Fig04}.},
-          \begin{eqnarray}
-             T_{1} &=& T_{\text{sat}} = 198.3^{\circ}\text{C},\nonumber \\
-             h_{1} &=& h_{\text{g}} = 2792.2\; \text{kJ.kg}^{-1} \nonumber \\
-             s_{1} &=& s_{\text{g}} = 6.4448\; \text{kJ.(kg.K)}^{-1} \nonumber
-          \end{eqnarray} 
-    In the condenser, $P_{2}=0.4$ bar,
-          \begin{eqnarray}
-              T_{2} &=& T_{\text{sat}} = 75.87^{\circ}\text{C}, \nonumber \\
-              h_{\text{g}2} &=& 2636.8\;\text{kJ.kg}^{-1},\;\;\; h_{\text{f}2} = 317.58\;\text{kJ.kg}^{-1},  \nonumber \\
-              s_{\text{g}2} &=& 7.6700 \;\text{kJ.(kg.K)}^{-1},\;\;\; s_{\text{f}2} = 1.0259\;\text{kJ.(kg.K)}^{-1}. \nonumber  
-          \end{eqnarray}
-$h_{2}$ and $s_{2}$ depend on the knowledge of how vaporised the water is, in other words, we need to determine the quality of the steam, $x_{1}$ through Eqn.~\ref{Mod03_QualityVapour},
-      \begin{eqnarray}
-          h_{2} &=& h_{\text{f}2} + x_{2}\left(h_{\text{g}2} - h_{\text{f}2}\right), \nonumber \\
-          s_{2} &=& s_{\text{f}2} + x_{2}\left(s_{\text{g}2} - s_{\text{f}2}\right). \nonumber
-      \end{eqnarray}
-As we know that water is expanded isentropically in the turbine, \ie $s_{1}=s_{2}$,
-      \begin{displaymath}
-         s_{2} = s_{\text{f}2} + x_{2}\left(s_{\text{g}2} - s_{\text{f}2}\right) = s_{1} = 6.4448 \;\;\;\Rightarrow \;\;\; x_{2} = 0.8156 \;\;(81.56\% \text{ of vapour}
-      \end{displaymath}
-Thus replacing in 
-      \begin{displaymath}
-          h_{2} = h_{\text{f}2} + x_{2}\left(h_{\text{g}2} - h_{\text{f}2}\right) = 2209.14\text{ kJ.kg}^{-1}.
-      \end{displaymath}
-The Rankine efficiency is given by
-      \begin{displaymath}
-           \eta_{\text{Rankine}} = \frc{\text{Adiabatic or Isentropic Heat Drop}}{\text{Heat Supplied}} = \frc{\left|h_{1}-h_{2}\right|}{h_{1}-h_{\text{f}4}} = 0.2356\;\;\;\rightarrow \;\;\; 23.56\%
-      \end{displaymath}
-    
-
-
-\end{enumerate}
-
 
