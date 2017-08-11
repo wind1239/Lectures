@@ -3,11 +3,14 @@
    \begin{LearningObjectivesBlock}{Learning Objectives}
       Upon completion of this chapter, you will be able to
         \begin{enumerate}
-           \item Define pure substances and thermodynamic phases;
-           \item State the Gibbs phase rule and its use to define the number of degrees of freedom of a system;
-           \item Identify phases and phase transitions in a diagram;
-           \item Formulate the solution for thermodynamic problems involving the calculation of volume of pure substances;
-           \item Select appropriate equation of state for a given problem/application;
+           \item Apply total derivatives in the construction of thermodynamic properties;
+           \item Define fundamental thermodynamic relations;
+           \item Formulate Maxwell equations based on fundamental relations and employ them to solve practical engineering applications;
+           \item Determine expressions for thermodynamics potentials based on measurable potentials;
+           \item Define residual properties and assess thermodynamics potentials;
+           \item Describe phase change of pure substances through Clausius-Clapeyron equation;
+           \item Formulate mass and energy balances of industrial vapour-liquid systems;
+           \item Identify specific internal energy, entropy and enthalpy from saturated tables and assess cycle efficiency in power systems.
         \end{enumerate}
 \medskip
      Recommended reading: Chapters 6 of \citet{SmithVanNess_Book}, 11 of \citet{Balmer_Book}, 12 of \citet{Borgnakke_Book} or  of \citet{Atkins_Book}.
@@ -93,7 +96,7 @@ These four equations, Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:F
      \end{subequations}
 
 %%% SECTION
-     \section{Maxwell Relations}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:MaxwellRelations}
+     \section{Maxwell Thermodynamic Property Equations}\label{Chapter:ThermodynamicPropertiesPureFluids:Section:MaxwellRelations}
      \begin{subequations}
 
 The thermodynamic potentials expressed in the four fundamental relations (Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01}-~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}) can be defined as a general functional, 
@@ -852,16 +855,16 @@ The Rankine efficiency is given by
 \clearpage   
 \begin{FinalSummaryBlock}{Summary}
     \begin{itemize}
-       \item An equation of state correlates pressure, volume, temperature and the amount of the substance (\eg number of moles);
-       \item In the limiting case, \ie low/moderate pressure and high temperature, it can be assumed that fluids behave as an ideal gas;
-       \item In general, in equilibrium pure substances can be at liquid, vapour and/or solid phases, Phase diagrams are important tools to qualitatively assess phases and conditions for such phases;
-       \item Gibbs phase rule (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:PhaseRule}) establishes the number of intensive state variables that can be changed independently without disturbing the number of phases in equilibrium;
-       \item Supercritical fluid is a dense fluid phase above its critical temperature and pressure;
-       \item The simplest form to represent the interrelationship of these state variables is through using the coefficient of thermal expansion and coefficient of isothermal compressibility (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:CompressibilityExpansivity2});
-       \item In real gases, molecular interactions affect the equation of state. A simple and mathematically correct way to represent such dependency is through the coefficients ($B$, $C$ $\cdots$) of the Virial equation of state (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:Virial1});
-       \item Compressibility factor ($Z$, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RealEOS_Z}) can be defined as the ratio of real volume of a fluid and the volume of the ideal gas at the same pressure and temperature;
-       \item Four cubic equations of state were introduced here, van der Waals (vdW, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:vdWEOS}), Redlich-Kwong (RK, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:RKEOS}), Soave-Redlich-Kwong (SRK, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:SRKEOS}) and Peng-Robinson (PR, Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:PREOS});
-       \item These EOS can be generalised by a polynomial of the third order in $Z$ (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1}) and readily solved for both vapour and liquid phases using any iterative root-finder method.
+       \item Discussion of fundamental thermodynamic relations (Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:FundamentalRelation01}-\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01}) and introduction of two new thermodynamic properties: Gibbs and Helmholtz free energy;
+       \item Development of Maxwell thermodynamic property relations (Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation1}-\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation8});
+       \item Development of expressions to calculate thermodynamic potentials ($U, H\text{ and } S$) based on measurable properties ($P, T\text{ and } V$), Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEnthalpyRelation1}, \ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelations}, \ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedIntEnergyRelation1} and \ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:DerivedEntropyRelations3};
+       \item Development of expressions for residual properties 
+      \begin{displaymath}
+         M^{R} \equiv M - M^{\text{ig}},
+      \end{displaymath}
+      where $M$ represents any thermodynamic property for gases. Here, expressions for residual enthalpy, entropy and Gibbs free energy (Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingGibbsFunction1}, \ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingEnthalpyFunction2}-\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingGibbsFunction3});
+      \item Clapeyron equation (Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ClapeyronEqn}) was developed to quantify the energy necessary for phase change (\eg vaporisation, solidification etc) under mechanical and thermal equilibrium conditions;
+       \item Introduction to saturated tables for pure fluids and the application to power system (Sections~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:VLE}-\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:PowerSystem}).
     \end{itemize}
 \end{FinalSummaryBlock}
 
