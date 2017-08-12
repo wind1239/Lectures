@@ -7,7 +7,7 @@
            \item 
         \end{enumerate}
 \medskip
-     Recommended reading: Chapters 6 of \citet{SmithVanNess_Book}, 3 and 5 of \citet{Lue_Book}, 12 of \citet{Balmer_Book}, 12 of \citet{Borgnakke_Book} or 5 of \citet{Atkins_Book}.
+     Recommended reading: Chapters 10-11 of \citet{SmithVanNess_Book}, 3 and 5 of \citet{Lue_Book}, 11 of \citet{Moran_Book} or 4-7 of \citet{Atkins_Book}.
    \end{LearningObjectivesBlock}
 
 
@@ -117,22 +117,22 @@ Let's assume that $M$ is any extensive thermodynamic property (\eg $V$, $U$, $H$
   \begin{subequations}
 If we apply the concept of partial molar property to the Gibbs free energy definition, assuming that this thermodynamic potential is a function of $P$, $T$ and $n$, \ie $G^{\text{t}}= nG = G\left(T,P,n_{1},n_{2},\cdots,n_{\mathcal{C}}\right)$,
       \begin{equation}
-         d(nG) = n\Partial[G]{P}{T,x}dP + n\Partial[G]{T}{P,x}dT + \summation[\overline{G}_{i}dn_{i}]{i}{}.\label{Chapter:VLE:ChemPotentialDef1}
+         d(nG) = n\Partial[G]{P}{T,x}dP + n\Partial[G]{T}{P,x}dT + \summation[\overline{G}_{i}dn_{i}]{i}{}.\label{Chapter:VLE:Eqn:ChemPotentialDef1}
       \end{equation}
       By definition the {\it partial molar Gibbs free energy} is called \blue{chemical potential $\left(\mu_{i}\right)$},
       \begin{shaded}
          \begin{equation}
-            \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i}.\label{Chapter:VLE:ChemPotentialDef1b}
+            \overline{G}_{i} = \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}}. \label{Chapter:VLE:Eqn:ChemPotentialDef1b}
          \end{equation}
       \end{shaded}
-      The chemical potential can be understood as an energy associated with interactions of atoms/molecules in a mixture that controls the tendency of molecules to leave the solution (or return to the solution), and to chemically react. We have defined the Gibbs free energy in Eqn.~\ref{Mod03_GibbsFundamentalRelation01} as a function of $T$ and $P$, now we will extend it to be also a function of the number of moles of chemical species -- Eqn.~\ref{Chapter:VLE:PartialMolarProperties:ChemPotentialDef1},
+      The chemical potential can be understood as an energy associated with interactions of atoms/molecules in a mixture that controls the tendency of molecules to leave the solution (or return to the solution), and to chemically react. We have defined the Gibbs free energy in Eqn.~\ref{Mod03_GibbsFundamentalRelation01} as a function of $T$ and $P$, now we will extend it to be also a function of the number of moles of chemical species -- Eqn.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1},
       \begin{equation}
-         d(nG) = (nV)dP - (nS)dT + \summation[\mu_{i}dn_{i}]{i}{},\label{Chapter:VLE:PartialMolarProperties:ChemPotentialDef1c}
+         d(nG) = (nV)dP - (nS)dT + \summation[\mu_{i}dn_{i}]{i}{},\label{Chapter:VLE:Eqn:ChemPotentialDef1c}
       \end{equation}
-      considering $n=1\;\Rightarrow n_{i}=x_{i}$, and Eqn.~\ref{Chapter:VLE:PartialMolarProperties:ChemPotentialDef1c} becomes
+      considering $n=1\;\Rightarrow n_{i}=x_{i}$, and Eqn.~\ref{Chapter:VLE:ChemPotentialDef1c} becomes
       \begin{shaded}
         \begin{equation}
-          \blue{dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{}},\label{Chapter:VLE:PartialMolarProperties:ChemPotentialDef1d}
+          \blue{dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{}},\label{Chapter:VLE:ChemPotentialDef1d}
         \end{equation}
       \end{shaded}
   \end{subequations}
@@ -172,14 +172,14 @@ There are two main conditions for a system to achieve {\it chemical equilibrium}
     \end{shaded}
     We can write the criterion for stable equilibrium in non-adiabatic system from the First Law for $n$ moles,
     \begin{eqnarray}
-      dQ = dU + PdV -\mu dn &\leq& TdS \label{Chapter:VLE:PartialMolarProperties:EquilibriumCriteria0} \\
-      dU + PdV -\mu dn - TdS &\leq& 0,\label{Chapter:VLE:PartialMolarProperties:EquilibriumCriteria1}
+      dQ = dU + PdV -\mu dn &\leq& TdS \label{Chapter:VLE:EquilibriumCriteria0} \\
+      dU + PdV -\mu dn - TdS &\leq& 0,\label{Chapter:VLE:EquilibriumCriteria1}
     \end{eqnarray}
     thus,
     \begin{enumerate}[i)]
         \item if we make $U$, $V$ and $n$ constants, $dQ=0$ and the stability condition becomes \underline{$dS \ge 0$} $\Longrightarrow$ \underline{$S$ is maximum};
-        \item if $S$, $V$ and $n$ are set as constants, then from Eqn.~\ref{Chapter:VLE:PartialMolarProperties:EquilibriumCriteria1}, the system will be stable if \underline{$dU\le 0$} $\Longrightarrow$ \underline{$U$ is minimum};
-        \item if $T$, $V$ and $n$ are kept constants, then Eqn.~\ref{Chapter:VLE:PartialMolarProperties:EquilibriumCriteria1}, becomes
+        \item if $S$, $V$ and $n$ are set as constants, then from Eqn.~\ref{Chapter:VLE:EquilibriumCriteria1}, the system will be stable if \underline{$dU\le 0$} $\Longrightarrow$ \underline{$U$ is minimum};
+        \item if $T$, $V$ and $n$ are kept constants, then Eqn.~\ref{Chapter:VLE:EquilibriumCriteria1}, becomes
             \begin{eqnarray}
               dU - TdS &\leq& 0 \nonumber \\
               d(U-TS) &\leq& 0 \;\;  \text{(for } T \text{  constant}),
@@ -187,7 +187,7 @@ There are two main conditions for a system to achieve {\it chemical equilibrium}
             however, we have seen the definition of the Helmholtz free energy, $U-TS =A$, thus $dA\leq0$ $\Longrightarrow$ \underline{$A$ is minimum};
         \item from the Helmholtz free energy definition,
             \begin{eqnarray}
-              dA &=& \overbrace{dU}^{\text{from Eqn.~\ref{Chapter:VLE:PartialMolarProperties:EquilibriumCriteria0}}: dU = dQ -dW +\mu dn} -SdT - TdS \nonumber \\
+              dA &=& \overbrace{dU}^{\text{from Eqn.~\ref{Chapter:VLE:EquilibriumCriteria0}}: dU = dQ -dW +\mu dn} -SdT - TdS \nonumber \\
                 &=& \red{dQ} -dW + \mu dn -SdT \red{-TdS},\label{Chapter:VLE:PartialMolarProperties:EquilibriumCriteria2}
             \end{eqnarray}
             from the Clausius inequality, $dQ-TdS \leq 0$, and if we consider $T$ and $n$ constants $\Longrightarrow\;\; dA = -dW + (dQ - TdS) \leq 0$, therefore
