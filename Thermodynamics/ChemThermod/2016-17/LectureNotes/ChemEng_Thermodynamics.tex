@@ -325,9 +325,16 @@
          }
     {}}
     \makeatother
+    
+\makeatletter
+\newcommand{\extraPartText}[1]{\def\@extraPartText{#1}}
+\pretocmd{\@endpart}{\vspace{8ex}\begingroup\centering\@extraPartText\par\endgroup\let\@extraPartText\relax}{}{}
+\makeatother
+
 
 \begin{document}
 \etocsettocdepth{subsection}
+\let\cleardoublepage\clearpage
 
 \vspace{4cm}
 
@@ -399,14 +406,14 @@
 \vfill
 \pagebreak
 
-
 \pagenumbering{arabic}% Arabic page numbers (and reset to 1)
-
+\makeatletter\@openrightfalse
+\extraPartText{\blue{(Contents of this Part are not examinable. They were designed to help with some of the notations and definitions used in the remaining of this Notes.)}}
 \part{Introduction and Review of Basic Concepts}
-
-   \begin{shaded}
-      Contents of this Part are not examinable. They were designed to help with some of the notations and definitions used in the remaining of this Notes. 
-   \end{shaded}
+   %\vspace{5cm}
+   %\begin{shaded}
+   %  Contents of this Part are not examinable. They were designed to help with some of the notations and definitions used in the remaining of this Notes.
+   %  \end{shaded}
    
   \input{Chapter_Introduction} % Introduction and Review of Basic Concepts of Thermodynamics
      \setcounter{examplecounter}{0}
@@ -422,7 +429,8 @@
   \input{Chapter_VolumetricPropertiesPureFluids} % Volumetric Properties of Pure Substances
      \setcounter{examplecounter}{0}
   \input{Chapter_ThermodynamicPropertiesPureFluids} % Thermodynamic Properties of Pure Fluids
-%  \input{Chapter_VapourLiquidEquilibrium}
+     \setcounter{examplecounter}{0}
+  \input{Chapter_VapourLiquidEquilibrium}
 
 %\part{Liquid Solutions}
 %  \input{Chapter_SolutionThermodynamics}
@@ -439,10 +447,10 @@
   \begin{appendix}
      \part{Appendices}
        \input{Appendix_ConversionTable}
-       \input{Appendix_SaturatedTables}
        \input{Appendix_LogTable} 
        \input{Appendix_Calculus1}   
        \input{Appendix_NumMethods}
+       \input{Appendix_SaturatedTables}
 %       \input{Appendix_Examples}
   \end{appendix}
 
