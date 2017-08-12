@@ -228,120 +228,105 @@ If we apply the concept of partial molar property to the Gibbs free energy defin
   \end{subequations}
 
 %%% SUBSECTION
-\subsection{Chemical Potential and Thermodynamic Equilibrium}\label{Chapter:VLE:ChemPotThermEquil}
-
-Now, let's consider a closed system consisting of two phases in equilibrium  (vapour and liquid, or solid and vapour or liquid and solid), $\alpha$ and $\beta$. Each of these phases may be considered as an open system with an interface between them, where mass and energy can flow freely. Also, both systems (or phases) are in mechanical and thermal equilibrium $\left(\ie\; T^{\alpha}=T^{\beta}=T\text{ and } P^{\alpha}=P^{\beta}=P\right)$. We can apply Eqn.~\ref{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c} to both phases,
+\subsection{Chemical Potential and Thermodynamic Equilibrium}\label{Chapter:VLE:Section:ChemPotThermEquil}
   \begin{subequations}
-
-     \begin{eqnarray}
-        d(nG)^{\alpha} &=& (nV)^{\alpha}dP - (nS)^{\alpha}dT + \summation[\mu_{i}^{\alpha}dn_{i}^{\alpha}]{i}{},\label{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c1} \\
-        d(nG)^{\beta} &=& (nV)^{\beta}dP - (nS)^{\beta}dT + \summation[\mu_{i}^{\beta}dn_{i}^{\beta}]{i}{}.\label{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c2} 
-     \end{eqnarray}
+    Now, let's consider a closed system consisting of two phases in equilibrium (\ie $\mathcal{P}=$ 2, \eg vapour and liquid, or solid and vapour or liquid and solid), $\alpha$ and $\beta$. Each of these phases may be considered as an open system with an interface between them, where mass and energy can flow freely. Also, both systems (or phases) are in mechanical and thermal equilibrium, \ie
+    \begin{displaymath}
+      \begin{cases}
+        T^{\alpha}=T^{\beta}=T & \text{ and } \\
+        P^{\alpha}=P^{\beta}=P,
+      \end{cases}
+    \end{displaymath}
+    and Eqn~\ref{Chapter:VLE:Eqn:ChemPotentialDef1c} can be applied to both phases,
+    \begin{eqnarray}
+        d(nG)^{\alpha} &=& (nV)^{\alpha}dP - (nS)^{\alpha}dT + \summation[\mu_{i}^{\alpha}dn_{i}^{\alpha}]{i}{},\label{Chapter:VLE:Eqn:ChemPotentialDef1c1} \\
+        d(nG)^{\beta} &=& (nV)^{\beta}dP - (nS)^{\beta}dT + \summation[\mu_{i}^{\beta}dn_{i}^{\beta}]{i}{}.\label{Chapter:VLE:Eqn:ChemPotentialDef1c2} 
+    \end{eqnarray}
      The change in total Gibbs free energy of a two-phase system is the sum of the changes in each phase. As mass is transferred across the interface, volume and entropy of each phase may change,
-     \begin{eqnarray}
-        (nV) &=& (nV)^{\alpha}+ (nV)^{\beta}, \nonumber \\
-        (nS) &=& (nS)^{\alpha}+(nS)^{\beta}, \nonumber
-     \end{eqnarray}
-     Summing up Eqns.~\ref{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c1} and~\ref{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c2} and using the above relations,
+     \begin{displaymath}
+       \begin{cases}
+         (nV) = (nV)^{\alpha}+ (nV)^{\beta} &  \\
+         (nS) = (nS)^{\alpha}+(nS)^{\beta},&
+       \end{cases}
+     \end{displaymath}
+     Summing up Eqns.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1c1} and~\ref{Chapter:VLE:Eqn:ChemPotentialDef1c2} and using the above relations,
      \begin{displaymath}
         d(nG) = (nV)dP - (nS)dT + \summation[\mu_{i}^{\alpha}dn_{i}^{\alpha}]{i}{} + \summation[\mu_{i}^{\beta}dn_{i}^{\beta}]{i}{} = 0,
      \end{displaymath}
-     and as the whole system is closed and the net mass transfer is zero, $dn_{i}^{\alpha}=-dn_{i}^{\beta}$ thus,
+     and as the whole system is closed and the net mass transfer is zero, \ie $dn_{i}^{\alpha}=-dn_{i}^{\beta}$ thus,
      \begin{displaymath}
-        d(nG) = (nV)dP - (nS)dT + \summation[\left(\mu_{i}^{\alpha}-\mu_{i}^{\beta}\right)dn_{i}^{\alpha}]{i}{} = 0,
+        d(nG) = (nV)dP - (nS)dT + \summation[\left(\mu_{i}^{\alpha}-\mu_{i}^{\beta}\right)dn_{i}^{\alpha}]{i}{} = 0.
      \end{displaymath}
-     as we are considering that system is already under mechanical and thermal equilibrium,
-     \begin{equation}
-        \summation[\left(\mu_{i}^{\alpha}-\mu_{i}^{\beta}\right)dn_{i}^{\alpha}]{i}{} = 0,
-     \end{equation}
-     This equation describes changes in the chemical potential and in the mass of each component in each phase. In fact, throughout this derivation, $dn_{i}^{\alpha}$ is enforced to be independent of each other and therefore \underline{can not be zero}, hence
-      \begin{shaded}
-         \begin{equation}
-            \mu_{i}^{\alpha} = \mu_{i}^{\beta}, \;\;\;\;\forall i=1,2,\cdots, \mathcal{C}.\label{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c3} 
-         \end{equation}
-      \end{shaded}
-      This rather simple relation is crucial for understanding phase equilibria, as it states that for an arbitrary closed system at fixed $T$, $P$, thermodynamic equilibrium will be reached when the chemical potential of \underline{all} chemical species in one of the phases is \underline{equal} to the counterpart in the other phase. In fact, we can extend this argument for any number of phases, 
-      \begin{shaded}
-         \begin{equation}
-            \blue{\mu_{i}^{\alpha} = \mu_{i}^{\beta} = \cdots = \mu_{i}^{\mathcal{P}} \;\;\;\;\forall i=1,2,\cdots, \mathcal{C}.}\label{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c3} 
-         \end{equation}
+     \begin{shaded}
+       \noindent As the system is assumed to be already under mechanical and thermal equilibrium (\ie $P$ and $T$ are constants),
+       \begin{equation}
+         \summation[\left(\mu_{i}^{\alpha}-\mu_{i}^{\beta}\right)dn_{i}^{\alpha}]{i}{} = 0,
+       \end{equation}
+       This equation describes changes in the chemical potential and in the mass of each component in each phase. In fact, throughout this derivation, $dn_{i}^{\alpha}$ is enforced to be independent of each other and therefore \underline{can not be zero}, hence
+       \begin{equation}
+         \mu_{i}^{\alpha} = \mu_{i}^{\beta}, \;\;\;\;\forall i=1,2,\cdots, \mathcal{C}.\label{Chapter:VLE:Eqn:ChemPotentialDef1c3} 
+       \end{equation}
+       This rather simple relation is crucial for understanding phase equilibria, as it states that for an arbitrary closed system at fixed $T$, $P$, thermodynamic equilibrium will be reached when the chemical potential of \underline{all} chemical species in one of the phases is \underline{equal} to the counterpart in the other phase. In fact, this argument can be extended for any number of phases (\ie $\mathcal{P}\ge 2$), \ie
+       \begin{equation}
+          \blue{\mu_{i}^{\alpha} = \mu_{i}^{\beta} = \cdots = \mu_{i}^{\mathcal{P}}, \hspace{2cm} \forall i=1,2,\cdots, \mathcal{C}.}\label{Chapter:VLE:EqnChemPotentialDef1c3} 
+       \end{equation}
       \end{shaded}
 
   \end{subequations}
 
-
-\begin{comment}
-%%% SUBSECTION
-\subsection{Gibbs Phase Rule and Duhem's Theorem}\label{Chapter:VLE:GibbsPhaseRule}
-
-In Section~\ref{Section:02:PVTBehaviour} (Eqns.~\ref{Mod02_GibbsPhaseRuleReactive}-~\ref{Mod02_GibbsPhaseRule}), we introduced the idea of {\it Gibbs phase rule} and how this `rule' can help determining the number of degrees of freedom of any system. Here, a mathematical framework will be used to demonstrate the validity of the {\it Gibbs phase rule}. Consider a non-reactive system closed system in thermodynamic equilibrium with $\mathcal{P}$ co-existing phases and $\mathcal{C}$ independent chemical species, the number of degrees of freedom for such system (\ie number of intensive variables that may vary independently of each other) is given by
-\begin{shaded}
-  \begin{center}
-     \red{Degrees of Freedom} = \blue{Total Number of Intensive Variables} - \purple{Number of Independent Equations}
-  \end{center} 
-\end{shaded}
-
-Thus,
-\begin{enumerate}[a)]
-   \item \blue{Total Number of Intensive Variables}: $T$, $P$ and $\mathcal{C}-1$ mole fractions for each of the $\mathcal{P}$ phases;
-   \item \purple{Number of Independent Equations}: $\left(\mathcal{P}-1\right)\mathcal{C}$
-\end{enumerate}
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-\end{comment}
-
-
 %%% SECTION
-\section{Vapour-Liquid Equilibrium}\label{Chapter:VLE:VLE}
-
-One of the main objectives of Module~\ref{Section:02} was to study the thermodynamic equilibrium of pure components that involved phase change (see Figs.~\ref{Mod02Fig01}-~\ref{Mod02Fig02}), and in particular for vapour-liquid equilibrium (VLE). $PVT$ relations of pure components were quantitatively expressed through equations of state. Here we will extend the investigation of VLE to mixtures of arbitrary number of components.
-
-%%% SUBSECTION
-\subsection{Qualitative Analysis: Phase Diagrams}\label{Chapter:VLE:PhaseDiagrams}
-In Section~\ref{Section:02:PVTBehaviour} (Eqns.~\ref{Mod02_GibbsPhaseRuleReactive}-~\ref{Mod02_GibbsPhaseRule}), the {\it Gibbs phase rule} was introduced to help determining the number of degrees of freedom of any system,
-    \begin{displaymath}
-        \Psi = 2 + \mathcal{C} - \mathcal{P}.
-    \end{displaymath}
-For a binary components system in equilibrium, $\mathcal{C}=2$, the phase rule yields a degree of freedom of $\Psi=4-\mathcal{P}$. In VLE system, the number of independent intensive variables becomes $2$, and it will need to be chosen between:
-\begin{enumerate}[a)]
-   \item temperature ($T$);
-   \item pressure ($P$);
-   \item molar fraction of the more volatile component\footnote{In this module, we will adopt a notation in which for a mixture of $\mathcal{C}$ components, the most volatile will be assigned as number \blue{$1$}. Also, we will follow here the notation used in most thermodynamic text-books in which the molar fraction of component $i$ in vapour and liquid phases are \blue{$y_{i}$} and \blue{$x_{i}$}, respectively.} in the vapour phase $\left(y_{1}\right)$, and;
-   \item molar fraction of the more volatile component in the liquid phase $\left(x_{1}\right)$.
-\end{enumerate}
-A plot with these 4 variables is not very practical, as shown in Fig.~\ref{Mod04Fig01} for a mixture of hexane and triethylamine. In this $P-T-xy$ diagram, to ensure a single phase system $\left(\mathcal{P}=1\right)$, temperature, pressure and {\bf one} molar fraction need to be fixed. For a two-phase system $\left(\mathcal{P}=2\right)$, two variables need to be fixed and the system is expressed as a surface -- \eg the plane of constant pressure of $0.54$ bar. %Although insightful, this plot is not very convenient to assess compositions and phase behaviour, and is limited to a binary systems. 
+\section{Vapour-Liquid Equilibrium}\label{Chapter:VLE:Section:VLE}
+One of the main objectives of Chapter~\ref{Chapter:VolumetricPropertiesPureSubstances} was to study the thermodynamic equilibrium of pure components that involved phase change (see Figs.~\ref{Chapter:VolumetricPropertiesPureSubstances:Fig:PVT_Surfaces}-\ref{Chapter:VolumetricPropertiesPureSubstances:Fig:PV-PT_Diagrams}), and in particular for vapour-liquid equilibrium (VLE). $PVT$ relations of pure components were quantitatively expressed through equations of state. In this section, the investigation of VLE will be extended to mixtures of arbitrary number of components. \ie $\mathcal{P}=$2 and $\mathcal{C}\ge$ 2.
+%%%% FIGURE
       \begin{figure}[h]
          \begin{center}
            \includegraphics[width=.9\columnwidth,clip]{./../Pics/PTxy_diagram}
-           \vspace{-.1cm}\caption{$P-T-xy$ diagram for hexane and triethylamine (extracted from Sandler, 2006).}\label{Mod04Fig01}
+           \vspace{-.1cm}\caption{$P-T-xy$ diagram for hexane and triethylamine \citep[extracted from][]{Sandler_Book}.}\label{Chapter:VLE:Fig:Fig01}
          \end{center}
        \end{figure}
 
-In Fig.~\ref{Mod04Fig02}, a generic $P-T-xy$ diagram is shown. Vertical planes parallel to \blue{0-1-R-M-U-0} (\eg plane \blue{E-A-B-D-E}) indicates $P-xy$ diagrams at constant temperature, whereas horizontal planes parallel to \blue{K-J-I-H-K} indicates $T-xy$ diagrams at constant pressure. The (subcooled) liquid region lies \underline{above} the upper surface of the solid (grey) projection, and (superheated) vapour region lies \underline{below} the under surface. The interior of the solid projection between the two surfaces is the region of coexistence of both liquid and vapor phases. 
-
-The $x_{1},y_{1}$ axis is limited to \blue{zero} and \blue{one}, thus at $x_{1}$ (or $y_{1}$) equal to zero, $x_{2}$ (or $y_{2}$) is equal to unity, \ie there is just pure component \blue{2} in solution. Similarly at $x_{1}$ (or $y_{1}$) equal to one, $x_{2}$ (or $y_{2}$) is equal to zero, \ie there is just pure component \blue{1} in solution. The diagram also depicts points \blue{$C_{1}$} and \blue{$C_{2}$} along the vertical planes of $x_{1},y_{1}=0$ and $x_{1},y_{1}=1$, respectively, these two points are the coordinates of the critical conditions $\left(P_{c,1}, P_{c,2}, T_{c,1} \text{ and } T_{c,2}\right)$ of both \underline{pure components}. Critical coordinates for mixtures at various compositions of \blue{1} and \blue{2} lie along a line on the rounded edge of the surface between \blue{$C_{1}$} and \blue{$C_{2}$}.
+%%% SUBSECTION
+\subsection{Qualitative Analysis: Phase Diagrams}\label{Chapter:VLE:Section:PhaseDiagrams}
+In Section~\ref{Chapter:VolumetricPropertiesPureSubstances:Section:PVTBehaviour}, the {\it Gibbs phase rule} was introduced to help determining the number of degrees of freedom of any system,\index{Phase rule}\index{Phase rule !Degrees of freedom}
+    \begin{displaymath}
+        \Psi = 2 + \mathcal{C} - \mathcal{P}.
+    \end{displaymath}
+For a binary system in equilibrium (\ie $\mathcal{C}=2$), the phase rule yields a degree of freedom of $\Psi=4-\mathcal{P}$. In VLE systems ($\mathcal{P}=2$), the number of independent intensive variables becomes 2, and it will need to be chosen between:
+\begin{enumerate}[a)]
+   \item temperature ($T$);
+   \item pressure ($P$);
+   \item molar fraction of the more volatile component\footnote{In this chapter, for a mixture of $\mathcal{C}$ chemical species, the most volatile component will be assigned as number 1. Also, we will follow here the notation used in most thermodynamic text-books in which the molar fraction of component $i$ in vapour and liquid phases are \blue{$y_{i}$} and \blue{$x_{i}$}, respectively.} in the vapour phase $\left(y_{1}\right)$, and;
+   \item molar fraction of the more volatile component in the liquid phase $\left(x_{1}\right)$.
+\end{enumerate}
+As shown in Fig.~\ref{Chapter:VLE:Fig:Fig01}, a plot with these 4 variables for a mixture of hexane and triethylamine is not very practical. In this $P-T-xy$ diagram, to ensure a single phase system $\left(\mathcal{P}=1\right)$, temperature, pressure and {\bf one} molar fraction need to be fixed. For a two-phase system $\left(\mathcal{P}=2\right)$, two variables need to be fixed and the system is expressed as a surface -- \eg the plane of constant pressure of $0.54$ bar. %Although insightful, this plot is not very convenient to assess compositions and phase behaviour, and is limited to a binary systems.
+%%%% FIGURE
       \begin{figure}[h] 
          \begin{center}
              \includegraphics[width=.75\columnwidth,clip]{./Figs/PTxy_Digram} 
-             \vspace{-.1cm}\caption{$P-T-xy$ diagram for binary mixtures (extracted from Smith, Van Ness and Abbott, 2000).}\label{Mod04Fig02}
+             \vspace{-.1cm}\caption{$P-T-xy$ diagram for binary mixtures \citep[extracted from][]{SmithVanNess_Book}.}\label{Chapter:VLE:Fig:Fig02}
          \end{center}
        \end{figure}
-For each constant temperature plane, the upper line of the solid (grey) projection is the \blue{saturated liquid line} whilst the lower line is the \blue{saturated vapour line} (the reader should remember that these lines are also present for pure substances in the $Ts$ and $Ph$ diagrams , Fig.~\ref{Mod03Fig02}).
 
-Compositions of each phase can be obtained from a parallel line linking $x_{1}$ and $y_{1}$. For example, in the `lens' \blue{U-M-R-N-U} contained in the plane \blue{0-U-M-R-1-Q-0}, the vapour phase $\left(\text{with composition }\red{y_{1}=\alpha}\text{ at } \blue{K_{1}}\right)$ is in equilibrium with the liquid phase $\left(\text{with composition }\red{x_{1}=\beta}\text{ at } \blue{K_{2}}\right)$. This parallel line, \blue{$K_{1}-K_{2}$}, is called \underline{tie-line} (Fig.~\ref{Mod04Fig03}b). The intersection of the tie-line with the saturated liquid line is referred as \blue{bubble pressure}, and the intersection with the saturated vapour line is called \blue{dew pressure} (at constant temperature).
-
-$P-T-xy$ diagram, although insightful, is not very practical. Projections of $P-xy$ plane at constant temperature are shown in Fig.~\ref{Mod04Fig03}. Now, let's assume that the fluid of this diagram, Fig.~\ref{Mod04Fig03}(c), is at liquid phase at coordinate \blue{$M$} with composition \blue{$\left(x_{1}=x_{z};y_{1}=0\right)$}. As pressure is reduced along the \blue{$M-S$} line, the first bubble of vapour appears at \blue{$N$}; composition at this coordinate is \blue{$\left(x_{1}=x_{z};y_{1}=y_{BP}\right)$}, and this is called \blue{\it bubble point}. Further reduction of pressure to coordinate \blue{$Q$} (still at constant temperature), the fluid becomes partially vaporised and the composition at this coordinate is given by the {\it tie-line} \blue{$Q_{L}-Q_{V}$} -- \blue{$\left(x_{1}=x_{Q};,y_{1}=y_{Q}\right)$}. 
+In a generic $P-T-xy$ diagram (Fig.~\ref{Chapter:VLE:Fig:Fig02}), vertical planes parallel to the \blue{0-1-R-M-U-0} plane (\eg plane \blue{E-A-B-D-E}) indicates $P-xy$ diagrams at constant temperature, whereas horizontal planes parallel to the \blue{K-J-I-H-K} plane indicates $T-xy$ diagrams at constant pressure. The liquid (\ie subcooled) region lies \underline{above} the upper-surface of the solid (grey) projection (solid body bounded by \blue{U-R-C$_{1}$-C$_{2}$-U}), and (superheated) vapour region lies \underline{below} the under-surface. The interior of the solid projection between the two surfaces is the region of coexistence of both liquid and vapour phases. 
+%%% FIGURE
       \begin{figure}[h]
-        \vbox{\hbox{\hspace{-1.cm}\includegraphics[width=.7\linewidth,clip]{./../Pics/VLE_Pxy_Diagram1}
-            \hspace{-4.cm}\includegraphics[width=.7\linewidth,clip]{./../Pics/VLE_Pxy_Diagram2}}
-          \vspace{-.5cm}
-          \hbox{\hspace{4.5cm}(a)\hspace{7cm}(b)}
-          \vspace{-.5cm}\hbox{\hspace{3.cm}\includegraphics[width=.6\linewidth,clip]{./../Pics/VLE_Pxy_Diagram3b}}
+        \vbox{\hbox{\hspace{0.cm}\includegraphics[width=.5\linewidth,clip]{./../Pics/VLE_Pxy_Diagram1}
+            \hspace{-2.cm}\includegraphics[width=.5\linewidth,clip]{./../Pics/VLE_Pxy_Diagram2}}
+          \vspace{-0.5cm}
+          \hbox{\hspace{3.5cm}(a)\hspace{6cm}(b)}
+          \vspace{-0.cm}
+          \hbox{\hspace{3.cm}\includegraphics[width=.5\linewidth,clip]{./../Pics/VLE_Pxy_Diagram3b}}
           \vspace{-.1cm}
-          \hbox{\hspace{7.5cm}(c)}}
-             \vspace{-.1cm}\caption{VLE for binary mixtures: $P-xy$ diagrams at constant temperature.}\label{Mod04Fig03}
+          \hbox{\hspace{6.8cm}(c)}}
+        \vspace{-.1cm}\caption{VLE for binary mixtures: $P-xy$ diagrams at constant temperature.}\label{Chapter:VLE:Fig:Fig03}
       \end{figure}
-      
-As the pressure is continuously reduced along line \blue{$Q-R$}, more liquid is vaporised until \blue{$R$}, when the last droplet of liquid (dew) is vaporised. This coordinate is called \blue{\it dew point}. The composition at $N$ is \blue{$\left(x_{1}=x_{DB};y_{1}=y_{z}\right)$}. Continued reduction of pressure towards \blue{$S$} leads to (pure) vapour region with composition \blue{$\left(x_{1}=0,y_{1}=y_{z}\right)$}.
+
+The $x_{1},y_{1}$ axis is limited to \blue{zero} and \blue{one}, thus at $x_{1}$ (or $y_{1}$) equal to zero, $x_{2}$ (or $y_{2}$) is equal to unity, \ie there is just pure component \blue{2} in solution. Similarly at $x_{1}$ (or $y_{1}$) equal to one, $x_{2}$ (or $y_{2}$) is equal to zero, \ie there is just pure component \blue{1} in solution. The diagram also depicts points \blue{$C_{1}$} and \blue{$C_{2}$} along the vertical planes of $x_{1},y_{1}=0$ and $x_{1},y_{1}=1$, respectively. These two points are the coordinates of the critical conditions $\left(P_{c,1}, P_{c,2}, T_{c,1} \text{ and } T_{c,2}\right)$ of both \underline{pure components}. Critical coordinates for mixtures at various compositions of \blue{1} and \blue{2} lie along a line on the rounded edge of the surface between \blue{$C_{1}$} and \blue{$C_{2}$}.
+
+For each constant temperature plane (vertical), the upper line of the solid (grey) projection is the \blue{saturated liquid line} whilst the lower line is the \blue{saturated vapour line} (the reader should remember that these lines are also present for pure substances in the $Ts$ and $Ph$ diagrams, Fig.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Fig:Fig02}).
+
+Compositions of each phase can be obtained from a parallel line linking $x_{1}$ and $y_{1}$. For example, in the `lens' \blue{U-M-R-N-U} contained in the plane \blue{0-U-M-R-1-Q-0}, the vapour phase (with composition \red{$y_{1}=\alpha$}  at $\left.\blue{K_{1}}\right)$ is in equilibrium with the liquid phase $\left(\text{with composition }\red{x_{1}=\beta}\text{ at } \blue{K_{2}}\right)$. This parallel line, \blue{$K_{1}-K_{2}$}, is called \underline{tie-line} (Fig.~\ref{Chapter:VLE:Fig:Fig03}b). The intersection of the tie-line with the saturated liquid line is referred as \blue{bubble pressure}, and the intersection with the saturated vapour line is called \blue{dew pressure} (at constant temperature).
+%%% FIGURE
      \begin{figure}[h]
         \vbox{\hbox{\hspace{3.cm}\includegraphics[width=.6\linewidth,clip]{./../Pics/VLE_xy_DiagramIdeal}}
           \vspace{-.5cm}
@@ -350,52 +335,54 @@ As the pressure is continuously reduced along line \blue{$Q-R$}, more liquid is 
             \hspace{-0.cm}\includegraphics[width=.5\linewidth,clip]{./../Pics/VLE_xy_DiagramNonIdeal2}}
           \vspace{-.5cm}
           \hbox{\hspace{3.5cm}(b)\hspace{7.5cm}(c)}}
-          \vspace{-.1cm}\caption{VLE for binary mixtures: $xy$ diagrams at constant pressure of (a) ideal and (b-c) non-ideal solutions.}\label{Mod04Fig04}
+          \vspace{-.1cm}\caption{VLE for binary mixtures: $xy$ diagrams at constant pressure of (a) ideal and (b-c) non-ideal solutions.}\label{Chapter:VLE:Fig:Fig04}
       \end{figure}
 
-     Another common phase diagram is the $x-y$, Fig.~\ref{Mod04Fig04}(a), in which either pressure or temperature is kept constant. In this diagram, at constant pressure, there are two curves, the upper curve represents the composition at equilibrium with varying temperature. The straight line represents the equimolar composition, \ie $x_{1}=y_{1}$. However, in several solutions of industrial interest, molecular attractive forces from the heavier component (2) keep molecules of the more volatile component in the liquid solution, constraining its evaporation. This leads into an equilibrium pressure smaller than the expected at the same liquid composition. Such deviation from ideality is called \blue{\it azeotropy}. In practical terms, any component from solutions can often be separated through distillation processes, however azeotropes may lead to vapour-liquid-liquid equilibrium (VLLE) and other separations strategies may need to be used.  
+$P-T-xy$ diagram, although insightful, is not very practical. Projections of $P-xy$ plane at constant temperature are shown in Fig.~\ref{Chapter:VLE:Fig:Fig03}. Now, let's assume that the fluid of Fig.~\ref{Chapter:VLE:Fig:Fig03}(c) is at liquid phase at coordinate \blue{$M$} with composition \blue{$\left(x_{1}=x_{z};y_{1}=0\right)$}. As pressure is reduced along the \blue{$M-S$} line, the first bubble of vapour appears at \blue{$N$}; composition at this coordinate is \blue{$\left(x_{1}=x_{z};y_{1}=y_{BP}\right)$}, and this is called \blue{\it bubble point}. Further reduction of pressure to coordinate \blue{$Q$} (still at constant temperature), the fluid becomes partially vaporised and the composition at this coordinate is given by the {\it tie-line} \blue{$Q_{L}-Q_{V}$} -- \blue{$\left(x_{1}=x_{Q};,y_{1}=y_{Q}\right)$}. \index{Bubble point}
+
+As the pressure is continuously reduced along line \blue{$Q-R$}, more liquid is vaporised until \blue{$R$}, when the last droplet of liquid (dew) is vaporised. This coordinate is called \blue{\it dew point}. The composition at $N$ is \blue{$\left(x_{1}=x_{DB};y_{1}=y_{z}\right)$}. Continued reduction of pressure towards \blue{$S$} leads to (pure) vapour region with composition \blue{$\left(x_{1}=0,y_{1}=y_{z}\right)$}.\index{Dew point}
+
+     Another common phase diagram is the $x-y$, Fig.~\ref{Chapter:VLE:Fig:Fig04}(a), in which either pressure or temperature is kept constant. In this diagram, at constant pressure, there are two curves, the upper curve represents the composition at equilibrium with varying temperature. The straight line represents the equimolar composition, \ie $x_{1}=y_{1}$. However, in several solutions of industrial interest, molecular attractive forces from the heavier component (2) keep molecules of the more volatile component in the liquid solution, constraining its evaporation. This leads into an equilibrium pressure smaller than the expected at the same liquid composition. Such deviation from ideality is called \blue{\it azeotropy}. In practical terms, any component from solutions can often be separated through distillation processes, however azeotropes may lead to vapour-liquid-liquid equilibrium (VLLE) and other separations strategies may need to be used.\index{Azeotropy}
      
 %%% SUBSECTION
 \subsection{VLE Models: Raoult's Law}\label{Chapter:VLE:Section:RaoultsLaw}
   \begin{subequations}
-      The diagrams of binary (as well as multi-component) mixtures shown in the previous section are obtained from experiments and introduce a qualitative analysis of the PVT behaviour of solutions. However, classic thermodynamics provides a mathematical framework for systematic correlation, extension, generalisation and interpretation of data.
-      For ideal vapour-liquid systems, the \blue{Raoult's law} provides a relation between the compositions of the vapour and liquid phases,
-         \begin{shaded}
+      The diagrams of binary (as well as multi-component) mixtures shown in the previous section are obtained from experiments and introduce a qualitative analysis of the PVT behaviour of solutions. However, classic thermodynamics provides a mathematical framework for systematic correlation, extension, generalisation and interpretation of data.\index{Raoult's law|see {Solutions}}\index{Solutions!Raoult's law}
+      \begin{shaded}
+        For ideal vapour-liquid systems, the \blue{Raoult's law} provides a relation between the compositions of the vapour and liquid phases,
            \begin{equation}
-             P_{i} = y_{i}P = x_{i}P_{i}^{\text{sat}},\;\;\;\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}\label{Chapter:VLE:Eqn:PartialMolarProperties:RaoultLaw} 
+             P_{i} = y_{i}P = x_{i}P_{i}^{\text{sat}},\;\;\;\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\},\label{Chapter:VLE:Eqn:RaoultLaw} 
            \end{equation}
-         \end{shaded}
-      $P_{i}=y_{i}P$ in Eqn.~\ref{Chapter:VLE:Eqn:PartialMolarProperties:RaoultLaw} is known as \blue{\it partial pressure}, and $P_{i}^{\text{sat}}$ is the saturated pressure (or saturated vapour pressure) of pure species $i$ and was defined in Eqn.~\ref{Mod03_Antoine}. This rather simple relation can only be applied to ideal solutions (for both phases). For a gas mixture to be considered ideal the pressure need to be equal or smaller than atmospheric. There are several relations for ideal gas mixtures, \eg
+      \end{shaded}
+      where $P_{i}$ is known as  partial pressure (Eqn.~\ref{Chapter:Intro_Property_of_Gases:Eqn:PartialPressure_1}) and $P_{i}^{\text{sat}}$ is the saturated pressure (or saturated vapour pressure) of pure species $i$ and was defined in Section~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:ClapeyronRelations}. This rather simple relation can only be applied to ideal solutions (for both phases). For a gas mixture to be considered ideal the pressure need to be equal or smaller than atmospheric. There are several relations for ideal gas mixtures, \eg\index{Pressure!Partial}
        \begin{enumerate}[a)]
-           \begin{shaded}    
-               \item Dalton's Law:
+               \item Dalton's Law (Section~\ref{Chapter:Intro_Property_of_Gases:Section:MixtureGases}):\index{Gases!Dalton's law}
                   \begin{equation}
                       P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[y_{i}P]{i=1}{\mathcal{C}}\label{Chapter:VLE:Eqn:PartialMolarProperties:DaltonLaw}
                   \end{equation}
-           \end{shaded}
-           \item Amagat's Law:
-              \begin{displaymath}
-                  V^{\text{t}} = \summation[V_{i}^{\text{t}}]{i=1}{\mathcal{C}} = \summation[y_{i}V^{\text{t}}]{i=1}{\mathcal{C}}
-              \end{displaymath}
-           \item Kay's rule for pseudo-critical temperature and pressure:
-              \begin{displaymath}
-                  T_{c}^{\text{t}} = \summation[y_{i}T_{c,i}]{i=1}{\mathcal{C}},\;\;\text{ and }\;\;P_{c}^{\text{t}} = \summation[y_{i}P_{c,i}]{i=1}{\mathcal{C}}
-              \end{displaymath}
+           \item Amagat's Law:\index{Gases!Amagat's law}\index{Amagat's law|see {Gases}}
+              \begin{equation}
+                  V^{\text{t}} = \summation[V_{i}]{i=1}{\mathcal{C}} = \summation[y_{i}V^{\text{t}}]{i=1}{\mathcal{C}}\label{Chapter:VLE:Eqn:PartialMolarProperties:AmagatLaw}
+              \end{equation}
+           \item Kay's rule for pseudo-critical temperature and pressure:\index{Gases!Kay's law}\index{Kay's law|see {Gases}}
+              \begin{equation}
+                  T_{c}^{\text{t}} = \summation[y_{i}T_{c,i}]{i=1}{\mathcal{C}},\;\;\text{ and }\;\;P_{c}^{\text{t}} = \summation[y_{i}P_{c,i}]{i=1}{\mathcal{C}}\label{Chapter:VLE:Eqn:PartialMolarProperties:KayLaw}
+              \end{equation}
        \end{enumerate}
-       Liquid solutions are considered ideals if the molecular interaction between the similar species is identical to that between dissimilar species. Thermodynamics of liquid solutions are the focus of Module~\ref{Section:05}.
+       Liquid solutions are considered ideals if the molecular interaction between the similar species is identical to that between dissimilar species. Thermodynamics of liquid solutions are the main focus of Chapter~\ref{Chapter:SolutionThermodynamics}.
        
 \end{subequations}
 
 %%% SUBSECTION
-\subsection{Henry's Law}\label{Chapter:VLE:HenryLaw}
+\subsection{VLE Models: Henry's Law}\label{Chapter:VLE:Section:HenryLaw}\index{Henry's law|see {Solutions}}\index{Solutions!Henry's law}
 
-A typical application of VLE is when gases are solubilised in liquid solutions, \eg O$_{2}$ in water, CO$_{2}$ in soft drinks, air in the blood stream etc. In these cases, gases have relatively low solubility (mole fraction varying between 10$^{-5}$ to 10$^{-2}$) in liquid solvents. Application of Raoult's law is limited to $P^{\text{sat}}$. If the temperature exceeds the critical temperature, Raoult's law is no longer applicable as $P^{\text{sat}}$ can not be defined. For such cases, a new relation is required that relates compositions in both phases and the pressure,
+A typical application of VLE is when gases are solubilised in liquid solutions, \eg O$_{2}$ in water, CO$_{2}$ in soft drinks, air in the blood stream etc. In these cases, gases have relatively low solubility (mole fraction varying between 10$^{-5}$ to 10$^{-2}$) in liquid solvents. In ideal solutions, both the more volatile (\ie solute) and the less volatile (\ie solvent) follow the Raoult’s law. However, for real solutions at low concentrations, although the vapour pressure $\left(P^{\text{sat}}\right)$ of the solute is proportional to its mole fraction, the constant of proportionality is not the vapour pressure of the pure substance. For such cases, a new relation is required that relates compositions in both phases and the pressure,
 \begin{shaded}
   \begin{equation}
-      P_{i} = y_{i}P = x_{i}\mathcal{H}_{i},\label{Chapter:VLE:Eqn:PartialMolarProperties:HenryLaw} 
+      P_{i} = y_{i}P = x_{i}\mathcal{H}_{i},\label{Chapter:VLE:Eqn:HenryLaw} 
   \end{equation}
 \end{shaded}
-\noindent where $\mathcal{H}$ is the Henry's constant obtained experimentally. Values of Henty's contant for several gases dissolved in water at 25$^{\circ}$C is shown in Table~\ref{Chapter:VLE:PartialMolarProperties:HenryLawTable}
+\noindent where $\mathcal{H}$ is the Henry's constant obtained experimentally. Values of Henty's contant for several gases dissolved in water at 25$^{\circ}$C is shown in Table~\ref{Chapter:VLE:Table:HenryLawTable}
  \begin{table}
   \begin{center}
     \begin{tabular}{l r || l r }
@@ -410,7 +397,7 @@ A typical application of VLE is when gases are solubilised in liquid solutions, 
          Ethylene  & 11550                              & O$_{2}$      & 44380 \\
       \hline
     \end{tabular}
-    \caption{Henry's constant for gases dissolved in water at 25$^{\circ}$C.}\label{Chapter:VLE:PartialMolarProperties:HenryLawTable}
+    \caption{Henry's constant for gases dissolved in water at 25$^{\circ}$C.}\label{Chapter:VLE:Table:HenryLawTable}
   \end{center}
 \end{table}
 
