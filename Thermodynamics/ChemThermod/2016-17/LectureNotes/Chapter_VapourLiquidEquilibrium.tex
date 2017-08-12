@@ -63,9 +63,9 @@ In the previous chapters, we mostly focused on thermodynamic properties of syste
 
 %%% SUBSECTION
 \subsection{Partial Molar Properties}\label{Chapter:VLE:PartialMolarProperties}\index{Partial molar properties}
-Many thermodynamic properties of {\it ideal solutions} do not change on mixing, for example, the volume of a mixture (assumed ideal) is equal to the sum of the volume of the original unmixed solutions. However, in real systems the volume and other properties, are not additive, \ie the volume of a mixture is not equal to the sum of the volumes of the individual pure components. {\it Partial molar properties} describe the behaviour of homogeneous multi-component systems. Thus, the concept of partial molar properties are crucial tool to assess individual contribution to thermodynamic properties of mixtures. In Section~\ref{ChapterChapter:SolutionThermodynamics:Section:GibbsDuhem}, an expression will be developed to assess thermodynamic properties of solutions based on this concept. 
+Many thermodynamic properties of {\it ideal solutions} do not change on mixing, for example, the volume of a mixture (assumed ideal) is equal to the sum of the volume of the original unmixed solutions. However, in real systems the volume and other properties, are not additive, \ie the volume of a mixture is not equal to the sum of the volumes of the individual pure components. {\it Partial molar properties} describe the behaviour of homogeneous multi-component systems. Thus, the concept of partial molar properties are crucial tool to assess individual contribution to thermodynamic properties of mixtures. In Section~\ref{Chapter:SolutionThermodynamics:Section:GibbsDuhem}, an expression will be developed to assess thermodynamic properties of solutions based on this concept. 
 
- Let's consider a homogeneous (\ie single phase, $\mathcal{P}=$ 1) and open system with $\mathcal{C}$ chemical species that undertakes a change in composition. Thus, the total value of any extensive property $M^{\text{t}}\;\left(M\equiv V, U, H, S, G, A\right)$ is not only a function of pressure and temperature, but it also depends on the number of moles of each species in the system. therefore
+ Let's consider a homogeneous (\ie single phase) and open system with $\mathcal{C}$ chemical species that undertakes a change in composition. Thus, the total value of any extensive property $M^{\text{t}}\;\left(M\equiv V, U, H, S, G, A\right)$ is not only a function of pressure and temperature, but it also depends on the number of moles of each species in the system, therefore
   \begin{subequations}
      \begin{equation}
        M^{\text{t}} = nM = M\left(T,P,n_{1},n_{2},\cdots, n_{\mathcal{C}}\right).\label{Chapter:VLE:PartialMolarProperties:Eqn:PartialProperties1}
@@ -79,31 +79,37 @@ Many thermodynamic properties of {\it ideal solutions} do not change on mixing, 
         \begin{equation}  
            d(nM) = n\Partial[M]{P}{T,x}dP + n\Partial[M]{T}{P,x}dT + \summation[\overline{M}_{i}dn_{i}]{i}{},\label{Chapter:VLE:PartialMolarProperties:PartialProperties2}
         \end{equation}
+        where
+        \begin{displaymath}
+          \overline{M}_{i} = \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}},
+        \end{displaymath}
+        defines the {\it partial molar property} of species $i$ in solution, \ie the change of the total property $M^{\text{t}}$ of a mixture of $\mathcal{C}$ species resulting from the addition at constant $T$ and $P$ of infinitesimal amount of species $i$ to a prescribed amount of solution. We will discuss applications of partial molar properties in Chapter~\ref{Chapter:SolutionThermodynamics}.
      \end{shaded}
-     \noindent where $\overline{M}_{i} = \Partial[(nM)]{n_{i}}{T,P,n_{j\ne i}}$ defines the {\it partial molar property} $\overline{M}_{i}$ of species $i$ in solution, \ie the change of the total property $nM$ of a mixture of $\mathcal{C}$ species resulting from the addition at constant $T$ and $P$ of infinitesimal amount of species $i$ to a prescribed amount of solution. We will discuss partial molar properties in more details in Module~\ref{Section:05}.
   \end{subequations}
 
 %%% SUBSECTION
-\subsection{Excess Properties}\label{Chapter:VLE:ExcessProperties}
+\subsection{Excess Properties}\label{Chapter:VLE:ExcessProperties}\index{Excess properties|see {Solutions}}\index{Solutions!Excess properties}
   
-In Section~\ref{Section:03:ResidualProperties}, we have defined {\it residual properties} for gases as the difference between any extensive thermodynamic property, $M$, in real gases and its equivalent assuming ideal gas behaviour, $M^{\text{ig}}$. The equivalent for liquids is called {\it excess properties}, \ie the deviation from an ideal liquid solution property.
+In Section~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:ResidualProperties}, {\it residual properties} were defined as the difference between any extensive thermodynamic property, $M$, in real gases and its equivalent assuming ideal gas behaviour, $M^{\text{ig}}$. This entity is only applied to gases, an equivalent for liquids is called {\it excess properties}, \ie the deviation from an ideal liquid solution property\footnote{A formal definition of ideal solutions will be seen in Section~\ref{Chapter:SolutionThermodynamics:Section:IdealSolution}.}.\index{Gases!Residual properties}\
 
 Let's assume that $M$ is any extensive thermodynamic property (\eg $V$, $U$, $H$, $S$, $G$ and $A$), the excess property $M^{\text{E}}$ is defined as the difference between the property value of a solution and the value it would have as an ideal solution at the same $T$, $P$ and composition,
 \begin{subequations}
   \begin{shaded}
     \begin{equation}
-       M^{\text{E}} \equiv M - M^{\text{id}},\label{Chapter:VLE:PartialMolarProperties:ExcessProperties1a}
+       M^{\text{E}} \equiv M - M^{\text{id}},\label{Chapter:VLE:PartialMolarProperties:Eqn:ExcessProperties1a}
     \end{equation}
   \end{shaded}
   \noindent where properties in ideal ({\it id}) solutions of multiple chemical species can be represented as,
     \begin{displaymath}
        M^{\text{id}} = \summation[x_{i}M_{i}]{i}{},
     \end{displaymath}
-    where $M_{i}$ is an extensive {\it molar property of the \underline{pure} chemical species}. For example, if we mix equal volumes of two species (\eg water and ethanol), the final volume \underline{is not} the sum of the individual volumes. In fact, the final volume will be slightly larger than the sum of the individual volumes and this is due to the non-ideality behaviour of real liquid fluids. Thus for a binary solution,
-    \begin{equation}
-      V^{\text{E}} = V - V^{\text{id}} = V - \summation[x_{i}V_{i}]{i}{} = V -\left(x_{1}V_{1}+x_{2}V_{2}\right).\label{Chapter:VLE:PartialMolarProperties:ExcessProperties1b} 
-    \end{equation}
-    %This equation shows that the total volume of a mixture of two components is different from the simple addition of both individual volumes. 
+    where $M_{i}$ is an extensive molar property of the \underline{pure} chemical species. For example, if we mix equal volumes of two species (\eg water and ethanol), the final volume \underline{is not} the sum of the individual volumes. In fact, the final volume will be slightly larger than the sum of the individual volumes and this is due to the non-ideality behaviour of real liquid fluids. Thus for a binary solution ($\mathcal{C}=$ 2),
+    \begin{shaded}
+      \begin{equation}
+        V^{\text{E}} = V - V^{\text{id}} = V - \summation[x_{i}V_{i}]{i}{} = V -\left(x_{1}V_{1}+x_{2}V_{2}\right).\label{Chapter:VLE:PartialMolarProperties:Eqn:ExcessProperties1b} 
+      \end{equation}
+      This equation shows that the total volume of a mixture of two components is different from the simple addition of both individual volumes.
+    \end{shaded}
 \end{subequations}
 
 
