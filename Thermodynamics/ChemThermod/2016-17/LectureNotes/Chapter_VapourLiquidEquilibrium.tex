@@ -119,42 +119,37 @@ If we apply the concept of partial molar property to the Gibbs free energy defin
       \begin{equation}
          d(nG) = n\Partial[G]{P}{T,x}dP + n\Partial[G]{T}{P,x}dT + \summation[\overline{G}_{i}dn_{i}]{i}{}.\label{Chapter:VLE:Eqn:ChemPotentialDef1}
       \end{equation}
-      By definition the {\it partial molar Gibbs free energy} is called \blue{chemical potential $\left(\mu_{i}\right)$},
+      By definition the {\it partial molar Gibbs free energy} is called chemical potential $\left(\mu_{i}\right)$,
       \begin{shaded}
          \begin{equation}
             \overline{G}_{i} = \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}}. \label{Chapter:VLE:Eqn:ChemPotentialDef1b}
          \end{equation}
       \end{shaded}
-      The chemical potential can be understood as an energy associated with interactions of atoms/molecules in a mixture that controls the tendency of molecules to leave the solution (or return to the solution), and to chemically react. We have defined the Gibbs free energy in Eqn.~\ref{Mod03_GibbsFundamentalRelation01} as a function of $T$ and $P$, now we will extend it to be also a function of the number of moles of chemical species -- Eqn.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1},
+      The chemical potential can be understood as an energy associated with interactions of atoms/molecules in a mixture that controls the tendency of molecules to either leave the liquid solution (towards the vapour phase) or return to the solution (from the vapour phase) to vapour phase, and to chemically react. The Gibbs free energy was defined in Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsFundamentalRelation01} as a function of $T$ and $P$, now it can be extended to be also a function of the number of moles of the existing chemical species, and Eqn.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1} becomes,
       \begin{equation}
          d(nG) = (nV)dP - (nS)dT + \summation[\mu_{i}dn_{i}]{i}{},\label{Chapter:VLE:Eqn:ChemPotentialDef1c}
       \end{equation}
-      considering $n=1\;\Rightarrow n_{i}=x_{i}$, and Eqn.~\ref{Chapter:VLE:ChemPotentialDef1c} becomes
+      using Eqns.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation7}-\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation8}. Now, assuming $n=1\;\Rightarrow n_{i}=x_{i}$, and Eqn.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1c} becomes
       \begin{shaded}
         \begin{equation}
-          \blue{dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{}},\label{Chapter:VLE:ChemPotentialDef1d}
+          dG = VdP -SdT + \summation[\mu_{i}dx_{i}]{i}{},\label{Chapter:VLE:Eqn:ChemPotentialDef1d}
         \end{equation}
       \end{shaded}
   \end{subequations}
   
-
-
 %%% SECTION
-\section{Criteria for Chemical Equilibrium}\label{Chapter:VLE:ChemicalEquilibrium}
-%%% SUBSECTION
-\subsection{Thermodynamic Equilibrium}\label{Chapter:VLE:thermodynamicEquilibrium}
-
-There are two main conditions for a system to achieve {\it chemical equilibrium}:
-  \begin{enumerate}[a)]
-     \item all distinct $\mathcal{P}$ phases that may co-exist are in equilibrium with each other, as such as there is no net mass transfer of any chemical species between phases;
-     \item all chemical reactions that may occur between species are also in equilibrium, \ie there is no net progress \wrt conversion of reactants to products (and {\it vice-versa}).
-  \end{enumerate}
-
+  \section{Criteria for Chemical Equilibrium}\label{Chapter:VLE:Section:ChemicalEquilibrium}
+  
+  %%% SUBSECTION
+  \subsection{Thermodynamic Equilibrium}\label{Chapter:VLE:Section:ThermodynamicEquilibrium}
   \begin{subequations}
+    There are two main conditions for a system to achieve chemical equilibrium:
+    \begin{enumerate}[a)]
+      \item all distinct $\mathcal{P}$ phases that may co-exist are in equilibrium with each other, as such as there is no net mass transfer of any chemical species between phases;
+      \item all chemical reactions that may occur between species are also in equilibrium, \ie there is no net progress \wrt conversion of reactants to products (and vice-versa).
+    \end{enumerate}
 
-    \medskip
-
-    Let's initially consider a closed system (either homogeneous or heterogeneous) in thermal and mechanical equilibrium with the surroundings. In addition, let's also assume that the system is not under chemical equilibrium, \ie there are effective mass transfer across the phase boundary. Such transfer of matter occurs `till the point when the system is also at chemical equilibrium. In reality, these changes towards chemical equilibrium occur by infinitesimal gradients and are, therefore, irreversible. Applying the {\it First Law},
+    Let's initially consider a closed system, either homogeneous or heterogeneous (\ie $\mathcal{P}\ge 1$), in thermal and mechanical equilibrium with the surroundings. In addition, let's also assume that the system is not under chemical equilibrium, \ie there are effective mass transfer across the phase boundaries. Such transfer of matter continues until the system reaches chemical equilibrium. In reality, these changes towards chemical equilibrium occur by infinitesimal gradients and are, therefore, irreversible. Applying the {\it First Law},
     \begin{displaymath}
       dU^{\text{t}} = dQ + dW\;\;\;\text{ with }\;\;\; dW = -PdV^{\text{t}},
     \end{displaymath}
@@ -162,56 +157,56 @@ There are two main conditions for a system to achieve {\it chemical equilibrium}
     \begin{displaymath}
       dS_{\text{surr}} = \frc{dQ_{\text{surr}}}{T_{\text{surr}}} = - \frc{dQ^{\text{t}}}{T},\;\;\text{ where } dQ_{\text{surr}} = - dQ^{\text{t}}.
     \end{displaymath}
-    However, by the Second Law, $dS_{\text{surr}}+dS^{\text{t}} \ge 0$, and if we combine the expressions above $ - \frc{dQ^{\text{t}}}{T}+dS^{\text{t}}\ge 0$,
+    However, by the Second Law, $dS_{\text{surr}}+dS^{\text{t}} \ge 0$ (Eqn.~\ref{Chapter:SecondLaw:Eqn:Entropy2}), and if we combine the expressions above,
     \begin{displaymath}
-      dQ^{\text{t}} \leq TdS^{\text{t}},
+       - \frc{dQ^{\text{t}}}{T}+dS^{\text{t}}\ge 0 \;\;\;\Longrightarrow\;\;\;  dQ^{\text{t}} \leq TdS^{\text{t}},
     \end{displaymath}
-    \ie for every allowed change in state, the system can not spontaneously leave the current state. The system is said to be at \underline{stable equilibrium}.
+    \ie for every allowed change in state, the system can not spontaneously leave the current state. Thus, the system is said to be at \underline{stable equilibrium}.
     \begin{shaded}
       The \underline{entropy} of an adiabatically (\ie $dS<0$) isolated stable equilibrium system is \underline{maximum}.
     \end{shaded}
     We can write the criterion for stable equilibrium in non-adiabatic system from the First Law for $n$ moles,
     \begin{eqnarray}
-      dQ = dU + PdV -\mu dn &\leq& TdS \label{Chapter:VLE:EquilibriumCriteria0} \\
-      dU + PdV -\mu dn - TdS &\leq& 0,\label{Chapter:VLE:EquilibriumCriteria1}
+      dQ = dU + PdV -\mu dn &\leq& TdS \label{Chapter:VLE:Eqn:EquilibriumCriteria0} \\
+      dU + PdV -\mu dn - TdS &\leq& 0,\label{Chapter:VLE:Eqn:EquilibriumCriteria1}
     \end{eqnarray}
     thus,
     \begin{enumerate}[i)]
-        \item if we make $U$, $V$ and $n$ constants, $dQ=0$ and the stability condition becomes \underline{$dS \ge 0$} $\Longrightarrow$ \underline{$S$ is maximum};
-        \item if $S$, $V$ and $n$ are set as constants, then from Eqn.~\ref{Chapter:VLE:EquilibriumCriteria1}, the system will be stable if \underline{$dU\le 0$} $\Longrightarrow$ \underline{$U$ is minimum};
-        \item if $T$, $V$ and $n$ are kept constants, then Eqn.~\ref{Chapter:VLE:EquilibriumCriteria1}, becomes
+        \item if $U$, $V$ and $n$ are assumed constants: $dQ=0$ and the stability condition becomes $dS \ge 0$ $\Longrightarrow$ \underline{$S$ is maximum};
+        \item if $S$, $V$ and $n$ are assumed constants: from Eqn.~\ref{Chapter:VLE:Eqn:EquilibriumCriteria1}, the system will be stable if $dU\le 0$ $\Longrightarrow$ \underline{$U$ is minimum};
+        \item if $T$, $V$ and $n$ are assumed constants: Eqn.~\ref{Chapter:VLE:Eqn:EquilibriumCriteria1}, becomes
             \begin{eqnarray}
               dU - TdS &\leq& 0 \nonumber \\
               d(U-TS) &\leq& 0 \;\;  \text{(for } T \text{  constant}),
             \end{eqnarray}
-            however, we have seen the definition of the Helmholtz free energy, $U-TS =A$, thus $dA\leq0$ $\Longrightarrow$ \underline{$A$ is minimum};
+            however, from the definition of the Helmholtz free energy, $U-TS =A$ (Section~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:ThermodynamicPropertiesSinglePhase}), thus $dA\leq0$ $\Longrightarrow$ \underline{$A$ is minimum};
         \item from the Helmholtz free energy definition,
             \begin{eqnarray}
-              dA &=& \overbrace{dU}^{\text{from Eqn.~\ref{Chapter:VLE:EquilibriumCriteria0}}: dU = dQ -dW +\mu dn} -SdT - TdS \nonumber \\
-                &=& \red{dQ} -dW + \mu dn -SdT \red{-TdS},\label{Chapter:VLE:PartialMolarProperties:EquilibriumCriteria2}
+               dA &=& \overbrace{dU}^{\text{from Eqn.~\ref{Chapter:VLE:Eqn:EquilibriumCriteria0}}: dU = dQ -dW +\mu dn} -SdT - TdS \nonumber \\
+                  &=& dQ -dW + \mu dn -SdT -TdS,\label{Chapter:VLE:Eqn:EquilibriumCriteria2}
             \end{eqnarray}
-            from the Clausius inequality, $dQ-TdS \leq 0$, and if we consider $T$ and $n$ constants $\Longrightarrow\;\; dA = -dW + (dQ - TdS) \leq 0$, therefore
+            from the Clausius inequality (Section~\ref{Chapter:SecondLaw:Section:SecondLawStatement_Maths}), $dQ-TdS \leq 0$, and if $T$ and $n$ are assumed constants $\Longrightarrow\;\; dA = -dW + (dQ - TdS) \leq 0$, therefore
             \begin{displaymath}
                  dA \leq -dW \;\;\;\text{ or }\;\;\; W \leq -\Delta A.
             \end{displaymath}
-            This means that $-\Delta A$ is the maximum work we can obtain from a process performed under constant $T$ and $n$ conditions. Also, as $A$ is a \underline{state function}, it does \underline{not} depend on the path, but only on the initial and final states;
-         \item assuming $S$, $P$ and $n$ are kept constant, then Eqn.~\ref{Chapter:VLE:PartialMolarProperties:EquilibriumCriteria1} becomes
+            This means that $-\Delta A$ is the maximum work that can be obtained from a process performed under constant $T$ and $n$ conditions. Also, as $A$ is a \underline{state function}, it does \underline{not} depend on the path, but only on the initial and final states;
+         \item if $S$, $P$ and $n$ are assumed constants: Eqn.~\ref{Chapter:VLE:Eqn:EquilibriumCriteria1} becomes
             \begin{displaymath}
                  d(U+PV) = dH \leq 0,
             \end{displaymath}
             for stable equilibrium $\Longrightarrow$ \underline{enthalpy is minimum};
-         \item now, suppose that $T$, $P$ and $n$ are held constant, Eqn.~\ref{Chapter:VLE:PartialMolarProperties:EquilibriumCriteria1} becomes,
+         \item if $T$, $P$ and $n$ are assumed constants: Eqn.~\ref{Chapter:VLE:Eqn:EquilibriumCriteria1} becomes,
             \begin{displaymath}
                  d(U+PV-TS)  \leq 0,
             \end{displaymath}
             but $U+PV-TS = H-TS = G$, \ie \underline{the Gibbs free energy is minimum} for stable equilibrium with fixed $T$, $P$ and $n$.    
     \end{enumerate}
-    In Table~\ref{Chapter:VLE:PartialMolarProperties:TableEquilibriumCriteria}, the \blue{equilibrium criteria} is summarised for all thermodynamic potentials. The stability criteria for \blue{Gibbs free energy} is particularly important for several chemical engineering processes involving closed systems, as so as we can state,
-
+    In Table~\ref{Chapter:VLE:Table:TableEquilibriumCriteria}, the equilibrium criteria is summarised for all thermodynamic potentials. The stability criteria for the Gibbs free energy is particularly important for several chemical engineering processes involving closed systems, as so as we can state,
     \begin{shaded}
          `The equilibrium state of a closed system is that state for which the total Gibbs free energy is a minimum \wrt all possible changes at the given $T$ and $P$.'
       \end{shaded}
-    
+
+%%% TABLE   
     \begin{table}
     \begin{center}
       \begin{tabular}{c c c c c}
@@ -224,9 +219,10 @@ There are two main conditions for a system to achieve {\it chemical equilibrium}
           $S$, $P$, $n$   & $H$      & $H\equiv U+PV$& $dH=TdS+VdP+\mu dn$ & Minimum             \\
           $T$, $V$, $n$   & $A$      & $A\equiv U-TS$& $dA=-SdT-PdV+\mu dn$ & Minimum             \\
           $T$, $P$, $n$   & $G$      & $G\equiv H-TS$& $dG=-SdT+VdP+\mu dn$ & Minimum             \\
+          \hline
       \end{tabular}
     \end{center}
-    \caption{Criteria for thermodynamic equilibria.}\label{Chapter:VLE:PartialMolarProperties:TableEquilibriumCriteria}
+    \caption{Criteria for thermodynamic equilibria.}\label{Chapter:VLE:Table:TableEquilibriumCriteria}
     \end{table}
     
   \end{subequations}
@@ -234,19 +230,19 @@ There are two main conditions for a system to achieve {\it chemical equilibrium}
 %%% SUBSECTION
 \subsection{Chemical Potential and Thermodynamic Equilibrium}\label{Chapter:VLE:ChemPotThermEquil}
 
-Now, let's consider a closed system consisting of two phases in equilibrium  (vapour and liquid, or solid and vapour or liquid and solid), $\alpha$ and $\beta$. Each of these phases may be considered as an open system with an interface between them, where mass and energy can flow freely. Also, both systems (or phases) are in mechanical and thermal equilibrium $\left(\ie\; T^{\alpha}=T^{\beta}=T\text{ and } P^{\alpha}=P^{\beta}=P\right)$. We can apply Eqn.~\ref{Chapter:VLE:PartialMolarProperties:ChemPotentialDef1c} to both phases,
+Now, let's consider a closed system consisting of two phases in equilibrium  (vapour and liquid, or solid and vapour or liquid and solid), $\alpha$ and $\beta$. Each of these phases may be considered as an open system with an interface between them, where mass and energy can flow freely. Also, both systems (or phases) are in mechanical and thermal equilibrium $\left(\ie\; T^{\alpha}=T^{\beta}=T\text{ and } P^{\alpha}=P^{\beta}=P\right)$. We can apply Eqn.~\ref{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c} to both phases,
   \begin{subequations}
 
      \begin{eqnarray}
-        d(nG)^{\alpha} &=& (nV)^{\alpha}dP - (nS)^{\alpha}dT + \summation[\mu_{i}^{\alpha}dn_{i}^{\alpha}]{i}{},\label{Chapter:VLE:PartialMolarProperties:ChemPotentialDef1c1} \\
-        d(nG)^{\beta} &=& (nV)^{\beta}dP - (nS)^{\beta}dT + \summation[\mu_{i}^{\beta}dn_{i}^{\beta}]{i}{}.\label{Chapter:VLE:PartialMolarProperties:ChemPotentialDef1c2} 
+        d(nG)^{\alpha} &=& (nV)^{\alpha}dP - (nS)^{\alpha}dT + \summation[\mu_{i}^{\alpha}dn_{i}^{\alpha}]{i}{},\label{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c1} \\
+        d(nG)^{\beta} &=& (nV)^{\beta}dP - (nS)^{\beta}dT + \summation[\mu_{i}^{\beta}dn_{i}^{\beta}]{i}{}.\label{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c2} 
      \end{eqnarray}
      The change in total Gibbs free energy of a two-phase system is the sum of the changes in each phase. As mass is transferred across the interface, volume and entropy of each phase may change,
      \begin{eqnarray}
         (nV) &=& (nV)^{\alpha}+ (nV)^{\beta}, \nonumber \\
         (nS) &=& (nS)^{\alpha}+(nS)^{\beta}, \nonumber
      \end{eqnarray}
-     Summing up Eqns.~\ref{Chapter:VLE:PartialMolarProperties:ChemPotentialDef1c1} and~\ref{Chapter:VLE:PartialMolarProperties:ChemPotentialDef1c2} and using the above relations,
+     Summing up Eqns.~\ref{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c1} and~\ref{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c2} and using the above relations,
      \begin{displaymath}
         d(nG) = (nV)dP - (nS)dT + \summation[\mu_{i}^{\alpha}dn_{i}^{\alpha}]{i}{} + \summation[\mu_{i}^{\beta}dn_{i}^{\beta}]{i}{} = 0,
      \end{displaymath}
@@ -261,13 +257,13 @@ Now, let's consider a closed system consisting of two phases in equilibrium  (va
      This equation describes changes in the chemical potential and in the mass of each component in each phase. In fact, throughout this derivation, $dn_{i}^{\alpha}$ is enforced to be independent of each other and therefore \underline{can not be zero}, hence
       \begin{shaded}
          \begin{equation}
-            \mu_{i}^{\alpha} = \mu_{i}^{\beta}, \;\;\;\;\forall i=1,2,\cdots, \mathcal{C}.\label{Chapter:VLE:PartialMolarProperties:ChemPotentialDef1c3} 
+            \mu_{i}^{\alpha} = \mu_{i}^{\beta}, \;\;\;\;\forall i=1,2,\cdots, \mathcal{C}.\label{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c3} 
          \end{equation}
       \end{shaded}
       This rather simple relation is crucial for understanding phase equilibria, as it states that for an arbitrary closed system at fixed $T$, $P$, thermodynamic equilibrium will be reached when the chemical potential of \underline{all} chemical species in one of the phases is \underline{equal} to the counterpart in the other phase. In fact, we can extend this argument for any number of phases, 
       \begin{shaded}
          \begin{equation}
-            \blue{\mu_{i}^{\alpha} = \mu_{i}^{\beta} = \cdots = \mu_{i}^{\mathcal{P}} \;\;\;\;\forall i=1,2,\cdots, \mathcal{C}.}\label{Chapter:VLE:PartialMolarProperties:ChemPotentialDef1c3} 
+            \blue{\mu_{i}^{\alpha} = \mu_{i}^{\beta} = \cdots = \mu_{i}^{\mathcal{P}} \;\;\;\;\forall i=1,2,\cdots, \mathcal{C}.}\label{Chapter:VLE:Eqn:PartialMolarProperties:ChemPotentialDef1c3} 
          \end{equation}
       \end{shaded}
 
@@ -360,21 +356,21 @@ As the pressure is continuously reduced along line \blue{$Q-R$}, more liquid is 
      Another common phase diagram is the $x-y$, Fig.~\ref{Mod04Fig04}(a), in which either pressure or temperature is kept constant. In this diagram, at constant pressure, there are two curves, the upper curve represents the composition at equilibrium with varying temperature. The straight line represents the equimolar composition, \ie $x_{1}=y_{1}$. However, in several solutions of industrial interest, molecular attractive forces from the heavier component (2) keep molecules of the more volatile component in the liquid solution, constraining its evaporation. This leads into an equilibrium pressure smaller than the expected at the same liquid composition. Such deviation from ideality is called \blue{\it azeotropy}. In practical terms, any component from solutions can often be separated through distillation processes, however azeotropes may lead to vapour-liquid-liquid equilibrium (VLLE) and other separations strategies may need to be used.  
      
 %%% SUBSECTION
-\subsection{VLE Models: Raoult's Law}\label{Chapter:VLE:RaoultsLaw}
+\subsection{VLE Models: Raoult's Law}\label{Chapter:VLE:Section:RaoultsLaw}
   \begin{subequations}
       The diagrams of binary (as well as multi-component) mixtures shown in the previous section are obtained from experiments and introduce a qualitative analysis of the PVT behaviour of solutions. However, classic thermodynamics provides a mathematical framework for systematic correlation, extension, generalisation and interpretation of data.
       For ideal vapour-liquid systems, the \blue{Raoult's law} provides a relation between the compositions of the vapour and liquid phases,
          \begin{shaded}
            \begin{equation}
-             P_{i} = y_{i}P = x_{i}P_{i}^{\text{sat}},\;\;\;\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}\label{Chapter:VLE:PartialMolarProperties:RaoultLaw} 
+             P_{i} = y_{i}P = x_{i}P_{i}^{\text{sat}},\;\;\;\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}\label{Chapter:VLE:Eqn:PartialMolarProperties:RaoultLaw} 
            \end{equation}
          \end{shaded}
-      $P_{i}=y_{i}P$ in Eqn.~\ref{Chapter:VLE:PartialMolarProperties:RaoultLaw} is known as \blue{\it partial pressure}, and $P_{i}^{\text{sat}}$ is the saturated pressure (or saturated vapour pressure) of pure species $i$ and was defined in Eqn.~\ref{Mod03_Antoine}. This rather simple relation can only be applied to ideal solutions (for both phases). For a gas mixture to be considered ideal the pressure need to be equal or smaller than atmospheric. There are several relations for ideal gas mixtures, \eg
+      $P_{i}=y_{i}P$ in Eqn.~\ref{Chapter:VLE:Eqn:PartialMolarProperties:RaoultLaw} is known as \blue{\it partial pressure}, and $P_{i}^{\text{sat}}$ is the saturated pressure (or saturated vapour pressure) of pure species $i$ and was defined in Eqn.~\ref{Mod03_Antoine}. This rather simple relation can only be applied to ideal solutions (for both phases). For a gas mixture to be considered ideal the pressure need to be equal or smaller than atmospheric. There are several relations for ideal gas mixtures, \eg
        \begin{enumerate}[a)]
            \begin{shaded}    
                \item Dalton's Law:
                   \begin{equation}
-                      P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[y_{i}P]{i=1}{\mathcal{C}}\label{Chapter:VLE:PartialMolarProperties:DaltonLaw}
+                      P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[y_{i}P]{i=1}{\mathcal{C}}\label{Chapter:VLE:Eqn:PartialMolarProperties:DaltonLaw}
                   \end{equation}
            \end{shaded}
            \item Amagat's Law:
@@ -396,7 +392,7 @@ As the pressure is continuously reduced along line \blue{$Q-R$}, more liquid is 
 A typical application of VLE is when gases are solubilised in liquid solutions, \eg O$_{2}$ in water, CO$_{2}$ in soft drinks, air in the blood stream etc. In these cases, gases have relatively low solubility (mole fraction varying between 10$^{-5}$ to 10$^{-2}$) in liquid solvents. Application of Raoult's law is limited to $P^{\text{sat}}$. If the temperature exceeds the critical temperature, Raoult's law is no longer applicable as $P^{\text{sat}}$ can not be defined. For such cases, a new relation is required that relates compositions in both phases and the pressure,
 \begin{shaded}
   \begin{equation}
-      P_{i} = y_{i}P = x_{i}\mathcal{H}_{i},\label{Chapter:VLE:PartialMolarProperties:HenryLaw} 
+      P_{i} = y_{i}P = x_{i}\mathcal{H}_{i},\label{Chapter:VLE:Eqn:PartialMolarProperties:HenryLaw} 
   \end{equation}
 \end{shaded}
 \noindent where $\mathcal{H}$ is the Henry's constant obtained experimentally. Values of Henty's contant for several gases dissolved in water at 25$^{\circ}$C is shown in Table~\ref{Chapter:VLE:PartialMolarProperties:HenryLawTable}
@@ -476,7 +472,7 @@ bearing in mind that $P_{i}^{\text{sat}}$ is expressed as a function of $T$. Thu
 As discussed in Modules~\ref{Section:02}-~\ref{Section:03}, cubic equations of state are often used to describe the PVT behaviour of vapour and liquid phases of pure chemical species and mixtures. Although the use of cubic EOS is widely spread over the chemical industry, applicability to liquid phase is still limited. Several alternatives have been proposed and developed over the past 50 years, one of them, mostly used in petroleum and petrochemical industry for hydrocarbons, is called {\it K-value correlation}. $K$ is defined as
 \begin{shaded}
    \begin{equation}
-      K_{i} = \frc{P_{i}^{\text{sat}}}{P} = \frc{y_{i}}{x_{i}}.\label{Chapter:VLE:PartialMolarProperties:KValue}
+      K_{i} = \frc{P_{i}^{\text{sat}}}{P} = \frc{y_{i}}{x_{i}}.\label{Chapter:VLE:Eqn:PartialMolarProperties:KValue}
    \end{equation}
 \end{shaded}
 Values for $K_{i}$ are tabulated for a large number of hydrocarbons at several pressure and temperature conditions and can be found in any chemical engineering handbook as part of \blue{DePriester chart} (Fig.~\ref{Mod04Fig05}).
@@ -514,10 +510,10 @@ Flash distillation is a common process in chemical industry to obtain solutions 
          As $\summation[y_{i}]{i=1}{\mathcal{C}} = 1$,
          \begin{shaded}
            \begin{equation}
-              \summation[\frc{z_{i}K_{i}}{1+V\left(K_{i}-1\right)}]{i=1}{\mathcal{C}} = 1.\label{Chapter:VLE:PartialMolarProperties:FlashEquation} 
+              \summation[\frc{z_{i}K_{i}}{1+V\left(K_{i}-1\right)}]{i=1}{\mathcal{C}} = 1.\label{Chapter:VLE:Eqn:PartialMolarProperties:FlashEquation} 
            \end{equation}
          \end{shaded}
-         Solving a $P-T$ flash problem is to \underline{find $V$} that satisfies Eqn.~\ref{Chapter:VLE:PartialMolarProperties:FlashEquation}.
+         Solving a $P-T$ flash problem is to \underline{find $V$} that satisfies Eqn.~\ref{Chapter:VLE:Eqn:PartialMolarProperties:FlashEquation}.
       
 \clearpage
 
