@@ -371,7 +371,91 @@ As the pressure is continuously reduced along line \blue{$Q-R$}, more liquid is 
        \end{enumerate}
        Liquid solutions are considered ideals if the molecular interaction between the similar species is identical to that between dissimilar species. Thermodynamics of liquid solutions are the main focus of Chapter~\ref{Chapter:SolutionThermodynamics}.
        
-\end{subequations}
+  \end{subequations}
+
+  \medskip
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:VLE:Example1}
+       Assuming a mixture of n-pentane $\left(nC_{5}\right)$ and n-heptane $\left(nC_{7}\right)$ is ideal, draw vapour-liquid $x_{5}\times y_{5}$ and $P-x_{5}y_{5}$ equilibrium diagrams for this mixtures at constant temperature of 50$^{\circ}$C. Given $P^{\text{sat}}$ relation,
+       \begin{displaymath}
+         \ln{P_{i}^{\text{sat}}} = A_{i} - \frc{B_{i}}{RT}
+       \end{displaymath}
+       with $A_{nC_{5}}=10.422$, $A_{nC_{7}}=11.431$, $B_{nC_{5}}=26799 \text{ J.mol}^{-1}$ and $B_{nC_{7}}=35200 \text{ J.mol}^{-1}$. Also [$P$] = bar and [$T$] = K.
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+        At $T=$50$^{\circ}$C = 323.15 K, vapour saturated pressures for $nC_{5}$ and $nC_{7}$ (for short notation, let's use 5 and 7 as $nC_{5}$ and $nC_{7}$, respectively) are
+           \begin{displaymath}
+              P_{5}^{\text{sat}} = 1.5639\text{ bar}\;\;\text{ and }\;\;P_{7}^{\text{sat}} = 0.1881\text{ bar}.
+           \end{displaymath}
+           In order to calculate the equilibrium pressure at each liquid $nC_{5}$ composition, $x_{5}$,
+           \begin{eqnarray}
+               && P_{i} = x_{i}P_{i}^{\text{sat}} \;\;\Longleftrightarrow \;\; P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[x_{i}P_{i}^{\text{sat}}]{i=1}{\mathcal{C}} \nonumber \\
+               && P = x_{5}P_{5}^{\text{sat}} + x_{7}P_{7}^{\text{sat}} = x_{5}P_{5}^{\text{sat}} + \left(1-x_{5}\right)P_{7}^{\text{sat}} \nonumber 
+           \end{eqnarray}
+           And for vapour composition (Raoult's law),
+           \begin{displaymath}
+               y_{i} P = x_{i}P_{i}^{\text{sat}}  \;\;\Longleftrightarrow \;\; y_{5} = \frc{x_{5}P_{5}^{\text{sat}}}{P},
+           \end{displaymath}
+           replacing pressure, $P$, from the previous equation
+           \begin{displaymath}
+               y_{5} = \frc{x_{5}P_{5}^{\text{sat}}}{x_{5}P_{5}^{\text{sat}} + \left(1-x_{5}\right)P_{7}^{\text{sat}}}.
+           \end{displaymath}
+           The $x_{5} \times y_{5}$ diagram may be plot by giving values to $0.0\leq x_{5} \leq 1.0$ and calculating $x_{5}$ through the equation above.
+
+           The $P-x_{5}y_{5}$ diagram may be plot using the relations,
+           \begin{displaymath}
+               y_{5} = \frc{x_{5}P_{5}^{\text{sat}}}{P}\;\;\;\text{ and }\;\;\; P = x_{5}P_{5}^{\text{sat}} + \left(1-x_{5}\right)P_{7}^{\text{sat}} \;\Longrightarrow\; x_{5} = \frc{P-P_{7}^{\text{sat}}}{P_{5}^{\text{sat}}-P_{7}^{\text{sat}}}.
+           \end{displaymath}
+           Thus, given values for $P_{7}^{\text{sat}}\leq P \leq P_{5}^{\text{sat}}$ $\Rightarrow$ Calculate $x_{5}$  $\Rightarrow$ Calculate $y_{5}$.
+           \bigskip
+           
+           \hbox{
+             \includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex1}
+             \includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex1b}}
+           
+   \end{MyExample} 
+
+  \medskip
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:VLE:Example2}
+       Assuming a mixture of n-pentane $\left(nC_{5}\right)$ and n-heptane $\left(nC_{7}\right)$ is ideal, draw vapour-liquid $x_{5}\times y_{5}$ and $T-x_{5}y_{5}$ equilibrium diagrams for this mixtures at constant pressure of 1.013 bar. Given $P^{\text{sat}}$ relation,
+    \begin{displaymath}
+      \ln{P_{i}^{\text{sat}}} = A_{i} - \frc{B_{i}}{RT}
+    \end{displaymath}
+    with $A_{nC_{5}}=10.422$, $A_{nC_{7}}=11.431$, $B_{nC_{5}}=26799 \text{ J.mol}^{-1}$ and $B_{nC_{7}}=35200 \text{ J.mol}^{-1}$. Also [$P$] = bar and [$T$] = K.
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+     In this problem, equilibrium temperature and compositions are not known, thus
+          \begin{displaymath}
+              P = x_{5}P_{5}^{\text{sat}} + x_{7}P_{7}^{\text{sat}} = x_{5}P_{5}^{\text{sat}} + \left(1 - x_{5}\right)P_{7}^{\text{sat}} = 1.013\text{ bar},
+          \end{displaymath}
+          where $P_{i}^{\text{sat}}$ is non-linear function of the temperature $T$, \ie
+          \begin{displaymath}
+              P = x_{5}\exp{\left(A_{5} - \frc{B_{5}}{RT}\right)} + \left(1 - x_{5}\right)\exp{\left(A_{7} - \frc{B_{7}}{RT}\right)}.
+          \end{displaymath}
+          This equation has 2 unknowns, $x_{5}$ and $T$, however we know that $0.0\leq x_{5} \leq 1.0$, thus we can give values on this range $\Rightarrow$ calculate $T$  $\Rightarrow$  obtain $y_{5}$.
+          \begin{center}
+              \begin{tabular}{ c c c | c c c}
+                  $\mathbf{x_{5}}$ & $\mathbf{T}${\bf(K)}  & $\mathbf{y_{5}}$ & $\mathbf{x_{5}}$ & $\mathbf{T}${\bf(K)}  & $\mathbf{y_{5}}$ \\
+                    0.0000          & 370.80                & 0.0000         & 0.6000          & 323.13                & 0.9257          \\
+                    0.1000          & 357.80                & 0.4050         & 0.7000          & 319.12                & 0.9528          \\
+                    0.2000          & 347.73                & 0.6249         & 0.8000          & 315.60                & 0.9728          \\
+                    0.3000          & 339.73                & 0.7535         & 0.9000          & 312.47                & 0.9881          \\
+                    0.4000          & 333.21                & 0.8345         & 1.0000          & 309.67                & 1.0000          \\
+                    0.5000          & 327.77                & 0.8881         &                 &                       &                 
+              \end{tabular}
+           \end{center}
+           \medskip
+             \hbox{\includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex2a}
+                   \includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex2b}}
+             
+   \end{MyExample}
 
 %%% SUBSECTION
 \subsection{VLE Models: Henry's Law}\label{Chapter:VLE:Section:HenryLaw}\index{Henry's law|see {Solutions}}\index{Solutions!Henry's law}
@@ -383,6 +467,7 @@ A typical application of VLE is when gases are solubilised in liquid solutions, 
   \end{equation}
 \end{shaded}
 \noindent where $\mathcal{H}$ is the Henry's constant obtained experimentally. Values of Henty's contant for several gases dissolved in water at 25$^{\circ}$C is shown in Table~\ref{Chapter:VLE:Table:HenryLawTable}
+%%% TABLE
  \begin{table}
   \begin{center}
     \begin{tabular}{l r || l r }
@@ -401,14 +486,29 @@ A typical application of VLE is when gases are solubilised in liquid solutions, 
   \end{center}
 \end{table}
 
+%%% SUBSECTION
+\subsection{VLE Models: K-Value Correlations for Hydrocarbon Systems}\label{Chapter:VLE:Section:K_Values}\index{K-Value|see {Solutions}}\index{Solutions!K-Values}
+As discussed in Section~\ref{Chapter:VolumetricPropertiesPureSubstances:Section:CubicEOS}, cubic equations of state are often used to describe the PVT behaviour of vapour and liquid phases of pure chemical species and mixtures. Although the use of cubic EOS is widely spread over the chemical industry, applicability to liquid phase is still limited. Several alternatives have been proposed and developed over the past 50 years, one of them, mostly used in petroleum and petrochemical industry for hydrocarbons, is called {\it K-value correlation}. $K$ is defined as
+\begin{shaded}
+   \begin{equation}
+      K_{i} = \frc{P_{i}^{\text{sat}}}{P} = \frc{y_{i}}{x_{i}}.\label{Chapter:VLE:Eqn:KValue}
+   \end{equation}
+\end{shaded}
+Values for $K_{i}$ are tabulated for a large number of hydrocarbons at several pressure and temperature conditions and can be found in any chemical engineering handbook as part of \blue{DePriester chart} (Fig.~\ref{Chapter:VLE:Fig:Fig05}).\index{DePriester chart|see {Solutions}}\index{Solutions!DePriester chart}
+%%% FIGURE
+  \begin{figure}[h]
+     \begin{center}
+         \includegraphics[width=1.\linewidth,clip]{./Figs/DePriesterCharts}
+     \end{center}
+     \caption{DePriester chart for several hydrocarbons \citep[extracted from][]{SmithVanNess_Book}.}\label{Chapter:VLE:Fig:Fig05}
+  \end{figure}
   
 %%% SECTION
-\section{Industrial Applications: Multi-Component VLE}
-
+  \section{Industrial Applications: Multi-Component VLE}
+  
 %%% SUBSECTION
-\subsection{Dew-point and Bubble-point Calculations using Raoult’s Law }
-
-Let's consider a vapour-liquid system containing $\mathcal{C}$ chemical species. From the phase rule the number of degrees of freedom is $\mathcal{C}$ that are $T$, $P$, $x_{i}$ and/or $y_{i}$. Four types of problems are possible:
+\subsection{Dew-point and Bubble-point Calculations using Raoult’s Law }\label{Chapter:VLE:Section:DewBubblePoint}\index{Bubble point}\index{Dew point}
+Let's consider a vapour-liquid system containing $\mathcal{C}$ chemical species. From the phase rule the number of degrees of freedom is $\mathcal{C}$, that may be $T$, $P$, $x_{i}$ and/or $y_{i}$. Four types of problems are possible:
 \begin{center}
    \begin{tabular}{|l c c|}
       \hline 
@@ -453,159 +553,20 @@ bearing in mind that $P_{i}^{\text{sat}}$ is expressed as a function of $T$. Thu
 \end{enumerate}
 
 
-%%% SUBSECTION
-\subsection{K-Value Correlations for Hydrocarbon Systems}
-
-As discussed in Modules~\ref{Section:02}-~\ref{Section:03}, cubic equations of state are often used to describe the PVT behaviour of vapour and liquid phases of pure chemical species and mixtures. Although the use of cubic EOS is widely spread over the chemical industry, applicability to liquid phase is still limited. Several alternatives have been proposed and developed over the past 50 years, one of them, mostly used in petroleum and petrochemical industry for hydrocarbons, is called {\it K-value correlation}. $K$ is defined as
-\begin{shaded}
-   \begin{equation}
-      K_{i} = \frc{P_{i}^{\text{sat}}}{P} = \frc{y_{i}}{x_{i}}.\label{Chapter:VLE:Eqn:PartialMolarProperties:KValue}
-   \end{equation}
-\end{shaded}
-Values for $K_{i}$ are tabulated for a large number of hydrocarbons at several pressure and temperature conditions and can be found in any chemical engineering handbook as part of \blue{DePriester chart} (Fig.~\ref{Mod04Fig05}).
-  \begin{figure}[h]
-     \begin{center}
-         \includegraphics[width=1.\linewidth,clip]{./Figs/DePriesterCharts}
-     \end{center}
-     \caption{DePriester chart for several hydrocarbons (extracted from Smith, Van Ness and Abbott, 2000).}\label{Mod04Fig05}
-  \end{figure}
-
-
-%%% SUBSECTION
-\subsection{Flash Distillation}\label{Chapter:VLE:FlashDistillation}
-
-Flash distillation is a common process in chemical industry to obtain solutions with the required enrichment from a feed-stock. Figure~\ref{Mod04Fig06} shows a schematic of this process, where a liquid stream (\ie with pressure equal to or larger than its bubble point pressure) with molar fraction $F$ and overall composition $z_{i}$ is injected into a separation vessel through a pressure reduction valve. The sudden reduction in pressure leads to partial evaporation (\ie {\it flash}) of the liquid feed resulting in the formation of a vapour and a liquid stream. Vapour and Liquid streams have molar fraction $V$ and $L$, respectively, with compositions of $y_{i}$ and $x_{i}$. 
-  \begin{figure}[h]
-     \begin{center}
-         \includegraphics[width=.7\linewidth,clip]{./Figs/FlashDistillation}
-     \end{center}
-     \caption{Schematic of a flash distillation process.}\label{Mod04Fig06}
-  \end{figure}
-        
-      The overall mass balance of the system is
-         \begin{displaymath}
-             F = V + L,
-         \end{displaymath}
-         for convenience, $F$ is assumed equal to unity, $F=1$. Similarly, the mass balance for each component $i$ is
-         \begin{displaymath}
-            z_{i} = x_{i}L + y_{i}V = x_{i}\left(1-V\right) + y_{i}V.
-         \end{displaymath}
-         Replacing $x_{i} = \frc{y_{i}}{K_{i}}$,
-         \begin{displaymath}
-           z_{i} = \frc{y_{i}}{K_{i}}\left(1-V\right) + y_{i}V \;\;\Longrightarrow \;\;y_{i} = \frc{z_{i}K_{i}}{1+V\left(K_{1}-1\right)}. 
-         \end{displaymath}
-         As $\summation[y_{i}]{i=1}{\mathcal{C}} = 1$,
-         \begin{shaded}
-           \begin{equation}
-              \summation[\frc{z_{i}K_{i}}{1+V\left(K_{i}-1\right)}]{i=1}{\mathcal{C}} = 1.\label{Chapter:VLE:Eqn:PartialMolarProperties:FlashEquation} 
-           \end{equation}
-         \end{shaded}
-         Solving a $P-T$ flash problem is to \underline{find $V$} that satisfies Eqn.~\ref{Chapter:VLE:Eqn:PartialMolarProperties:FlashEquation}.
-      
-\clearpage
-
-%%% SECTION
-\section{Examples}
-
-\begin{enumerate}[1)] 
-%%%
-%%% EXAMPLE
-%%%
-   \item\label{Mod04Ex01} Assuming a mixture of n-pentane $\left(nC_{5}\right)$ and n-heptane $\left(nC_{7}\right)$ is ideal, draw vapour-liquid $x_{5}\times y_{5}$ and $P-x_{5}y_{5}$ equilibrium diagrams for this mixtures at constant temperature of 50$^{\circ}$C. Given $P^{\text{sat}}$ relation,
-    \begin{displaymath}
-      \ln{P_{i}^{\text{sat}}} = A_{i} - \frc{B_{i}}{RT}
-    \end{displaymath}
-    with $A_{nC_{5}}=10.422$, $A_{nC_{7}}=11.431$, $B_{nC_{5}}=26799 \text{ J.mol}^{-1}$ and $B_{nC_{7}}=35200 \text{ J.mol}^{-1}$. Also [$P$] = bar and [$T$] = K.
-
-% SOLUTION
- \noindent{\bf Solution:} At $T=$50$^{\circ}$C = 323.15 K, vapour saturated pressures for $nC_{5}$ and $nC_{7}$ (for short notation, let's use 5 and 7 as $nC_{5}$ and $nC_{7}$, respectively) are
-           \begin{displaymath}
-              P_{5}^{\text{sat}} = 1.5639\text{ bar}\;\;\text{ and }\;\;P_{7}^{\text{sat}} = 0.1881\text{ bar}.
-           \end{displaymath}
-           In order to calculate the equilibrium pressure at each liquid $nC_{5}$ composition, $x_{5}$,
-           \begin{eqnarray}
-               && P_{i} = x_{i}P_{i}^{\text{sat}} \;\;\Longleftrightarrow \;\; P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[x_{i}P_{i}^{\text{sat}}]{i=1}{\mathcal{C}} \nonumber \\
-               && P = x_{5}P_{5}^{\text{sat}} + x_{7}P_{7}^{\text{sat}} = x_{5}P_{5}^{\text{sat}} + \left(1-x_{5}\right)P_{7}^{\text{sat}} \nonumber 
-           \end{eqnarray}
-           And for vapour composition (Raoult's law),
-           \begin{displaymath}
-               y_{i} P = x_{i}P_{i}^{\text{sat}}  \;\;\Longleftrightarrow \;\; y_{5} = \frc{x_{5}P_{5}^{\text{sat}}}{P},
-           \end{displaymath}
-           replacing pressure, $P$, from the previous equation
-           \begin{displaymath}
-               y_{5} = \frc{x_{5}P_{5}^{\text{sat}}}{x_{5}P_{5}^{\text{sat}} + \left(1-x_{5}\right)P_{7}^{\text{sat}}}.
-           \end{displaymath}
-           The $x_{5} \times y_{5}$ diagram may be plot by giving values to $0.0\leq x_{5} \leq 1.0$ and calculating $x_{5}$ through the equation above.
-
-           The $P-x_{5}y_{5}$ diagram may be plot using the relations,
-           \begin{displaymath}
-               y_{5} = \frc{x_{5}P_{5}^{\text{sat}}}{P}\;\;\;\text{ and }\;\;\; P = x_{5}P_{5}^{\text{sat}} + \left(1-x_{5}\right)P_{7}^{\text{sat}} \;\Longrightarrow\; x_{5} = \frc{P-P_{7}^{\text{sat}}}{P_{5}^{\text{sat}}-P_{7}^{\text{sat}}}.
-           \end{displaymath}
-           Thus, given values for $P_{7}^{\text{sat}}\leq P \leq P_{5}^{\text{sat}}$ $\Rightarrow$ Calculate $x_{5}$  $\Rightarrow$ Calculate $y_{5}$.
-           
-      \begin{figure}[h]
-         \vbox{
-             \hbox{\includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex1}
-                   \includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex1b}}}
-         \caption{Example~\ref{Mod04Ex01}}
-      \end{figure}
-\clearpage
- % 
-%%%
-%%% EXAMPLE
-%%%
-   \item\label{Mod04Ex02} Assuming a mixture of n-pentane $\left(nC_{5}\right)$ and n-heptane $\left(nC_{7}\right)$ is ideal, draw vapour-liquid $x_{5}\times y_{5}$ and $T-x_{5}y_{5}$ equilibrium diagrams for this mixtures at constant pressure of 1.013 bar. Given $P^{\text{sat}}$ relation,
-    \begin{displaymath}
-      \ln{P_{i}^{\text{sat}}} = A_{i} - \frc{B_{i}}{RT}
-    \end{displaymath}
-    with $A_{nC_{5}}=10.422$, $A_{nC_{7}}=11.431$, $B_{nC_{5}}=26799 \text{ J.mol}^{-1}$ and $B_{nC_{7}}=35200 \text{ J.mol}^{-1}$. Also [$P$] = bar and [$T$] = K.
-
-% SOLUTION
- \noindent{\bf Solution:} In this problem, equilibrium temperature and compositions are not known, thus
-          \begin{displaymath}
-              P = x_{5}P_{5}^{\text{sat}} + x_{7}P_{7}^{\text{sat}} = x_{5}P_{5}^{\text{sat}} + \left(1 - x_{5}\right)P_{7}^{\text{sat}} = 1.013\text{ bar},
-          \end{displaymath}
-          where $P_{i}^{\text{sat}}$ is non-linear function of the temperature $T$, \ie
-          \begin{displaymath}
-              P = x_{5}\exp{\left(A_{5} - \frc{B_{5}}{RT}\right)} + \left(1 - x_{5}\right)\exp{\left(A_{7} - \frc{B_{7}}{RT}\right)}.
-          \end{displaymath}
-          This equation has 2 unknowns, $x_{5}$ and $T$, however we know that $0.0\leq x_{5} \leq 1.0$, thus we can give values on this range $\Rightarrow$ calculate $T$  $\Rightarrow$  obtain $y_{5}$.
-          \begin{center}
-              \begin{tabular}{ c c c }
-                  $\mathbf{x_{5}}$ & $\mathbf{T}${\bf(K)}  & $\mathbf{y_{5}}$ \\
-                    0.0000          & 370.80                & 0.0000   \\
-                    0.1000          & 357.80                & 0.4050   \\
-                    0.2000          & 347.73                & 0.6249   \\
-                    0.3000          & 339.73                & 0.7535   \\
-                    0.4000          & 333.21                & 0.8345   \\
-                    0.5000          & 327.77                & 0.8881   \\
-                    0.6000          & 323.13                & 0.9257   \\
-                    0.7000          & 319.12                & 0.9528   \\
-                    0.8000          & 315.60                & 0.9728   \\
-                    0.9000          & 312.47                & 0.9881   \\
-                    1.0000          & 309.67                & 1.0000   
-              \end{tabular}
-           \end{center}
-           
-      \begin{figure}[h]
-         \vbox{
-             \hbox{\includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex2a}
-                   \includegraphics[width=.5\linewidth,clip]{./Figs/Mod4Ex2b}}}
-         \caption{Example~\ref{Mod04Ex02}}
-      \end{figure}
-\clearpage
- % 
-%%%
-%%% EXAMPLE
-%%%
-   \item\label{Mod04Ex03} Estimate the bubble and dew point temperatures of a mixture of 25 mol-$\%$ of n-pentane, 45 mol-$\%$ of n-hexane and 30 mol-$\%$ of n-heptane at 1.013 bar. Given $P^{\text{sat}}$ relation,
+  \medskip
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:VLE:Example3}
+       Estimate the bubble and dew point temperatures of a mixture of 25 mol-$\%$ of n-pentane, 45 mol-$\%$ of n-hexane and 30 mol-$\%$ of n-heptane at 1.013 bar. Given $P^{\text{sat}}$ relation,
     \begin{displaymath}
       \ln{P_{i}^{\text{sat}}} = A_{i} - \frc{B_{i}}{RT}
     \end{displaymath}
     with $A_{nC_{5}}=10.422$, $A_{nC_{6}}=10.456$, $A_{nC_{7}}=11.431$, $B_{nC_{5}}=26799 \text{ J.mol}^{-1}$, $B_{nC_{6}}=29676 \text{ J.mol}^{-1}$ and $B_{nC_{7}}=35200 \text{ J.mol}^{-1}$. Also [$P$] = bar and [$T$] = K.
+     \end{example}
 
 % SOLUTION
- \noindent{\bf Solution:} Assuming the solution is ideal and the gas phase behaves as an ideal gas (\ie low/room pressure), Raoult's law can be used,
+     \noindent{\bf Solution:}
+     Assuming the solution is ideal and the gas phase behaves as an ideal gas (\ie low/room pressure), Raoult's law can be used,
     \begin{displaymath}
        x_{i}P_{i}^{\text{sat}} = y_{i}P = P_{i} \;\;\text{ with }\;\; \summation[x_{i}P_{i}^{\text{sat}}]{i}{} = \summation[P_{i}]{i}{} = P, \;\summation[x_{i}]{i}{}=1=\summation[y_{i}]{i}{}.
     \end{displaymath}
@@ -657,22 +618,22 @@ Flash distillation is a common process in chemical industry to obtain solutions 
     \begin{displaymath}
         x_{5} =0.0742\;\; x_{6} = 0.3463\;\;\text{ and }\;\;x_{7} = 0.5795\;\;\Rightarrow\;\; \summation[x_{i}]{i}{} = 1.0000
     \end{displaymath}
+   \end{MyExample}
 
-
-\clearpage
- % 
- % 
-%%%
-%%% EXAMPLE
-%%%
-   \item\label{Mod04Ex04} Estimate the bubble and dew point pressures of a mixture of 25 mol-$\%$ of n-pentane, 45 mol-$\%$ of n-hexane and 30 mol-$\%$ of n-heptane at 73$^{\circ}$C. Given $P^{\text{sat}}$ relation,
+  \medskip
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:VLE:Example4}
+       Estimate the bubble and dew point pressures of a mixture of 25 mol-$\%$ of n-pentane, 45 mol-$\%$ of n-hexane and 30 mol-$\%$ of n-heptane at 73$^{\circ}$C. Given $P^{\text{sat}}$ relation,
     \begin{displaymath}
       \ln{P_{i}^{\text{sat}}} = A_{i} - \frc{B_{i}}{RT}
     \end{displaymath}
     with $A_{nC_{5}}=10.422$, $A_{nC_{6}}=10.456$, $A_{nC_{7}}=11.431$, $B_{nC_{5}}=26799 \text{ J.mol}^{-1}$, $B_{nC_{6}}=29676 \text{ J.mol}^{-1}$ and $B_{nC_{7}}=35200 \text{ J.mol}^{-1}$. Also [$P$] = bar and [$T$] = K.
+     \end{example}
 
 % SOLUTION
- \noindent{\bf Solution:}  For the bubble point, the mixture follows Raoult's law at 73$^{\circ}$C,
+     \noindent{\bf Solution:}
+     For the bubble point, the mixture follows Raoult's law at 73$^{\circ}$C,
       \begin{displaymath}
           P = \summation[x_{i}P_{i}^{\text{sat}}]{i}{} = x_{5}P_{5}^{\text{sat}} + x_{6}P_{6}^{\text{sat}} + x_{7}P_{7}^{\text{sat}} = 1.413\text{ bar}
       \end{displaymath}
@@ -708,27 +669,48 @@ Flash distillation is a common process in chemical industry to obtain solutions 
     \begin{displaymath}
         x_{5} =0.0723\;\; x_{6} = 0.3418\;\;\text{ and }\;\;x_{7} = 0.5859\;\;\Rightarrow\;\; \summation[x_{i}]{i}{} = 1.0000
     \end{displaymath}
+   \end{MyExample}
 
-
-\clearpage
- % 
- % 
-%%%
-%%% EXAMPLE
-%%%
-   \item\label{Mod04Ex045} A liquid mixture of 25 mol-$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol-$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol-$\%$ n-heptane $\left(nC_{7}\right)$ initially at 69$^{\circ}$C and a high pressure, is partially vaporised by isothermically lowering the pressure to  1.013 bar. Calculate the relative amounts of vapour and liquid in equilibrium and compositions.
-
-% SOLUTION
- \noindent{\bf Solution:} This is a typical {\it flash} problem described by the figure,
-    
+%%% SUBSECTION
+\subsection{Flash Distillation}\label{Chapter:VLE:Section:FlashDistillation}\index{Flash|see {Solutions}}\index{Solutions!Flash}
+Flash distillation is a common process in chemical industry to obtain solutions with the required enrichment from a feed-stock. Figure~\ref{Chapter:VLE:Fig:Fig06} shows a schematic of this process, where a liquid stream (\ie with pressure equal to or larger than its bubble point pressure) with molar fraction $F$ and overall composition $z_{i}$ is injected into a separation vessel through a pressure reduction valve. The sudden reduction in pressure leads to partial evaporation (\ie {\it flash}) of the liquid feed resulting in the formation of a vapour and a liquid stream. Vapour and Liquid streams have molar fraction $V$ and $L$, respectively, with compositions of $y_{i}$ and $x_{i}$. 
+%%% FIGURE
   \begin{figure}[h]
      \begin{center}
-         \includegraphics[width=.25\linewidth,clip]{./Figs/FlashDistillation}
+         \includegraphics[width=.5\linewidth,clip]{./Figs/FlashDistillation}
      \end{center}
-     \caption{Schematic of a flash distillation process, Example~\ref{Mod04Ex045}.}
+     \caption{Schematic of a flash distillation process.}\label{Chapter:VLE:Fig:Fig06}
   \end{figure}
+  The overall mass balance of the system is
+  \begin{displaymath}
+     F = V + L,
+  \end{displaymath}
+  for convenience, let's assume $F$ as equal to unity, $F=1$. Similarly, the mass balance for each component $i$ is
+  \begin{displaymath}
+     z_{i}F = x_{i}L + y_{i}V = x_{i}\left(1-V\right) + y_{i}V.
+  \end{displaymath}
+  Replacing $x_{i} = \frc{y_{i}}{K_{i}}$ and $F=1$,
+  \begin{displaymath}
+     z_{i} = \frc{y_{i}}{K_{i}}\left(1-V\right) + y_{i}V \;\;\Longrightarrow \;\;y_{i} = \frc{z_{i}K_{i}}{1+V\left(K_{1}-1\right)}. 
+  \end{displaymath}
+  As $\summation[y_{i}]{i=1}{\mathcal{C}} = 1$,
+         \begin{shaded}
+           \begin{equation}
+              \summation[\frc{z_{i}K_{i}}{1+V\left(K_{i}-1\right)}]{i=1}{\mathcal{C}} = 1.\label{Chapter:VLE:Eqn:PartialMolarProperties:FlashEquation} 
+           \end{equation}
+         \end{shaded}
+         Solving a $P-T$ flash problem is to \underline{find $V$} that satisfies Eqn.~\ref{Chapter:VLE:Eqn:PartialMolarProperties:FlashEquation}.
 
-From the given $P_{i}^{\text{sat}}$ relation at 69$^{\circ}$C,
+  \medskip
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:VLE:Example5}
+       A liquid mixture of 25 mol-$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol-$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol-$\%$ n-heptane $\left(nC_{7}\right)$ initially at 69$^{\circ}$C and a high pressure, is partially vaporised by isothermically lowering the pressure to  1.013 bar. Calculate the relative amounts of vapour and liquid in equilibrium and compositions.
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+     This is a typical {\it flash} problem that can be described by Fig.~\ref{Chapter:VLE:Fig:Fig06}. From the given $P_{i}^{\text{sat}}$ relation at 69$^{\circ}$C,
    \begin{displaymath}
         \begin{cases}
             P_{5}^{\text{sat}} = 2.721 \text{ bar},\\ 
@@ -773,8 +755,6 @@ Assuming ideal solution, $K_{i}$ for the three hydrocarbons can be readily obtai
             x_{7}L + y_{7}V = z_{7} = 0.30 \;\Longrightarrow\; x_{7}\left[L\left(1-K_{7}\right)+K_{7}\right] = 0.30
         \end{cases}
    \end{displaymath}
-
-
    Now the molar fraction constraint of the liquid phase $x_{5}+x_{6}+x_{7} = 1$, is
    \begin{displaymath}
         \frc{0.25}{L\left(1-K_{5}\right)+K_{5}} + \frc{0.45}{L\left(1-K_{6}\right)+K_{6}} + \frc{0.30}{L\left(1-K_{7}\right)+K_{7}} = 1
@@ -796,7 +776,12 @@ Assuming ideal solution, $K_{i}$ for the three hydrocarbons can be readily obtai
         \end{cases}
    \end{displaymath}
     with $\summation[y_{i}]{i}{} = 1.0000$
- % 
+   \end{MyExample}
+   
 
-%
-\end{enumerate}
+\clearpage   
+\begin{FinalSummaryBlock}{Summary}
+    \begin{itemize}
+       \item b
+    \end{itemize}
+\end{FinalSummaryBlock}
