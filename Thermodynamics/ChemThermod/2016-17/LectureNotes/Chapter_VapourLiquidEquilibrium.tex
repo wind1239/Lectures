@@ -4,10 +4,17 @@
    \begin{LearningObjectivesBlock}{Learning Objectives}
       Upon completion of this chapter, you will be able to
         \begin{enumerate}
-           \item 
+           \item Assess properties of real fluids through excess properties definitions; 
+           \item Define phase and components molar fractions;
+           \item Discuss chemical potential as a critical element for chemical equilibrium;
+           \item Determine conditions for chemical equilibrium;
+           \item Estimate phases, compositions and thermodynamic potentials in 2-/3-D phase diagrams;
+           \item Identify and calculate bubble and dew points coordinates (\ie pressure, temperature and compositions);
+           \item State Raoult's and Henry's laws;
+           \item Formulate mass balance for VLE problems and estimate compositions at equilibrium.
         \end{enumerate}
 \medskip
-     Recommended reading: Chapters 10-11 of \citet{SmithVanNess_Book}, 3 and 5 of \citet{Lue_Book}, 11 of \citet{Moran_Book} or 4-7 of \citet{Atkins_Book}.
+     Recommended reading: Chapters 10-11 of \citet{SmithVanNess_Book}, 8-10 of \cite{Sandler_Book}, 3-5 of \citet{Lue_Book}, 11 of \citet{Moran_Book} or 4-7 of \citet{Atkins_Book}.
    \end{LearningObjectivesBlock}
 
 
@@ -504,7 +511,7 @@ Values for $K_{i}$ are tabulated for a large number of hydrocarbons at several p
   \end{figure}
   
 %%% SECTION
-  \section{Industrial Applications: Multi-Component VLE}
+  \section{Industrial Applications: Multi-Component VLE}\label{Chapter:VLE:Section:IndApplications}
   
 %%% SUBSECTION
 \subsection{Dew-point and Bubble-point Calculations using Raoult’s Law }\label{Chapter:VLE:Section:DewBubblePoint}\index{Bubble point}\index{Dew point}
@@ -556,7 +563,7 @@ bearing in mind that $P_{i}^{\text{sat}}$ is expressed as a function of $T$. Thu
   \medskip
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:VLE:Example3}
+     \begin{example}\label{Chapter:VLE:Example3}\citep{Sandler_Book}
        Estimate the bubble and dew point temperatures of a mixture of 25 mol-$\%$ of n-pentane, 45 mol-$\%$ of n-hexane and 30 mol-$\%$ of n-heptane at 1.013 bar. Given $P^{\text{sat}}$ relation,
     \begin{displaymath}
       \ln{P_{i}^{\text{sat}}} = A_{i} - \frc{B_{i}}{RT}
@@ -673,14 +680,13 @@ bearing in mind that $P_{i}^{\text{sat}}$ is expressed as a function of $T$. Thu
 
 %%% SUBSECTION
 \subsection{Flash Distillation}\label{Chapter:VLE:Section:FlashDistillation}\index{Flash|see {Solutions}}\index{Solutions!Flash}
-Flash distillation is a common process in chemical industry to obtain solutions with the required enrichment from a feed-stock. Figure~\ref{Chapter:VLE:Fig:Fig06} shows a schematic of this process, where a liquid stream (\ie with pressure equal to or larger than its bubble point pressure) with molar fraction $F$ and overall composition $z_{i}$ is injected into a separation vessel through a pressure reduction valve. The sudden reduction in pressure leads to partial evaporation (\ie {\it flash}) of the liquid feed resulting in the formation of a vapour and a liquid stream. Vapour and Liquid streams have molar fraction $V$ and $L$, respectively, with compositions of $y_{i}$ and $x_{i}$. 
 %%% FIGURE
-  \begin{figure}[h]
+  \begin{wrapfigure}{i}{0.5\textwidth}
      \begin{center}
-         \includegraphics[width=.5\linewidth,clip]{./Figs/FlashDistillation}
+         \includegraphics[width=.4\textwidth,clip]{./Figs/FlashDistillation}
      \end{center}
      \caption{Schematic of a flash distillation process.}\label{Chapter:VLE:Fig:Fig06}
-  \end{figure}
+  \end{wrapfigure}Flash distillation is a common process in chemical industry to obtain solutions with the required enrichment from a feed-stock. Figure~\ref{Chapter:VLE:Fig:Fig06} shows a schematic of this process, where a liquid stream (\ie with pressure equal to or larger than its bubble point pressure) with molar fraction $F$ and overall composition $z_{i}$ is injected into a separation vessel through a pressure reduction valve. The sudden reduction in pressure leads to partial evaporation (\ie {\it flash}) of the liquid feed resulting in the formation of a vapour and a liquid stream. Vapour and Liquid streams have molar fraction $V$ and $L$, respectively, with compositions of $y_{i}$ and $x_{i}$. 
   The overall mass balance of the system is
   \begin{displaymath}
      F = V + L,
@@ -704,7 +710,7 @@ Flash distillation is a common process in chemical industry to obtain solutions 
   \medskip
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:VLE:Example5}
+     \begin{example}\label{Chapter:VLE:Example5}\citep{Sandler_Book}
        A liquid mixture of 25 mol-$\%$ n-pentane $\left(nC_{5}\right)$, 45 mol-$\%$ n-hexane $\left(nC_{6}\right)$ and 30 mol-$\%$ n-heptane $\left(nC_{7}\right)$ initially at 69$^{\circ}$C and a high pressure, is partially vaporised by isothermically lowering the pressure to  1.013 bar. Calculate the relative amounts of vapour and liquid in equilibrium and compositions.
      \end{example}
 
@@ -781,7 +787,30 @@ Assuming ideal solution, $K_{i}$ for the three hydrocarbons can be readily obtai
 
 \clearpage   
 \begin{FinalSummaryBlock}{Summary}
+     Concepts introduced in this chapter are relatively simple but far reaching. They are cornerstone for the remaining of this notes and for fundamental chemical thermodynamics. An extension of total derivative to multi-component systems led to the equilibrium criteria for general multiphase ($\mathcal{P}\ge2$) and multi-component ($\mathcal{C}\ge2$) mixtures.
     \begin{itemize}
-       \item b
+       \item Initial definition and discussion of excess properties (Eqn.~\ref{Chapter:VLE:Eqn:ExcessProperties1a});
+       \item Definition of chemical potential as the partial molar Gibbs free energy (Eqn.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1b}) and development of a fundamental relation for multi-component systems (Eqn.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1d});
+       \item Chemical equilibrium can be assessed \wrt thermodynamic conditions as stated in Table~\ref{Chapter:VLE:Table:TableEquilibriumCriteria};
+       \item In closed systems at constant pressure and temperature conditions, the criterion for equilibrium is that the Gibbs free energy is the minimum which leads to equality of chemical potential of each component at all phases (Eqn.~\ref{Chapter:VLE:EqnChemPotentialDef1c3});
+       \item Multi-component VLE problems (\ie $\mathcal{C}\ge 2$ and $\mathcal{P}=2$) can be represented by $P-T-x_{i}y_{i}$ phase diagrams, where critical pressure and temperature (for individual components and the mixtures), liquid and vapour saturation lines, bubble and dew points can be identified;
+       \item Although compositions, temperatures and pressures can be obtained from graphical representation (2-/3-D) of phase equilibrium, this is not very convenient and numerical models were develop to represent the partition of components in both phases in equilibrium;
+       \item Raoult's law (Eqn.~\ref{Chapter:VLE:Eqn:RaoultLaw}) is an idealisation of the components' partition between vapour and liquid phases assuming limited molecular forces (\eg attractive and repulsive) act in the liquid phase;
+       \item Henry's law (Eqn.~\ref{Chapter:VLE:Eqn:HenryLaw}) is applied to gases solubilised at low concentrations in liquid solutions;
+       \item K-value models (Eqn.~\ref{Chapter:VLE:Eqn:KValue}) were mostly developed for petro-chemical industry to help quickly assess concentrations of (light) hydrocarbons in vapour and liquid phases;
+       \item Dew and bubble coordinates (pressure, temperature and compositions) in typical industrial applications are discussed in Section~\ref{Chapter:VLE:Section:IndApplications};
+       \item Depending on known conditions, four main problems may arise:
+\begin{center}
+   \begin{tabular}{|l c c|}
+      \hline 
+      $\mathbf{VLE}$ {\bf Problem} & {\bf Specified Variables} &  {\bf Computed Variables} \\  
+      \hline
+          {\bf Bubble Pressure}        &  $T$ and $x_{i}$           &   $P$ and $y_{i}$          \\
+          {\bf Dew Pressure}           &  $T$ and $y_{i}$           &   $P$ and $x_{i}$          \\
+          {\bf Bubble Temperature}     &  $P$ and $x_{i}$           &   $T$ and $y_{i}$          \\
+          {\bf Dew Temperature}        &  $P$ and $y_{i}$           &   $T$ and $x_{i}$          \\     
+      \hline
+   \end{tabular}
+\end{center}
     \end{itemize}
 \end{FinalSummaryBlock}

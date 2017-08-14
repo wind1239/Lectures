@@ -1,5 +1,36 @@
 \chapter{Solution Thermodynamics}\label{Chapter:SolutionThermodynamics}
 
+
+   \begin{LearningObjectivesBlock}{Learning Objectives}
+      Upon completion of this chapter, you will be able to
+        \begin{enumerate}
+           \item 
+        \end{enumerate}
+\medskip
+     Recommended reading: Chapters 11-12 of \citet{SmithVanNess_Book}, 9-10 of \cite{Sandler_Book}, 6 \citet{Lue_Book}, 11 of \citet{Elliot_Book} or 5 of \citet{Atkins_Book}.
+   \end{LearningObjectivesBlock}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+   \begin{LearningObjectivesBlock}{Learning Objectives}
+      Upon completion of this chapter, you will be able to
+        \begin{enumerate}
+           \item {\bf Knowledge:} Define, Name, Select, State 
+           \item {\bf Comprehension:} Describe, Identify, Discuss
+           \item {\bf Application:} Apply, Demonstrate, Employ, Sketch
+           \item {\bf Analysis:} Analyse, Compare, Calculate, Solve
+           \item {\bf Synthesis:} Determine, Formulate
+           \item {\bf Evaluation:} Assess, Check, Estimate, Compare, Measure, Monitor
+        \end{enumerate}
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% ETOC
+\localtableofcontents
+   
+
+
 %%% SUBSECTION
 \section{Introduction}\label{Chapter:SolutionThermodynamics:Introduction}
 Vapour-liquid equilibrium of pure components and mixtures were the focus of study in Modules~\ref{Section:02}-\ref{Section:04}. In this modules, equations of state were introduced to represent the $PVT$ behaviour of pure components in both vapour and liquid phases. From your readings, you may have noticed that EOS are largely applied, with relatively accuracy, to vapour phases, but rarely used to assess liquid phase behaviour. 
@@ -189,6 +220,28 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
       \end{shaded}       
 %
    \end{subequations}
+
+\begin{table}
+   \begin{center}
+      \begin{tabular}{l c l l l}
+          \hline
+             {\bf Components}   & {\bf Basis}  & {\bf Standard-state}   & {\bf Activity}        & {\bf Limits} \\
+          \hdashline
+             Solid or liquid    &              &  Pure                  & $a=1$                 &              \\
+          \hdashline
+             Solvent            &   Raoult     &  Pure solvent          & $a\frc{P}{P^{\star}}$,  & $\gamma\rightarrow 1\text{ as } x\rightarrow 1$ \\
+                                &              &                        & $a=\gamma x$          &  (pure solvent) \\
+          \hdashline
+             Solute             & Henry        & (1) hypothetical state of& $a=\frc{P}{\mathcal{H}}$,& $\gamma\rightarrow 1\text{ as } x\rightarrow 0$ \\
+                                &              & pure solute            & $a=\gamma x$          &                                     \\
+          \hdashline
+                                &              & (2) hypothetical state of& $a=\gamma\frc{m}{m^{\circ}}$& $\gamma\rightarrow 1\text{ as } m\rightarrow 0$ \\
+                                &              & solute at molality $m$   &                     &                                     \\
+         \hline 
+       \end{tabular}
+       \caption{Standard states for activity \citep[extracted from][]{Atkins_Book}.}\label{Chapter:SolutionThermodynamics:Table:StandarStateActivity}
+   \end{center}
+\end{table}
       
 %%% SECTION
 \section{Henry's Law}\label{Chapter:SolutionThermodynamics:HenryLaw}
@@ -451,7 +504,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
          Helmholtz Energy &   $\overline{A}_{i}^{\text{igm}}(T,P,y) = \overline{a}_{i}^{\text{ig}}(T,P)+RT\ln{y_{i}}$ & $\Delta_{\text{mix}} \overline{a}^{\text{igm}}=-RT\summation[y_{i}\ln{y_{i}}]{}{}$ & $\overline{a}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{a}_{i}^{\text{ig}}(T,P)]{}{} + RT\summation[y_{i}\ln{y_{i}}]{}{}$ \\ 
  \hline
      \end{tabular}
-     \caption{Properties of ideal gas mixtures.}\label{Mod5_TableIGM}  
+     \caption{Properties of ideal gas mixtures \citep[extracted from][]{Sandler_Book}.}\label{Mod5_TableIGM}  
  \end{table}
      
      Partial molar properties, molar properties and change of mixing of molar properties for the main thermodynamic functions are summarised in Table~\ref{Mod5_TableIGM}.
