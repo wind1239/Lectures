@@ -32,8 +32,8 @@
 
 
 %%% SUBSECTION
-\section{Introduction}\label{Chapter:SolutionThermodynamics:Introduction}
-Vapour-liquid equilibrium of pure components and mixtures were the focus of study in Modules~\ref{Section:02}-\ref{Section:04}. In this modules, equations of state were introduced to represent the $PVT$ behaviour of pure components in both vapour and liquid phases. From your readings, you may have noticed that EOS are largely applied, with relatively accuracy, to vapour phases, but rarely used to assess liquid phase behaviour. 
+\section{Introduction}\label{Chapter:SolutionThermodynamics:Section:Introduction}
+Vapour-liquid equilibrium of pure components and mixtures were the focus of study in Chapters~\ref{Chapter:VolumetricPropertiesPureSubstances}-\ref{Chapter:VLE}. In these chapters, equations of state were introduced to represent the $PVT$ behaviour of pure components in both vapour and liquid phases. From your readings, you may have noticed that EOS are largely applied, with relatively accuracy, to vapour phases, but rarely used to assess liquid phase behaviour. 
 
 This is mainly due to the fact that EOS were originally (and cubic EOS in particular) to represent weak inter-molecular forces between gaseous molecules at relatively large distances (\ie {\it mean free path}). As pressure increases $\left(P\rightarrow \infty\right)$ and the distance between molecules tends to zero $\left(d\rightarrow 0\right)$, the accuracy of equations of state to predict $PVT$ behaviour also decreases, as the attractive and repulsive forces between molecules become stronger. 
 
@@ -43,27 +43,30 @@ Kinetic energy in gaseous molecules are larger than the attractive forces, leadi
 
 \bigskip
 
-In Module~\ref{Section:01}, the concept of {\it mechanical} (\ie system at constant or uniform pressure) and {\it thermal} (from the Zeroth law) equilibrium were introduced. In order to define phase equilibria, we established (in Module~\ref{Section:04}) that an additional condition was necessary, {\it chemical equilibrium}, \ie equality of Gibbs free energy of all phases (Section~\ref{Section:03:ClapeyronRelations}) for pure fluids. This concept can be extended for mixtures by using the definition of {\it chemical potential}, $\mu_{i}$ (Eqn.~\ref{Mod04_ChemPotentialDef1b}),
+In Chapter~\ref{Chapter:Introduction}, the concept of {\it mechanical} (\ie system at constant or uniform pressure) and {\it thermal} (from the Zeroth law) equilibrium were introduced. In order to define phase equilibria, we established (in Chapter~\ref{Chapter:ThermodynamicPropertiesPureFluids}) that an additional condition was necessary, {\it chemical equilibrium}, \ie equality of Gibbs free energy of all phases (Section~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:ClapeyronRelations}) for pure fluids. This concept can be extended for mixtures by using the definition of {\it chemical potential}, $\mu_{i}$ (Eqn.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1b}),\index{Chemical potential}
          \begin{displaymath}
             \mu_{i} = \Partial[(nG)]{n_{i}}{T,P,n_{j\ne i}} \;\;\Longleftrightarrow\;\; \mu_{i} = \overline{G}_{i},
          \end{displaymath}
 where $\overline{G}_{i}$ is the {\it partial molar Gibbs free energy}. This leads to the final phase equilibria condition in which {\it the chemical potential for each component at all coexisting phases are identical}, \ie 
-         \begin{eqnarray}
-            && \mfr[\mu]{i}{\alpha} = \mfr[\mu]{i}{\beta} = \cdots =  \mfr[\mu]{i}{j} = \cdots = \mfr[\mu]{i}{\mathcal{N}_{\mathcal{P}}} = \;\;\;\forall i\in\{1,2,\cdots,\mathcal{C}\}\;\; \text{ and }\;\;\; \forall j\in\{\alpha,\beta,\cdots,\mathcal{N}_{\mathcal{P}}\}, \nonumber \\
-            &&  \text{or for VLE systems: }\;\;\;\; \mfr[\mu]{i}{L} = \mfr[\mu]{i}{V},\;\;\;\forall i\in\{1,2,\cdots,\mathcal{C}\} \nonumber 
-         \end{eqnarray}
+         \begin{displaymath}
+           \mfr[\mu]{i}{\alpha} = \mfr[\mu]{i}{\beta} = \cdots =  \mfr[\mu]{i}{j} = \cdots = \mfr[\mu]{i}{\mathcal{N}_{\mathcal{P}}}, \hspace{1.5cm} \forall i\in\{1,2,\cdots,\mathcal{C}\}\;\; \text{ and }\;\;\; \forall j\in\{\alpha,\beta,\cdots,\mathcal{N}_{\mathcal{P}}\}
+         \end{displaymath}
+         or for VLE systems:
+         \begin{displaymath}
+           \mfr[\mu]{i}{L} = \mfr[\mu]{i}{V},\;\;\;\forall i\in\{1,2,\cdots,\mathcal{C}\}
+         \end{displaymath}
 
 \medskip
 
 The main assumptions for ideal gas behaviour assume that molecules of gas are massless particles with no interaction between them (\ie volume of the molecules is negligibly small compared with the volume occupied by the gas or simply the distance between gaseous molecules are often infinitely large, $d\rightarrow \infty$), except during elastic collisions over negligible duration. These conditions can only be met by fluids at sufficiently high temperature and relatively low pressure when large distances between molecules and high velocity overcome any interaction. The concept of ideality for liquids also exists and is based on the assumption that inter-molecular forces are the same between all molecules in solution. This assumption may be correct for pure non-polar substances (\ie in solutions with no major inter-/intra-molecular forces).
 
-Thus, the aim of this Module is to define thermodynamic properties of real solutions based on properties of ideal solutions. Excess properties (Section~\ref{Section:04:ExcessProperties}) plays a role similar to that of residual properties (Section~\ref{Section:03:ResidualProperties}) for gases. In order to study solution properties at low to moderate pressures, {\it activity coefficient}, based on the definition of {\it fugacity}, is used. The {\it activity coefficient}, derived from the {\it excess Gibbs free energy}, is a measure of the extent of non-ideality of a real solution and helps describing phase equilibria of mixtures at low and moderate pressures.
+Thus, the aim of this Chapter is to define thermodynamic properties of real solutions based on properties of ideal solutions. Excess properties (Section~\ref{Chapter:VLE:Section:ExcessProperties}) plays a role similar to that of residual properties (Section~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:ResidualProperties}) for gases. In order to study solution properties at low to moderate pressures, {\it activity coefficient}, based on the definition of {\it fugacity}, is used. The {\it activity coefficient}, derived from the {\it excess Gibbs free energy}, is a measure of the extent of non-ideality of a real solution and helps describing phase equilibria of mixtures at low and moderate pressures.
 
 
 %%% SECTION
-\section{Fugacity}\label{Chapter:SolutionThermodynamics:FugacitySection}
+\section{Fugacity}\label{Chapter:SolutionThermodynamics:Section:FugacitySection}\index{Fugacity}
 \begin{subequations}
-  A formal definition for {\it partial molar property} was introduced in Section~\ref{Section:04:PartialMolarProperties} for an arbitrary extensive function $M$, Eqn.~\ref{Mod04_PartialProperties2}. Such formulation was applied to the Gibbs free energy of a system with $n=n_{1}+n_{2}+\cdots+n_{\mathcal{C}}$ moles leading to the definition of the {\it chemical potential}, Eqns.~\ref{Mod04_ChemPotentialDef1}-~\ref{Mod04_ChemPotentialDef1b},
+  A formal definition for {\it partial molar property} was introduced in Section~\ref{Chapter:VLE:Section:PartialMolarProperties} for an arbitrary extensive function $M$, Eqn.~\ref{Chapter:VLE:Eqn:PartialProperties2}. Such formulation was applied to the Gibbs free energy of a system with $n=n_{1}+n_{2}+\cdots+n_{\mathcal{C}}$ moles leading to the definition of the {\it chemical potential}, Eqns.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1}-\ref{Chapter:VLE:Eqn:ChemPotentialDef1b},
   \begin{shaded}
      \begin{eqnarray}
        && dG = \Partial[G]{P}{T,n}dP + \Partial[G]{T}{P,n}dT + \underbrace{\Partial[G]{n}{T,P}}_{\mu}dn, \nonumber \\
@@ -74,46 +77,50 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
   \begin{displaymath}
     G = n\mu \;\;\rightarrow \mu=\frc{G}{n}=\overline{g},
   \end{displaymath}
-  where $\overline{g}$ is the molar Gibbs free energy. Using the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7},
+  where $\overline{g}$ is the molar Gibbs free energy. Using the Maxwell relation, Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation7},
   \begin{eqnarray}
     && \Partial[G]{P}{T} = V = \Partial[n\mu]{P}{T} = n\Partial[\mu]{P}{T} \nonumber \\
-    && \Partial[\mu]{P}{T} = \frc{V}{n} = \overline{v}\label{Mod05_fugacity1}
+    && \Partial[\mu]{P}{T} = \frc{V}{n} = \overline{v}\label{Chapter:SolutionThermodynamics:Eqn:fugacity1}
   \end{eqnarray}
   where $\underline{v}$ is the molar volume. For an ideal gas,
   \begin{displaymath}
      \Partial[\mu^{\text{ig}}]{P}{T} = \frc{RT}{P},
   \end{displaymath}
-  where the superscript $^{\text{ig}}$ refers to ideal gas. This differential can be integrated as,
+  where the superscript {\it ig} refers to ideal gas. This differential can be integrated as,
   \begin{equation}
-    \mu^{\text{ig}} = RT\ln{P} + C(T),\label{Mod05_fugacity1a}
+    \mu^{\text{ig}} = RT\ln{P} + C(T),\label{Chapter:SolutionThermodynamics:Eqn:fugacity1a}
   \end{equation}
-  where $C(T)$ is an integration constant. At limiting conditions, $P\rightarrow 0$ and $P\rightarrow\infty$, the chemical potential lies within $-\infty < \mu < +\infty$. For a fluid to be considered an ideal gas, pressure needs to be relatively low, thus we can use Eqn.~\ref{Mod05_fugacity1a} to represent the chemical potential of real fluids,
+  where $C(T)$ is an integration constant. At limiting conditions, $P\rightarrow 0$ and $P\rightarrow\infty$, the chemical potential lies within $-\infty < \mu < +\infty$.
+  \begin{shaded}
+    \noindent For a fluid to be considered an ideal gas, pressure needs to be relatively low, thus we can use Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1a} to represent the \underline{chemical potential of real fluids},
   \begin{equation}
-    \mu = RT\ln{f} + C(T),\label{Mod05_fugacity1b}
+    \mu = RT\ln{f} + C(T),\label{Chapter:SolutionThermodynamics:Eqn:fugacity1b}
   \end{equation}
-  where $f$ is the {\it fugacity of a real gas}, \ie \blue{a representation of the pressure of an ideal gas that has the same chemical potential as the real gas.} Since the {\it fugacity} has the \underline{units of pressure}, it is often referred as a `fictitious pressure'.  The definition of fugacity from Eqn.~\ref{Mod05_fugacity1b} is entirely general and can be readily extended to both liquids and solids. Now, replacing Eqn.~\ref{Mod05_fugacity1b} in the Maxwell relation, Eqn.~\ref{Mod03_MaxwellRelation7}, at constant temperature,
+  where $f$ is the {\it fugacity of a real gas}, \ie \blue{a representation of the pressure of an ideal gas that has the same chemical potential as the real gas.}
+  \end{shaded}
+  \noindent Since the {\it fugacity} has the \underline{units of pressure}, it is often referred as a `fictitious pressure'.  The definition of fugacity from Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1b} is entirely general and can be readily extended to both liquids and solids. Now, replacing Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1b} in the Maxwell relation, Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:MaxwellRelation7}, at constant temperature,
   \begin{equation}
-    RT\Partial[\left(\ln{f}\right)]{P}{T} = \overline{v}.\label{Mod05_fugacity1c}
+    RT\Partial[\left(\ln{f}\right)]{P}{T} = \overline{v}.\label{Chapter:SolutionThermodynamics:Eqn:fugacity1c}
   \end{equation}
   {\it Fugacity} can be obtained by integrating this equation holding $T$ constant. As pressure tends to zero (lower limit of the left-hand-side integration), the fluid behaves as an ideal gas. We can thus state that the fugacity of a pure component is equal to the pressure in the limit of zero pressure, \ie
       \begin{shaded}
         \begin{equation}
-           \lim\limits_{P \rightarrow 0} \frc{f}{P} = 1.\label{Mod05_fugacity1d}
+           \lim\limits_{P \rightarrow 0} \frc{f}{P} = 1.\label{Chapter:SolutionThermodynamics:Eqn:fugacity1d}
         \end{equation}
       \end{shaded}
 
-  \noindent  In a \underline{mixture} containing $n$ moles of $\mathcal{C}$ chemical species, Eqn.~\ref{Mod05_fugacity1c} becomes,
+  \noindent  In a \underline{mixture} containing $n$ moles of $\mathcal{C}$ chemical species, Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1c} becomes,
       \begin{eqnarray}
-        && RT\Partial[\left(\ln{f_{i}}\right)]{P}{T,n} = \overline{v}_{i},\;\;\;\;\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}\label{Mod05_fugacity1e1} \\
-        && RT\Partial[\left(\ln{\overline{f}_{i}}\right)]{P}{T,n} = \overline{V}_{i},\label{Mod05_fugacity1e2}
+        && RT\Partial[\left(\ln{f_{i}}\right)]{P}{T,n} = \overline{v}_{i},\;\;\;\;\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}\label{Chapter:SolutionThermodynamics:Eqn:fugacity1e1} \\
+        && RT\Partial[\left(\ln{\overline{f}_{i}}\right)]{P}{T,n} = \overline{V}_{i},\label{Chapter:SolutionThermodynamics:Eqn:fugacity1e2}
       \end{eqnarray}
-      where $f_{i}$ is the {\it fugacity of pure component $i$} and $\overline{f}_{i}$ is the {\it fugacity of component $i$ in the mixture}. $\overline{v}_{i}$ and $\overline{V}_{i}$ are the molar volume of pure component $i$ and, of component $i$ in the mixture. If we subtract Eqn.~\ref{Mod05_fugacity1e1} from ~\ref{Mod05_fugacity1e2} and integrate the result from $P'$ to $P$ at constant $T$,
+      where $f_{i}$ is the {\it fugacity of pure component $i$} and $\overline{f}_{i}$ is the {\it fugacity of component $i$ in the mixture}. $\overline{v}_{i}$ and $\overline{V}_{i}$ are the molar volume of pure component $i$ and, of component $i$ in the mixture. If we subtract Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1e1} from \ref{Chapter:SolutionThermodynamics:Eqn:fugacity1e2} and integrate the result from $P'$ to $P$ at constant $T$,
       \begin{displaymath}
         RT\Partial[\left(\ln{\frc{\overline{f}_{i}}{f_{i}}}\right)]{P}{T,n} = \overline{V}_{i} - \overline{v}_{i} \;\;\Longrightarrow \;\;  RT\left[\left.\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)}\right|_{P'}^{P}\right] = \int\limits_{P'}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP
       \end{displaymath}
       Assuming that $P'$ tends to $0$,
       \begin{equation}
-        RT\left[\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)} - \lim\limits_{P'\rightarrow 0}\ln\left(\frc{\overline{f}_{i}}{f_{i}}\right)\right] = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP.\label{Mod05_fugacity1f}
+        RT\left[\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)} - \lim\limits_{P'\rightarrow 0}\ln\left(\frc{\overline{f}_{i}}{f_{i}}\right)\right] = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP.\label{Chapter:SolutionThermodynamics:Eqn:fugacity1f}
       \end{equation}
       When $P'\rightarrow 0$
       \begin{displaymath}
@@ -126,17 +133,18 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
       \begin{displaymath}
         \lim\limits_{P'\rightarrow 0}\ln\left(\frc{\overline{f}_{i}}{f_{i}}\right) \rightarrow \ln{\left(\frc{y_{i}P'}{P'}\right)} = \ln{y_{i}}
       \end{displaymath}
-      Thus Eqn.~\ref{Mod05_fugacity1f} becomes,
+      Thus Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1f} becomes,
         \begin{displaymath}
           RT\left[\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)} - \ln{y_{i}}\right] = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP
         \end{displaymath}
       \begin{shaded}
         \begin{equation}
-           RT\ln{\left(\frc{\overline{f}_{i}}{y_{i}f_{i}}\right)} = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP. \label{Mod05_fugacity1g}
+           RT\ln{\left(\frc{\overline{f}_{i}}{y_{i}f_{i}}\right)} = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP. \label{Chapter:SolutionThermodynamics:Eqn:fugacity1g}
         \end{equation}
       \end{shaded}
-  \noindent This expression relates fugacity of a pure component $i$ and the fugacity of the same component $i$ in a mixture with $\mathcal{C}$ chemical components during continuous change in pressure. The term in brackets in the left-hand side represents in the ratio between partial pressures between real and ideal fluids in a mixture.
+  \noindent This expression relates fugacity of a pure component $i$ and the fugacity of the same component $i$ in a mixture with $\mathcal{C}$ chemical components during continuous change in pressure. The term in brackets in the left-hand side represents the ratio between partial pressures between real and ideal fluids in a mixture.
 
+  \bigskip
         
       For an ideal mixture of ideal gases, the partial pressure of species $i$ is the fugacity of component $i$ in the mixture, \ie
          \begin{displaymath}
@@ -150,9 +158,9 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
       \begin{shaded}
          An \underline{ideal solution} is a mixture in which,
         \begin{equation}
-          \mfr[\overline{f}]{i}{V} = y_{i}P = P_{i}\;\;\;\text{ and }\;\;\; \mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}\label{Mod05_fugacity2a}
+          \mfr[\overline{f}]{i}{V} = y_{i}P = P_{i}\;\;\;\text{ and }\;\;\; \mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}\label{Chapter:SolutionThermodynamics:Eqn:fugacity2a}
         \end{equation}
-        These expressions are called \red{\it Lewis-Randall rules} and they describe relations between phase compositions and fugacities.
+        These expressions are called {\it Lewis-Randall rules} and they describe relations between phase compositions and fugacities.\index{Lewis0Randall rules|see {Solutions}}\index{Solutions!Lewis-Randall rules}
       \end{shaded}
       
 \end{subequations}
@@ -162,25 +170,25 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
 \section{Activity and Activity Coefficient }\label{Chapter:SolutionThermodynamics:ActivitySection}
    \begin{subequations}
         
-      In a mixture (based on Eqn.~\ref{Mod05_fugacity1b}),
+      In a mixture (based on Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1b}),
         \begin{displaymath}
            \mu_{i} = RT\ln{\overline{f}_{i}} + C_{i}(T),
         \end{displaymath}
       consider a reference-state, where a species $i$ of a multi-component system is pure at temperature $T$ and at reference-state pressure, $P_{\text{ref}}$,
         \begin{equation}
-           \mu_{i} - \mu_{i}^{\circ} = RT\ln{\left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)},\label{Mod05_activity1a}
+           \mu_{i} - \mu_{i}^{\circ} = RT\ln{\left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)},\label{Chapter:SolutionThermodynamics:Eqn:activity1a}
         \end{equation}
       where superscript $^{\circ}$ stands for {\it reference state}. 
         \begin{shaded}
            \noindent Now, we can define the term in brackets as the \blue{activity} (dimensionless)
            \begin{equation}
-              \frc{\overline{f}_{i}}{f_{i}^{\circ}} = a_{i}, \label{Mod05_activity1b}
+              \frc{\overline{f}_{i}}{f_{i}^{\circ}} = a_{i}, \label{Chapter:SolutionThermodynamics:Eqn:activity1b}
            \end{equation}
            which `measures' the deviation from ideal behaviour.
         \end{shaded}
-      \noindent Since $\mu^{\circ} = \overline{g}^{\circ}_{i}$, Eqn.~\ref{Mod05_activity1a} becomes
+      \noindent Since $\mu^{\circ} = \overline{g}^{\circ}_{i}$, Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:activity1a} becomes
         \begin{equation}
-           \mu_{i} = \overline{g}^{\circ}_{i} + RT\ln{a_{i}}\label{Mod05_activity1c}
+           \mu_{i} = \overline{g}^{\circ}_{i} + RT\ln{a_{i}}\label{Chapter:SolutionThermodynamics:Eqn:activity1c}
         \end{equation}
       For an ideal solution, the {\it Lewis-Randall relation} can be used,
         \begin{displaymath}
@@ -194,28 +202,28 @@ Thus, the aim of this Module is to define thermodynamic properties of real solut
         \begin{shaded}
             \noindent For \underline{\it ideal solutions},
               \begin{equation}
-                 \mu_{i} = \overline{g}^{\circ}_{i} + RT\ln{\left[\left(\frc{f_{i}}{P}\right)\left(\frc{P_{\text{ref}}}{f_{i}^{\circ}}\right)\frc{y_{i}P}{P_{\text{ref}}}\right]}.\label{Mod05_activity1d}
+                 \mu_{i} = \overline{g}^{\circ}_{i} + RT\ln{\left[\left(\frc{f_{i}}{P}\right)\left(\frc{P_{\text{ref}}}{f_{i}^{\circ}}\right)\frc{y_{i}P}{P_{\text{ref}}}\right]}.\label{Chapter:SolutionThermodynamics:Eqn:activity1d}
               \end{equation}
-            If component $i$ behaves as an \underline{\it ideal gas} at both $\left(T,P\right)$ and $\left(T,P_{\text{ref}}\right)$, thus $\frc{f_{i}}{P} = \frc{f_{i}^{\circ}}{P_{\text{ref}}}=1$ and Eqn.~\ref{Mod05_activity1d} becomes
+            If component $i$ behaves as an \underline{\it ideal gas} at both $\left(T,P\right)$ and $\left(T,P_{\text{ref}}\right)$, thus $\frc{f_{i}}{P} = \frc{f_{i}^{\circ}}{P_{\text{ref}}}=1$ and Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:activity1d} becomes
               \begin{equation}
-                 \mu_{i} = \overline{g}^{\circ}_{i} + RT\ln{\frc{y_{i}P}{P_{\text{ref}}}}.\label{Mod05_activity1e}
+                 \mu_{i} = \overline{g}^{\circ}_{i} + RT\ln{\frc{y_{i}P}{P_{\text{ref}}}}.\label{Chapter:SolutionThermodynamics:Eqn:activity1e}
               \end{equation}
              This expression allows the calculation of the chemical potential of the vapour phase in a mixture subjected to a change in pressure based on composition and temperature. Molar Gibbs energy at reference conditions, $\overline{g}^{\circ}_{i}$, for several chemical species are often tabulated and can be found in any chemical engineering handbook.
 \medskip
              
         \noindent Finally, we can now define the \underline{\blue{activity coefficient}}, $\gamma_{i}$, as
           \begin{equation}
-              a_{i} = \frc{y_{i}f_{i}}{f_{i}^{\circ}}\;\;\;\;\Rightarrow \;\;\;\; \gamma_{i} = \frc{a_{i}}{y_{i}} = \frc{f_{i}}{f_{i}^{\circ}}\label{Mod05_activity1f}
+              a_{i} = \frc{y_{i}f_{i}}{f_{i}^{\circ}}\;\;\;\;\Rightarrow \;\;\;\; \gamma_{i} = \frc{a_{i}}{y_{i}} = \frc{f_{i}}{f_{i}^{\circ}}\label{Chapter:SolutionThermodynamics:Eqn:activity1f}
           \end{equation}
          And for solutions,
           \begin{equation}
-              \gamma_{i} = \frc{\overline{f}_{i}}{x_{i}f_{i}}\label{Mod05_activity1g}
+              \gamma_{i} = \frc{\overline{f}_{i}}{x_{i}f_{i}}\label{Chapter:SolutionThermodynamics:Eqn:activity1g}
           \end{equation}
          The \underline{\blue{activity coefficient}} takes into account non-idealities in the liquid phase, and it first appeared in the slide (handouts) of Module~\ref{Section:04} on VLE of non-ideal mixtures. Now, we can properly define the \underline{Raoult's law} (Section~\ref{Section:04:RaoultsLaw}) at low pressure,
           \begin{equation}
-               \gamma_{i} = \frc{\overline{f}_{i}}{x_{i}f_{i}} = \frc{y_{i}P}{x_{i}f_{i}}=\frc{y_{i}P}{x_{i}P_{i}^{\text{sat}}} \;\;\;\Longrightarrow \;\;\;\ x_{i}\gamma_{i}P_{i}^{\text{sat}} = y_{i}P \label{Mod05_RaoultLaw}
+               \gamma_{i} = \frc{\overline{f}_{i}}{x_{i}f_{i}} = \frc{y_{i}P}{x_{i}f_{i}}=\frc{y_{i}P}{x_{i}P_{i}^{\text{sat}}} \;\;\;\Longrightarrow \;\;\;\ x_{i}\gamma_{i}P_{i}^{\text{sat}} = y_{i}P \label{Chapter:SolutionThermodynamics:Eqn:RaoultLaw}
           \end{equation}
-          Equation~\ref{Mod05_RaoultLaw} is the general form for Raoult's law. If the solution is ideal, $\gamma_{i}=1$ and Eqn.~\ref{Mod04_RaoultLaw} is recovered.
+          Equation~\ref{Chapter:SolutionThermodynamics:Eqn:RaoultLaw} is the general form for Raoult's law. If the solution is ideal, $\gamma_{i}=1$ and Eqn.~\ref{Mod04_RaoultLaw} is recovered.
 
       \end{shaded}       
 %
@@ -310,36 +318,36 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
         \end{displaymath}
       Rearranging this expression,
         \begin{equation}
-           \underbrace{\left[dM - \Partial[M]{T}{P,x}dT - \Partial[M]{P}{T,x}dP - \summation[\overline{M}_{i}dx_{i}]{i}{}\right]}_{A}n + \underbrace{\left[M-\summation[\overline{M}_{i}x_{i}]{i}{}\right]}_{B}dn = 0\label{Mod5_GibbsDuhem1a}
+           \underbrace{\left[dM - \Partial[M]{T}{P,x}dT - \Partial[M]{P}{T,x}dP - \summation[\overline{M}_{i}dx_{i}]{i}{}\right]}_{A}n + \underbrace{\left[M-\summation[\overline{M}_{i}x_{i}]{i}{}\right]}_{B}dn = 0\label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1a}
         \end{equation}
-      Equation~\ref{Mod5_GibbsDuhem1a} is valid for any arbitrary values of $n$ and $dn$, therefore $n$ and $dn$ should be independent of each other. Thus, this expression is only true if the coefficients $A$ and $B$ are zero, \ie
+      Equation~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1a} is valid for any arbitrary values of $n$ and $dn$, therefore $n$ and $dn$ should be independent of each other. Thus, this expression is only true if the coefficients $A$ and $B$ are zero, \ie
           \begin{eqnarray}
               A &=& dM - \Partial[M]{T}{P,x}dT - \Partial[M]{P}{T,x}dP - \summation[\overline{M}_{i}dx_{i}]{i}{} = 0 \nonumber \\
-              dM &=& \Partial[M]{T}{P,x}dT + \Partial[M]{P}{T,x}dP + \summation[\overline{M}_{i}dx_{i}]{i}{}, \label{Mod5_GibbsDuhem1b}
+              dM &=& \Partial[M]{T}{P,x}dT + \Partial[M]{P}{T,x}dP + \summation[\overline{M}_{i}dx_{i}]{i}{}, \label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1b}
           \end{eqnarray}
       and
           \begin{eqnarray}
               B &=& M-\summation[\overline{M}_{i}x_{i}]{i}{} = 0 \nonumber \\
-              M &=& \summation[\overline{M}_{i}x_{i}]{i}{}\label{Mod5_GibbsDuhem1c} \\
-             \text{as } nM = n\summation[\overline{M}_{i}x_{i}]{i}{} &\Rightarrow& dM = \summation[x_{i}d \overline{M}_{i}]{i}{} + \summation[\overline{M}_{i}dx_{i}]{i}{}\label{Mod5_GibbsDuhem1d}
+              M &=& \summation[\overline{M}_{i}x_{i}]{i}{}\label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1c} \\
+             \text{as } nM = n\summation[\overline{M}_{i}x_{i}]{i}{} &\Rightarrow& dM = \summation[x_{i}d \overline{M}_{i}]{i}{} + \summation[\overline{M}_{i}dx_{i}]{i}{}\label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1d}
           \end{eqnarray}
-      Replacing Eqn.~\ref{Mod5_GibbsDuhem1d} in Eqn.~\ref{Mod5_GibbsDuhem1b} leads to the \blue{\it Gibbs-Duhem Equation (GDE)},
+      Replacing Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1d} in Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1b} leads to the \blue{\it Gibbs-Duhem Equation (GDE)},
           \begin{shaded}
              \begin{equation}
-                 \Partial[M]{T}{P,x}dT + \Partial[M]{P}{T,x}dP - \summation[x_{i}d\overline{M}_{i}]{i}{} = 0.\label{Mod5_GibbsDuhem1e}
+                 \Partial[M]{T}{P,x}dT + \Partial[M]{P}{T,x}dP - \summation[x_{i}d\overline{M}_{i}]{i}{} = 0.\label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1e}
              \end{equation}
              The \blue{GDE} must be satisfied for all changes in $P$, $T$ and $\overline{M}_{i}$.
           \medskip
 
              \noindent For changes at constant temperature and pressure conditions, the \blue{GDE} becomes
                \begin{equation}
-                   \summation[x_{i}d\overline{M}_{i}]{i}{} = 0.\label{Mod5_GibbsDuhem1f}
+                   \summation[x_{i}d\overline{M}_{i}]{i}{} = 0.\label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1f}
                \end{equation}
              Or taking any arbitrary species $j$,
                \begin{equation}
-                   \summation[x_{i}\frc{d\overline{M}_{i}}{dx_{j}}]{i}{} = 0, \;\;\;\text{ at constant } T\text{ and } P.\label{Mod5_GibbsDuhem1g}
+                   \summation[x_{i}\frc{d\overline{M}_{i}}{dx_{j}}]{i}{} = 0, \;\;\;\text{ at constant } T\text{ and } P.\label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1g}
                \end{equation}
-             Equations~\ref{Mod5_GibbsDuhem1f}-\ref{Mod5_GibbsDuhem1g} imply that partial molar properties of various species, $\overline{M}_{i}$, are \underline{not} independent. 
+             Equations~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1f}-\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1g} imply that partial molar properties of various species, $\overline{M}_{i}$, are \underline{not} independent. 
 
              \noindent Some key-properties,
                \begin{displaymath}
@@ -361,44 +369,44 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
        In a mixture with $n$ moles, we can define the {\it isothermal molar property change of mixing}, $\Delta M_{\text{mix}}$ as,
           \begin{eqnarray}
               \Delta M_{\text{mix}}(T,P) & = & M(T,P) - \summation[x_{i}M_{i}(T,P)]{i}{} \nonumber \\
-                                      &=& \underbrace{\summation[\overline{M}_{i}x_{i}]{i}{}}_{\text{from Eqn.~\ref{Mod5_GibbsDuhem1c}}} - \summation[x_{i}M_{i}]{i}{} \nonumber \\
-                                      &=& \summation[x_{i}\left(\overline{M}_{i}-M_{i}\right)]{i}{}.\label{Mod5_GibbsDuhem1h}
+                                      &=& \underbrace{\summation[\overline{M}_{i}x_{i}]{i}{}}_{\text{from Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1c}}} - \summation[x_{i}M_{i}]{i}{} \nonumber \\
+                                      &=& \summation[x_{i}\left(\overline{M}_{i}-M_{i}\right)]{i}{}.\label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1h}
           \end{eqnarray}
-       In a \underline{binary system} (from Eqn.~\ref{Mod5_GibbsDuhem1c}),
+       In a \underline{binary system} (from Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1c}),
           \begin{equation}
-              M = \overline{M}_{1} x_{1} + \overline{M}_{2} x_{2},\;\;\;\;\;\left(\text{at constant }P \text{ and } T\right),\label{Mod5_GibbsDuhem1i}
+              M = \overline{M}_{1} x_{1} + \overline{M}_{2} x_{2},\;\;\;\;\;\left(\text{at constant }P \text{ and } T\right),\label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1i}
           \end{equation}
       and using the {\it derivative of a product} rule on $M$,
           \begin{displaymath}
               dM = \left(x_{1}d\overline{M}_{1} + \overline{M}_{1}dx_{1}\right) + \left(x_{2}d\overline{M}_{2} + \overline{M}_{2}dx_{2}\right), 
           \end{displaymath}
-      applying GDE (Eqn.~\ref{Mod5_GibbsDuhem1f}) in this expression, and using 
+      applying GDE (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1f}) in this expression, and using 
           \begin{displaymath}
              \summation[x_{i}]{i}{}=1\;\;\Leftrightarrow\;\; x_{1}+x_{2}=1\;\;\Rightarrow\;\;\; dx_{1}=-dx_{2},
           \end{displaymath}
       leads to 
           \begin{eqnarray}
-             && \cancel{\red{x_{1}d\overline{M}_{1}}} + \overline{M}_{1}dx_{1} + \cancelto{\red{=0 \text{ (due to GDE, Eqn.~\ref{Mod5_GibbsDuhem1f})}}}{\red{x_{2}d\overline{M}_{2}}} - \overline{M}_{2}dx_{1} = dM \nonumber \\
+             && \cancel{\red{x_{1}d\overline{M}_{1}}} + \overline{M}_{1}dx_{1} + \cancelto{\red{=0 \text{ (due to GDE, Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1f})}}}{\red{x_{2}d\overline{M}_{2}}} - \overline{M}_{2}dx_{1} = dM \nonumber \\
              && dM = \overline{M}_{1}dx_{1} - \overline{M}_{2}dx_{1} \nonumber \\
-             && \frc{dM}{dx_{1}} = \overline{M}_{1} - \overline{M}_{2} \label{Mod5_GibbsDuhem1j}
+             && \frc{dM}{dx_{1}} = \overline{M}_{1} - \overline{M}_{2} \label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1j}
           \end{eqnarray}
           \begin{shaded}
-             Using Eqn.~\ref{Mod5_GibbsDuhem1i} in Eqn.~\ref{Mod5_GibbsDuhem1j},
+             Using Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1i} in Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1j},
                \begin{eqnarray}
                   && \frc{dM}{dx_{1}} = \overline{M}_{1} - \left(\frc{M-\overline{M}_{1}x_{1}}{x_{2}}\right) \nonumber \\
                  && x_{2}\frc{dM}{dx_{1}} =  \underbrace{x_{2}\overline{M}_{1}}_{\left(1-x_{1}\right)\overline{M}_{1}} - M + \overline{M}_{1}x_{1} \nonumber
                \end{eqnarray}
                \begin{equation}
                  \begin{cases}
-                    \overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}},\\% \label{Mod5_GibbsDuhem1k} \\
-                    \overline{M}_{2} = M - x_{1}\frc{dM}{dx_{1}} \label{Mod5_GibbsDuhem1k}
+                    \overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}},\\% \label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k} \\
+                    \overline{M}_{2} = M - x_{1}\frc{dM}{dx_{1}} \label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k}
                  \end{cases}
               \end{equation}
             In binary solutions, the partial molar properties can be easily calculated from these two  expressions as a function of composition at constant $T$ and $P$. %From the GDE,
               \begin{eqnarray}
                    && x_{1}d\overline{M}_{1} + x_{2}d\overline{M}_{2} = 0 \;\;\;\;\;\blue{\times\frc{1}{dx_{1}}} \nonumber \\
-                   && x_{1}\frc{d\overline{M}_{1}}{dx_{1}} + x_{2}\frc{d\overline{M}_{2}}{dx_{1}} = 0 \;\;\;\;\;\blue{\times\frc{1}{x_{1}}}\nonumber \\ %\label{Mod5_GibbsDuhem1l} \\
-                   && \frc{d\overline{M}_{1}}{dx_{1}} + \frc{x_{2}}{x_{1}}\frc{d\overline{M}_{2}}{dx_{1}} = 0. \label{Mod5_GibbsDuhem1l} 
+                   && x_{1}\frc{d\overline{M}_{1}}{dx_{1}} + x_{2}\frc{d\overline{M}_{2}}{dx_{1}} = 0 \;\;\;\;\;\blue{\times\frc{1}{x_{1}}}\nonumber \\ %\label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1l} \\
+                   && \frc{d\overline{M}_{1}}{dx_{1}} + \frc{x_{2}}{x_{1}}\frc{d\overline{M}_{2}}{dx_{1}} = 0. \label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1l} 
               \end{eqnarray}
           \end{shaded}
  %
@@ -414,19 +422,19 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
      \end{displaymath}
      In an {\it ideal gas mixture} (igm), the EOS has a similar format,
      \begin{equation}
-       PV^{\text{igm}} = \underbrace{\left(n_{1}+n_{2}+\cdots+n_{\mathcal{C}}\right)}_{N\text{ moles}}RT = \left(\summation[n_{i}]{i=1}{\mathcal{C}}\right)RT = NRT.\label{Mod5_IGM1} 
+       PV^{\text{igm}} = \underbrace{\left(n_{1}+n_{2}+\cdots+n_{\mathcal{C}}\right)}_{N\text{ moles}}RT = \left(\summation[n_{i}]{i=1}{\mathcal{C}}\right)RT = NRT.\label{Chapter:SolutionThermodynamics:Eqn:IGM1} 
      \end{equation}
      The internal energy of the gaseous mixture, $U^{\text{igm}}$, is just the summation of the internal energies of the individual components of the mixture,
      \begin{equation}
-       U^{\text{igm}}(T,N) = \summation[n_{i}\overline{u}_{i}^{\text{ig}}(T)]{i=1}{\mathcal{C}},\label{Mod5_IGM2} 
+       U^{\text{igm}}(T,N) = \summation[n_{i}\overline{u}_{i}^{\text{ig}}(T)]{i=1}{\mathcal{C}},\label{Chapter:SolutionThermodynamics:Eqn:IGM2} 
      \end{equation}
-     where $\overline{u}_{i}^{\text{ig}}=\frac{U_{i}^{\text{ig}}}{n_{i}}$ is the molar internal energy.We can change the notation on Eqns.~\ref{Mod5_IGM1}-\ref{Mod5_IGM2} to replace the number of moles by molar fraction, $y_{i}$, of the gas mixture, and to obtain the {\it partial molar internal energy}, $\overline{U}_{i}^{\text{igm}}(T,y)$
+     where $\overline{u}_{i}^{\text{ig}}=\frac{U_{i}^{\text{ig}}}{n_{i}}$ is the molar internal energy.We can change the notation on Eqns.~\ref{Chapter:SolutionThermodynamics:Eqn:IGM1}-\ref{Chapter:SolutionThermodynamics:Eqn:IGM2} to replace the number of moles by molar fraction, $y_{i}$, of the gas mixture, and to obtain the {\it partial molar internal energy}, $\overline{U}_{i}^{\text{igm}}(T,y)$
      \begin{equation}
-       \overline{U}_{i}^{\text{igm}}(T,y) = \Partial[U^{\text{igm}}(T,N)]{n_{i}}{T,P,n_{j\ne i}} = \left[\frc{\partial\summation[n_{j}\overline{u}_{j}^{\text{ig}}(T)]{j=1}{\mathcal{C}}}{\partial n_{i}}\right]_{T,P,n_{j\ne i}}  = \overline{u}_{i}^{\text{ig}}(T)\label{Mod5_IGM3}
+       \overline{U}_{i}^{\text{igm}}(T,y) = \Partial[U^{\text{igm}}(T,N)]{n_{i}}{T,P,n_{j\ne i}} = \left[\frc{\partial\summation[n_{j}\overline{u}_{j}^{\text{ig}}(T)]{j=1}{\mathcal{C}}}{\partial n_{i}}\right]_{T,P,n_{j\ne i}}  = \overline{u}_{i}^{\text{ig}}(T)\label{Chapter:SolutionThermodynamics:Eqn:IGM3}
      \end{equation} 
      This expression indicates that the partial molar internal energy of species $i$ in an ideal gas mixture at a given tempereature is equal to the pure component molar internal energy of that component behaving as an ideal gas at the same temperature. We can also obtain the {\it partial molar volume}, $\overline{V}_{i}^{\text{igm}}$, with the same conclusion,
      \begin{equation}
-       \overline{V}_{i}^{\text{igm}}(T,P,y) = \Partial[V^{\text{igm}}(T,P,N)]{n_{i}}{T,P,n_{j\ne i}} = \left[\frc{\partial\summation[n_{j} \frc{RT}{P}]{j=1}{\mathcal{C}}}{\partial n_{i}}\right]_{T,P,n_{j\ne i}} = \frc{RT}{P} = \overline{v}_{i}^{\text{ig}}(T,P).\label{Mod5_IGM4}
+       \overline{V}_{i}^{\text{igm}}(T,P,y) = \Partial[V^{\text{igm}}(T,P,N)]{n_{i}}{T,P,n_{j\ne i}} = \left[\frc{\partial\summation[n_{j} \frc{RT}{P}]{j=1}{\mathcal{C}}}{\partial n_{i}}\right]_{T,P,n_{j\ne i}} = \frc{RT}{P} = \overline{v}_{i}^{\text{ig}}(T,P).\label{Chapter:SolutionThermodynamics:Eqn:IGM4}
      \end{equation}
      \medskip
 
@@ -436,7 +444,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
      \end{displaymath}
      and for an ideal gas mixture,
      \begin{equation}
-       P_{i}^{\text{igm}}(N,T,V,y) = \frc{n_{i}}{\summation[n_{j}]{j=1}{\mathcal{C}}}P = \frc{n_{i}}{\summation[n_{j}]{j=1}{\mathcal{C}}}\left[\summation[n_{j}\frc{RT}{V}]{j=1}{\mathcal{C}}\right] = \frc{n_{i}RT}{V} = P^{\text{ig}}\left(n_{i},V,T\right),\label{Mod5_IGM4}
+       P_{i}^{\text{igm}}(N,T,V,y) = \frc{n_{i}}{\summation[n_{j}]{j=1}{\mathcal{C}}}P = \frc{n_{i}}{\summation[n_{j}]{j=1}{\mathcal{C}}}\left[\summation[n_{j}\frc{RT}{V}]{j=1}{\mathcal{C}}\right] = \frc{n_{i}RT}{V} = P^{\text{ig}}\left(n_{i},V,T\right),\label{Chapter:SolutionThermodynamics:Eqn:IGM4}
      \end{equation}
      \ie for ideal gas mixtures, the partial pressure of species $i$ is equal to the pressure that would be exerted if the same number of moles of that species, $n_{i}$, alone were contained in the same volume, $V$, at $T$ and $P$. 
 \medskip
@@ -462,7 +470,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
                R\ln{\frc{V}{V_{i}}} = R\ln{\frc{\summation[n_{j}RT/P]{j}{}}{n_{i}RT/P}} = -R\ln{y_{i}},
          \end{cases}          
      \end{displaymath}
-     for the whole mixture, the molar entropy change of mixing, $\Delta_{\text{mix}}\overline{S}^{\text{igm}}$ (see Eqn.~\ref{Mod5_GibbsDuhem1h}) can be obtained from
+     for the whole mixture, the molar entropy change of mixing, $\Delta_{\text{mix}}\overline{S}^{\text{igm}}$ (see Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1h}) can be obtained from
      \begin{displaymath}
           \Delta_{\text{mix}}S^{\text{igm}} = \summation[n_{i}\left(\overline{S}_{i}^{\text{igm}}(T,P,y) - \overline{s}_{i}^{\text{ig}}(T,P) \right) ]{i=1}{\mathcal{C}} = -R\summation[n_{i}\ln{y_{i}}]{i=1}{\mathcal{C}}.
      \end{displaymath}
@@ -504,10 +512,10 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
          Helmholtz Energy &   $\overline{A}_{i}^{\text{igm}}(T,P,y) = \overline{a}_{i}^{\text{ig}}(T,P)+RT\ln{y_{i}}$ & $\Delta_{\text{mix}} \overline{a}^{\text{igm}}=-RT\summation[y_{i}\ln{y_{i}}]{}{}$ & $\overline{a}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{a}_{i}^{\text{ig}}(T,P)]{}{} + RT\summation[y_{i}\ln{y_{i}}]{}{}$ \\ 
  \hline
      \end{tabular}
-     \caption{Properties of ideal gas mixtures \citep[extracted from][]{Sandler_Book}.}\label{Mod5_TableIGM}  
+     \caption{Properties of ideal gas mixtures \citep[extracted from][]{Sandler_Book}.}\label{Chapter:SolutionThermodynamics:Eqn:TableIGM}  
  \end{table}
      
-     Partial molar properties, molar properties and change of mixing of molar properties for the main thermodynamic functions are summarised in Table~\ref{Mod5_TableIGM}.
+     Partial molar properties, molar properties and change of mixing of molar properties for the main thermodynamic functions are summarised in Table~\ref{Chapter:SolutionThermodynamics:Eqn:TableIGM}.
 %
    \end{subequations}
 
@@ -517,7 +525,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
 \section{Fugacity Coefficient of Species in Mixtures}\label{Chapter:SolutionThermodynamics:FugacityCoefficient}
    \begin{subequations}
 %
-      In  Section~\ref{Chapter:SolutionThermodynamics:FugacitySection} (Eqn.~\ref{Mod05_fugacity1b}), a formal definition of fugacity was introduced,
+      In  Section~\ref{Chapter:SolutionThermodynamics:FugacitySection} (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1b}), a formal definition of fugacity was introduced,
        \begin{displaymath}
           \mu_{i}= RT\ln{\overline{f}_{i}} + C_{i}(T),
        \end{displaymath}
@@ -563,7 +571,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
 
          \noindent During phase change from saturated liquid to saturated vapour,
          \begin{equation}
-            \mfr[G]{i}{V} - \mfr[G]{i}{L} = RT\ln{\frc{\mfr[f]{i}{V}}{\mfr[f]{i}{L}}},\label{Mod5_FugacityCoeff1}
+            \mfr[G]{i}{V} - \mfr[G]{i}{L} = RT\ln{\frc{\mfr[f]{i}{V}}{\mfr[f]{i}{L}}},\label{Chapter:SolutionThermodynamics:Eqn:FugacityCoeff1}
          \end{equation}
          however, from Section~\ref{Section:03:ClapeyronRelations}, we studied that during phase transition \blue{$dG=0$}, \ie
          \begin{displaymath}
@@ -596,7 +604,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
 %
              \item[\blue{(B):}] $=1$ as $\mfr[f]{i}{L}\left(P_{i}^{\text{sat}}\right) = \mfr[f]{i}{V}\left(P_{i}^{\text{sat}}\right)$;
 %
-             \item[\blue{(C):}] effect of pressure on fugacity of pure liquid $i$. From $G_{i} - G_{i}^{\text{sat}} = \int\limits_{P_{i}^{\text{sat}}}^{P}\mfr[V]{i}{L}dP$ (at constant $T$), \blue{C} becomes (based on Eqn.~\ref{Mod5_FugacityCoeff1}),
+             \item[\blue{(C):}] effect of pressure on fugacity of pure liquid $i$. From $G_{i} - G_{i}^{\text{sat}} = \int\limits_{P_{i}^{\text{sat}}}^{P}\mfr[V]{i}{L}dP$ (at constant $T$), \blue{C} becomes (based on Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:FugacityCoeff1}),
                  \begin{eqnarray}
                      \blue{C} = \frc{\mfr[f]{i}{L}\left(P\right)}{\mfr[f]{i}{L}\left(P_{i}^{\text{sat}}\right)} &=& \exp\left[\frc{1}{RT}\int\limits_{P_{i}^{\text{sat}}}{P}\mfr[V]{i}{L}dP\right] \nonumber \\
                               \mfr[f]{i}{L}\left(P\right) &=& \underbrace{\mfr[f]{i}{L}\left(P_{i}^{\text{sat}}\right)}_{\mfr[\phi]{i}{\text{sat}}=\frc{\mfr[f]{i}{\text{sat}}}{P_{i}^{\text{sat}}}}  \underbrace{\exp{\left[\frc{1}{RT}\int\limits_{P_{i}^{\text{sat}}}{P}\mfr[V]{i}{L}dP\right]}}_{\text{Poynting-pressure factor}},\;\;\;\text{ assuming constant } \mfr[V]{i}{L} \nonumber \\
@@ -641,7 +649,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
 %
    \begin{subequations}
 %
-      We have seen that the chemical potential of an ideal gas mixture model is (Table~\ref{Mod5_TableIGM}),
+      We have seen that the chemical potential of an ideal gas mixture model is (Table~\ref{Chapter:SolutionThermodynamics:Eqn:TableIGM}),
          \begin{displaymath}
               \mu_{i}^{\text{igm}} = \overline{G}_{i}^{\text{igm}}(T,P,y) = \overline{g}_{i}^{\text{ig}}(T,P)+RT\ln{y_{i}}.
          \end{displaymath}
@@ -677,18 +685,18 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
 %
       In Section~\ref{Section:03:GibbsGeneratingFunction}, the generating function of the Gibbs free energy was formally defined. Such definition can be extended (now considering that Gibbs free energy depends on temperature, pressure and number of moles) to study the excess Gibbs free energy,
         \begin{equation}
-           d\left(\frc{nG^{E}}{RT}\right) = \frc{nV^{E}}{RT}dP - \frc{nH^{E}}{RT^{2}}dT + \summation[\frc{\overline{G}_{i}^{E}}{RT}dn_{i}]{i}{}.\label{Mod5_ActivityCoeffExcessProp1}
+           d\left(\frc{nG^{E}}{RT}\right) = \frc{nV^{E}}{RT}dP - \frc{nH^{E}}{RT^{2}}dT + \summation[\frc{\overline{G}_{i}^{E}}{RT}dn_{i}]{i}{}.\label{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffExcessProp1}
         \end{equation}
 
         \begin{shaded}
            The excess Gibbs free energy of species $i$ is obtained from,
              \begin{eqnarray}
                 \overline{G}_{i}^{E} &=&  \overline{G}_{i} -G _{i}^{\text{id}} = \left[RT\ln{\overline{f}_{i}}+C_{i}(T)\right] - \left[RT\ln{x_{i}f_{i}}+C_{i}(T)\right] \nonumber \\
-                                    &=&  RT\ln{\left(\frc{\overline{f}_{i}}{x_{i}f_{i}}\right)} = RT\ln{\gamma_{i}}\label{Mod5_ActivityCoeffExcessProp2}
+                                    &=&  RT\ln{\left(\frc{\overline{f}_{i}}{x_{i}f_{i}}\right)} = RT\ln{\gamma_{i}}\label{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffExcessProp2}
              \end{eqnarray}
-            Replacing this expression in Eqn.~\ref{Mod5_ActivityCoeffExcessProp1},
+            Replacing this expression in Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffExcessProp1},
               \begin{equation}
-                 d\left(\frc{nG^{E}}{RT}\right) = \frc{nV^{E}}{RT}dP - \frc{nH^{E}}{RT^{2}}dT + \summation[\ln{\gamma_{i}}dn_{i}]{i}{}.\label{Mod5_ActivityCoeffExcessProp2}
+                 d\left(\frc{nG^{E}}{RT}\right) = \frc{nV^{E}}{RT}dP - \frc{nH^{E}}{RT^{2}}dT + \summation[\ln{\gamma_{i}}dn_{i}]{i}{}.\label{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffExcessProp2}
               \end{equation}
             And we can also define (see Eqns~\ref{Mod03_GibbsGeneratingFunctionTConst} and \ref{Mod03_GibbsGeneratingFunctionPConst}),
                \begin{eqnarray}
@@ -704,7 +712,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
 \section{Activity Coefficient Models}\label{Chapter:SolutionThermodynamics:ActivityCoeffModels}
 %
    \begin{subequations}
-      The activity coefficient, $\gamma_{i}$, is by far the most critical parameter for assessment of liquid solutions behaviour, in particular during phase equilibria, due to its relationship with the excess Gibbs energy, $G^{E}$ (Eqn.~\ref{Mod5_ActivityCoeffExcessProp2}). For solutions, the activity coefficient plays a similar role as the compressibility factor, $Z$, for gases. As $G^{E}$ depends on $T$, $P$ and $n$, it is important to define relations of $\gamma_{i}$ with respect to these properties, 
+      The activity coefficient, $\gamma_{i}$, is by far the most critical parameter for assessment of liquid solutions behaviour, in particular during phase equilibria, due to its relationship with the excess Gibbs energy, $G^{E}$ (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffExcessProp2}). For solutions, the activity coefficient plays a similar role as the compressibility factor, $Z$, for gases. As $G^{E}$ depends on $T$, $P$ and $n$, it is important to define relations of $\gamma_{i}$ with respect to these properties, 
       \begin{enumerate}[a)]
           \item Temperature:
              \begin{equation}
@@ -729,7 +737,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
             Solutions with miscibility gaps   &   NRTL, UNIQUAC \\
 \hline 
      \end{tabular}
-     \caption{Applicability of activity coefficient models.}\label{Mod05_TableActivityModels1}
+     \caption{Applicability of activity coefficient models.}\label{Chapter:SolutionThermodynamics:Table:TableActivityModels1}
   \end{center}
 \end{table}
    
@@ -738,14 +746,14 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
             \item Homogeneous Mixtures Models are used when inter-/intra-molecular interaction energies between species are moderate. These models assume that molecules are homogeneously distributed over the solution volume with no difference between overall macroscopic composition and microscopic (local) composition around a single central molecule. Examples of such models include Mergules, Van Laar, Regular Solution models etc;
             \item Local Compositions Models are used when the species in solution are of different size and shape (\eg polymers and organic solvents, solutions involving isomers, ionic solutions etc). Examples of such models include Wilson, NRTL (Non-Random Two Liquid), UNIQUAC (Universal Quasi-Chemical), UNIFAC (UNIQUAC Functional Activity Coefficients) models etc.
         \end{enumerate}
-        Group 1 models are often used moderate deviation from ideal solution behaviour, whereas Group 2 models are used for strongly non-ideal solutions (Table~\ref{Mod05_TableActivityModels1}). Most of these models contain 2 to 3 parameters, however some may contain larger number of parameters to improve the accuracy of prediction but are more computationally demanding. Some of these models may be found in Table~\ref{Mod05_TableActivityModels2}.
+        Group 1 models are often used moderate deviation from ideal solution behaviour, whereas Group 2 models are used for strongly non-ideal solutions (Table~\ref{Chapter:SolutionThermodynamics:Table:TableActivityModels1}). Most of these models contain 2 to 3 parameters, however some may contain larger number of parameters to improve the accuracy of prediction but are more computationally demanding. Some of these models may be found in Table~\ref{Chapter:SolutionThermodynamics:Table:TableActivityModels2}.
 
 \bigskip
 
        \begin{shaded}
-           Using Eqn.~\ref{Mod5_ActivityCoeffExcessProp2} for the partial molar Gibbs free energy for component $i$ along with $G^{E}=\summation[x_{i}\overline{G}_{i}^{E}]{}{}$ leads to \blue{GDE},
+           Using Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffExcessProp2} for the partial molar Gibbs free energy for component $i$ along with $G^{E}=\summation[x_{i}\overline{G}_{i}^{E}]{}{}$ leads to \blue{GDE},
              \begin{equation}
-                  \frc{G^{E}}{RT} = \summation[x_{i}\ln{\gamma_{i}}]{}{}\;\;\;\text{ and } \;\;\; \summation[x_{i}d\left(\ln{\gamma_{i}}\right)]{}{}=0,\;\;\text{ at constant } T\text{ and } P.\label{Mod5_ActivityCoeffModels1}
+                  \frc{G^{E}}{RT} = \summation[x_{i}\ln{\gamma_{i}}]{}{}\;\;\;\text{ and } \;\;\; \summation[x_{i}d\left(\ln{\gamma_{i}}\right)]{}{}=0,\;\;\text{ at constant } T\text{ and } P.\label{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffModels1}
              \end{equation}
            For binary mixtures,
              \begin{displaymath}
@@ -783,7 +791,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
  
 \hline          
      \end{tabular}
-     \caption{Selected Activity Models for binary systems.}\label{Mod05_TableActivityModels2}
+     \caption{Selected Activity Models for binary systems.}\label{Chapter:SolutionThermodynamics:Table:TableActivityModels2}
   \end{center}
 \end{table}
 \end{landscape}
@@ -810,7 +818,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
        with molar volumes of $V_{1} = 110\;\text{cm}^{3}.\text{mol}^{-1}$ and $V_{2} = 90\;\text{cm}^{3}.\text{mol}^{-1}$. Determine the partial molar volumes, $\overline{V}_{1}$ and $\overline{V}_{2}$, in a mixture containing 40$\%$-mol of species 1.
 
 % SOLUTION
-       \noindent{\bf Solution:} The mixture contains 40$\%$-mol of species 1, \ie $x_{1}=0.40$ and $x_{2}=1-x_{1}=0.60$. The partial molar volumes, $\overline{V}_{i}$, can be obtained from Eqn.~\ref{Mod5_GibbsDuhem1k}, 
+       \noindent{\bf Solution:} The mixture contains 40$\%$-mol of species 1, \ie $x_{1}=0.40$ and $x_{2}=1-x_{1}=0.60$. The partial molar volumes, $\overline{V}_{i}$, can be obtained from Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k}, 
                \begin{displaymath}
                  \begin{cases}
                     \overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}},\\
@@ -828,7 +836,7 @@ This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law co
               therefore $V=105.92\text{ cm}^{3}.\text{mol}^{-1}$.
 \medskip
 
-              Now using Eqn.~\ref{Mod5_GibbsDuhem1k} to calculate the partial molar volume $\overline{V}_{i}$,
+              Now using Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k} to calculate the partial molar volume $\overline{V}_{i}$,
                  \begin{eqnarray}
                     \overline{V}_{1} &=& V + x_{2}\frc{dV}{dx_{1}} = V + x_{2}\frc{d}{dx_{1}} \left(\overbrace{\Delta V}^{V^{E}} + x_{1}V_{1} + x_{2}V_{2}\right) \nonumber \\
                          &=& V + x_{2}\frc{d}{dx_{1}} \left[x_{1}x_{2}\left(45x_{1}+25x_{2}\right)+x_{1}V_{1}+x_{2}V_{2}\right] = 190.28\text{ cm}^{3}.\text{mol}^{-1}, \nonumber
