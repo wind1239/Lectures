@@ -160,14 +160,14 @@ Thus, the aim of this Chapter is to define thermodynamic properties of real solu
         \begin{equation}
           \mfr[\overline{f}]{i}{V} = y_{i}P = P_{i}\;\;\;\text{ and }\;\;\; \mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}\label{Chapter:SolutionThermodynamics:Eqn:fugacity2a}
         \end{equation}
-        These expressions are called {\it Lewis-Randall rules} and they describe relations between phase compositions and fugacities.\index{Lewis0Randall rules|see {Solutions}}\index{Solutions!Lewis-Randall rules}
+        These expressions are called {\it Lewis-Randall rules} and they describe relations between phase compositions and fugacities.\index{Lewis-Randall rules|see {Solutions}}\index{Solutions!Lewis-Randall rules}
       \end{shaded}
       
 \end{subequations}
 
       
 %%% SECTION
-\section{Activity and Activity Coefficient }\label{Chapter:SolutionThermodynamics:ActivitySection}
+\section{Activity and Activity Coefficient }\label{Chapter:SolutionThermodynamics:Section:ActivitySection}.\index{Activity|see {Solutions}}\index{Solutions!Activity}\index{Activity coefficient|see {Solutions}}\index{Solutions!Activity coefficient}
    \begin{subequations}
         
       In a mixture (based on Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1b}),
@@ -180,7 +180,7 @@ Thus, the aim of this Chapter is to define thermodynamic properties of real solu
         \end{equation}
       where superscript $^{\circ}$ stands for {\it reference state}. 
         \begin{shaded}
-           \noindent Now, we can define the term in brackets as the \blue{activity} (dimensionless)
+           \noindent Now, we can define the term in brackets as the {\it activity} (dimensionless)
            \begin{equation}
               \frc{\overline{f}_{i}}{f_{i}^{\circ}} = a_{i}, \label{Chapter:SolutionThermodynamics:Eqn:activity1b}
            \end{equation}
@@ -219,11 +219,11 @@ Thus, the aim of this Chapter is to define thermodynamic properties of real solu
           \begin{equation}
               \gamma_{i} = \frc{\overline{f}_{i}}{x_{i}f_{i}}\label{Chapter:SolutionThermodynamics:Eqn:activity1g}
           \end{equation}
-         The \underline{\blue{activity coefficient}} takes into account non-idealities in the liquid phase, and it first appeared in the slide (handouts) of Module~\ref{Section:04} on VLE of non-ideal mixtures. Now, we can properly define the \underline{Raoult's law} (Section~\ref{Section:04:RaoultsLaw}) at low pressure,
+         The \underline{\blue{activity coefficient}} takes into account non-idealities in the liquid phase. Now, we can properly define the \underline{Raoult's law} (Section~\ref{Chapter:VLE:Section:RaoultsLaw}) at low pressure,\index{Solutions!Raoult's law}
           \begin{equation}
                \gamma_{i} = \frc{\overline{f}_{i}}{x_{i}f_{i}} = \frc{y_{i}P}{x_{i}f_{i}}=\frc{y_{i}P}{x_{i}P_{i}^{\text{sat}}} \;\;\;\Longrightarrow \;\;\;\ x_{i}\gamma_{i}P_{i}^{\text{sat}} = y_{i}P \label{Chapter:SolutionThermodynamics:Eqn:RaoultLaw}
           \end{equation}
-          Equation~\ref{Chapter:SolutionThermodynamics:Eqn:RaoultLaw} is the general form for Raoult's law. If the solution is ideal, $\gamma_{i}=1$ and Eqn.~\ref{Mod04_RaoultLaw} is recovered.
+          Equation~\ref{Chapter:SolutionThermodynamics:Eqn:RaoultLaw} is the general form for Raoult's law. If the solution is ideal, $\gamma_{i}=1$, Eqn.~\ref{Chapter:VLE:Eqn:RaoultLaw} is recovered.
 
       \end{shaded}       
 %
@@ -252,13 +252,12 @@ Thus, the aim of this Chapter is to define thermodynamic properties of real solu
 \end{table}
       
 %%% SECTION
-\section{Henry's Law}\label{Chapter:SolutionThermodynamics:HenryLaw}
- %
-Now that the concepts of fugacity and activity coefficient were introduced, we can return to the special VLE condition in which the solute is very diluted in the mixture (Section~\ref{Section:04:HenryLaw}). In such cases, the fugacity of a very dilute chemical species in a liquid mixture (\eg dissolved gases or solid of limited solubility) is experimentally found to be a linear function of its low composition (\ie mole fraction)\footnote{It is clear that the division in the limiting term,
+\section{Henry's Law}\label{Chapter:SolutionThermodynamics:Section:HenryLaw}\index{Solutions!Henry's law}
+Now that the concepts of fugacity and activity coefficient were introduced, we can return to the special VLE condition in which the solute is very diluted in the mixture (Section~\ref{Chapter:VLE:Section:HenryLaw}). In such cases, the fugacity of a very dilute chemical species in a liquid mixture (\eg dissolved gases or solid of limited solubility) is experimentally found to be a linear function of its low composition (\ie mole fraction)\footnote{It is clear that the division in the limiting term,
   \begin{displaymath}
     \lim\limits_{x_{i}\rightarrow 0}\frc{\overline{f_{i}}}{x_{i}}
   \end{displaymath}
-  is undetermined as $f_{i}=0\text{ when }x_{i}\rightarrow 0$, \ie at infinite dilution of a solute $i$ in solution, the fugacity of this component is null. In order to solve this mathematical problem, we can use the L'H\^opital rule (see Appendix D4) which states that for a limit,
+  is undetermined as $f_{i}=0\text{ when }x_{i}\rightarrow 0$, \ie at infinite dilution of a solute $i$ in solution, the fugacity of this component is null. In order to solve this mathematical problem, we can use the L'H\^opital rule (see Appendix~\ref{Appendix:lHopital}) which states that for a limit,
          \begin{displaymath}
                  \lim\limits_{x\rightarrow a}\frc{f(x)}{g(x)},
          \end{displaymath}
@@ -275,7 +274,7 @@ Now that the concepts of fugacity and activity coefficient were introduced, we c
         && \lim\limits_{x_{i}\rightarrow 0}\frc{\overline{f_{i}}}{x_{i}} = \left(\frc{d \overline{f_{i}}}{d x_{i}}\right)_{x_{i}=0}  \equiv \mathcal{H}_{i}, \nonumber \\
         && \mfr[\overline{f}]{i}{L}(T,P,x) = x_{i}\mathcal{H}_{i}(T,P)\;\;\;\;\text{ as } x_{i}\rightarrow 0.
       \end{eqnarray}      
-This proportionality constant, $\mathcal{H}$, is called \blue{\it Henry's law constant}, and is dependent on the solute-solvent pair, temperature and pressure. This experimentally-defined constant was first introduced in Eqn.~\ref{Mod04_HenryLaw} as, in equilibrium conditions (at $P$, $T$ and $n$ constants), $\mfr[\overline{f}]{i}{V}=\mfr[\overline{f}]{i}{L}$,
+This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constant}, and is dependent on the solute-solvent pair, temperature and pressure. This experimentally-defined constant was first introduced in Eqn.~\ref{Chapter:VLE:Section:HenryLaw} as, in equilibrium conditions (at $P$, $T$ and $n$ constants), $\mfr[\overline{f}]{i}{V}=\mfr[\overline{f}]{i}{L}$,
          \begin{shaded}
            \begin{displaymath}
              P_{i} = y_{i}P = x_{i}\mathcal{H}_{i},
