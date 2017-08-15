@@ -4,7 +4,14 @@
    \begin{LearningObjectivesBlock}{Learning Objectives}
       Upon completion of this chapter, you will be able to
         \begin{enumerate}
-           \item 
+           \item Define fugacity and activity;
+           \item Perform bubble, dew and flash calculations using the modified Raoult's law;
+           \item Identify the requirements for an ideal solution;
+           \item Apply activity models to the Raoult's law calculations;
+           \item Derive expressions for the activity coefficient based on excess Gibbs energy;
+           \item Describe ideal gas mixtures;
+           \item Apply Henry's law to estimate fugacities of dilute components;
+           \item Estimate fugacity coefficient through residual and excess properties.
         \end{enumerate}
 \medskip
      Recommended reading: Chapters 11-12 of \citet{SmithVanNess_Book}, 9-10 of \cite{Sandler_Book}, 6 \citet{Lue_Book}, 11 of \citet{Elliot_Book} or 5 of \citet{Atkins_Book}.
@@ -218,7 +225,7 @@ Thus, the aim of this Chapter is to define thermodynamic properties of real solu
           \begin{equation}
               \gamma_{i} = \frc{\overline{f}_{i}}{x_{i}f_{i}}\label{Chapter:SolutionThermodynamics:Eqn:activity1g}
           \end{equation}
-         The{\it activity coefficient} takes into account non-idealities in the liquid phase. Now, we can properly define the \underline{Raoult's law} (Section~\ref{Chapter:VLE:Section:RaoultsLaw}) at low pressure,\index{Solutions!Raoult's law}
+         The {\it activity coefficient} takes into account non-idealities in the liquid phase. Now, we can properly define the \underline{Raoult's law} (Section~\ref{Chapter:VLE:Section:RaoultsLaw}) at low pressure,\index{Solutions!Raoult's law}
           \begin{equation}
                \gamma_{i} = \frc{\overline{f}_{i}}{x_{i}f_{i}} = \frc{y_{i}P}{x_{i}f_{i}}=\frc{y_{i}P}{x_{i}P_{i}^{\text{sat}}} \;\;\;\Longrightarrow \;\;\;\ x_{i}\gamma_{i}P_{i}^{\text{sat}} = y_{i}P \label{Chapter:SolutionThermodynamics:Eqn:RaoultLaw}
           \end{equation}
@@ -227,6 +234,96 @@ Thus, the aim of this Chapter is to define thermodynamic properties of real solu
       \end{shaded}       
 %
    \end{subequations}
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SolutionThermodynamics:Example1} %Johannes Problem 2 (Tutorial 5)
+        A process stream contains light species 1 and heavy species 2. A relatively pure liquid stream containing mostly 2 is obtained through a single-stage liquid/vapour separator. Specifications on the equilibrium composition are: $x_{1}$ = 0.002 and $y_{1}$ = 0.950. Assuming that the modified Raoult's law applies, 
+\begin{displaymath}
+  y_{i} P = x_{i}\gamma_{i}P_{i}^{\text{sat}}
+\end{displaymath} 
+Determine $T$ and $P$ for the separator. Given the activity coefficients for the liquid phase,
+\begin{displaymath}
+\ln\gamma_{1} = 0.93x_{2}^{2} \;\;\;\;\;\text{ and }\;\;\;\;\;\ln\gamma_{2}=0.93x_{1}^{2}
+\end{displaymath}
+\begin{displaymath}
+\ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{T}\;\;\;\text{with [P] = bar and [T] = K}
+\end{displaymath} 
+$A_{1}$ =10.08, $B_{1}$ = 2572.0 K, $A_{2}$ = 11.63 and $B_{2}$ = 6254.0 K.
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+            This problem requires calculating $T$ and $P$ at the vapour-liquid equilibrium of a binary mixture whereas compositions of both phases are given,
+            \begin{displaymath}
+               \begin{cases}
+                  x_{1} = 0.002 \Leftrightarrow x_{2} = 0.998,\\
+                  y_{1} = 0.950 \Leftrightarrow y_{2} = 0.050.
+               \end{cases}
+            \end{displaymath}
+            For this composition, we can also obtain the actitivity coefficient, $\gamma_{i}$,
+            \begin{displaymath}
+               \begin{cases}
+                  \ln{\gamma_{1}} = 0.93x_{2}^{2} \Leftrightarrow \gamma_{1} = 2.5251,\\
+                   ln{\gamma_{2}} = 0.93x_{1}^{2} \Leftrightarrow \gamma_{2} = 1.0000.
+               \end{cases}
+            \end{displaymath}
+            Now, the current modified Raoult's law results in 2 non-linear equations (for both components in the mixture) and two unknowns ($T$ and $P$). These expresssions can be manipulated to be a function of only one unknown, $T$,
+            \begin{eqnarray}
+                y_{i} P &=& x_{i}\gamma_{i}P_{i}^{\text{sat}} \nonumber \\
+                     P &=& \frc{x_{i}\gamma_{i}P_{i}^{\text{sat}}}{y_{i}} =  \frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{y_{1}} = \frc{x_{2}\gamma_{2}P_{2}^{\text{sat}}}{y_{2}} \nonumber \\
+                \frc{P_{1}^{\text{sat}}}{P_{2}^{\text{sat}}}  &=& \frc{x_{2}\gamma_{2}y_{1}}{x_{1}\gamma_{1}y_{2}} \nonumber \\
+                \exp{\left[A_{1}-\frc{B_{1}}{T}-A_{2}+\frc{B_{2}}{T}\right]} &=& \underbrace{\frc{x_{2}\gamma_{2}y_{1}}{x_{1}\gamma_{1}y_{2}}}_{= 3754.7028} \nonumber \\
+                         T&=& 376.4532\text{ K} \nonumber
+            \end{eqnarray}
+            Pressure can now be easily obtained from,
+            \begin{displaymath}
+                 P = \frc{x_{i}\gamma_{i}P_{i}^{\text{sat}}}{y_{i}} = 0.1368\text{ bar}.
+            \end{displaymath}
+   \end{MyExample} 
+
+
+% Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SolutionThermodynamics:Example2}\citep{SmithVanNess_Book}
+          For the acetone (Ket) / methanol (MetOH) system, a vapour mixture of $z_{\text{Ket}}$ = 0.25 and $z_{\text{MetOH}}$ = 0.75 is cooled to temperature $T$ in the two-phase region and flows into a separation chamber at a pressure of 1 bar. If the composition of the liquid product is $x_{\text{Ket}}$ = 0.175, calculate $T$  and $y_{\text{Ket}}$. For liquid mixture, assume that
+\begin{displaymath}
+\ln\gamma_{1} = 0.64x_{2}^{2} \;\;\;\;\;\text{ and }\;\;\;\;\;\ln\gamma_{2}=0.64x_{1}^{2}
+\end{displaymath}
+For the Antoine equation, 
+\begin{displaymath}
+\ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{T + C} \;\;\left(\text{ [P] = kPa and [T] = }^{\circ}\text{C}\right)
+\end{displaymath}
+$A_{\text{Ket}}$ = 14.3145, $B_{\text{Ket}}$ = 2756.22$^{\circ}$C, $C_{\text{Ket}}$ = 228.060$^{\circ}$C, $A_{\text{MetOH}}$ = 16.5785, $B_{\text{MetOH}}$ = 3638.27$^{\circ}$C, $C_{\text{MetOH}}$ = 239.50$^{\circ}$C.
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+            This is a typical flash problem for separation of acetone (1) and methanol (2). The feed stream contains 25$\%$-mol of acetone, \ie $z_{1}=0.25$, and after the separation at 1 bar, the resulting liquid stream contains 17.5$\%$-mol, \ie $x_{1}=0.175$. The problem requires temperature of the separation and composition of the gas stream, $y_{i}$. As $\gamma_{i}$ is given, we can consider that the liquid mixture is {\bf not ideal}, therefore the modified Raoult's law can be used,
+\begin{displaymath}
+    y_{i}P = x_{i}\gamma_{i}P_{i}^{\text{sat}} \;\;\;\longrightarrow y_{1}=\frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P}
+\end{displaymath}
+     \begin{center}
+         \includegraphics[width=.25\linewidth,clip]{./Figs/FlashDistillation}
+     \end{center}
+
+ Using the material balance derived in Section~\ref{Chapter:VLE:Section:FlashDistillation},
+\begin{eqnarray}
+    && Fz_{1} = x_{1}L + y_{1}V\text{ and for } F=1 \text{ (\ie normalised stream fractions)}\;\longrightarrow F = L + V = 1 \nonumber \\
+    && z_{1} = x_{1}L + \frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{p}\left(1-L\right)\;(\star)\;\; \text{ with }\;\; P=\summation[P_{i}]{i}{} = y_{1}P + y_{2}P = x_{1}\gamma_{1}P_{1}^{\text{sat}} + x_{2}\gamma_{2}P_{2}^{\text{sat}}\;(\dagger),\nonumber
+\end{eqnarray}
+therefore, we have 2 equations and 2 unknowns, $L$ and $T$. Let's solve ($\dagger$) first for $T$ with $\gamma_{1}=1.5459$ and $\gamma_{2}=1.0198$
+   \begin{displaymath}
+       P = x_{1}\gamma_{1}P_{1}^{\text{sat}} + x_{2}\gamma_{2}P_{2}^{\text{sat}} = 100 \text{ kPa} \;\;\;\Rightarrow\;\;\; T = 59.5309\text{ K}
+   \end{displaymath}
+ With $T$, we can solve ($\star$) for $L$,
+   \begin{eqnarray}
+       && z_{1} = x_{1}L + \frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{p}\left(1-L\right) \nonumber \\
+       && L = \frc{z_{1} - \frac{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P}}{x_{1} - \frac{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P}} = 0.4306\;\;\rightarrow \;\; V = 0.5694 \nonumber \\
+       && y_{1} = \frac{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P} = 0.3067\;\;\rightarrow \;\; y_{2} = 0.6933\nonumber
+   \end{eqnarray}
+   \end{MyExample} 
+
       
 %%% SECTION
 \section{Henry's Law}\label{Chapter:SolutionThermodynamics:Section:HenryLaw}\index{Solutions!Henry's law}
@@ -258,6 +355,8 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
            \end{displaymath}
            with $\mfr[\overline{f}]{i}{V}=y_{i}P$.
         \end{shaded}
+
+
 %
 %%%%%
 %%%%%  COMMENTS
@@ -360,19 +459,131 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
    \end{subequations}
 
 
+
+% Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SolutionThermodynamics:Example3}
+           At 25$^{\circ}$C and atmospheric pressure, the volume change of mixing of a binary liquid mixture of species 1 and 2 is given by,
+       \begin{displaymath}
+          \Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right)\;\;\;\;\text{ with }\;\;\;\left[\Delta V\right] = \text{cm}^{3}.\text{mol}^{-1}
+       \end{displaymath}
+       with molar volumes of $V_{1} = 110\;\text{cm}^{3}.\text{mol}^{-1}$ and $V_{2} = 90\;\text{cm}^{3}.\text{mol}^{-1}$. Determine the partial molar volumes, $\overline{V}_{1}$ and $\overline{V}_{2}$, in a mixture containing 40$\%$-mol of species 1.
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:} 
+          The mixture contains 40$\%$-mol of species 1, \ie $x_{1}=0.40$ and $x_{2}=1-x_{1}=0.60$. The partial molar volumes, $\overline{V}_{i}$, can be obtained from Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k}, 
+               \begin{displaymath}
+                 \begin{cases}
+                    \overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}},\\
+                    \overline{M}_{2} = M - x_{1}\frc{dM}{dx_{1}},
+                 \end{cases}
+              \end{displaymath}
+              with $M=V$. Therefore the first step is to calculate the molar volume of the solution, $V$,
+                 \begin{displaymath}
+                    V^{E} = V - V^{\text{id}} = V - \summation[x_{i}V_{i}]{i=1}{2} = V - \underbrace{\left(x_{1}V_{1} + x_{2}V_{2}\right)}_{98\text{ cm}^{3}.\text{mol}^{-1}},
+                 \end{displaymath}
+              with the excess volume, $V^{E}=\Delta V$, obtained from the given expression,
+                 \begin{displaymath}
+                    V^{E} = \Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right) = 7.92\text{ cm}^{3}.\text{mol}^{-1}
+                 \end{displaymath}
+              therefore $V=105.92\text{ cm}^{3}.\text{mol}^{-1}$.
+\medskip
+
+              Now using Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k} to calculate the partial molar volume $\overline{V}_{i}$,
+                 \begin{eqnarray}
+                    \overline{V}_{1} &=& V + x_{2}\frc{dV}{dx_{1}} = V + x_{2}\frc{d}{dx_{1}} \left(\overbrace{\Delta V}^{V^{E}} + x_{1}V_{1} + x_{2}V_{2}\right) \nonumber \\
+                         &=& V + x_{2}\frc{d}{dx_{1}} \left[x_{1}x_{2}\left(45x_{1}+25x_{2}\right)+x_{1}V_{1}+x_{2}V_{2}\right] = 190.28\text{ cm}^{3}.\text{mol}^{-1}, \nonumber
+                 \end{eqnarray}
+              with the same procedure for $\overline{V}_{2}=49.68\text{ cm}^{3}.\text{mol}^{-1}$. We can check if our calculations are correct with,
+                 \begin{displaymath}
+                      V = \summation[x_{i}\overline{V}_{i}]{}{} = x_{1}\overline{V}_{1} + x_{2}\overline{V}_{2} = 105.92\text{ cm}^{3}.\text{mol}^{-1}.
+                 \end{displaymath}
+           
+   \end{MyExample} 
+     
+% Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SolutionThermodynamics:Example4} %http://people.cst.cmich.edu/teckl1mm/PChemI/Chm351Ch7aF01.htm
+          The experimental value of the partial molar volume $\left(\text{cm}^{3}\text{.mol}^{-1}\right)$ of a aqueous solution of K$_{2}$SO$_{4}$ is given by
+                \begin{displaymath}
+                   \overline{V}_{A} = 32.280 + 18.216 m^{1/2},
+                \end{displaymath} 
+ where $m$ is the molality (= number of moles per kg of water) of the K$_{2}$SO$_{4}$ . Use the Gibbs-Duhem equation to derive an equation for the partial molar volume of water in the solution. Plot $\overline{V}_{i}\;\;\times m$, with $0.0\leq m\leq 0.1$. The molar volume of pure water at 298.15 K is 18.079 cm$^{3}$.mol$^{-1}$ and the molar mass of pure water is 18 g.mol$^{-1}$.
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+           For an easy notation, let's take K$_{2}$SO$_{4}$: $A$ and Water: $w$.
+\begin{itemize}
+  \item The Gibbs-Duhem equation for the partial molar volumes can be expressed as,
+     \begin{displaymath}
+        \sum\limits x_{i}d\overline{V}_{i} = x_{A} d\overline{V}_{A} + x_{w} d\overline{V}_{w} = 0,
+     \end{displaymath}
+     that after rearranging and integrating,
+     \begin{displaymath}
+        \int\limits_{\overline{V}_{w}=V_{w}^{\circ}}^{\overline{V}_{w}}d\overline{V}_{w} = \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{x_{A}}{x_{w}} d\overline{V}_{A},
+     \end{displaymath}
+     where $V_{w}^{\circ}$ is the molar volume of pure water at reference conditions (\ie at $T=$ 25$^{\circ}$C).
+
+  \item We can change the integration variable from $\overline{V}_{A}$ to $m$,
+      \begin{displaymath}
+         \overline{V}_{A} = 32.280 + 18.216 m^{1/2} \rightarrow \frc{d\overline{V}_{A}}{dm} = \frc{1}{2}\cdot 18.216 m^{-1/2} 
+      \end{displaymath} 
+  
+  \item Now, replacing it into the integral above,
+       \begin{eqnarray}
+          && \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{x_{A}}{x_{w}} \frc{1}{2}\cdot 18.216 m^{-1/2} dm \hspace{1cm} \red{\cdot\frc{n}{n}} \nonumber \\
+          && \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{n_{A}}{n_{w}} \frc{1}{2}\cdot 18.216 m^{-1/2} dm, \nonumber
+       \end{eqnarray}
+       where $n$ is the total number of moles in the solution.
+
+  \item From the definition of molality, i.e., number of moles of K$_{2}$SO$_{4}$ per kg of water,
+       \begin{displaymath}
+           m = \frc{n_{A}}{n_{w}M_{w}} \Longrightarrow m\cdot M_{w} = \frc{n_{A}}{n_{w}},
+       \end{displaymath}
+       where $n_{A}$, $n_{w}$ are the number of moles of K$_{2}$SO$_{4}$ and water, respectively. $M_{w}$ is the molar mass of water.
+
+  \item Replacing in the equation above, 
+      \begin{eqnarray}
+         \overline{V}_{w} - V_{w}^{\circ} &=& -\int\limits_{0}^{m} m\cdot M_{w} \frc{1}{2}\cdot 18.216 m^{-1/2} dm \nonumber \\
+                                       &=& -9.108\; M_{w} \left. \frc{2}{3} m^{3/2}\right|_{0}^{m} \nonumber \\
+         \blue{\left(\text{where }\right.}&& \blue{\left. M_{w} = 18 \frc{\text{g}}{\text{mol}} = 0.018 \frc{\text{kg}}{\text{mol}}\right)} \nonumber \\
+         \overline{V}_{w} &=&  18.079 - 0.1093 m^{3/2} \nonumber 
+      \end{eqnarray}
+
+  \item In order to plot $\overline{V}_{i}\;\;\times m$, with $0.0\leq m\leq 0.1$, we can use the defined equations above to set  up the table:  
+        \begin{center}
+          \begin{tabular}{|c | c c |}
+            \hline
+            ${\bf m (mol/kg)}$ & ${\bf \overline{V}_{A}}$ & ${\bf \overline{V}_{w}}$ \\
+            \hline
+              0.00  & 32.2800 &  18.0790 \\
+              0.05  & 36.6353 &  18.0778 \\
+              0.10  & 38.0404 &  18.0755 \\
+             \hline
+          \end{tabular}
+        \end{center}
+          \begin{center}
+              \includegraphics[width=0.75\columnwidth,clip]{./../Pics/Example04_Pic}
+          \end{center}
+\end{itemize}
+
+   \end{MyExample} 
+
       
 %%% SECTION
 \section{Partial Molar Properties in Binary Solutions}\label{Chapter:SolutionThermodynamics:PMP_Binary}\index{Partial molar properties}
    \begin{subequations}
 %
-       In a mixture with $n$ moles, we can define the {\it isothermal molar property change of mixing}, $\Delta M_{\text{mix}}$ as,\index{Molar property change of mixing}
+       In a mixture with $n$ moles, we can define the {\it isothermal molar property change of mixing}, $\Delta M_{\text{mix}}$ as,\index{Molar property change of mixing!Definition}
           \begin{eqnarray}
               \Delta M_{\text{mix}}(T,P) & = & M(T,P) - \summation[x_{i}M_{i}(T,P)]{i}{} \nonumber \\
                                       &=& \underbrace{\summation[\overline{M}_{i}x_{i}]{i}{}}_{\text{from Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1c}}} - \summation[x_{i}M_{i}]{i}{} \nonumber \\
                                       &=& \summation[x_{i}\left(\overline{M}_{i}-M_{i}\right)]{i}{}.\label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1h}
           \end{eqnarray}
        \begin{shaded}
-          \nonindent In a \underline{binary system} (from Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1c}),
+          \noindent In a \underline{binary system} (from Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1c}),
           \begin{equation}
               M = \overline{M}_{1} x_{1} + \overline{M}_{2} x_{2},\;\;\;\;\;\left(\text{at constant }P \text{ and } T\right),\label{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1i}
           \end{equation}
@@ -414,10 +625,10 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
    \end{subequations}
       
 %%% SECTION
-\section{Ideal Gas Mixture Model}\label{Chapter:SolutionThermodynamics:IGM}\index{Gases!Mixture}
+\section{Ideal Gas Mixture Model}\label{Chapter:SolutionThermodynamics:Section:IGM}\index{Gases!Mixture}
    \begin{subequations}
 %
-     Since Module~\ref{Section:01}, we have used the equation of state for {\it ideal gases},
+     The ideal gas equation of state of originally introduced in Section~\ref{Chapter:Intro_Property_of_Gases:Section:IdealGases}\index{Gases!Ideal gas}
      \begin{displaymath}
         PV = nRT \;\;\;\Rightarrow\;\;\; P\overline{v} = RT
      \end{displaymath}
@@ -429,7 +640,7 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
      \begin{equation}
        U^{\text{igm}}(T,N) = \summation[n_{i}\overline{u}_{i}^{\text{ig}}(T)]{i=1}{\mathcal{C}},\label{Chapter:SolutionThermodynamics:Eqn:IGM2} 
      \end{equation}
-     where $\overline{u}_{i}^{\text{ig}}=\frac{U_{i}^{\text{ig}}}{n_{i}}$ is the molar internal energy.We can change the notation on Eqns.~\ref{Chapter:SolutionThermodynamics:Eqn:IGM1}-\ref{Chapter:SolutionThermodynamics:Eqn:IGM2} to replace the number of moles by molar fraction, $y_{i}$, of the gas mixture, and to obtain the {\it partial molar internal energy}, $\overline{U}_{i}^{\text{igm}}(T,y)$
+     where $\overline{u}_{i}^{\text{ig}}=\frac{U_{i}^{\text{ig}}}{n_{i}}$ is the molar internal energy. We can change the notation on Eqns.~\ref{Chapter:SolutionThermodynamics:Eqn:IGM1}-\ref{Chapter:SolutionThermodynamics:Eqn:IGM2} to replace the number of moles by molar fraction, $y_{i}$, of the gas mixture, and to obtain the {\it partial molar internal energy}, $\overline{U}_{i}^{\text{igm}}(T,y)$
      \begin{equation}
        \overline{U}_{i}^{\text{igm}}(T,y) = \Partial[U^{\text{igm}}(T,N)]{n_{i}}{T,P,n_{j\ne i}} = \left[\frc{\partial\summation[n_{j}\overline{u}_{j}^{\text{ig}}(T)]{j=1}{\mathcal{C}}}{\partial n_{i}}\right]_{T,P,n_{j\ne i}}  = \overline{u}_{i}^{\text{ig}}(T)\label{Chapter:SolutionThermodynamics:Eqn:IGM3}
      \end{equation} 
@@ -439,7 +650,7 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
      \end{equation}
      \medskip
 
-     The partial pressure of species $i$ in a gas mixture, $P_{i}$ (see Dalton's law in Section~\ref{Section:04:RaoultsLaw}), is defined for both ideal and real gas mixtures as
+     The partial pressure of species $i$ in a gas mixture, $P_{i}$ (see Dalton's law in Section~\ref{Chapter:Intro_Property_of_Gases:Section:MixtureGases}, is defined for both ideal and real gas mixtures as\index{Gases!Dalton's law}
      \begin{displaymath}
        P_{i} = y_{i}P,
      \end{displaymath}
@@ -455,7 +666,7 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
        \item reducing the pressure from $P$ to $P_{i}$, or;
        \item expanding each gas from its initial volume $V_{i}=n_{i}RT/P$ to $V=\summation[n_{i}RT/P]{}{}$.
      \end{itemize}
-     Thus using the entropy relations below for ideal gases\footnote{These relations have not been derived in this Notes, but can be obtained assuming $S=S(T,P)$ and $S=S(T,V)$, definitions of coefficients of thermal expansion, $\beta$, and isothermal compressibility, $\kappa$, Eqn.~\ref{Mod02_Compressibilityexpansivity}, and Maxwell relations.},
+     Thus using the entropy relations below for ideal gases (Eqns.~\ref{Chapter:SecondLaw:Eqn:EntropyChanges1}-\ref{Chapter:SecondLaw:Eqn:EntropyChanges2}),
        \begin{displaymath}
            dS =
          \begin{cases}
@@ -513,20 +724,36 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
          Helmholtz Energy &   $\overline{A}_{i}^{\text{igm}}(T,P,y) = \overline{a}_{i}^{\text{ig}}(T,P)+RT\ln{y_{i}}$ & $\Delta_{\text{mix}} \overline{a}^{\text{igm}}=-RT\summation[y_{i}\ln{y_{i}}]{}{}$ & $\overline{a}^{\text{igm}}(T,P,y) = \summation[y_{i}\overline{a}_{i}^{\text{ig}}(T,P)]{}{} + RT\summation[y_{i}\ln{y_{i}}]{}{}$ \\ 
  \hline
      \end{tabular}
-     \caption{Properties of ideal gas mixtures \citep[extracted from][]{Sandler_Book}.}\label{Chapter:SolutionThermodynamics:Eqn:TableIGM}  
+     \caption{Properties of ideal gas mixtures \citep[extracted from][]{Sandler_Book}.}\label{Chapter:SolutionThermodynamics:Table:TableIGM}\index{Molar property change of mixing!Volume}\index{Molar property change of mixing!Internal energy}\index{Molar property change of mixing!Enthalpy}\index{Molar property change of mixing!Entropy}\index{Molar property change of mixing!Gibbs free energy}\index{Molar property change of mixing!Helmholtz free energy}\index{Gibbs free energy!change of mixing}\index{Helmholtz free energy!change of mixing}\index{Enthalpy!change of mixing}\index{Entropy!change of mixing}\index{Internal Energy!change of mixing}
  \end{table}
      
-     Partial molar properties, molar properties and change of mixing of molar properties for the main thermodynamic functions are summarised in Table~\ref{Chapter:SolutionThermodynamics:Eqn:TableIGM}.
+     Partial molar properties, molar properties and change of mixing of molar properties for the main thermodynamic functions are summarised in Table~\ref{Chapter:SolutionThermodynamics:Table:TableIGM}.
 %
    \end{subequations}
 
 
+
+
+% Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SolutionThermodynamics:Example5} % NPTEl (Ex 6.3)
+        What is the change in entropy when 0.6 m$^{3}$ of CO$_{2}$ and 0.4 m$^{3}$ of N$_{2}$, each at 1 bar and 25 $^{\circ}$C blend to form a gas mixture at the same conditions. Assume ideal gas behaviour and that {\it mole fraction = volume fraction}. 
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+           For an ideal gas, with the assumption of {\it mole fraction = volume fraction}, \ie $y_{1} = 0.6$ and $y_{2} = 0.4$, with CO$_{2}$:1 and N$_{2}$:2.
+      \begin{displaymath}
+          \Delta_{\text{mix}}\overline{s}^{\text{igm}} = -R\summation[y_{i}\ln{y_{i}}]{i=1}{2} = 5.5954 \text{ J.(mol.K)}^{-1}
+      \end{displaymath}
+   \end{MyExample} 
+
       
 %%% SECTION
-\section{Fugacity Coefficient of Species in Mixtures}\label{Chapter:SolutionThermodynamics:FugacityCoefficient}
+\section{Fugacity Coefficient of Species in Mixtures}\label{Chapter:SolutionThermodynamics:Section:FugacityCoefficient}\index{Fugacity coefficient|see {Fugacity}}\index{Fugacity! Coefficient}
    \begin{subequations}
 %
-      In  Section~\ref{Chapter:SolutionThermodynamics:FugacitySection} (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1b}), a formal definition of fugacity was introduced,
+      In  Section~\ref{Chapter:SolutionThermodynamics:Section:FugacitySection} (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1b}), a formal definition of fugacity was introduced,
        \begin{displaymath}
           \mu_{i}= RT\ln{\overline{f}_{i}} + C_{i}(T),
        \end{displaymath}
@@ -538,17 +765,17 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
        \begin{shaded}
          \noindent The definition of fugacity coefficient can be extended to {\it real gas mixtures} and {\it real liquid solutions} as,
          \begin{eqnarray}
-           \mfr[\phi]{i}{V} &=& \frc{\mfr[\overline{f}]{i}{V}}{y_{i}P}\;\;\text{ and, }\\
-           \mfr[\phi]{i}{L} &=& \frc{\mfr[\overline{f}]{i}{L}}{x_{i}P_{i}^{\text{sat}}}.
+           \mfr[\phi]{i}{V} &=& \frc{\mfr[\overline{f}]{i}{V}}{y_{i}P}\;\;\text{ and, }\label{Chapter:SolutionThermodynamics:Eqn:FugCoeffVap1}\\
+           \mfr[\phi]{i}{L} &=& \frc{\mfr[\overline{f}]{i}{L}}{x_{i}P_{i}^{\text{sat}}}.\label{Chapter:SolutionThermodynamics:Eqn:FugCoeffLiq1}
          \end{eqnarray}
        \end{shaded}
 
 \medskip
        For a single component in a closed system behaving as an ideal gas, the fundamental thermodynamic relation is valid,
          \begin{displaymath}
-            dG = VdP - SdT,
+            dG = VdP - SdT.
          \end{displaymath}
-         at constant temperature, a pure gas $i$, this relation reduces to,
+         A pure gas $i$ at constant temperature, this relation reduces to,
          \begin{displaymath}
             dG_{i}^{\text{ig}} = V_{i}^{\text{ig}}dP = RT\frc{dP}{P} = RTd\ln{P}.
          \end{displaymath}
@@ -560,21 +787,21 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
          \begin{displaymath} 
              G_{i} = RT\ln{f_{i}} + C_{i}(T).
          \end{displaymath}
-         Subtracting these expressions results in the {\it residual Gibbs free energy},
+         Subtracting these expressions results in the {\it residual Gibbs free energy} (Section~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:ResidualProperties})\index{Gases!Residual properties}
          \begin{equation}
             G_{i}^{R} = G_{i} - G_{i}^{\text{ig}} = RT\ln{f_{i}}{P} = RT\ln{\phi_{i}}.
          \end{equation}
-         Using the Gibbs free energy generating function, Eqn.~\ref{Mod03_ResidualProperties_GeneratingGibbsFunction3}, %$\frc{G^{R}}{RT} =  \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}$,
+         Using the Gibbs free energy generating function, Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:ResidualProperties_GeneratingGibbsFunction3}, %$\frc{G^{R}}{RT} =  \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}$,
          \begin{equation}
             \ln{\phi_{i}} = \int\limits_{0}^{P}\left(Z-1\right)\frc{dP}{P}
          \end{equation}
 \bigskip
 
-         \noindent During phase change from saturated liquid to saturated vapour,
+         During phase change from saturated liquid to saturated vapour,\index{Fugacity}
          \begin{equation}
             \mfr[G]{i}{V} - \mfr[G]{i}{L} = RT\ln{\frc{\mfr[f]{i}{V}}{\mfr[f]{i}{L}}},\label{Chapter:SolutionThermodynamics:Eqn:FugacityCoeff1}
          \end{equation}
-         however, from Section~\ref{Section:03:ClapeyronRelations}, we studied that during phase transition \blue{$dG=0$}, \ie
+         however, from Section~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:ClapeyronRelations}, we studied that during phase transition \blue{$dG=0$}, \ie
          \begin{displaymath}
             \mfr[G]{i}{V} - \mfr[G]{i}{L} = 0 = RT\ln{\frc{\mfr[f]{i}{V}}{\mfr[f]{i}{L}}}
          \end{displaymath}
@@ -587,7 +814,7 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
    \end{subequations}
 
 %%% SECTION
-\section{Expression for Fugacity of a Pure Liquid}\label{Chapter:SolutionThermodynamics:FugacityCoefficient_Liquid}
+\section{Expression for Fugacity of a Pure Liquid}\label{Chapter:SolutionThermodynamics:Section:FugacityCoefficient_Liquid}\index{Solutions!Activity}\index{Solutions!Activity coefficient}\index{Fugacity! Coefficient}
 %
    \begin{subequations}
 %
@@ -611,7 +838,7 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
                               \mfr[f]{i}{L}\left(P\right) &=& \underbrace{\mfr[f]{i}{L}\left(P_{i}^{\text{sat}}\right)}_{\mfr[\phi]{i}{\text{sat}}=\frc{\mfr[f]{i}{\text{sat}}}{P_{i}^{\text{sat}}}}  \underbrace{\exp{\left[\frc{1}{RT}\int\limits_{P_{i}^{\text{sat}}}{P}\mfr[V]{i}{L}dP\right]}}_{\text{Poynting-pressure factor}},\;\;\;\text{ assuming constant } \mfr[V]{i}{L} \nonumber \\
                               \mfr[f]{i}{L}\left(P\right) &=& \mfr[\phi]{i}{\text{sat}}P_{i}^{\text{sat}}\exp{\left[\frc{\mfr[V]{i}{L}\left(P - P_{i}^{\text{sat}}\right)}{RT}\right]}
                  \end{eqnarray}
-                 The \blue{Poynting-pressure factor} indicates the increase in fugacity due to the fact that system pressure is larger than the vapour pressure of the liquid. As the molar volume of the liquid phase is much smaller that the molar volume of the vapour phase, $\mfr[V]{}{L} <<<< \mfr[V]{}{V}$, the Poynting-pressure factor is only important at high pressure or at very low temperature conditions. The Poynting-pressure factor is the {\it best approximation} for $\mfr[f]{}{L}$.
+                 The \blue{Poynting-pressure factor} indicates the increase in fugacity due to the fact that system pressure is larger than the vapour pressure of the liquid. As the molar volume of the liquid phase is much smaller that the molar volume of the vapour phase $\left(\mfr[V]{}{L} <<<< \mfr[V]{}{V}\right)$, the Poynting-pressure factor is only important at high pressure or at very low temperature conditions. The Poynting-pressure factor is the {\it best approximation} for $\mfr[f]{}{L}$.
          \end{description}
          
          \noindent Therefore, in order to calculate the fugacity of pure liquids, $\mfr[f]{i}{L}(P)$, we need:
@@ -624,7 +851,7 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
    \end{subequations}
 
 %%% SECTION
-\section{Relation between Residual Property and Species Fugacity Coefficients in Mixtures}\label{Chapter:SolutionThermodynamics:FugacityCoefficient_Residual}
+\section{Relation between Residual Property and Species Fugacity Coefficients in Mixtures}\label{Chapter:SolutionThermodynamics:Section:FugacityCoefficient_Residual}
 %
    \begin{subequations}
 %
@@ -646,19 +873,20 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
    \end{subequations}
 
 %%% SECTION
-\section{Ideal Solution Model}\label{Chapter:SolutionThermodynamics:Section:IdealSolution}
+\section{Ideal Solution Model}\label{Chapter:SolutionThermodynamics:Section:IdealSolution}\index{Solution!Ideal}\index{Gibbs free energy!ideal solution}\index{Helmholtz free energy!ideal solution}\index{Enthalpy!ideal solution}\index{Entropy!ideal solution}\index{Internal Energy!ideal solution}
 %
    \begin{subequations}
 %
-      We have seen that the chemical potential of an ideal gas mixture model is (Table~\ref{Chapter:SolutionThermodynamics:Eqn:TableIGM}),
+      From Table~\ref{Chapter:SolutionThermodynamics:Table:TableIGM}, the chemical potential of an ideal gas mixture model is defined as
          \begin{displaymath}
               \mu_{i}^{\text{igm}} = \overline{G}_{i}^{\text{igm}}(T,P,y) = \overline{g}_{i}^{\text{ig}}(T,P)+RT\ln{y_{i}}.
          \end{displaymath}
-      Using a similar method we can extend this expression for ideal solutions,
+      \begin{shaded}
+      Using a similar method, an expression can be derived for ideal solutions,
          \begin{equation}
               \mu_{i}^{\text{id}} = \overline{G}_{i}^{\text{id}}(T,P,x) = \overline{g}_{i}^{\text{ig}}(T,P)+RT\ln{x_{i}}.
          \end{equation}
-     Similarly to Section~\ref{Chapter:SolutionThermodynamics:IGM}, we can also define the partial molar volume, $\overline{V}_{i}^{\text{id}}$, entropy, $\overline{S}_{i}^{\text{id}}$, and enthalpy, $\overline{H}_{i}^{\text{id}}$
+      Similarly to Section~\ref{Chapter:SolutionThermodynamics:Section:IGM}, the partial molar volume, $\overline{V}_{i}^{\text{id}}$, entropy, $\overline{S}_{i}^{\text{id}}$, and enthalpy, $\overline{H}_{i}^{\text{id}}$ can be defined as
          \begin{eqnarray}
             \overline{V}_{i}^{\text{id}} &=& \Partial[\overline{G}_{i}^{\text{id}}]{P}{T,x} = \Partial[G_{i}]{P}{T} = V_{i},  \\
             \overline{S}_{i}^{\text{id}} &=& -\Partial[\overline{G}_{i}^{\text{id}}]{T}{P,x} = \Partial[G_{i}]{T}{P} - R\ln{x_{i}} = S_{i} -R\ln{x_{i}}, \\
@@ -675,16 +903,17 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
            && V^{\text{id}} = \summation[x_{i}V_{i}]{}{}, \\
            && H^{\text{id}} = \summation[x_{i}H_{i}]{}{}, 
         \end{eqnarray}
+   \end{shaded}
 
 %
    \end{subequations}
 
 %%% SECTION
-\section{Defining Activity Coefficient based on Excess Properties}\label{Chapter:SolutionThermodynamics:ActivityCoeffExcessProp}
+\section{Defining Activity Coefficient based on Excess Properties}\label{Chapter:SolutionThermodynamics:Section:ActivityCoeffExcessProp}\index{Solutions!Activity}\index{Solutions!Excess properties}\index{Gibbs free energy!Excess}\index{Helmholtz free energy!Excess}\index{Enthalpy!Excess}
 %
    \begin{subequations}
 %
-      In Section~\ref{Section:03:GibbsGeneratingFunction}, the generating function of the Gibbs free energy was formally defined. Such definition can be extended (now considering that Gibbs free energy depends on temperature, pressure and number of moles) to study the excess Gibbs free energy,
+      In Section~\ref{Chapter:ThermodynamicPropertiesPureFluids:Section:GibbsGeneratingFunction}, the generating function of the Gibbs free energy was formally defined. Such definition can be extended (now considering that Gibbs free energy depends on temperature, pressure and number of moles) to study the excess Gibbs free energy,
         \begin{equation}
            d\left(\frc{nG^{E}}{RT}\right) = \frc{nV^{E}}{RT}dP - \frc{nH^{E}}{RT^{2}}dT + \summation[\frc{\overline{G}_{i}^{E}}{RT}dn_{i}]{i}{}.\label{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffExcessProp1}
         \end{equation}
@@ -699,7 +928,7 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
               \begin{equation}
                  d\left(\frc{nG^{E}}{RT}\right) = \frc{nV^{E}}{RT}dP - \frc{nH^{E}}{RT^{2}}dT + \summation[\ln{\gamma_{i}}dn_{i}]{i}{}.\label{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffExcessProp2}
               \end{equation}
-            And we can also define (see Eqns~\ref{Mod03_GibbsGeneratingFunctionTConst} and \ref{Mod03_GibbsGeneratingFunctionPConst}),
+            And we can also define (see Eqns~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsGeneratingFunctionTConst} and \ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsGeneratingFunctionPConst}),
                \begin{eqnarray}
                    && \frc{V^{E}}{RT} = \left[\frc{\partial \left(\frac{G^{E}}{RT}\right)}{\partial P}\right]_{T,x} \\
                    && \frc{H^{E}}{RT} = -T\left[\frc{\partial \left(\frac{G^{E}}{RT}\right)}{\partial P}\right]_{P,x} \\
@@ -710,10 +939,11 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
    \end{subequations}
 
 %%% SECTION
-\section{Activity Coefficient Models}\label{Chapter:SolutionThermodynamics:ActivityCoeffModels}
+\section{Activity Coefficient Models}\label{Chapter:SolutionThermodynamics:Section:ActivityCoeffModels}\index{Solutions!Activity coefficient}\index{Solutions!Activity coefficients!Models!Wilson}\index{Solutions!Activity coefficients!Models!Margules}\index{Solutions!Activity coefficients!Models!Van Laar}\index{Solutions!Activity coefficients!Models!NRTL}\index{Solutions!Activity coefficients!Models!UNIQUAC}\index{Solutions!Activity coefficients!Models!UNIFAC}
 %
    \begin{subequations}
-      The activity coefficient, $\gamma_{i}$, is by far the most critical parameter for assessment of liquid solutions behaviour, in particular during phase equilibria, due to its relationship with the excess Gibbs energy, $G^{E}$ (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffExcessProp2}). For solutions, the activity coefficient plays a similar role as the compressibility factor, $Z$, for gases. As $G^{E}$ depends on $T$, $P$ and $n$, it is important to define relations of $\gamma_{i}$ with respect to these properties, 
+      The activity coefficient, $\gamma_{i}$, is by far the most critical parameter for the assessment of liquid solutions behaviour, in particular during phase equilibria due to its relationship with the excess Gibbs energy, $G^{E}$ (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffExcessProp2}). For solutions, the activity coefficient plays a similar role as the compressibility factor, $Z$, for gases. As $G^{E}$ depends on $T$, $P$ and $n$, it is important to define relations for $\gamma_{i}$ with respect to these properties, 
+    \begin{shaded}
       \begin{enumerate}[a)]
           \item Temperature:
              \begin{equation}
@@ -724,6 +954,7 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
                 \ln{\gamma_{i}}\left(P_{2}\right) - \ln{\gamma_{i}}\left(P_{1}\right) = \int\limits_{P{i}}^{P_{2}} \Partial[\ln{\gamma_{i}}]{P}{T,n}dT,\;\;\text{ where }\;\; \Partial[\ln{\gamma_{i}}]{P}{T,n} = \frc{\overline{V}_{i}-V_{i}^{\text{id}}}{RT}.
              \end{equation}
       \end{enumerate}
+     \end{shaded}
 
 %%% TABLE 1
 \begin{table}[h]
@@ -747,9 +978,7 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
             \item Homogeneous Mixtures Models are used when inter-/intra-molecular interaction energies between species are moderate. These models assume that molecules are homogeneously distributed over the solution volume with no difference between overall macroscopic composition and microscopic (local) composition around a single central molecule. Examples of such models include Mergules, Van Laar, Regular Solution models etc;
             \item Local Compositions Models are used when the species in solution are of different size and shape (\eg polymers and organic solvents, solutions involving isomers, ionic solutions etc). Examples of such models include Wilson, NRTL (Non-Random Two Liquid), UNIQUAC (Universal Quasi-Chemical), UNIFAC (UNIQUAC Functional Activity Coefficients) models etc.
         \end{enumerate}
-        Group 1 models are often used moderate deviation from ideal solution behaviour, whereas Group 2 models are used for strongly non-ideal solutions (Table~\ref{Chapter:SolutionThermodynamics:Table:TableActivityModels1}). Most of these models contain 2 to 3 parameters, however some may contain larger number of parameters to improve the accuracy of prediction but are more computationally demanding. Some of these models may be found in Table~\ref{Chapter:SolutionThermodynamics:Table:TableActivityModels2}.
-
-\bigskip
+        Group 1 models are often used in moderate deviation from ideal solution behaviour, whereas Group 2 models are used for strongly non-ideal solutions (Table~\ref{Chapter:SolutionThermodynamics:Table:TableActivityModels1}). Most of these models contain 2 to 3 parameters, however some may contain larger number of parameters to improve the accuracy of prediction (though are more computationally demanding). Some of these models may be found in Table~\ref{Chapter:SolutionThermodynamics:Table:TableActivityModels2}.
 
        \begin{shaded}
            Using Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:ActivityCoeffExcessProp2} for the partial molar Gibbs free energy for component $i$ along with $G^{E}=\summation[x_{i}\overline{G}_{i}^{E}]{}{}$ leads to \blue{GDE},
@@ -792,7 +1021,7 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
  
 \hline          
      \end{tabular}
-     \caption{Selected Activity Models for binary systems.}\label{Chapter:SolutionThermodynamics:Table:TableActivityModels2}
+     \caption{Selected Activity Models for binary systems \citep[extracted from][]{Sandler_Book}.}\label{Chapter:SolutionThermodynamics:Table:TableActivityModels2}
   \end{center}
 \end{table}
 \end{landscape}
@@ -803,103 +1032,49 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
    \end{subequations}
 
 
-\clearpage
 
-%%% SECTION
-\section{Examples}
-
-\begin{enumerate}[1)]
-%%%
-%%% EXAMPLE 
-%%%
-   \item\label{Mod05Ex01} At 25$^{\circ}$C and atmospheric pressure, the volume change of mixing of a binary liquid mixture of species 1 and 2 is given by,
-       \begin{displaymath}
-          \Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right)\;\;\;\;\text{ with }\;\;\;\left[\Delta V\right] = \text{cm}^{3}.\text{mol}^{-1}
-       \end{displaymath}
-       with molar volumes of $V_{1} = 110\;\text{cm}^{3}.\text{mol}^{-1}$ and $V_{2} = 90\;\text{cm}^{3}.\text{mol}^{-1}$. Determine the partial molar volumes, $\overline{V}_{1}$ and $\overline{V}_{2}$, in a mixture containing 40$\%$-mol of species 1.
-
-% SOLUTION
-       \noindent{\bf Solution:} The mixture contains 40$\%$-mol of species 1, \ie $x_{1}=0.40$ and $x_{2}=1-x_{1}=0.60$. The partial molar volumes, $\overline{V}_{i}$, can be obtained from Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k}, 
-               \begin{displaymath}
-                 \begin{cases}
-                    \overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}},\\
-                    \overline{M}_{2} = M - x_{1}\frc{dM}{dx_{1}},
-                 \end{cases}
-              \end{displaymath}
-              with $M=V$. Therefore the first step is to calculate the molar volume of the solution, $V$,
-                 \begin{displaymath}
-                    V^{E} = V - V^{\text{id}} = V - \summation[x_{i}V_{i}]{i=1}{2} = V - \underbrace{\left(x_{1}V_{1} + x_{2}V_{2}\right)}_{98\text{ cm}^{3}.\text{mol}^{-1}},
-                 \end{displaymath}
-              with the excess volume, $V^{E}=\Delta V$, obtained from the given expression,
-                 \begin{displaymath}
-                    V^{E} = \Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right) = 7.92\text{ cm}^{3}.\text{mol}^{-1}
-                 \end{displaymath}
-              therefore $V=105.92\text{ cm}^{3}.\text{mol}^{-1}$.
-\medskip
-
-              Now using Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k} to calculate the partial molar volume $\overline{V}_{i}$,
-                 \begin{eqnarray}
-                    \overline{V}_{1} &=& V + x_{2}\frc{dV}{dx_{1}} = V + x_{2}\frc{d}{dx_{1}} \left(\overbrace{\Delta V}^{V^{E}} + x_{1}V_{1} + x_{2}V_{2}\right) \nonumber \\
-                         &=& V + x_{2}\frc{d}{dx_{1}} \left[x_{1}x_{2}\left(45x_{1}+25x_{2}\right)+x_{1}V_{1}+x_{2}V_{2}\right] = 190.28\text{ cm}^{3}.\text{mol}^{-1}, \nonumber
-                 \end{eqnarray}
-              with the same procedure for $\overline{V}_{2}=49.68\text{ cm}^{3}.\text{mol}^{-1}$. We can check if our calculations are correct with,
-                 \begin{displaymath}
-                      V = \summation[x_{i}\overline{V}_{i}]{}{} = x_{1}\overline{V}_{1} + x_{2}\overline{V}_{2} = 105.92\text{ cm}^{3}.\text{mol}^{-1}.
-                 \end{displaymath}
-
-\clearpage
-            
-%%%
-%%% EXAMPLE: Johannes Problem 2 (Tutorial 5)
-%%%
-   \item\label{Mod05Ex02}  A process stream contains light species 1 and heavy species 2. A relatively pure liquid stream containing mostly 2 is obtained through a single-stage liquid/vapour separator. Specifications on the equilibrium composition are: $x_{1}$ = 0.002 and $y_{1}$ = 0.950. Assuming that the modified Raoult's law applies, 
+% Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SolutionThermodynamics:Example6} %Nguyen (Ex 5.3.2)
+         Calculate the bubble point temperature and vapor composition for a liquid mixture of 1 mol-$\%$ acetone (1) and water (2) at 101.3 KPa. Given the Wilson activity model:
+   \begin{eqnarray}
+       &&\ln\gamma_{1} = -\ln\left(x_{1}+x_{2}C_{12}\right) + x_{2}\left(\frc{C_{12}}{x_{1}+x_{2}C_{12}}-\frc{C_{21}}{x_{2}+x_{1}C_{21}}\right) \nonumber \\
+       &&\ln\gamma_{2} = -\ln\left(x_{2}+x_{1}C_{21}\right) + x_{1}\left(\frc{C_{21}}{x_{2}+x_{1}C_{21}}-\frc{C_{12}}{x_{1}+x_{2}C_{12}}\right) \nonumber
+   \end{eqnarray}
+   with $C_{12}=$0.1173 and $C_{21}=$0.4227. Also, the vapour pressure $\left(\text{with } P_{i}^{\text{sat}}\text{ in kPa and } T\text{ in K}\right)$ is given by,
 \begin{displaymath}
-  y_{i} P = x_{i}\gamma_{i}P_{i}^{\text{sat}}
-\end{displaymath} 
-Determine $T$ and $P$ for the separator. Given the activity coefficients for the liquid phase,
-\begin{displaymath}
-\ln\gamma_{1} = 0.93x_{2}^{2} \;\;\;\;\;\text{ and }\;\;\;\;\;\ln\gamma_{2}=0.93x_{1}^{2}
+   \ln P_{1}^{\text{sat}} = 14.71712 - \frc{2975.95}{T-34.5228} \;\;\;\; \ln P_{2}^{\text{sat}} = 16.5362 - \frc{3985.44}{T-38.9974}
 \end{displaymath}
-\begin{displaymath}
-\ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{T}\;\;\;\text{with [P] = bar and [T] = K}
-\end{displaymath} 
-$A_{1}$ =10.08, $B_{1}$ = 2572.0 K, $A_{2}$ = 11.63 and $B_{2}$ = 6254.0 K.
+     \end{example}
 
 % SOLUTION
-       \noindent{\bf Solution:} This problem requires calculating $T$ and $P$ at the vapour-liquid equilibrium of a binary mixture whereas compositions of both phases are given,
-            \begin{displaymath}
-               \begin{cases}
-                  x_{1} = 0.002 \Leftrightarrow x_{2} = 0.998,\\
-                  y_{1} = 0.950 \Leftrightarrow y_{2} = 0.050.
-               \end{cases}
-            \end{displaymath}
-            For this composition, we can also obtain the actitivity coefficient, $\gamma_{i}$,
-            \begin{displaymath}
-               \begin{cases}
-                  \ln{\gamma_{1}} = 0.93x_{2}^{2} \Leftrightarrow \gamma_{1} = 2.5251,\\
-                   ln{\gamma_{2}} = 0.93x_{1}^{2} \Leftrightarrow \gamma_{2} = 1.0000.
-               \end{cases}
-            \end{displaymath}
-            Now, the current modified Raoult's law results in 2 non-linear equations (for both components in the mixture) and two unknowns ($T$ and $P$). These expresssions can be manipulated to be a function of only one unknown, $T$,
-            \begin{eqnarray}
-                y_{i} P &=& x_{i}\gamma_{i}P_{i}^{\text{sat}} \nonumber \\
-                     P &=& \frc{x_{i}\gamma_{i}P_{i}^{\text{sat}}}{y_{i}} =  \frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{y_{1}} = \frc{x_{2}\gamma_{2}P_{2}^{\text{sat}}}{y_{2}} \nonumber \\
-                \frc{P_{1}^{\text{sat}}}{P_{2}^{\text{sat}}}  &=& \frc{x_{2}\gamma_{2}y_{1}}{x_{1}\gamma_{1}y_{2}} \nonumber \\
-                \exp{\left[A_{1}-\frc{B_{1}}{T}-A_{2}+\frc{B_{2}}{T}\right]} &=& \underbrace{\frc{x_{2}\gamma_{2}y_{1}}{x_{1}\gamma_{1}y_{2}}}_{= 3754.7028} \nonumber \\
-                         T&=& 376.4532\text{ K} \nonumber
-            \end{eqnarray}
-            Pressure can now be easily obtained from,
-            \begin{displaymath}
-                 P = \frc{x_{i}\gamma_{i}P_{i}^{\text{sat}}}{y_{i}} = 0.1368\text{ bar}.
-            \end{displaymath}
+     \noindent{\bf Solution:}
             
-   
-\clearpage
-            
-%%%
-%%% EXAMPLE:  Nguyen (Ex 5.3.1)  
-%%%
-   \item\label{Mod05Ex03} Find the bubble point pressure and vapor composition for a liquid mixture of 41.2 mol-$\%$ ethanol (1) and n-hexane (2) at 331 K. Given the Van Laar activity model equations:
+
+   \begin{itemize}
+      \item Since the vapour mole fractions are unknown, we should start from the main composition constraint, $\sum\limits_{i=1}^{2}y_{i} = 1$.  
+      \item Replacing $y_{i}=x_{i}\gamma_{i}P_{i}^{\text{sat}}/P$,
+         \begin{displaymath}
+            x_{1}\gamma_{1}P_{1}^{\text{sat}} + x_{2}\gamma_{2}P_{2}^{\text{sat}} = P
+         \end{displaymath}
+      \item For $x_{1} = 0.01$, $x_{2}=0.99$, $C_{12}=$0.1173 and $C_{21}=$0.4227, $\gamma_{1}=$ 13.0695 and $\gamma_{2}=$ 1.0007
+      \item With these numerical values, we can replace into the equation above,
+         \begin{displaymath}
+            (0.01)(13.0695)\exp\left[14.71712 - \frc{2975.95}{T-34.5228}\right] + (0.99)(1.0007)\exp\left[16.5362 - \frc{3985.44}{T-38.9974}\right] =  101.3
+         \end{displaymath}
+         Resulting in  $T= 361.71$ K -- the bubble point temperature of this acetone-water mixture.
+      \item At this temperature, the saturation pressure of acetone and water are $P_{1}^{\text{sat}}= 276.32$ kPa and $P_{2}^{\text{sat}} = 65.78$ kPa, respectively.
+      \item The vapour composition is
+         \begin{displaymath}
+             y_{1} =\frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P} = 0.3565\;\;\;\text{ and }\;\;\;\; y_{2} = 0.6435.
+         \end{displaymath} 
+   \end{itemize}
+   \end{MyExample} 
+
+% Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SolutionThermodynamics:Example7} %Nguyen (Ex 5.3.1)  
+         Find the bubble point pressure and vapor composition for a liquid mixture of 41.2 mol-$\%$ ethanol (1) and n-hexane (2) at 331 K. Given the Van Laar activity model equations:
 \begin{displaymath}
 \ln\gamma_{1} = \frc{A}{\left[1+\frc{A x_{1}}{B x_{2}}\right]^{2}}\;\;\;\; \ln\gamma_{2} = \frc{B}{\left[1+\frc{B x_{2}}{A x_{1}}\right]^{2}}\
 \end{displaymath}
@@ -907,9 +1082,10 @@ with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i
 \begin{displaymath}
    \ln P_{1}^{\text{sat}} = 16.1952 - \frc{3423.53}{T-55.7152} \;\;\;\text{ and }\;\;\; \ln P_{2}^{\text{sat}} = 14.0568 - \frc{2825.42}{T-42.7089}
 \end{displaymath}
+     \end{example}
 
 % SOLUTION
-       \noindent{\bf Solution:} 
+     \noindent{\bf Solution:}
 
    \begin{itemize}
       \item At 331 K,  $P_{1}^{\text{sat}}=$ 42.90 kPa and $P_{2}^{\text{sat}}=$ 70.54 kPa.
@@ -931,170 +1107,19 @@ with A = 2.409 and B = 1.970. Also, the vapour pressure $\left(\text{with } P_{i
             y_{1} = \frc{P_{1}}{P} = 0.3599\;\;\text{ and }\;\; y_{2} = \frc{P_{2}}{P} = 0.6401
          \end{displaymath}
    \end{itemize}
-
-\clearpage
-            
-%%%
-%%% EXAMPLE:  Nguyen (Ex 5.3.2)  
-%%%
-   \item\label{Mod05Ex04} Calculate the bubble point temperature and vapor composition for a liquid mixture of 1 mol-$\%$ acetone (1) and water (2) at 101.3 KPa. Given the Wilson activity model:
-   \begin{eqnarray}
-       &&\ln\gamma_{1} = -\ln\left(x_{1}+x_{2}C_{12}\right) + x_{2}\left(\frc{C_{12}}{x_{1}+x_{2}C_{12}}-\frc{C_{21}}{x_{2}+x_{1}C_{21}}\right) \nonumber \\
-       &&\ln\gamma_{2} = -\ln\left(x_{2}+x_{1}C_{21}\right) + x_{1}\left(\frc{C_{21}}{x_{2}+x_{1}C_{21}}-\frc{C_{12}}{x_{1}+x_{2}C_{12}}\right) \nonumber
-   \end{eqnarray}
-   with $C_{12}=$0.1173 and $C_{21}=$0.4227. Also, the vapour pressure $\left(\text{with } P_{i}^{\text{sat}}\text{ in kPa and } T\text{ in K}\right)$ is given by,
-\begin{displaymath}
-   \ln P_{1}^{\text{sat}} = 14.71712 - \frc{2975.95}{T-34.5228} \;\;\;\; \ln P_{2}^{\text{sat}} = 16.5362 - \frc{3985.44}{T-38.9974}
-\end{displaymath}
-
-% SOLUTION
-       \noindent{\bf Solution:} 
-
-   \begin{itemize}
-      \item Since the vapour mole fractions are unknown, we should start from the main composition constraint, $\sum\limits_{i=1}^{2}y_{i} = 1$.  
-      \item Replacing $y_{i}=x_{i}\gamma_{i}P_{i}^{\text{sat}}/P$,
-         \begin{displaymath}
-            x_{1}\gamma_{1}P_{1}^{\text{sat}} + x_{2}\gamma_{2}P_{2}^{\text{sat}} = P
-         \end{displaymath}
-      \item For $x_{1} = 0.01$, $x_{2}=0.99$, $C_{12}=$0.1173 and $C_{21}=$0.4227, $\gamma_{1}=$ 13.0695 and $\gamma_{2}=$ 1.0007
-      \item With these numerical values, we can replace into the equation above,
-         \begin{displaymath}
-            (0.01)(13.0695)\exp\left[14.71712 - \frc{2975.95}{T-34.5228}\right] + (0.99)(1.0007)\exp\left[16.5362 - \frc{3985.44}{T-38.9974}\right] =  101.3
-         \end{displaymath}
-         Resulting in  $T= 361.71$ K -- the bubble point temperature of this acetone-water mixture.
-      \item At this temperature, the saturation pressure of acetone and water are $P_{1}^{\text{sat}}= 276.32$ kPa and $P_{2}^{\text{sat}} = 65.78$ kPa, respectively.
-      \item The vapour composition is
-         \begin{displaymath}
-             y_{1} =\frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P} = 0.3565\;\;\;\text{ and }\;\;\;\; y_{2} = 0.6435.
-         \end{displaymath} 
-   \end{itemize}
-\clearpage
-            
-%%%
-%%% EXAMPLE:  ttp://people.cst.cmich.edu/teckl1mm/PChemI/Chm351Ch7aF01.htm
-%%%
-   \item\label{Mod05Ex05} The experimental value of the partial molar volume $\left(\text{cm}^{3}\text{.mol}^{-1}\right)$ of a aqueous solution of K$_{2}$SO$_{4}$ is given by
-                \begin{displaymath}
-                   \overline{V}_{A} = 32.280 + 18.216 m^{1/2},
-                \end{displaymath} 
- where $m$ is the molality (= number of moles per kg of water) of the K$_{2}$SO$_{4}$ . Use the Gibbs-Duhem equation to derive an equation for the partial molar volume of water in the solution. Plot $\overline{V}_{i}\;\;\times m$, with $0.0\leq m\leq 0.1$. The molar volume of pure water at 298.15 K is 18.079 cm$^{3}$.mol$^{-1}$ and the molar mass of pure water is 18 g.mol$^{-1}$.
-
-% SOLUTION
-       \noindent{\bf Solution:} For an easy notation, let's take K$_{2}$SO$_{4}$: $A$ and Water: $w$.
-\begin{itemize}
-  \item The Gibbs-Duhem equation for the partial molar volumes can be expressed as,
-     \begin{displaymath}
-        \sum\limits x_{i}d\overline{V}_{i} = x_{A} d\overline{V}_{A} + x_{w} d\overline{V}_{w} = 0,
-     \end{displaymath}
-     that after rearranging and integrating,
-     \begin{displaymath}
-        \int\limits_{\overline{V}_{w}=V_{w}^{\circ}}^{\overline{V}_{w}}d\overline{V}_{w} = \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{x_{A}}{x_{w}} d\overline{V}_{A},
-     \end{displaymath}
-     where $V_{w}^{\circ}$ is the molar volume of pure water at reference conditions (\ie at $T=$ 25$^{\circ}$C).
-
-  \item We can change the integration variable from $\overline{V}_{A}$ to $m$,
-      \begin{displaymath}
-         \overline{V}_{A} = 32.280 + 18.216 m^{1/2} \rightarrow \frc{d\overline{V}_{A}}{dm} = \frc{1}{2}\cdot 18.216 m^{-1/2} 
-      \end{displaymath} 
-  
-  \item Now, replacing it into the integral above,
-       \begin{eqnarray}
-          && \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{x_{A}}{x_{w}} \frc{1}{2}\cdot 18.216 m^{-1/2} dm \hspace{1cm} \red{\cdot\frc{n}{n}} \nonumber \\
-          && \overline{V}_{w} - V_{w}^{\circ} = -\int\frc{n_{A}}{n_{w}} \frc{1}{2}\cdot 18.216 m^{-1/2} dm, \nonumber
-       \end{eqnarray}
-       where $n$ is the total number of moles in the solution.
-
-  \item From the definition of molality, i.e., number of moles of K$_{2}$SO$_{4}$ per kg of water,
-       \begin{displaymath}
-           m = \frc{n_{A}}{n_{w}M_{w}} \Longrightarrow m\cdot M_{w} = \frc{n_{A}}{n_{w}},
-       \end{displaymath}
-       where $n_{A}$, $n_{w}$ are the number of moles of K$_{2}$SO$_{4}$ and water, respectively. $M_{w}$ is the molar mass of water.
-
-  \item Replacing in the equation above, 
-      \begin{eqnarray}
-         \overline{V}_{w} - V_{w}^{\circ} &=& -\int\limits_{0}^{m} m\cdot M_{w} \frc{1}{2}\cdot 18.216 m^{-1/2} dm \nonumber \\
-                                       &=& -9.108\; M_{w} \left. \frc{2}{3} m^{3/2}\right|_{0}^{m} \nonumber \\
-         \blue{\left(\text{where }\right.}&& \blue{\left. M_{w} = 18 \frc{\text{g}}{\text{mol}} = 0.018 \frc{\text{kg}}{\text{mol}}\right)} \nonumber \\
-         \overline{V}_{w} &=&  18.079 - 0.1093 m^{3/2} \nonumber 
-      \end{eqnarray}
-
-  \item In order to plot $\overline{V}_{i}\;\;\times m$, with $0.0\leq m\leq 0.1$, we can use the defined equations above to set  up the table:  
-        \begin{center}
-          \begin{tabular}{|c | c c |}
-            \hline
-            ${\bf m (mol/kg)}$ & ${\bf \overline{V}_{A}}$ & ${\bf \overline{V}_{w}}$ \\
-            \hline
-              0.00  & 32.2800 &  18.0790 \\
-              0.05  & 36.6353 &  18.0778 \\
-              0.10  & 38.0404 &  18.0755 \\
-             \hline
-          \end{tabular}
-        \end{center}
-          \begin{center}
-              \includegraphics[width=0.75\columnwidth,clip]{./../Pics/Example04_Pic}
-          \end{center}
-\end{itemize}
-
-
-\clearpage
-            
-%%%
-%%% EXAMPLE:  NPTEl (Ex 6.3)
-%%%
-   \item\label{Mod05Ex06} What is the change in entropy when 0.6 m$^{3}$ of CO$_{2}$ and 0.4 m$^{3}$ of N$_{2}$, each at 1 bar and 25 $^{\circ}$C blend to form a gas mixture at the same conditions. Assume ideal gas behaviour and that {\it mole fraction = volume fraction}. 
-
-% SOLUTION
-       \noindent{\bf Solution:} For an ideal gas, with the assumption of {\it mole fraction = volume fraction}, \ie $y_{1} = 0.6$ and $y_{2} = 0.4$, with CO$_{2}$:1 and N$_{2}$:2.
-      \begin{displaymath}
-          \Delta_{\text{mix}}\overline{s}^{\text{igm}} = -R\summation[y_{i}\ln{y_{i}}]{i=1}{2} = 5.5954 \text{ J.(mol.K)}^{-1}
-      \end{displaymath}
-
-
-\clearpage
-            
-%%%
-%%% EXAMPLE:  SM&VN 10.20 (pg 350)
-%%%
-   \item\label{Mod05Ex07}  For the acetone (Ket) / methanol (MetOH) system, a vapour mixture of $z_{\text{Ket}}$ = 0.25 and $z_{\text{MetOH}}$ = 0.75 is cooled to temperature $T$ in the two-phase region and flows into a separation chamber at a pressure of 1 bar. If the composition of the liquid product is $x_{\text{Ket}}$ = 0.175, calculate $T$  and $y_{\text{Ket}}$. For liquid mixture, assume that
-\begin{displaymath}
-\ln\gamma_{1} = 0.64x_{2}^{2} \;\;\;\;\;\text{ and }\;\;\;\;\;\ln\gamma_{2}=0.64x_{1}^{2}
-\end{displaymath}
-For the Antoine equation, 
-\begin{displaymath}
-\ln P_{i}^{\text{sat}} = A_{i} - \frc{B_{i}}{T + C} \;\;\left(\text{ [P] = kPa and [T] = }^{\circ}\text{C}\right)
-\end{displaymath}
-$A_{\text{Ket}}$ = 14.3145, $B_{\text{Ket}}$ = 2756.22$^{\circ}$C, $C_{\text{Ket}}$ = 228.060$^{\circ}$C, $A_{\text{MetOH}}$ = 16.5785, $B_{\text{MetOH}}$ = 3638.27$^{\circ}$C, $C_{\text{MetOH}}$ = 239.50$^{\circ}$C.
-
-% SOLUTION
-       \noindent{\bf Solution:} This is a typical flash problem for separation of acetone (1) and methanol (2). The feed stream contains 25$\%$-mol of acetone, \ie $z_{1}=0.25$, and after the separation at 1 bar, the resulting liquid stream contains 17.5$\%$-mol, \ie $x_{1}=0.175$. The problem requires temperature of the separation and composition of the gas stream, $y_{i}$. As $\gamma_{i}$ is given, we can consider that the liquid mixture is {\bf not ideal}, therefore the modified Raoult's law can be used,
-\begin{displaymath}
-    y_{i}P = x_{i}\gamma_{i}P_{i}^{\text{sat}} \;\;\;\longrightarrow y_{1}=\frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P}
-\end{displaymath}
-    
-  \begin{figure}[h]
-     \begin{center}
-         \includegraphics[width=.25\linewidth,clip]{./Figs/FlashDistillation}
-     \end{center}
-     \caption{Schematic of a flash process, Example~\ref{Mod05Ex07}.}
-  \end{figure}
-
- Using the material balance derived in Section~\ref{Section:04:FlashDistillation},
-\begin{eqnarray}
-    && Fz_{1} = x_{1}L + y_{1}V\;\;\text{ and for } \;F=1\;\text{ (\ie normalised stream fractions)}\;\;\;\longrightarrow F = L + V = 1,\text{ leading to} \nonumber \\
-    && z_{1} = x_{1}L + \frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{p}\left(1-L\right)\;(\star)\;\; \text{ with }\;\; P=\summation[P_{i}]{i}{} = y_{1}P + y_{2}P = x_{1}\gamma_{1}P_{1}^{\text{sat}} + x_{2}\gamma_{2}P_{2}^{\text{sat}}\;(\dagger),\nonumber
-\end{eqnarray}
-therefore, we have 2 equations and 2 unknowns, $L$ and $T$. Let's solve ($\dagger$) first for $T$ with $\gamma_{1}=1.5459$ and $\gamma_{2}=1.0198$
-   \begin{displaymath}
-       P = x_{1}\gamma_{1}P_{1}^{\text{sat}} + x_{2}\gamma_{2}P_{2}^{\text{sat}} = 100 \text{ kPa} \;\;\;\Rightarrow\;\;\; T = 59.5309\text{ K}
-   \end{displaymath}
- With $T$, we can solve ($\star$) for $L$,
-   \begin{eqnarray}
-       && z_{1} = x_{1}L + \frc{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{p}\left(1-L\right) \nonumber \\
-       && L = \frc{z_{1} - \frac{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P}}{x_{1} - \frac{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P}} = 0.4306\;\;\rightarrow \;\; V = 0.5694 \nonumber \\
-       && y_{1} = \frac{x_{1}\gamma_{1}P_{1}^{\text{sat}}}{P} = 0.3067\;\;\rightarrow \;\; y_{2} = 0.6933\nonumber
-   \end{eqnarray}
+           
+   \end{MyExample} 
  
 
-
-
-\end{enumerate}
+\clearpage   
+\begin{FinalSummaryBlock}{Summary}
+     This aim of this chapter is to introduce definitions and applications of fugacity and activity to solution thermodynamics. This will lay down the strategy to solve problems involving vapour-liquid equilibrium (and solutions in particular) and very diluted solutions. 
+    \begin{itemize}
+       \item Fugacity of a real gas is formally defined as function of the chemical potential in Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1b} as a representation of the pressure of an ideal gas that has the same chemical potential as the real gas;
+       \item Lewis-Randall rules (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity2a}) establishes a relationship between phase compositions and fugacities; 
+       \item Activity coefficient of a chemical species (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:activity1f}-\ref{Chapter:SolutionThermodynamics:Eqn:activity1g}) can be defined as an adjustment that relates the actual behaviour to the ideal behaviour of a solution at the same pressure and temperature conditions;
+       \item A modified Raoult's equation was introduced in Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:RaoultLaw} to take into account non-idealities of the liquid solution;
+       \item Gibbs-Duhem equation (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1e}) establishes a relationship between any thermodynamic potential, temperature, pressure and composition;
+       \item Activity coefficient models are used to represent the thermodynamic behaviour of solutions in a similar way that equations of state are used to represent the PVT behaviour of gases.
+    \end{itemize}
+\end{FinalSummaryBlock}
