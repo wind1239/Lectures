@@ -267,6 +267,41 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
 
 \end{subequations}
 
+  % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ChemicalReactions:Example1}%  Elliot & Lira (Ex 3.4) 
+        Five moles of hydrogen, two moles of CO and 1.5 moles of CH$_{3}$OH vapour are combined in a batch methanol synthesis reactor (closed system) at 500 K and 1 MPa. Develop expressions for compositions (\ie mole fractions) of the species in terms of the reaction coordinate. The components are known to react with the following stoichiometry:
+  \begin{displaymath}
+      2 H_{2} (g) + CO (g) \Longleftrightarrow CH_{3}OH (g).
+  \end{displaymath}
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+       We need to develop expressions for each species in the gaseous form. In the equilibrium, the molar stoichiometric coefficient and the initial number of moles are:
+    \begin{displaymath}
+       \begin{cases}
+         \nu = \sum\limits_{i}\nu_{i}= (-2)+(-1)+(+1)= -2 \;\;\text{ and } \\
+         n_{0} = \sum\limits_{i}n_{i,0}= 5 + 2 + 1.5 = 8.5,
+       \end{cases}
+    \end{displaymath} 
+    respectively. Mole fraction of each species is given by
+    \begin{displaymath}
+          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0}+\nu_{i}\epsilon}{n_{0}+\nu\epsilon},
+    \end{displaymath}
+    where the the total number of moles in equilibrium is $n=8.5-2\epsilon$, thus
+    \begin{displaymath}
+       \begin{cases}
+         y_{\text{H}_{2}} = \frc{5-2\epsilon}{8.5-2\epsilon}, \\
+         \\
+         y_{\text{CO}} = \frc{2-\epsilon}{8.5-2\epsilon}\\
+         \\
+          y_{\text{CH}_{3}\text{OH}}=\frc{1.5+\epsilon}{8.5-2\epsilon}
+       \end{cases}
+    \end{displaymath}
+    
+   \end{MyExample} 
+
 %%% SECTION
 \section{Standard Enthalpy of Reaction}\label{Chapter:ChemicalReactions:Section:EnthalpyGibbsReaction}\index{Enthalpy! of reaction}\index{Enthalpy! of combustion}\index{Enthalpy! of formation}\index{Standard enthalpy of formation|see{Enthalpy}}\index{Standard enthalpy of reaction|see{Enthalpy}}\index{Standard enthalpy of combustion|see{Enthalpy}}
 \begin{subequations}
@@ -406,6 +441,216 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
       \end{shaded}
 
 
+  % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ChemicalReactions:Example2} %  Nguyen (Ex 6.6.1)  
+       Ethylene is produced from the decomposition of ethane,
+       \begin{displaymath}
+          C_{2}H_{6} (g) \Longleftrightarrow C_{2}H_{4} (g) + H_{2} (g) 
+       \end{displaymath} 
+       Determine the equilibrium composition at 1000$^{\circ}$C and 1 atm. Assume that, initially, there is 1 mol of ethane. Given,
+       \begin{center}
+           \begin{tabular}{|c c c c|}
+           \hline
+                                        &  C$_{2}$H$_{6}$ (g) & C$_{2}$H$_{4}$ (g) &  H$_{2}$ (g)  \\ 
+           \hline
+             $\Delta G^{\circ}_{\text{f,298}}$  &  -32.84            &  68.15           & 0.0           \\
+                   (kJ/mol)             &                    &                  &               \\
+           \hline
+             $\Delta H^{\circ}_{\text{f,298}}$  &  -84.68            &  52.26           & 0.0           \\
+                   (kJ/mol)             &                    &                  &               \\
+           \hline 
+           \end{tabular}
+       \end{center}
+       where $\Delta G^{\circ}_{\text{f,298}}$ and $\Delta H^{\circ}_{\text{f,298}}$ are the standard state Gibbs energy and enthalpy of formation. 
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+        First we need to determine the standard state Gibbs energy of reaction,
+         \begin{eqnarray}
+             \Delta G^{\circ}_{\text{r,298}} &=& \sum\limits_{i}\nu_{i}\left(\Delta G^{\circ}_{\text{f,298}}\right)_{i} \nonumber \\
+                                     &=& (+1).(68.15)+ (1).(0.0) + (-1).(-32.84) = 100.99\; \text{kJ/mol} \nonumber
+         \end{eqnarray}
+       The equilibrium constant can be obtained from,
+         \begin{displaymath}
+            K = \exp\left(-\frc{\Delta G^{\circ}_{\text{r,298}}}{RT}\right) = exp\left(-\frc{100.99\times 10^{3}}{(8.314).(298.15)}\right) = 2.0246\times 10^{-18}
+         \end{displaymath}
+       The Van't Hoff equation can be used to calculate the equilibrium constant at temperature $T$,
+         \begin{displaymath}
+            \frc{\partial\left(\ln K\right)}{\partial T} = \frc{\Delta H^{\circ}_{\text{r}}}{RT^{2}}
+         \end{displaymath}
+       Before we can integrate the Van't Hoff equation, we first need to determine the standard heat of reaction, $\Delta H^{\circ}_{\text{r}}$,
+         \begin{eqnarray}
+            \Delta H^{\circ}_{\text{r}} &=& \sum\limits_{i} \nu_{i}\left(\Delta H^{\circ}_{\text{f,298}}\right)_{i} \nonumber \\
+                                 &=& (+1).(52.26) + (+1).(0.0) + (-1).(-84.68) = 136.94\;\text{kJ/mol}\nonumber
+         \end{eqnarray}
+       Now integrating the Van't Hoff equation from 298.15 K to 1273.15 K,
+         \begin{eqnarray}
+            \ln\frc{K_{1273}}{K_{298}} &=& -\frc{\Delta H^{\circ}_{\text{r}}}{R}\left(\frc{1}{T}-\frc{1}{298.15}\right) \nonumber \\
+            \ln\frc{K_{1273}}{2.0246\times 10^{-18}} &=& -\frc{136.94\times 10^{3}}{8.314}\left(\frc{1}{1273.15}-\frc{1}{298.15}\right) \nonumber \\
+            K_{1273} &=& 4.7859 \nonumber
+         \end{eqnarray} 
+       The equilibrium constant $K$ can also be expressed as a function of the components' activities,
+         \begin{displaymath}
+            K = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}} = \frc{a_{\text{C}_{2}\text{H}_{4}}a_{\text{H}_{2}}}{a_{\text{C}_{2}\text{H}_{6}}} = \frc{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{4}}}{\overline{f}^{\circ}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{\overline{f}_{\text{H}_{2}}}{\overline{f}^{\circ}_{\text{H}_{2}}}\right)}{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{6}}}{\overline{f}^{\circ}_{\text{C}_{2}\text{H}_{6}}}\right)}
+         \end{displaymath}
+         Assuming ideal gas behaviour, $\overline{f}_{i}=P_{i}$, $\overline{f}_{i}^{\circ}=P^{\circ}_{\text{C}_{2}\text{H}_{6}}=P^{\circ}_{\text{C}_{2}\text{H}_{4}}=P^{\circ}_{\text{H}_{2}}=$ 1 atm. Thus,
+         \begin{displaymath}
+            K = \frc{a_{\text{C}_{2}\text{H}_{4}}a_{\text{H}_{2}}}{a_{\text{C}_{2}\text{H}_{6}}} = \frc{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{4}}}{\overline{f}^{\circ}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{\overline{f}_{\text{H}_{2}}}{\overline{f}^{\circ}_{\text{H}_{2}}}\right)}{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{6}}}{\overline{f}^{\circ}_{\text{C}_{2}\text{H}_{6}}}\right)} = \frc{\left(\frc{P_{\text{C}_{2}\text{H}_{4}}}{P^{\circ}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{P_{\text{H}_{2}}}{P^{\circ}_{\text{H}_{2}}}\right)}{\left(\frc{P_{\text{C}_{2}\text{H}_{6}}}{P^{\circ}_{\text{C}_{2}\text{H}_{6}}}\right)} = \frc{\left(\frc{y_{\text{C}_{2}\text{H}_{4}}P}{1\text{ atm}}\right)\left(\frc{y_{\text{H}_{2}}P}{1\text{ atm}}\right)}{\left(\frc{y_{\text{C}_{2}\text{H}_{6}}P}{1\text{ atm}}\right)}          
+         \end{displaymath}
+         Since $P=$ 1 atm,
+         \begin{displaymath}
+            K = \frc{\left(\frc{y_{\text{C}_{2}\text{H}_{4}}P}{1\text{ atm}}\right)\left(\frc{y_{\text{H}_{2}}P}{1\text{ atm}}\right)}{\left(\frc{y_{\text{C}_{2}\text{H}_{6}}P}{1\text{ atm}}\right)} = \frc{\left(y_{\text{C}_{2}\text{H}_{4}}\right)\left(y_{\text{H}_{2}}\right)}{\left(y_{\text{C}_{2}\text{H}_{6}}\right)} = 4.7859
+         \end{displaymath}
+         This equation can not be solved as there are two unknowns $\left(\text{remember that }\summation[y_{i}]{i=1}{3}=1\right)$. The number of unknowns can be decreased if we make use of
+         \begin{displaymath}
+           y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0}+\nu_{i}\epsilon}{n_{0}+\nu\epsilon}.
+         \end{displaymath}
+         with 
+         \begin{displaymath}
+            \nu = \sum\limits_{i}\nu_{i}= (-1)+(+1)+(+1)= 1 \;\;\text{ and }\;\; n_{0} = \sum\limits_{i}n_{i,0}= 1 + 0 + 0 = 1,
+         \end{displaymath} 
+       Thus,
+         \begin{displaymath}
+             y_{\text{C}_{2}\text{H}_{6}} = \frc{1-\epsilon}{1+\epsilon},\;\;y_{\text{C}_{2}\text{H}_{4}} = \frc{\epsilon}{1+\epsilon}\;\text{ and }\;y_{\text{H}_{2}} = \frc{\epsilon}{1+\epsilon}
+         \end{displaymath}
+       Replacing the compositions in the expression for $K$,
+         \begin{eqnarray}
+           K  &=& \frc{\left(y_{\text{C}_{2}\text{H}_{4}}\right)\left(y_{\text{H}_{2}}\right)}{\left(y_{\text{C}_{2}\text{H}_{6}}\right)} = \frc{\left(\frc{\epsilon}{1+\epsilon}\right)^{2}}{\left(\frc{1-\epsilon}{1+\epsilon}\right)} =4.7859 \nonumber \\
+            &&\epsilon = 0.9095 \nonumber
+         \end{eqnarray}
+        The equilibrium concentration of C$_{2}$H$_{4}$(g) is $y_{\text{C}_{2}\text{H}_{4}} =$ 0.4763 $=y_{\text{H}_{2}}$ and $y_{\text{C}_{2}\text{H}_{6}}=$ 0.0474.
+   \end{MyExample} 
+
+  % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ChemicalReactions:Example3}  % Nguyen (Ex 6.7.2)
+       Determine the equilibrium conversion for the liquid-phase isomerisation reaction of methylcyclopentane $\left(\text{CH}_{3}\text{C}_{5}\text{H}_{9}\right)$ to cyclohexane $\left(\text{C}_{6}\text{H}_{12}\right)$ at 25$^{\circ}$C. Gibbs energies of formation are given at 25$^{\circ}$C as:
+  \begin{displaymath}
+     \left(\Delta G^{\circ}_{\text{f,298}}\right)_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}} = 31.72 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{\text{C}_{6}\text{H}_{12}} = 26.89 \text{ kJ.mol}^{-1}.
+  \end{displaymath}
+  Also, assume that this isomerisation reaction occurs at relatively low pressure, and therefore $\frc{f_{i}}{f^{\circ}_{i}}=1$. Also, assume that solution is ideal.
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+        The isomerisation reaction can be represented by,
+    \begin{displaymath}
+        CH_{3}C_{5}H_{9} (l) \Longleftrightarrow C_{6}H_{12} (l)
+    \end{displaymath}
+    We need to determine the equilibrium constant at room temperature
+         \begin{eqnarray}
+           \Delta G^{\circ}_{r,298} &=& \sum\limits_{i}\nu_{i}\Delta G^{\circ}_{\text{f,298}} \nonumber \\
+                             &=& (+1).\left(\Delta G^{\circ}_{\text{f,298}}\right)_{\text{C}_{6}\text{H}_{12}} + (-1).\left(\Delta G^{\circ}_{\text{f,298}}\right)_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}} \nonumber \\ 
+                             &=& 26.89-31.72 = -4.83 \text{ kJ/mol} \nonumber
+         \end{eqnarray}
+       The equilibrium constant is
+         \begin{displaymath}
+             K = \exp\left(-\frc{\Delta G^{\circ}_{r,298}}{RT}\right) = \exp\left(-\frc{-4830}{(8.314).(298.15)}\right) = 7.0182
+         \end{displaymath}
+       The equilibrium constant can also be obtained from 
+         \begin{displaymath}
+            K = \prod\limits_{i}\left(\frc{\overline{f}_{i}}{\overline{f}^{\circ}_{i}}\right)^{\nu_{i}} = \prod\limits_{i}\left(\frc{x_{i}\gamma_{i} f_{i}}{\overline{f}^{\circ}_{i}}\right)^{\nu_{i}}
+         \end{displaymath}
+       At room pressure conditions, the ratio $\frc{f_{i}}{\overline{f}^{\circ}_{i}} = \frc{f_{i}}{f_{i}^{\circ}} = \exp\left[\frc{V\left(P-P^{\circ}\right)}{RT}\right]=1$, therefore,
+         \begin{displaymath}
+            K = \prod\limits_{i}\left(\frc{x_{i}\gamma_{i}f_{i}}{\overline{f}^{\circ}_{i}}\right)^{\nu_{i}} = \prod\limits_{i}\left(x_{i}\gamma_{i}\right)^{\nu_{i}}
+         \end{displaymath}
+       For ideal solution,
+         \begin{displaymath}
+            K = \prod\limits_{i=1}^{\mathcal{C}}\left(x_{i}\gamma_{i}\right)^{\nu_{i}} = \prod\limits_{i}\left(x_{i}\right)^{\nu_{i}} = \left(x_{\text{C}_{6}\text{H}_{12}}\right).\left(x_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}}\right)^{-1} = 7.0182,
+         \end{displaymath}
+         as $\summation[x_{i}]{i}{}=1$, we could easily solve the equation above as $x_{\text{C}_{6}\text{H}_{12}}\left(1-x_{\text{C}_{6}\text{H}_{12}}\right)=7.0182$, and obtain $x_{\text{C}_{6}\text{H}_{12}}=0.8753$. Alternatively, one could obtain a relation between composition and the reaction coordinate, $\varepsilon$,
+         \begin{displaymath}
+            x_{i} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
+         \end{displaymath}
+         where $\nu = (-1) + (1) = 0$ and assuming that initially there are $n_{\text{CH}_{3}\text{C}_{5}\text{H}_{9},0}=1$ and $n_{\text{C}_{6}\text{H}_{12},0}=0$,
+         \begin{displaymath}
+            x_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}} = 1-\varepsilon\;\;\;\;\;\text{ and }\;\;\;\;\;\; x_{\text{C}_{6}\text{H}_{12}} = \varepsilon.
+         \end{displaymath}
+         Now, replacing in the expression above, 
+         \begin{displaymath}
+             K = \left(x_{\text{C}_{6}\text{H}_{12}}\right).\left(x_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}}\right)^{-1} = \frc{\varepsilon}{1-\varepsilon} = 7.0182 \;\;\;\; \Longrightarrow \;\;\;\;\; \epsilon = 0.8753 
+         \end{displaymath}
+         Thus, $x_{\text{C}_{6}\text{H}_{12}}=0.8753$ and $x_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}}=0.1247$.
+   \end{MyExample} 
+
+  % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ChemicalReactions:Example4} % Sandler (Ex 13.1.1, pg. 713)
+       Calculate the equilibrium extent of decomposition of nitrogen tetroxide $\left(N_{2}O_{4}\right)$,
+  \begin{displaymath}
+     N_{2}O_{4} (g) \Longleftrightarrow 2 NO_{2} (g)
+  \end{displaymath}
+  at 298.15 K and 1 atm. Assume that the gas mixture behaves as an ideal gas and the Gibbs energies of formation at 25$^{\circ}$C are:
+  \begin{displaymath}
+     \left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} = 97.89 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} = 51.31 \text{ kJ.mol}^{-1}.
+  \end{displaymath}
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+     The equilibrium constant is
+         \begin{displaymath}
+             K = \exp\left(-\frc{\Delta G^{\circ}_{r,298}}{RT}\right) = \frc{a_{NO_{2}}^{2}}{a_{N_{2}O_{4}}} = \frc{\left(\frc{y_{NO_{2}}P}{P^{\circ}_{NO_{2}}}\right)^{2}}{\left(\frc{y_{N_{2}O_{4}}P}{P^{\circ}_{N_{2}O_{4}}}\right)} = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)},
+         \end{displaymath}
+         where the standard Gibbs energy of reaction is
+         \begin{eqnarray}
+           \Delta G^{\circ}_{r,298} &=& \sum\limits_{i}\nu_{i}\Delta G^{\circ}_{\text{f,298}} \nonumber \\
+                             &=& (+2).\left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} + (-1).\left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} \nonumber \\ 
+                             &=& 4730 \text{ J/mol}, \nonumber
+         \end{eqnarray}
+         and the equilibrium constant,
+         \begin{displaymath}
+             K = \exp\left(-\frc{\Delta G^{\circ}_{r,298}}{RT}\right) = 0.1484 = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)}
+         \end{displaymath}
+         Composition and reaction coordinate are related through
+         \begin{displaymath}
+            y_{i} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
+         \end{displaymath}
+         where, assuming that the initial number of moles are $n_{N_{2}O_{4},0}=1$ and $n_{NO_{2},0}=0$, an $\nu= 2-1 = 1$,
+         \begin{displaymath}
+            y_{N_{2}O_{4}} = \frc{1-\varepsilon}{1+\varepsilon}\;\;\;\;\;\text{ and }\;\;\;\;\;\; y_{NO_{2}} = \frc{2\varepsilon}{1+\varepsilon},
+         \end{displaymath}
+         leading to
+         \begin{displaymath}
+             K = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)} = \frc{\left(\frc{2\varepsilon}{1+\varepsilon}\right)^{2}}{\left(\frc{1-\varepsilon}{1+\varepsilon}\right)} = 0.1484 \;\;\;\;\Longrightarrow\;\;\;\; \varepsilon = 0.1891
+         \end{displaymath}
+         Thus: $y_{NO_{2}} = 0.3181$ and $y_{N_{2}O_{4}} = 0.6819$.
+   \end{MyExample} 
+
+
+  % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ChemicalReactions:Example5}  % Sandler (Ex 13.1.2, pg. 714)
+       Pure nitrogen tetroxide $\left(N_{2}O_{4}\right)$ at a low temperature is diluted with nitrogen $\left(N_{2}\right)$ and heated to 298.15 K and 1 atm. If the initial mole fraction of $N_{2}O_{4}$ in the $N_{2}O_{4}-N_{2}$ mixture before the dissociation begins is 0.20, what is the extent of the decomposition, 
+  \begin{displaymath}
+     N_{2}O_{4} (g) \Longleftrightarrow 2 NO_{2} (g)
+  \end{displaymath}
+  and the mole fractions of $NO_{2}$ and $N_{2}O_{4}$ present at equilibrium? Assume that the gas mixture behaves as an ideal gas and the Gibbs energies of formation at 25$^{\circ}$C are:
+  \begin{displaymath}
+     \left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} = 97.89 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} = 51.31 \text{ kJ.mol}^{-1}.
+  \end{displaymath}
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+     Here, nitrogen is an inert species, \ie it is used to dilute the reactant gas, $N_{2}O_{4}$, but do not participate in the decomposition reaction, thus $\nu_{N_{2}}=0$. In Example~\ref{Chapter:ChemicalReactions:Example4}, we have already calculated the equilibrium constant, $K = 0.1484$, and used 
+         \begin{displaymath}
+            y_{i} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
+         \end{displaymath}
+         to calculate the equilibrium composition. The overall molar stoichiometric coefficient $\nu= 2-1-0 = 1$ remains the same, however, now the initial reactive composition is (assuming 1 mol of the reactant mixture) $n_{N_{2}O_{4},0} = 0.2$, $n_{N_{2},0} = 0.8$ and $n_{NO_{2},0}=0$. 
+         \begin{displaymath}
+           y_{N_{2}O_{4}} = \frc{0.2-\varepsilon}{1+\varepsilon},\;\;\;\;\; y_{N_{2}} = \frc{0.8}{1+\varepsilon}\;\;\;\text{ and }\;\;\;y_{NO_{2}} = \frc{2\varepsilon}{1+\varepsilon}.
+         \end{displaymath}
+         Leading to
+         \begin{displaymath}
+             K = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)} = \frc{\left(\frc{2\varepsilon}{1+\varepsilon}\right)^{2}}{\left(\frc{0.2-\varepsilon}{1+\varepsilon}\right)} = 0.1484 \;\;\;\;\Longrightarrow\;\;\;\; \varepsilon = 0.0715,
+         \end{displaymath}
+         with equilibrium compositions of $y_{NO_{2}} = 0.1335$, $y_{N_{2}O_{4}} = 0.1199$ and $y_{N_{2}} = 0.7466$. 
+   \end{MyExample} 
+
 %%% SUBSECTION
 \subsection{Dependence of $K$ with Temperature}\label{Chapter:ChemicalReactions:Section:K_Temperature}\index{Chemical reaction!Van't Hoff equation}\index{Van't Hoff equation|see{Chemical reaction}}\index{Endothermic reactions}\index{Exothermic reactions}\index{Chemical reaction!Equilibrium constant}\index{Enthalpy! of reaction}
       The equilibrium constant $K$ is strongly dependent on the system temperature, and therefore it is important to be able to define it at any reaction conditions. The {\it Van't Hoff} equation provides a way to correlate $K$ and the enthalpy of reaction $\left(\Delta H^{\circ}_{r}\right)$, using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsGeneratingFunctionPConst} (for constant pressure conditions) at standard state, 
@@ -444,6 +689,98 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
       \end{displaymath}
       Reactions that present positive $\Delta H^{\circ}$ (\ie negative slope) are called {\it endothermic}, \ie equilibrium constant rises as the temperature is increased (or in other words, heat is given to the reactive system to promote the reaction). Similarly, negative $\Delta H^{\circ}$ (\ie positive slope) are called {\it exothermic}, \ie an increase in temperature leads to a decrease in the equilibrium constant (heat is transferred from the reactive system to the surroundings).
 
+  % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:ChemicalReactions:Example6} % Sandler (Ex 13.1.3, pg. 718)
+       Calculate the equilibrium extent of decomposition of nitrogen tetroxide $\left(N_{2}O_{4}\right)$,
+  \begin{displaymath}
+     N_{2}O_{4} (g) \Longleftrightarrow 2 NO_{2} (g)
+  \end{displaymath}
+  at 250 K and 400 K and 1 atm. Assume that the gas mixture behaves as an ideal gas and the Gibbs energies of formation at 25$^{\circ}$C are:
+  \begin{displaymath}
+     \left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} = 97.89 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} = 51.31 \text{ kJ.mol}^{-1}.
+  \end{displaymath}
+  Also, the standard enthalpy of reaction at 25$^{\circ}$C is 56.189 kJ.mol$^{-1}$. Heat capacity $\left(\text{in J.mol}^{-1}\text{.K}^{-1}\right)$ for both gases are expressed in a polynomial form,
+  \begin{displaymath}
+    C_{p} = a + bT + CT^{2} + dT^{3},
+  \end{displaymath}
+  where
+  \begin{center}
+    \begin{tabular}{ l | c c c c }
+      \hline
+                         &  $a$     &  $b\times 10^{-2}$  & $c\times 10^{-5}$  & $d\times 10^{-9}$ \\
+                         &$\left(\text{J.mol}^{-1}\text{.K}^{-1}\right)$& $\left(\text{J.mol}^{-1}\text{.K}^{-2}\right)$& $\left(\text{J.mol}^{-1}\text{.K}^{-3}\right)$& $\left(\text{J.mol}^{-1}\text{.K}^{-4}\right)$ \\
+      \hline
+      NO$_{2}$             &  22.929 &      5.711          & -3.519            & 7.866 \\
+      N$_{2}$O$_{4}$       &   33.054 &      18.661         &    -11.339        &  -- 
+    \end{tabular}
+  \end{center}
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:}
+     In order to calculate composition at equilibrium, we need to calculate the equilibrium constant, $K$, at 250 K and 400 K through the Van't Hoff equation,
+\begin{displaymath}
+    \frc{d\left(\ln{K}\right)}{dT} = \frc{\Delta H^{\circ}_{r}}{RT^{2}} \;\;\;\Longrightarrow \;\;\; \ln{\left(\frc{K(T)}{K(298.15\text{ K})}\right)} = \int\limits_{298.15\text{ K}}^{T}\frc{\Delta H^{\circ}_{r}}{RT^{2}}dT.
+\end{displaymath}
+We have already calculated $K$ at 298.15 in Example~\ref{Chapter:ChemicalReactions:Example4}, $K= 0.1484$. The standard heat of reaction is obtained from the fundamental enthalpy relation, $dH= C_{p}dT$, and 
+\begin{displaymath}
+     \Delta H^{\circ}_{r} = \summation[\nu_{i}\Delta H^{\circ}_{i,f}]{i}{} \;\;\;\Longrightarrow\;\;\; \int\limits_{\Delta H^{\circ}_{r,298.15}}^{\Delta H^{\circ}_{r,T}}d\left(\Delta H^{\circ}_{r}\right) = \int\limits_{298.15\text{ K}}^{T}\summation[\nu_{i} C_{p,i}]{i}{}dT.
+\end{displaymath}
+The first stage in this calculation is to obtain an expression for the right-hand side integration, \ie the summation term $\Delta C_{p}^{\circ} = \summation[\nu_{i} C_{p,i}]{i}{}$, using (for simplicity in the notation) $NO_{2}$:1 and $N_{2}O_{4}$:2,
+\begin{eqnarray}
+   \Delta C_{p}^{\circ} &=& \summation[\nu_{i} C_{p,i}]{i}{} = (+2) \left(a_{1}+b_{1}T+c_{1}T^{2}+d_{1}T^{3}\right) + (-1)\left(a_{2}+b_{2}T+c_{2}T^{2}+d_{2}T^{3}\right) \nonumber \\
+                     &=& 12.804 - 7.239\times 10^{-2}T + 4.301\times 10^{-5} T^{2} + 15.732\times 10^{-9}T^{3} \nonumber 
+\end{eqnarray}
+And the integration becomes $\left(\text{with }\Delta H^{\circ}_{r,298.15} = 56189\text{ J.mol}^{-1}\right)$
+\begin{eqnarray}
+    && \Delta H^{\circ}_{r}(T) - \Delta H^{\circ}_{r,298.15} = \int\Delta C_{p}^{\circ}dT \nonumber \\
+    && \Delta H^{\circ}_{r}(T) = 56189 + 12.804 T - \frc{7.239\times 10^{-2}}{2}T^{2} + \frc{4.301\times 10^{-5}}{3}T^{3} + \frc{15.732\times 10^{-9}}{4}T^{4} \nonumber
+\end{eqnarray}
+Now, using the Van't Hoff equation,
+\begin{eqnarray}
+  \ln{\left(\frc{K(T)}{K_{298.15\text{ K}}}\right)} &=& \int\limits_{298.15\text{ K}}^{T}\frc{\Delta H^{\circ}_{r}}{RT^{2}}dT \nonumber \\
+                                                &=& \frc{1}{R}\int\limits_{298.15\text{ K}}^{T} \left[\frc{56189}{T^{2}} + \frc{12.804}{T} - \frc{7.239\times 10^{-2}}{2} + \frc{4.301\times 10^{-5}}{3}T + \right. \nonumber \\
+                                                 && \hspace{3cm}\left.\frc{15.732\times 10^{-9}}{4}T^{2}\right]dT \nonumber \\
+                                                &=& \frc{1}{R}\left[-\frc{56189}{T} + 12.804\ln{T} - \frc{7.239\times 10^{-2}}{2}T + \frc{4.301\times 10^{-5}}{6}T^{2} + \right.
+                                                &&\hspace{3cm}\left.\frc{15.732\times 10^{-9}}{12}T^{3}\right]_{298.15\text{ K}}^{T} \nonumber
+\end{eqnarray}
+Solving this integral for
+\begin{displaymath}
+  \begin{cases}
+      K_{250\text{ K}} = 1.7298\times 10^{-3} \\
+      K_{400\text{ K}} = 51.4338
+  \end{cases}  
+\end{displaymath}
+Now, using the expression obtained in Example~\ref{Example:4} for composition, assuming that the initial number of moles are $n_{N_{2}O_{4},0}=1$ and $n_{NO_{2},0}=0$, and $\nu= 2-1 = 1$,
+         \begin{displaymath}
+            y_{N_{2}O_{4}} = \frc{1-\varepsilon}{1+\varepsilon}\;\;\;\;\;\text{ and }\;\;\;\;\;\; y_{NO_{2}} = \frc{2\varepsilon}{1+\varepsilon},
+         \end{displaymath}
+         leading to
+         \begin{displaymath}
+             K = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)} = \frc{\left(\frc{2\varepsilon}{1+\varepsilon}\right)^{2}}{\left(\frc{1-\varepsilon}{1+\varepsilon}\right)}
+         \end{displaymath}
+         Solving for
+         \begin{displaymath}
+           \begin{cases}
+             K_{250\text{ K}}   = 1.7298\times10^{-3} \;\;\Longrightarrow \varepsilon = 0.02079 \;\;\Longrightarrow \;\; y_{NO_{2}} = 0.0407 \text{ and } y_{N_{2}O_{4}} = 0.9593; \\
+             K_{298.15\text{ K}} = 0.1484 \hspace{1.cm} \Longrightarrow  \varepsilon = 0.1891  \hspace{.35cm} \Longrightarrow \;\; y_{NO_{2}} = 0.3181 \text{ and } y_{N_{2}O_{4}} = 0.6819; \\
+             K_{400\text{ K}}   = 51.4331 \hspace{1.2cm} \Longrightarrow \varepsilon = 0.9632  \hspace{.35cm} \Longrightarrow \;\;  y_{NO_{2}} = 0.9813 \text{ and } y_{N_{2}O_{4}} = 0.0187 \\
+           \end{cases}
+         \end{displaymath}
+         
+        Note that at low temperature, 250 K $\left(-23.15^{\circ}\text{C}\right)$, the production of nitrogen dioxide is fairly small (backward reaction), however as the temperature rises the forward reaction becomes dominant with 98.1$\%$ of NO$_{2}$ being produced at 400 K$\left(126.85^{\circ}\text{C}\right)$.
+   \end{MyExample}
+      
+  % Example
+%   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+%     \begin{example}\label{Chapter:ChemicalReactions:Example}     
+%     \end{example}
+
+% SOLUTION
+%     \noindent{\bf Solution:}              
+%   \end{MyExample} 
+      
 \begin{comment}
 %%% SUBSECTION
 \subsection{Dependence of $K$ with Temperature}\label{Chapter:ChemicalReactions:Section:K_Temperature}
@@ -583,49 +920,12 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
 
 \clearpage
 
-%%% SECTION
-\section{Examples}
-
-\begin{enumerate}[1)]
-
-%%%
-%%% Elliot & Lira (Ex 3.4)  
-%%%
-\item\label{Example:1} Five moles of hydrogen, two moles of CO and 1.5 moles of CH$_{3}$OH vapour are combined in a batch methanol synthesis reactor (closed system) at 500 K and 1 MPa. Develop expressions for the mole fractions of the species in terms of the reaction coordinate. The components are known to react with the following stoichiometry:
-  \begin{displaymath}
-      2 H_{2} (g) + CO (g) \Longleftrightarrow CH_{3}OH (g).
-  \end{displaymath}
-
-\bigskip
-
-{\bf Solution:} We need to develop expressions for each species in the gaseous form. In the equilibrium, the molar stoichiometric coefficient and the initial number of moles are:
-    \begin{displaymath}
-       \begin{cases}
-         \nu = \sum\limits_{i}\nu_{i}= (-2)+(-1)+(+1)= -2 \;\;\text{ and } \\
-         n_{0} = \sum\limits_{i}n_{i,0}= 5 + 2 + 1.5 = 8.5,
-       \end{cases}
-    \end{displaymath} 
-    respectively. Mole fraction of each species is given by
-    \begin{displaymath}
-          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0}+\nu_{i}\epsilon}{n_{0}+\nu\epsilon},
-    \end{displaymath}
-    where the the total number of moles in equilibrium is $n=8.5-2\epsilon$, thus
-    \begin{displaymath}
-       \begin{cases}
-         y_{\text{H}_{2}} = \frc{5-2\epsilon}{8.5-2\epsilon}, \\
-         \\
-         y_{\text{CO}} = \frc{2-\epsilon}{8.5-2\epsilon}\\
-         \\
-          y_{\text{CH}_{3}\text{OH}}=\frc{1.5+\epsilon}{8.5-2\epsilon}
-       \end{cases}
-    \end{displaymath}
-\clearpage
 
 \begin{comment}
 %%%
 %%%   
 %%%
-\item\label{Example:2} Consider the chemical reaction,
+Consider the chemical reaction,
          \begin{displaymath}
              C_{2}H_{4} (g) + H_{2}O (g) \Longleftrightarrow  C_{2}H_{5}OH (g).
          \end{displaymath}
@@ -690,303 +990,6 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
    \end{itemize}
 \clearpage
 \end{comment}
-
-%%%
-%%%   Nguyen (Ex 6.6.1)  
-%%%
-\item\label{Example:2} Ethylene is produced from the decomposition of ethane,
-       \begin{displaymath}
-          C_{2}H_{6} (g) \Longleftrightarrow C_{2}H_{4} (g) + H_{2} (g) 
-       \end{displaymath} 
-       Determine the equilibrium composition at 1000$^{\circ}$C and 1 atm. Assume that, initially, there is 1 mol of ethane. Given,
-       \begin{center}
-           \begin{tabular}{|c c c c|}
-           \hline
-                                        &  C$_{2}$H$_{6}$ (g) & C$_{2}$H$_{4}$ (g) &  H$_{2}$ (g)  \\ 
-           \hline
-             $\Delta G^{\circ}_{\text{f,298}}$  &  -32.84            &  68.15           & 0.0           \\
-                   (kJ/mol)             &                    &                  &               \\
-           \hline
-             $\Delta H^{\circ}_{\text{f,298}}$  &  -84.68            &  52.26           & 0.0           \\
-                   (kJ/mol)             &                    &                  &               \\
-           \hline 
-           \end{tabular}
-       \end{center}
-       where $\Delta G^{\circ}_{\text{f,298}}$ and $\Delta H^{\circ}_{\text{f,298}}$ are the standard state Gibbs energy and enthalpy of formation. 
-
-\bigskip
-
-{\bf Solution:} First we need to determine the standard state Gibbs energy of reaction,
-         \begin{eqnarray}
-             \Delta G^{\circ}_{\text{r,298}} &=& \sum\limits_{i}\nu_{i}\left(\Delta G^{\circ}_{\text{f,298}}\right)_{i} \nonumber \\
-                                     &=& (+1).(68.15)+ (1).(0.0) + (-1).(-32.84) = 100.99\; \text{kJ/mol} \nonumber
-         \end{eqnarray}
-       The equilibrium constant can be obtained from,
-         \begin{displaymath}
-            K = \exp\left(-\frc{\Delta G^{\circ}_{\text{r,298}}}{RT}\right) = exp\left(-\frc{100.99\times 10^{3}}{(8.314).(298.15)}\right) = 2.0246\times 10^{-18}
-         \end{displaymath}
-       The Van't Hoff equation can be used to calculate the equilibrium constant at temperature $T$,
-         \begin{displaymath}
-            \frc{\partial\left(\ln K\right)}{\partial T} = \frc{\Delta H^{\circ}_{\text{r}}}{RT^{2}}
-         \end{displaymath}
-       Before we can integrate the Van't Hoff equation, we first need to determine the standard heat of reaction, $\Delta H^{\circ}_{\text{r}}$,
-         \begin{eqnarray}
-            \Delta H^{\circ}_{\text{r}} &=& \sum\limits_{i} \nu_{i}\left(\Delta H^{\circ}_{\text{f,298}}\right)_{i} \nonumber \\
-                                 &=& (+1).(52.26) + (+1).(0.0) + (-1).(-84.68) = 136.94\;\text{kJ/mol}\nonumber
-         \end{eqnarray}
-       Now integrating the Van't Hoff equation from 298.15 K to 1273.15 K,
-         \begin{eqnarray}
-            \ln\frc{K_{1273}}{K_{298}} &=& -\frc{\Delta H^{\circ}_{\text{r}}}{R}\left(\frc{1}{T}-\frc{1}{298.15}\right) \nonumber \\
-            \ln\frc{K_{1273}}{2.0246\times 10^{-18}} &=& -\frc{136.94\times 10^{3}}{8.314}\left(\frc{1}{1273.15}-\frc{1}{298.15}\right) \nonumber \\
-            K_{1273} &=& 4.7859 \nonumber
-         \end{eqnarray} 
-       The equilibrium constant $K$ can also be expressed as a function of the components' activities,
-         \begin{displaymath}
-            K = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}} = \frc{a_{\text{C}_{2}\text{H}_{4}}a_{\text{H}_{2}}}{a_{\text{C}_{2}\text{H}_{6}}} = \frc{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{4}}}{\overline{f}^{\circ}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{\overline{f}_{\text{H}_{2}}}{\overline{f}^{\circ}_{\text{H}_{2}}}\right)}{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{6}}}{\overline{f}^{\circ}_{\text{C}_{2}\text{H}_{6}}}\right)}
-         \end{displaymath}
-         Assuming ideal gas behaviour, $\overline{f}_{i}=P_{i}$, $\overline{f}_{i}^{\circ}=P^{\circ}_{\text{C}_{2}\text{H}_{6}}=P^{\circ}_{\text{C}_{2}\text{H}_{4}}=P^{\circ}_{\text{H}_{2}}=$ 1 atm. Thus,
-         \begin{displaymath}
-            K = \frc{a_{\text{C}_{2}\text{H}_{4}}a_{\text{H}_{2}}}{a_{\text{C}_{2}\text{H}_{6}}} = \frc{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{4}}}{\overline{f}^{\circ}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{\overline{f}_{\text{H}_{2}}}{\overline{f}^{\circ}_{\text{H}_{2}}}\right)}{\left(\frc{\overline{f}_{\text{C}_{2}\text{H}_{6}}}{\overline{f}^{\circ}_{\text{C}_{2}\text{H}_{6}}}\right)} = \frc{\left(\frc{P_{\text{C}_{2}\text{H}_{4}}}{P^{\circ}_{\text{C}_{2}\text{H}_{4}}}\right)\left(\frc{P_{\text{H}_{2}}}{P^{\circ}_{\text{H}_{2}}}\right)}{\left(\frc{P_{\text{C}_{2}\text{H}_{6}}}{P^{\circ}_{\text{C}_{2}\text{H}_{6}}}\right)} = \frc{\left(\frc{y_{\text{C}_{2}\text{H}_{4}}P}{1\text{ atm}}\right)\left(\frc{y_{\text{H}_{2}}P}{1\text{ atm}}\right)}{\left(\frc{y_{\text{C}_{2}\text{H}_{6}}P}{1\text{ atm}}\right)}          
-         \end{displaymath}
-         Since $P=$ 1 atm,
-         \begin{displaymath}
-            K = \frc{\left(\frc{y_{\text{C}_{2}\text{H}_{4}}P}{1\text{ atm}}\right)\left(\frc{y_{\text{H}_{2}}P}{1\text{ atm}}\right)}{\left(\frc{y_{\text{C}_{2}\text{H}_{6}}P}{1\text{ atm}}\right)} = \frc{\left(y_{\text{C}_{2}\text{H}_{4}}\right)\left(y_{\text{H}_{2}}\right)}{\left(y_{\text{C}_{2}\text{H}_{6}}\right)} = 4.7859
-         \end{displaymath}
-         This equation can not be solved as there are two unknowns $\left(\text{remember that }\summation[y_{i}]{i=1}{3}=1\right)$. The number of unknowns can be decreased if we make use of
-         \begin{displaymath}
-           y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0}+\nu_{i}\epsilon}{n_{0}+\nu\epsilon}.
-         \end{displaymath}
-         with 
-         \begin{displaymath}
-            \nu = \sum\limits_{i}\nu_{i}= (-1)+(+1)+(+1)= 1 \;\;\text{ and }\;\; n_{0} = \sum\limits_{i}n_{i,0}= 1 + 0 + 0 = 1,
-         \end{displaymath} 
-       Thus,
-         \begin{displaymath}
-             y_{\text{C}_{2}\text{H}_{6}} = \frc{1-\epsilon}{1+\epsilon},\;\;y_{\text{C}_{2}\text{H}_{4}} = \frc{\epsilon}{1+\epsilon}\;\text{ and }\;y_{\text{H}_{2}} = \frc{\epsilon}{1+\epsilon}
-         \end{displaymath}
-       Replacing the compositions in the expression for $K$,
-         \begin{eqnarray}
-           K  &=& \frc{\left(y_{\text{C}_{2}\text{H}_{4}}\right)\left(y_{\text{H}_{2}}\right)}{\left(y_{\text{C}_{2}\text{H}_{6}}\right)} = \frc{\left(\frc{\epsilon}{1+\epsilon}\right)^{2}}{\left(\frc{1-\epsilon}{1+\epsilon}\right)} =4.7859 \nonumber \\
-            &&\epsilon = 0.9095 \nonumber
-         \end{eqnarray}
-        The equilibrium concentration of C$_{2}$H$_{4}$(g) is $y_{\text{C}_{2}\text{H}_{4}} =$ 0.4763 $=y_{\text{H}_{2}}$ and $y_{\text{C}_{2}\text{H}_{6}}=$ 0.0474.
-
-\clearpage
-
-
-%%%
-%%%   Nguyen (Ex 6.7.2) 
-%%%
-\item\label{Example:3} Determine the equilibrium conversion for the liquid-phase isomerisation reaction of methylcyclopentane $\left(\text{CH}_{3}\text{C}_{5}\text{H}_{9}\right)$ to cyclohexane $\left(\text{C}_{6}\text{H}_{12}\right)$ at 25$^{\circ}$C. Gibbs energies of formation are given at 25$^{\circ}$C as:
-  \begin{displaymath}
-     \left(\Delta G^{\circ}_{\text{f,298}}\right)_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}} = 31.72 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{\text{C}_{6}\text{H}_{12}} = 26.89 \text{ kJ.mol}^{-1}.
-  \end{displaymath}
-  Also, assume that this isomerisation reaction occurs at relatively low pressure, and therefore $\frc{f_{i}}{f^{\circ}_{i}}=1$. Also, assume that solution is ideal.
-
-
-\bigskip
-
-{\bf Solution:} The isomerisation reaction can be represented by,
-    \begin{displaymath}
-        CH_{3}C_{5}H_{9} (l) \Longleftrightarrow C_{6}H_{12} (l)
-    \end{displaymath}
-    We need to determine the equilibrium constant at room temperature
-         \begin{eqnarray}
-           \Delta G^{\circ}_{r,298} &=& \sum\limits_{i}\nu_{i}\Delta G^{\circ}_{\text{f,298}} \nonumber \\
-                             &=& (+1).\left(\Delta G^{\circ}_{\text{f,298}}\right)_{\text{C}_{6}\text{H}_{12}} + (-1).\left(\Delta G^{\circ}_{\text{f,298}}\right)_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}} \nonumber \\ 
-                             &=& 26.89-31.72 = -4.83 \text{ kJ/mol} \nonumber
-         \end{eqnarray}
-       The equilibrium constant is
-         \begin{displaymath}
-             K = \exp\left(-\frc{\Delta G^{\circ}_{r,298}}{RT}\right) = \exp\left(-\frc{-4830}{(8.314).(298.15)}\right) = 7.0182
-         \end{displaymath}
-       The equilibrium constant can also be obtained from 
-         \begin{displaymath}
-            K = \prod\limits_{i}\left(\frc{\overline{f}_{i}}{\overline{f}^{\circ}_{i}}\right)^{\nu_{i}} = \prod\limits_{i}\left(\frc{x_{i}\gamma_{i} f_{i}}{\overline{f}^{\circ}_{i}}\right)^{\nu_{i}}
-         \end{displaymath}
-       At room pressure conditions, the ratio $\frc{f_{i}}{\overline{f}^{\circ}_{i}} = \frc{f_{i}}{f_{i}^{\circ}} = \exp\left[\frc{V\left(P-P^{\circ}\right)}{RT}\right]=1$, therefore,
-         \begin{displaymath}
-            K = \prod\limits_{i}\left(\frc{x_{i}\gamma_{i}f_{i}}{\overline{f}^{\circ}_{i}}\right)^{\nu_{i}} = \prod\limits_{i}\left(x_{i}\gamma_{i}\right)^{\nu_{i}}
-         \end{displaymath}
-       For ideal solution,
-         \begin{displaymath}
-            K = \prod\limits_{i=1}^{\mathcal{C}}\left(x_{i}\gamma_{i}\right)^{\nu_{i}} = \prod\limits_{i}\left(x_{i}\right)^{\nu_{i}} = \left(x_{\text{C}_{6}\text{H}_{12}}\right).\left(x_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}}\right)^{-1} = 7.0182,
-         \end{displaymath}
-         as $\summation[x_{i}]{i}{}=1$, we could easily solve the equation above as $x_{\text{C}_{6}\text{H}_{12}}\left(1-x_{\text{C}_{6}\text{H}_{12}}\right)=7.0182$, and obtain $x_{\text{C}_{6}\text{H}_{12}}=0.8753$. Alternatively, one could obtain a relation between composition and the reaction coordinate, $\varepsilon$,
-         \begin{displaymath}
-            x_{i} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
-         \end{displaymath}
-         where $\nu = (-1) + (1) = 0$ and assuming that initially there are $n_{\text{CH}_{3}\text{C}_{5}\text{H}_{9},0}=1$ and $n_{\text{C}_{6}\text{H}_{12},0}=0$,
-         \begin{displaymath}
-            x_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}} = 1-\varepsilon\;\;\;\;\;\text{ and }\;\;\;\;\;\; x_{\text{C}_{6}\text{H}_{12}} = \varepsilon.
-         \end{displaymath}
-         Now, replacing in the expression above, 
-         \begin{displaymath}
-             K = \left(x_{\text{C}_{6}\text{H}_{12}}\right).\left(x_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}}\right)^{-1} = \frc{\varepsilon}{1-\varepsilon} = 7.0182 \;\;\;\; \Longrightarrow \;\;\;\;\; \epsilon = 0.8753 
-         \end{displaymath}
-         Thus, $x_{\text{C}_{6}\text{H}_{12}}=0.8753$ and $x_{\text{CH}_{3}\text{C}_{5}\text{H}_{9}}=0.1247$.
-
-\clearpage
-
-%%%
-%%%  Sandler (Ex 13.1.1, pg. 713)
-%%%
-\item\label{Example:4} Calculate the equilibrium extent of decomposition of nitrogen tetroxide $\left(N_{2}O_{4}\right)$,
-  \begin{displaymath}
-     N_{2}O_{4} (g) \Longleftrightarrow 2 NO_{2} (g)
-  \end{displaymath}
-  at 298.15 K and 1 atm. Assume that the gas mixture behaves as an ideal gas and the Gibbs energies of formation at 25$^{\circ}$C are:
-  \begin{displaymath}
-     \left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} = 97.89 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} = 51.31 \text{ kJ.mol}^{-1}.
-  \end{displaymath}
-     
-
-\bigskip
-
-{\bf Solution:} 
-       The equilibrium constant is
-         \begin{displaymath}
-             K = \exp\left(-\frc{\Delta G^{\circ}_{r,298}}{RT}\right) = \frc{a_{NO_{2}}^{2}}{a_{N_{2}O_{4}}} = \frc{\left(\frc{y_{NO_{2}}P}{P^{\circ}_{NO_{2}}}\right)^{2}}{\left(\frc{y_{N_{2}O_{4}}P}{P^{\circ}_{N_{2}O_{4}}}\right)} = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)},
-         \end{displaymath}
-         where the standard Gibbs energy of reaction is
-         \begin{eqnarray}
-           \Delta G^{\circ}_{r,298} &=& \sum\limits_{i}\nu_{i}\Delta G^{\circ}_{\text{f,298}} \nonumber \\
-                             &=& (+2).\left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} + (-1).\left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} \nonumber \\ 
-                             &=& 4730 \text{ J/mol}, \nonumber
-         \end{eqnarray}
-         and the equilibrium constant,
-         \begin{displaymath}
-             K = \exp\left(-\frc{\Delta G^{\circ}_{r,298}}{RT}\right) = 0.1484 = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)}
-         \end{displaymath}
-         Composition and reaction coordinate are related through
-         \begin{displaymath}
-            y_{i} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
-         \end{displaymath}
-         where, assuming that the initial number of moles are $n_{N_{2}O_{4},0}=1$ and $n_{NO_{2},0}=0$, an $\nu= 2-1 = 1$,
-         \begin{displaymath}
-            y_{N_{2}O_{4}} = \frc{1-\varepsilon}{1+\varepsilon}\;\;\;\;\;\text{ and }\;\;\;\;\;\; y_{NO_{2}} = \frc{2\varepsilon}{1+\varepsilon},
-         \end{displaymath}
-         leading to
-         \begin{displaymath}
-             K = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)} = \frc{\left(\frc{2\varepsilon}{1+\varepsilon}\right)^{2}}{\left(\frc{1-\varepsilon}{1+\varepsilon}\right)} = 0.1484 \;\;\;\;\Longrightarrow\;\;\;\; \varepsilon = 0.1891
-         \end{displaymath}
-         Thus: $y_{NO_{2}} = 0.3181$ and $y_{N_{2}O_{4}} = 0.6819$.
-
-         
-\clearpage
-
-%%%
-%%%  Sandler (Ex 13.1.2, pg. 714)
-%%%
-\item\label{Example:5} Pure nitrogen tetroxide $\left(N_{2}O_{4}\right)$ at a low temperature is diluted with nitrogen $\left(N_{2}\right)$ and heated to 298.15 K and 1 atm. If the initial mole fraction of $N_{2}O_{4}$ in the $N_{2}O_{4}-N_{2}$ mixture before the dissociation begins is 0.20, what is the extent of the decomposition, 
-  \begin{displaymath}
-     N_{2}O_{4} (g) \Longleftrightarrow 2 NO_{2} (g)
-  \end{displaymath}
-  and the mole fractions of $NO_{2}$ and $N_{2}O_{4}$ present at equilibrium? Assume that the gas mixture behaves as an ideal gas and the Gibbs energies of formation at 25$^{\circ}$C are:
-  \begin{displaymath}
-     \left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} = 97.89 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} = 51.31 \text{ kJ.mol}^{-1}.
-  \end{displaymath}
-
-\bigskip
-
-{\bf Solution:} Here, nitrogen is an inert species, \ie it is used to dilute the reactant gas, $N_{2}O_{4}$, but do not participate in the decomposition reaction, thus $\nu_{N_{2}}=0$. In Example~\ref{Example:4}, we have already calculated the equilibrium constant, $K = 0.1484$, and used 
-         \begin{displaymath}
-            y_{i} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
-         \end{displaymath}
-         to calculate the equilibrium composition. The overall molar stoichiometric coefficient $\nu= 2-1-0 = 1$ remains the same, however, now the initial reactive composition is (assuming 1 mol of the reactant mixture) $n_{N_{2}O_{4},0} = 0.2$, $n_{N_{2},0} = 0.8$ and $n_{NO_{2},0}=0$. 
-         \begin{displaymath}
-           y_{N_{2}O_{4}} = \frc{0.2-\varepsilon}{1+\varepsilon},\;\;\;\;\; y_{N_{2}} = \frc{0.8}{1+\varepsilon}\;\;\;\text{ and }\;\;\;y_{NO_{2}} = \frc{2\varepsilon}{1+\varepsilon}.
-         \end{displaymath}
-         Leading to
-         \begin{displaymath}
-             K = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)} = \frc{\left(\frc{2\varepsilon}{1+\varepsilon}\right)^{2}}{\left(\frc{0.2-\varepsilon}{1+\varepsilon}\right)} = 0.1484 \;\;\;\;\Longrightarrow\;\;\;\; \varepsilon = 0.0715,
-         \end{displaymath}
-         with equilibrium compositions of $y_{NO_{2}} = 0.1335$, $y_{N_{2}O_{4}} = 0.1199$ and $y_{N_{2}} = 0.7466$. 
-         
-\clearpage
-
-
-%%%
-%%%  Sandler (Ex 13.1.3, pg. 718)
-%%%
-\item\label{Example:6} Calculate the equilibrium extent of decomposition of nitrogen tetroxide $\left(N_{2}O_{4}\right)$,
-  \begin{displaymath}
-     N_{2}O_{4} (g) \Longleftrightarrow 2 NO_{2} (g)
-  \end{displaymath}
-  at 250 K and 400 K and 1 atm. Assume that the gas mixture behaves as an ideal gas and the Gibbs energies of formation at 25$^{\circ}$C are:
-  \begin{displaymath}
-     \left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} = 97.89 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} = 51.31 \text{ kJ.mol}^{-1}.
-  \end{displaymath}
-  Also, the standard enthalpy of reaction at 25$^{\circ}$C is 56.189 kJ.mol$^{-1}$. Heat capacity $\left(\text{in J.mol}^{-1}\text{.K}^{-1}\right)$ for both gases are expressed in a polynomial form,
-  \begin{displaymath}
-    C_{p} = a + bT + CT^{2} + dT^{3},
-  \end{displaymath}
-  where
-  \begin{center}
-    \begin{tabular}{ l | c c c c }
-      \hline
-                         &  $a$     &  $b\times 10^{-2}$  & $c\times 10^{-5}$  & $d\times 10^{-9}$ \\
-                         &$\left(\text{J.mol}^{-1}\text{.K}^{-1}\right)$& $\left(\text{J.mol}^{-1}\text{.K}^{-2}\right)$& $\left(\text{J.mol}^{-1}\text{.K}^{-3}\right)$& $\left(\text{J.mol}^{-1}\text{.K}^{-4}\right)$ \\
-      \hline
-      NO$_{2}$             &  22.929 &      5.711          & -3.519            & 7.866 \\
-      N$_{2}$O$_{4}$       &   33.054 &      18.661         &    -11.339        &  -- 
-    \end{tabular}
-  \end{center}
-      
-
-\bigskip
-
-{\bf Solution:} In order to calculate composition at equilibrium, we need to calculate the equilibrium constant, $K$, at 250 K and 400 K through the Van't Hoff equation,
-\begin{displaymath}
-    \frc{d\left(\ln{K}\right)}{dT} = \frc{\Delta H^{\circ}_{r}}{RT^{2}} \;\;\;\Longrightarrow \;\;\; \ln{\left(\frc{K(T)}{K(298.15\text{ K})}\right)} = \int\limits_{298.15\text{ K}}^{T}\frc{\Delta H^{\circ}_{r}}{RT^{2}}dT.
-\end{displaymath}
-We have already calculated $K$ at 298.15 in Example~\ref{Example:4}, $K= 0.1484$. The standard heat of reaction is obtained from the fundamental enthalpy relation, $dH= C_{p}dT$, and 
-\begin{displaymath}
-     \Delta H^{\circ}_{r} = \summation[\nu_{i}\Delta H^{\circ}_{i,f}]{i}{} \;\;\;\Longrightarrow\;\;\; \int\limits_{\Delta H^{\circ}_{r,298.15}}^{\Delta H^{\circ}_{r,T}}d\left(\Delta H^{\circ}_{r}\right) = \int\limits_{298.15\text{ K}}^{T}\summation[\nu_{i} C_{p,i}]{i}{}dT.
-\end{displaymath}
-The first stage in this calculation is to obtain an expression for the right-hand side integration, \ie the summation term $\Delta C_{p}^{\circ} = \summation[\nu_{i} C_{p,i}]{i}{}$, using (for simplicity in the notation) $NO_{2}$:1 and $N_{2}O_{4}$:2,
-\begin{eqnarray}
-   \Delta C_{p}^{\circ} &=& \summation[\nu_{i} C_{p,i}]{i}{} = (+2) \left(a_{1}+b_{1}T+c_{1}T^{2}+d_{1}T^{3}\right) + (-1)\left(a_{2}+b_{2}T+c_{2}T^{2}+d_{2}T^{3}\right) \nonumber \\
-                     &=& 12.804 - 7.239\times 10^{-2}T + 4.301\times 10^{-5} T^{2} + 15.732\times 10^{-9}T^{3} \nonumber 
-\end{eqnarray}
-And the integration becomes $\left(\text{with }\Delta H^{\circ}_{r,298.15} = 56189\text{ J.mol}^{-1}\right)$
-\begin{eqnarray}
-    && \Delta H^{\circ}_{r}(T) - \Delta H^{\circ}_{r,298.15} = \int\Delta C_{p}^{\circ}dT \nonumber \\
-    && \Delta H^{\circ}_{r}(T) = 56189 + 12.804 T - \frc{7.239\times 10^{-2}}{2}T^{2} + \frc{4.301\times 10^{-5}}{3}T^{3} + \frc{15.732\times 10^{-9}}{4}T^{4} \nonumber
-\end{eqnarray}
-Now, using the Van't Hoff equation,
-\begin{eqnarray}
-  \ln{\left(\frc{K(T)}{K_{298.15\text{ K}}}\right)} &=& \int\limits_{298.15\text{ K}}^{T}\frc{\Delta H^{\circ}_{r}}{RT^{2}}dT \nonumber \\
-                                                &=& \frc{1}{R}\int\limits_{298.15\text{ K}}^{T} \left[\frc{56189}{T^{2}} + \frc{12.804}{T} - \frc{7.239\times 10^{-2}}{2} + \frc{4.301\times 10^{-5}}{3}T + \frc{15.732\times 10^{-9}}{4}T^{2}\right]dT \nonumber \\
-                                                &=& \frc{1}{R}\left[-\frc{56189}{T} + 12.804\ln{T} - \frc{7.239\times 10^{-2}}{2}T + \frc{4.301\times 10^{-5}}{6}T^{2} + \frc{15.732\times 10^{-9}}{12}T^{3}\right]_{298.15\text{ K}}^{T} \nonumber
-\end{eqnarray}
-Solving this integral for
-\begin{displaymath}
-  \begin{cases}
-      K_{250\text{ K}} = 1.7298\times 10^{-3} \\
-      K_{400\text{ K}} = 51.4338
-  \end{cases}  
-\end{displaymath}
-Now, using the expression obtained in Example~\ref{Example:4} for composition, assuming that the initial number of moles are $n_{N_{2}O_{4},0}=1$ and $n_{NO_{2},0}=0$, and $\nu= 2-1 = 1$,
-         \begin{displaymath}
-            y_{N_{2}O_{4}} = \frc{1-\varepsilon}{1+\varepsilon}\;\;\;\;\;\text{ and }\;\;\;\;\;\; y_{NO_{2}} = \frc{2\varepsilon}{1+\varepsilon},
-         \end{displaymath}
-         leading to
-         \begin{displaymath}
-             K = \frac{\left(y_{NO_{2}}\right)^{2}}{\left(y_{N_{2}O_{4}}\right)} = \frc{\left(\frc{2\varepsilon}{1+\varepsilon}\right)^{2}}{\left(\frc{1-\varepsilon}{1+\varepsilon}\right)}
-         \end{displaymath}
-         Solving for
-         \begin{displaymath}
-           \begin{cases}
-             K_{250\text{ K}}   = 1.7298\times10^{-3} \;\;\Longrightarrow \varepsilon = 0.02079 \;\;\Longrightarrow \;\; y_{NO_{2}} = 0.0407 \text{ and } y_{N_{2}O_{4}} = 0.9593; \\
-             K_{298.15\text{ K}} = 0.1484 \hspace{1.cm} \Longrightarrow  \varepsilon = 0.1891  \hspace{.35cm} \Longrightarrow \;\; y_{NO_{2}} = 0.3181 \text{ and } y_{N_{2}O_{4}} = 0.6819; \\
-             K_{400\text{ K}}   = 51.4331 \hspace{1.2cm} \Longrightarrow \varepsilon = 0.9632  \hspace{.35cm} \Longrightarrow \;\;  y_{NO_{2}} = 0.9813 \text{ and } y_{N_{2}O_{4}} = 0.0187 \\
-           \end{cases}
-         \end{displaymath}
-         
-        Note that at low temperature, 250 K $\left(-23.15^{\circ}\text{C}\right)$, the production of nitrogen dioxide is fairly small (backward reaction), however as the temperature rises the forward reaction becomes dominant with 98.1$\%$ of NO$_{2}$ being produced at 400 K$\left(126.85^{\circ}\text{C}\right)$.
-
-\end{enumerate}
 
 
 \clearpage   
