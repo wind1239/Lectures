@@ -1,9 +1,36 @@
-\chapter{Chemical Reaction Equilibrium}\label{Section:06}
+\chapter{Chemical Reaction Equilibrium}\label{Chapter:ChemicalReactions}
 
+   \begin{LearningObjectivesBlock}{Learning Objectives}
+      Upon completion of this chapter, you will be able to
+        \begin{enumerate}
+           \item 
+        \end{enumerate}
+\medskip
+     Recommended reading: Chapters 13 of \citet{SmithVanNess_Book}, 8 of \cite{Sandler_Book}, 12 of \citet{Lue_Book}, 14 of \citet{Moran_Book}, 11 of \citet{Devoe_Book} or 7 of \citet{Atkins_Book}.
+   \end{LearningObjectivesBlock}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+   \begin{LearningObjectivesBlock}{Learning Objectives}
+      Upon completion of this chapter, you will be able to
+        \begin{enumerate}
+           \item {\bf Knowledge:} Define, Name, Select, State 
+           \item {\bf Comprehension:} Describe, Identify, Discuss
+           \item {\bf Application:} Apply, Demonstrate, Employ, Sketch
+           \item {\bf Analysis:} Analyse, Compare, Calculate, Solve
+           \item {\bf Synthesis:} Determine, Formulate
+           \item {\bf Evaluation:} Assess, Check, Estimate, Compare, Measure, Monitor
+        \end{enumerate}
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% ETOC
+\localtableofcontents
+   
 %%% SECTION
-\section{Introduction}\label{Section:06:Introduction}
-In previous Modules, we have studied thermodynamic behaviour of gases and liquids at equilibrium conditions assuming that species do not react. However, in many industrial, environmental and bio-medical applications, chemical reactions are the driving force behind important processes. 
-
+\section{Introduction}\label{Chapter:ChemicalReactions:Section:Introduction}
+In previous Chapters, we studied the thermodynamic behaviour of gases and liquids at equilibrium conditions assuming that species do not react. However, in many industrial, environmental and bio-medical applications, chemical reactions are the driving force behind important processes.
       \begin{wrapfigure}{r}{0.5\textwidth}%{figure}[hpt]
          \begin{center}
            \includegraphics[width=0.5\columnwidth,clip]{./Figs/Mod06_SchematicEqReaction_Temp_b}
@@ -23,28 +50,36 @@ Consider a chemical reaction in the gaseous phase,
 
 \noindent where initially $\left(\text{\ie at time } t_{0}=0\right)$ there are 1 mol of reactants $A$ and $B$ (each) in a {\it closed system}. Molecules of $A$ and $B$ are in continuous and random movement and collide with each other forming products $C$ and $D$. At this stage, the consumption/depletion of molecules of $A$ and $B$ dominates the dynamics in the system. However, as the reaction progresses $\left(\text{\ie at } t > t_{0}\right)$, the amount of molecules (\ie number of moles) of $C$ and $D$ increases and these species become dominant in the system. Collisions between $A$ and $B$ may still occur, but as they are no longer abundant, conversion from reactants to products get smaller, however molecules of $C$ and $D$ (both also in gaseous form) also collide and may produce $A$ and $B$. 
 
-Thus, while initially the {\it forward} reaction dominates $\left(\text{\ie } A (g) + B (g) \rightarrow C (g) + D (g)\right)$, as reaction progress the {\it backward} reaction $\left(\text{\ie } A (g) + B (g) \leftarrow C (g) + D (g)\right)$ becomes increasingly relevant, which eventually leads into two reaction rates of equal value. After this stage, the concentration of all species in the system is invariant (\ie constant) with no tendency to change except if a perturbation is imposed to the system (\eg addition/removal of heat, increase/decrease of pressure, addition/removal of species etc). At such conditions, the reaction is said to be in {\it equilibrium}. The aim of the study of {\it chemical kinetics} is to investigate the mechanisms that leads to optimal reactions (\ie `faster' and with larger conversion ratio), whereas \blue{reaction thermodynamics} investigates the conditions at {\it equilibrium}.
+Thus, while initially the {\it forward} reaction dominates $\left(\text{\ie } A (g) + B (g) \rightarrow C (g) + D (g)\right)$, as reaction progress the {\it backward} reaction $\left(\text{\ie } A (g) + B (g) \leftarrow C (g) + D (g)\right)$ becomes increasingly relevant, which eventually leads to two reaction rates of equal value. After this stage, the concentration of all species in the system is invariant (\ie constant) with no tendency to change except if a perturbation is imposed to the system (\eg addition/removal of heat, increase/decrease of pressure, addition/removal of species etc). At such conditions, the reaction is said to be in {\it equilibrium}. The aim of the study of {\it chemical kinetics} is to investigate the mechanisms that leads to optimal reactions (\ie `faster' and with larger conversion ratio), whereas \blue{reaction thermodynamics} investigates the conditions at {\it equilibrium}.\index{Chemical kinetics}\index{Chemical reaction!Equilibrium}
 
-In the application of {\it chemical reaction equilibrium} to problems relevant to industry, the aim is to ensure {\it maximum} conversion at prescribed pressure and temperature conditions. Reactions for which the conversion is (approximately) 100$\%$ are often referred as \blue{\it irreversible}, whereas reactions that have lower conversion rates are called \blue{\it reversible}. Chemical reactions that occur in a single phase (either solid, liquid or gas) are called \blue{\it homogeneous}, \eg
+In the application of {\it chemical reaction equilibrium} to problems relevant to industry, the aim is to ensure {\it maximum} conversion at prescribed pressure and temperature conditions. Reactions for which the conversion is (approximately) 100$\%$ are often referred as \blue{\it irreversible}, whereas reactions that have lower conversion rates are called \blue{\it reversible}.
+
+\medskip
+Chemical reactions that occur in a single phase (either solid, liquid or gas) are called \blue{\it homogeneous}, \eg\index{Chemical reaction!Reversible}\index{Chemical reaction!Irreversible}
 \begin{enumerate}[a)]
-    \item formation of NO$_{\text{x}} \left(\text{NO and NO}_{2}\right)$ in atmospheric pollution:
-        \begin{eqnarray}
-           N_{2} (g) + O_{2} (g) &\Longleftrightarrow& 2 NO (g), \nonumber \\
-           \frac{1}{2} N_{2} (g) + O_{2} (g) &\Longleftrightarrow& NO_{2} (g), \nonumber
-        \end{eqnarray}
-    \item {\it Fischer esterification} reaction of ethanol and acetic acid to produce ethyl acetate:
+  \item formation of NO$_{\text{x}} \left(\text{NO and NO}_{2}\right)$ in atmospheric pollution:
+    \begin{displaymath}
+      \begin{cases}
+         N_{2} (g) + O_{2} (g) &\Longleftrightarrow 2 NO (g),  \\
+         \frac{1}{2} N_{2} (g) + O_{2} (g) &\Longleftrightarrow NO_{2} (g),  \\
+      \end{cases}
+    \end{displaymath}
+ \item {\it Fischer esterification} reaction of ethanol and acetic acid to produce ethyl acetate:
         \begin{displaymath}
            CH_{3}CH_{2}OH (l) + CH_{3}COOH (l) \Longleftrightarrow CH_{3}COOCH_{2}CH_{3} (l),
         \end{displaymath}
 \end{enumerate}
+
 Reactions that progress at different phases are called \blue{\it heterogeneous}, \eg
 \begin{enumerate}[a)]
     \item strong acid-alkali reactions:
-        \begin{eqnarray}
-           H_{2}SO_{4} (\text{aq.}) + 2 NaOH (\text{aq.}) &\Longleftrightarrow&  Na_{2}SO_{4} (s) + H_{2}O (l) \nonumber \\
-           HCl (\text{aq.}) + KOH (\text{aq.}) &\Longleftrightarrow& KCl (s) + H_{2}O (l), \nonumber \\
-           2 HCl (\text{aq.}) + Mg(OH)_{2} (s)  &\Longleftrightarrow& MgCl_{2} (s) + 2 H_{2}O (l), \nonumber 
-        \end{eqnarray}
+    \begin{displaymath}
+      \begin{cases}
+           H_{2}SO_{4} (\text{aq.}) + 2 NaOH (\text{aq.}) \Longleftrightarrow&  Na_{2}SO_{4} (s) + H_{2}O (l) \\
+           HCl (\text{aq.}) + KOH (\text{aq.}) \Longleftrightarrow& KCl (s) + H_{2}O (l),  \\
+           2 HCl (\text{aq.}) + Mg(OH)_{2} (s)  \Longleftrightarrow& MgCl_{2} (s) + 2 H_{2}O (l), \\
+      \end{cases}
+    \end{displaymath}
     \item combustion of natural gas:
         \begin{displaymath}
            CH_{4} (g) + O_{2} (g) \Longleftrightarrow CO_{2} (g) + H_{2}O (l),
@@ -55,20 +90,20 @@ Reactions that progress at different phases are called \blue{\it heterogeneous},
         \end{displaymath}        
 \end{enumerate}
 
-Reaction conditions are, thus, critical to achieve the maximum possible conversion rate. The main aim of this module is to study the thermodynamic relations necessary to predict equilibrium conversion of {\it homogeneous chemical reactions}. 
+Reaction conditions are, thus, critical to achieve the maximum possible conversion rate. The main aim of this chapter is to study the thermodynamic relations necessary to predict equilibrium conversion of {\it homogeneous chemical reactions}. 
 
 %%% SECTION
-\section{Reaction Coordinate}\label{Section:06:ReactionCoordinate}
+\section{Reaction Coordinate}\label{Chapter:ChemicalReactions:Section:ReactionCoordinate}\index{Chemical reaction!Coordinate}\index{Reaction coodinate|see{Chemical reaction}}
 \begin{subequations}
     For a chemical reaction in general form:
         \reaction[chemreaction:reaction]{\nu_{1} A_{1} + \nu_{2} A_{2}  + ... \nu_{k} A_{k} <=> \nu_{l} A_{l} + \nu_{m} A_{m} + ... + \nu_{\mathcal{C}} A_{\mathcal{C}} }
-    where $\nu_{i}$ is the \blue{\it molar stoichiometric coefficient}, $A_{i}$ are chemical species and $\mathcal{C}$ is the total number of species in the system. For convention, \underline{positive $\nu_{i}$ stands for products} whereas \underline{negative $\nu_{i}$ is for reactants}, and the reaction can be expressed as an algebraic equation,
+    where $\nu_{i}$ is the \blue{\it molar stoichiometric coefficient}, $A_{i}$ are chemical species and $\mathcal{C}$ is the total number of species in the system. For convention, \underline{positive $\nu_{i}$ stands for products} whereas \underline{negative $\nu_{i}$ is for reactants}, and the reaction can be expressed as an algebraic equation,\index{Chemical reaction!Stoichiometric coefficient}\index{Stoichiometric coefficient|see{Chemical reaction}}
     \begin{displaymath}
        \nu_{l} A_{l} + \nu_{m} A_{m} + ... + \nu_{\mathcal{C}} A_{\mathcal{C}} - \left(\nu_{1} A_{1} + \nu_{2} A_{2}  + ... \nu_{k} A_{k}\right) = 0,
     \end{displaymath}
     or simply
     \begin{equation}
-      \summation[\nu_{i}A_{i}]{i=1}{\mathcal{C}} = 0.\label{Mod6:Eqn:2}
+      \summation[\nu_{i}A_{i}]{i=1}{\mathcal{C}} = 0.\label{Chapter:ChemicalReactions:Eqn:2}
     \end{equation}
 \bigskip
 
@@ -78,7 +113,7 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
     \begin{displaymath}
        CO + 3 H_{2} - CH_{4} - H_{2}O = 0.
     \end{displaymath}
-    This {\it steam reforming reaction} indicates that as CH$_{4}$ is consumed (along with the water), CO and H$_{2}$ are produced. More specifically, if initially there are 1 mol of CH$_{4}$ and 1 mol of H$_{2}$O and 0 mol of CO and H$_{2}$,
+    This {\it steam reforming reaction} indicates that as CH$_{4}$ is consumed (along with the water), CO and H$_{2}$ are produced. More specifically, if initially there are 1 mol of CH$_{4}$, 1 mol of H$_{2}$O, 0 mol of CO and 0 mol of H$_{2}$,
      \begin{center}
         \begin{tabular}{ l | c c c c c c c}
                            & CH$_{4}$  & + & H$_{2}$O & $\Longleftrightarrow$ &  CO & + & 3 H$_{2}$ \\
@@ -99,24 +134,24 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
     \begin{shaded}
        These equalities lead to the definition of \underline{reaction coordinate}, \blue{$\varepsilon$}, the {\it extension in which a reaction has progressed},
        \begin{equation}
-          \frc{d n_{1}}{\nu_{1}} = \frc{d n_{2}}{\nu_{2}} = \cdots = \frc{d n_{\mathcal{C}}}{\nu_{\mathcal{C}}} = d\varepsilon.\label{Mod6:Eqn:2a}
+          \frc{d n_{1}}{\nu_{1}} = \frc{d n_{2}}{\nu_{2}} = \cdots = \frc{d n_{\mathcal{C}}}{\nu_{\mathcal{C}}} = d\varepsilon.\label{Chapter:ChemicalReactions:Eqn:2a}
        \end{equation}
-       Assuming  that at $t=t_{0}=0$ the initial composition is $n_{i} = n_{i,0}$ and the reaction has not started yet, \ie $\varepsilon=0$. Integrating Eqn.~\ref{Mod6:Eqn:2a} from $t_{0}$ to $t_{i}$,
+       Assuming  that at $t=t_{0}=0$ the initial composition is $n_{i} = n_{i,0}$ and the reaction has not started yet, \ie $\varepsilon=0$. Integrating Eqn.~\ref{Chapter:ChemicalReactions:Eqn:2a} from $t_{0}$ to $t_{i}$,
        \begin{eqnarray}
            && \int\limits_{n_{i,0}}^{n_{i}} dn_{i} = \nu_{i}\int\limits_{0}^{\varepsilon}d\varepsilon \nonumber \\
-           && n_{i} = n_{i,0} + \nu_{i}\varepsilon,\;\;\;\;\forall i=\left\{1,2,\cdots,\mathcal{C}\right\}\label{Mod6:Eqn:2b}
+           && n_{i} = n_{i,0} + \nu_{i}\varepsilon,\;\;\;\;\forall i=\left\{1,2,\cdots,\mathcal{C}\right\}\label{Chapter:ChemicalReactions:Eqn:2b}
        \end{eqnarray}
        For a total number of moles $n$, 
        \begin{equation}
-            n = \summation[n_{i}]{i=1}{\mathcal{C}} = \summation[n_{i,0}]{i=1}{\mathcal{C}} + \varepsilon \summation[\nu_{i}]{i=1}{\mathcal{C}},\label{Mod6:Eqn:2c}
+            n = \summation[n_{i}]{i=1}{\mathcal{C}} = \summation[n_{i,0}]{i=1}{\mathcal{C}} + \varepsilon \summation[\nu_{i}]{i=1}{\mathcal{C}},\label{Chapter:ChemicalReactions:Eqn:2c}
        \end{equation}
        or in compressed notation format,
        \begin{equation}
-          n = n_{0} + \nu\varepsilon,\label{Mod6:Eqn:2d}
+          n = n_{0} + \nu\varepsilon,\label{Chapter:ChemicalReactions:Eqn:2d}
        \end{equation}
        where $n_{0}=\summation[n_{i,0}]{}{}$, $\nu=\summation[\nu_{i}]{}{}$ and $n=\summation[n_{i}]{}{}$. Now, we can define the composition (as mole fraction) of species $i$,
        \begin{equation}
-          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0} + \nu\varepsilon}.\label{Mod6:Eqn:2e}
+          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0} + \nu\varepsilon}.\label{Chapter:ChemicalReactions:Eqn:2e}
        \end{equation}
        \blue{For an \underline{inert species} $k$, \ie chemical compound that does not react but is present in the reactive system, $\nu_{k}=0$.} 
     \end{shaded}
@@ -125,7 +160,7 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
     \begin{displaymath}
          \nu = \summation[\nu_{i}]{}{} = -1 -1 + 1+ 3 = 2.
     \end{displaymath}
-    The gaseous composition is expressed by Eqn.~\ref{Mod6:Eqn:2e},
+    The gaseous composition is expressed by Eqn.~\ref{Chapter:ChemicalReactions:Eqn:2e},
     \begin{displaymath}
           y_{i} = \frc{n_{i,0} + \nu_{i}\varepsilon}{n_{0} + \nu\varepsilon}
           \begin{cases}
@@ -139,15 +174,15 @@ Reaction conditions are, thus, critical to achieve the maximum possible conversi
 Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
           \reaction[chemreaction:FormationCO2]{ C + O_{2} <=> CO_{2}}
           \reaction[chemreaction:FormationCO]{2C + O_{2} <=> 2CO } 
-          \reaction[chemreaction:FormationCO-CO2]{2CO + O_{2} <=> 2CO_{2}}
-    It is easy to notice that, \ref{chemreaction:FormationCO} + \ref{chemreaction:FormationCO-CO2} = \ref{chemreaction:FormationCO2}. In matricial form (adopting the stoichiometric notation),
+          \reaction[chemreaction:FormationCOCO2]{2CO + O_{2} <=> 2CO_{2}}
+    It is easy to notice that, \ref{chemreaction:FormationCO} + \ref{chemreaction:FormationCOCO2} = \ref{chemreaction:FormationCO2}. In matricial form (adopting the stoichiometric notation),
     \begin{center}
       \begin{tabular}{ c | c c c c }
                                           & C   & O$_{2}$ & CO & CO$_{2}$ \\
 \hline
        \ref{chemreaction:FormationCO2}    & -1  & -1     & 0   &   1 \\
        \ref{chemreaction:FormationCO}     & -2  & -1     & 2   &   0 \\
-       \ref{chemreaction:FormationCO-CO2} & 0   & -1     & -2  &   2 
+       \ref{chemreaction:FormationCOCO2} & 0   & -1     & -2  &   2 
       \end{tabular}
     \end{center}
     Row 1 (\ref{chemreaction:FormationCO2}) is a linear combination of rows 2 and 3 (\ie Row 1 = 0.5 $\times$ Row 2 + 0.5 $\times$ Row 3). This indicates that 2 out of the 3 rows of the matrix are {\it linearly independent} and one of them is {\it linearly dependent}, \ie it can be written as a linear combination of the other two rows. Such linear algebra fundamental concept, linear independency\footnote{A finite set $\mathcal{S}=\left\{\mathbf{x_{1}}, \mathbf{x_{2}}, \cdots, \mathbf{x_{m}}\right\}$ of vectors in $\mathbb{R}^{n}$ space is said to be {\bf linearly dependent} if there exist scalars (\ie real numbers), $\alpha_{1}, \alpha_{2}, \cdots, \alpha_{m}$ (not all of them equal to zero), such that
@@ -179,9 +214,9 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
     These reactions results in single reaction: 
           \reaction[chemreaction:CO2-CO-O2]{2CO_{2} <=>  2CO + O_{2}}
     \begin{shaded}
-       \noindent Thus, for a set of \underline{independent chemical reactions}, Eqn.~\ref{Mod6:Eqn:2b} can be rewritten as,
+       \noindent Thus, for a set of \underline{independent chemical reactions}, Eqn.~\ref{Chapter:ChemicalReactions:Eqn:2b} can be rewritten as,
           \begin{equation}
-             n_{i} = n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j}{},\label{Mod6:Eqn:2f}
+             n_{i} = n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j}{},\label{Chapter:ChemicalReactions:Eqn:2f}
           \end{equation}
        where $i$ refers to chemical species, whereas $j$ refers to reactions,
           \begin{displaymath}
@@ -189,11 +224,11 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
           \end{displaymath}
        For simplicity of notation, let's use $\nu_{j}=\summation[\nu_{ij}]{i}{}$, thus
           \begin{equation}
-             n = n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{}.\label{Mod6:Eqn:2g}
+             n = n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{}.\label{Chapter:ChemicalReactions:Eqn:2g}
           \end{equation}
        Now, for composition of species $i$ in multiple reactions $j$,
        \begin{equation}
-          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j=1}{\mathcal{R}}}{n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j=1}{\mathcal{R}}},\label{Mod6:Eqn:2h}
+          y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0} + \summation[\nu_{ij}\varepsilon_{j}]{j=1}{\mathcal{R}}}{n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j=1}{\mathcal{R}}},\label{Chapter:ChemicalReactions:Eqn:2h}
        \end{equation}
        where $\mathcal{R}$ is the number of independent chemical reactions.
     \end{shaded}
@@ -222,7 +257,7 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
       \begin{displaymath}
          n = n_{0} + \summation[\nu_{j}\varepsilon_{j}]{j}{} = 5 + 2\varepsilon_{1} + 2\varepsilon_{2},
       \end{displaymath}
-    and compositions are (from Eqn.~\ref{Mod6:Eqn:2h}),
+    and compositions are (from Eqn.~\ref{Chapter:ChemicalReactions:Eqn:2h}),
     \begin{displaymath}
         \begin{cases}
             y_{CH_{4}} = \frc{2 - \varepsilon_{1} - \varepsilon_{2}}{5 + 2\varepsilon_{1} + 2\varepsilon_{2}},\;\;\; y_{H_{2}O} = \frc{3 - \varepsilon_{1} - 2\varepsilon_{2}}{5 + 2\varepsilon_{1} + 2\varepsilon_{2}}, \\
@@ -233,9 +268,9 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
 \end{subequations}
 
 %%% SECTION
-\section{Standard Enthalpy of Reaction}\label{Section:06:EnthalpyGibbsReaction}
+\section{Standard Enthalpy of Reaction}\label{Chapter:ChemicalReactions:Section:EnthalpyGibbsReaction}\index{Enthalpy! of reaction}\index{Enthalpy! of combustion}\index{Enthalpy! of formation}\index{Standard enthalpy of formation|see{Enthalpy}}\index{Standard enthalpy of reaction|see{Enthalpy}}\index{Standard enthalpy of combustion|see{Enthalpy}}
 \begin{subequations}
-   Given the homogeneous chemical reaction,
+   Given a general homogeneous chemical reaction,
      \reaction[chemreaction:simplehomogeneousreaction]{\nu_{A}A + \nu_{B}B <=> \nu_{C}C + \nu_{D}D}
    the {\it standard enthalpy of reaction}, $\Delta H^{\circ}_{\text{r}}$ is the heat associated with a chemical reaction that occurs at constant temperature $T$ and at {\it standard pressure} $P$ of 101.325 kPa (\ie 1 atm). In other words, it is the change in enthalpy that occurs when $\nu_{A}$ moles of $A$ and $\nu_{B}$ moles of $B$ at standard state and temperature $T$ are fully converted into $\nu_{C}$ moles of $C$ and $\nu_{D}$ moles of $D$ at standard states and at the same temperature $T$. {\it Standard states} commonly used are:
    \begin{enumerate}[a)]
@@ -244,40 +279,67 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
    \end{enumerate}
    In the literature, data on standard enthalpy of reaction is typically reported at 25$^{\circ}$C. Using the sign convention for molar stoichiometric coefficient, the standard enthalpy of reaction is
    \begin{equation}
-      \Delta H^{\circ}_{\text{r}} = \summation[\nu_{i}\Delta H^{\circ}_{i,f}]{i}{},\label{Mod6:Eqn:3a}
+      \Delta H^{\circ}_{\text{r}} = \summation[\nu_{i}\Delta H^{\circ}_{i,f}]{i}{},\label{Chapter:ChemicalReactions:Eqn:3a}
    \end{equation}
-   where $\Delta H^{\circ}_{i,f}$ is the {\it standard enthalpy of formation}, \ie the standard enthalpy of a reaction in which {\it one mol of a given substance is formed from elements}. The elements are assumed to react at the most stable phase at a given temperature and standard pressure conditions. Data basis of the {\it standard enthalpy of formation} for common chemical species can be found in any chemical engineering handbook and on thermodynamic textbooks.
-
-   In a similar way, we can extend Eqn.~\ref{Mod6:Eqn:3a} to all thermodynamic functions, $M=\left\{U, H, A, G, S\right\}$, as
+   \begin{table}
+     \begin{center}
+       \begin{tabular}{l c | l l}
+         \hline
+         {\bf Species}        &                    &  $\Delta H^{\circ}_{f}$               &    $\Delta H^{\circ}_{c}$              \\
+                              &                    &  $\left(\text{kJ.mol}^{-1}\right)$  & $\left(\text{kJ.mol}^{-1}\right)$     \\
+         \hline
+         Benzene              & C$_{6}$H$_{6}$ (l)  &  49.0                               &-3268.0                               \\
+         Ethane               & C$_{2}$H$_{6}$ (g)  &  -84.7                              & -1560.0                              \\
+         Methane              & CH$_{4}$ (g)       &  -74.8                              & -890.0                               \\
+         Glucose              & C$_{6}$H$_{12}$O$_{6}$ (s)&  -1274.0                       & -2801.0                               \\
+         Methanol             & CH$_{3}$OH (l)     &  -238.7                             & -721.0                               \\
+         Carbon dioxide       & CO$_{2}$ (l)       &  -393.52                            &  --                                 \\
+         \hline
+       \end{tabular}
+       \caption{Standard enthalpies of formation and combustion of organic compounds at 298.15 K \citep[extracted from][]{Atkins_Book}.}\label{Chapter:ChemicalReactions:Table:EnthalpyFormation}
+     \end{center}
+   \end{table}
+   where $\Delta H^{\circ}_{i,f}$ is the {\it standard enthalpy of formation}, \ie the standard enthalpy of a reaction in which {\it one mol of a given substance is formed from elements}. The elements are assumed to react at the most stable phase at a given temperature and standard pressure conditions. For example, the standard enthalpy of formation of liquid benzene at 25$^{\circ}$C (Table~\ref{Chapter:ChemicalReactions:Table:EnthalpyFormation}) refers to the reaction\footnote{Thermo-physical properties of a number of chemical species can be found in the \href{http://webbook.nist.gov/chemistry/}{NIST Chemistry WebBook}.},
+   \begin{displaymath}
+     6 C\text{ (s, graphite)} + 3 H_{2}\text{ (g)} \Longleftrightarrow C_{6}H_{6}\text{ (l)},\;\;\;\;\;\;\Delta H^{\circ}_{f}=49.0\text{ kJ.mol}^{-1}
+   \end{displaymath}
+   Data basis of the {\it standard enthalpy of formation} for common chemical species can be found in any chemical engineering handbook and on thermodynamic textbooks. Some {\it standard reaction enthalpies} have special names due to the practical relevances. For example, the {\it standard enthalpy of combustion}, $\Delta H^{\circ}_{c}$, is the standard reaction enthalpy for complete oxidation of an organic chemical species to gaseous CO$_{2}$ and liquid H$_{2}$O $\left(\text{and gaseous N}_{2}\text{ if N is present in the oxidised species}\right)$, \eg for the combustion of glucose,
+   \begin{displaymath}
+     C_{6}H_{12}O_{6}\text{ (s)} + 6 O_{2} \text{ (g)} \Longleftrightarrow 6 CO_{2}\text{ (g)} + 6 H_{2}O\text{ (l)},
+   \end{displaymath}
+   the calculated standard enthalpy of combustion ( Eqn.~\ref{Chapter:ChemicalReactions:Eqn:3a}) is
+   \begin{displaymath}
+      \Delta H^{\circ}_{\text{gluc},c} = 6 \Delta H^{\circ}_{CO_{2}, f} + 6 \Delta H^{\circ}_{H_{2}O, f} - \left(6\cancelto{0}{\Delta H^{\circ}_{O_{2}, f}} + \Delta H^{\circ}_{\text{gluc},  f} \right) = -2802.10\text{ kJ.mol}^{-1},
+   \end{displaymath}
+   which slightly over-predict the tabulated value (Table~\ref{Chapter:ChemicalReactions:Table:EnthalpyFormation}).
+   In a similar way, Eqn.~\ref{Chapter:ChemicalReactions:Eqn:3a} can be extended to all thermodynamic potentials, $M=\left\{U, H, A, G, S\right\}$, as
    \begin{equation}
-      \Delta M^{\circ}_{\text{r}} = \summation[\nu_{i}\Delta M^{\circ}_{i,f}]{i}{}.\label{Mod6:Eqn:3b}
+      \Delta M^{\circ}_{\text{r}} = \summation[\nu_{i}\Delta M^{\circ}_{i,f}]{i}{}.\label{Chapter:ChemicalReactions:Eqn:3b}
    \end{equation}
   
 \end{subequations}
 
-
-
 %%% SECTION
-\section{Criteria for Chemical Reaction Equilibrium}\label{Section:06:CriteriaEquibrium}
+\section{Criteria for Chemical Reaction Equilibrium}\label{Chapter:ChemicalReactions:Section:CriteriaEquibrium}\index{Gibbs free energy!Partial molar}
 \begin{subequations}
 
    For simplicity of the analysis, let's assume {\it single homogeneous chemical reactions}. The total Gibbs free energy of a system is obtained from
      \begin{equation}
-         G^{t} = \summation[n_{i}\overline{G}_{i}]{i=1}{\mathcal{C}} = \summation[\left(n_{i,0}+\nu_{i}\varepsilon\right)\overline{G}_{i}]{i=1}{\mathcal{C}}\label{Mod6:Eqn:4a}
+         G^{t} = \summation[n_{i}\overline{G}_{i}]{i=1}{\mathcal{C}} = \summation[\left(n_{i,0}+\nu_{i}\varepsilon\right)\overline{G}_{i}]{i=1}{\mathcal{C}}\label{Chapter:ChemicalReactions:Eqn:4a}
      \end{equation}
-   where $\overline{G}_{i}$ is the partial molar Gibbs free energy. At equilibrium (Fig.~\ref{Mod06Fig02}), $\left(dG^{t}\right)_{T,P} = 0$, \ie
+   where $\overline{G}_{i}$ is the partial molar Gibbs free energy. At equilibrium (Fig.~\ref{Chapter:ChemicalReactions:Fig:Fig02}), $\left(dG^{t}\right)_{T,P} = 0$, \ie
        \begin{eqnarray}
           && dG^{t} = d(n\overline{G}) = nd\overline{G} + \overline{G}dn \;\;\;\; \blue{\times \frc{1}{d\varepsilon}} \nonumber \\
-          && \frc{dG^{t}}{d\varepsilon} = n\frc{d\overline{G}}{d\varepsilon} + G\frc{\overline{G} dn}{d\varepsilon} = 0 \nonumber \\
+          && \frc{dG^{t}}{d\varepsilon} = n\frc{d\overline{G}}{d\varepsilon} + \overline{G}\frc{dn}{d\varepsilon} = 0 \nonumber \\
           && \text{in a closed system, } dn = 0 \Longrightarrow \frc{dG^{t}}{d\varepsilon} = \frc{d\overline{G}}{d\varepsilon} = 0\;\;\text{ (equilibrium criteria).} \nonumber
        \end{eqnarray}
       \begin{figure}[hpt]
          \begin{center}
            \includegraphics[width=0.5\columnwidth,clip]{./Figs/Mod06_SchematicEquilibriumGibbs_b}
-           \caption{Sketch of equilibrium Gibbs free energy.}\label{Mod06Fig02}
+           \caption{Sketch of equilibrium Gibbs free energy.}\label{Chapter:ChemicalReactions:Fig:Fig02}
          \end{center}
       \end{figure} 
-   Differentiating Eqn.~\ref{Mod6:Eqn:4a} \wrt $\varepsilon$,
+   Differentiating Eqn.~\ref{Chapter:ChemicalReactions:Eqn:4a} \wrt $\varepsilon$,
        \begin{displaymath}
            \frc{dG^{t}}{d\varepsilon} = \cancelto{0}{\frc{d}{d\varepsilon}\summation[n_{i,0}\overline{G}_{i}]{i}{}} + \frc{d}{d\varepsilon}\left[\summation[\left(\nu_{i}\varepsilon\right)\overline{G}_{i}]{i}{}\right] = 0,
        \end{displaymath}
@@ -288,21 +350,21 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
    with $\nu_{i}$ constant, leading to
         \begin{shaded}
           \begin{equation}
-             \summation[\nu_{i}\overline{G}_{i}]{i}{} = 0 = \summation[\nu_{i}\mu_{i}]{i}{}.\label{Mod6:Eqn:4b}
+             \summation[\nu_{i}\overline{G}_{i}]{i}{} = 0 = \summation[\nu_{i}\mu_{i}]{i}{}.\label{Chapter:ChemicalReactions:Eqn:4b}
           \end{equation}
         \end{shaded}
 \end{subequations}
 
 
 %%% SECTION
-\section{Equilibrium Constant of Reactions}\label{Section:06:EquilibriumConstantReactions}
+\section{Equilibrium Constant of Reactions}\label{Chapter:ChemicalReactions:Section:EquilibriumConstantReactions}\index{Chemical reaction!Equilibrium constant}\index{Equilibrium constant|see{Chemical reaction}}
 \begin{subequations}
 
-   The {\it chemical potential} was previously defined for mixtures (see Eqn.~\ref{Mod05_fugacity1b}) as,
+   The chemical potential was previously defined for mixtures (see Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:fugacity1b}) as,
        \begin{displaymath}
            \mu_{i} = \Partial[\left(nG\right)]{n_{i}}{T,P,n_{j\ne i}} = \overline{G}_{i} = RT\ln{\overline{f}_{i}} + C_{i}(T),
        \end{displaymath}
-   where $\overline{f}_{i}$ is the fugacity of component $i$ in the mixture\footnote{In Module~\ref{Section:05}, we have studied forms to calculate $\mfr[\overline{f}]{i}{j}$:
+   where $\overline{f}_{i}$ is the fugacity of component $i$ in the mixture\footnote{In Chapter~\ref{Chapter:SolutionThermodynamics}, we have studied forms to calculate $\mfr[\overline{f}]{i}{j}$:
       \begin{enumerate}[a)]
           \item ideal gases: $\mfr[\overline{f}]{i}{\text{ig}} =  y_{i}P=P_{i}$ (Dalton law);
           \item real gases: $\mfr[\overline{\phi}]{i}{V}  = \frc{\mfr[\overline{f}]{i}{V}}{y_{i}P}$;
@@ -313,15 +375,15 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
       \begin{displaymath}
             \overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right) = RT\ln{\overline{f}_{i}^{\circ}} + C_{i}(T),
       \end{displaymath}
-      where $x_{i}^{\circ}$ is usually assumed to be composition of the pure component $\left(\text{\ie }x_{i}^{\circ}=1\right)$, or infinite diluition state $\left(\text{\ie }x_{i}^{\circ}=0\right)$ or ideal 1 molal solution, depending on the nature of the species\footnote{For simplicity of the notation, in this section, $x_{i}$ will represent the mole fraction of species in liquid and vapour phases.}.  $\overline{f}_{i}^{\circ}$ is the fugacity of component $i$ in the mixture at standard conditions. Subtracting the equation above from the previous one,
+      where $x_{i}^{\circ}$ is usually assumed to be either composition of the pure component $\left(\text{\ie }x_{i}^{\circ}=1\right)$, or infinite dilution state $\left(\text{\ie }x_{i}^{\circ}=0\right)$ or ideal 1 molal solution, depending on the nature of the species\footnote{For simplicity of the notation, in this section, $x_{i}$ will represent the mole fraction of species in liquid and vapour phases.}.  $\overline{f}_{i}^{\circ}$ is the fugacity of component $i$ in the mixture at standard conditions. Subtracting the equation above from the previous one, results in,
       \begin{equation}
-         \overline{G}\left(T,P, x_{i}\right)  - \overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right) = RT\ln{\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}}.\label{Mod6:Eqn:5a}
+         \overline{G}\left(T,P, x_{i}\right)  - \overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right) = RT\ln{\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}}.\label{Chapter:ChemicalReactions:Eqn:5a}
       \end{equation}
-      The log-term was previously (Eqn.~\ref{Mod05_activity1b}) defined as the activity, \ie $a_{i} = \frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}$, and if Eqn.~\ref{Mod6:Eqn:5a} is substituted in Eqn.~\ref{Mod6:Eqn:4b},
+      The log-term was previously (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:activity1b}) defined as the activity, \ie $a_{i} = \frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}$, and if Eqn.~\ref{Chapter:ChemicalReactions:Eqn:5a} is substituted in Eqn.~\ref{Chapter:ChemicalReactions:Eqn:4b},
       \begin{displaymath}
          0 = \summation[\nu_{i}\overline{G}_{i}]{i}{} = \underbrace{\summation[\nu_{i}\overline{G}_{i}^{\circ}]{i}{}}_{\Delta G_{r}^{\circ}} + RT\summation[\nu_{i}\ln{a_{i}}]{i}{}
       \end{displaymath}
-      where $\Delta G_{r}^{\circ} = \summation[\nu_{i}\overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right)]{i}{}$ is the Gibbs energy change on reaction with each species (reactants and products) in its standard state or state of unity activity. Using logarithm properties, we can simplify this expression and introduce the {\it product}, $\prod$,\footnote{See Appendix C for log-properties. In summary, for a set of reals $a_{i}$, $b_{i}$ and $n_{i}$ $\forall i\in\left\{1,2,\cdots, z\right\}$, with $b_{i}\ne 0$,
+      where $\Delta G_{r}^{\circ} = \summation[\nu_{i}\overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right)]{i}{}$ is the Gibbs energy change on reaction with each species (reactants and products) in its standard state or state of unity activity. Using logarithm properties, we can simplify this expression and introduce the {\it product}, $\prod$,\footnote{See Appendix~\ref{Chapter:LogExpReview:Section:Log} for log-properties. In summary, for a set of reals $a_{i}$, $b_{i}$ and $n_{i}$ $\forall i\in\left\{1,2,\cdots, z\right\}$, with $b_{i}\ne 0$,
          \begin{eqnarray}
            \summation[n_{i}\ln{\frc{a_{i}}{b_{i}}}]{i=1}{z} =  \summation[\ln{\left(\frc{a_{i}}{b_{i}}\right)^{n_{i}}}]{i=1}{z} &=& \ln{\left(\frc{a_{1}}{b_{1}}\right)^{n_{1}}} + \ln{\left(\frc{a_{2}}{b_{2}}\right)^{n_{2}}}  + \ln{\left(\frc{a_{3}}{b_{3}}\right)^{n_{3}}} + \cdots + \ln{\left(\frc{a_{z}}{b_{z}}\right)^{n_{z}}} \nonumber \\
                                                                                  &=& \ln{\left[\left(\frc{a_{1}}{b_{1}}\right)^{n_{1}} \cdot \left(\frc{a_{2}}{b_{2}}\right)^{n_{2}} \cdot \left(\frc{a_{3}}{b_{3}}\right)^{n_{3}} \cdots \left(\frc{a_{z}}{b_{z}}\right)^{n_{z}} \right]}  \nonumber \\
@@ -334,28 +396,28 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
          \end{displaymath}
          \blue{$K$} is the \blue{\it equilibrium constant} and is a function of the system temperature, \ie $K=K(T)$,
          \begin{equation}
-             K(T) = \exp{\left[- \frc{\Delta G_{r}^{\circ}}{RT}\right]} = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}}. \label{Mod6:Eqn:5b}
+             K(T) = \exp{\left[- \frc{\Delta G_{r}^{\circ}}{RT}\right]} = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}}. \label{Chapter:ChemicalReactions:Eqn:5b}
          \end{equation}
-         If the standard state of each chemical species in the reaction is chosen to be $T=298.15$ K and $P= 1$ atm,
+         The equilibrium constant is independent of the system's composition and pressure but is dependent on the temperature and the reference pressure. The larger the equilibrium constant $\left(\text{which corresponds to more negative values of } \Delta G_{r}^{\circ}\right)$, the further the reaction proceeds to completion. If the standard state of each chemical species in the reaction is chosen to be $T=298.15$ K and $P= 1$ atm,
          \begin{displaymath}
               \Delta G_{r}^{\circ} \left(T=298.15\text{ K}\right) = \summation[\nu_{i}\Delta G_{i,f}^{\circ}\left(T=298.15\text{ K}\right)]{i}{},
          \end{displaymath}
-         where $\Delta G_{i,f}^{\circ}$ is the standard state Gibbs free energy of formation, briefly discussed in Section~\ref{Section:06:EnthalpyGibbsReaction}.
+         where $\Delta G_{i,f}^{\circ}$ is the standard state Gibbs free energy of formation, briefly discussed in Section~\ref{Chapter:ChemicalReactions:Section:EnthalpyGibbsReaction}.
       \end{shaded}
 
 
 %%% SUBSECTION
-\subsection{Dependence of $K$ with Temperature}\label{Section:06:K_Temperature}
-      The equilibrium constant $K$ is strongly dependent on the system temperature, and therefore it is important to be able to define it at any reaction conditions. The {\it Van't Hoff} equation provides a way to correlate $K$ and the enthalpy of reaction, using Eqn.~\ref {Mod03_GibbsGeneratingFunctionPConst} (for constant pressure conditions) at standard state, 
+\subsection{Dependence of $K$ with Temperature}\label{Chapter:ChemicalReactions:Section:K_Temperature}\index{Chemical reaction!Van't Hoff equation}\index{Van't Hoff equation|see{Chemical reaction}}\index{Endothermic reactions}\index{Exothermic reactions}\index{Chemical reaction!Equilibrium constant}\index{Enthalpy! of reaction}
+      The equilibrium constant $K$ is strongly dependent on the system temperature, and therefore it is important to be able to define it at any reaction conditions. The {\it Van't Hoff} equation provides a way to correlate $K$ and the enthalpy of reaction $\left(\Delta H^{\circ}_{r}\right)$, using Eqn.~\ref{Chapter:ThermodynamicPropertiesPureFluids:Eqn:GibbsGeneratingFunctionPConst} (for constant pressure conditions) at standard state, 
       \begin{displaymath}
           \overline{H}_{i}^{\circ} = -RT^{2}\frc{d}{dT}\left(\overline{G}_{i}^{\circ}/RT\right) \;\;\;\;\Longrightarrow\;\;\;\;\; \Delta H^{\circ}_{r} = -RT^{2}\frc{d}{dT}\left(\Delta G^{\circ}_{r}/RT\right),
       \end{displaymath}
       where $\Delta H^{\circ}_{r}$ is the standard heat (or enthalpy) of reaction. 
   
       \begin{shaded}
-      \noindent Replacing Eqn.~\ref{Mod6:Eqn:5b} in the relation above leads to the \blue{\it Van't Hoff equation},
+      \noindent Replacing Eqn.~\ref{Chapter:ChemicalReactions:Eqn:5b} in the relation above leads to the \blue{\it Van't Hoff equation},
       \begin{equation}
-         \frc{d\left(\ln{K}\right)}{dT} = \frc{\Delta H^{\circ}_{r}}{RT^{2}} \;\;\;\;\;\text{ or }\;\;\;\;\; \frc{d}{dT}\left(\Delta G^{\circ}_{r}/RT\right) = -\frc{d\left(\ln{K}\right)}{dT} = -\frc{\Delta H^{\circ}_{r}}{RT^{2}}\label{Mod6:Eqn:5c}
+         \frc{d}{dT}\left(\Delta G^{\circ}_{r}/RT\right) = -\frc{d\left(\ln{K}\right)}{dT} = -\frc{\Delta H^{\circ}_{r}}{RT^{2}}\label{Chapter:ChemicalReactions:Eqn:5c}
       \end{equation}
       \end{shaded}
 
@@ -364,33 +426,35 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
            \int\limits_{K_{1}}^{K_{2}}d\left(\ln{K}\right) = \int\limits_{T_{1}}^{T_{2}}\frc{\Delta H^{\circ}}{RT^{2}} dT \;\;\;\Longrightarrow \;\;\; \left(\ln{K_{2}}-\ln{K_{1}}\right) = -\frc{\Delta H^{\circ}}{R}\left(\frc{1}{T_{2}}-\frc{1}{T_{1}}\right).
       \end{displaymath}
       For a qualitative analysis, we can plot $\ln{K} \times 1/T$, and the slope of the linear equation $\left(\text{\ie } y=ax+b,\text{ where }\right.$ $\left.y=\ln{K}\text{ and }x=\frac{1}{T}\right)$ is $-\Delta H^{\circ}/R$. Let's consider reactions for formation of carbon and nitrogen monoxides,
-         \reaction[chemreaction:FormationCO]{C + \frac{1}{2}O_{2} <=> CO}
+         \reaction[chemreaction:FormationCOb]{C + \frac{1}{2}O_{2} <=> CO}
          \reaction[chemreaction:FormationNO]{\frac{1}{2}N_{2} + \frac{1}{2}O_{2} <=> NO}
-      with $\ln{K} \times 1/T$ plot for these reactions in Fig.~\ref{Mod06Fig03}. We can qualitatively analyse the behaviour of the equilibrium constant at 1666.67 K and 833.33 K,
+      with $\ln{K} \times 1/T$ plot for these reactions in Fig.~\ref{Chapter:ChemicalReactions:Fig:Fig03}. We can qualitatively analyse the behaviour of the equilibrium constant at 1666.67 K and 833.33 K,
       \begin{figure}[hpt] 
          \begin{center}
            \includegraphics[width=0.5\columnwidth,angle=90,clip]{./Figs/Mod06_SchematicVantHoff_b}
-           \caption{(Left) Sketch of equilibrium constants as a function of temperature for reactions~\ref{chemreaction:FormationCO} and~\ref{chemreaction:FormationNO}. Data extracted from Smith, Van Ness and Abbott (6$^{\text{th}}$ Edition). (Right) Reaction coordinate $\times$ temperature -- qualitative analysis for endothermic/exothermic reactions based on the standard heat of reaction.}\label{Mod06Fig03}
+           \caption{(Left) Sketch of equilibrium constants as a function of temperature for reactions~\ref{chemreaction:FormationCOb} and~\ref{chemreaction:FormationNO} \citep[data extracted from][]{SmithVanNess_Book}. (Right) Reaction coordinate $\times$ temperature -- qualitative analysis for endothermic/exothermic reactions based on the standard heat of reaction.}\label{Chapter:ChemicalReactions:Fig:Fig03}
          \end{center}
       \end{figure} 
      
-      \begin{eqnarray}
-         && -\left[\frc{\Delta H^{\circ}}{R}\right]_{\ref{chemreaction:FormationCO}} =  \frc{27 - 19}{12-6} = 1.3333, \nonumber \\
-         && -\left[\frc{\Delta H^{\circ}}{R}\right]_{\ref{chemreaction:FormationNO}} =  \frc{-12 - (-5)}{12-6} = -1.1667, \nonumber
-      \end{eqnarray}
+      \begin{displaymath}
+        \begin{cases}
+            -\left[\frc{\Delta H^{\circ}}{R}\right]_{\ref{chemreaction:FormationCO}} =  \frc{27 - 19}{12-6} = 1.3333, &  \\
+            -\left[\frc{\Delta H^{\circ}}{R}\right]_{\ref{chemreaction:FormationNO}} =  \frc{-12 - (-5)}{12-6} = -1.1667 &
+          \end{cases}
+      \end{displaymath}
       Reactions that present positive $\Delta H^{\circ}$ (\ie negative slope) are called {\it endothermic}, \ie equilibrium constant rises as the temperature is increased (or in other words, heat is given to the reactive system to promote the reaction). Similarly, negative $\Delta H^{\circ}$ (\ie positive slope) are called {\it exothermic}, \ie an increase in temperature leads to a decrease in the equilibrium constant (heat is transferred from the reactive system to the surroundings).
 
 \begin{comment}
 %%% SUBSECTION
-\subsection{Dependence of $K$ with Temperature}\label{Section:06:K_Temperature}
-\begin{subequations}
+\subsection{Dependence of $K$ with Temperature}\label{Chapter:ChemicalReactions:Section:K_Temperature}
+%\begin{subequations}
     The fundamental thermodynamic relation for the Gibbs free energy at stadard state conditions,
        \begin{displaymath}
            G_{i}^{\circ} = H_{i}^{\circ} - TS_{i}^{\circ},
        \end{displaymath}
-   can be extended to chemical reactions at standard state conditions (using Eqn.~\ref{Mod6:Eqn:3b})
+   can be extended to chemical reactions at standard state conditions (using Eqn.~\ref{Chapter:ChemicalReactions:Eqn:3b})
        \begin{equation}
-           \underbrace{\summation[\nu_{i}G_{i}^{\circ}]{}{}}_{\Delta G^{\circ}} =  \underbrace{\summation[\nu_{i}H_{i}^{\circ}]{}{}}_{\Delta H^{\circ}} - T \underbrace{\summation[\nu_{i}S_{i}^{\circ}]{}{}}_{\Delta S^{\circ}},\label{Mod6:Eqn:6a}
+           \underbrace{\summation[\nu_{i}G_{i}^{\circ}]{}{}}_{\Delta G^{\circ}} =  \underbrace{\summation[\nu_{i}H_{i}^{\circ}]{}{}}_{\Delta H^{\circ}} - T \underbrace{\summation[\nu_{i}S_{i}^{\circ}]{}{}}_{\Delta S^{\circ}},\label{Chapter:ChemicalReactions:Eqn:6a}
        \end{equation}
    where,
    \begin{enumerate}[i)]
@@ -411,19 +475,19 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
                  && \Delta S^{\circ} - \Delta S^{\circ}_{0} = \blue{R}\int\limits_{T_{0}}^{T}\frc{\Delta C_{p}^{\circ}}{\blue{R}} \frc{dT}{T} \nonumber 
             \end{eqnarray}
    \end{enumerate}
-  Replacing these two terms in Eqn.~\ref{Mod6:Eqn:6a} to obtain $\Delta G^{\circ}$
+  Replacing these two terms in Eqn.~\ref{Chapter:ChemicalReactions:Eqn:6a} to obtain $\Delta G^{\circ}$
      \begin{eqnarray}
          \Delta G^{\circ} &=&  \Delta H^{\circ}_{0} + \blue{R}\int\limits_{T_{0}}^{T} \frc{\Delta C_{p}^{\circ}}{\blue{R}} dT - T\overbrace{\Delta S^{\circ}_{0}}^{\frc{\Delta H^{\circ}_{0}-\Delta G^{\circ}_{0}}{T_{0}}} - \blue{R}T\int\limits_{T_{0}}^{T}\frc{\Delta C_{p}^{\circ}}{\blue{R}} \frc{dT}{T} \;\;\;\;\; \blue{\times\left(\frc{1}{RT}\right)} \nonumber \\ 
-         \underbrace{\frc{\Delta G^{\circ}}{RT}}_{-\ln{K}} &=&  \frc{\Delta G^{\circ}_{0}-\Delta H^{\circ}_{0}}{RT_{0}} + \frc{\Delta H^{\circ}_{0}}{RT} + \frc{1}{T}\int\limits_{T_{0}}^{T} \frc{\Delta C_{p}^{\circ}}{R}dT - \int\limits_{T_{0}}^{T}\frc{\Delta C_{p}^{\circ}}{R}dT \label{Mod6:Eqn:6b}
+         \underbrace{\frc{\Delta G^{\circ}}{RT}}_{-\ln{K}} &=&  \frc{\Delta G^{\circ}_{0}-\Delta H^{\circ}_{0}}{RT_{0}} + \frc{\Delta H^{\circ}_{0}}{RT} + \frc{1}{T}\int\limits_{T_{0}}^{T} \frc{\Delta C_{p}^{\circ}}{R}dT - \int\limits_{T_{0}}^{T}\frc{\Delta C_{p}^{\circ}}{R}dT \label{Chapter:ChemicalReactions:Eqn:6b}
      \end{eqnarray}
-  The standard heat capacities, $\Delta C_{p}^{\circ}=\summation[\nu_{i}C_{p_{i}}^{\circ}]{}{}$ are often expressed as polynomials of the temperature for a range of chemical species. This ensures a sensitivity of this thermophysical parameter with respect to the temperature. In such cases, Eqn.~\ref{Mod6:Eqn:6b} can only be solved numerically with the integrals ranging from the standard (or reference) temperature, $T_{0}$, to $T$. In addition, $\Delta G^{\circ}_{0}$ and $\Delta H^{\circ}_{0}$, Gibbs free energy and enthalpy of reaction at standard pressure conditions (\ie 1 atm) and at reference (or standad) temperature conditions (\ie 298.15 K) are tabulated and readily available in the literature for a number of (relatively) simple chemical reactions.
+  The standard heat capacities, $\Delta C_{p}^{\circ}=\summation[\nu_{i}C_{p_{i}}^{\circ}]{}{}$ are often expressed as polynomials of the temperature for a range of chemical species. This ensures a sensitivity of this thermophysical parameter with respect to the temperature. In such cases, Eqn.~\ref{Chapter:ChemicalReactions:Eqn:6b} can only be solved numerically with the integrals ranging from the standard (or reference) temperature, $T_{0}$, to $T$. In addition, $\Delta G^{\circ}_{0}$ and $\Delta H^{\circ}_{0}$, Gibbs free energy and enthalpy of reaction at standard pressure conditions (\ie 1 atm) and at reference (or standad) temperature conditions (\ie 298.15 K) are tabulated and readily available in the literature for a number of (relatively) simple chemical reactions.
 
-\end{subequations}
+%\end{subequations}
 \end{comment}
 
 %%% SUBSECTION
-\subsection{Dependence of $K$ with Composition}\label{Section:06:K_Composition}
-    Recall that in Eqn.~\ref{Mod6:Eqn:5b}, the equilibrium constant $K$ was defined as function of the activities of the reactive mixture,
+\subsection{Dependence of $K$ with Composition}\label{Chapter:ChemicalReactions:Section:K_Composition}\index{Fugacity}\index{Fugacity! Coefficient}\index{Solutions!Activity coefficient}
+    Recall that in Eqn.~\ref{Chapter:ChemicalReactions:Eqn:5b}, the equilibrium constant $K$ was defined as function of the activities of the reactive mixture,
     \begin{displaymath}
        K = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}} = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i}}.
     \end{displaymath}
@@ -438,18 +502,18 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
     \begin{shaded}    
        \noindent Defining $\nu=\summation[\nu_{i}]{i}{}$,
        \begin{equation}
-           \prod\limits_{i=1}^{\mathcal{C}} \left(\overline{\phi}_{i}y_{i}\right)^{\nu_{i}} = K\left(\frc{P}{P^{\circ}}\right)^{-\nu}\;\;\;\;\blue{\text{ (for gaseous phase).}}\label{Mod6:Eqn:5d}
+           \prod\limits_{i=1}^{\mathcal{C}} \left(\overline{\phi}_{i}y_{i}\right)^{\nu_{i}} = K\left(\frc{P}{P^{\circ}}\right)^{-\nu}\;\;\;\;\blue{\text{ (for gaseous phase).}}\label{Chapter:ChemicalReactions:Eqn:5d}
        \end{equation}
        At low pressure or high temperature, the fluid behaves as an ideal gas, \ie $\overline{\phi}_{i}=1$, thus
        \begin{equation}
-           \prod\limits_{i=1}^{\mathcal{C}} y_{i}^{\nu_{i}} = K\left(\frc{P}{P^{\circ}}\right)^{-\nu}\;\;\;\;\blue{\text{ (for ideal gases).}}\label{Mod6:Eqn:5e}
+           \prod\limits_{i=1}^{\mathcal{C}} y_{i}^{\nu_{i}} = K\left(\frc{P}{P^{\circ}}\right)^{-\nu}\;\;\;\;\blue{\text{ (for ideal gases).}}\label{Chapter:ChemicalReactions:Eqn:5e}
        \end{equation}
     \end{shaded}
     Now, for the liquid phase the expression previously defined 
     \begin{displaymath}
        K = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i}},
     \end{displaymath}
-    still holds, and for {\it pure liquid} $i$ at $T$ and 1 atm, using $\overline{f}_{i} = \gamma_{i}x_{i}f_{i}$ (Eqn.~\ref{Mod05_activity1g}), where $f_{i}$ is the fugacity of pure component $i$ in the liquid phase at $P$ and $T$. Hence,
+    still holds, and for {\it pure liquid} $i$ at $T$ and 1 atm, using $\overline{f}_{i} = \gamma_{i}x_{i}f_{i}$ (Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:activity1g}), where $f_{i}$ is the fugacity of pure component $i$ in the liquid phase at $P$ and $T$. Hence,
     \begin{displaymath}
        \frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}} = \frc{\gamma_{i}x_{i}f_{i}}{\overline{f}_{i}^{\circ}} = \gamma_{i}x_{i}\left(\frc{f_{i}}{\overline{f}_{i}^{\circ}}\right).
     \end{displaymath}
@@ -458,7 +522,7 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
           G_{i}-G_{i}^{\circ} &=& \int\limits_{P^{\circ}}^{P}V_{i}dP \nonumber  \\
           RT\ln{\left(\frc{f_{i}}{f_{i}^{\circ}}\right)} &=& \int\limits_{P^{\circ}}^{P}V_{i}dP \;\;\;\Longrightarrow\;\;\; \ln{\left(\frc{f_{i}}{f_{i}^{\circ}}\right)} = \frc{V_{i}\left(P-P^{\circ}\right)}{RT}, \nonumber
     \end{eqnarray}
-    assuming that fluids at liquid phase are incompressible $\left(\text{\ie } V_{i} \text{ is constant}\right)$. Now, replacing in the original equation\footnote{Here, properties of exponents (see Appendix C) are used to operate over the thermodynamic properties. Given the set of reals $a_{i}$ and $b_{i}$ $\forall i\in\left\{1,2,\cdots, z\right\}$ and constants $c$ and $d$:
+    assuming that fluids at liquid phase are incompressible $\left(\text{\ie } V_{i} \text{ is constant}\right)$. Now, replacing in the original equation\footnote{Here, properties of exponents (see Appendix~\ref{Chapter:LogExpReview:Section:Exp}) are used to operate over the thermodynamic properties. Given the set of reals $a_{i}$ and $b_{i}$ $\forall i\in\left\{1,2,\cdots, z\right\}$ and constants $c$ and $d$:
    \begin{enumerate}[a)]
        \item $\left(e^{c}\right)^{d} = e^{cd}$;
        \item $e^{a_{1}b_{1}c}\cdot e^{a_{2}b_{2}c}\cdots e^{a_{z}b_{z}c} = e^{c\left(a_{1}b_{1}+a_{2}b_{2}+\cdots+a_{z}b_{z}\right)}$.
@@ -471,18 +535,18 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
     \end{eqnarray}
     \begin{shaded}
        \begin{equation}
-           \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} = K\exp{\left[\frc{P^{\circ}-P}{RT}\summation[V_{i}\nu_{i}]{i=1}{\mathcal{C}}\right]}\;\;\;\;\blue{\text{ (for liquid phase).}}\label{Mod6:Eqn:5f}
+           \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} = K\exp{\left[\frc{P^{\circ}-P}{RT}\summation[V_{i}\nu_{i}]{i=1}{\mathcal{C}}\right]}\;\;\;\;\blue{\text{ (for liquid phase).}}\label{Chapter:ChemicalReactions:Eqn:5f}
        \end{equation}
        Simplifications:
        \begin{enumerate}[a)]
            \item At room pressure conditions, $P^{\circ}-P=0$ and
               \begin{equation}
-                 K = \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} \;\;\;\;\blue{\text{ (for liquid phase at room pressure conditions).}}\label{Mod6:Eqn:5g}
+                 K = \prod\limits_{i=1}^{\mathcal{C}}\left(\gamma_{i}x_{i}\right)^{\nu_{i}} \;\;\;\;\blue{\text{ (for liquid phase at room pressure conditions).}}\label{Chapter:ChemicalReactions:Eqn:5g}
               \end{equation}
               Although at first sight this equation may seem relatively simple to solve, activity coefficient models are often necessary to be used making it complex to solve, in such cases iterative methods are commonly employed;
-           \item For ideal solutions, $\gamma=1$ and Eqn.~\ref{Mod6:Eqn:5g} becomes,
+           \item For ideal solutions, $\gamma=1$ and Eqn.~\ref{Chapter:ChemicalReactions:Eqn:5g} becomes,
               \begin{equation}
-                 K = \prod\limits_{i=1}^{\mathcal{C}}x_{i}^{\nu_{i}} \;\;\;\;\blue{\text{ (for ideal solutions).}}\label{Mod6:Eqn:5h}
+                 K = \prod\limits_{i=1}^{\mathcal{C}}x_{i}^{\nu_{i}} \;\;\;\;\blue{\text{ (for ideal solutions).}}\label{Chapter:ChemicalReactions:Eqn:5h}
               \end{equation}              
        \end{enumerate}
     \end{shaded}
@@ -491,12 +555,12 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
 
 
 %%% SECTION
-\section{Equilibrium Constant in Multiple Simultaneous Reactions}\label{Section:06:MultipleReactions}
+\section{Equilibrium Constant in Multiple Simultaneous Reactions}\label{Chapter:ChemicalReactions:Section:MultipleReactions}
 \begin{subequations}
-  Calculations of equilibrium constant of single homogeneous chemical reactions can be extended to multiple independent reactions. Let's consider a set of $\mathcal{R}$ independent reactions involving $\mathcal{C}$ chemical species, the equilibrium constant for each reaction is given by an extension of Eqn.~\ref{Mod6:Eqn:5b}
+  Calculations of equilibrium constant of single homogeneous chemical reactions can be extended to multiple independent reactions. Let's consider a set of $\mathcal{R}$ independent reactions involving $\mathcal{C}$ chemical species, the equilibrium constant for each reaction is given by an extension of Eqn.~\ref{Chapter:ChemicalReactions:Eqn:5b}
   \begin{shaded}
     \begin{equation}
-        K_{j} = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i,j}},\;\;\;\;\forall j\in\left\{1,2,\cdots,\mathcal{R}\right\}.\label{Mod6:Eqn:6a}
+        K_{j} = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i,j}},\;\;\;\;\forall j\in\left\{1,2,\cdots,\mathcal{R}\right\}.\label{Chapter:ChemicalReactions:Eqn:6a}
     \end{equation}
   \end{shaded}
   For {\it gaseous} reactions,
@@ -504,7 +568,7 @@ Given the set of 3 reactions below for the formation of CO and CO$_{2}$,
     \begin{equation}
       K_{j} =
       \begin{cases}
-          \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{P^{\circ}}\right)^{\nu_{i,j}},\;\;\;\;\blue{\text{(gas phase),}}\label{Mod6:Eqn:6b} \\
+          \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{P^{\circ}}\right)^{\nu_{i,j}},\;\;\;\;\blue{\text{(gas phase),}}\label{Chapter:ChemicalReactions:Eqn:6b} \\
            \\
           \left(\frc{P}{P^{\circ}}\right)^{-\nu_{i,j}}\prod\limits_{i=1}^{\mathcal{C}} \left(y_{i}\right)^{\nu_{i,j}},\;\;\;\;\blue{\text{(ideal gas mixture).}}
       \end{cases}
@@ -922,6 +986,35 @@ Now, using the expression obtained in Example~\ref{Example:4} for composition, a
          
         Note that at low temperature, 250 K $\left(-23.15^{\circ}\text{C}\right)$, the production of nitrogen dioxide is fairly small (backward reaction), however as the temperature rises the forward reaction becomes dominant with 98.1$\%$ of NO$_{2}$ being produced at 400 K$\left(126.85^{\circ}\text{C}\right)$.
 
-\clearpage
-
 \end{enumerate}
+
+
+\clearpage   
+\begin{FinalSummaryBlock}{Summary}
+     Concepts introduced in this chapter are relatively simple but far reaching. They are cornerstone for the remaining of this notes and for fundamental chemical thermodynamics. An extension of total derivative to multi-component systems led to the equilibrium criteria for general multiphase ($\mathcal{P}\ge2$) and multi-component ($\mathcal{C}\ge2$) mixtures.
+    \begin{itemize}
+       \item Initial definition and discussion of excess properties (Eqn.~\ref{Chapter:VLE:Eqn:ExcessProperties1a});
+       \item Definition of chemical potential as the partial molar Gibbs free energy (Eqn.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1b}) and development of a fundamental relation for multi-component systems (Eqn.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1d});
+       \item Chemical equilibrium can be assessed \wrt thermodynamic conditions as stated in Table~\ref{Chapter:VLE:Table:TableEquilibriumCriteria};
+       \item In closed systems at constant pressure and temperature conditions, the criterion for equilibrium is that the Gibbs free energy is the minimum which leads to equality of chemical potential of each component at all phases (Eqn.~\ref{Chapter:VLE:EqnChemPotentialDef1c3});
+       \item Multi-component VLE problems (\ie $\mathcal{C}\ge 2$ and $\mathcal{P}=2$) can be represented by $P-T-x_{i}y_{i}$ phase diagrams, where critical pressure and temperature (for individual components and the mixtures), liquid and vapour saturation lines, bubble and dew points can be identified;
+       \item Although compositions, temperatures and pressures can be obtained from graphical representation (2-/3-D) of phase equilibrium, this is not very convenient and numerical models were develop to represent the partition of components in both phases in equilibrium;
+       \item Raoult's law (Eqn.~\ref{Chapter:VLE:Eqn:RaoultLaw}) is an idealisation of the components' partition between vapour and liquid phases assuming limited molecular forces (\eg attractive and repulsive) act in the liquid phase;
+       \item Henry's law (Eqn.~\ref{Chapter:VLE:Eqn:HenryLaw}) is applied to gases solubilised at low concentrations in liquid solutions;
+       \item K-value models (Eqn.~\ref{Chapter:VLE:Eqn:KValue}) were mostly developed for petro-chemical industry to help quickly assess concentrations of (light) hydrocarbons in vapour and liquid phases;
+       \item Dew and bubble coordinates (pressure, temperature and compositions) in typical industrial applications are discussed in Section~\ref{Chapter:VLE:Section:IndApplications};
+       \item Depending on known conditions, four main problems may arise:
+\begin{center}
+   \begin{tabular}{|l c c|}
+      \hline 
+      $\mathbf{VLE}$ {\bf Problem} & {\bf Specified Variables} &  {\bf Computed Variables} \\  
+      \hline
+          {\bf Bubble Pressure}        &  $T$ and $x_{i}$           &   $P$ and $y_{i}$          \\
+          {\bf Dew Pressure}           &  $T$ and $y_{i}$           &   $P$ and $x_{i}$          \\
+          {\bf Bubble Temperature}     &  $P$ and $x_{i}$           &   $T$ and $y_{i}$          \\
+          {\bf Dew Temperature}        &  $P$ and $y_{i}$           &   $T$ and $x_{i}$          \\     
+      \hline
+   \end{tabular}
+\end{center}
+    \end{itemize}
+\end{FinalSummaryBlock}
