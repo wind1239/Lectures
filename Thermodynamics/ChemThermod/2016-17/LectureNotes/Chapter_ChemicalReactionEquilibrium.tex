@@ -3,12 +3,15 @@
    \begin{LearningObjectivesBlock}{Learning Objectives}
       Upon completion of this chapter, you will be able to
         \begin{enumerate}
-           \item 
+           \item Select appropriate molar stoichiometric coefficients to balance chemical reactions and to determine reaction coordinates;
+           \item Identify if a chemical reaction is either exothermic or endothermic;
+           \item Assess the heat associated with any chemical reaction;
+           \item Calculate the equilibrium constant at any reaction condition;
+           \item Understand the influences of pressure, stoichiometric feed and inerts on reaction equilibrium.
         \end{enumerate}
 \medskip
      Recommended reading: Chapters 13 of \citet{SmithVanNess_Book}, 8 of \cite{Sandler_Book}, 12 of \citet{Lue_Book}, 14 of \citet{Moran_Book}, 11 of \citet{Devoe_Book} or 7 of \citet{Atkins_Book}.
    \end{LearningObjectivesBlock}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{comment}
@@ -742,7 +745,7 @@ Now, using the Van't Hoff equation,
   \ln{\left(\frc{K(T)}{K_{298.15\text{ K}}}\right)} &=& \int\limits_{298.15\text{ K}}^{T}\frc{\Delta H^{\circ}_{r}}{RT^{2}}dT \nonumber \\
                                                 &=& \frc{1}{R}\int\limits_{298.15\text{ K}}^{T} \left[\frc{56189}{T^{2}} + \frc{12.804}{T} - \frc{7.239\times 10^{-2}}{2} + \frc{4.301\times 10^{-5}}{3}T + \right. \nonumber \\
                                                  && \hspace{3cm}\left.\frc{15.732\times 10^{-9}}{4}T^{2}\right]dT \nonumber \\
-                                                &=& \frc{1}{R}\left[-\frc{56189}{T} + 12.804\ln{T} - \frc{7.239\times 10^{-2}}{2}T + \frc{4.301\times 10^{-5}}{6}T^{2} + \right.
+                                                &=& \frc{1}{R}\left[-\frc{56189}{T} + 12.804\ln{T} - \frc{7.239\times 10^{-2}}{2}T + \frc{4.301\times 10^{-5}}{6}T^{2} + \right. \nonumber \\
                                                 &&\hspace{3cm}\left.\frc{15.732\times 10^{-9}}{12}T^{3}\right]_{298.15\text{ K}}^{T} \nonumber
 \end{eqnarray}
 Solving this integral for
@@ -752,7 +755,7 @@ Solving this integral for
       K_{400\text{ K}} = 51.4338
   \end{cases}  
 \end{displaymath}
-Now, using the expression obtained in Example~\ref{Example:4} for composition, assuming that the initial number of moles are $n_{N_{2}O_{4},0}=1$ and $n_{NO_{2},0}=0$, and $\nu= 2-1 = 1$,
+Now, using the expression obtained in Example~\ref{Chapter:ChemicalReactions:Example4} for composition, assuming that the initial number of moles are $n_{N_{2}O_{4},0}=1$ and $n_{NO_{2},0}=0$, and $\nu= 2-1 = 1$,
          \begin{displaymath}
             y_{N_{2}O_{4}} = \frc{1-\varepsilon}{1+\varepsilon}\;\;\;\;\;\text{ and }\;\;\;\;\;\; y_{NO_{2}} = \frc{2\varepsilon}{1+\varepsilon},
          \end{displaymath}
@@ -994,30 +997,11 @@ Consider the chemical reaction,
 
 \clearpage   
 \begin{FinalSummaryBlock}{Summary}
-     Concepts introduced in this chapter are relatively simple but far reaching. They are cornerstone for the remaining of this notes and for fundamental chemical thermodynamics. An extension of total derivative to multi-component systems led to the equilibrium criteria for general multiphase ($\mathcal{P}\ge2$) and multi-component ($\mathcal{C}\ge2$) mixtures.
+  Many of the processes of interest to chemical engineers can be described by balanced chemical reaction equations for the conversion of reactants into products. This chapter focused on fundamentals for reaction thermodynamics based on thermochemistry concepts introduced in previous chapters. Thus, the main aim is to calculate the composition at equilibrium for specified temperature and pressure conditions. Equilibrium composition can be obtained through calculations involving the equilibrium constant.  
     \begin{itemize}
-       \item Initial definition and discussion of excess properties (Eqn.~\ref{Chapter:VLE:Eqn:ExcessProperties1a});
-       \item Definition of chemical potential as the partial molar Gibbs free energy (Eqn.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1b}) and development of a fundamental relation for multi-component systems (Eqn.~\ref{Chapter:VLE:Eqn:ChemPotentialDef1d});
-       \item Chemical equilibrium can be assessed \wrt thermodynamic conditions as stated in Table~\ref{Chapter:VLE:Table:TableEquilibriumCriteria};
-       \item In closed systems at constant pressure and temperature conditions, the criterion for equilibrium is that the Gibbs free energy is the minimum which leads to equality of chemical potential of each component at all phases (Eqn.~\ref{Chapter:VLE:EqnChemPotentialDef1c3});
-       \item Multi-component VLE problems (\ie $\mathcal{C}\ge 2$ and $\mathcal{P}=2$) can be represented by $P-T-x_{i}y_{i}$ phase diagrams, where critical pressure and temperature (for individual components and the mixtures), liquid and vapour saturation lines, bubble and dew points can be identified;
-       \item Although compositions, temperatures and pressures can be obtained from graphical representation (2-/3-D) of phase equilibrium, this is not very convenient and numerical models were develop to represent the partition of components in both phases in equilibrium;
-       \item Raoult's law (Eqn.~\ref{Chapter:VLE:Eqn:RaoultLaw}) is an idealisation of the components' partition between vapour and liquid phases assuming limited molecular forces (\eg attractive and repulsive) act in the liquid phase;
-       \item Henry's law (Eqn.~\ref{Chapter:VLE:Eqn:HenryLaw}) is applied to gases solubilised at low concentrations in liquid solutions;
-       \item K-value models (Eqn.~\ref{Chapter:VLE:Eqn:KValue}) were mostly developed for petro-chemical industry to help quickly assess concentrations of (light) hydrocarbons in vapour and liquid phases;
-       \item Dew and bubble coordinates (pressure, temperature and compositions) in typical industrial applications are discussed in Section~\ref{Chapter:VLE:Section:IndApplications};
-       \item Depending on known conditions, four main problems may arise:
-\begin{center}
-   \begin{tabular}{|l c c|}
-      \hline 
-      $\mathbf{VLE}$ {\bf Problem} & {\bf Specified Variables} &  {\bf Computed Variables} \\  
-      \hline
-          {\bf Bubble Pressure}        &  $T$ and $x_{i}$           &   $P$ and $y_{i}$          \\
-          {\bf Dew Pressure}           &  $T$ and $y_{i}$           &   $P$ and $x_{i}$          \\
-          {\bf Bubble Temperature}     &  $P$ and $x_{i}$           &   $T$ and $y_{i}$          \\
-          {\bf Dew Temperature}        &  $P$ and $y_{i}$           &   $T$ and $x_{i}$          \\     
-      \hline
-   \end{tabular}
-\end{center}
+       \item Reaction coordinate (Eqn.~\ref{Chapter:ChemicalReactions:Eqn:2a}) describes the extension in which a chemical reaction occurs as a function of the composition of species in equilibrium;
+       \item Most chemical reactions occur in several stages from reactant (and sub-reactants) to products. Each sub-reaction need to be considered in the compositions' calculations;
+       \item The equilibrium constant ($K$, Eqn.~\ref{Chapter:ChemicalReactions:Eqn:5b}) quantitatively expresses the extent of chemical reactions as a function of activities (or concentration for ideal solutions, Eqn.~\ref{Chapter:ChemicalReactions:Eqn:5e});
+       \item $K$ is hugely dependent on temperature and concentration. Expressions for such dependences were introduced in Eqns.~\ref{Chapter:ChemicalReactions:Eqn:5c}-\ref{Chapter:ChemicalReactions:Eqn:5e}.
     \end{itemize}
 \end{FinalSummaryBlock}
