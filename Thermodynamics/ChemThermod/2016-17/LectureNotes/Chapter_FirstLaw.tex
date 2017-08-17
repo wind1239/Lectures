@@ -138,7 +138,6 @@
      \section{The First Law of Thermodynamics}\label{Chapter:FirstLaw:Section:FirstLaw}\index{Laws of Thermodynamics ! First law}
      \begin{subequations}
          Thermal energy is a macro-scale representation of micro-scale changes in mechanical energy (\ie work and heat). In a molecular scale, atoms and molecules are in random motion that can be associated with the kinetic energy of these `particles'. Tracking the motion and energy of each particle is addressed by a field of science called statistical (or quantum) thermodynamics; here we are interested in the consequences of the particles' motion, \ie oscillations in temperature as a measure of the average molecular-scale kinetic energy.
-
          \begin{shaded}
             \begin{center} {\bf Sign Notation}\end{center} 
               Before we proceed stating the {\it First Law}, we should define a sign notation used for all quantities in this document. Thus any form of energy:
@@ -155,6 +154,21 @@
                  \item work produced by the neighbourhood and transferred to the system is \blue{positive}.
               \end{itemize}
          \end{shaded}
+         In most thermodynamic systems, changes in kinetic and potential energies are often assumed negligible\footnote{Here, we are assuming that such systems are not movable \wrt frames of reference.}, and Eqn.~\ref{Chapter:FirstLaw:Eqn:TotalEnergy3} becomes
+            \begin{equation}
+               \mfr[E]{2}{cv} - \mfr[E]{1}{cv} = U_{2}-U_{1} = Q_{1-2} + W_{1-2},\label{Chapter:FirstLaw:Eqn:FirstLaw1}
+            \end{equation}
+         in such cases, the internal energy of a system may be changed in any of the following ways: producing or receiving work and/or have heat being removed or added to the system. Heat and work are equivalent ways of changing the system's internal energy. It was experimentally observed that in isolated systems there is {\bf no} change in the internal energy.
+
+         \begin{shaded}
+            The {\it First Law of Thermodynamics} is effectively a statement of energy conservation: `the only way the energy of a closed system can be changed are through transfer of energy by work or heat' \citep{Moran_Book}. In other words: `the internal energy of an isolated system is constant' \citep{Atkins_Book}. Mathematically, these statements can be readily represented in differential form (\ie during infinitesimal changes in the state of the system) by,
+            \begin{equation}
+               d U = \delta Q + \delta W,\label{Chapter:FirstLaw:Eqn:FirstLaw2}
+            \end{equation}
+            
+         \end{shaded}
+   
+     \end{subequations}
 
    %%%
    %%%
@@ -188,24 +202,7 @@
        \caption{Differences between reversible and irreversible processes \citep[extracted from][]{Singh_Book}.}
        \label{Chapter:FirstLaw:TableDiffRevIrrev}
      \end{table}
-   \end{landscape}
-   
-
-         In most thermodynamic systems, changes in kinetic and potential energies are often assumed negligible\footnote{Here, we are assuming that such systems are not movable \wrt frames of reference.}, and Eqn.~\ref{Chapter:FirstLaw:Eqn:TotalEnergy3} becomes
-            \begin{equation}
-               \mfr[E]{2}{cv} - \mfr[E]{1}{cv} = U_{2}-U_{1} = Q_{1-2} + W_{1-2},\label{Chapter:FirstLaw:Eqn:FirstLaw1}
-            \end{equation}
-         in such cases, the internal energy of a system may be changed in any of the following ways: producing or receiving work and/or have heat being removed or added to the system. Heat and work are equivalent ways of changing the system's internal energy. It was experimentally observed that in isolated systems there is {\bf no} change in the internal energy.
-
-         \begin{shaded}
-            The {\it First Law of Thermodynamics} is effectively a statement of energy conservation: `the only way the energy of a closed system can be changed are through transfer of energy by work or heat' \citep{Moran_Book}. In other words: `the internal energy of an isolated system is constant' \citep{Atkins_Book}. Mathematically, these statements can be readily represented in differential form (\ie during infinitesimal changes in the state of the system) by,
-            \begin{equation}
-               d U = \delta Q + \delta W,\label{Chapter:FirstLaw:Eqn:FirstLaw2}
-            \end{equation}
-            
-         \end{shaded}
-   
-     \end{subequations}
+   \end{landscape}  
    
    % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
@@ -275,7 +272,7 @@
                \begin{displaymath}
                   W_{cycle} = Q_{in} - Q_{out},\;\;\;\text{ with }\;\;\; Q_{in} > Q_{out}.
                \end{displaymath}
-             The energy supplied by heat transfer to a system on a power cycle is often derived from combustion processes. Such cycles are used quantitatively describe work produced in power plants, and are often assessed through the thermal efficiency of the process,\index{Cycles! Power! Thermal efficiency }
+             The energy supplied by heat transfer to a system on a power cycle is often derived from combustion processes. Such cycles are used to quantitatively describe the work produced in power plants, and are often assessed through the thermal efficiency of the process,\index{Cycles! Power! Thermal efficiency }
        \begin{equation}
            \eta =\frc{W_{cycle}}{Q_{in}} = \frc{Q_{in} - Q_{out}}{Q_{in}} = 1 - \frc{Q_{out}}{Q_{in}} < 1.\label{Chapter:FirstLaw:Eqn:FirstLawCycle:PowerEfficiency}
        \end{equation}
