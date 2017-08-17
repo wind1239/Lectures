@@ -273,14 +273,16 @@
 \newcounter{problemcounter}
 \newenvironment{problem}{\begin{quote}%
     \refstepcounter{problemcounter}%
-  \textbf{Problem \arabic{problemcounter}}%
+  \textbf{Problem \thechapter.\arabic{problemcounter}}%
   \quad
 }{%
 \end{quote}%
 }
-
 %%%%%%%  ENVIRONMENTAL VARIABLES FOR  BLOCKS   %%%%%%%%%%
 \usepackage{tcolorbox}
+\definecolor{wildblueyonder}{rgb}{0.64, 0.68, 0.82}
+\definecolor{whitesmoke}{rgb}{0.96, 0.96, 0.96}
+\definecolor{white}{rgb}{1.0, 1.0, 1.0}
 \usepackage{lipsum}
 \tcbuselibrary{skins,breakable}
 \usetikzlibrary{shadings,shadows}
@@ -319,8 +321,10 @@
 \newenvironment{MyTutorial}[1]{%
     \tcolorbox[beamer,%
     noparskip,breakable,
-    colback=LightGray,colframe=DarkGray,%
-    colbacklower=DarkGray!75!LightGray,%
+    colback=white,colframe=DarkGray,%
+    %colback=LightGray,colframe=DarkGray,%
+    %colbacklower=DarkGray!75!LightGray,%
+    colbacklower=white,%
     title=#1]}%
     {\endtcolorbox}
 
