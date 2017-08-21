@@ -57,9 +57,10 @@ If $m$ is replaced in the previous equation, %Eqn.~\ref{LinearInterpolation:Eqn1
         \end{center}
       \end{figure}
 
-    \begin{list}{\bf Example \arabic{qcounter}:~}{\usecounter{qcounter}}
-%       
-         \item Given a table of values for $f(x)=\tan{x}$ for a few values of $x$,
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+      \begin{example}
+         Given a table of values for $f(x)=\tan{x}$ for a few values of $x$,
             \begin{center}
                \begin{tabular}{c | c c c c}
                    $x$        & 1.00   & 1.10   & 1.20   & 1.30   \\
@@ -67,9 +68,11 @@ If $m$ is replaced in the previous equation, %Eqn.~\ref{LinearInterpolation:Eqn1
                    $\tan{x}$  & 1.5574 & 1.9648 & 2.5722 & 3.6021 \\
                \end{tabular}
             \end{center}
-            Estimate $\tan{1.15}$ and $\tan{1.23}$.
+            Estimate $\tan{(1.15)}$ and $\tan{(1.23)}$.
+     \end{example}
 
-            {\bf Solution:} For $\left(x_{a}=1.10\right) < \left(x_{k}=1.15\right) < \left(x_{b}=1.20\right)$,
+% SOLUTION
+       \noindent{\bf Solution:} For $\left(x_{a}=1.10\right) < \left(x_{k}=1.15\right) < \left(x_{b}=1.20\right)$,
                \begin{eqnarray}
                   f\left(x_{k}\right) &=& \frc{f\left(x_{a}\right)\left(x_{b}-x_{k}\right) + f\left(x_{b}\right)\left(x_{k}-x_{a}\right)}{x_{b}-x_{a}} \nonumber \\
                                      &=& \frc{1.9648\times(1.20-1.15) + 2.5722\times(1.15-1.10)}{1.20-1.10} = 2.2685 \nonumber
@@ -80,10 +83,16 @@ For  $\left(x_{a}=1.20\right) < \left(x_{k}=1.23\right) < \left(x_{b}=1.30\right
                   f\left(x_{k}\right) &=& \frc{f\left(x_{a}\right)\left(x_{b}-x_{k}\right) + f\left(x_{b}\right)\left(x_{k}-x_{a}\right)}{x_{b}-x_{a}} \nonumber \\
                                      &=& \frc{2.5722\times(1.30-1.23) + 3.6021\times(1.23-1.20)}{1.30-1.20} = 2.8812 \nonumber
                \end{eqnarray}
-%
-         \item Calculate specific volume $\left(v, \text{in m}^{3}\text{.kg}^{-1}\right)$, internal energy $\left(u, \text{in kJ.kg}^{-1}\right)$ and entropy $\left(s, \text{in kJ.(kg.K)}^{-1}\right)$ of saturated water vapour at 133.45$^{\circ}$C.
+   \end{MyExample}
 
-           {\bf Solution:} From Appendix~\ref{Appendix:Saturated_SH_Tables} (Table A-2), for $T_{a}(=130.0) < T_{k} (= 133.45) < T_{b} (=140.0)^{\circ}C$, thus:
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+      \begin{example}
+         Calculate specific volume $\left(v, \text{in m}^{3}\text{.kg}^{-1}\right)$, internal energy $\left(u, \text{in kJ.kg}^{-1}\right)$ and entropy $\left(s, \text{in kJ.(kg.K)}^{-1}\right)$ of saturated water vapour at 133.45$^{\circ}$C.
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:} From Appendix~\ref{Appendix:Saturated_SH_Tables} (Table A-2), for $T_{a}(=130.0) < T_{k} (= 133.45) < T_{b} (=140.0)^{\circ}C$, thus:
                \begin{eqnarray}
                   v\left(T_{k}\right) &=& \frc{v\left(T_{a}\right)\left(T_{b}-T_{k}\right) + v\left(T_{b}\right)\left(T_{k}-T_{a}\right)}{T_{b}-T_{a}} \nonumber \\
                                      &=& \frc{0.6685\times(140.0-133.45) + 0.5089\times(133.45-130.0)}{140.0-130.0} = 0.6134 \text{ m}^{3}\text{.kg}^{-1}\nonumber \\
@@ -94,9 +103,8 @@ For  $\left(x_{a}=1.20\right) < \left(x_{k}=1.23\right) < \left(x_{b}=1.30\right
                   s\left(T_{k}\right) &=& \frc{s\left(T_{a}\right)\left(T_{b}-T_{k}\right) + s\left(T_{b}\right)\left(T_{k}-T_{a}\right)}{T_{b}-T_{a}} \nonumber \\
                                      &=& \frc{7.0269\times(140.0-133.45) + 6.9299\times(133.45-130.0)}{140.0-130.0} = 6.9934 \text{ kJ.}\left(\text{kg.K}\right)^{-1}\nonumber 
                \end{eqnarray}
+   \end{MyExample}
 
-
-    \end{list}
 
 %%%
 %%% SECTION
@@ -252,14 +260,14 @@ The main problem of the Secant iterative method is that it requires two initial 
  \caption{Secant method algorithm.}\label{Algorithm:Secant}
 \end{algorithm}
 
-\begin{list}{\bf Example \arabic{qcounter}:~}{\usecounter{qcounter}}
-   \item\label{Example:Roots:Secant} Calculate the root of the function $f(x) = x^{2}-2$ using the Secant iterative method. The error tolerance is $\epsilon=10^{-5}$.
-      \begin{description}
-        \item[Solution:] The function
-          \begin{displaymath}
-               f(x) = x^{2} - 2, \text{ with initial estimates of } x_{0}=1.5 \text{ and } x_{1}=1.0.
-          \end{displaymath}
-          The Secant method is expressed through Eqn.~\ref{Secant:Eqn1} for the $(k+1)^{\text{th}}$-iteration,
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Section:RootFinderMethods:Example:Roots:Secant} 
+        Calculate the root of the function $f(x) = x^{2}-2$ using the Secant iterative method with initial estimates of $x_{0}=1.5$ and $x_{1}=1.0$. The error tolerance is $\epsilon=10^{-5}$.
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:} The Secant method is expressed through Eqn.~\ref{Secant:Eqn1} for the $(k+1)^{\text{th}}$-iteration,
           \begin{displaymath}
             x_{k+1} = x_{k} - \frc{ x_{k} - x_{k-1} }{f\left(x_{k}\right) - f\left(x_{k-1}\right)} f\left(x_{k}\right).
          \end{displaymath}
@@ -267,7 +275,7 @@ The main problem of the Secant iterative method is that it requires two initial 
             \item Calculating $x_{2}$ from $x_{0}$ and $x_{1}$:
                   \begin{eqnarray}
                       x_{2} &=& x_{1} - \frc{ x_{1} - x_{0} }{f\left(x_{1}\right) - f\left(x_{0}\right)} f\left(x_{1}\right) \nonumber \\
-                           &=& 1 - \frc{1 - 1.5}{-1-0.25}  (-1) = 1.4
+                           &=& 1 - \frc{1 - 1.5}{-1-0.25}  (-1) = 1.4 \nonumber 
                   \end{eqnarray}
                   Stoppage criteria:
                     \begin{enumerate}[(a)]
@@ -277,7 +285,7 @@ The main problem of the Secant iterative method is that it requires two initial 
             \item Calculating $x_{3}$ from $x_{1}$ and $x_{2}$:
                   \begin{eqnarray}
                       x_{3} &=& x_{2} - \frc{ x_{2} - x_{1} }{f\left(x_{2}\right) - f\left(x_{1}\right)} f\left(x_{2}\right) \nonumber \\
-                           &=& 1.4 - \frc{1.4 - 1.0}{-0.04-(-1)}  (-0.04) = 1.4167
+                           &=& 1.4 - \frc{1.4 - 1.0}{-0.04-(-1)}  (-0.04) = 1.4167\nonumber
                   \end{eqnarray}
                   Stoppage criteria:
                     \begin{enumerate}[(a)]
@@ -287,7 +295,7 @@ The main problem of the Secant iterative method is that it requires two initial 
             \item Calculating $x_{4}$ from $x_{2}$ and $x_{3}$:
                   \begin{eqnarray}
                       x_{4} &=& x_{3} - \frc{ x_{3} - x_{2} }{f\left(x_{3}\right) - f\left(x_{2}\right)} f\left(x_{3}\right) \nonumber \\
-                           &=& 1.4167 - \frc{1.4167 - 1.4}{0.0070-(-0.04)}  (0.0070) = 1.4142
+                           &=& 1.4167 - \frc{1.4167 - 1.4}{0.0070-(-0.04)}  (0.0070) = 1.4142\nonumber
                   \end{eqnarray}
                   Stoppage criteria:
                     \begin{enumerate}[(a)]
@@ -297,7 +305,7 @@ The main problem of the Secant iterative method is that it requires two initial 
             \item Calculating $x_{5}$ from $x_{3}$ and $x_{4}$:
                   \begin{eqnarray}
                       x_{5} &=& x_{4} - \frc{ x_{4} - x_{3} }{f\left(x_{4}\right) - f\left(x_{3}\right)} f\left(x_{4}\right) \nonumber \\
-                           &=& 1.4142 - \frc{1.4142 - 1.4167}{-3.84\times 10^{-5}-(0.0070)}  (-3.84\times 10^{-5}) = 1.4142
+                           &=& 1.4142 - \frc{1.4142 - 1.4167}{-3.84\times 10^{-5}-(0.0070)}  (-3.84\times 10^{-5}) = 1.4142\nonumber
                   \end{eqnarray}
                   Stoppage criteria:
                     \begin{enumerate}[(a)]
@@ -306,12 +314,17 @@ The main problem of the Secant iterative method is that it requires two initial 
                     \end{enumerate}
          \end{list}
          Thus, \underline{4 iterations} were necessary to calculate the root of the function $f(x)=x^{2}-2$. The root of the function is \underline{$x=\psi=1.4142$}.
-       \end{description}
+   \end{MyExample}
          
-%
-   \item{Example:Roots:NewtonRaphson} Calculate the root of the same function of the previous example using the Newton-Raphson method.
-      \begin{description}
-        \item[Solution:] Now that we know the solution of the function, let's take the initial estimate as $x_{1}=1.5$. Newton-Raphson method is expressed through Eqn.~\ref{NewtonRaphson:Eqn1} for the $(k+1)^{\text{th}}$-iteration,
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Section:RootFinderMethods:Example:Roots:NewtonRaphson} 
+         Calculate the root of the same function of the previous example using the Newton-Raphson method.
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:} Now that we know the solution of the function, let's take the initial estimate as $x_{1}=1.5$. Newton-Raphson method is expressed through Eqn.~\ref{NewtonRaphson:Eqn1} for the $(k+1)^{\text{th}}$-iteration,
           \begin{displaymath}
             x_{k+1} = x_{k} - \frc{f\left(x_{k}\right)}{f'\left(x_{k}\right)}, \text{ where } f'\left(x_{k}\right) = 2x_{k}.
          \end{displaymath}
@@ -319,7 +332,7 @@ The main problem of the Secant iterative method is that it requires two initial 
             \item Calculating $x_{2}$ from $x_{1}$:
                   \begin{eqnarray}
                       x_{2} &=& x_{1} - \frc{f\left(x_{1}\right)}{f'\left(x_{1}\right)} = x_{1} - \frc{ x_{1}^{2}-2 }{ 2x_{1}}   \nonumber \\
-                           &=& 1.5 - \frc{0.25}{3} = 1.4167
+                           &=& 1.5 - \frc{0.25}{3} = 1.4167\nonumber
                   \end{eqnarray}
                   Stoppage criteria:
                     \begin{enumerate}[(a)]
@@ -329,7 +342,7 @@ The main problem of the Secant iterative method is that it requires two initial 
             \item Calculating $x_{3}$ from $x_{2}$:
                   \begin{eqnarray}
                       x_{3} &=& x_{2} - \frc{f\left(x_{2}\right)}{f'\left(x_{2}\right)} = x_{2} - \frc{ x_{2}^{2}-2 }{ 2x_{2}}  \nonumber \\
-                           &=& 1.4167 - \frc{0.0070}{2.8334} = 1.4142
+                           &=& 1.4167 - \frc{0.0070}{2.8334} = 1.4142\nonumber
                   \end{eqnarray}
                   Stoppage criteria:
                     \begin{enumerate}[(a)]
@@ -339,7 +352,7 @@ The main problem of the Secant iterative method is that it requires two initial 
             \item Calculating $x_{4}$ from $x_{3}$:
                   \begin{eqnarray}
                       x_{4} &=& x_{3} - \frc{f\left(x_{3}\right)}{f'\left(x_{3}\right)} = x_{3} - \frc{ x_{3}^{2}-2 }{ 2x_{3}} \nonumber \\
-                           &=& 1.4142 - \frc{-3.84\times 10^{-5}}{2.8284} = 1.4142
+                           &=& 1.4142 - \frc{-3.84\times 10^{-5}}{2.8284} = 1.4142\nonumber
                   \end{eqnarray}
                   Stoppage criteria:
                     \begin{enumerate}[(a)]
@@ -348,7 +361,6 @@ The main problem of the Secant iterative method is that it requires two initial 
                     \end{enumerate}
          \end{list}
          Thus, we need \underline{3 iterations} to calculate the root, \underline{$x=\psi=1.4142$}, of the function. Now try to use $x_{1}=1.0$ as a first estimate and check how many iterations will be necessary to convergence.
-       \end{description}
-    You may have noticed that the function $f(x)=x^{2}-2$ has two real roots, $\sqrt{2}$ and $-\sqrt{2}$, and in the examples we only obtained the positive root. In order to find the negative root, we need to use initial estimates close enough to the solution, \eg $x_{0}=-1.5$·
 
-\end{list}
+    You may have noticed that the function $f(x)=x^{2}-2$ has two real roots, $\sqrt{2}$ and $-\sqrt{2}$, and in the examples we only obtained the positive root. In order to find the negative root, we need to use initial estimates close enough to the solution, \eg $x_{0}=-1.5$·
+   \end{MyExample}

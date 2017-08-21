@@ -158,14 +158,22 @@ is both a vector and a differential operator and can be used to define,
     \left(\frc{\partial\phi}{\partial x_{i}}\right)_{x_{j\neq i}} = \lim_{\Delta x_{i}\rightarrow 0}\left\{\frc{\phi\left(x_{1},x_{2},\cdots,x_{i}+\Delta x_{i},\cdots,x_{n}\right)-\phi\left(x_{1},x_{2},\cdots,x_{i},\cdots,x_{n}\right)}{\Delta x_{i}}\right\}
   \end{displaymath}
 
-{\bf Example:} A pure fluid with ideal gas behaviour, the pressure can be expressed as a function of the number of mols ($n$), volume ($V$) and temperature ($T$),
-  \begin{displaymath}
-     P(n,V,T) = \frc{n R T}{V},
-  \end{displaymath}
-thus,
-  \begin{displaymath}
-     \left(\frc{\partial P}{\partial n}\right)_{V,T} = \frc{RT}{V}\hspace{1cm} \left(\frc{\partial P}{\partial V}\right)_{n,T} = -\frc{n R T}{V^{2}} \hspace{1cm} \left(\frc{\partial P}{\partial T}\right)_{n,V} = \frc{n R}{V}\d{T}
-  \end{displaymath}
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}
+         A pure fluid with ideal gas behaviour, the pressure can be expressed as a function of the number of mols ($n$), volume ($V$) and temperature ($T$),
+         \begin{displaymath}
+            P(n,V,T) = \frc{n R T}{V}.
+         \end{displaymath}
+         Calculate $\Partial[P]{n}{V,T}, \Partial[P]{V}{n,T}\text{ and } \Partial[P]{T}{n,V}$.
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}
+           \begin{displaymath}
+              \left(\frc{\partial P}{\partial n}\right)_{V,T} = \frc{RT}{V}\hspace{1cm} \left(\frc{\partial P}{\partial V}\right)_{n,T} = -\frc{n R T}{V^{2}} \hspace{1cm} \left(\frc{\partial P}{\partial T}\right)_{n,V} = \frc{n R}{V}\d{T}
+           \end{displaymath}
+   \end{MyExample}
 
 
 %%% SUBSECTION
@@ -176,12 +184,19 @@ thus,
   \end{eqnarray}
 where $d x_{i}$ is an infinitesimal small increment in $x_{i}$.
 
-\noindent
-{\bf Example:} Infinitesimal changes in the ideal gas pressure are expressed as,
-  \begin{eqnarray}
-      d P &=& \left(\frc{\partial P}{\partial n}\right)_{V,T}\d{n} + \left(\frc{\partial P}{\partial V}\right)_{n,T}\d{V} + \left(\frc{\partial P}{\partial T}\right)_{n,V}\d{T} \nonumber \\
-     &=& \frc{R T}{V} d n - \frc{n R T}{V^{2}} d V + \frc{n R}{V} d T. \nonumber 
-  \end{eqnarray}
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}
+         Obtain a differential expression for infinitesimal changes in the ideal gas pressure, $dP$.
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}
+          \begin{eqnarray}
+             d P &=& \left(\frc{\partial P}{\partial n}\right)_{V,T}\d{n} + \left(\frc{\partial P}{\partial V}\right)_{n,T}\d{V} + \left(\frc{\partial P}{\partial T}\right)_{n,V}\d{T} \nonumber \\
+                 &=& \frc{R T}{V} d n - \frc{n R T}{V^{2}} d V + \frc{n R}{V} d T. \nonumber 
+          \end{eqnarray}
+   \end{MyExample}
 
 %%% SUBSECTION
 \subsection{Properties of Partial Derivatives}\label{Appendix_Calculus:Properties}
@@ -240,22 +255,33 @@ if the limit on the right side exists (or is $\infty$ or $-\infty$).
 %        \lim_{x\rightarrow a}\frc{f(x)}{g(x)} = \lim_{x\rightarrow a}\frc{f'(x)}{g'(x)}.
 %    \end{equation}
 %   This limit often is $\frc{f'(a)}{g'(a)}$.
-    \begin{list}{\bf Example \arabic{qcounter}:~}{\usecounter{qcounter}}
-%       
-       \item Find $\lim\limits_{x\rightarrow\infty} \frc{5x-2}{7x+3}$.
-           \begin{eqnarray}
-              \lim_{x\rightarrow\infty}\frc{5x-2}{7x+3} &=& \frc{\infty}{\infty} \nonumber \\
-                                                   &=& \lim_{x\rightarrow\infty}\frc{\left[5x-2\right]'}{\left[7x+3\right]'} = \lim_{x\rightarrow\infty} \frc{5}{7} = \frc{5}{7}\nonumber
-           \end{eqnarray}
-%
-      \item Find $\lim\limits_{x\rightarrow -2}\frc{x+2}{\ln{(x+3)}}$. 
-           \begin{eqnarray}
-              \lim_{x\rightarrow -2}\frc{x+2}{\ln{(x+3)}} &=& \frc{0}{0} \nonumber \\                                                   &=& \lim_{x\rightarrow -2}\frc{\left[x+2\right]'}{\left[\ln{(x+3)}\right]} = \lim_{x\rightarrow -2} \frc{1}{\frc{1}{x+3}} = \lim_{x\rightarrow -2} \left(x+3\right) = 1 \nonumber
-           \end{eqnarray}
-         
-%
-    \end{list}
 
+
+   % Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}
+         Calculate:
+           \begin{enumerate}[a)]
+             \item $\lim\limits_{x\rightarrow\infty} \frc{5x-2}{7x+3}$;
+             \item $\lim\limits_{x\rightarrow -2}\frc{x+2}{\ln{(x+3)}}$.
+           \end{enumerate}
+     \end{example}
+
+% SOLUTION
+       \noindent{\bf Solution:}
+           \begin{enumerate}[a)]
+             \item $\lim\limits_{x\rightarrow\infty} \frc{5x-2}{7x+3}$;
+                \begin{eqnarray}
+                    \lim_{x\rightarrow\infty}\frc{5x-2}{7x+3} &=& \frc{\infty}{\infty} \nonumber \\
+                                                         &=& \lim_{x\rightarrow\infty}\frc{\left[5x-2\right]'}{\left[7x+3\right]'} = \lim_{x\rightarrow\infty} \frc{5}{7} = \frc{5}{7}\nonumber
+                \end{eqnarray}
+
+             \item $\lim\limits_{x\rightarrow -2}\frc{x+2}{\ln{(x+3)}}$.
+                \begin{eqnarray}
+                    \lim_{x\rightarrow -2}\frc{x+2}{\ln{(x+3)}} &=& \frc{0}{0} \nonumber \\                                                                                        &=& \lim_{x\rightarrow -2}\frc{\left[x+2\right]'}{\left[\ln{(x+3)}\right]} = \lim_{x\rightarrow -2} \frc{1}{\frc{1}{x+3}} = \lim_{x\rightarrow -2} \left(x+3\right) = 1 \nonumber
+                \end{eqnarray}
+           \end{enumerate}
+   \end{MyExample}
 
 \end{theorem}
 
