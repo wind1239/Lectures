@@ -1,0 +1,629 @@
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\usepackage{graphicx,wrapfig,pdfpages}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate}%,enumitem}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+
+
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{subeqnarray}
+\usepackage{ifthen}
+
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+\usepackage{lastpage,lscape}
+%\usepackage{pdflscape}
+
+
+%\usepackage{booktabs}
+%\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{Course information 2017/18}}} 
+\rhead[] {{\text{\small{EX3029}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+%\lfoot[]{Dr Jeff Gomes}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+%\cfoot[\thepage]{\thepage}
+%\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+
+%\newlist{ExList}{enumerate}{1}
+%\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+%\newlist{ProbList}{enumerate}{1}
+%\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+
+\begin{document}
+
+%%%
+%%% FIRST PAGE
+%%%
+\begin{center}
+{\large {\bf UNIVERSITY OF ABERDEEN, SCHOOL OF ENGINEERING}}
+\medskip
+
+{\large {\bf COURSE INFORMATION SESSION 2016/17}}
+\bigskip 
+
+{\Large {\bf EX3029 Chemical Thermodynamics}}
+\end{center}
+
+\bigskip
+\begin{flushleft}
+
+{\large {\bf CREDIT POINTS:}}\\
+\hspace{0.8cm}15
+\medskip
+
+{\large {\bf COURSE COORDINATOR: }}\\
+\hspace{0.8cm}Dr Jeff Gomes \hspace{1.5cm} \href{mailto:jefferson.gomes@abdn.ac.uk}{jefferson.gomes@abdn.ac.uk}
+\medskip 
+
+{\large {\bf COURSE CONTRIBUTORS:}}\\
+\hspace{0.8cm} Dr Jeff Gomes
+\medskip
+
+{\large {\bf SCRUTINER:}}\\
+\hspace{0.8cm}Dr Alfonso Martinez-Felipe
+\medskip  
+
+{\large {\bf PRE-REQUISITE:}}\\
+\hspace{0.8cm}EG2011 Process Engineering\\
+\hspace{0.8cm}EG2004 Fluid Mechanics $\&$ Thermodynamics\\
+\hspace{0.8cm}CM2010 Energetics of Change in Chemical and Biological Processes
+
+\medskip
+
+{\large {\bf CO-REQUISITE:}}\\
+\hspace{0.8cm}None
+\medskip 
+
+{\large {\bf COURSES FOR WHICH THIS COURSE IS A PRE-REQUISITE:}}\\
+\hspace{0.8cm}EG3501 Chemical Reaction Engineering\\
+\hspace{0.8cm}EG3502 Separation Processes 1\\
+\hspace{0.8cm}EG3503 Chemical Engineering Design\\
+\hspace{0.8cm}EG3504 Process Modelling\\ 
+\end{flushleft}
+
+\clearpage
+
+%%%
+%%% Section
+%%%
+\section{AIMS}
+The course aims to give a thorough treatment of the real PVT behaviour exhibited by multicomponent, multiphase systems by giving candidates the knowledge required to determine: a) the heat and/or work required to bring about a given change of state; b) the change of state resulting from a transfer of energy in the form of heat and/or work, or as a result of a chemical reaction. To build on the knowledge of process simulation gained in Level 2 and emphasise the importance of selecting an appropriate {\it fluid package}.
+
+
+%%%
+%%% Section
+%%%
+\section{DESCRIPTION}
+The course begins with an introduction to process modelling incorporating a revision of essential chemical engineering thermodynamics. The ideal gas law and equations for the computation of process heat/work requirements for isochoric, isobaric and isothermal processes are briefly revised. Adiabatic and polytropic processes are also treated. Advanced concepts including virial and cubic EOS are introduced. The P-V and P-T phase diagrams, as well as the thermodymanic T-S, H-S, P-H diagrams for a pure substance are introduced together with the terms $\lq$reduced pressure' and $\lq$reduced temperature'. The isothermal compressibility and volume expansivity are discussed for liquids. Heat effects in terms of latent heats, standard heats of reaction and formation are introduced.
+\medskip
+
+Vapour pressure and the Antoine Equation are treated allowing two-component vapour-liquid equilibrium to be discussed in terms of Raoult's law and modified Raoult's law. PVT relations for real gas mixtures are addressed; Dalton's $\&$ Amagat's laws modified bycompressibility and the pseudo-critical method employing Kay's law are covered. 
+\medskip
+
+Residual properties and the experimental determination of thermodynamic properties are addressed.
+\medskip
+
+Solution thermodynamics concepts including fugacity and excess properties are introduced together with property changes of mixing. Activity models are discussed.
+\medskip
+
+Chemical reaction equilibria are treated including an evaluation of equilibrium constants and their relation to composition. The phase rule for reacting systems is discussed. Multireaction equilibria are introduced.
+
+
+%%%
+%%% Section
+%%%
+\section{LEARNING OUTCOMES}
+By the end of the course students should:
+\begin{enumerate}[{\bf A.}]
+\item {\bf have knowledge and understanding of:}
+  \begin{enumerate}
+    \item Phase behaviour of pure substances;
+    \item Several equations of state (EOS) useful for describing the PVT behaviour of single-component systems;
+    \item Non-EOS methods for describing PVT behaviour of single-component systems;
+    \item Thermodynamic computations of heat/work requirements for processes involving real gases;
+    \item Thermodynamic properties of fluids and residual properties;
+    \item Two-component vapour-liquid equilibrium: ideal and modified Raoult's law;
+    \item The equilibrium of chemically reacting systems;
+    \item Thermodynamic state changes as a result of mixing and chemical reaction;
+  \end{enumerate}
+\item {\bf have gained intellectual skills so that they are able to:}
+  \begin{enumerate}
+    \item Identify appropriate methods for the analysis of single component PVT behaviour;
+    \item Undertake thermodynamic process computations for single component systems involving non-ideal behaviour;
+    \item Undertake thermodynamic process computations for multi-component systems involving non-ideal behaviour;
+    \item Select appropriate thermodynamic concepts for analysing multi-component, multi-phase systems;
+    \item Support the results of computer simulation with appropriate hand computations;
+    \item Undertake bubble-point and dew-point computations for two-component VLE;
+  \end{enumerate}
+\item {\bf have gained practical skills so that they are able to:}
+  \begin{enumerate}
+    %\item Efficiently use the UNISIM Design R390 process simulator to model and analyse processes as required by a given task;
+    \item Efficiently use Matlab to implement sets of equations and carry out systematic parameter studies;
+    \item Compute mass/molar flow rates of non-ideal gas mixtures via a variety of techniques;
+    \item Confidently approach single and multi-component PVT problems and identify an appropriate model for their solution;
+    \item Undertake process heat/work computations for multi-component, non-ideal systems;
+    \item Compute the equilibrium composition of a reacting system;
+  \end{enumerate}
+\item {\bf have gained or improved transferable skills so that they are able to:}
+  \begin{enumerate}
+    \item Effectively report on laboratory-based work – simulation $\&$ experimental;
+    %\item Effectively use the UNISIM Design R390 process simulation engine as well as Matlab;
+    \item Effectively use Matlab;
+    \item Identify reliable sources of PVT data for a variety of components.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{comment}
+%%%
+%%% Section
+%%%
+\section{SYLLABUS}
+\begin{enumerate}[{\bf 1.}]
+\item {\bf Introduction and Principles:} Revision of general concepts; dimensions and units; first law of thermodynamics for open and closed systems; state functions; reversible ideal gas processes; entropy; Carnot engine; Entropy changes of ideal gas; reversibility of ideal gas processes. (3 lectures)
+\item {\bf Volumetric Properties of Pure Fluids:} PVT behaviour; PT and PV diagrams; lever rule; critical point; virial equation of state; cubic equations of state; reduced pressure and reduced temperature; volume expansivity and isothermal compressibility; latent heats.  (3 lectures)
+\item {\bf Thermodynamic Properties of Pure Fluids:} Property relations for homogeneous phases; Maxwell's equations; residual properties; two-phase systems; Clapeyron equation; Antoine equation; PH and TS diagrams; Mollier diagram; property tables.  (6 lectures)
+\item {\bf Vapour/Liquid Equilibrium of Mixtures:} Phase rule; Duhem’s theorem; PTxy diagram of binary mixtures; Pxy and Txy diagrams; PT diagram; Raoult's law; Henry's law; modified Raoult's law; K-value correlations.  (6 lectures)
+\item {\bf Solution Thermodynamics:} Property relations; chemical potential; partial properties; ideal gas mixture model; fugacity; treatment of solutions; ideal solution model; excess properties; liquid-phase properties from VLE; activity models; property changes of mixing; heat effects of mixing.  (9 lectures)
+\item {\bf Chemical reaction equilibrium:} reaction coordinate; equilibrium criteria; equilibrium constant; temperature effects; composition effects; single-reaction systems; multireaction equilibrium; phase rule in reacting system; heat of formation; heat of reaction.  (6 lectures)
+\end{enumerate}
+\end{comment}
+
+%%%
+%%% Section
+%%%
+\section{SYLLABUS}
+\begin{enumerate}[{\bf 1.}]
+\item {\bf Introduction and Principles:} Revision of general concepts; dimensions and units; first law of thermodynamics for open and closed systems; state functions; reversible ideal gas processes; Entropy; Carnot engine; Entropy changes of ideal gas; reversibility of ideal gas processes  (3 lectures)
+\item {\bf Volumetric Properties of Pure Fluids:} PVT behaviour; PT and PV diagrams; lever rule; critical point; virial equation of state; cubic equations of state; reduced pressure and reduced temperature; volume expansivity and isothermal compressibility; latent heats.  (3 lectures)
+\item {\bf Thermodynamic Properties of Pure Fluids:} Property relations for homogeneous phases; Maxwell's equations; residual properties; two-phase systems; Clapeyron equation; Antoine equation; PH and TS diagrams; Mollier diagram; property tables.  (6 lectures)
+\item {\bf Vapour/Liquid Equilibrium of Mixtures:} Phase rule; Duhem’s theorem; PTxy diagram of binary mixtures; Pxy and Txy diagrams; PT diagram; Raoult's law; Henry's law; modified Raoult's law; K-value correlations.  (6 lectures)
+\item {\bf Solution Thermodynamics:} Property relations; chemical potential; partial properties; ideal gas mixture model; fugacity; treatment of solutions; ideal solution model; excess properties; liquid-phase properties from VLE; activity models; property changes of mixing; heat effects of mixing.  (9 lectures)
+\item {\bf Chemical reaction equilibrium:} reaction coordinate; equilibrium criteria; equilibrium constant; temperature effects; composition effects; single-reaction systems; multireaction equilibrium; phase rule in reacting system; heat of formation; heat of reaction.  (6 lectures)
+\end{enumerate}
+
+\medskip
+This is a guide to the taught content of EX3029 and it should be noted that this is subject to change at the discretion of the course instructor.
+
+
+%%%
+%%% Section
+%%%
+\section{TIMETABLE}
+33 one-hour lectures, 10 one-hour tutorials and 3 one-hour laboratories in total. Detailed times are provided in Table~\ref{table:timetable}.
+
+
+%%%
+%%% Section
+%%%
+\section{ASSESSMENT}
+1$^{st}$ attempt: 1 three-hour written examination paper (80$\%$) and continuous assessment (20$\%$). 
+\medskip
+
+Resit: A three-hour resit paper may be provided for candidates who fail the course at the first attempt. Where a resit paper is offered, the mark reported for the resit will be the better of:
+\begin{enumerate}[(a)]
+  \item 100$\%$ of the resit examination mark;
+  \item 80$\%$ of the resit examination mark + 20$\%$ of the continuous assessment mark.
+\end{enumerate}
+\medskip
+
+{\it Notes on Assessment:
+\begin{itemize}
+\item Candidates who pass the examination at the first attempt but fail to pass the course will be required to pass the resit examination.
+\end{itemize}}
+
+\medskip
+
+The continuous assessment will be based on the submission of engineering reports detailing the computational work. Detailed information relating to the format of reports will be given during course contact time.
+
+
+%%%
+%%% Section
+%%%
+\section{FORMAT OF EXAMINATION}
+Candidates must attempt {\bf ALL FIVE} questions. All questions carry 20 marks. Notes:
+\begin{enumerate}[(i)]
+\item Candidates are permitted to use approved calculators only;
+\item Steam  tables are provided to candidates.
+\end{enumerate}
+
+\medskip
+
+Penalties for late or non-submission of course work are as follows:
+\begin{enumerate}[(a)]
+\item Up to one week late, 2 CGS points deducted;
+\item Up to two weeks late, 3 CGS point deducted;
+\item More than two weeks late no marks awarded.
+\end{enumerate}
+If late or non-submission is due to medical or other circumstances out with your control you must submit a medical certificate or other formal evidence to the Engineering School Office as soon as is practicable but no later than the end of Revision Week (42).
+
+{\large {\bf PLEASE NOTE THE FOLLOWING}}
+\begin{enumerate}[(a)]
+\item You must not have in your possession at the examination any material other than that expressly permitted by the examiner. Where this is permitted, such material must not be amended, annotated or modified in any way.
+\item During the course of the examination, you must not have in your possession or attempt to access any material that could be determined as giving you an advantage in the examination.
+\item You must not attempt to communicate with any candidate during the examination, either orally or by passing written material, or by showing material to another candidate, nor must you attempt to view another candidate's work.
+\item {\bf Approved Calculators in Examinations:}  {\it Starting in academic year 2014-15, the School of Engineering list of approved calculators for use in examinations will consist of a single calculator, the Casio FX-991 ES PLUS.  So from September 2014 the only calculator that you may take to your desk in an examination is this Casio calculator.  Note that examiners will be aware of the capabilities of the machine and will assume that you are able to operate this calculator in an examination.  All students should ensure that they have such a calculator and that they are familiar with its operation.}
+\end{enumerate}
+
+\bigskip
+
+{\bf Failure to comply with the above will be regarded as cheating and may lead to disciplinary action as indicated in the Academic Quality Handbook \href{http://www.abdn.ac.uk/registry/quality/}{(http://www.abdn.ac.uk/registry/quality/)}. 
+
+\medskip
+
+Your attention is drawn to key University policies which can be accessed via,
+\begin{center}
+\href{https://abdn.blackboard.com/bbcswebdav/institution/Policies}{https://abdn.blackboard.com/bbcswebdav/institution/Policies}.
+\end{center}
+It is important to make yourself familiar with the University's policies and procedures on the subjects covered.}
+
+
+%%%
+%%% Section
+%%%
+\section{FEEDBACK}
+\begin{enumerate}[(a)]
+\item Students can receive feedback on their progress with the Course on request at the weekly tutorial/feedback sessions.
+\item Students are given feedback through formal marking and return of practical reports.
+%\item There will be a test exam at the end of the teaching session. The test exam will be marked (but is not part of the continuous assessment) and the test exam paper questions will be discussed in the Revision week.
+\item Students requesting feedback on their exam performance should make an appointment within 2 weeks of the publication of the exam results.
+\end{enumerate}
+
+
+%%%
+%%% Section
+%%%
+\section{STUDENT MONITORING}
+Attention is drawn to Registry's guidance on student attendance and monitoring at:
+\begin{center}
+\href{http://www.abdn.ac.uk/staffnet/teaching/aqh/appendix7x5.pdf}{http://www.abdn.ac.uk/staffnet/teaching/aqh/appendix7x5.pdf}
+\end{center}
+1.1 of this guidance says that students will be reported as $\lq$at risk' if the following criteria are met. {\it Either}
+\begin{itemize}
+\item Absence for a continuous period of 10 working days or 25$\%$ of a course (whichever is less) without good cause being reported;
+\item {\it or} Absence from two small group teaching sessions for a course without good cause (e.g., tutorial, laboratory class, any other activity where attendance is  expected and can be monitored);
+\item {\it or} Failure to submit a piece of summative or a substantial piece of formative in-course assessment for a course, by the stated deadline (eg class test, formative essay).
+\end{itemize}
+For the purposes of this, course attendance will be monitored at the tutorial and lab sessions and the formative in-course assessment are the lab reports.
+
+
+%%%
+%%% Section
+%%%
+\section{RECOMMENDED BOOKS}
+The course is largely based on the treatment of undergraduate chemical engineering thermodynamics presented in
+\begin{enumerate}[1.]
+\item J.M. Smith, H.C. van Ness, M.M. Abbott. {\it Introduction to Chemical Engineering Thermodynamics}, McGraw-Hill; current edition – 7$^{th}$ Edition, ISBN 9780071247085.
+\item  S.I. Sandler. {\it Chemical, Biochemical, and Engineering Therodynamics}, John Wiley $\&$ Sons, Inc.; current edition - 4$^{th}$ Edition, ISBN 9780471661740.
+\medskip
+
+The course also makes reference to, and uses a limited volume of material from;
+\medskip
+
+\item R.M. Felder, R.W. Rousseau. {\it Elementary Principles of Chemical Processes}, John Wiley $\&$ Sons, Inc.; current edition – 3$^{rd}$ Edition, ISBN 9780471375876.
+\item B.E. Poling, J.M. Prausnitz, J. O’Connell. {\it The Properties of Gases and Liquids}, McGraw-Hill; current edition – 5$^{th}$ Edition, ISBN 9780071189712.
+\item C. Borgnakke, R.E. Sonntag. {\it Fundamentals of Thermodynamics}, Wiley; current edition – 8$^{th}$ Edition, ISBN 9781118321775.
+\end{enumerate}
+
+
+\bigskip
+
+{\large {\bf INSTITUTIONAL INFORMATION}}
+
+Students are asked to make themselves familiar with the information on key institutional policies which have been made available within {\it MyAberdeen},
+\begin{center}
+\href{https://abdn.blackboard.com/bbcswebdav/institution/Policies}{(https://abdn.blackboard.com/bbcswebdav/institution/Policies)}.
+\end{center}
+These policies are relevant to all students and will be useful to you throughout your studies. They contain important information and address issues such as what to do if you are absent, how to raise an appeal or a complaint and how seriously the University takes your feedback. 
+\medskip
+
+These institutional policies should be read in conjunction with this programme and/or course handbook, in which School and College specific policies are detailed. Further information can be found on the \href{http:www.abdn.ac.uk/infohub/}{University's Infohub webpage} or by visiting the {\it Infohub}.
+
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{c | c c | c}
+      \hline
+          {\bf Weeks}   &                          &    {\bf Contents}     &            {\bf Venue}               \\
+      \hline
+             07         &   Module 1 (Lects 1-2)   &  PVT diagrams; Gibbs  &            NK1  (Lect 1)             \\ 
+         (11-15/09)     &   Examples (Lect 3)      &  phase rule; EOS      &            Zoology LG18 (Lects 2-3)  \\
+      \hline       
+             08         &   Module 2 (Lects 4-5)   &Residual properties, Maxwell &      NK1  (Lect 4)             \\ 
+         (18-22/09)     &   Examples (Lect 6)      &relations, phase transition  &      Zoology LG18 (Lects 5-6)  \\
+                        &   Tutorial               &  Module 1             &            Regent Lect Theater       \\
+      \hline       
+             09         &   Module 3 (Lects 7-8)   &Excess properties,     &            NK1  (Lect 7)             \\ 
+         (25-29/09)     &   Examples (Lect 9)      & Duhem theorem, phase diagram&      Zoology LG18 (Lects 8-9)  \\
+                        &   Tutorial               &  Module 2             &            Regent Lect Theater       \\
+      \hline       
+             10         &   Continuous             &                       &            Comp G21 Zoology Building \\ 
+         (02-06/10)     &   Assessment             &                       &            Comp G40 Zoology Building \\
+      \hline       
+             11         &   Module 4 (Lects 10-11) &Phase diagram, dew/bubble  &        NK1  (Lect 10)            \\ 
+         (09-13/10)     &   Examples (Lect 12)     &point, Raoult'/Henry's law &        Zoology LG18 (Lects 11-12)\\
+                        &   Tutorial               &  Module 3             &            Regent Lect Theater       \\
+                        & Continuous Assessment    &                       &            Comp G21/40 Zoology Building \\ 
+      \hline       
+             12         &   Module 4 (Lects 13-14) &Chemical potential,    &            NK1  (Lect 13)            \\ 
+         (16-20/10)     &   Examples (Lect 15)     &partial properties     &            Zoology LG18 (Lects 14-15)\\
+                        & Continuous Assessment    &                       &            Comp G21/40 Zoology Building \\ 
+      \hline       
+             13         &   Module 5 (Lects 16-17) &Solutions theory,      &            NK1  (Lect 16)            \\ 
+         (23-27/10)     &   Examples (Lect 18)     &fugacity, ideal solutions&          Zoology LG18 (Lects 17-18)\\
+                        &   Tutorial               &  Module 4             &            Regent Lect Theater       \\
+      \hline       
+             14         &   Module 5 (Lects 19-20) &Excess properties,     &            NK1  (Lect 19)            \\ 
+      (30/10-03/11)     &   Examples (Lect 21)     &activity coefficient   &            Zoology LG18 (Lects 20-21)\\
+      \hline       
+             15         &   Module 6 (Lects 22-23) &Notation, equilibrium  &            NK1  (Lect 22)            \\ 
+         (06-10/11)     &   Examples (Lect 24)     & constant              &            Zoology LG18 (Lects 23-24)\\
+                        &   Tutorial               &  Module 5             &            Regent Lect Theater       \\
+      \hline       
+             16         &   Module 6 (Lects 25-26) & Van't Hoff equation,  &            NK1  (Lect 22)            \\ 
+         (13-17/11)     &   Examples (Lect 27)     & multi-reaction eqn.   &            Zoology LG18 (Lects 23-24)\\
+      \hline       
+             17         &   Tutorial               &  Module 6             &            Regent Lect Theater       \\ 
+         (20-24/11)     &   Mock Test              &                       &            Zoology LG18              \\
+      \hline       
+    \end{tabular}
+  \end{center}
+\end{table}
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ c || c | c c c c c c}
+\hline\hline
+\multicolumn{2}{c}{\bf Weeks/Time} & {\bf 10-11h} & {\bf 11-12h} & {\bf 12-13h} & {\bf 13-14h} & {\bf 14-15h} & {\bf 15-16h}  \\
+\hline\hline
+\multirow{2}{*}{7-17}  & Tuesday    & $\bullet$   &              &              &   $\circ$    &              &               \\
+                       & Thursday   &             &              &              &              &   $\dagger$  &   $\dagger$   \\
+\hline 
+\multirow{2}{*}{10-12} & Monday     &             &              &              &              &              &   $\otimes$ \\
+                       & Friday     &             &  $\odot$     &              &              &              &             \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Venues for 2016/17 course: $\bullet$: Cruickshank (Auris Lecture Theatre, Lecture); $\dagger$: Zoology (ZG18, Lecture); $\circ$: St Mary's (G3, Tutorial), $\otimes$: Edward Wright (Comp F81), $\odot$: Zoology (Comp G21 and G40).}
+\label{table:timetable}
+\end{table}
+
+\end{document}
