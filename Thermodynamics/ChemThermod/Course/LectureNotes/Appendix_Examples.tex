@@ -1,0 +1,482 @@
+
+\chapter{A Few Examples}
+
+\section{Examples}
+
+  \begin{list}{\bf Example \arabic{qcounter}:~}{\usecounter{qcounter}}
+%
+     %%% EXAMPLE 1:
+     \item\label{example1} Using the cyclic rule (Appendix~\ref{Appendix_Calculus:Properties}) and the definitions,
+    \begin{displaymath}
+        \alpha = \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P} \hspace{1cm}\text{ and }\hspace{1cm} \beta = -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T},
+    \end{displaymath}
+    \noindent show that 
+    \begin{displaymath}
+      \left(\frc{\partial P}{\partial T}\right)_{V} = \frc{\alpha}{\beta}.
+    \end{displaymath}
+%%
+\medskip
+     {\bf Solution:} From the cyclic rule,
+       \begin{displaymath}
+          \left(\frc{\partial P}{\partial T}\right)_{V}\left(\frc{\partial V}{\partial P}\right)_{T}\left(\frc{\partial T}{\partial V}\right)_{T} = -1.
+       \end{displaymath}
+     Thus,
+       \begin{displaymath}
+          \left(\frc{\partial P}{\partial T}\right)_{V} = \frc{-1}{\left(\frc{\partial V}{\partial P}\right)_{T}\left(\frc{\partial T}{\partial V}\right)_{T}} = \frc{-\left(\frc{\partial V}{\partial T}\right)_{P}}{\left(\frc{\partial V}{\partial P}\right)_{T}} = \frc{-V\alpha}{-V\beta} = \frc{\alpha}{\beta}
+       \end{displaymath}
+      
+%
+     %%% EXAMPLE 2:
+     \item\label{example2} For a van der Waals gas, the pressure $P$ and the internal energy $U$ can be expressed as functions of the number of mols ($n$), total volume ($V$) and temperature ($T$),
+       \begin{displaymath}
+         P = \frc{n R T}{V-nb} - \frc{n^{2}a}{V^{2}} \hspace{1cm}\text{ and }\hspace{1cm} U = \frc{3}{2}n R T - \frc{n^{2}a}{V},
+       \end{displaymath}
+       respectively, where $a$ and $b$ are constants. Use these equations and the chain rule to derive an equation for $\left(\frc{\partial U}{\partial P}\right)_{n,T}$ in terms of $n$, $V$ and $T$.
+
+%%
+\medskip
+{\bf Solution:}
+   \begin{eqnarray}
+      \Partial[U]{P}{n,T} &=& \Partial[U]{V}{n,T}\Partial[V]{P}{n,T} = \frc{\Partial[U]{V}{n,T}}{\Partial[P]{V}{n,T}} \nonumber \\
+                          &=& \frc{\frc{n^{2}a}{V^{2}}}{\frc{2n^{2}a}{V^{3}}-\frc{n R T}{\left(V-nb\right)^{2}}} = \frc{n a}{\frc{2 n a}{V}-\frc{R T V^{2}}{\left(V-nb\right)^{2}}}\nonumber
+   \end{eqnarray}
+      
+%
+     %%% EXAMPLE 3:
+     \item\label{example3} The heat capacity at constant volume is defined as $C_{v}\equiv \Partial[U]{T}{V}$. Show that
+       \begin{displaymath}
+          \Partial[U]{T}{P} = C_{v} + \alpha V\Partial[U]{V}{T},
+       \end{displaymath}
+       with $\alpha=\frc{1}{V}\Partial[V]{T}{P}$.
+
+%
+\medskip
+       {\bf Solution:}
+          \begin{displaymath}
+            \Partial[U]{T}{P} = \Partial[U]{T}{V} + \Partial[U]{V}{T}\Partial[V]{T}{P},
+          \end{displaymath}
+          however $\Partial[U]{T}{V}=C_{v}$ and $\Partial[V]{T}{P}=V\alpha$. Thus,
+          \begin{displaymath}
+             \Partial[U]{T}{P} = C_{v} + \alpha V\Partial[U]{V}{T}.
+          \end{displaymath}
+
+%
+     %%% EXAMPLE 4:
+     \item\label{example4} h
+%
+\end{list}
+
+\pagebreak
+
+%%%
+%%% SECTION
+%%%
+\section{Quiz}
+
+  \begin{list}{\bf Question \arabic{qcounter}:~}{\usecounter{qcounter}}
+
+%
+     %%% QUESTION:
+     \item\label{Q1} An experimentalist claims to have raised the temperature of a small amount of water to 150 C by transferring heat from a high temperature steam at 120 C. Is this a reasonable claim? Why? Assume no refrigerator/heat pump is used in the process. 
+%
+
+%\medskip
+       {\bf Solution:} No. Heat cannot flow from a low temperature medium to a higher temperature medium.
+
+%
+     %%% QUESTION:
+     \item\label{Q2} What is a thermal energy reservoir? Give examples.
+%
+
+%\medskip
+       {\bf Solution:} A thermal energy reservoir is a body that can supply or absorb finite quantities of heat isothermally. Some examples are the oceans,lakes, and the atmosphere.
+%
+     %%% QUESTION:
+     \item\label{Q3} Is it possible for a heat engine to operate without rejecting any waste heat to a low temperature reservoir? Explain.
+%
+
+%\medskip
+       {\bf Solution:} No. Such an engine violates the Kelvin Planck statement of the second law of thermodynamics.
+
+%
+     %%% QUESTION:
+     \item\label{Q4} What are the characteristics of all heat engines?
+%
+
+%\medskip
+       {\bf Solution:} Heat engines are cyclic devices that receive heat from a source, convert some of it to work, and reject the rest to a sink.
+
+%
+     %%% QUESTION:
+     \item\label{Q5} What is the Kelvin Planck expression of the second law of thermodynamics?
+%
+
+%\medskip
+       {\bf Solution:} "No heat engine can exchange heat with a single reservoir and produce an equivalent amount of work" aka every pair of pants must have two legs
+%
+     %%% QUESTION:
+     \item\label{Q6} Does a heat engine that has a thermal efficiency of 100 percent necessarily violate (a) the first law and (b) the second law of thermodynamics.
+%
+
+%\medskip
+       {\bf Solution:} (a) No. (b) Yes. According the the second law of thermodynamics, no heat engine can have an efficiency of 100 percent.
+
+%
+     %%% QUESTION:
+     \item\label{Q7} In the absence of any friction and other irreversibilities, an a heat engine have an efficiency of 100 percent? Explain
+%
+
+%\medskip
+       {\bf Solution:} No. This violates the second law of thermodynamics.
+%
+     %%% QUESTION:
+     \item\label{Q8} What is the difference between a refrigerator and a heat pump?
+%
+
+%\medskip
+       {\bf Solution:}  The difference between the two is the purpose of each. The purpose of a refrigerator is to remove heat from a cold medium whereas the purpose of a heat engine is to supply heat to a warm medium.
+
+%
+     %%% QUESTION:
+     \item\label{Q9} A heat pump is a device that absorbs energy from the cold outdoor air and transfers it to the warmer indoors. Is this a violation of the second law of thermodynamics? Explain.
+%
+
+%\medskip
+       {\bf Solution:} No. Because the heat pump consumes work to accomplish this task
+%
+     %%% QUESTION:
+     \item\label{Q10} Define the coefficient of performance of a refrigerator in words. Can is be greater than one? 
+%
+
+%\medskip
+       {\bf Solution:} It represents the amount of heat removed from the refrigerated space for each unit of work supplied. It can be greater than 1
+
+%
+     %%% QUESTION:
+     \item\label{Q11} A heat pump that is used to heat a house has a COP of 2.5. That is, the heat pump delivers 2.5 kWh of energy to the house for each 1 kWh of electricity it consumes. Does this violate the first law of thermodynamics?
+%
+
+%\medskip
+       {\bf Solution:} No. The heat pump captures energy from a cold medium and carries it to a warm medium. It does not create it
+%
+     %%% QUESTION:
+     \item\label{Q12} What is the Clausius expression of the second law of thermodynamics?
+%
+
+%\medskip
+       {\bf Solution:} No device can transfer heat from a cold medium to a warm medium without requiring a heat or work input from the surroundings.
+
+%
+     %%% QUESTION:
+     \item\label{Q13} Why are engineers interested in reversible processes even though they can never be achieved?
+%
+
+%\medskip
+       {\bf Solution:} Because reversible processes can be approached in reality, and they form the limiting cases. Work producing devices that operate on reversible processes deliver the most work, and work consuming devices that operate on reversible processes consume the least amount of work.
+
+%
+     %%% QUESTION:
+     \item\label{Q14} Why does a non-quasi equilibrium compression process require a larger work input than the corresponding quasi equilibrium one?
+%
+
+%\medskip
+       {\bf Solution:}  When the compression process is non-quasi equilibrium, the molecules before the piston face cannot escape fast enough, forming a high pressure region in front of the piston. It takes more work to more the piston against this higher pressure region.
+%
+     %%% QUESTION:
+     \item\label{Q15} Is a reversible expansion or compression process necessarily quasi equilibrium? Is a quasi equilibrium expansion or compression necessarily reversible?
+%
+
+%\medskip
+       {\bf Solution:}  A reversible expansion or compression process cannot involve unrestained expansion or sudden compression, and thus it is quasi equilibirum. A quasi equilibirum expansion or compression process, on the other hand, may involve external irreversibilities (like heat transfer through a finite temperature difference) nad thus is not necessarily reversible.
+
+%
+     %%% QUESTION:
+     \item\label{Q16} What are the four processes that make up the Carnot cycle?
+%
+
+%\medskip
+       {\bf Solution:}  Isothermal expansion, reversible adiabatic expansion, isothermal compression, reversible adiabatic compression
+
+%
+     %%% QUESTION:
+     \item\label{Q17} What are the two statements known as the Carnot principles? 
+%
+
+%\medskip
+       {\bf Solution:} 1. Thermal efficiency of an irreversible heat engine is lower thant the efficiency of a reversible heat engine operating between the same two reservoirs; 2. The thermal efficiency of all the reversible heat engines operating between the same two reservoirs are equal
+
+%
+     %%% QUESTION:
+     \item\label{Q18} Somebody claims to have developed a new reversible heat engine cycle that has a higher theoretical efficiency than the Carnot cycle operating between the same temperature limits. Is this a reasonable claim? 
+%
+
+%\medskip
+       {\bf Solution:} No. The second Carnot principle states that no heat engine cycle can have a higher thermal efficiency than the Carnot cycle operating between the same temperature limits.
+
+%
+     %%% QUESTION:
+     \item\label{Q19} Is it possible to develop (a) an actual and (b) a reversible heat engine cycle that is more efficient that a Carnot cycle operating between the same temperature limits? 
+%
+
+%\medskip
+       {\bf Solution:} (a) No. (b) No. They would violate the Carnot Principles
+
+%
+     %%% QUESTION:
+     \item\label{Q20} Somebody claims to have developed a new reversible heat engine that has the the same theoretical efficiency as the Carnot cycle operating between the same temperature limits? Is this a reasonable claim?
+%
+
+%\medskip
+       {\bf Solution:} Yes. the second Carnot principle states that all reversible heat engine cycles operating between the same temperature limits have the same thermal efficiency.
+
+
+%
+     %%% QUESTION:
+     \item\label{Q21} Consider two actual power plants operating with solar energy. Energy is supplied to one plant from a solar pond at 80 C and to the other from concentrating collectors that raise the water temperature to 600 C. Which of these power plants will have a higher efficiency?
+%
+
+%\medskip
+       {\bf Solution:} The one that has a source temperature of 600 C. This is true because the higher the temperature at which heat is supplied to the working fluid of a heat engine, the higher the thermal efficiency.
+
+%
+     %%% QUESTION:
+     \item\label{Q22} How can we increase COP of a Carnot refrigerator?
+%
+
+%\medskip
+       {\bf Solution:} By increasing TL or decreasing TH
+
+%
+     %%% QUESTION:
+     \item\label{Q23} What is the highest COP that a refrigerator operating between temperature levels TL and TH can have?
+%
+
+%\medskip
+       {\bf Solution:} It is the COP that a Carnot refrigerator would have, COP=1/(TH/TL -1)
+
+%
+     %%% QUESTION:
+     \item\label{Q24} In an effort the conserve energy in a heat engine cycle, somebody suggests incorporating a refrigerator that will absorb some of the waste energy QL and transfer it to the energy source of the heat engine. Is this a smart idea?
+%
+
+%\medskip
+       {\bf Solution:} No. At best (when all is reversible), the increase in the work produced will be equal to the work consumed by the refrigerator. In reality, the work consumed by the refrigerator will always be greater than the additional work produced, resulting in a decrease in the thermal efficiency of the power plant.
+
+%
+     %%% QUESTION:
+     \item\label{Q25} It is well established that the thermal efficiency of a heat engine increases as the temperature TL at which the heat is rejected from the heat engine decreases. In an effort to increase the efficiency of a power plant, somebody suggest refrigerating the cooling water before it enters the condenser, where heat rejection takes place. Would you be in favor of this idea? Why?
+%
+
+%\medskip
+       {\bf Solution:} No. At best (when all is reversible), the increase in the work produced will be equal to the work consumed by the refrigerator. In reality, the work consumed by the refrigerator will always be greater than the additional work produced, resulting in a decrease in the thermal efficiency of the power plant.
+
+%
+     %%% QUESTION:
+     \item\label{Q26} It is well known that the thermal efficiency of heat engines increases as the temperature of the energy source increases. In an attempt to improve the efficiency of a power plant, somebody suggest transferring heat from the available energy source to a higher temperature medium by a heat pump before energy is supplied to the power plant. What do you think of this suggestion?
+%
+
+%\medskip
+       {\bf Solution:} Bad Idea. At best (all is reversible), the increase in the work produced will equal the work consumed by the heat pump. In reality, the work consumed by the heat pump will always be greater than the additional work produced, resulting in a decrease in the thermal efficiency of the power plant.
+
+%
+     %%% QUESTION:
+     \item\label{Q27} Does the temperature in the Clausius inequality relation have to be absolute temperature? Why?
+%
+
+%\medskip
+       {\bf Solution:} Yes. Because we used the relation (QH/TH=QL/TL) in the proof, which is the defining relation of absolute temperature.
+
+%
+     %%% QUESTION:
+     \item\label{Q28} Does a cycle for which deltaQ>0 violate the Clausius inequality? 
+%
+
+%\medskip
+       {\bf Solution:} No. The deltaQ represents the net heat transfer during a cycle, would could be positive
+
+%
+     %%% QUESTION:
+     \item\label{Q29} Does the cyclic integral of heat have to be zero (i.e. does a system have to reject as much heat as it consumes to complete a cycle)? 
+%
+
+%\medskip
+       {\bf Solution:} No. A system may reject more or less heat than it receives during a cycle. The steam in a steam power plant, for example, received more heat than it rejects in a cycle.
+
+%
+     %%% QUESTION:
+     \item\label{Q30} Does the cyclic integral of work have to be zero (i.e. does a system have to produce as much work as it consumes to complete a cycle)? 
+%
+
+%\medskip
+       {\bf Solution:} No. A system may produce more or less work than it receives during a cycle. A steam power plant for example, produces more work than it receives during a cycle, the difference being the the net work output.
+
+%
+     %%% QUESTION:
+     \item\label{Q31} A system undergoes a process between two fixed states first in a reversible manner and then in an irreversible manner. For which case is the entropy change greater?
+%
+
+%\medskip
+       {\bf Solution:} The entropy change will be the same for both cases since the entropy is a a property and it has a fixed value at a fixed state.
+
+%
+     %%% QUESTION:
+     \item\label{Q32} Is the value of the integral, from 1 to 2, of deltaQ/T the same for all processes between states one and two?
+%
+
+%\medskip
+       {\bf Solution:} No. In general, that integral will have a different value for different processes. However, it will have the same value for all reversible processes.
+
+%
+     %%% QUESTION:
+     \item\label{Q33} Is the value of the integral, from 1 to 2, of deltaQ/T the same for all reversible processes between states one and two?
+%
+
+%\medskip
+       {\bf Solution:} Yes
+
+%
+     %%% QUESTION:
+     \item\label{Q34} To determine the entropy change for an irreversible process between states one and two, should the integral, from 1 to 2, of deltaQ/T be performed along the actual process path or an imaginary reversible path?
+%
+
+%\medskip
+       {\bf Solution:} That integral would be performed along a reversible path to determine the entropy change
+
+%
+     %%% QUESTION:
+     \item\label{Q35} Is an isothermal process necessarily internally reversible? Give an example.
+%
+
+%\medskip
+       {\bf Solution:} No. An isothermal process and be irreversible. For example, a system that involves paddle wheel work while losing an equivalent amount of heat.
+
+%
+     %%% QUESTION:
+     \item\label{Q36} How do the values of the integral, from 1 to 2, of deltaQ/T compare for a reversible and irreversible process between the same end states? 
+%
+
+%\medskip
+       {\bf Solution:} The value of this integral is always larger for reversible processes
+
+%
+     %%% QUESTION:
+     \item\label{Q37} A piston cylinder device contains helium gas. During a reversible, isothermal process, the entropy of the helium will increase ...
+%
+
+%\medskip
+       {\bf Solution:} Sometimes
+
+%
+     %%% QUESTION:
+     \item\label{Q38} A piston cylinder device contains nitrogen gas. During a reversible, adiabatic process, the entropy of the nitrogen will increase
+%
+
+%\medskip
+       {\bf Solution:} Never
+
+%
+     %%% QUESTION:
+     \item\label{Q39} A piston cylinder device contains superheated steam. During an actual, adiabatic process, the entropy of the steam will increase.
+%
+
+%\medskip
+       {\bf Solution:} Always
+
+%
+     %%% QUESTION:
+     \item\label{Q40} The entropy of steam will ... as it flows through an actual adiabatic turbine.
+%
+
+%\medskip
+       {\bf Solution:} Increase
+
+%
+     %%% QUESTION:
+     \item\label{Q41} The entropy of the working fluid of the ideal Carnot cycle ... during the isothermal heat addition process.
+%
+
+%\medskip
+       {\bf Solution:} Increase
+
+%
+     %%% QUESTION:
+     \item\label{Q42} The entropy of the working fluid of the ideal Carnot cycle ... during the isothermal heat rejection process
+%
+
+%\medskip
+       {\bf Solution:} Decreases
+
+%
+     %%% QUESTION:
+     \item\label{Q43} During a heat transfer process, the entropy of a system ... increases
+%
+
+%\medskip
+       {\bf Solution:} Sometimes
+
+%
+     %%% QUESTION:
+     \item\label{Q44} Is it possible for the entropy change of a closed system to be zero during an irreversible process?
+%
+
+%\medskip
+       {\bf Solution:} Yes. This will happen when the system is losing heat, and the decrease in entropy as a result of this heat loss is equal in entropy as a result of irreversibilities.
+
+%
+     %%% QUESTION:
+     \item\label{Q45} Is a process that is internally reversible and adiabatic necessarily isentropic? 
+%
+
+%\medskip
+       {\bf Solution:} Yes, because an internally reversible, adiabatic process invovles no irreversibilities or heat transfer
+%
+     %%% QUESTION:
+     \item\label{Q46} Consider two sold blocks, one hot and one cold, brought into contsant in an adiabatic container. After a while, thermal equilibrium is established in the container as a result of heat transfer. The first law requires that the amount of energy lost by the hot solid be equal to the amount of energy gained by the cold one. Does the second law require that the decrease in entropy of the hot solid be equal to the increase in entropy of the cold one?
+%
+
+%\medskip
+       {\bf Solution:} No, because entropy is not a conserved property
+
+%
+     %%% QUESTION:
+     \item\label{Q47} Can entropy of an ideal gas change during an isothermal process? 
+%
+
+%\medskip
+       {\bf Solution:} The entorpy of a gas can change during an isothermal process since entropy of an ideal gas depends on the pressure as well as the temperature.
+
+%
+     %%% QUESTION:
+     \item\label{Q48} An ideal gas undergoes a process between two specifes temperatures, first at constant pressure and then at constant volume. For which case will the ideal gas experience a larger entropy change? 
+%
+
+%\medskip
+       {\bf Solution:} The entropy change relations of an ideal gas simplify to: 1. delta s=Cpln(T2/T1) for a constant pressure process 2. delta s=Cvln(T2/T1) for a constant volume process 3 noting that Cp>Cv. the entropy change will be larger for a constant pressure process
+
+%
+     %%% QUESTION:
+     \item\label{Q49} Describe the ideal process for an (a) adiabatic turbine, (b) adiabatic compressor, and (c) adiabatic nozzle, and define the isentropic efficiency for each device.
+%
+
+%\medskip
+       {\bf Solution:} The ideal process for all three devices is the reversible adiabatic (i.e. isentropic) process. The isentropic efficincies can be defined as: 1. eta(turbine, isentropic)= actual work output/isentropic work output 2. eta(compressor,isentopic)=isentropic work input/ actual work input 3. eta(nozzle,isentropic)=actual exit kinetic energy/ isentropic exit kinetic energy
+
+
+%
+     %%% QUESTION:
+     \item\label{Q50} Is the isentropic process a suitable model for compressors that are cooled intentionally? 
+%
+
+%\medskip
+       {\bf Solution:} No, because the isentropic process is not the model or ideal process for compressors that are cooled unintentionallly.
+
+%
+     %%% QUESTION:
+     \item\label{Q51} On a T-s diagram, does the actual exit state (state 2) of an adiabatic turbine have to be on the right hand side of the isentropic exit state (state 2s)?
+%
+
+%\medskip
+       {\bf Solution:} Yes. Because the entropy of the fluid must increase during an actual adiabatic process as a result of irreversibilities. Therefore, the actual exit state has to be on the right hand side of the isentropic exit state.
+
+%
+\end{list}
