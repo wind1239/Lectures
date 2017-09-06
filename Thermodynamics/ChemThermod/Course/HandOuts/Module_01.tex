@@ -1,0 +1,933 @@
+% Aberdeen style guide should be followed when using this
+% layout. Their template powerpoint slide is used to extract the
+% Aberdeen color and logo but is otherwise ignored (it has little or
+% no formatting in it anyway).   
+% 
+% http://www.abdn.ac.uk/documents/style-guide.pdf
+
+%%%%%%%%%%%%%%%%%%%% Document Class Settings %%%%%%%%%%%%%%%%%%%%%%%%%
+% Pick if you want slides, or draft slides (no animations)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Normal document mode%
+%\documentclass[10pt,compress,unknownkeysallowed]{beamer}
+%Draft or handout mode 
+\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
+
+%%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
+% These settings must be set for each presentation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\shortname}{jefferson.gomes@abdn.ac.uk}
+\newcommand{\fullname}{Dr Jeff Gomes}
+\institute{School of Engineering}
+\newcommand{\emailaddress}{}%jefferson.gomes@abdn.ac.uk}
+\newcommand{\logoimage}{../../FigBanner/UoAHorizBanner}
+\title{Chemical Thermodynamics (EX3029)}
+\subtitle{Module 1: Volumetric Properties of Pure Substances}
+\date[ ]{ }
+
+\input{Preambule}
+ 
+\begin{document}
+
+% Title page layout
+\begin{frame}
+  \titlepage
+  \vfill%
+  \begin{center}
+    \includegraphics[clip,width=0.8\textwidth]{\logoimage}
+  \end{center}
+\end{frame}
+
+% Table of contents
+\frame{ \frametitle{Slides Outline}
+  \tableofcontents
+}
+
+
+%%%%%%%%%%%%%%%%%%%% The Presentation Proper %%%%%%%%%%%%%%%%%%%%%%%%%
+% Fill below this line with \begin{frame} commands! It's best to
+% always add the fragile option incase you're going to use the
+% verbatim environment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%% SECTION
+%%%
+\section{General Remarks}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{General Remarks}
+  \begin{columns}
+     \begin{column}[l]{0.5\linewidth}
+        \begin{enumerate}[(a)]%\scriptsize
+           \item<1-> \underline{Difficult subject} with new content;
+           \item<1-> Subject requires a good level of \underline{\blue{abstraction}};
+           \item<2-> Pre-requisite for 2$^{\text{nd}}$ half-session courses;
+           \item<2-> Visit \blue{MyAberdeen} regularly $\rightarrow$ Emails $\&$ Announcements;
+           \item<3-> Course is mainly based on {\it Smith, Van Ness and Abbott} text-book. Other thermodynamic text-books are also available in the library (and online) !
+           \item<4-> Assessment: 80$\%$ December exam diet + 20$\%$ continuous assessment (Weeks 10-12); 
+        \end{enumerate}
+     \end{column}
+     \begin{column}[l]{0.5\linewidth}
+        \begin{enumerate}[(a)]\setcounter{enumi}{6}%\scriptsize
+           \item<4-> Make a \underline{\blue{serious}} effort to learn (and enjoy!) \red{Matlab}. It will help your performance throughout levels 3-5!
+           \item<5-> \red{Pace change when compared to \underline{Level 2}. Courses and subjects are \underline{substantially} more complex};
+           \item<6-> \blue{Time management} is crucial. \red{Do not leave to study all contents during the \underline{Revision Week}.}   
+        \end{enumerate}
+     \end{column}
+  \end{columns}
+\end{frame}
+
+%%%
+%%% Slides
+%%%
+\begin{frame}
+ \frametitle{Learning Objectives}
+   \begin{enumerate}
+     \item<1-> Define pure substances and thermodynamic phases;
+     \item<1-> State the Gibbs phase rule and its use to define the number of degrees of freedom of a system;
+     \item<1-> Identify phases and phase transitions in a diagram;
+     \item<1-> Formulate the solution for thermodynamic problems involving the calculation of volume of pure substances;
+     \item<1-> Select appropriate equation of state for a given problem/application;
+   \end{enumerate}
+
+\end{frame}
+
+
+%%%
+%%% SECTION
+%%%
+\section{Bibliography}
+\begin{frame}
+ \frametitle{Suggested References}
+  Literature relevant for this module:
+  \begin{enumerate}[1.]
+   \item \blue{Chapter 5 of Lecture Notes};
+   \item J.M. Smith, H.C. Van Ness, M.M. Abbott, $\lq$Introduction to Chemical Engineering Thermodynamics', 6$^{th}$ Edition: Chapter 3;
+   \item S.I. Sandler, 'Chemical, Biochemical and Engineering Thermodynamics', 6$^{th}$ Edition: Chapter 6;
+   \item Y.A. Cengel, M.A. Boles, $\lq$Thermodynamics -- An Engineering Approach', 5$^{th}$ Edition: Chapter 3; 
+   \item M.J. Moran, H.N. Saphiro, D.D. Boettner, M.B. Bailey, $\lq$Principles of Engineering Thermodynamics', 7$^{th}$ Edition: Chapters 3;
+   \item C. Borgnakke, R.E. Sonntag, $\lq$Fundamentals of Thermodynamics', 8$^{th}$ Edition: Chapter 2.
+  \end{enumerate}
+\end{frame}
+
+
+
+%%%
+%%% SECTION
+%%%
+\section{PVT Behaviour of Pure Substances}
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Phase Diagram and Gibbs Rule} 
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{PVT Behaviour of Pure Substances}
+ \begin{columns}
+  \begin{column}[l]{0.5\linewidth}
+    \begin{enumerate}\scriptsize
+    \item <1-> This surface represents the \textcolor{red}{Pressure} - \textcolor{red}{specific volume} - \textcolor{red}{Temperature} -- $PVT$, relation in a pure substance;
+    \item <2-> Any given coordinate in both, the surface plot and diagrams (projections), will represent values of pressure, specific volume and temperature when the substance is at equilibrium;
+    \item <3-> The \textcolor{red}{Gibbs phase rule},
+       \visible<3->{\begin{equation}
+          \Psi = 2 + \mathcal{C} - \mathcal{P}
+       \end{equation} 
+       describes the number of degrees of freedom (dof), $\Psi$ (\underline{intensive variables}, e.g., temperature, pressure), in a closed system at equilibrium as a function of the number of phases ($\mathcal{P}$ = solid, liquid and/or vapour) and components, $\mathcal{C}$ (e.g., water, CO$_{2}$, N$_{2}$, etc). }
+\end{enumerate}
+  \end{column}
+  \begin{column}[l]{0.5\linewidth}
+   \begin{figure}%
+    \begin{center}
+     \includegraphics[width=4.cm,clip]{./../Pics/PVT_Surface.jpg}
+    \end{center}
+    \scriptsize\caption{\scriptsize$PVT$ volume (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from [4]).}
+   \end{figure}    
+  \end{column}
+ \end{columns}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{PT Diagram}
+ \begin{columns}
+   \begin{column}[l]{0.5\linewidth}
+     \begin{enumerate}\scriptsize
+        \item<1-> The \textcolor{blue}{$PT$ phase diagram} describes fluid behaviour and phase change; 
+        \item<2-> For example: \textcolor{blue}{A}-\;-\;-\textcolor{red}{B} defines a phase transition from \textcolor{blue}{liquid} to \textcolor{red}{gas} regions without crossing the phase boundary (vaporisation);
+        \item <3-> {\bf Example 1:} In the $PT$ diagram for one hypothetical component -- $\textcolor{red}{\mathcal{C}=1}$, within each phase region -- $\textcolor{blue}{\mathcal{P}=1}$ (i.e., as either solid, liquid or vapour phase),
+          \visible<3->{\begin{displaymath}
+            \Psi = 2 + \textcolor{red}{1} - \textcolor{blue}{1} = 2
+          \end{displaymath}
+          \begin{enumerate}[(a)]\scriptsize
+             \item  In this case, the number of degrees of freedom correspond to temperature and pressure;
+             \item  Thus, within the vapour phase, temperature and pressure can readily be changed without explicit phase change or composition of the vapour phase.
+          \end{enumerate}}
+        \item <4-> {\bf Example 2:} However, along with the \textcolor{red}{phase-line boundary}, two phases are in equilibrium, i.e., $\textcolor{blue}{\mathcal{P}=2}$,%
+          \visible<2->{\begin{displaymath}
+            \Psi = 2 + \textcolor{red}{1} - \textcolor{blue}{2} = 1,
+          \end{displaymath}}
+     \end{enumerate}
+  \end{column}
+  \begin{column}[l]{0.5\linewidth}\scriptsize
+          \visible<4->{when the vapour and liquid phases are in equilibrium, any change in temperature {\bf leads} to change in pressure for the system remains in equilibrium;}
+      \begin{figure}%
+        \begin{center}
+          \includegraphics[width=1.05\columnwidth,clip]{./../Pics/PT_Diagram}
+        \end{center}
+      \end{figure}
+     \begin{enumerate}\setcounter{enumi}{4}\scriptsize
+        \item<5-> However, there is \red{no} information about the volume in the {\it PT} diagram.
+     \end{enumerate}
+  \end{column}
+ \end{columns}
+\end{frame}
+ 
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+ \frametitle{PV Diagram}
+  \begin{columns}
+    \begin{column}[l]{0.5\linewidth}
+      \visible<1->{\begin{figure}%
+        \begin{center}
+          \includegraphics[width=\columnwidth,clip]{./../Pics/PV_Diagram1}
+        \end{center}
+      \end{figure}}
+      \begin{enumerate} \scriptsize
+        \item<1-> Two-phase regions (e.g., liquid+vapor) are represented by \textcolor{red}{areas} and;
+        \item<2-> Lines represent the actual transition transition between \textcolor{blue}{single phase} to \textcolor{blue}{two phases} regions, thus;
+        \item<2-> The \textcolor{blue}{triple point} is the horizontal line between the 3 phases;
+      \end{enumerate}
+    \end{column}
+    \begin{column}[l]{0.5\linewidth}\scriptsize
+      \visible<3->{\begin{figure}%
+        \begin{center}
+          \includegraphics[width=\columnwidth,clip]{./../Pics/PV_Diagram2}
+        \end{center}
+      \end{figure}}
+      \begin{enumerate}\setcounter{enumi}{3}
+        \item<3-> The isotherms range from \textcolor{blue}{subcooled liquid} to \textcolor{blue}{superheated vapor} regions; 
+        \item<3-> Isotherms are \textcolor{red}{steep} in the \textcolor{blue}{subcooled liquid}  region because liquid volumes have little changes with large change in pressure.
+      \end{enumerate}
+    \end{column}
+  \end{columns}
+\end{frame}
+\normalsize
+
+%%%% COMMENTS
+\begin{comment}
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+ \frametitle{PV Diagram}
+      \visible<1->{\begin{figure}%
+        \begin{center}
+          \includegraphics[width=.6\columnwidth,clip]{./../Pics/PV_Diagram3}
+        \end{center}
+      \end{figure}}
+      \visible<2->{\begin{displaymath}
+         \frc{a}{b} = \frc{V^{H}-V^{L}}{V^{V}-V^{H}} = \frc{m^{V}}{m^{L}} = \frc{\text{mass of saturated vapour}}{\text{mass of saturated liquid}}
+      \end{displaymath}}
+     
+\end{frame}
+\normalsize
+\end{comment}
+
+%%%
+%%% SECTION
+%%%
+\section{Equations of State (EOS)}
+
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+ \frametitle{Summary List of EOS}
+      \visible<1->{\begin{figure}%
+        \begin{center}
+          \includegraphics[width=0.9\columnwidth,clip]{./../Pics/ListEOS}
+        \end{center}
+      \end{figure}}
+\end{frame}
+\normalsize
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{EOS expressed as a Functional}
+
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+ \frametitle{Single Phase region}
+    \begin{enumerate}\scriptsize
+      \item<1-> \textcolor{blue}{Equations of State (EOS)} relates pressure, molar or specific volume and temperature of any \textcolor{blue}{pure homogeneous fluid} in equilibrium states;
+      \item<2-> We can express it as a general functional,
+          \visible<2->{\begin{displaymath}
+              f\left(P, V, T\right) = 0
+          \end{displaymath} 
+          where $P$, $V$ or $T$ can be expressed as a function of two of this properties.}
+      \item<3-> For example, we can represent the volume as $V=V\left(T,P\right)$, thus
+          \visible<3->{\begin{equation}
+              dV = \left(\frc{\partial V}{\partial T}\right)_{P} dT + \left(\frc{\partial V}{\partial P}\right)_{T} dP \;\;\Longrightarrow \;\; \textcolor{blue}{\frc{dV}{V} = \beta dT - \kappa dP} \label{genericV}
+          \end{equation} 
+            with $\beta  =  \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P}$ (coefficient of thermal expansion or volume expansivity coefficient) and $\kappa = -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T}$ (coefficient of isothermal compressibility).
+           }
+      \item<4-> A few useful remarks:
+        \begin{itemize}\scriptsize
+          \item<4-> For \textcolor{blue}{incompressible fluids}: $\beta$ and $\kappa$ are zero;
+          \item<4-> For liquids: $\beta>0$ (except for liquid H$_{2}$O at $0\leq T\leq 4^{\circ}$C) and $\kappa>0$  
+        \end{itemize}
+      \item<5-> Close to the critical point, $\beta$ and $\kappa$ are assumed constant, thus \blue{Eqn.~\ref{genericV}} becomes, 
+        \visible<5->{\begin{displaymath}
+            \ln\frc{V_{2}}{V_{1}} = \beta\left(T_{2}-T_{1}\right) - \kappa\left(P_{2}-P_{1}\right)
+        \end{displaymath}}
+    
+    \end{enumerate}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Ideal Gas EOS}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+ \frametitle{Ideal Gas}
+    \begin{enumerate}%\scriptsize
+       \item<1-> Assumptions:
+          \begin{enumerate}[a)]
+             \item<1-> molecules of gases are considered as {\bf massless} particles;
+             \item<1-> there are {\bf no} interaction between the gas particles as
+               \begin{itemize}
+                 \item<1-> volume of the molecules is negligibly small compared with the volume occupied by the gas, and/or;
+                 \item<1-> the distance between gaseous molecules are infinitely large, except during elastic collisions over negligible duration.
+               \end{itemize}
+          \end{enumerate}
+        \item<2-> For a gas to behave as an ideal gas: $\blue{P \rightarrow 0}$. \\
+            \visible<3->{In practical terms, a gas is assumed to behave as an ideal gas at low to moderate pressures;}
+        \item<4-> Ideal Gas EOS:
+            \visible<4->{\begin{equation}\label{Mod1:IdealEoS}
+                 PV = nRT,
+              \end{equation} where}
+    
+    \end{enumerate}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Universal Gas Constant}
+  
+     \begin{center}
+     \begin{tabular}{||c c||}
+       \hline\hline
+           $\mathbf{R}$   & {\bf Units} $\mathbf{\left(\text{V.P.T}^{-1}\text{n}^{-1}\right)}$ \\
+           \hline\hline
+           8.3145    &  J.K$^{-1}$.mol$^{-1}$  \\
+           8.3145    &  kJ.K$^{-1}$.kmol$^{-1}$  \\
+           8.3145    &  l.kPa.K$^{-1}$.mol$^{-1}$  \\
+           8.3145$\times$10$^{-3}$    & cm$^{3}$.kPa.K$^{-1}$.mol$^{-1}$  \\
+           8.3145    &  m$^{3}$.Pa.K$^{-1}$.mol$^{-1}$  \\
+           8.3145$\times$10$^{-5}$    &  m$^{3}$.bar.K$^{-1}$.mol$^{-1}$  \\
+           8.2057$\times$10$^{-2}$ &  l.atm.K$^{-1}$.mol$^{-1}$  \\
+           \hline\hline           
+     \end{tabular}
+     \end{center}
+\end{frame}
+\normalsize
+
+
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Virial EOS}
+
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+ \frametitle{Virial Expansion}
+   \begin{columns}
+    \begin{column}[l]{0.5\linewidth}
+      \begin{enumerate} \scriptsize
+        \item<1-> $\left(PV\right)$ along an isotherm can be expressed as function of {\bf P} by a \textcolor{blue}{power series},
+           \visible<1->{\begin{displaymath}
+             \left(PV\right) = a + bP + cP^{2} + dP^{3} + \cdots
+           \end{displaymath}}
+        \item<2-> Defining $b=aB^{\prime}$, $c=aC^{\prime}$, $d=aD^{\prime}$, $\cdots$, then
+           \visible<2->{\begin{equation}\label{Mod3:VirialEoS1}
+             \left(PV\right) = a\left( 1 + B^{\prime}P + C^{\prime}P^{2} + D^{\prime}P^{3} + \cdots\right) 
+           \end{equation}}
+        \item<2-> $B^{\prime}$, $C^{\prime}$ and $D^{\prime}$ are constants, characteristic for each chemical species and temperature-dependent $\left(\text{i.e.,} B^{\prime}=B^{\prime}(T), C^{\prime}=C^{\prime}(T)\right)$  
+        \item<3-> In the limit case -- $P\rightarrow 0$, \textcolor{blue}{$\left(PV\right)$ for all gases}:\\
+           \begin{displaymath}
+              \visible<3->{\textcolor{blue}{\left(PV\right)^{\star} =}} 
+                   \begin{cases}
+                      \visible<3->{a = f\left(T\right)} \\
+                      \visible<4->{\textcolor{blue}{a= RT}}\\ 
+                   \end{cases}
+           \end{displaymath}
+           \visible<4->{where $R$ is a proportionally constant, i.e.,  universal gas constant.}
+        \item<5-> At this limiting case, $\left(PV\right)_{T}^{\star} = R \times 273.16$. 
+      \end{enumerate}
+    \end{column}
+    \begin{column}[l]{0.5\linewidth}\scriptsize
+     \begin{enumerate}\setcounter{enumi}{5}
+       \item<6->For \textcolor{blue}{ideal gasses}, pressure is sufficiently small $\left(P\rightarrow 0\right)$. 
+       \item<6-> This means that the molecules are separated by infinite distances, and therefore the \textcolor{blue}{intermolecular forces approaches zero}. 
+     \end{enumerate}
+      \visible<3->{\begin{figure}%
+        \begin{center}
+          \includegraphics[width=1.05\columnwidth,clip]{./../Pics/Virial_EOS}
+        \end{center}
+      \end{figure}}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+ \frametitle{Compressibility Factor -- $Z$}
+   \begin{enumerate}\setcounter{enumi}{7}\scriptsize
+     \item<1-> The {\it Virial expansion} is considered the only EOS based on rigorous mathematical derivation. It can also be derived from statistical mechanics leading to physical  significance of the virial coefficients;
+     \item<2->The original form of the Virial EOS (Eqn.~\ref{Mod3:VirialEoS1}) can be rewritten as
+        \begin{equation}\label{Mod3:VirialEoS2}
+            \visible<2->{\frc{PV}{RT}} \visible<3->{ = \textcolor{red}{Z}} = \visible<2->{1 + B^{\prime}P + C^{\prime}P^{2} + D^{\prime}P^{3} + \cdots}
+        \end{equation}
+     \item<4-> \textcolor{red}{$Z$} is the \textcolor{blue}{compressibility factor} and is commonly used to estimate the deviation from ideal gas behaviour.
+     \item<5->Therefore, the Virial EOS can be represented by 2 main forms:
+        \begin{equation}
+          Z = \frc{PV}{RT} =
+             \begin{cases}
+                1 + \textcolor{blue}{\frc{B}{V}} + \textcolor{red}{\frc{C}{V^{2}}} + \textcolor{purple}{\frc{D}{V^{3}}} + \cdots \\
+                \visible<6->{1 + \blue{B^{\prime}P} + \red{C^{\prime}P^{2}} + \purple{D^{\prime}P^{3}} + \cdots} \\
+                \visible<7->{1 + \blue{\frc{B}{RT}P} + \red{\frc{C-B^{2}}{\left(RT\right)^{2}}P^{2}} + \purple{\frc{D-3BC+2B^{2}}{\left(RT\right)^{3}}P^{3}} + \cdots}
+             \end{cases}
+        \end{equation}
+     \item<8-> Thus, for real cases
+        \begin{equation}
+          \visible<8->{Z = \frc{PV}{RT} =}
+             \begin{cases}
+                \visible<8->{1 + \blue{B^{\prime}P} = 1 + \blue{\frc{BP}{RT}} \hspace{2.6cm} \Rightarrow\;\; \text{Low-Moderate pressures -- P}<\text{15 bar}}\\
+                \visible<9->{1 + \blue{B^{\prime}P} + \red{C^{\prime}P^{2}}  = 1 + \blue{\frc{BP}{RT}} + \red{\frc{C-B^{2}}{\left(RT\right)^{2}}P^{2}}\;\;\Rightarrow\;\; \text{High pressures \red{but} below the } P_{c}}
+             \end{cases}
+        \end{equation}
+             
+   \end{enumerate}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Cubic EOS}
+
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+ \frametitle{Generic Cubic EOS}
+    \begin{enumerate}\scriptsize
+      \item<1-> The simplest equations able to represent both \blue{liquid} and \blue{vapour} phases behaviour but \red{not} for two-phase condition;
+      \item<2-> They are designed to be used in a wide range of temperature and pressure;
+      \item<3-> \blue{General format} of a cubic equation on $V$,
+         \begin{equation}\label{Mod3:GenCubicEqn}
+            \visible<3->{
+             P = \frc{RT}{V-b} - \frc{\theta\left(V-\eta\right)}{\left(V-b\right)\left(V^{2}+\kappa V + \lambda\right)}
+            }
+         \end{equation}
+         \visible<3->{Where $b$, $\theta$, $\kappa$, $\lambda$ and $\eta$ are parameters that depend on \blue{T} and \blue{composition} (for mixtures).}
+      \item<4-> If $\eta=b$, $\theta=a(T)$,$\kappa=\left(\epsilon+\sigma\right)b$ and $\lambda=\epsilon\sigma b^{2}$, we can define a generic cubic equation of state,
+           \visible<4->{\begin{equation}\label{Mod3:GenCubicEOS}
+              P = \frc{RT}{V-b} - \frc{a(T)}{\left(V-\epsilon b\right)\left(V+\sigma b\right)}
+           \end{equation}
+           where $\epsilon$ and $\sigma$ are constants.}
+       \item<5-> $a(T)$ and $b$ are specific for chemical species and defined as,
+           \visible<5->{\begin{displaymath} 
+             a(T) = \Psi\frc{\alpha(T)R^{2}T_{c}^{2}}{P_{c}}\;\;\;\text{ and }\;\;\; b=\Omega\frc{R T_{c}}{P_{c}}
+           \end{displaymath}
+           $\Psi$ and $\Omega$ are constants and may vary for different cubic EOS.} 
+    \end{enumerate}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+ \frametitle{Cubic Equations of State}
+    \visible<1->{\begin{block}{van der Waals}
+        If we set $\eta=b$, $\theta=a$ and $\kappa=\lambda=0$, Eqn.~\ref{Mod3:GenCubicEqn} reduces to 
+        \begin{equation}\label{Mod3:vdWEOS}
+              P = \frc{RT}{V-b} - \frc{a}{V^{2}}
+        \end{equation}
+        with $a=\frc{27 R^{2}T_{c}^{2}}{64 P_{c}}$ and $b=\frc{R T_{c}}{8 P_{c}}$.
+    \end{block}}    
+
+    \visible<2->{\begin{block}{Redlich-Kwong}
+        \begin{equation}\label{Mod3:vdWEOS}
+              P = \frc{RT}{V-b} - \frc{a}{\sqrt{T}\left(V + b\right)V}
+        \end{equation}
+       with $a = 0.42748\frc{R^{2}T_{c}^{2.5}}{P_{c}}$ and $b=0.08664\frc{R T_{c}}{P_{c}}$.
+    \end{block}}    
+
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+ \frametitle{Cubic Equations of State}
+   \visible<1->{\begin{block}{Theorem of Corresponding States (TCS)}
+     \blue{$\lq$All fluids, when compared at the same reduced temperature $\left(T_{r}\right)$ and pressure $\left(P_{r}\right)$, have approximately the same compressibility factor $(Z)$, and all deviate from ideal behaviour to about the same degree.'}
+     \begin{displaymath}
+           T_{r}\equiv\frc{T}{T_{c}} \hspace{3cm} P_{r} \equiv \frc{P}{P_{c}}
+     \end{displaymath}
+   \end{block}}
+   \begin{enumerate}
+     \item<2-> TCS is exact for \blue{simple fluids}, e.g., $Ar$, $Kr$ and $Xe$.
+     \item<3-> However, larger deviations are observed for \blue{more complex fluids}. 
+     \item<4-> Thus, an \red{acentric factor $\left(\omega\right)$} was introduced,
+         \begin{displaymath}
+            \omega \equiv 1 -\log\left(P^{\text{sat}}_{r}\right)_{T_{r}=0.7}
+         \end{displaymath}
+         where $\left(P_{r}^{\text{sat}}\right)_{T_{r}=0.7}$ is the reduced vapour pressure at reduced temperature of 0.7. At $T_{r}=0.7$, $\omega=0$ for $Ar$, $Kr$ and $Xe$.
+     \item<5-> $\omega$ can be determined for any fluid based on $T_{c}$, P$_{c}$ and a vapour-pressure measurement at $T_{r}=0.7$. 
+   \end{enumerate}
+
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+\scriptsize
+\begin{frame}
+ \frametitle{Cubic Equations of State}
+    \visible<1->{\begin{block}{Soave-Redlich-Kwong}
+        \begin{equation}\label{Mod3:SRKEOS}
+              P = \frc{RT}{V-b} - \frc{a\alpha}{V\left(V+b\right)}
+        \end{equation}
+        with $\alpha = \left[1+\kappa\left(1-\sqrt{T_{r}}\right)\right]^{2}$ and $\kappa=0.480+1.574\omega-0.176\omega^{2}$, where $T_{r}=\frc{T}{T_{c}}$.
+    \end{block}}    
+
+    \visible<2->{\begin{block}{Peng-Robinson}
+        \begin{equation}\label{Mod3:PREOS} 
+              P = \frc{RT}{V-b} - \frc{a\alpha}{V\left(V+b\right)+b\left(V-b\right)}
+        \end{equation}
+       with  $\kappa=0.37464+1.54226\omega-0.26992\omega^{2}$, $a=0.45724\frc{R^{2}T_{c}^{2}}{P_{c}}$ and $b=0.07780\frc{R T_{c}}{P_{c}}$
+    \end{block}}    
+
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Cubic Equations of State}
+    \begin{center}
+      {\bf Numerical Solution of the Generic Format of Cubic Equations of State (Eqns.~\ref{Mod3:GenCubicEqn}-\ref{Mod3:GenCubicEOS})}
+    \end{center}
+    \visible<1->{\begin{block}{Vapour $\&$ Vapour-like Roots}
+      \begin{displaymath}
+        Z= 1 + \beta - q\beta \frc{Z - \beta} {\left(Z+\varepsilon\beta\right)\left(Z+\sigma\beta\right)}
+      \end{displaymath}
+      with $\beta=\Omega\frc{P_{r}}{T_{r}}$ and $q=\frc{\Psi\alpha}{\Omega T_{r}}$
+    \end{block}}
+
+
+    \visible<2->{\begin{block}{Liquid $\&$ Liquid-like Roots}
+      \begin{displaymath}
+        Z= 1 + \beta + \left(Z + \epsilon\beta\right)\left(Z+\sigma\beta\right)\left(\frc{1+\beta-Z}{q\beta}\right)
+      \end{displaymath}
+    \end{block}}
+
+    \visible<3->{Iterative method to solve the expressions above, using $Z=1$ as the initial guess.}
+
+
+\end{frame}
+\normalsize
+
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+ \frametitle{Cubic Equations of State -- Parameters}
+    \begin{center}
+       \begin{tabular}{| l | c c c c c| }
+       \hline
+          {\bf EOS}  & {\bf $\alpha$} & {\bf $\sigma$}  & {\bf $\varepsilon$} & {\bf $\Omega$} & {\bf $\Psi$ } \\
+       \hline
+            vdW      & 1              & 0               & 0                  & 1/8            & 27/64          \\
+            RK       & T$_{r}^{-1/2}$  & 1                & 0                  & 0.08664       & 0.42748        \\
+           SRK       &$\alpha_{\text{SRK}}$& 1            & 0                   & 0.08664       & 0.42748        \\
+            PR       &$\alpha_{\text{PR}}$& 1+$\sqrt{2}$   & 1-$\sqrt{2}$        & 0.07780        & 0.45724  \\
+       \hline
+       \end{tabular}
+    \end{center}
+\begin{eqnarray}
+\alpha_{\text{SRK}} &=& \left[ 1 + \left( 0.480 + 1.574 \omega - 0.176\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2} \nonumber \\
+\alpha_{\text{PR}} &=& \left[ 1 + \left( 0.37464 + 1.54226 \omega - 0.26992\omega^{2}\right)\left(1-\sqrt{T_{r}}\right)\right]^{2} \nonumber
+\end{eqnarray}
+
+\end{frame}
+\normalsize
+
+\section{Summary}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+ \frametitle{Summary}
+   \begin{enumerate}
+     \item Review of phase diagram and Gibbs rule, including
+       \begin{enumerate}
+         \item $PT$ and $PV$ diagrams and phase equilibrium;
+         \item Critical and Triple points;
+       \end{enumerate}
+     \item Equations of state
+       \begin{enumerate}
+         \item General formulation;
+         \item Parameters for cubic EOS;
+         \item 2- and 3- parameters cubic EOS.
+       \end{enumerate}
+   \end{enumerate}
+\end{frame}
+
+\begin{comment}
+
+\section{Examples}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1}
+    \blue{For gaseous methane at 298K and 2 MPa, compute the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ using the SRK EOS. Given $T_{c}=$ 190.7 K, $P_{c}=$ 46.41 bar and $\omega=$ 0.011.}
+
+   \visible<2->{We can calculate $V$ of a real gas using the relation $PV=ZRT$, where the compressibility factor, $Z$, for the gaseous fluid can be obtained from,}
+           \visible<2->{\begin{displaymath}
+                Z_{\text{vap}} = 1 + \beta - q\beta \frc{Z_{\text{vap}} - \beta} {\left(Z_{\text{vap}}+\varepsilon\beta\right)\left(Z_{\text{vap}} +\sigma\beta\right)},
+           \end{displaymath}
+           where} 
+           \visible<3->{\begin{eqnarray}
+               && T_{r}=\frc{T}{T_{c}} = 1.5627,\;\;P_{r}=\frc{P}{P_{c}}=0.4309,\;\;\omega=0.011,\;\;\Omega = 0.08664, \nonumber \\
+               && \Psi = 0.42748,\;\; \sigma=1.0,\;\;\epsilon=0.0,\;\;\beta=\Omega\frc{P_{r}}{T_{r}}=2.3890\times 10^{-2},\nonumber \\
+               && \alpha_{\text{SRK}} = 0.7667\;\;\text{ and }\;\; q = \frc{\Psi\alpha_{\text{SRK}}}{\Omega T_{r}} = 2.4207, \nonumber 
+           \end{eqnarray}}
+           \visible<4->{There are three ways to solve this non-linear equation, all of them involve iterative methods for root-finder.}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 1 (Solver in the Calculator)}
+{\bf Method 1:} Using a calculator, leading to \red{$Z_{\text{vap}} = $ 0.9670.}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 2 (Substitution Method)}
+{\bf Method 2:}  In this method we rewrite the $Z_{\text{vap}}$ equation as,
+                 \begin{displaymath}
+                     Z_{\text{vap}}^{(i+1)} = 1 + \beta - q\beta \frc{Z_{\text{vap}}^{(i)} - \beta} {\left(Z_{\text{vap}}^{(i)}+\varepsilon\beta\right)\left(Z_{\text{vap}}^{(i)} +\sigma\beta\right)},
+                 \end{displaymath}
+                 where $i$ is an index for the number of iterations. Taking the ideal gas condition as the initial guess, i.e., $Z_{\text{vap}}^{(1)}=1$, 
+                 \begin{eqnarray}
+                    \visible<2->{i=1 &\Rightarrow& Z_{\text{vap}}^{(2)} = 1 + \beta - q\beta \frc{Z_{\text{vap}}^{(1)} - \beta} {\left(Z_{\text{vap}}^{(1)}+\varepsilon\beta\right)\left(Z_{\text{vap}}^{(1)} +\sigma\beta\right)} = 0.96876 \nonumber} \\
+                    \visible<3->{i=2 &\Rightarrow& Z_{\text{vap}}^{(3)} = 1 + \beta - q\beta \frc{Z_{\text{vap}}^{(2)} - \beta} {\left(Z_{\text{vap}}^{(2)}+\varepsilon\beta\right)\left(Z_{\text{vap}}^{(2)} +\sigma\beta\right)} = 0.96707 \nonumber}
+                 \end{eqnarray}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 2 (Substitution Method)} 
+                 \begin{eqnarray}
+                    \visible<1->{i=3 &\Rightarrow& Z_{\text{vap}}^{(4)} = 1 + \beta - q\beta \frc{Z_{\text{vap}}^{(3)} - \beta} {\left(Z_{\text{vap}}^{(3)}+\varepsilon\beta\right)\left(Z_{\text{vap}}^{(3)} +\sigma\beta\right)} = 0.96697 \nonumber} \\ 
+                    \visible<2->{i=4 &\Rightarrow& Z_{\text{vap}}^{(5)} = 1 + \beta - q\beta \frc{Z_{\text{vap}}^{(4)} - \beta} {\left(Z_{\text{vap}}^{(4)}+\varepsilon\beta\right)\left(Z_{\text{vap}}^{(4)} +\sigma\beta\right)} = 0.96696 \nonumber} \\
+                    \visible<2->{\vdots && \vdots \nonumber}
+                 \end{eqnarray}
+                  \visible<3->{these iterations can continue 'till either,}
+                   \begin{itemize}
+                      \item<3-> $i=n_{\text{max}}$, i.e., we reached the maximum number of iterations or,
+                      \item<4-> the solution has converged (i.e, there is no significant change in the solution after k$^{\text{th}}$ iteration).
+                   \end{itemize}
+                   \visible<5->{For the later, we can create a {\it stoppage criteria} to acess if the solution converged,}
+                   \visible<5->{\begin{displaymath}
+                      \mathcal{E} = \frc{\| Z_{\text{vap}}^{(i+1)} - Z_{\text{vap}}^{(i)}\|}{Z_{\text{vap}}^{(i)}}.
+                   \end{displaymath}}
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 2 (Substitution Method)}
+                 If $\mathcal{E}$ is smaller than a prescribed tolerance, than we say that the method converged, otherwise we should continue our iterations. Assuming that $\mathcal{E} \leq 1.0\times 10^{-4}$,
+                 \begin{center}
+                     \begin{tabular}{c c c c}
+                        \hline
+                            $\mathbf{i}$  &  $\mathbf{Z_\text{vap}^{(i)}}$  & $\mathbf{Z_\text{vap}^{(i+1)}}$  & $\mathbf{\mathcal{E}}$ \\  
+                               1         &           1.0                 &  0.96876                      &  3.12$\times$10$^{-2}$ \\
+                               2         &       0.96876                 &  0.96707                      &  1.74$\times$10$^{-3}$ \\
+                               3         &       0.96707                 &  0.96697                      &  1.03$\times$10$^{-4}$ \\
+                               4         &       0.96697                 &  0.96696                      &  \blue{1.03$\times$10$^{-5}$} \\  
+                        \hline
+                     \end{tabular}
+                 \end{center}
+                 Thus after the forth iteration the solution converged to \red{$Z_{\text{vap}}^{(4)} = 0.96696 \sim 0.9670$}.
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 3 (Newton-Raphson Method)}
+{\bf Method 3:} This iterative method (see Appendix E.2) is based on dividing the domain in infinitesimal segments and smoothly `walking towards the solution'. It can be generalised as,
+                  \begin{displaymath}
+                     x^{(i+1)} = x^{(i)} - \frc{F\left(x^{(i)}\right)}{F^{\prime}\left(x^{(i)}\right)},
+                  \end{displaymath}  
+                  where $F^{\prime}\left(x^{(i)}\right) = \frc{d F\left(x^{(i)}\right)}{dx}$, i.e., the first derivative of the function. \visible<2->{In our case, the first step is to manipulate the $Z_{\text{vap}}$ equation as,}
+                  \visible<2->{\begin{displaymath}
+                     F\left(Z_{\text{vap}}\right) = Z_{\text{vap}} - 1 - \beta + q\beta \frc{Z_{\text{vap}} - \beta} {\left(Z_{\text{vap}}+\varepsilon\beta\right)\left(Z_{\text{vap}} +\sigma\beta\right)} = 0,
+                  \end{displaymath}}
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 3 (Newton-Raphson Method)}
+          The Newton-Raphson Method becomes,
+                  \begin{displaymath}
+                     Z_{\text{vap}}^{(i+1)} = Z_{\text{vap}}^{(i)} - \frc{F\left(Z_{\text{vap}}^{(i)}\right)}{F^{\prime}\left(Z_{\text{vap}}^{(i)}\right)}.
+                  \end{displaymath}
+          \visible<2->{The next step is to obtain the derivative of the function $F\left(Z_{\text{vap}}\right)$ with respect to $Z_{\text{vap}}$, i.e., (for $\epsilon=0$)}
+                  \visible<3->{\begin{eqnarray}
+                     F^{\prime}\left(Z_{\text{vap}}\right) &=& \frc{d F^{\prime}\left(Z_{\text{vap}}\right)}{d Z_{\text{vap}}} = \frc{d}{dZ_{\text{vap}}} \left[Z_{\text{vap}} - 1 - \beta + q\beta \frc{Z_{\text{vap}}-\beta}{Z_{\text{vap}}\left(Z_{\text{vap}}+\sigma\beta\right)}\right]\nonumber \\
+                                                       &=& 1 - \frc{q\beta}{\left(Z_{\text{vap}}+\sigma\beta\right)^{2}} + \frc{q\beta^{2}\left(2Z_{\text{vap}}+\sigma\beta\right)}{\left[Z_{\text{vap}}\left(Z_{\text{vap}}+\sigma\beta\right)\right]^{2}}. \nonumber
+                  \end{eqnarray}}
+             
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 -- Method 3 (Newton-Raphson Method)}
+
+          \visible<1->{This leads to,
+                  \begin{eqnarray}
+                     Z_{\text{vap}}^{(i+1)} &=& Z_{\text{vap}}^{(i)} - \frc{F\left(Z_{\text{vap}}^{(i)}\right)}{F^{\prime}\left(Z_{\text{vap}}^{(i)}\right)} =
+                      Z_{\text{vap}}^{(i)} - \frc{Z_{\text{vap}}^{(i)} - 1 - \beta + q\beta \frc{Z_{\text{vap}}^{(i)} - \beta} {Z_{\text{vap}}^{(i)}\left(Z_{\text{vap}}^{(i)} +\sigma\beta\right)}}{1 - \frc{q\beta}{\left(Z_{\text{vap}}^{(i)}+\sigma\beta\right)^{2}} + \frc{q\beta^{2}\left(2Z_{\text{vap}}^{(i)}+\sigma\beta\right)}{\left[Z_{\text{vap}}^{(i)}\left(Z_{\text{vap}}^{(i)}+\sigma\beta\right)\right]^{2}}}. \nonumber
+                  \end{eqnarray}}
+          \visible<2->{Using ideal gas as initial guess, i.e., $Z_{\text{vap}}^{(1)}=1$ and $\mathcal{E} \leq 1.0\times 10^{-4}$,}
+          \visible<3->{
+                 \begin{center}
+                     \begin{tabular}{c c c c}
+                        \hline
+                            $\mathbf{i}$  &  $\mathbf{Z_\text{vap}^{(i)}}$  & $\mathbf{Z_\text{vap}^{(i+1)}}$  & $\mathbf{\epsilon}$ \\  
+                               1         &           1.0                 &  0.96703                      &  3.30$\times$10$^{-2}$ \\
+                               2         &       0.96703                 &  0.96697                      &  \blue{6.20$\times$10$^{-5}$} \\
+                               3         &       0.96697                 &  0.96697                      & $<$ 1$\times$10$^{-5}$ \\ 
+                        \hline
+                     \end{tabular}
+                 \end{center}}
+          \visible<4->{The solution rapidly converged after the second iteration to \red{$Z_{\text{vap}}^{(2)}=0.96697\sim 0.9670$.}}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 1 }
+           Now replacing \red{$Z_{\text{vap}} = 0.9670$} in 
+           \begin{displaymath}
+              V=\frc{Z_{\text{vap}}R T}{P} = 1197.9493 \text{ cm}^{3}.\text{mol}^{-1}\sim 1197.95 \text{ cm}^{3}.\text{mol}^{-1}
+           \end{displaymath}
+
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 2}
+    \blue{Derive the relations for coefficients of thermal expansion ($\beta$) and the isothermal compressibility ($\kappa$) for}
+              \begin{enumerate}[(a)]
+                  \item \blue{Ideal gas EOS;}
+                  \item \blue{$V=\frc{a}{RT}+\frc{bT}{PR}$.}
+              \end{enumerate}
+
+    \visible<2->{ Here we need to obtain expressions for 
+           \begin{eqnarray}
+                && \beta = \frc{1}{V}\left(\frc{\partial V}{\partial T}\right)_{P} \nonumber \\
+                && \kappa = -\frc{1}{V}\left(\frc{\partial V}{\partial P}\right)_{T} \nonumber
+           \end{eqnarray}}
+
+    \visible<3->{(a) Ideal gas EOS, $V=\frc{R T}{P}$,}
+            \visible<4->{\begin{displaymath}
+                            \beta =\frc{P}{R T}\frc{R}{P} = \frc{1}{T},
+                         \end{displaymath}}
+            \visible<5->{\begin{displaymath}
+                            \kappa = -\frc{P}{R T}\left(-\frc{R T}{P^{2}}\right) = \frc{1}{P}
+                         \end{displaymath}}
+
+\end{frame}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 2}
+ \visible<1->{(b) $V=\frc{a}{RT}+\frc{bT}{PR}$,}
+
+    \visible<2->{\begin{displaymath}
+                   \left(\frc{\partial V}{\partial T}\right)_{P} = \frc{b}{PR}-\frc{a}{RT^{2}}\;\;\text{ and }\;\; \left(\frc{\partial V}{\partial P}\right)_{T} = -\frc{bT}{P^{2}R},
+                 \end{displaymath}}
+
+    \visible<3->{thus, \begin{displaymath}
+                   \beta =\frc{1}{\frc{a}{RT}+\frc{bT}{PR}}\left(\frc{b}{PR}-\frc{a}{RT^{2}}\right) = \frc{\frc{bT^{2}-aP}{PRT^{2}}}{\frc{aP+bT^{2}}{PRT}} = \frc{bT^{2}-aP}{T\left(aP+bT^{2}\right)}
+                 \end{displaymath}}
+
+    \visible<4->{and, \begin{displaymath}
+                   \kappa = -\frc{1}{\frc{a}{RT}+\frc{bT}{PR}} \left(-\frc{bT}{P^{2}R}\right) = \frc{bT^{2}}{P\left(aP+bT^{2}\right)}
+                 \end{displaymath}}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 3}
+    \blue{Calculate the molar volume $\left(\text{in cm}^{3}.\text{mol}^{-1}\right)$ for gaseous butane at 2.5 bar and 298 K using:}
+         \begin{enumerate}[(a)]
+            \item \blue{ideal gas equation,}
+            \item \blue{truncated virial EOS (Eqn. 20) and,}
+            \item \blue{PR EOS. }
+         \end{enumerate}  
+         \blue{Given $T_{c}=$ 425.1 K, $P_{c}=$ 37.96 bar and $\omega=$ 0.20.}
+
+   \visible<2->{(a) Ideal gas equation: Assuming that butane behaves as an ideal gas,
+                    \begin{displaymath}
+                        V^{\text{IG}} = \frc{RT}{P} = \blue{9910.6456 \text{ cm}^{3}.\text{mol}^{-1}}.
+                    \end{displaymath}}
+
+   \visible<3->{(b) Truncated virial EOS: From Eqn. 20,
+                  \begin{displaymath}
+                     Z = \frc{P V}{R T} = 1 + \frc{BP}{RT} = 1 + \frc{B P_{c}}{R T_{c}}\frc{P_{r}}{T_{r}},
+                  \end{displaymath}}
+   \visible<4->{manipulating this equation with 
+                  \begin{displaymath}
+                     \frc{B P_{c}}{R T_{c}} = B^{0} + \omega B^{1},
+                  \end{displaymath}}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 3 -- truncated virial EOS}
+      \visible<1->{Leads to
+                  \begin{displaymath}
+                     V = \frc{R T}{P} + \left(B^{0} + \omega B^{1}\right) \frc{P_{r}R T}{T_{r}P} = \frc{R T}{P} + \left(B^{0} + \omega B^{1}\right)\frc{RT_{c}}{P_{c}},
+                  \end{displaymath}}
+
+      \visible<2->{where $P_{r}=\frac{P}{P_{c}}$ and $T_{r}=\frac{T}{T_{c}}$. Calculating $B^{0}$ and $B^{1}$ from
+                  \begin{displaymath}
+                     B^{0} = 0.083 - \frc{0.422}{T_{r}^{1.6}} = -0.6620\;\;\text{ and }\;\; B^{1} = 0.139 - \frc{0.172}{T_{r}^{4.2}}=-0.6257.
+                  \end{displaymath}}
+
+      \visible<3->{Leading to \blue{$V^{\text{virial}} = 9430.6465$ cm$^{3}$.mol$^{-1}$}.}
+
+    
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Example 3 -- PR EOS}
+      \visible<1->{(c) Peng-Robinson cubic EOS: in order to calculate the molar volume, we first need to calculate the compressibility factor $Z_{\text{vap}}$,}
+      \visible<2->{\begin{displaymath}
+                     Z_{\text{vap}} = 1 + \beta - q\beta \frc{Z - \beta} {\left(Z+\varepsilon\beta\right)\left(Z+\sigma\beta\right)},
+                   \end{displaymath}}
+      \visible<3->{with
+                  \begin{eqnarray}
+                     && T_{r}=\frc{T}{T_{c}} = 0.7010,\;\;P_{r}=\frc{P}{P_{c}}=6.5859\times 10^{-2},\;\;\omega=0.20,\;\;\Omega = 0.0078, \nonumber \\
+                     && \Psi = 0.45724,\;\; \sigma=1+\sqrt{2},\;\;\epsilon=1-\sqrt{2},\;\;\beta=\Omega\frc{P_{r}}{T_{r}}=7.3281\times 10^{-4},\nonumber \\
+                     && \alpha_{\text{PR}} = 1.2308\;\;\text{ and }\;\; q = \frc{\Psi\alpha_{\text{PR}}}{\Omega T_{r}} = 102.9246, \nonumber 
+                  \end{eqnarray}}
+      \visible<4->{ Solving numerically leads to $Z_{\text{vap}}=0.9188$ and \blue{$V=\frc{Z_{\text{vap}}RT}{P} = 9105.9012$ cm$^{3}$.mol$^{-1}$}.}
+
+\end{frame}
+
+\end{comment}
+\end{document}

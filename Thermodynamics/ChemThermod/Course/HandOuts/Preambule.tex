@@ -1,0 +1,460 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BABEL and LANGUAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{listings}                   % it is a source code printer for LATEX
+                                          % \lstset{language=Python}
+                                          % \lstinputlisting{source.py}   % command used to pretty-print stand alone files
+\usepackage[english]{babel}               % [french, frenchb, english, ]
+    % http://forum.mathematex.net/latex-f6/les-puces-avec-babel-t4256.html
+    % http://www.grappa.univ-lille3.fr/FAQ-LaTeX/11.1.html
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FONTS and ENCODING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% See:
+% http://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math-i-am
+%
+
+\usepackage{lmodern}        % Latin Modern family of fonts. Very much like Computer Modern, but with many more glyphs 
+                            % (e.g., for characters with accents, glyphs, cedillas, etc)
+\usepackage[T1]{fontenc}    % fontenc is oriented to output, that is, what fonts to use for printing characters. 
+                            % http://tex.stackexchange.com/questions/44694/fontenc-vs-inputenc 
+                            % http://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+
+% Change some fonts or the whole font family (i.e. serif, sans serif, monospace, and 'math')
+    % \usepackage[varg, cmintegrals, cmbraces, ]{newtxtext,newtxmath}  % Other options: libertine, uprightGreek (U.S.) or slantedGreek (ISO), etc...
+     \usepackage{tgtermes}                                            % Only serif ("TeX-Gyre" text)
+    % \usepackage{kpfonts}                                             % "Kepler" fonts
+    % \usepackage{mathpazo}                                            % Based on Hermann Zapf's Palatino font
+    % \usepackage{txfonts}                                             % More than a decade old
+    % \usepackage{pslatex}                                             % Obsolete?
+    %  - \usepackage{mathptmx}
+    %  - \usepackage[scaled=.90]{helvet}
+    %  - \usepackage{courier}
+
+% \usepackage{textcomp}     % required for special glyphs
+% \usepackage{bm}           % load after all math to give access to bold math
+\usepackage[utf8]{inputenc} % inputenc allows the user to input accented characters directly from the keyboard; 
+                            % utf8x : much broader but less compatible ; latin1 : old?
+                            % http://tex.stackexchange.com/questions/44694/fontenc-vs-inputenc
+
+% See:
+% http://tex.stackexchange.com/questions/59626/nicely-force-66-characters-per-line
+%
+% pslatex is a very obsolete package and that its descendant mathptmx is rather inadequate for serious typesetting involving math.
+% If you don't need mathematics, other choices based on (Linotype) Times Roman are
+%  - tgtermes
+%  - newtxtext (based on txfonts, but with corrected metrics) (with its companion math package newtxmath)
+%
+%
+% See:
+% http://www.latex-community.org/forum/viewtopic.php?f=8&t=6637
+%
+% (times, helvet, courier)
+% pslatex and txfonts produce (almost) same resutls.
+% pslatex supposedly obsolete
+% txfonts supposedly up-to-date
+%
+%
+% See:
+% ftp://ftp.rrzn.uni-hannover.de/pub/mirror/tex-archive/info/l2tabu/english/l2tabuen.pdf
+% or 
+% ftp://ftp.dante.de/tex-archive/info/l2tabu/english/l2tabuen.pdf
+% in
+% 2.3.3 pslatex.sty
+%
+% pslatex uses a Courier font scaled too narrowly.
+% Its main disadvantage is that it does not work with T1 and TS1 encodings.
+% So replace:
+% \usepackage{pslatex} or \usepackage{txfonts}
+% by all three:
+% - \usepackage{mathptmx}
+% - \usepackage[scaled=.90]{helvet}
+% - \usepackage{courier}
+%
+%
+% See:
+% http://xpt.sourceforge.net/techdocs/language/latex/latex32-LaTeXAndFonts/single/
+% or http://thirteen-01.stat.iastate.edu/wiki/LaTeXFonts
+% or http://www.tex.ac.uk/tex-archive/info/beginlatex/html/chapter8.html
+%
+% When changing fonts, you can change all of the default fonts at once with the following commands:
+% 
+% Command     Changes the defaults to
+% 
+% times       Times, Helvetica, Courier
+% pslatex     same as Times, but uses a specially narrowed Courier. This is preferred over Times because of the way it handles Courier.
+% newcent     New Century Schoolbook, Avant Garde, Courier
+% palatino    Palatino, Helevetica, Courier
+% palatcm     changes the Roman to Palatino only, but uses CM mathematics
+% kpfonts     "Kepler" fonts. A very nicely evolved set of fonts also based originally on Palatino, but with many special features.
+%
+%
+% See:
+% http://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math-i-am
+%
+% There are, of course, many other font packages, most of which provide "only" text-mode fonts.
+% Among these are the "TeX-Gyre" font families: 
+%  - Termes (a Times Roman clone), 
+%  - Pagella (a Palatino clone), and 
+%  - Schola (a Century Schoolbook clone); 
+% one would load the packages tgtermes, tgpagella, and tgschola, respectively, to access these fonts.
+% However, as these are text fonts, you still need to choose a suitable math font.
+% 
+% Still another possibility you may want to look into is the Linux Libertine font family, to be loaded via the libertine-legacy package.
+% If you like this text font and wish to employ the newtxmath package, be sure to load the newtxmath package with the libertine option set;
+% doing so will set up a special set of math-mode fonts that harmonizes well with the libertine text fonts.
+% 
+%
+% See also:
+% http://tex.stackexchange.com/questions/56876/times-new-roman-fonts-and-maths-without-mathptmx
+%
+%
+% For a comparison, in:
+% /home/christophe/Personal/Truc_Et_Astuce_Informatik/LaTeX/comparison_font_types/,
+% see: 
+% computer.pdf  lmodern.pdf  pslatex.pdf  test_font_type.pdf  three_replacements.pdf  txfonts.pdf
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AMS MATH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{amsmath}      % loads amstext, amsbsy, amsopn but not amssymb
+                            % equation stuff (eqref, subequations, equation, align, gather, flalign, multline, alignat, split...)
+% \usepackage{amsfonts}     % may be redundant with amsmath
+% \usepackage{amssymb}      % may be redundant with amsmath
+% \numberwithin{equation}{section}  % reset equation counters at start of each "section" and prefix numbers by section number
+% \numberwithin{figure}{section}    % reset figure   counters at start of each "section" and prefix numbers by section number
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LAY OUT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% See:
+% http://tex.stackexchange.com/questions/59626/nicely-force-66-characters-per-line
+% (must be after pslatex, tgterms, etc...)
+%
+% a) (but works mostly for a4paper, and changes top and bottom margin too...)
+% \usepackage[DIV=calc]{typearea}
+%
+% or
+%
+% b) (but you have to choose the value and the margin ratio depending on the class...)
+% \newlength{\alphabet}
+% \settowidth{\alphabet}{\normalfont abcdefghijklmnopqrstuvwxyz}
+% \usepackage{geometry}
+% \geometry{%
+% textwidth=2.5\alphabet,% (Note: 2.5 * 26 = 65)
+% hmarginratio={2:3}}    % (Problem: geometry uses 2:3 as default for twoside and 1:1 for oneside,
+%                        % independently of what the class thinks about the margins)
+
+% \usepackage{layout}       % use \layout in the tex file to see the values
+% \usepackage{layouts}      % it extends the functionality of layout, allowing you to do much, much more
+                            % some commands: \pagelayout, \pagevalues, \pagedesign, ...
+% \usepackage[cm]{fullpage} % set 'default' full page
+% \usepackage{geometry}     % very customizable margins. Under some (rare) circumstances, should be loaded after hyperref
+% \usepackage{anysize}      % \marginsize{left}{right}{top}{bottom}
+% \usepackage{pdflscape}    % include landscape layout pages (automatically rotate pages in pdf file for easier reading)
+% \usepackage{multicol}     % for multi column environment
+\usepackage{lipsum}         % to fill in with arbitrary text
+\widowpenalty = 4000        % help suppress widows,  default = 4,000 (?), from 0 to 10 000 (from 300 to 1 000 recommended, 10 000 not recommended)
+\clubpenalty  = 4000        % help suppress orphans, default = 4,000 (?), from 0 to 10 000 (from 300 to 1 000 recommended, 10 000 not recommended)
+\usepackage[final, babel]{microtype} % many good lay-out/justification effects, see:
+                                     % texblog.net/latex-archive/layout/pdflatex-microtype/
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EMBED FILEs %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{embedfile}    % embed (attach) any files (eg tex source) to a PDF document.
+                          % Currently only supported driver is pdfTEX >= 1.30 in PDF mode
+%\embedfile{to_post.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EASY EDITS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{ifdraft}        % ask for selective behavior depending on the draft option (used for waterdraftmark, not draftmark)
+% \usepackage{comment}      % provide new {comment} environment: all text inside the environment is ignored.
+% \usepackage{fixme}        % allow nice comment / warning system, displayed in draft mode in right margin ; % [status=draft]
+% \usepackage{lineno}       % number all lines in left margin if activated with \linenumbers
+% \linenumbers
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRAPHICX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[final]{graphicx} % options = [final]  = all graphics displayed, regardless of draft option in class
+                               % options = [pdftex] = necessary (?) if import PDF files
+                               % no option : when importing ps- and eps-files (?)
+% \graphicspath{{../images/}}  % tell LaTeX where to look for images
+% \DeclareGraphicsExtensions{.pdf, .PDF, .jpg, .JPG, .jpeg, .JPEG, .png, .PNG, .bmp, .BMP, .eps, .ps}
+\usepackage{float}                      % Improved interface for floating objects ; add [H] option
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FILIGREE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% draftmark : newer and better package but not on Phil's computers,
+% in particular, draftmark has a "ifdraft" option included...
+%
+\ifdraft{
+\usepackage{draftwatermark} % add watermark ("draft", "confidential"...)
+                            % option: [firstpage] (insert on only the first page)
+\SetWatermarkText{COPY~---~DRAFT}
+\SetWatermarkAngle{55}
+\SetWatermarkScale{6.0}
+\SetWatermarkLightness{0.85}
+\SetWatermarkFontSize{12 pt}
+}{}
+
+
+\renewcommand{\insertframenumber}{\theframenumber}
+\renewcommand{\theframenumber}{\thesection-\arabic{framenumber}}
+\renewcommand{\thesubsectionslide}{\thesection-\arabic{framenumber}}
+\setbeamertemplate{headline}[text line]{This is frame: \insertframenumber}
+\AtBeginSection{\setcounter{framenumber}{0}}
+
+
+%%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% You shouldn't have to change below this line, unless you want to.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usecolortheme{whale}
+\useoutertheme{infolines}
+
+% Use the fading effect for items that are covered on the current
+% slide.
+\beamertemplatetransparentcovered
+
+% We abuse the author command to place all of the slide information on
+% the title page.
+\author[\shortname]{%
+  \fullname\\\ttfamily{\emailaddress}
+}
+
+
+%At the start of every section, put a slide indicating the contents of the current section.
+\AtBeginSection[] {
+  \begin{frame}
+    \frametitle{Section Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% Allow the inclusion of movies into the Presentation! At present,
+% only the Okular program is capable of playing the movies *IN* the
+% presentation.
+\usepackage{multimedia}
+\usepackage{animate}
+
+%% Handsout -- comment out the lines below to create handstout with 4 slides in a page with space for comments
+\usepackage{handoutWithNotes}
+
+\mode<handout>
+{
+\usepackage{pgf,pgfpages}
+
+\pgfpagesdeclarelayout{2 on 1 boxed with notes}
+{
+\edef\pgfpageoptionheight{\the\paperheight} 
+\edef\pgfpageoptionwidth{\the\paperwidth}
+\edef\pgfpageoptionborder{0pt}
+}
+{
+\setkeys{pgfpagesuselayoutoption}{landscape}
+\pgfpagesphysicalpageoptions
+    {%
+        logical pages=4,%
+        physical height=\pgfpageoptionheight,%
+        physical width=\pgfpageoptionwidth,%
+        last logical shipout=2%
+    } 
+\pgfpageslogicalpageoptions{1}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{2}
+    {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    scale=1,
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+    }%
+\pgfpageslogicalpageoptions{3}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.29\pgfphysicalheight},%
+    copy from=3
+    }%
+\pgfpageslogicalpageoptions{4}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.79\pgfphysicalheight},%
+    copy from=4
+    }%
+
+\AtBeginDocument
+    {
+    \newbox\notesbox
+    \setbox\notesbox=\vbox
+        {
+            \hsize=\paperwidth
+            \vskip-1in\hskip-1in\vbox
+            {
+                \vskip1cm
+                Notes\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                    \hrule width\paperwidth\vskip1cm
+                        \hrule width\paperwidth
+            }
+        }
+        \pgfpagesshipoutlogicalpage{3}\copy\notesbox
+        \pgfpagesshipoutlogicalpage{4}\copy\notesbox
+    }
+}
+}
+
+%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+
+
+%%%%%%%%%% Chemical Reactions %%%%%%%%%%%%%%%%
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[version=3]{mhchem}
+\makeatletter
+\newcounter{reaction}
+%%% >> for article <<
+%\renewcommand\thereaction{C\,\arabic{reaction}}
+%%% << for article <<
+%%% >> for report and book >>
+%\renewcommand\thereaction{C\,\thechapter.\arabic{reaction}}
+%\@addtoreset{reaction}{chapter}
+%%% << for report and book <<
+\newcommand\reactiontag{\refstepcounter{reaction}\tag{\thereaction}}
+\newcommand\reaction@[2][]{\begin{equation}\ce{#2}%
+\ifx\@empty#1\@empty\else\label{#1}\fi%
+\reactiontag\end{equation}}
+\newcommand\reaction@nonumber[1]{\begin{equation*}\ce{#1}%
+\end{equation*}}
+\newcommand\reaction{\@ifstar{\reaction@nonumber}{\reaction@}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%% Color settings
+\usepackage{color}
+%% The background color for code listings (i.e. example programs)
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}%
+\definecolor{UoARed}{rgb}{0.64706, 0.0, 0.12941}
+\definecolor{UoALight}{rgb}{0.85, 0.85, 0.85}
+\definecolor{UoALighter}{rgb}{0.92, 0.92, 0.92}
+\setbeamercolor{structure}{fg=UoARed} % General background and higlight color
+\setbeamercolor{frametitle}{bg=black} % General color
+\setbeamercolor{frametitle right}{bg=black} % General color
+\setbeamercolor{block body}{bg=UoALighter} % For blocks
+\setbeamercolor{structure}{bg=UoALight} % For blocks
+% Rounded boxes for blocks
+\setbeamertemplate{blocks}[rounded]
+
+%%%%% Font settings
+% Aberdeen requires the use of Arial in slides. We can use the
+% Helvetica font as its widely available like so
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+% But beamer already uses a sans font, so we will stick with that.
+
+% The size of the font used for the code listings.
+\newcommand{\goodsize}{\fontsize{6}{7}\selectfont}
+
+% Extra math packages, symbols and colors. If you're using Latex you
+% must be using it for formatting the math!
+\usepackage{amscd,amssymb} \usepackage{amsfonts}
+\usepackage[mathscr]{eucal} \usepackage{mathrsfs}
+\usepackage{latexsym} \usepackage{amsmath} \usepackage{bm}
+\usepackage{amsthm} \usepackage{textcomp} \usepackage{eurosym}
+% This package provides \cancel{a} and \cancelto{a}{b} to "cancel"
+% expressions in math.
+\usepackage{cancel}
+
+\usepackage{comment} 
+
+% Get rid of font warnings as modern LaTaX installations have scalable
+% fonts
+\usepackage{type1cm} 
+
+%\usepackage{enumitem} % continuous numbering throughout enumerate commands
+
+% For exact placement of images/text on the cover page
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}%sets the textpos unit
+\setlength{\TPVertModule}{\TPHorizModule} 
+
+% Source code formatting package
+\usepackage{listings}%
+\lstset{ backgroundcolor=\color{lbcolor}, tabsize=4,
+  numberstyle=\tiny, rulecolor=, language=C++, basicstyle=\goodsize,
+  upquote=true, aboveskip={1.5\baselineskip}, columns=fixed,
+  showstringspaces=false, extendedchars=true, breaklines=false,
+  prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+  frame=single, showtabs=false, showspaces=false,
+  showstringspaces=false, identifierstyle=\ttfamily,
+  keywordstyle=\color[rgb]{0,0,1},
+  commentstyle=\color[rgb]{0.133,0.545,0.133},
+  stringstyle=\color[rgb]{0.627,0.126,0.941}}
+
+% Allows the inclusion of other PDF's into the final PDF. Great for
+% attaching tutorial sheets etc.
+\usepackage{pdfpages}
+\setbeamercolor{background canvas}{bg=}  
+
+% Remove foot note horizontal rules, they occupy too much space on the slide
+\renewcommand{\footnoterule}{}
+
+% Force the driver to fix the colors on PDF's which include mixed
+% colorspaces and transparency.
+\pdfpageattr {/Group << /S /Transparency /I true /CS /DeviceRGB>>}
+
+% Include a graphics, reserve space for it but
+% show it on the next frame.
+% Parameters:
+% #1 Which slide you want it on
+% #2 Previous slides
+% #3 Options to \includegraphics (optional)
+% #4 Name of graphic
+\newcommand{\reserveandshow}[4]{%
+\phantom{\includegraphics<#2|handout:0>[#3]{#4}}%
+\includegraphics<#1>[#3]{#4}%
+}
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\purple}{\textcolor{purple}}
+\newcommand{\eg}{{\it e.g., }}
+\newcommand{\ie}{{\it i.e., }}
+\newcommand{\wrt}{{\it wrt }}
+\newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
+\newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}} 
+\newcommand{\summation}[3][error]{\sum\limits_{#2}^{#3}#1}

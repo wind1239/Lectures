@@ -1,0 +1,214 @@
+
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\usepackage{graphicx,wrapfig,pdfpages}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate,enumitem}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+
+
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{subeqnarray}
+\usepackage{ifthen}
+
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+%\usepackage{pdflscape}
+
+
+%\usepackage{booktabs}
+%\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{EX3029 -- Chemical Thermodynamics}}} 
+\rhead[\text{\small{Errata 1}}]{Errata 1}
+%\rfoot[] {{\text{\small{EOS + Mass Conservation using Matlab }}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+\lfoot[]{Dr Jeff Gomes}
+\rfoot[\thepage]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations. 
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation. 
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\purple}{\textcolor{purple}}
+\newcommand{\eg}{{\it e.g., }}
+\newcommand{\ie}{{\it i.e., }}
+\newcommand{\wrt}{{\it wrt }}
+\newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
+\newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}} 
+\newcommand{\summation}[3][error]{\sum\limits_{#2}^{#3}#1}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+
+\begin{document}
+
+\noindent
+{\Large Notes $\&$ Examples:}
+\begin{itemize}
+%
+  \item {\bf Page 3:}  At the top of the page, $C_{p}\red{-}C_{v}=R$;
+%
+  \item {\bf Page 4:}  Item (iii): Derive $dQ=\frc{C_{p}}{R} PdV \red{+} \frc{C_{v}}{R} VdP$
+
+           Again from $dU = dQ + dW$,
+           \begin{displaymath}
+               dQ = dU -dW = dU + PdV = C_{v}dT + PdV,
+           \end{displaymath}
+           Differentiating the ideal gas equation of state, $T=\frc{PV}{R}$
+           \begin{displaymath}
+                dT = \frc{P}{R}dV + \frc{V}{R}dP.
+           \end{displaymath}
+           Replacing it in the previous relation, and with $C_{p}\red{-}C_{v}=R$,
+           \begin{eqnarray}
+             dQ &=& C_{v}\frc{P}{R}dV + C_{v}\frc{V}{R}dP + PdV = \left(\frc{C_{v}}{R}+1\right)PdV + \frc{C_{v}}{R}VdP \nonumber \\
+                &=& \red{\left(\frc{C_{p}-R}{R}+1\right)PdV + \frc{C_{v}}{R}dP} \nonumber \\
+                &=&  \frc{C_{p}}{R} PdV \red{+} \frc{C_{v}}{R} VdP  \nonumber
+           \end{eqnarray}
+%
+   \item {\bf Page 5:} Equation 11
+     \begin{displaymath}
+       \frc{\Delta S}{\red{R}} = \int\limits_{T_{0}}^{T_{1}} \frc{C_{p}}{R}\frc{dT}{T} - \ln{\frc{P_{1}}{P_{0}}}
+     \end{displaymath}
+%
+   \item {\bf Page 24:} Example 2c, $\red{\Omega=0.07780}$.
+%
+   \item {\bf Page 28:} Equation 34d
+     \begin{displaymath}
+        \red{\left(\frc{\partial A}{\partial T}\right)_{V} = -S =  \left(\frc{\partial G}{\partial T}\right)_{P}}
+     \end{displaymath}
+%
+   \item {\bf Page 43:} bottom of the page
+     \begin{displaymath}
+       \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}} = -\frc{\frc{R}{V-b}}{\red{-\frc{RT}{\left(V-b\right)^{2}}+\frc{2a}{V^{3}}}} 
+     \end{displaymath}
+%
+   \item {\bf Page 19:} Close to equation 25: 
+                          \begin{displaymath}
+                              a = \frc{\red{0.45724} R^{2}T_{c}^{2}}{P_{c}}
+                          \end{displaymath}    
+
+   \item {\bf Page 119:}
+         \begin{displaymath}
+            x_{i} = \frc{n_{i,0} \red{+} \nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
+         \end{displaymath}   
+
+   \item {\bf Page 121:}
+         \begin{displaymath}
+            y_{i} = \frc{n_{i,0} \red{+} \nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
+         \end{displaymath} 
+
+   \item {\bf Page 122:}
+         \begin{displaymath}
+            y_{i} = \frc{n_{i,0} \red{+} \nu_{i}\varepsilon}{n_{0}+\nu\epsilon},
+         \end{displaymath}     
+           
+%
+\end{itemize}
+
+\noindent
+{\Large Mock-Exam:}
+\begin{itemize}
+% 
+  \item Question 1(b): \red{$a=$9.126$\times$10$^{-3}$ m$^{6}$.bar.mol$^{-2}$}. 
+  \item Solution of Question 1(b): Integration limits are from 10$^{-3}$ to 0.04 \red{m$^{3}$.mol$^{-1}$} and the final solution is \red{$W= \Delta U - Q = 889.19\text{ kJ.mol}^{-1}$}.
+  \item Question 4: 'with [P] = kPa'.
+%
+\end{itemize}
+
+
+\end{document}
