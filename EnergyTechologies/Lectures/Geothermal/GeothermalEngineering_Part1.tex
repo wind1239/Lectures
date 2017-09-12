@@ -1,235 +1,33 @@
+
 % Aberdeen style guide should be followed when using this
 % layout. Their template powerpoint slide is used to extract the
 % Aberdeen color and logo but is otherwise ignored (it has little or
-% no formatting in it anyway).
-%
+% no formatting in it anyway).   
+% 
 % http://www.abdn.ac.uk/documents/style-guide.pdf
 
 %%%%%%%%%%%%%%%%%%%% Document Class Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Normal document mode
-\documentclass[10pt,compress]{beamer}
-%Draft or handout mode
-%\documentclass[10pt,compress,handout]{beamer}
-%\documentclass[10pt,compress,handout,ignorenonframetext]{beamer} 
- 
+%Normal document mode%
+%\documentclass[10pt,compress,unknownkeysallowed]{beamer}
+%Draft or handout mode 
+\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
+
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\shortname}{Dr Jeff Gomes}
+\newcommand{\shortname}{jefferson.gomes@abdn.ac.uk}
 \newcommand{\fullname}{Dr Jeff Gomes}
 \institute{School of Engineering}
-\newcommand{\emailaddress}{jefferson.gomes@abdn.ac.uk}
+\newcommand{\emailaddress}{}%jefferson.gomes@abdn.ac.uk}
 \newcommand{\logoimage}{../FigBanner/UoAHorizBanner}
-\title{Renewable Energy 1: Solar and Geothermal (EG501J)}
+\title{Renewable Energy 1: Solar and Geothermal (EG50M2/EG504C)}
 \subtitle{Module 2: Engineering Thermodynamics \\ (Power Generation and Refrigeration from Thermal Sources)}
-%\date[2014-15]{2014-15}
-\date[]{}
+\date[ ]{ }
 
-%%%%%%%%%%%%%%%%%%%% Template settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% You shouldn't have to change below this line, unless you want to.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usecolortheme{whale}
-\useoutertheme{infolines}
-
-% Use the fading effect for items that are covered on the current
-% slide.
-\beamertemplatetransparentcovered
-
-% We abuse the author command to place all of the slide information on
-% the title page.
-\author[\shortname]{%
-  \fullname\\\ttfamily{\emailaddress}
-}
-
-
-%At the start of every section, put a slide indicating the contents of the current section.
-\AtBeginSection[] {
-  \begin{frame}
-    \frametitle{Section Outline}
-    \tableofcontents[currentsection]
-  \end{frame}
-}
-
-% Allow the inclusion of movies into the Presentation! At present,
-% only the Okular program is capable of playing the movies *IN* the
-% presentation.
-\usepackage{multimedia}
-\usepackage{animate}
-
-%%%%% Color settings
-\usepackage{color}
-%% The background color for code listings (i.e. example programs)
-\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}%
-\definecolor{UoARed}{rgb}{0.64706, 0.0, 0.12941}
-\definecolor{UoALight}{rgb}{0.85, 0.85, 0.85}
-\definecolor{UoALighter}{rgb}{0.92, 0.92, 0.92}
-\setbeamercolor{structure}{fg=UoARed} % General background and higlight color
-\setbeamercolor{frametitle}{bg=black} % General color
-\setbeamercolor{frametitle right}{bg=black} % General color
-\setbeamercolor{block body}{bg=UoALighter} % For blocks
-\setbeamercolor{structure}{bg=UoALight} % For blocks
-% Rounded boxes for blocks
-\setbeamertemplate{blocks}[rounded]
-
-%%%%% Font settings
-% Aberdeen requires the use of Arial in slides. We can use the
-% Helvetica font as its widely available like so
-% \usepackage{helvet}
-% \renewcommand{\familydefault}{\sfdefault}
-% But beamer already uses a sans font, so we will stick with that.
-
-% The size of the font used for the code listings.
-\newcommand{\goodsize}{\fontsize{6}{7}\selectfont}
-
-% Extra math packages, symbols and colors. If you're using Latex you
-% must be using it for formatting the math!
-\usepackage{amscd,amssymb} \usepackage{amsfonts}
-\usepackage[mathscr]{eucal} \usepackage{mathrsfs}
-\usepackage{latexsym} \usepackage{amsmath} \usepackage{bm}
-\usepackage{amsthm} \usepackage{textcomp} \usepackage{eurosym}
-% This package provides \cancel{a} and \cancelto{a}{b} to "cancel"
-% expressions in math.
-\usepackage{cancel}
-
-\usepackage{comment} 
-
-% Get rid of font warnings as modern LaTaX installations have scalable
-% fonts
-\usepackage{type1cm} 
-
-%\usepackage{enumitem} % continuous numbering throughout enumerate commands
-
-% For exact placement of images/text on the cover page
-\usepackage[absolute]{textpos}
-\setlength{\TPHorizModule}{1mm}%sets the textpos unit
-\setlength{\TPVertModule}{\TPHorizModule} 
-
-% Source code formatting package
-\usepackage{listings}%
-\lstset{ backgroundcolor=\color{lbcolor}, tabsize=4,
-  numberstyle=\tiny, rulecolor=, language=C++, basicstyle=\goodsize,
-  upquote=true, aboveskip={1.5\baselineskip}, columns=fixed,
-  showstringspaces=false, extendedchars=true, breaklines=false,
-  prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
-  frame=single, showtabs=false, showspaces=false,
-  showstringspaces=false, identifierstyle=\ttfamily,
-  keywordstyle=\color[rgb]{0,0,1},
-  commentstyle=\color[rgb]{0.133,0.545,0.133},
-  stringstyle=\color[rgb]{0.627,0.126,0.941}}
-
-% Allows the inclusion of other PDF's into the final PDF. Great for
-% attaching tutorial sheets etc.
-\usepackage{pdfpages}
-\setbeamercolor{background canvas}{bg=}  
-
-% Remove foot note horizontal rules, they occupy too much space on the slide
-\renewcommand{\footnoterule}{}
-
-% Force the driver to fix the colors on PDF's which include mixed
-% colorspaces and transparency.
-\pdfpageattr {/Group << /S /Transparency /I true /CS /DeviceRGB>>}
-
-% Include a graphics, reserve space for it but
-% show it on the next frame.
-% Parameters:
-% #1 Which slide you want it on
-% #2 Previous slides
-% #3 Options to \includegraphics (optional)
-% #4 Name of graphic
-\newcommand{\reserveandshow}[4]{%
-\phantom{\includegraphics<#2|handout:0>[#3]{#4}}%
-\includegraphics<#1>[#3]{#4}%
-}
-
-\newcommand{\frc}{\displaystyle\frac}
-\newcommand{\red}{\textcolor{red}}
-\newcommand{\blue}{\textcolor{blue}}
-\newcommand{\green}{\textcolor{green}}
-\newcommand{\purple}{\textcolor{purple}}
- 
-%% Handsout -- comment out the lines below to create handstout with 4 slides in a page with space for comments
-\usepackage{handoutWithNotes}
-
-\mode<handout>
-{
-\usepackage{pgf,pgfpages}
-
-\pgfpagesdeclarelayout{2 on 1 boxed with notes}
-{
-\edef\pgfpageoptionheight{\the\paperheight} 
-\edef\pgfpageoptionwidth{\the\paperwidth}
-\edef\pgfpageoptionborder{0pt}
-}
-{
-\setkeys{pgfpagesuselayoutoption}{landscape}
-\pgfpagesphysicalpageoptions
-    {%
-        logical pages=4,%
-        physical height=\pgfpageoptionheight,%
-        physical width=\pgfpageoptionwidth,%
-        last logical shipout=2%
-    } 
-\pgfpageslogicalpageoptions{1}
-    {%
-    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
-    scale=1,
-    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
-    }%
-\pgfpageslogicalpageoptions{2}
-    {%
-    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
-    scale=1,
-    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
-    }%
-\pgfpageslogicalpageoptions{3}
-    {%
-    border shrink=\pgfpageoptionborder,%
-    resized width=.7\pgfphysicalwidth,%
-    resized height=.5\pgfphysicalheight,%
-    center=\pgfpoint{.75\pgfphysicalwidth}{.29\pgfphysicalheight},%
-    copy from=3
-    }%
-\pgfpageslogicalpageoptions{4}
-    {%
-    border shrink=\pgfpageoptionborder,%
-    resized width=.7\pgfphysicalwidth,%
-    resized height=.5\pgfphysicalheight,%
-    center=\pgfpoint{.75\pgfphysicalwidth}{.79\pgfphysicalheight},%
-    copy from=4
-    }%
-
-\AtBeginDocument
-    {
-    \newbox\notesbox
-    \setbox\notesbox=\vbox
-        {
-            \hsize=\paperwidth
-            \vskip-1in\hskip-1in\vbox
-            {
-                \vskip1cm
-                Notes\vskip1cm
-                        \hrule width\paperwidth\vskip1cm
-                    \hrule width\paperwidth\vskip1cm
-                        \hrule width\paperwidth\vskip1cm
-                    \hrule width\paperwidth\vskip1cm
-                        \hrule width\paperwidth\vskip1cm
-                    \hrule width\paperwidth\vskip1cm
-                    \hrule width\paperwidth\vskip1cm
-                    \hrule width\paperwidth\vskip1cm
-                        \hrule width\paperwidth
-            }
-        }
-        \pgfpagesshipoutlogicalpage{3}\copy\notesbox
-        \pgfpagesshipoutlogicalpage{4}\copy\notesbox
-    }
-}
-}
-
-%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm] 
-%\pgfpagesuselayout{2 on 1 boxed with notes}[letterpaper,border shrink=5mm]
+\input{Preambule}
  
 \begin{document}
 
@@ -241,6 +39,12 @@
     \includegraphics[clip,width=0.8\textwidth]{\logoimage}
   \end{center}
 \end{frame}
+
+% Table of contents
+\frame{ \frametitle{Slides Outline}
+  \tableofcontents
+}
+
 
 
 %%%
@@ -272,11 +76,11 @@
      \frametitle{Aims and Objectives}
      \begin{enumerate}[(i)]
        \item <1-> Apply the Second Law of Thermodynamics to understand power and refrigeration systems;
-       \item <1-> Identify the engines/equipment commonly found industrial-based thermodynamic cycles; 
+       \item <1-> Identify the engines/equipment commonly found in industrial-based thermodynamic cycles; 
        \item <1-> Study the power cycle relevant to vapour systems: Rankine; 
        %\item <1-> Identify the common operations to improve the cycles' performance / efficiency;
-       \item <1-> Fundamentals of Refrigeration: Refrigeration and heat pump; Elements of refrigeration; Efficieny; Classification and Properties of Refrigerants;
-       \item <1-> Absorption Refrigeration Systems;
+       \item <1-> Fundamentals of Refrigeration: Refrigeration and heat pump; Elements of refrigeration; Efficieny.
+       %\item <1-> Absorption Refrigeration Systems;
  \end{enumerate}
    \end{frame}
 
@@ -296,7 +100,7 @@
        \item A.B. Pippard, $\lq$Elements of Classical Thermodynamics' (1966): Chapters 2, 3 and 4;
        \item H. Devoe, $\lq$Thermodynamics and Chemistry', 2$^{nd}$ Edition: Chapters 2.5-6, 3.1,2,4,5,9,10;
        \item M.J. Moran, H.N. Saphiro, D.D. Boettner, M.B. Bailey, $\lq$Principles of Engineering Thermodynamics', 7$^{th}$ Edition: Chapters 1.2-8, 2, 3.1-8, 5.1-7, 6.1;
-      \item \href{http://www.sfsb.unios.hr/test/testhome/vtAnimations/animations/chapter09/refrigeration/index1.html}{\tiny{http://www.sfsb.unios.hr/test/testhome/vtAnimations/animations/chapter09/refrigeration/index1.html}}
+     % \item \href{http://www.sfsb.unios.hr/test/testhome/vtAnimations/animations/chapter09/refrigeration/index1.html}{\tiny{http://www.sfsb.unios.hr/test/testhome/vtAnimations/animations/chapter09/refrigeration/index1.html}}
      \end{enumerate}
 \end{frame}
 
@@ -487,8 +291,10 @@
 \begin{frame}
  \frametitle{System and Control Volumes}
  \begin{itemize}
-  \item <2-> The \textcolor{red}{material} in a system is composed of phases (e.g., solid, liquid, gas) with distinct physical and chemical properties;
-  \item <3-> The \textcolor{red}{composition} of each phase is described by a series of discrete chemical formula units (i.e., chemical components) -- e.g., water/steam $\left(\right.$H$_{2}$O$\left.\right)$, ammonia $\left(\right.$NH$_{3}\left.\right)$, carbon dioxide $\left(\right.$CO$_{2}\left.\right)$, etc;
+  \item <2-> The thermodynamic system is the part of the universe we are considering. We are free to choose boundary conditions.
+  \item <3-> A \textcolor{red}{system} is defined as a quantity of matter or a region in space chosen for study;
+  %\item <2-> The \textcolor{red}{material} in a system is composed of phases (e.g., solid, liquid, gas) with distinct physical and chemical properties;
+  %\item <3-> The \textcolor{red}{composition} of each phase is described by a series of discrete chemical formula units (i.e., chemical components) -- e.g., water/steam $\left(\right.$H$_{2}$O$\left.\right)$, ammonia $\left(\right.$NH$_{3}\left.\right)$, carbon dioxide $\left(\right.$CO$_{2}\left.\right)$, etc;
   \item <4-> Any characteristic of a system is called a \textcolor{red}{property} -- e.g., pressure, temperature, mass, etc;
   \item <5-> Properties can be classified as \textcolor{red}{intensive} or \textcolor{red}{extensive};
   \item <6-> \textcolor{red}{Intensive properties} are those that are {\bf independent} of the mass of a system -- e.g., temperature, pressure, density, viscosity, etc;
@@ -517,7 +323,7 @@
     \begin{center}
      \includegraphics[width=4.cm,clip]{./Pics/PVT_Surface.jpg}
     \end{center}
-\caption{$PVT$ surface (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
+\caption{$PvT$ surface (top) and projections onto (b) $PT$ and (c) $Pv$ diagrams for a pure substance (Extracted from Moran {\it et al.})}
    \end{figure}    
   \end{column}
  \end{columns}
@@ -653,7 +459,7 @@
   \begin{center}
    \begin{figure}
      \includegraphics[width=8cm,height=6.cm,clip]{./Pics/PVT_Surface.jpg}
-\caption{$PVT$ diagram (top) and projections onto (b) $PT$ and (c) $PV$ diagrams for a pure substance (Extracted from Moran {\it et al.}).}
+\caption{$PvT$ diagram (top) and projections onto (b) $PT$ and (c) $Pv$ planes (diagrams) for a pure substance (Extracted from Moran {\it et al.}).}
    \end{figure}
    \end{center}
 \end{frame}
@@ -845,7 +651,8 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
    \item<1-> \href{http://www.weatherford.com/doc/wft183650}{PVTflex$^{TM}$};
    \item<1-> \href{http://www.kbcat.com/infochem-software/flow-assurance-software-multiflash/pvt-simulation}{Multiflash$^{TM}$};
    \item<1-> \href{https://www.honeywellprocess.com/en-US/explore/products/advanced-applications/unisim/Pages/default.aspx}{UniSim – Software for Process Design and Simulation};
-   \item<1-> \href{http://webbook.nist.gov/chemistry/fluid/}{NIST Website}
+   \item<1-> \href{http://home.aspentech.com/products/engineering/aspen-hysys}{Aspen HYSIS};
+   \item<1-> \href{http://webbook.nist.gov/chemistry/fluid/}{NIST Website};
    \item<1-> etc.
 \end{itemize}
 
@@ -1129,6 +936,7 @@ $P$ & $T$ & $h_{f}$ &  $h_{fg}$ & $h_{g}$ & $s_{f}$ &  $s_{g}$ & $v_{f}$ & $v_{g
  \normalsize
 \end{frame}
 
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -1195,6 +1003,8 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
 \item mass flow rate of the condenser cooling water (in kg/s), if the cooling water undergoes a temperature increase of 18$^{\circ}$C with negligible pressure change in passing through the condenser. Assume that the heat capacity at constant pressure $\left(\text{C}_{\text{p}}\right)$ of the cooling water is 4.18 $\frac{\text{kJ}}{\text{kg.}^{\circ}\text{C}}$.
 \end{enumerate} 
 \end{frame}
+\end{comment}
+
 
 \begin{comment}
 %%%
@@ -1445,9 +1255,11 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
    \end{column}
   \end{columns}
   
-\end{frame}
- 
+\end{frame} 
 \end{comment}
+
+
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -1481,6 +1293,7 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
 
 \end{frame} 
 
+\end{comment}
 
 
 %%%           %%%
@@ -1826,7 +1639,7 @@ Water is the working fluid in an ideal Rankine cycle. Dry saturated vapour enter
    \item <4-> The \textcolor{blue}{refrigerators} maintain the temperature below the surrounding temperature.
    \item <5-> \textcolor{blue}{HPs} can be based on vapour-compression cycle, absorption cycle, etc;
    \item <6-> The figure in the rhs is a vapour-compression cycle representation of the heat pump, where \textcolor{blue}{heat} is removed in the \textcolor{blue}{condenser};
-   \item <7-> The \textcolor{blue}{Coefficient of Performance} for HP (1.5 $\lq$ COP $\lq$ 4) is given by
+   \item <7-> The \textcolor{blue}{Coefficient of Performance} for HP (1.5 $\le$ COP $\le$ 4) is given by
     \begin{eqnarray}
      \textcolor{blue}{\text{COP}} &=& \frc{\text{Desired Effect (heating of space)}}{\text{Net Work}} \nonumber \\
                                   &=& \textcolor{blue}{\frc{h_{3}-h_{2}}{h_{2}-h_{1}}}
