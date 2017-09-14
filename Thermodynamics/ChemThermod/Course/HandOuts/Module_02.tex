@@ -88,7 +88,7 @@
    \item \blue{Chapter 6 of Lecture Notes};
    \item\label{SVN_Book} J.M. Smith, H.C. Van Ness, M.M. Abbott, $\lq$Introduction to Chemical Engineering Thermodynamics', 6$^{th}$ Edition: Chapter 6;
    \item Y.A. Cengel, M.A. Boles, $\lq$Thermodynamics -- An Engineering Approach', 5$^{th}$ Edition: Chapter 12.1-4; 
-   %\item M.J. Moran, H.N. Saphiro, D.D. Boettner, M.B. Bailey, $\lq$Principles of Engineering Thermodynamics', 7$^{th}$ Edition: Chapters 3;
+   \item M.J. Moran, H.N. Saphiro, D.D. Boettner, M.B. Bailey, $\lq$Principles of Engineering Thermodynamics', 7$^{th}$ Edition; 
    \item C. Borgnakke, R.E. Sonntag,$\lq$Fundamentals of Thermodynamics',8$^{th}$ Edition: Chapter 12;
    \item S.I. Sandler, $\lq$Chemical, Biochemical and Engineering Thermodynamics', 4$^{th}$ Edition: Chapter 6.
   \end{enumerate} 
@@ -111,39 +111,37 @@
 %\scriptsize
 \begin{frame}
   \frametitle{Thermodynamic Potentials: New State Functions}
-   \visible<1->{\begin{block}{Enthalpy}
-      \begin{displaymath}
-         H = U + P V
-      \end{displaymath}
-   \end{block}
-   }
-   \visible<2->{\begin{block}{Gibbs Free Energy}
-      \begin{displaymath}
-         G = H - T S
-      \end{displaymath}
-   \end{block}
-   }
-   \visible<3->{\begin{block}{Helmholtz Free Energy}
-      \begin{displaymath}
-         A = U - T S
-      \end{displaymath}
-   \end{block}
+     \visible<1->{\blue{First} and \blue{Second Laws of Thermodynamics} stated that (see Sections 3.5 and 4.4 of \red{Lecture Notes}):
+       \begin{displaymath}
+           dU = \delta Q + \delta W \;\;\text{ and }\;\; dS \ge \frc{\delta Q}{T}
+       \end{displaymath}}
+
+     \visible<2->{From the First Law, enthalpy ($H$, Section 3.7), can also be developed:
+         \begin{displaymath}
+            H \equiv U + P V
+         \end{displaymath}}
+     
+     \visible<3->{ These three properties, $U$, $S$ and $H$, are the main building blocks for the classic study of thermodynamics. However they do not tell us `the whole story` about energy relations within pure substances.} \visible<4->{ \red{Gibbs ($G$) and Helmholtz ($A$) free energies} establish relationships between these properties and the system temperature}
+
+     \visible<4->{\begin{block}{Gibbs and Helmholtz Free Energies:}
+        \begin{displaymath}
+           G \equiv H - T S \;\;\;\text{ and } \;\;\; A \equiv U - T S
+        \end{displaymath}
+     \end{block}
    }
 
 \end{frame}
 \normalsize
 
 %%%
-%%% SUBSECTION
-%%%
-\subsection{Maxwell's Relations}
-%%%
 %%% Slide
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Maxwell's Relations}\label{Module03:Section:MaxwellRelation}
-   \visible<1->{\begin{block}{For 1 mol of homogeneous fluid at $T=$ constant}
+  \frametitle{Thermodynamic Potentials: New State Functions}
+     \visible<1->{Using these property definitions, we can derive \red{four fundamental thermodynamic relations} in differential form:} 
+   
+   \visible<1->{\begin{block}{\normalsize{Fundamental Thermodynamic Relations}}
       \begin{center}
         \begin{tabular}{l c  l}
            $dU = T dS - PdV$  &  \hspace{1cm} & $dH = TdS + VdP$ \\
@@ -152,15 +150,7 @@
       \end{center}
    \end{block}
    }
-   \visible<2->{\begin{block}{Maxwell's Equations}
-      \begin{center}
-        \begin{tabular}{l c  l}
-           $\left(\frc{\partial T}{\partial V}\right)_{S} = -\left(\frc{\partial P}{\partial S}\right)_{v}$  &  \hspace{1cm} & $\left(\frc{\partial T}{\partial P}\right)_{S} =  \left(\frc{\partial V}{\partial S}\right)_{P}$  \\
-           $\left(\frc{\partial P}{\partial T}\right)_{V} =  \left(\frc{\partial S}{\partial V}\right)_{T}$  &  \hspace{1cm} & $\left(\frc{\partial V}{\partial T}\right)_{\red{P}} = -\left(\frc{\partial S}{\partial P}\right)_{T}$ 
-        \end{tabular}
-      \end{center}
-   \end{block}
-   }
+     \visible<2->{ These relations link thermodynamic properties ($U, H, S, G, A$) with measurable quantities ($P, V, T$).}
 
 \end{frame}
 \normalsize
@@ -169,46 +159,133 @@
 %%%
 %%% SUBSECTION
 %%%
-\subsection{Thermodynamic Potentials: Dependence on $T$ and $P$}
+\subsection{Maxwell's Relations}\label{Module03:Section:MaxwellRelation}
 
 %%%
 %%% Slide
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Internal Energy, Enthalpy and Entropy}
-   \visible<1->{\begin{block}{$H$ and $S$ as functions of $T$ and $P$}
-      \begin{center}
-        \begin{tabular}{l c  l}
-           $dH = C_{p}dT + \left[ V - T\left(\frc{\partial V}{\partial T}\right)_{P}\right]dP$ &  \hspace{1cm} & $dS=C_{p}\frc{dT}{T} - \left(\frc{\partial V}{\partial T}\right)_{P}dP$
-        \end{tabular}
-      \end{center}
-   \end{block}
+  \frametitle{Maxwell's Relations}
+      \begin{enumerate}[i)]
+          \item<1-> The fundamental relations can be expressed as a simple functional, \blue{$f = f(a,b)$};
+          \item<2-> Assuming that this function $f$ is {\it continuous (and therefore differentiable)} throughout the domain, a total derivative of this function can be expressed as: 
+                \visible<2->{\begin{displaymath}
+                                df = \underbrace{\left(\frc{\partial f}{\partial a}\right)_{b}}_{M}da + \underbrace{\left(\frc{\partial f}{\partial b}\right)_{a}}_{N}db = Mda + Ndb.
+                             \end{displaymath}}
+          \item<3-> And differentiating $M$ \wrt $b$ and $N$ \wrt $a$ leads to:
+                \visible<3->{\begin{displaymath}
+                                \left(\frc{\partial M}{\partial b}\right)_{a} = \left(\frc{\partial N}{\partial a}\right)_{b}
+                             \end{displaymath}}
+          \item<4-> Now, just using the similarity between the functions
+                \visible<4->{\begin{displaymath}
+                                 \begin{cases}
+                                    df = Mda + Ndb, \\
+                                    dU = TdS - PdV
+                                 \end{cases} \Longrightarrow \left(\frc{\partial M}{\partial b}\right)_{a} = \left(\frc{\partial N}{\partial a}\right)_{b} \;\;\;\Longrightarrow \left(\frc{\partial T}{\partial V}\right)_{S} = - \left(\frc{\partial P}{\partial S}\right)_{V}
+                              \end{displaymath}}
+      \end{enumerate}
+
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Maxwell's Relations}
+      \visible<1->{This mathematical operation can be extended to all fundamental thermodynamic relations, and the partial differential equalities are formally called,}
+      \visible<2->{\begin{block}{\begin{center}\normalsize{Maxwell's Relations}\end{center}}
+                     \begin{center}
+                        \begin{tabular}{l c  l}
+                          $\left(\frc{\partial T}{\partial V}\right)_{S} = -\left(\frc{\partial P}{\partial S}\right)_{v}$  &  \hspace{1cm} & $\left(\frc{\partial T}{\partial P}\right)_{S} =  \left(\frc{\partial V}{\partial S}\right)_{P}$  \\
+ & & \\
+                          $\left(\frc{\partial P}{\partial T}\right)_{V} =  \left(\frc{\partial S}{\partial V}\right)_{T}$  &  \hspace{1cm} & $\left(\frc{\partial V}{\partial T}\right)_{P} = -\left(\frc{\partial S}{\partial P}\right)_{T}$ 
+                       \end{tabular}
+                    \end{center}
+                  \end{block}
    }
-   \visible<2->{\begin{block}{Ideal Gas}
-      \begin{center}
-        \begin{tabular}{l c  l}
-           $dH = C_{p}dT$  &  \hspace{1cm} & $dS=C_{p}\frc{dT}{T} - R\frc{dP}{P}$  
-        \end{tabular}
-      \end{center}
-   \end{block}
+   \visible<3->{\blue{Maxwell relations} allow determining changes in entropy without directly measurement, but only with changes on the PVT properties.}
+
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Maxwell's Relations}
+      \visible<1->{The definition of the total derivative of function $f=f(a,b)$,
+            \begin{displaymath}
+                df =  \left(\frc{\partial f}{\partial a}\right)_{b}da + \left(\frc{\partial f}{\partial b}\right)_{a}db,
+            \end{displaymath}
+             can be applied to all fundamental thermodynamic relations to establish a new set of fundamental expressions:}
+     \visible<2->{\begin{block}{\begin{center}\normalsize{Fundamental Thermodynamic Relations}\end{center}}
+                     \begin{center}
+                        \begin{tabular}{l c  l c l c  l }
+                           $\left(\frc{\partial U}{\partial S}\right)_{V}$ & = $ T$ = & $\left(\frc{\partial H}{\partial S}\right)_{P}$;  & & $\left(\frc{\partial H}{\partial P}\right)_{S}$ & = $ V$ = & $\left(\frc{\partial G}{\partial P}\right)_{T}$ \\
+                  &&&&&& \\
+                           $\left(\frc{\partial U}{\partial V}\right)_{S}$ & = $-P$ = & $\left(\frc{\partial A}{\partial V}\right)_{T}$;  & & $\left(\frc{\partial A}{\partial T}\right)_{V}$ & = $-S$ = & $\left(\frc{\partial G}{\partial T}\right)_{P}$ \\
+                       \end{tabular}
+                    \end{center}
+                  \end{block}}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Maxwell's Relations: Expressions for $U$, $H$ and $S$ as Functions of $P$, $V$ and $T$}
+      \begin{enumerate}[i)]
+           \item<1-> Maxwell's relations may initially seem very abstract, but they are powerful tools to correlate measurable properties ($P$, $V$ and $T$) with non-measurable potentials ($U$, $H$, $S$, $A$ and $G$);
+           \item<2-> For example, if we want to develop expressions for $H$ and $S$ as functions of $T$ and $P$:
+                  \visible<2->{\begin{block}{\begin{center}\normalsize{$H$ and $S$ as functions of $T$ and $P$}\end{center}}
+                                  \begin{center}
+                                      \begin{tabular}{l c  l}
+                                         $dH = C_{p}dT + \left[ V - T\left(\frc{\partial V}{\partial T}\right)_{P}\right]dP$ &  \hspace{0.5cm}and\hspace{0.5cm}  & $dS=C_{p}\frc{dT}{T} - \left(\frc{\partial V}{\partial T}\right)_{P}dP$
+                                      \end{tabular}
+                                  \end{center}
+                                \end{block}
    }
-   \visible<3->{\begin{block}{Liquid}
-      \begin{center}
-        \begin{tabular}{l c  l}
-           $dH = C_{p}dT + \left(1-\beta\right)VdP$  &  \hspace{1cm} & $dS = C_{p}\frc{dT}{T} - \beta V{dP}$  
-        \end{tabular}
-      \end{center}
-   \end{block}
+           \item<3-> We could also write expressions for $U$ and $S$ as functions of $T$ and $V$:
+                  \visible<3->{\begin{block}{\begin{center}\normalsize{$U$ and $S$ as functions of $T$ and $V$}\end{center}}
+                                  \begin{center}
+                                      \begin{tabular}{l c  l}
+                                          $dU = C_{v}dT + \left[T\left(\frc{\partial P}{\partial T}\right)_{V} - P\right]dV$  &  \hspace{0.5cm}and\hspace{0.5cm} & $dS = C_{v}\frc{dT}{T} - \left(\frc{\partial P}{\partial T}\right)_{V}dV$  
+                                      \end{tabular}
+                                  \end{center}
+                                \end{block}
    }
-   \visible<4->{\begin{block}{$U$ and $S$ as functions of $T$ and $V$}
-      \begin{center}
-        \begin{tabular}{l c  l}
-           $dU = C_{v}dT + \left[T\left(\frc{\partial P}{\partial T}\right)_{V} - P\right]dV$  &  \hspace{1cm} & $dS = C_{v}\frc{dT}{T} - \left(\frc{\partial P}{\partial T}\right)_{V}dV$  
-        \end{tabular}
-      \end{center}
-   \end{block}
-   }
+                  \visible<4->{The partial differentials can be obtained from any PVT relationship, \eg EOS.}
+      \end{enumerate}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% SECTION
+%%%
+\section{Gibbs Free Energy as a Differential Operator}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Gibbs Free Energy as a Differential Operator}
+     \begin{enumerate}[i)]
+        \item<1-> Gibbs free energy is potentially the most important thermodynamic function in chemical engineering, as it can be written as a function of $T$, $P$ and number of moles ($n$), \ie $G=G(T,P,n)$;
+        \item<2-> For now, let's just assume that there is no change in mass in the system (\ie closed system where $dn=0$), $G=G(T,P)$;
+        \item<3-> $T$ and $P$ can be readily measured and controlled in any system, and the fundamental relation, 
+             \begin{displaymath}
+                dG = VdP - SdT
+              \end{displaymath}
+              can be used to express $G$;
+     \end{enumerate}
 
 \end{frame}
 \normalsize
@@ -219,48 +296,66 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Gibbs Free Energy as Differential Operator}
-     \begin{enumerate}[(a)]
-        \item<1-> Gibbs Energy as generating function:
+  \frametitle{Gibbs Free Energy as a Differential Operator}
+     \begin{enumerate}[i)]\setcounter{enumi}{3}
+        \item<1-> $G$ can also be expressed in differential form as 
+             \begin{displaymath}
+                \blue{d\left(\frc{G}{RT}\right)} = \frc{1}{RT}dG - \frc{G}{RT^{2}}dT = \blue{\frc{V}{RT}dP - \frc{H}{RT^{2}}dT};
+              \end{displaymath}
+        \item<2-> This differential expression can be  manipulated to useful equations
               \begin{displaymath}
-                 \visible<1->{dG = VdP - SdT} \visible<2->{\Longrightarrow d\left(\frc{G}{RT}\right) = \frc{1}{RT}dG - \frc{G}{RT^{2}}dT} \nonumber 
+                  \visible<2->{\left\{ \frc{\partial\left(\frc{G}{RT}\right)}{\partial P}\right\}_{T} = \frc{V}{RT}   \hspace{1cm}\text{and}\hspace{1cm} -T\left\{ \frc{\partial\left(\frc{G}{RT}\right)}{\partial T}\right\}_{P} = \frc{H}{RT} }
               \end{displaymath}
 
-        \item<3-> After substitution $\&$ algebraic reduction:
-              \begin{displaymath}
-                  \visible<3->{\frc{V}{RT} = \left\{ \frc{\partial\left(\frc{G}{RT}\right)}{\partial P}\right\}_{T} \hspace{1cm}\text{and}\hspace{1cm} \frc{H}{RT} = -T\left\{ \frc{\partial\left(\frc{G}{RT}\right)}{\partial T}\right\}_{P}}
-              \end{displaymath}
+        \item<3-> \textcolor{blue}{The Gibbs free energy when expressed as $G\left(T,P\right)$ operates as a generating function for other thermodynamic properties, and implicitly represents complete property information.}
+     \end{enumerate}
 
-        \item<4-> \textcolor{blue}{The Gibbs free energy when expressed as $G\left(T,P\right)$ operates as a generating function for other thermodynamic properties, and implicitly represents complete property information.}
+\end{frame}
+\normalsize
+
+
+
+%%%
+%%% SECTION
+%%%
+\section{Residual Properties}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Residual Properties}
+     \begin{enumerate}[i)]
+        \item<1-> It is nearly straight forward to obtain thermodynamic properties of ideal gases;
+        \item<2-> For {\it real gases} (represented by EOS as described in Module 01), we may need to use the definition of \blue{residual properties}, \ie
+                  \visible<2->{\begin{block}{\begin{center}\normalsize{Residual Properties}\end{center}}
+                                      \begin{displaymath}
+                                         M^{\text{R}} \equiv M - M^{\text{ig}}
+                                      \end{displaymath}
+                                      where $M$ represents any \blue{extensive thermodynamic property}, \eg $V$, $U$, $H$, $S$, $G$ and $A$, of real gases. Superscripts {\it ig} and {\it R} represent ideal gas and residual, respectively. 
+                                \end{block}
+   }
+        \item<3->The \blue{residual Gibbs energy} is defined as:
+              \visible<3->{\begin{displaymath}
+                 \red{G^{R} = G - G^{ig}}
+              \end{displaymath}}
+            where \blue{$G$} is the actual Gibbs energy and \blue{$G^{ig}$} is the correspondent thermodynamic function for ideal gas at same $T$ and $P$;
      \end{enumerate}
 
 \end{frame}
 \normalsize
 
 %%%
-%%% SECTION
-%%%
-\section{Residual Properties}
-
-\subsection{General Approach}
-%%%
 %%% Slide
 %%%
-%\scriptsize
 \begin{frame}
-  \frametitle{Residual Properties: General Approach}
-     \begin{enumerate}[(a)]
-        \item<1-> \textcolor{blue}{Residual Gibbs energy} is defined as:
+  \frametitle{Residual Properties}
+     \begin{enumerate}[i)]\setcounter{enumi}{3}
+        \item<1-> This can be extended for the {\it generating Gibbs energy function},
               \visible<1->{\begin{displaymath}
-                 \textcolor{red}{G^{R} = G - G^{ig}}
-              \end{displaymath}}
-            where \textcolor{blue}{$G$} is the actual Gibbs energy and \textcolor{blue}{$G^{id}$} is the correspondent thermodynamic function for ideal gas at same $T$ and $P$;
-        \item<2-> This leads to,
-              \visible<2->{\begin{displaymath}
                  d\left(\frc{G^{R}}{RT}\right) =\frc{V^{R}}{RT}dP - \frc{H^{R}}{RT^{2}}dT
               \end{displaymath}}
              
-              \visible<3->{with,\begin{displaymath}
+              \visible<2->{with,\begin{displaymath}
                  \frc{V^{R}}{RT} = \left\{ \frc{\partial\left(\frc{G^{R}}{RT}\right)}{\partial P}\right\}_{T} \hspace{0.5cm}\text{ and }\hspace{0.5cm} \frc{H^{R}}{RT} = -T\left\{ \frc{\partial\left(\frc{G^{R}}{RT}\right)}{\partial T}\right\}_{P}
               \end{displaymath}}
      \end{enumerate}
@@ -268,6 +363,7 @@
 \end{frame}
 \normalsize
 
+\begin{comment}
 
 %%%
 %%% SUBSECTION
@@ -320,6 +416,7 @@
 \end{frame}
 \normalsize
 
+\end{comment}
 
 
 %%%
@@ -327,101 +424,19 @@
 %%%
 \section{Two-Phase Systems}
 
-\subsection{General Remarks}
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{General Remarks}
-     \begin{enumerate}[(a)]
-         \item<1-> \textcolor{blue}{Phase transition}: many extensive properties change abruptly during phase transition at given $P$ and $T$: specific volume, internal energy, enthalpy and entropy;
-         \item<2-> \textcolor{blue}{Exception:} \textcolor{red}{molar Gibbs energy};
-         \item<3-> For 2 phases \textcolor{blue}{$\alpha$} and \textcolor{blue}{$\beta$} of pure species at equilibrium,
-            \visible<3->{\begin{block}{\textcolor{blue}{Equilibrium $\Rightarrow$ Equality of Gibbs energy}}
-                     \begin{displaymath}
-                        \textcolor{red}{G^{\alpha} = G^{\beta}} 
-                     \end{displaymath}
-            \end{block}}
-         \item<4-> Clapeyron equation:
-            \visible<4->{\begin{displaymath}
-              \frc{d P^{sat}}{d T} = \frc{\Delta H^{lv}}{T \Delta V^{lv}}
-            \end{displaymath}}
-     \end{enumerate}
-
-\end{frame}
-\normalsize
-
-
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{General Remarks}
-     \begin{enumerate}[(a)]\setcounter{enumi}{4}
-         \item<1-> Temperature dependence of vapour pressure \blue{$\Rightarrow$} Empirical approaches for practical applications:
-         \begin{enumerate}[(i)]
-            \item<2-> Simplest case:
-                \visible<2->{\begin{displaymath}
-                   \ln P^{sat} = A - \frc{B}{T}
-                \end{displaymath}}
-            \item<3-> Antoine Equation:
-                \visible<3->{\begin{displaymath}
-                   \ln P^{sat} = A - \frc{B}{T+C}
-                \end{displaymath}}
-            \item<4-> Wagner Equation \blue{(more accurate)}:
-                \visible<4->{\begin{displaymath}
-                   \ln P_{r}^{sat} = \frc{A\tau + B\tau^{1.5} + C\tau^{3} + D\tau^{6}}{1-\tau}\;\;\;\text{ with }\;\;\; \tau = 1 - T_{r}
-                \end{displaymath}}
-         \end{enumerate}
-     \end{enumerate}
-
-\end{frame}
-\normalsize
-
-
-%%%
-%%% SUBSECTION 
-%%%
-\subsection{Liquid/Vapour Systems}
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{Liquid/Vapour Systems}
-     \begin{enumerate}[(a)]
-         \item<1-> Systems with \blue{saturated vapour} and \blue{saturated liquid} in \red{equilibrium};
-         \item<2-> \blue{Mass/Energy Balance} for any extensive property:
-            \visible<3->{\begin{displaymath} 
-                nV = n^{(l)}V^{(l)} + n^{(v)}V^{(v)} \;\;\; \Leftrightarrow \;\;\; V = x^{(l)}V^{(l)} + x^{(v)}V^{(v)}
-             \end{displaymath}
-             where $x^{(j)}$ is the \blue{molar/mass fraction} of phase \blue{j = l, v} $\rightarrow$  $x^{(l)} + x^{(v)} = 1$. 
-            }
-         \item<4-> The mass/molar volume fraction of vapour, \blue{$x^{(v)}$}, is also called \blue{vapour quality}. 
-     \end{enumerate}
-
-\end{frame}
-\normalsize
-
-
 %%%
 %%%
 %%% SUBSECTION 
 %%%
-\subsection{Thermodynamic Diagrams and Tables}
-
-
-
+\subsection{Obtaining Thermodynamic Properties of Pure Substances}
 %%%
 %%% Slide 
 %%%
 \begin{frame}
- \frametitle{Thermodynamics Diagrams: Pressure $\times$ Specific Enthalpy $(Ph)$ for CO$_{2}$}
+ \frametitle{Pressure $\times$ Specific Enthalpy $(Ph)$ Diagram for CO$_{2}$}
   \begin{center}
    \begin{figure}
-     \includegraphics[width=8cm,height=7.cm,clip]{../Pics/CO2col}
+     \includegraphics[width=9cm,height=8.cm,clip]{../Pics/CO2col}
    \end{figure}
    \end{center}
 \end{frame}
@@ -438,6 +453,7 @@
    \end{center}
 \end{frame}
 
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -449,12 +465,13 @@
    \end{figure}
    \end{center}
 \end{frame}
+\end{comment}
 
 %%%
 %%% Slide
 %%%
 \begin{frame}
- \frametitle{Thermodynamics Diagrams: Temperature $\times$ Specific Entropy $(Ts)$ for Water}
+ \frametitle{Temperature $\times$ Specific Entropy $(Ts)$ Diagram for Water}
   \begin{center}
    \begin{figure}
      \includegraphics[width=8cm,height=7.cm,clip]{../Pics/water_TS.png}
@@ -478,7 +495,7 @@
 %%% Slide
 %%%
 \begin{frame}
-  \frametitle{Another option: (a) \red{Saturated} and (b) Superheated Tables with (c) Linear Interpolation}
+  \frametitle{Another option: (a) \red{Saturated} and (b) Superheated Tables}
 \scriptsize{From Reference [4]:}\vspace{-.8cm}
    \begin{center}
    \begin{figure}
@@ -491,7 +508,7 @@
 %%% Slide
 %%%
 \begin{frame}
-  \frametitle{Another option: (a) Saturated and (b) \red{Superheated Tables} with (c) Linear Interpolation}
+  \frametitle{Another option: (a) Saturated and (b) \red{Superheated Tables}}
 \scriptsize{From Reference (d):}\vspace{-.8cm}
    \begin{center}
    \begin{figure}
@@ -500,7 +517,7 @@
    \end{center}
 \end{frame}
 
-
+\begin{comment}
 %%%
 %%% Slide
 %%%
@@ -572,6 +589,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
 
 \end{frame}
 
+\end{comment}
 
 %%%
 %%% Slide
@@ -580,15 +598,138 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
 \begin{frame}
   \frametitle{Third Option: PVT Software and Websites}
 \noindent
-\begin{itemize}
+\begin{enumerate}[i)]
    \item<1-> \href{http://www.weatherford.com/doc/wft183650}{PVTflex$^{TM}$};
    \item<1-> \href{http://www.kbcat.com/infochem-software/flow-assurance-software-multiflash/pvt-simulation}{Multiflash$^{TM}$};
+   \item<1-> \href{http://home.aspentech.com/products/engineering/aspen-hysys}{Aspen HYSIS};
    \item<1-> \href{https://www.honeywellprocess.com/en-US/explore/products/advanced-applications/unisim/Pages/default.aspx}{UniSim – Software for Process Design and Simulation};
    \item<1-> \href{http://webbook.nist.gov/chemistry/fluid/}{NIST Website}
    \item<1-> etc.
-\end{itemize}
+\end{enumerate}
 
 \end{frame}
+
+
+\subsection{Phase Transition}
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{General Remarks}
+     \begin{enumerate}[i)]
+         \item<1-> \textcolor{blue}{Phase transition}: many extensive properties change abruptly during phase transition at given $P$ and $T$: specific volume, internal energy, enthalpy and entropy;
+         \item<2-> \textcolor{blue}{Exception:} \textcolor{red}{molar Gibbs energy};
+         \item<3-> For an arbitrary number of phases $\left(\mathcal{P}=\left\{\alpha, \beta, \gamma, \cdots\right\}\right)$ of pure species $\left(\mathcal{C}=1\right)$ at equilibrium,
+            \visible<3->{\begin{block}{\begin{center}\blue{\normalsize{Equilibrium $\Rightarrow$ Equality of Gibbs energy}}\end{center}}
+                     \begin{displaymath}
+                        \red{G^{\alpha} = G^{\beta} = G^{\gamma} = \cdots } 
+                     \end{displaymath}
+            \end{block}}
+         \item<4-> When a pure component is in equilibrium, \red{\it all coexisting phases have the same temperature and pressure};
+     \end{enumerate}
+
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Clapeyron Relations}
+     \begin{enumerate}[i)]\setcounter{enumi}{4}
+         \item<1-> Let's consider a pure substance where phases $\alpha$ and $\beta$ are in thermodynamic equilibrium (\ie two-phase system). The Gibbs free energy for both phases can be expressed as
+              \visible<1->{\begin{displaymath}
+                              V^{\alpha} dP^{\text{sat}} - S^{\alpha}dT = V^{\beta} dP^{\text{sat}} - S^{\beta}dT,
+                           \end{displaymath}
+              where $P^{\text{sat}}$ is the saturated pressure, \ie pressure in which phase change occurs.}
+         \item<2-> This expression can be manipulated to obtain 
+                 \visible<2->{\begin{block}{\begin{center}\normalsize{Clapeyron Equation}\end{center}}
+                                  \begin{displaymath}
+                                      \frc{dP^{\text{sat}}}{dT} = \frc{\Delta H^{\alpha\beta}}{T\Delta V^{\alpha\beta}},
+                                  \end{displaymath}
+                  where $\Delta H^{\alpha\beta}$ is the {\it latent heat of phase transition} (\eg vaporisation, solidification etc). 
+                  \end{block}
+   }
+        
+     \end{enumerate}
+
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Clapeyron Relations}
+     \begin{enumerate}[i)]\setcounter{enumi}{6}
+         \item<1-> For liquid-vapour phase changes and assuming that the vapour phase behaves as an ideal gas, 
+             \visible<1->{\begin{displaymath}
+                            \frc{dP^{\text{sat}}}{dT} = \frc{P^{\text{sat}}\Delta H^{\text{fg}}}{RT^{2}},
+                          \end{displaymath}}
+         \item<2-> And assuming that at {\it infinitesimal intervals of } $T$, $\Delta H^{\text{fg}}$ can be considered as constant,
+             \visible<2->{\begin{displaymath} 
+                            \frc{d\left(\ln{P^{\text{sat}}}\right)}{dT} = \frc{\Delta H^{\text{fg}}}{RT^{2}} \;\;\Longrightarrow \;\;\; \ln{\left(\frc{P_{2}}{P_{1}}\right)_{\text{sat}}} = \frc{\Delta H^{\text{fg}}}{R}\left(\frc{1}{T_{1}}-\frc{1}{T_{2}}\right)_{\text{sat}}
+                          \end{displaymath}}
+     \end{enumerate}
+
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Clapeyron Relations}
+     \begin{enumerate}[i)]\setcounter{enumi}{8}
+         \item<1-> The temperature dependence of saturation pressure led to number of empirical expressions for practical applications, \eg
+         \begin{enumerate}[a)]
+            \item<2-> Simplest case:
+                \visible<2->{\begin{displaymath}
+                   \ln P^{sat} = A - \frc{B}{T}
+                \end{displaymath}}
+            \item<3-> Antoine Equation:
+                \visible<3->{\begin{displaymath}
+                   \ln P^{sat} = A - \frc{B}{T+C}
+                \end{displaymath}}
+            \item<4-> Wagner Equation \blue{(more accurate)}:
+                \visible<4->{\begin{displaymath}
+                   \ln P_{r}^{sat} = \frc{A\tau + B\tau^{1.5} + C\tau^{3} + D\tau^{6}}{1-\tau}\;\;\;\text{ with }\;\;\; \tau = 1 - T_{r}
+                \end{displaymath}}
+         \end{enumerate}
+     \end{enumerate}
+
+\end{frame}
+\normalsize
+
+
+%%%
+%%% SUBSECTION 
+%%%
+\subsection{Liquid/Vapour Systems}
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Liquid/Vapour Systems}
+     \begin{enumerate}[(a)]
+         \item<1-> Systems with \blue{saturated vapour} and \blue{saturated liquid} in \red{equilibrium};
+         \item<2-> \blue{Mass/Energy Balance} for any extensive property:
+            \visible<3->{\begin{displaymath} 
+                nV = n^{(l)}V^{(l)} + n^{(v)}V^{(v)} \;\;\; \Leftrightarrow \;\;\; V = x^{(l)}V^{(l)} + x^{(v)}V^{(v)}
+             \end{displaymath}
+             where $x^{(j)}$ is the \blue{molar/mass fraction} of phase \blue{j = l, v} $\rightarrow$  $x^{(l)} + x^{(v)} = 1$. 
+            }
+         \item<4-> The mass/molar volume fraction of vapour, \blue{$x^{(v)}$}, is also called \blue{vapour quality}. 
+     \end{enumerate}
+
+\end{frame}
+\normalsize
 
 %%%
 %%% Slide
@@ -599,8 +740,7 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
 
     \begin{enumerate}%\scriptsize
      \item <1-> While coal, natural gas, and nuclear still play important roles as energy sources, contributions from wind power, solar power, and other renewable sources are expected to be increasingly significant up to 2050;
-     \item <2-> This table shows that thermodynamic cycles are crucial for a number of power plant types that employ renewable and non-renewable sources;
-     \item <3-> The basic building block of vapour power systems is the \textcolor{blue}{Rankine cycle};
+     \item <3-> The basic building block of vapour power systems is the \blue{Rankine cycle};
      \item <4-> Energy sources based on thermal-cycles (YouTube videos):
         \begin{itemize}%\scriptsize
            \item \href{http://www.youtube.com/watch?v=_UwexvaCMWA}{\textcolor{blue}{Nuclear Power Plants (NPP)}};
@@ -612,10 +752,6 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
  \normalsize
 \end{frame}
 
-%%%
-%%% SUB-SECTION
-%%%
-\subsection{Rankine Engines / Cycles}
 
 %%%
 %%% Slide
@@ -632,20 +768,20 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
     \end{figure}  
    \end{column}
    \begin{column}[l]{0.5\linewidth}
-    \begin{enumerate}[(a)]\scriptsize
-     \item<1->\textcolor{blue}{Rankine Cycle} (RC) is the ideal cycle for vapour power plants;
+    \begin{enumerate}[i)]\scriptsize
+     \item<1->\blue{Rankine Cycle} (RC) is the ideal cycle for vapour power plants;
      \item<2-> It does not involve any internal irreversibilities and consists of the following four processes:
-     \begin{enumerate}[(i)]\scriptsize
-      \item<3-> \textcolor{red}{Process 1-2}: reversible adiabatic (i.e., \blue{isentropic}) expansion in the turbine (or steam engine);
-      \item<4-> \textcolor{red}{Process 2-3}: constant-pressure heat transfer in the condenser;
-      \item<5-> \textcolor{red}{Process 3-4}: reversible adiabatic (i.e., \blue{isentropic}) pumping process in the feed pump;
-      \item<6-> \textcolor{red}{Process 4-1}: constant-pressure heat transfer in the boiler.  
+     \begin{enumerate}[a)]\scriptsize
+      \item<3-> \red{Process 1-2}: reversible adiabatic (i.e., \blue{isentropic}) expansion in the turbine (or steam engine);
+      \item<4-> \red{Process 2-3}: constant-pressure heat transfer in the condenser;
+      \item<5-> \red{Process 3-4}: reversible adiabatic (i.e., \blue{isentropic}) pumping process in the feed pump;
+      \item<6-> \red{Process 4-1}: constant-pressure heat transfer in the boiler.  
      \end{enumerate}
      \item<7-> Efficiency of the \blue{RC} can be expressed as:
        \visible<7->{\begin{eqnarray}
           \blue{\eta_{\text{Rankine}}} &=& \frc{W_{\text{net}}}{Q_{1}} = \frc{W_{T}-W_{P}}{Q_{1}}\nonumber \\
                                     &=& \frc{\left(h_{1}-h_{2}\right)-\left(h_{f4}-h_{f3}\right)}{h_{1}-h_{f4}} \nonumber \\
-                                    &=& \blue{\frc{h_{1}-h_{2}}{h_{1}-h_{f4}}} 
+                                    &=& \blue{\frc{h_{1}-h_{2}}{h_{1}-h_{f4}}}  \nonumber
        \end{eqnarray}}
     \end{enumerate}
    \end{column}
@@ -669,9 +805,9 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
      \end{center}
     \end{figure} 
     \begin{block}{\begin{center}Quality of the Vapour\end{center}}
-       \begin{equation}\scriptsize
+       \begin{displaymath}\scriptsize
          \blue{x_{j} = \frc{\Psi_{j}-\Psi_{f}}{\Psi_{g}-\Psi_{f}}} \;\;\;\text{with }\Psi=\left\{h,s\right\}
-       \end{equation}
+       \end{displaymath}
     \end{block}
    \end{column}
 %
@@ -745,11 +881,11 @@ where: [$P$] = bar, [$T$] = $^{o}$C, [$h$]= $\frac{kJ}{kg}$, [$s$]=$\frac{kJ}{kg
 %\scriptsize
 \begin{frame}
  \frametitle{Summary}
-   \begin{enumerate}[(i)]
+   \begin{enumerate}[1.]
      \item New thermodynamic potential properties: Gibbs and Helmholtz free energies;
      \item Introduction of Maxwell's relations and applications;
      \item Internal energy, enthalpy, entropy Gibbs and Helmholtz energies described as functions of pressure, volume and temperature (PVT);
-     \item Introduction of residual properties and applications;
+     \item Introduction of residual properties;
      \item Two-phase systems.
    \end{enumerate}
 \end{frame}
