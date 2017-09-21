@@ -79,7 +79,7 @@
 %%%
 %%% SECTION
 %%%
-\subsection{Bibliography}
+\section{Bibliography}
 \begin{frame}
  \frametitle{Suggested References}
   Literature relevant for this module:
@@ -104,20 +104,20 @@
 \begin{frame}
  \frametitle{Aims and Objectives}
    \begin{enumerate}
-     \item<1-> In Modules 2-3, we focused on 
+     \item<1-> In Modules 1-2, we focused on 
        \begin{enumerate}
-         \item<1-> Evaluating partial derivatives of thermodynamic variables and derive fundamental thermodynamic relations;
          \item<1-> Obtaining volumetric EOS parameters from critical properties;
+         \item<1-> Evaluating partial derivatives of thermodynamic variables and derive fundamental thermodynamic relations;
          \item<1-> Studying thermodynamic behaviour of pure substances in arbitrary number of phases (multiphase).
        \end{enumerate} 
-     \item<2-> However, in most industrial processes more than one chemical specie is present within multiple phases in thermodynamic equilibrium. 
-     \item<3-> Our focus in this Module is to study equilibrium of arbitrary number of chemical species at vapour and liquid phases.
-     \item<4-> This Module focuses on 
-         \begin{enumerate}
-           \item<4-> Partial molar properties; 
-           \item<4-> Vapour-liquid equilibrium (VLE) relations and the main diagrams ($x-y$, $T-xy$ and $P-xy$); 
+     \item<2-> However, in most industrial processes more than one chemical specie is present within multiple phases in thermodynamic equilibrium;
+     \item<3-> The main aim of this Module is to study equilibrium of arbitrary number of chemical species at vapour and liquid phases.
+     %\item<4-> This Module focuses on 
+     %    \begin{enumerate}
+     %      \item<4-> Partial molar properties; 
+     %      \item<4-> Vapour-liquid equilibrium (VLE) relations and the main diagrams ($x-y$, $T-xy$ and $P-xy$); 
            %\item<4-> Concept of activity, fugacity, chemical potential (and its relationship with the free Gibbs energy).
-         \end{enumerate}
+     %    \end{enumerate}
    \end{enumerate}
 \end{frame}
 
@@ -135,9 +135,9 @@
 %\scriptsize
 \begin{frame}
   \frametitle{Introduction}
-  \begin{enumerate}
+  \begin{enumerate}[i)]
     \item<1-> In most technical processes there are no pure substances but a mixture of various species in
-        \begin{enumerate}
+        \begin{enumerate}[a)]
           \item<1-> industrial reactors and pressure vessels $\&$ tanks;
           \item<1-> separation process facilities (e.g., distillation, absorption, extraction etc);
           \item<1-> subsurface transport processes (e.g., groundwater pollutant contamination, hydrocarbon exploration etc).     
@@ -145,8 +145,8 @@
     \item<2-> It is necessary \textcolor{blue}{to identify how the concentration of species will change during the process};
     \item<3-> During \textcolor{blue}{phase equilibrium} we need to be able to effectively quantify variations in the thermodynamic properties, \textcolor{blue}{in particular, concentration}. This quantitative analysis is crucial in the design of processes and equipment;
     \item<4-> \textcolor{blue}{Equilibria} of industrial interest:
-        \begin{enumerate}
-          \item<5-> \textcolor{blue}{Vapour-Liquid (VLE)}: distillation;
+        \begin{enumerate}[a)]
+          \item<5-> \textcolor{blue}{Vapour-Liquid (VLE)}: \red{\href{https://www.youtube.com/watch?v=vscX_zawdQw&t=310s}{distillation}};
           \item<5-> Liquid-Liquid (LLE): extraction;
           \item<5-> Solid-vapour (SVE): particle generation;
           \item<5-> Liquid-solid (LSE): cristallisation
@@ -163,7 +163,7 @@
 %\scriptsize
 \begin{frame}
   \frametitle{Representing Composition}
-  \begin{enumerate}
+  \begin{enumerate}[i)]
     \item<1-> Molar fraction $\left(x_{i}\right)$:
          \visible<1->{\begin{displaymath}
             %w_{i} = \frc{m_{i}}{m} = \frc{\dot{m}_{i}}{\dot{m}} \;\;\;\text{ and }\;\;\; x_{i} = \frc{n_{i}}{n} = \frc{\dot{n}_{i}}{\dot{n}}
@@ -176,44 +176,57 @@
             C_{i} = \frc{n_{i}}{V} 
          \end{displaymath}
           also called \textcolor{blue}{molarity}.}
-   % \item<2-> Molar concentration in flow process:
-   %      \visible<2->{\begin{displaymath}
-   %         C_{i} = \frc{\dot{n}_{i}}{\dot{q}} 
-   %      \end{displaymath}
-   %      where $\dot{q}$ is the volumetric flow rate.}
     \item<3-> (Average) Molar mass of mixtures:
          \visible<3->{\begin{displaymath}
-            \overline{MW} = \sum\limits_{i} \left(x_{i} \cdot MW_{i}\right) 
+            \overline{MW} = \sum\limits_{i=1}^{\mathcal{C}} \left(x_{i} \cdot MW_{i}\right) 
          \end{displaymath}
          where $MW_{i}$ is the molecular weight (or molar mass) of species $i$.}
+    \item<3-> \blue{Molality} of a solution: number of moles of solute in 1 kg of solvent,
+         \visible<3->{\begin{displaymath}
+            \mathcal{M}_{i} = \frc{n_{i}}{m_{i}} = \frc{n_{i}}{n_{s}\cdot MW_{s}}.
+         \end{displaymath}}
   \end{enumerate}
 \end{frame}
 \normalsize
+ 
 
-
-\subsection{Excess Properties}
+\section{Excess Properties}
 %%%
 %%% Slide
 %%%
 %\scriptsize
 \begin{frame}
   \frametitle{Excess Properties}
-  \visible<1->{\begin{block}{Excess Mixing Properties (Sandler)}
-$\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive thermodynamic property $M$ that occurs on mixing at constant pressure and temperature in addition to that which would occur if an ideal mixture were formed.'
-  \end{block}}
-  \visible<1->{\begin{displaymath}
-     M^{\text{E}} = M - M^{\text{id}}
-  \end{displaymath}
-  $M$ is the actual property of the mixture, and $M^{\text{id}}$ is the ideal solution property.}\\
-  \visible<2->{This accounts for extensive properties of the individual components, i.e.,
-     \begin{displaymath}
-     M^{\text{id}} = \sum\limits_{i} x_{i} M_{i}
-  \end{displaymath}}
-  \medskip\noindent
-  \visible<3->{For two components,
-      \begin{displaymath}
-         \textcolor{blue}{V^{\text{E}}} = V - V^{\text{id}} = V - \sum\limits_{i} x_{i} V_{i} = \textcolor{blue}{V - \left(x_{1}V_{1} + x_{2}V_{2}\right)}
-      \end{displaymath}} 
+  \begin{enumerate}[i)]
+     \item<1-> In Module 2 \blue{\it residual properties} were defined as the difference between any extensive thermodynamic property, $M$, in real gases and its equivalent assuming ideal gas behaviour, $M^{\text{ig}}$ -- this entity is only applied to gases;
+     \item<2-> An equivalent for liquids is called \blue{\it excess properties},
+
+         \visible<2->{\begin{block}{\begin{center}\normalsize{Excess Mixing Properties (Sandler)}\end{center}}
+              $\lq$\textcolor{blue}{Excess mixing property} is the change in the extensive thermodynamic property $M$ that occurs on mixing at constant pressure and temperature in addition to that which would occur if an ideal mixture were formed.'
+                         \begin{displaymath}
+                                M^{\text{E}} = M - M^{\text{id}}
+                         \end{displaymath}
+  where $M$ is the actual property of the mixture, and $M^{\text{id}}$ is the ideal solution property.
+                      \end{block}}
+  \end{enumerate}
+\end{frame}
+\normalsize
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Excess Properties}
+  \begin{enumerate}[i)]\setcounter{enumi}{2}
+     \item<1-> This accounts for extensive properties of the individual components, i.e.,
+                 \visible<1->{\begin{displaymath}
+                     M^{\text{id}} = \sum\limits_{i} x_{i} M_{i}
+                 \end{displaymath}}
+     \item<2-> For two components \href{https://www.youtube.com/watch?v=QNJyyVwzYMY}{\blue{(video)}},
+               \visible<2->{\begin{displaymath}
+                                   \blue{V^{\text{E}}} = V - V^{\text{id}} = V - \sum\limits_{i} x_{i} V_{i} = \textcolor{blue}{V - \left(x_{1}V_{1} + x_{2}V_{2}\right)}
+                            \end{displaymath}} 
+  \end{enumerate}
 \end{frame}
 \normalsize
 
