@@ -10,10 +10,10 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-\documentclass[10pt,compress,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,unknownkeysallowed]{beamer}
 %Draft or handout mode 
 %\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
-%\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
+\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
@@ -168,21 +168,20 @@
          \visible<1->{\begin{displaymath}
             %w_{i} = \frc{m_{i}}{m} = \frc{\dot{m}_{i}}{\dot{m}} \;\;\;\text{ and }\;\;\; x_{i} = \frc{n_{i}}{n} = \frc{\dot{n}_{i}}{\dot{n}}
             x_{i} = \frc{n_{i}}{n} 
-         \end{displaymath}}
-         where $n = n_{1}+\cdots+n_{\mathcal{C}} = \summation[n_{i}]{i=1}{\mathcal{C}}$.
-         %where $\left[\dot{\gamma}\right]$ represents flow rate quantities.}
-    \item<2-> Molar concentration:
+         \end{displaymath}
+         where $n = n_{1}+\cdots+n_{\mathcal{C}} = \summation[n_{i}]{i=1}{\mathcal{C}}$ is total number the of moles;}
+    \item<2-> Molar concentration: number of moles of solute in 1 liter of solution,
          \visible<2->{\begin{displaymath}
             C_{i} = \frc{n_{i}}{V} 
          \end{displaymath}
-          also called \textcolor{blue}{molarity}.}
+          also called \blue{molarity};}
     \item<3-> (Average) Molar mass of mixtures:
          \visible<3->{\begin{displaymath}
             \overline{MW} = \sum\limits_{i=1}^{\mathcal{C}} \left(x_{i} \cdot MW_{i}\right) 
          \end{displaymath}
          where $MW_{i}$ is the molecular weight (or molar mass) of species $i$.}
-    \item<3-> \blue{Molality} of a solution: number of moles of solute in 1 kg of solvent,
-         \visible<3->{\begin{displaymath}
+    \item<4-> \blue{Molality} of a solution: number of moles of solute in 1 kg of solvent,
+         \visible<4->{\begin{displaymath}
             \mathcal{M}_{i} = \frc{n_{i}}{m_{i}} = \frc{n_{i}}{n_{s}\cdot MW_{s}}.
          \end{displaymath}}
   \end{enumerate}
@@ -198,7 +197,11 @@
 \begin{frame}
   \frametitle{Excess Properties}
   \begin{enumerate}[i)]
-     \item<1-> In Module 2 \blue{\it residual properties} were defined as the difference between any extensive thermodynamic property, $M$, in real gases and its equivalent assuming ideal gas behaviour, $M^{\text{ig}}$ -- this entity is only applied to gases;
+     \item<1-> In Module 2, \blue{\it residual properties} were defined as the difference between any extensive thermodynamic property, $M$, in real gases and its equivalent assuming ideal gas behaviour, $M^{\text{ig}}$
+      \visible<1->{\begin{displaymath}
+            M^{\text{R}} = M - M^{\text{ig}},
+         \end{displaymath}
+       such property can only be applied to gases;}
      \item<2-> An equivalent for liquids is called \blue{\it excess properties},
 
          \visible<2->{\begin{block}{\begin{center}\normalsize{Excess Mixing Properties (Sandler)}\end{center}}
@@ -251,19 +254,25 @@
             Isolated, adiabatic  &  $U$ and $V$          &      $S$ = maximum               &    d$^{2}$S$<$ 0    \\
             fixed-boundary system&   constant            &      $dS$ = 0                    &                     \\
          \hline
-            Isothermal closed    &   $T$ and $V$         &      $A$ = minimum               &                   \\
-            system with fixed    &   constant            &      $dA$ = 0                    &  d$^{2}$A $>$ 0    \\
-            boundaries           &                       &                                  &                    \\
+            Isothermal closed system with   &   $T$ and $V$         &      $A$ = minimum               &                   \\
+            fixed boundaries   &   constant            &      $dA$ = 0                    &  d$^{2}$A $>$ 0    \\
          \hline
-            Isothermal, isobaric &  $T$ and $P$          &    $G$ = minimum                 &  d$^{2}$G $>$ 0    \\
-            closed system        &   constant            &    $dG$ = 0                      &                    \\
+            \blue{Isothermal, isobaric} &  \blue{$T$, $P$ and $N$}          &    \red{$G$ = minimum}                 &  \blue{d$^{2}$G $>$ 0}    \\
+            \blue{closed system}        &   \blue{constant}            &    \red{$dG$ = 0}                      &                    \\
          \hline
-            Isothermal, isobaric &  $T$, $P$ and $N$    &     $G$ = minimum                 &   \\
-            open system moving  with& constant          &     $dG$ = 0                      & d$^{2}$G $>$ 0    \\
-           the fluid velocity    &                      &                                   &                   \\
+            \blue{Isothermal, isobaric} &  \blue{$T$ and $P$}    &     \red{$G$ = minimum}                 &   \\
+            \blue{open system} & \blue{constant}          &     \red{$dG$ = 0}                      & \blue{d$^{2}$G $>$ 0}    \\
          \hline\hline
          \end{tabular}
      \end{center}
+
+         \visible<2->{\begin{block}{\begin{center}\normalsize{Equilibrium Conditions (Smith {\it et al.})}\end{center}}
+              $\lq$At constant temperature and pressure, $\Delta G$ and its first and second derivatives must be continuous functions of $x_{i}$, and the second derivative must be positive, 
+                         \begin{displaymath}
+                                \frc{\partial^{2}\left(\Delta G\right)}{\partial x_{1}^{2}} > 0 \;\;\text{ and }\;\; \frc{\partial^{2}\left(\Delta G/RT\right)}{\partial x_{1}^{2}} > 0 \;\;\text{ at constant } T\text{ and } P.'
+                         \end{displaymath}
+                      \end{block}}
+     
    \end{frame}
 \normalsize
 
@@ -271,6 +280,31 @@
 %%% SECTION
 %%%
 \section{Vapour-Liquid Equilibrium (VLE)}
+
+\subsection{Notation}
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Notation}
+         \begin{block}{}
+             From this Module onwards, unless otherwise specified, the molar fraction of component $i$ in a mixture of $\mathcal{C}$ components is expressed as:
+             \begin{enumerate}[i)]
+                \item \red{Vapor phase: $y_{i}$};
+                \item \blue{Liquid phase: $x_{i}$};
+             \end{enumerate}
+             with composition constraints of:
+             \begin{displaymath}
+               \begin{cases}
+                 \summation[x_{i}]{i=1}{\mathcal{C}} = 1, & \text{ and}; \\
+                 \summation[y_{i}]{i=1}{\mathcal{C}} = 1. & \\
+               \end{cases}
+              \end{displaymath}
+         \end{block}
+\end{frame}
+\normalsize
+
 
 \subsection{Qualitative Behaviour}
 %%%
@@ -280,20 +314,23 @@
 \begin{frame}
   \frametitle{$P$-$T$-$xy$ Diagram}
   \begin{columns}
-     \begin{column}[l]{0.3\linewidth}
-        \begin{enumerate}
-            \item<1-> System with $\mathcal{C} =2$ (hexane and triethylamine, extracted from Sandler, 2006);
-            \item<2-> From the phase rule: $\Psi = 4 -\mathcal{P}$;
-                \begin{enumerate}
-                    \item<3-> For $\mathcal{P}=1$ $\Longrightarrow$ $\Psi=3$, i.e., $P$, $T$ and {\bf one} mole fraction;
-                    \item<4-> For $\mathcal{P}=2$ $\Longrightarrow$ $\Psi=2$ $\leftrightarrow$ define surfaces;
+     \begin{column}[l]{0.35\linewidth}
+        \begin{enumerate}[i)]
+            \item<1-> System with $\mathcal{C} =2$;
+            \item<2-> From the phase rule: $\Psi = 4 -\mathcal{P}$ and,
+                \begin{enumerate}[a)]
+                    \item<3-> for $\mathcal{P}=1$ $\Longrightarrow$ $\Psi=3$, i.e., $P$, $T$ and {\bf one} mole fraction (\ie $x_{1}$ or $x_{2}$);
+                    \item<4-> for $\mathcal{P}=2$ $\Longrightarrow$ $\Psi=2$ $\leftrightarrow$ define surfaces;
                 \end{enumerate}
             \item<5-> \textcolor{blue}{Surfaces} represent equilibrium states: saturated vapour and liquid.
         \end{enumerate}
      \end{column}
-     \begin{column}[l]{0.7\linewidth}
-        \hbox{\hspace{-1cm}
-           \includegraphics[width=9.7cm,clip]{./../Pics/PTxy_diagram}}
+     \begin{column}[l]{0.65\linewidth}
+       \hbox{
+          \hspace{-.9cm}\includegraphics[width=9.cm,clip]{./../Pics/PTxy_diagram}}
+       \begin{center}
+            \tiny{{\bf Fig.} Hexane and triethylamine mixture (extracted from Sandler).}
+            \end{center}
      \end{column} 
   \end{columns}
 \end{frame}
@@ -308,29 +345,6 @@
      \begin{center}
        \includegraphics[width=.75\columnwidth,clip]{./../Pics/PTxy_Digram} %{./../Pics/PTxy_diagram2}
      \end{center}
-\end{frame}
-\normalsize
-
-
-
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{$P-T$ Diagrams at fixed composition}
-  \begin{columns}
-     \begin{column}[l]{0.5\linewidth}
-        \includegraphics[width=\linewidth,clip]{./../Pics/VLE_PT_diagram1}
-     \end{column}
-     \begin{column}[l]{0.5\linewidth}
-        \includegraphics[width=\linewidth,clip]{./../Pics/VLE_PT_diagram2}
-     \end{column}
-  \end{columns}
-  \begin{center}
-     Solid line: saturated liquid (bubble line); \\
-     Dashed line: saturated vapour (dew line) 
-  \end{center}
 \end{frame}
 \normalsize
 
@@ -352,8 +366,8 @@
        \visible<2->{\hbox{\hspace{-1.7cm}\includegraphics[width=1.6\linewidth,clip]{./../Pics/VLE_Pxy_Diagram2}}}
      \end{column}
   \end{columns}
-         \visible<1->{Upper and lower curves represent liquid ($x$) and vapour phases compositions.}\\
-         \visible<2->{$P_{H}$ and $P_{L}$ are the vapour pressure of pure heavy and light components at temperature $T$, respectively.}
+         \visible<1->{Upper and lower curves represent liquid \red{($x$)} and vapour \red{($y$)} phases compositions, respectively.}\\
+         \visible<2->{$P_{H}$ and $P_{L}$ are the vapour pressure of pure heavy and light components at $T$.}
 \end{frame}
 \normalsize
 
@@ -366,15 +380,37 @@
   \frametitle{$Pxy$ Diagrams}
   \begin{columns}
      \begin{column}[l]{0.5\linewidth}
-       \begin{enumerate}
-          \item<1-> For a given \textcolor{blue}{initial (feed) composition $z$} (at constant $T$), if pressure is raised to $P_{\text{DP}}$, the first droplet of liquid is formed. \textcolor{blue}{$P_{\text{DB}}$} is called {\bf \textcolor{blue}{dew point}};
-          \item<2-> The liquid droplets are much leaner in the light component and the composition is ${\bf \textcolor{blue}{x_{\text{DB}}}}$;
-          \item<3-> As the pressure is further increased, more liquid is formed. At \textcolor{blue}{P$_{1}$}, liquid and vapour are in equilibrium with composition $\textcolor{blue}{x_{1}}$ and $\textcolor{blue}{y_{1}}$;
-          \item<4-> When the pressure reaches \textcolor{blue}{P$_{\text{BP}}$}, the last bubble of vapour condenses -- {\bf \textcolor{blue}{bubble point}}.  
+       \begin{enumerate}[i)]
+          \item<1-> Consider a binary gaseous mixture with initial composition \red{$\left[x_{1}=0; y_{1}=y_{z}\right]$} and \blue{$\left[x_{2}=0; y_{2}=1-y_{1}\right]$} at $T$ and $P_{z}$;
+          \item<2-> When $P$ is raised from $P_{z}$ to $P_{\text{DP}}$ (coordinate \red{R}), the mixture start condensating and the \blue{first droplet} of liquid is formed. \blue{$P_{\text{DB}}$} is called {\bf \red{\underline{dew point}}};
+          \item<3-> Mixture composition at \red{R} is \red{$\left[x_{1}=x_{\text{DP}}; y_{1}=y_{z}\right]$} and \blue{$\left[x_{2}=1-x_{1}; y_{2}=1-y_{1}\right]$};
+          \item<4-> As the pressure is further increased, more liquid is formed;
        \end{enumerate}
      \end{column}
+     \begin{column}[l]{0.5\linewidth} 
+        \visible<1->{\hbox{\hspace{-.0cm}\includegraphics[width=1.\linewidth,clip]{./../Pics/VLE_Pxy_Diagram3b}}}
+     \end{column}
+  \end{columns}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{$Pxy$ Diagrams}
+  \begin{columns}
      \begin{column}[l]{0.5\linewidth}
-        \visible<1->{\hbox{\hspace{.0cm}\includegraphics[width=1.\linewidth,clip]{./../Pics/VLE_Pxy_Diagram3b}}}
+       \begin{enumerate}[i)]\setcounter{enumi}{3}
+          \item<1-> At \red{Q} $\left(P_{1}\right)$, liquid and vapour are in equilibrium with composition \red{$\left[x_{1}=x_{\text{Q}}; y_{1}=y_{\text{Q}}\right]$} and \blue{$\left[x_{2}=1-x_{1}; y_{2}=1-y_{1}\right]$};
+          \item<2-> Line linking $Q_{L}$ and $Q_{V}$ through $Q$ is called {\bf \red{\underline{tie line}}};
+          \item<3-> When the pressure finally reaches \red{N}, the last bubble of vapour condensates and vanishes. \blue{$\left(P_{\text{BP}}\right)$} is called {\bf \red{\underline{bubble point}}} with composition \red{$\left[x_{1}=x_{\text{z}}; y_{1}=y_{\text{BP}}\right]$} and \blue{$\left[x_{2}=1-x_{1}; y_{2}=1-y_{1}\right]$};
+          \item<4-> At \red{M}, the misxture is at \underline{subcooled liquid} state (\ie there is no longer vapour in the system) and the composition is \red{$\left[x_{1}=x_{\text{z}}; y_{1}=0\right]$} and \blue{$\left[x_{2}=1-x_{1}; y_{2}=0\right]$}.
+       \end{enumerate}
+     \end{column}
+     \begin{column}[l]{0.5\linewidth} 
+        \visible<1->{\hbox{\hspace{-.0cm}\includegraphics[width=1.\linewidth,clip]{./../Pics/VLE_Pxy_Diagram3b}}}
      \end{column}
   \end{columns}
 \end{frame}
@@ -389,7 +425,7 @@
   \frametitle{$xy$ Diagrams}
   \begin{columns}
      \begin{column}[l]{0.4\linewidth}
-       \begin{enumerate}
+       \begin{enumerate}[i)]
           \item<1-> The $xy$ diagram for a binary system correlates the compositions of the liquid and vapour phases in equilibrium;
           \item<1-> They are designed assuming either constant $P$ or $T$ $\Longrightarrow$ though most industrial applications are isobaric.
        \end{enumerate}
@@ -429,14 +465,14 @@
 %%%
 \begin{frame}
   \frametitle{General Remarks}
-  \begin{enumerate}
-      \item<1-> \textcolor{blue}{VLE models} aim for mathematical descriptions of the PVT behaviour of mixtures at equilibrium conditions:
-         \begin{enumerate}
-            \item<1-> Prediction of \textcolor{blue}{vapour and liquid compositions} at given $T$ and $P$;
-            \item<1-> Basis for process modelling.
+  \begin{enumerate}[i)]
+      \item<1-> \blue{VLE models} aim for mathematical descriptions of the PVT behaviour of mixtures at equilibrium conditions:
+         \begin{enumerate}[a)]
+            \item<1-> Prediction of \blue{vapour and liquid compositions} at given $T$ and $P$;
+            \item<1-> \underline{Basis for process modelling}.
          \end{enumerate}
       \item<2-> Two simple models:
-         \begin{enumerate}
+         \begin{enumerate}[a)]
             \item<2-> \textcolor{blue}{Raoult's law};
             \item<2-> \textcolor{blue}{Henry's law}.
          \end{enumerate}
@@ -448,15 +484,15 @@
 %%%
 \begin{frame}
   \frametitle{Raoult's Law}
-  \begin{enumerate}
+  \begin{enumerate}[i)]
       \item<1-> Main assumptions:
-         \begin{enumerate}
+         \begin{enumerate}[a)]
              \item<1-> \textcolor{blue}{vapour phase} behaves as an {\bf ideal gas} $\Longrightarrow$ low to moderate pressures;
              \item<1-> \textcolor{blue}{liquid phase} is an {\bf ideal solution}.
          \end{enumerate}
-         \visible<2->{\begin{block}{Raoult's Law}
+         \visible<2->{\begin{block}{\begin{center}\normalsize{Raoult's Law}\end{center}}
               \begin{displaymath}
-                  \textcolor{blue}{ P_{i}= y_{i}P = x_{i} P_{i}^{\text{sat}}\left(T\right)}\;\;\;\;\textcolor{blue}{\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}}
+                  \blue{ P_{i}= y_{i}P = x_{i} P_{i}^{\text{sat}}\left(T\right),} \hspace{2cm} \blue{\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}}
               \end{displaymath}
          \end{block}
          where $P_{i}=y_{i}P$ is the {\bf partial pressure} of species {\it i} in the vapour phase.}
@@ -478,7 +514,7 @@
   \begin{enumerate}
       \item<1-> Dalton's Law: \textcolor{blue}{$P=\sum\limits_{i=1}^{\mathcal{C}}P_{i}=\sum\limits_{i=1}^{\mathcal{C}}y_{i}P$}
       \item<2-> Amagat's Law: \textcolor{blue}{$V^{t}=\sum\limits_{i=1}^{\mathcal{C}}V_{i}^{t} = \sum\limits_{i=1}^{\mathcal{C}} y_{i}V^{t}$}
-      \item<3-> Kay's rule: pseudo-critical pressure \textcolor{blue}{$\left(T_{c}^{t}=\sum\limits_{i=1}^{\mathcal{C}}y_{i}T_{c,i}\right)$} and temperature \textcolor{blue}{$\left(T_{c}^{t}=\sum\limits_{i=1}^{\mathcal{C}}y_{i}T_{c,i}\right)$}. 
+      \item<3-> Kay's rule: pseudo-critical pressure \textcolor{blue}{$\left(P_{c}^{t}=\sum\limits_{i=1}^{\mathcal{C}}y_{i}P_{c,i}\right)$} and temperature \textcolor{blue}{$\left(T_{c}^{t}=\sum\limits_{i=1}^{\mathcal{C}}y_{i}T_{c,i}\right)$}. 
   \end{enumerate}
 \end{frame}
 
@@ -487,33 +523,37 @@
 %%%
 \begin{frame}
   \frametitle{Raoult's Law: Dew and Bubble Point Calculations}
-  \begin{description}
-      \item[Dew Point:]<2->: Calculate, 
-           \begin{enumerate}
-               \item<2-> $\textcolor{blue}{\bf x_{i}}$ and \textcolor{blue}{$P$}, given $y_{i}$ and $T$;
-               \item<2-> $\textcolor{blue}{\bf x_{i}}$ and \textcolor{blue}{$T$}, given $y_{i}$ and $P$;
-           \end{enumerate}
-      \item[Bubble Point:]<3-> Calculate, 
-           \begin{enumerate}
-               \item<3-> $\textcolor{blue}{\bf y_{i}}$ and \textcolor{blue}{$P$}, given $x_{i}$ and $T$;
-               \item<3-> $\textcolor{blue}{\bf y_{i}}$ and \textcolor{blue}{$T$}, given $x_{i}$ and $P$.
-           \end{enumerate}
-  \end{description}
+         \visible<1->{\begin{block}{\begin{center}\normalsize{Dew Point Calculation}\end{center}}
+                         \begin{enumerate}[i)]
+                            \item Given $y_{i}$ and $T$, calculate \blue{$x_{i}$} and \blue{$P$}
+                            \item Given $y_{i}$ and $P$, calculate \blue{$x_{i}$} and \blue{$T$}
+                         \end{enumerate}
+                      \end{block}}
+         
+         \visible<2->{\begin{block}{\begin{center}\normalsize{Bubble Point Calculation}\end{center}}
+                         \begin{enumerate}[i)]
+                            \item Given $x_{i}$ and $T$, calculate \blue{$y_{i}$} and \blue{$P$}
+                            \item Given $x_{i}$ and $P$, calculate \blue{$y_{i}$} and \blue{$T$}
+                         \end{enumerate}
+                      \end{block}}
 \end{frame}
 
+%%%
+%%% Slide
+%%%
 \begin{frame}
   \frametitle{Generalised Relation for VLE in Ideal Mixtures}
-  \begin{enumerate}
-      \item<1-> Raoult's law is a particular case of a more general relation involving \textcolor{blue}{vapour-liquid mixtures} (that we will see with more details on Module 5),
+  \begin{enumerate}[i)]
+      \item<1-> Raoult's law is a particular case of a more general relation involving \textcolor{blue}{vapour-liquid mixtures} (that we will see with more details on Module 4),
            \visible<2->{\begin{displaymath}
               f_{i}^{\left(L\right)}\left(T,P,\underline{x}\right) = f_{i}^{\left(V\right)}\left(T,P,\underline{y}\right)
            \end{displaymath}
-           where $\underline{x}$ and $\underline{y}$ represent the array of compositions in the liquid and vapour phases, respectively.}
+           where $\underline{x}$ and $\underline{y}$ represent the array of compositions in the liquid and vapour phases, respectively, and \blue{$f$} is the fugacity of the fluid;}
       \item<3-> For low-pressure VLE,
            \visible<3->{\begin{displaymath}
                \textcolor{blue}{y_{i}P=x_{i}\gamma_{i}P_{i}^{\text{sat}}}
            \end{displaymath}}
-      \item<4-> The activity  coefficient of species $i$, $\gamma_{i}$, is a thermodynamic property that indicates $\lq$how much a solution will deviate from the ideal solution';
+      \item<4-> The activity  coefficient of species $i$, \red{$\gamma_{i}$}, is a thermodynamic property that indicates \blue{$\lq$how much a solution will deviate from the ideal solution behaviour'};
       \item<4-> For an ideal solution, $\gamma_{i}=1$, and the equation above becomes the Raoult's law.  
   \end{enumerate}
 \end{frame}
@@ -523,16 +563,18 @@
 %%%
 \begin{frame}
   \frametitle{Henry's Law}
-  \begin{enumerate}
-      \item<1-> Raoult's law requires vapour pressure data $\left(\text{i.e., }P_{i}^{\text{sat}}\right)$, thus:
-        \begin{enumerate}
+  \begin{enumerate}[i)]
+      \item<1-> Raoult's law requires vapour pressure data $\left(\text{\ie} P_{i}^{\text{sat}}\right)$, thus:
+        \begin{enumerate}[a)]
             \item<1-> It is not applicable if $T\geq T_{c,i}$;
             \item<1-> Does not take into account gasses dissolved in the liquid.
         \end{enumerate}
-      \item<2-> Henry's law:
-         \visible<2->{\begin{displaymath}
-             \textcolor{blue}{y_{i}P = x_{i}\mathcal{H}_{i}}\;\;\;\;\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}
-         \end{displaymath}}
+      \item<2-> \red{Henry's law} was developed to model the concentration of gases dissolved in liquids (\ie gases solubility in liquid solutions). It can only be used for \underline{very small concentrations of gaseous species in solutions}, 
+         \visible<2->{\begin{block}{\begin{center}\normalsize{Henry's Law}\end{center}}
+                         \begin{displaymath}
+                            \blue{y_{i}P = x_{i}\mathcal{H}_{i},} \hspace{2cm} \blue{\forall i\in\left\{1,2,\cdots,\mathcal{C}\right\}}
+                         \end{displaymath}
+                      \end{block}}
   \end{enumerate}
   \visible<2->{
  \begin{table}
@@ -562,7 +604,7 @@
   \frametitle{K-Value Correlations}
   \begin{columns}
      \begin{column}[l]{0.5\linewidth}
-        \begin{enumerate}
+        \begin{enumerate}[i)]
            \item<1-> Equilibrium ratio, $K_{i}$
                \visible<1->{\begin{displaymath}
                   K_{i} = \frc{y_{i}}{x_{i}}
@@ -579,24 +621,30 @@
      \end{column}
      \begin{column}[l]{0.5\linewidth}
         \begin{center}
-            \hspace{-.8cm}\includegraphics[width=6.1cm,clip]{./../Pics/02_07_fig_02.png}
+          \hspace{-.8cm}\includegraphics[width=5.7cm,clip]{./../Pics/02_07_fig_02.png}
+          
+          \tiny{\bf{Fig.:} DePriester chart for several hydrocarbons (extracted from Smith {\it et al.}).}
         \end{center}
      \end{column}
    \end{columns}
 \end{frame}
 
+%%%
+%%%  SECTION
+%%%
+\subsection{Industrial Applications for VLE of Mixtures: Flash Calculation}
 
 %%%
 %%% Slide
 %%%
 \begin{frame}
-  \frametitle{Flash Calculations}
+  \frametitle{Flash Calculation}
   \begin{columns}
      \begin{column}[c]{0.5\linewidth}
        \visible<3->{\hspace{-1cm}\includegraphics[width=1.3\linewidth,clip]{./../Pics/Flash_VLE}}
      \end{column}
      \begin{column}[l]{0.5\linewidth}
-        \begin{enumerate}
+        \begin{enumerate}[i)]
            \item<1-> If a fluid mixture is at liquid state with pressure larger than the associated bubble point pressure; % $\left(\text{i.e., }P \leq P_{\text{BP}}\right)$;
            \item<2-> Part of the fluid evaporates \textcolor{blue}{(or {\it flashes})} when the pressure is reduced leading to a two-phase system -- vapour and liquid in equilibrium;
             \item<3-> This phenomenon is often called \textcolor{blue}{\it flash} and is the most important application of VLE;
@@ -604,6 +652,46 @@
         \end{enumerate}
      \end{column}
    \end{columns}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Flash Calculation}
+     
+         \visible<1->{\begin{block}{\begin{center}\normalsize{Overall Mass Balance}\end{center}}
+                         \begin{displaymath}
+                            F = V + L = 1,
+                         \end{displaymath}
+                         where $F$, $V$ and $L$ are molar fractions of the streams.
+                      \end{block}}
+
+         \visible<2->{\begin{block}{\begin{center}\normalsize{Material Balance for Component \blue{$i$}}\end{center}}
+                         \begin{displaymath}
+                            F z_{i} = x_{i}L + y_{i}V \hspace{1.cm}\text{ with }\hspace{1cm} K_{i}=\frc{y_{i}}{x_{i}},
+                         \end{displaymath}
+                         where \blue{$z_{i}$} is the molar composition of the feeding stream ($F$). This leads to the composition of species \blue{$i$} in the \red{vapour phase at equilibrium,}
+                         \begin{displaymath}
+                            y_{i} = \frc{z_{i}K_{i}}{1 + V\left(K_{i}-1\right)}.
+                         \end{displaymath}
+                      \end{block}}
+  
+\end{frame}
+%%%
+%%% Slide
+%%%
+\begin{frame}
+  \frametitle{Flash Calculation}
+     
+        \visible<1->{\begin{block}{\begin{center}\normalsize{Flash Calculation}\end{center}}
+                         As $\summation[y_{i}]{i=1}{\mathcal{C}}=1$,
+                         \begin{displaymath}
+                            \blue{\summation[\frc{z_{i}K_{i}}{1+V\left(K_{i}-1\right)}]{i=1}{\mathcal{C}} = 1.}
+                         \end{displaymath}
+                         \red{Solving a $P-T$ flash problem is to \underline{find V that satisfies this equation.}}
+                      \end{block}}
+  
 \end{frame}
 
 
@@ -617,7 +705,6 @@
  \frametitle{Summary}
    \begin{enumerate}[(i)]
      \item Stability conditions/criteria;
-     \item Phase rule and Duhem's theorem;
      \item Qualitative analysis of VLE -- efficient use of graphical representation of $P$, $T$ and composition of species;
      \item Introduction to generalised relation for VLE in non-ideal mixtures;
      \item Raoult and Henry's laws; 
