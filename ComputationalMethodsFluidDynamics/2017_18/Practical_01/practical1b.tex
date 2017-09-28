@@ -605,7 +605,7 @@ Calculate the skin friction coefficient for the entire pipe length ($x=0..6$\,m)
 
 \section{Start-up flow (Simple Couette Flow)}
 
-In this section, we are going to simulate the start-up of a flow between two parallel plates which you have previously considered in tutorial\,3 and practical\,1a. Initially both plates and the fluid between them are at rest. At time equal zero ($t=0$) the upper plate starts moving with a constant velocity, $u_0$, as indicated below. Previously we considered this as 1-dimensional problem by modeling one vertical profile of length $L$. In Fluent a flow problem need to to have at least 2 dimension therefore we are considering one a ``box'' of this fluid of dimension $L\times 2L$ as shown below.
+In this section, we are going to simulate the start-up of a flow between two parallel plates which you have previously considered in tutorial\,3 and practical\,1a. Initially both plates and the fluid between them are at rest. At time equal zero ($t=0$) the upper plate starts moving with a constant velocity, $u_0$, as indicated below. Previously we considered this as 1-dimensional problem by modeling one vertical profile of length $L$. In Fluent a flow problem need to have at least 2 dimensions therefore we are considering it as a ``box'' of this fluid of dimension $L\times 2L$ as shown below.
 
 \begin{figure}[H]
 \begin{center}
@@ -613,7 +613,7 @@ In this section, we are going to simulate the start-up of a flow between two par
 \end{center}
 \end{figure}
 
-Setting up this problem in Fluent is very similar to the laminar pipeflow problem, with the exception we are now dealing with a planar model domain (instead of axisymmetric), it is a \emph{transient} simulation (because $\partial ../\partial t\neq0$ in the governing equations), and the inlet and outlet boundary conditions are \emph{periodic} (because we essentially simulate a small element of an infinitely long domain). We are only highlighting the main difference.
+Setting up this problem in Fluent is very similar to the laminar pipeflow problem, with the exception we are now dealing with a planar model domain (instead of axisymmetric), it is a \emph{transient} simulation (because $\frac{\partial\left(\cdot\right)}{\partial t}\neq0$ in the governing equations), and the inlet and outlet boundary conditions are \emph{periodic} (because we essentially simulate a small element of an infinitely long domain). We are only highlighting the main difference.
 
 \begin{enumerate}
 \item Create the geometry and mesh for this problem with dimensions as specified in practical\,1a. Choose $\Delta x =1$\,mm, i.e. one cell in $x$-direction. Don't forget to name your boundaries in the Meshing.
