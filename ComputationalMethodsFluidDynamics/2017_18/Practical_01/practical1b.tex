@@ -613,22 +613,36 @@ In this section, we are going to simulate the start-up of a flow between two par
 \end{center}
 \end{figure}
 
-Setting up this problem in Fluent is very similar to the laminar pipeflow problem, with the exception we are now dealing with a planar model domain (instead of axisymmetric), it is a \emph{transient} simulation (because $\frac{\partial\left(\cdot\right)}{\partial t}\neq0$ in the governing equations), and the inlet and outlet boundary conditions are \emph{periodic} (because we essentially simulate a small element of an infinitely long domain). We are only highlighting the main difference.
+Setting up this problem in Fluent is very similar to the laminar pipeflow problem, with the exception we are now dealing with a planar model domain (instead of axisymmetric), it is a \emph{transient} simulation (because $\frac{\partial\left(\cdot\right)}{\partial t}\neq0$ in the governing equations), and the inlet and outlet boundary conditions are \emph{periodic} (because we essentially simulate a small element of an infinitely long domain). Here, we are only highlighting the main differences:
 
 \begin{enumerate}
-\item Create the geometry and mesh for this problem with dimensions as specified in practical\,1a. Choose $\Delta x =1$\,mm, i.e. one cell in $x$-direction. Don't forget to name your boundaries in the Meshing.
+\item Create the geometry and the mesh for this problem with dimensions as specified in practical\,1a. Choose $\Delta x =1$\,mm, i.e. one cell in $x$-direction. Don't forget to name your boundaries in the Meshing.
 \item Solver: In the \emph{General} settings in Fluent set the Solver to \emph{Planar} and \emph{Transient}.
 \item Fluid: Create a fluid with the specifications that satisfy the required kinematic viscosity.
-\item Boundary conditions: set the top and bottom wall boundary conditions as specified in the assignment. \\
-    Click anywhere in the console and hit the enter key on your keyboard, know \texttt{>} should have appeared in the console. Type the following in the console \texttt{grid/modify-zones/make-periodic} and hit enter. The next line in the console will say \texttt{
-Periodic zone [()]} which is asking you to indicate the Periodic zone. In our case we want our Inlet to be the period zone, you can now type the name of your inlet (which may be \emph{inlet}), or you can use the ID, you can find the ID in the \emph{boundary conditions} task page:
+\item Boundary conditions: set the top and bottom wall boundary conditions as specified in the assignment. 
+    \begin{itemize}
+       \item Click anywhere in the console and hit the enter key on your keyboard, know \texttt{>} should have appeared in the console. Type the following in the console 
+       \begin{center}
+            \texttt{grid/modify-zones/make-periodic}
+       \end{center}
+ and hit enter. The next line in the console will say  
+       \begin{center}
+            \texttt{Periodic zone [()]},
+       \end{center}
+which is asking you to indicate the Periodic zone.
+       \item In our case, we want our Inlet to be the period zone, you can now type the name of your inlet (which may be \emph{inlet}), or you can use the ID, you can find the ID in the \emph{boundary conditions} task page:
  \begin{figure}[H]
 \begin{center}
 \includegraphics[width=0.4\textwidth,clip]{BC_ID.png}
 \end{center}
 \end{figure}
-
-So in this case I can type either \emph{inlet} (name) or \emph{5} (ID) and then hit enter. The next line will ask for the \emph{shadow zone}, which is the outlet of our domain in this case, so type the appropriate name or ID. In the subsequent lines type \texttt{no}, \texttt{yes} and \texttt{yes}. The console will now indicate that one zone has been deleted and that periodic zones are created. In the boundary conditions \emph{Task Page} you can now see that the inlet boundary condition \emph{type} has changed to \emph{Periodic} and that the outlet boundary condition has disappeared. In the bottom of the boundary conditions \emph{Task Page} you can now see that you can click the \emph{Periodic conditions ...} to set the period boundary condition (which was not selected previously, see figure above). Here we set the periodic boundary condition to specified pressure gradient of 0\,Pa/m (note that we actually have a zero-pressure gradient flow in this case, because the moving top plate is driving the flow, not the pressure!).
+  So in this case I can type either \emph{inlet} (name) or \emph{5} (ID) and then hit enter.
+       \item The next line will ask for the \emph{shadow zone}, which is the outlet of our domain in this case, so type the appropriate name or ID.
+       \item In the subsequent lines type \texttt{no}, \texttt{yes} and \texttt{yes}. The console will now indicate that one zone has been deleted and that periodic zones are created.
+       \item In the boundary conditions \emph{Task Page} you can now see that the inlet boundary condition \emph{type} has changed to \emph{Periodic} and that the outlet boundary condition has disappeared. In the bottom of the boundary conditions \emph{Task Page} you can now see that you can click the \emph{Periodic conditions ...} to set the period boundary condition (which was not selected previously, see figure above).
+       \item Here we set the periodic boundary condition to specified pressure gradient of 0\,Pa/m (note that we actually have a zero-pressure gradient flow in this case, because the moving top plate is driving the flow, not the pressure!).
+    \end{itemize} 
+    
 \item under \emph{Solution$\rightarrow$Methods} tick the \emph{Non-Iterative Time Advancement} box. Leave the \emph{Monitors} at their default values.
 \item Initialise your results, and set the Time Step Size to the same timestep used in your Matlab simulation. 
 \end{enumerate}
@@ -637,7 +651,7 @@ So in this case I can type either \emph{inlet} (name) or \emph{5} (ID) and then 
 \subsection{Exercises}
 
 \begin{enumerate}
-\item run a simulation for 0.01\,s, 0.1\,s and 1\,s and compare $u_\mathrm{x}$ to your Matlab results obtained in practical\,1a. Note that once you have made a graph in \emph{CFD-Post} you can export the data (by clicking \includegraphics[width=1.1cm,clip]{export_icon.png} in the \emph{Details View}) to a comma seperate value file (\texttt{*.csv}) or a text file (\texttt{*.txt} or \texttt{*.dat}) which you can read into matlab (see \texttt{csvread} or \texttt{dlmread} commands). Alternatively, you can add the Matlab data to a text file and load it into \emph{CFD-Post} following the procedure described in the pipe flow case. 
+\item Run numerical simulations for 0.01\,s, 0.1\,s and 1\,s and compare $u_\mathrm{x}$ to your Matlab results obtained in practical\,1a. Note that once you have made a graph in \emph{CFD-Post} you can export the data (by clicking \includegraphics[width=1.1cm,clip]{export_icon.png} in the \emph{Details View}) to a comma separated value file (\texttt{*.csv}) or a text file (\texttt{*.txt} or \texttt{*.dat}) which you can read into matlab (see \texttt{csvread} or \texttt{dlmread} commands). Alternatively, you can add the Matlab data to a text file and load it into \emph{CFD-Post} following the procedure described in the pipe flow case. 
 \item \hl{any more exercises that we can do? verification exercises? increase mesh and compare? check for mass continuity (=no need because of periodic BC's)}
 \end{enumerate}
 
