@@ -679,29 +679,22 @@ which is asking you to indicate the Periodic zone.
        where $\nu$ is the kinetic viscosity, subjected to the following initial and boundary conditions,
        \begin{displaymath}
            \begin{cases}
-               u(y,0) = 0, \;\;\;\;&  0 < y < L; 
+               u(y,0) = 0, \;\;\;\;&  0 < y < L; \\
+               u(0,t) = 0, \;\; u(L,t) = u_{0}, & t>0.
            \end{cases}
        \end{displaymath}
-       
-
-can be derived from the 
+       The analytic solution of this differential equation as $t\rightarrow\infty$ is known as the steady Couette solution, 
+       \begin{displaymath}
+           u(y) = \frac{u_{0}y}{L}.
+       \end{displaymath}
 \begin{enumerate}
-   \item From the Navier-Stokes equations
    \item Run numerical simulations for 0.01\,s, 0.1\,s and 1\,s, and plot $u_{x}/u_{0} \times y/L$;
-   \item Compare $u_\mathrm{x}$ from these simulations to Matlab results obtained in Practical\,1a. 
+   \item Compare $u_\mathrm{x}$ from these simulations to Matlab results obtained in Practical\,1a and to the analytic solution;
+   \item Assess and discuss the mesh-dependence of the solution.
 \end{enumerate}
-Note that once you have made a graph in \emph{CFD-Post} you can export the data (by clicking \includegraphics[width=1.1cm,clip]{export_icon.png} in the \emph{Details View}) to a comma separated value file (\texttt{*.csv}) or a text file (\texttt{*.txt} or \texttt{*.dat}) which you can read into matlab (see \texttt{csvread} or \texttt{dlmread} commands). Alternatively, you can add the Matlab data to a text file and load it into \emph{CFD-Post} following the procedure described in the pipe flow case;
 \end{enumerate}
 
 
-\subsection{Exercises}
-
-\begin{enumerate}
-\item Run numerical simulations for 0.01\,s, 0.1\,s and 1\,s and compare $u_\mathrm{x}$ to your Matlab results obtained in practical\,1a. Note that once you have made a graph in \emph{CFD-Post} you can export the data (by clicking \includegraphics[width=1.1cm,clip]{export_icon.png} in the \emph{Details View}) to a comma separated value file (\texttt{*.csv}) or a text file (\texttt{*.txt} or \texttt{*.dat}) which you can read into matlab (see \texttt{csvread} or \texttt{dlmread} commands). Alternatively, you can add the Matlab data to a text file and load it into \emph{CFD-Post} following the procedure described in the pipe flow case. 
-\item 
-
-\hl{any more exercises that we can do? verification exercises? increase mesh and compare? check for mass continuity (=no need because of periodic BC's)}
-\end{enumerate}
 
 
 
