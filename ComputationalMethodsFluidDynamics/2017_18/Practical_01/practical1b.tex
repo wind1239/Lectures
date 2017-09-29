@@ -674,21 +674,21 @@ which is asking you to indicate the Periodic zone.
 
     \item Task: The start-up flow problem is a classic fluid mechanics problem that can be derived from the Navier-Stokes equations and is defined as
        \begin{displaymath}
-           \frac{\partial u}{\partial t} = \nu \frac{\partial^{2}u}{\partial y^{2}},
+           \frac{\partial u}{\partial t} = \nu \frac{\partial^{2}u_{x}}{\partial y^{2}},
        \end{displaymath}
        where $\nu$ is the kinetic viscosity, subjected to the following initial and boundary conditions,
        \begin{displaymath}
            \begin{cases}
-               u(y,0) = 0, \;\;\;\;&  0 < y < L; \\
-               u(0,t) = 0, \;\; u(L,t) = u_{0}, & t>0.
+               u_{x}(y,0) = 0, \;\;\;\;&  0 < y < L; \\
+               u_{x}(0,t) = 0, \;\; u_{x}(L,t) = u_{0}, & t>0,
            \end{cases}
        \end{displaymath}
-       The analytic solution of this differential equation as $t\rightarrow\infty$ is known as the steady Couette solution, 
+       respectively. The analytic solution of this differential equation as $t\rightarrow\infty$ is known as the steady Couette solution, 
        \begin{displaymath}
-           u(y) = \frac{u_{0}y}{L}.
+           u_{x}(y) = \frac{u_{0}y}{L}.
        \end{displaymath}
 \begin{enumerate}
-   \item Run numerical simulations for 0.01\,s, 0.1\,s and 1\,s, and plot $u_{x}/u_{0} \times y/L$;
+   \item Run numerical simulations for 0.01\,s, 0.1\,s and 1\,s, and plot $u_{x}(y)/u_{0} \times y/L$;
    \item Compare $u_\mathrm{x}$ from these simulations to Matlab results obtained in Practical\,1a and to the analytic solution;
    \item Assess and discuss the mesh-dependence of the solution.
 \end{enumerate}
