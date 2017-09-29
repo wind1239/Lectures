@@ -37,7 +37,7 @@ This practical shows how to solve the basic problem of fluid flow through a circ
 \end{enumerate}
 This tutorial will guide you step-by-step through these four procedures and provide basic skill sets to complete the assignment.
 
-\section{Laminar pipe flow}
+\section{Laminar pipe flow}\label{Section:LaminarPipeSimple}
 Consider a fluid flowing through a circular pipe of diameter $D$ and length $L$ as sketched below. The pipe diameter is $D=0.3$\,m and the length of the pipe is $L=6$\,m. The inlet velocity  is constant over the cross-section and is equal to $U=1$\,m/s. The  fluid density is $\rho=1$\,kg/m$^3$ and the fluid viscosity is $\mu=1.5\times10^{-3}$\,kg/ms. Note that these properties result in a Reynolds number of $\Rey=\rho DL/\mu=200$ which means the flow is laminar. The outlet pressure $p_\mathrm{o}$ is equal to 1 atmosphere (standard pressure).\\
 \begin{center}
 \includegraphics[width=\textwidth,clip]{pipe_sketch.pdf}
@@ -582,30 +582,51 @@ Although we have now produced very nice colorful results it is essential to perf
     It is shown that increasing the mesh from 600\,cells to 1200\,cells has changed the results slightly, in particular the maximum velocity along the centreline has increased. Further increasing the mesh to 1800\,cells did not alter the results significantly (green and blue line practically overlap), hence the results have become independent of the mesh size (the spatial discretization error has become so small that we do not notice it). For the remaining calculations we can therefore use the mesh size of 1200\,cells. Note that in this case we have checked the mesh sensitivity only for the velocity profile at the outlet, which in our case the main result of interest. Of course, if some other quantity is the variable of primary interest (e.g. the drag force), then typically you would determine the mesh sensitivity based on this variable. For many CFD applications in practice, which may consist of millions of cells, the final mesh choice is often a balanced decision between which error can be accepted and the extra computational time (=cost!) associated with a more accurate mesh.
 \end{itemize}
 
-\subsection{Validation (Exercises)}
+
+%%%
+%%% ASSIGNMENT 1: Validation
+%%%
+\section{ASSIGNMENTS}% 1: Validation Procedure for Section~\ref{Section:LaminarPipeSimple}}
+\subsection{Assignment 1: Validation Procedure for Section~\ref{Section:LaminarPipeSimple}}
+%\subsection{Validation (Exercises)}
 
 \begin{enumerate}
-\item Compare your results based on the original mesh and the new mesh with the theoretical velocity profile for fully-developed laminar pipe flow:
-\begin{equation}
-    u(r)=2U\left(1-\frac{r^2}{R^2}\right)
-\end{equation}
-where $r$ is the radial coordinate, $U$ is the average velocity across the pipe cross-sectional area and $R$ is the pipe radius. You can download a small file with the data \textattachfile{u_prof_analytical.txt}{\underline{here}} (\hl{or we can ask them to plot it like last year}) and save it to your \emph{Homedrive}. The first column in this file is the velocity in m/s and the second column the radial coordinate in m. You can add this data to your plot of the velocity profile in \emph{CFD-Post} as follows: in the \emph{Project Tree} double-click the graph where you previously made your velocity profile, in the \emph{Details View} select the \emph{Data Series} tab and click \includegraphics[width=0.5cm,clip]{new_symbol.png} to a add a new data series. Now under \emph{Data Source} select \bfr{File} and then browse for the \texttt{*.txt} file which you just saved to your homedrive (in the import dialogue box you may need to change to file type to \emph{text files}), then click \bfr{Apply} to load the data. You can change the name of the data-series to something sensible, e.g. \emph{analytical}. \\
-Is our numerical simulation validated?
+   \item Compare the results (Section~\ref{Section:LaminarPipeSimple}) obtained from both, original and new mesh (\hl{Section XX}), with the theoretical velocity profile for fully-developed laminar pipe flow:
+      \begin{equation}
+          u(r)=2U\left(1-\frac{r^2}{R^2}\right),
+      \end{equation}
+where $r$ is the radial coordinate, $U$ is the average velocity across the pipe cross-sectional area and $R$ is the pipe radius. 
+       \begin{enumerate}
+          \item You can download experimental data from \textattachfile{u_prof_analytical.txt}{\underline{here}} and save it to your \emph{Homedrive};
+          \item The first column in this file is the velocity in m/s and the second column the radial coordinate in m; 
+          \item You can add this data to your plot of the velocity profile in \emph{CFD-Post} as follows: 
+            \begin{enumerate}
+                 \item From the \emph{Project Tree}, double-click the graph where you previously made your velocity profile;
+                 \item From the \emph{Details View}, select the \emph{Data Series} tab and click \includegraphics[width=0.5cm,clip]{new_symbol.png} to a add a new data series;
+                 \item From the \emph{Data Source}, select \bfr{File} and then browse for the \texttt{*.txt} file which you just saved to your \emph{homedrive} (in the import dialogue box you may need to change to file type to \emph{text files});
+                 \item Then click \bfr{Apply} to load the data. You can change the name of the data-series to something sensible, e.g. \emph{analytical}. 
+            \end{enumerate}
+      \end{enumerate}
+Is the numerical simulation validated?
 
-\item \hl{This skin friction they did not understood last year, perhaps remove? I THINK WE SHOULD KEEP IT ...} Plot the pressure along the axis centreline. Use the following relationship between pressure loss and average velocity to obtain the skin friction coefficient: 
+   \item Plot the pressure along the axis centreline. Use the following relationship between pressure loss and average velocity to obtain the skin friction coefficient: 
 \begin{equation}
     \Delta P=c_\mathrm{f}\frac{2L\rho U^2}{D}
 \end{equation}
-Calculate the skin friction coefficient for the entire pipe length ($x=0..6$\,m). Compare the results with the skin friction coefficient for fully developed laminar pipe flow:
+Calculate the skin friction coefficient for the entire pipe length ($x=0-6$\,m). Compare the results with the skin friction coefficient for fully developed laminar pipe flow:
 \begin{equation}
     c_\mathrm{f}=\frac{16}{\Rey}
 \end{equation}
-\item The \emph{entrance region} of the pipe is the region after the inlet where the boundary layer on the side wall is still growing. Once the boundary layer has reached the pipe centreline the velocity profile does not change with x-position anymore, i.e  $\partial u/\partial x=0$. The length of the entrance region, $L_\mathrm{e}$, is often taken as $L_\mathrm{e}\approx0.06D\Rey$. Calculate the skin friction based on the pressure drop in the region ($x=L_\mathrm{e}..6$\,m), compare your results to the theoretical value for fully developed flow.
+   \item The \emph{entrance region} of the pipe is the region after the inlet where the boundary layer on the side wall is still growing. Once the boundary layer has reached the pipe centreline the velocity profile does not change with x-position anymore, i.e  $\partial u/\partial x=0$. The length of the entrance region, $L_\mathrm{e}$, is often taken as $L_\mathrm{e}\approx0.06D\Rey$. Calculate the skin friction based on the pressure drop in the region ($x=L_\mathrm{e}-6$\,m), compare your results to the theoretical value for fully developed flow.
 \end{enumerate}
 
-\section{Start-up flow (Simple Couette Flow)}
 
-In this section, we are going to simulate the start-up of a flow between two parallel plates which you have previously considered in tutorial\,3 and practical\,1a. Initially both plates and the fluid between them are at rest. At time equal zero ($t=0$) the upper plate starts moving with a constant velocity, $u_0$, as indicated below. Previously we considered this as 1-dimensional problem by modeling one vertical profile of length $L$. In Fluent a flow problem need to have at least 2 dimensions therefore we are considering it as a ``box'' of this fluid of dimension $L\times 2L$ as shown below.
+%%%
+%%% ASSIGNMENT 1: Validation
+%%%
+\subsection{Assignment 2: Start-up Couette Flow}
+
+In this section, we are going to simulate the start-up of a flow between two parallel plates which you have previously considered in Tutorial\,3 and Practical\,1a. Initially both plates and the fluid between them are at rest. At time equal zero ($t=0$), the upper plate starts moving with a constant velocity, $u_0$, as indicated below. Previously, we considered this as 1D problem by modeling one vertical profile of length $L$. Numerical simulations in Fluent need to be either 2D or 3D, therefore we are considering it as a ``box'' of fluid with dimension $L\times 2L$.
 
 \begin{figure}[H]
 \begin{center}
@@ -613,7 +634,11 @@ In this section, we are going to simulate the start-up of a flow between two par
 \end{center}
 \end{figure}
 
-Setting up this problem in Fluent is very similar to the laminar pipeflow problem, with the exception we are now dealing with a planar model domain (instead of axisymmetric), it is a \emph{transient} simulation (because $\frac{\partial\left(\cdot\right)}{\partial t}\neq0$ in the governing equations), and the inlet and outlet boundary conditions are \emph{periodic} (because we essentially simulate a small element of an infinitely long domain). Here, we are only highlighting the main differences:
+Setting up this problem in Fluent is very similar to the laminar pipeflow problem, with the exception:
+\begin{enumerate}
+   \item  we are now dealing with a planar model domain (instead of axisymmetric), it is a \emph{transient} simulation (because $\frac{\partial\left(\cdot\right)}{\partial t}\neq0$ in the governing equations), and;
+   \item the inlet and outlet boundary conditions are \emph{periodic} (because we essentially simulate a small element of an infinitely long domain);
+   \item Thus, the main differences are:
 
 \begin{enumerate}
 \item Create the geometry and the mesh for this problem with dimensions as specified in practical\,1a. Choose $\Delta x =1$\,mm, i.e. one cell in $x$-direction. Don't forget to name your boundaries in the Meshing.
@@ -645,6 +670,27 @@ which is asking you to indicate the Periodic zone.
     
 \item under \emph{Solution$\rightarrow$Methods} tick the \emph{Non-Iterative Time Advancement} box. Leave the \emph{Monitors} at their default values.
 \item Initialise your results, and set the Time Step Size to the same timestep used in your Matlab simulation. 
+\end{enumerate}
+
+    \item Task: The start-up flow problem is a classic fluid mechanics problem that can be derived from the Navier-Stokes equations and is defined as
+       \begin{displaymath}
+           \frac{\partial u}{\partial t} = \nu \frac{\partial^{2}u}{\partial y^{2}},
+       \end{displaymath}
+       where $\nu$ is the kinetic viscosity, subjected to the following initial and boundary conditions,
+       \begin{displaymath}
+           \begin{cases}
+               u(y,0) = 0, \;\;\;\;&  0 < y < L; 
+           \end{cases}
+       \end{displaymath}
+       
+
+can be derived from the 
+\begin{enumerate}
+   \item From the Navier-Stokes equations
+   \item Run numerical simulations for 0.01\,s, 0.1\,s and 1\,s, and plot $u_{x}/u_{0} \times y/L$;
+   \item Compare $u_\mathrm{x}$ from these simulations to Matlab results obtained in Practical\,1a. 
+\end{enumerate}
+Note that once you have made a graph in \emph{CFD-Post} you can export the data (by clicking \includegraphics[width=1.1cm,clip]{export_icon.png} in the \emph{Details View}) to a comma separated value file (\texttt{*.csv}) or a text file (\texttt{*.txt} or \texttt{*.dat}) which you can read into matlab (see \texttt{csvread} or \texttt{dlmread} commands). Alternatively, you can add the Matlab data to a text file and load it into \emph{CFD-Post} following the procedure described in the pipe flow case;
 \end{enumerate}
 
 
