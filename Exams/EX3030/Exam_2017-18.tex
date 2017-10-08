@@ -313,8 +313,7 @@
            \begin{displaymath}
              U^{-1} = h_{i}^{-1} + h_{0}^{-1} \;\;\;\Longrightarrow\;\; U =74.47 \text{ W.}\left(\text{m}^{2}.\text{K}\right)^{-1}
            \end{displaymath}
-         
-         
+            
          }
          
       \item A long rod of 60 mm diameter and thermophysical properties $\rho=$ 8000 kg/m$^{3}$, $C_{p}=$ 500 J/(kg.K), and $k=$ 50 W/(m.K) is initially at a uniform temperature and is heated in a forced convection furnace maintained at 750 K. The convection coefficient is estimated to be 1000 W/(m$^{2}$.K). Calculate the centerline temperature of the rod when the surface temperature is 550 K.\marks{10}
@@ -346,10 +345,125 @@ Replacing $\mathbf{J_{0}}$ in the merged equation, \solmarks{1}
 \end{question}
  
 \pagebreak
+%%%
+%%%  Resit Diet: Q02
+%%%
+\begin{question}
+  \begin{enumerate}
+  \item In a counterflow double-pipe heat exchanger, water $\left(C_{p}= 4.18\text{ kJ.kg}^{-1}.^{\circ}\text{C}\right)$ at 35$^{\circ}$C is heated by oil $\left(C_{p}= 1.9\text{ kJ.kg}^{-1}.^{\circ}\text{C}\right)$. The mass flow rate of the water stream is 40 kg.min$^{-1}$ and 170.97 kg.min$^{-1}$ of oil enters the heat exchanger at 110$^{\circ}$C. The overall heat-transfer coefficient is 320 W.$\left(\text{m}^{2}.^{\circ}\text{C}\right)^{-1}$. Calculate:
+    \begin{enumerate}[(a)]
+      \item Exit water and oil temperatures;\marks{9}
+          \solution{The energy balance for both fluid streams (oil and water), where $T_{oil,in}=T_{h,in}=110^{\circ}$C and $T_{w,in}=T_{c,in}=35^{\circ}$C, ~\solmarks{2}
+            \begin{eqnarray}
+              &&Q_{w} + Q_{oil} = 0 \nonumber \\
+              &&\dot{m}_{w}C_{p,w}\left(T_{c,out}-T_{c,in}\right) = -\dot{m}_{o}C_{p,o}\left(T_{h,out}-T_{h,in}\right) \nonumber \\
+              &&\frac{T_{c,out}-T_{c,in}}{T_{h,in}-T_{h,out}} =  \frac{\dot{m}_{o}C_{p,o}}{\dot{m}_{w}C_{p,w}} \;\;\Longrightarrow \;\; T_{c,out} = T_{c,in} + \frac{\dot{m}_{o}C_{p,o}}{\dot{m}_{w}C_{p,w}} {T_{h,in}-T_{h,out}}, \nonumber
+            \end{eqnarray}
+            $T_{c,out}=T_{w,out}$ can be obtain as a function of $T_{h,out}$. However, with $Q=U A \Delta T_{lm}$,~\solmarks{1}
+            \begin{displaymath}
+              \dot{m}_{w}C_{p,w}\left(T_{c,out}-T_{c,in}\right) = U A \frac{\left(T_{h,in}-T_{c,out}\right)-\left(T_{h,out}-T_{c,in}\right)}{\ln{\frac{T_{h,in}-T_{c,out}}{T_{h,out}-T_{c,in}}}}
+            \end{displaymath}
+            and substituting $T_{c,out}$ in this expression we obtain $T_{h,out}=79.70^{\circ}$C\solmarks{3}. Now,\solmarks{3}
+            \begin{displaymath}
+              \frac{T_{c,out}-T_{c,in}}{T_{h,in}-T_{h,out}} = \frac{\dot{m}_{o}C_{p,o}}{\dot{m}_{w}C_{p,w}} = 1.9427 \;\;\Longrightarrow \;\;T_{c,out}=T_{w,out} = 93.86^{\circ}\text{C}
+             \end{displaymath}
+          }
+        \item Total heat transfer (in kW);\marks{2}
+          \solution{ The heat transferred between streams can be obtained from~\solmarks{2}
+            \begin{displaymath}
+              Q = \dot{m}_{w}C_{p,w}\left(T_{c,out}-T_{c,in}\right) = 164023.2\text{ J.s}^{-1} = 164.02\text{ kW}
+            \end{displaymath}
+            }
+    \end{enumerate}
 
+    \item Consider three consecutive nodes $n-1$, $n$, $n+1$ in a plane wall. Using the finite difference form of the first derivative at the midpoints, show that the finite difference form of  the second derivative can be expressed as,\marks{4}
+\begin{displaymath}
+  \frac{T_{n-1}-2T_{n}+T_{n+1}}{\Delta x^{2}} = \left.\frac{\partial^{2} T}{\partial x^{2}}\right|_{N}.
+\end{displaymath}
+    {\bf Hint:} You should start the demonstration from the 1D expansion in Taylor series of a continuous and real function $f(x)$ about a point $x=a$,
+    \begin{displaymath}
+       f(x) = f(a) + f^{'}(a)\left(x-a\right) + \frac{f^{''}(a)}{2!}\left(x-a\right)^{2} + \frac{f^{'''}(a)}{3!}\left(x-a\right)^{3} + \cdots + \frac{f^{n}(a)}{n!}\left(x-a\right)^{n}
+    \end{displaymath}
+    \solution{In a 1D plane wall divided in $M$ nodes with an internal node $N$. Spatial increment is given by $\Delta x$. The expansion in Taylor series around node $N$ truncating in the second derivative leads to:\solmarks{3}
+      \begin{displaymath}
+        \begin{cases}
+             T_{N-1} = T_{N} - \Delta x \left(\frac{dT}{dx}\right)_{N} + \frac{\left(\Delta x\right)^{2}}{2!} \left(\frac{d^{2}T}{dx^{2}}\right)_{N} + \mathcal{O}\left[\left(\Delta x\right)^{3}\right], & \\
+             T_{N+1} = T_{N} + \Delta x \left(\frac{dT}{dx}\right)_{N} + \frac{\left(\Delta x\right)^{2}}{2!} \left(\frac{d^{2}T}{dx^{2}}\right)_{N} + \mathcal{O}\left[\left(\Delta x\right)^{3}\right], & 
+        \end{cases}
+      \end{displaymath}
+      Summing these expressions leads to\solmarks{1}
+\begin{displaymath}
+  \frac{T_{n-1}-2T_{n}+T_{n+1}}{\Delta x^{2}} = \left.\frac{\partial^{2} T}{\partial x^{2}}\right|_{N}.
+\end{displaymath}
+    }
+
+  \item Heavy oil at 150$^{\circ}$C is pumped into a storage tank before being transported to distillation columns. The tank is insulated with a layer of polyisocyanurate of 10 cm thick. The tank's wall is at 150$^{\circ}$C and the initial temperature of the insulation layer is 20$^{\circ}$C. Assuming that the tank wall-insulation layer-environment system can be modelled as a 1-D finite difference method (FDM) problem,  calculate the temperature profile of the insulated layer, $T\left(\underline{x},t\right)$, at $t = 5$ seconds with $\underline{x}=\left[0.0, 2.5, 5.0, 7.5, 10.0\right]$. The outer layer of the insulation material is subjected to the environment with temperature of 15$^{\circ}$C and convective heat transfer coefficient of 10 W$\left(\text{m}^{2}.^{\circ}\text{C}\right)^{-1}$. Given for polyisocyanurate insulation layer:
+    \begin{itemize}
+      \item Conductive heat transfer coefficient: 5.40 W.$\left(\text{m.}^{\circ}\text{C}\right)^{-1}$;
+      \item Heat capacity at constant pressure: 0.1 kJ.$\left(\text{kg.}^{\circ}\text{C}\right)^{-1}$;
+      \item Density: 550 kg.m$^{-3}$.
+    \end{itemize}
+    The discretised thermal energy equation is
+\begin{displaymath}
+    T_{i}^{j+1} = T_{i}^{j} + \alpha\frac{\Delta t}{\left(\Delta x\right)^{2}}\left(T_{i+1}^{j}-2T_{i}^{j}+T_{i-1}^{j}\right)
+\end{displaymath}
+where $\alpha=\kappa\left(\rho C_{p}\right)^{-1}$ is the thermal diffusivity, $\Delta x$ and $\Delta t$ are the spatial-interval and time-step size, respectively. $i$ and $j$ are the spatial- and time-indices. For this problem, use $\Delta t = 5$ seconds.~\marks{10}
+%=============
+\solution{ The thermal diffusivity,~\solmarks{1}
+\begin{displaymath}
+     \alpha = \frac{\kappa}{\rho C_{p}} = \left(5.40\frac{W}{m.^{\circ}C}\right)\left(\frac{1}{550}\frac{m^{3}}{kg}\right)\left(\frac{1}{0.1\times 10^{3}}\frac{kg.^{\circ}C}{J}\right) = {\bf 9.8182\times 10^{-5} \frac{m^{2}}{s}}, 
+\end{displaymath}
+and the Fourier number,~\solmarks{1}
+\begin{displaymath}
+  \tau = \frac{\alpha \Delta t}{\left(\Delta x\right)^{2}} = \left(9.8182\times 10^{-5} \frac{m^{2}}{s}\right)\left( 5 s\right)\left(\frac{1}{2.5\times 10^{-2}}\frac{1}{m}\right)^{2} = {\bf 0.7855}.
+\end{displaymath}
+Boundary and initial conditions are:
+\begin{itemize}
+    \item Dirichlet BC at node $i=0\;\left(x = 0.0\text{cm}\right)$ : {\bf $T_{0}^{0} = T_{0}^{1} = T_{0}^{2} = \cdots = $ 150$^{\circ}$C};%~\solmarks{1/10}
+    \item Newmann BC at node $i=4\;\left(x = 10.0\text{cm}\right)$: %~\solmarks{2/10}
+          \begin{eqnarray}
+             && - \kappa\frac{\partial T}{\partial x} = h\left( T - T_{\infty}\right) \Longrightarrow - \kappa\frac{T_{i+1}^{j}-T_{i-1}^{j}}{2\Delta x} = h\left( T_{i}^{j}- T_{\infty}\right) \nonumber \\
+             && \mathbf{T_{i+1}^{j} = T_{i-1}^{j} - \frac{2 h \Delta x }{\kappa}\left(T_{i}^{j}-T_{\infty}\right)}, \nonumber
+          \end{eqnarray}
+    \item Initial conditions: {\bf $T_{1}^{0}=T_{2}^{0}=T_{3}^{0}=T_{4}^{0}=$ 20$^{\circ}$C}.%~\solmarks{1/10}
+\end{itemize}
+
+The discretised thermal equation,~\solmarks{2}
+\begin{eqnarray}
+    && T_{i}^{j+1} = T_{i}^{j} + \alpha\frac{\Delta t}{\left(\Delta x\right)^{2}}\left(T_{i+1}^{j}-2T_{i}^{j}+T_{i-1}^{j}\right)\;\;\text{ with }\;\;\tau = \frac{\alpha \Delta t}{\left(\Delta x\right)^{2}} \nonumber \\
+    && \mathbf{T_{i}^{j+1} = \left( 1- 2\tau \right)T_{i}^{j} + \tau\left(T_{i+1}^{j}+T_{i-1}^{j}\right)} \nonumber
+\end{eqnarray}
+
+Thus for $j=0$:%~\solmarks{2/10}
+         \begin{eqnarray}
+             \mathbf{i=1}   &&  \mathbf{T_{1}^{1} = \left(1-2\tau\right)T_{1}^{0} + \tau\left(T_{2}^{0}+T_{0}^{0}\right)} \nonumber \\
+               \vdots &&   \hspace{3cm}                \vdots \nonumber \\
+             \mathbf{i=4}   &&  \mathbf{T_{4}^{1} = \left(1-2\tau\right)T_{4}^{0} + \tau\left(T_{5}^{0}+T_{3}^{0}\right)} \nonumber 
+         \end{eqnarray} 
+         with ghost-cell, $T_{5}^{0}$ defined through the Newmann BC:~\solmarks{2}
+         \begin{displaymath}
+             \mathbf{T_{5}^{0} = T_{3}^{0} - \frac{2 h\Delta x}{\kappa}\left(T_{4}^{0}-T_{\infty}\right)}
+         \end{displaymath}
+
+Thus:~\solmarks{4}
+\begin{center}
+\begin{tabular}{c | c c c c c }
+{\bf t (s)}  &  $T_{0}$  &  $T_{1}$  &  $T_{2}$  &  $T_{3}$  &  $T_{4}$  \\
+\hline
+0.0          &  150.00  &  20.00    &  20.00   &  20.00   &  20.00  \\
+{\bf 5.0 }         &  {\bf 150.00 }  &  {\bf 122.12 }   &  {\bf 20.00 }   &  {\bf 20.00 }   &  {\bf 20.00 }
+\end{tabular}
+\end{center}
+}
+      
+  \end{enumerate}
+\end{question}
+ 
+
+\pagebreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\input{datasheet}
+%\input{datasheet}
 % \includepdf{BaselFunctionTable.pdf}
 \paperend
 \end{document}
