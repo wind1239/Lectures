@@ -1,8 +1,9 @@
 
-default:	Exam1_2016-17.pdf Exam2_2016-17.pdf
+default:	Exam1_2016-17.pdf Exam2_2016-17.pdf  Exam_2017-18.pdf
 
-Exam1_2016-17.pdf:		  Exam1_2016-17.tex
-Exam2_2016-17.pdf:		  Exam2_2016-17.tex
+Exam1_2016-17.pdf:	Exam1_2016-17.tex
+Exam2_2016-17.pdf:	Exam2_2016-17.tex
+Exam_2017-18.pdf:	Exam_2017-18.tex	
 
 %.pdf:	%.tex
 	rm -f $*.pdf
