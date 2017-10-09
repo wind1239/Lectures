@@ -51,8 +51,34 @@
          Vessels 1 and 2 are kept at 1.5 and 4.5 bar, respectively. In order to design the second set of distillations, 
          \begin{enumerate}[a)]
             \item  Estimate the bubble and dew temperatures for Vessel 1. Also calculate the compositions at bubble and dew points;~\marks{14}
-                \solution{
-
+                \solution{\begin{enumerate}[i)]
+                            \item Bubble point:
+                                 \begin{eqnarray}
+                                    \sum\limits_{i=1}^{n} y_{i} &=& \sum\limits_{i=1}^{n} \frc{x_{i}P_{i}^{\text{sat}}}{P} = 1 \nonumber \\
+                                     &=& \frc{x_{C6}P_{C6}^{\text{sat}}}{P} + \frc{x_{C7}P_{C7}^{\text{sat}}}{P} + \frc{x_{C8}P_{C8}^{\text{sat}}}{P} = 1 \nonumber \\
+                                     &=& x_{C6}P_{C6} + x_{C7}P_{C7} + x_{C8}P_{C8} = P, \nonumber 
+                                  \end{eqnarray}
+                                  with the Antoine relation,
+                                  \begin{displaymath}
+                                    \ln{P^{\text{sat}}} = A - \frc{B}{T+C},
+                                  \end{displaymath}
+                                  with $P$ 150 kPa. Solving this non-linear equation (using a calculator) leads to the bubble point temperature $\Longrightarrow$ $T_{\text{bubble}}$ = 95.68$^{\circ}$C~\solmarks{2/8}.  Vapour phase composition is obtained from:
+                      \begin{displaymath}
+                         y_{i} = \frc{x_{i}P_{i}^{\text{sat}}}{P}.
+                      \end{displaymath}
+                      Leading to y = [ 0.6603, 0.1870, 0.1527 ]. ~\solmarks{2/8}
+%
+               \item Dew point:
+                    \begin{eqnarray}
+                        \sum\limits_{i=1}^{n} x_{i} &=& \sum\limits_{i=1}^{n} \frc{y_{i}P}{P_{i}^{\text{sat}}} = 1 \nonumber \\
+                                                 &=& \frc{y_{C6}P}{P_{C6}^{\text{sat}}} + \frc{y_{C7}P}{P_{C7}^{\text{sat}}} + \frc{y_{C8}P}{P_{C8}^{\text{sat}}} = 1 \nonumber 
+                    \end{eqnarray}
+                    Solving this non-linear equation (using a calculator) leads to the dew point temperature $\Longrightarrow$ $T_{\text{dew}}$ = 102.10$^{\circ}$C~\solmarks{2/8}.  Liquid phase composition is obtained from:
+                      \begin{displaymath}
+                         x_{i} = \frc{y_{i}P}{P_{i}^{\text{sat}}}.
+                      \end{displaymath}
+                      Leading to x = [ 0.2599, 0.3989, 0.3412 .] ~\solmarks{2/8}
+                          \end{enumerate}
                 }
             %\item  Estimate the bubble and dew temperatures for Vessel 2. Also calculate the compositions at bubble and dew points;~\marks{7}
             \item  Sketch the $T-xy$ diagram for the mixture in vessel 1, indicating bubble and dew point temperature and compositionss.~\marks{6}
