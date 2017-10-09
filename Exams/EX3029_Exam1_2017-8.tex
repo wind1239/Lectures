@@ -1,6 +1,6 @@
 
-%\documentclass[calculator,allquestions,datasheet,solutions]{exam_newMarcus2}
-\documentclass[calculator,allquestions,datasheet,Pens]{exam_newMarcus2}
+\documentclass[calculator,allquestions,datasheet,solutions]{exam_newMarcus2}
+%\documentclass[calculator,allquestions,datasheet,Pens]{exam_newMarcus2}
 
 % The full list of class options are
 % calculator : Allows approved calculator use.
@@ -157,7 +157,7 @@ Solving this integral for $T=400$ K leads to $K_{400\text{ K}} = 51.4338$~\solma
   
           
      \end{enumerate}
-     Heat capacity for both gases are expressed in a polynomial form as,
+     Heat capacity for both gases is expressed in polynomial form as,
   \begin{displaymath}
     C_{p} = a + bT + CT^{2} + dT^{3}, \;\;\;\;\left(\text{in J.mol}^{-1}\text{.K}^{-1}\right)
   \end{displaymath}
@@ -345,7 +345,7 @@ y_{1} = \frc{P_{1}}{P} = 0.360\;\;\text{ and } \;\; y_{2} = 0.640
           \caption{VLE for binary mixture: P-xy diagram at constant temperature.}\label{Figure:Fig1}
         \end{center}
       \end{figure}
-      Determine (i)-(ix) at Table~\ref{Table:Tab1},\marks{9}
+      Determine (i)-(ix) from Table~\ref{Table:Tab1},\marks{10}
       \begin{table}[h]
         \begin{center}
           \begin{tabular}{||c| c | c | c | c ||}
@@ -356,7 +356,7 @@ y_{1} = \frc{P_{1}}{P} = 0.360\;\;\text{ and } \;\; y_{2} = 0.640
                  N           &bubble point $\left(P_{BP}\right)$&--& (i)             & (ii)            \\
                  Q           &  --            &     (iii)          & (iv)             & (v)            \\
                  R           &  (vi)          &     --             & (vii)             & (viii)            \\
-                 Z           &  --           &     superheated vapour   & (ix)         &  --            \\                 
+                 Z           &  --           &     (ix)            & (x)         &  --            \\                 
             \hline\hline
           \end{tabular}
         \end{center}
@@ -364,21 +364,22 @@ y_{1} = \frc{P_{1}}{P} = 0.360\;\;\text{ and } \;\; y_{2} = 0.640
       \end{table}
       \solution{
         \begin{enumerate}[(i)]
-           \item $x_{1}=x_{z}$;\solmarks{1/9}
-           \item $y_{1}=y_{BP}$;\solmarks{1/9}
-           \item vapour-liquid mixture;\solmarks{1/9}
-           \item $x_{1}=x_{Q}$;\solmarks{1/9}
-           \item $y_{1}=y_{Q}$;\solmarks{1/9}
-           \item dew point $\left(P_{DP}\right)$;\solmarks{1/9}
-           \item $x_{1}=x_{DP}$;\solmarks{1/9}
-           \item $y_{1}=y_{z}$;\solmarks{1/9}
-           \item $x_{1}=0$;\solmarks{1/9}
+           \item $x_{1}=x_{z}$;\solmarks{1/10}
+           \item $y_{1}=y_{BP}$;\solmarks{1/10}
+           \item vapour-liquid mixture;\solmarks{1/10}
+           \item $x_{1}=x_{Q}$;\solmarks{1/10}
+           \item $y_{1}=y_{Q}$;\solmarks{1/10}
+           \item dew point $\left(P_{DP}\right)$;\solmarks{1/10}
+           \item $x_{1}=x_{DP}$;\solmarks{1/10}
+           \item $y_{1}=y_{z}$;\solmarks{1/10}
+           \item superheated vapour;\solmarks{1/10}
+           \item $x_{1}=0$;\solmarks{1/10}
         \end{enumerate}
         }
         
 %====================================================
 %%% Moran & Shapiro (Example 11.5)      
-     \item Using the Redlich-Kwong equation of state, develop algebraic expressions for the changes in specific entropy and internal energy of a gas between two states where the temperature is the same, $T_{1}=T_{2}$, and the pressures are $P_{1}$ and $P_{2}$, respectively.\marks{11}
+     \item Using the Redlich-Kwong equation of state, develop algebraic expressions for changes in specific entropy $\left(s_{2}-s_{1}\right)$ and internal energy $\left(u_{2}-u_{1}\right)$ of a gas between two states at the same temperature, \ie $T_{1}=T_{2}$, and pressures $P_{1}$ and $P_{2}$.\marks{10}
 %====================
         \solution{The RK EOS is explicit in pressure,
            \begin{displaymath}
@@ -391,28 +392,28 @@ y_{1} = \frc{P_{1}}{P} = 0.360\;\;\text{ and } \;\; y_{2} = 0.640
                du = C_{v}dT + \left[T\Partial[P]{T}{v}-P\right]dv & \\
              \end{cases}
            \end{displaymath}
-          At the isotherm $T_{1}=T_{2}$,\solmarks{2/12}
+          At the isotherm $T_{1}=T_{2}$,\solmarks{2/10}
            \begin{displaymath}
              \begin{cases}
                s_{2}-s_{1} = \displaystyle\int\limits_{v_{1}}^{v_{2}} \Partial[P]{T}{v}dv, & \\
                u_{2}-u_{1} = \displaystyle\int\limits_{v_{1}}^{v_{2}} \left[T\Partial[P]{T}{v}-P\right]dv. & \\
              \end{cases}
            \end{displaymath}
-           The limits for the integrals are the specific volumes $v_{1}$ and $v_{2}$ at the two states under consideration. Using $P_{1}$ and $P_{2}$ and the known temperature, $T_{1}=T_{2}=T$, these specific volumes should be readily obtained from the RK EOS. Before integrating, we need to solve the partial differential $\Partial[P]{T}{v}$ for the RK EOS,\solmarks{1/12}
+           The limits for the integrals are the specific volumes $v_{1}$ and $v_{2}$ at the two states under consideration. Using $P_{1}$ and $P_{2}$ and the known temperature, $T_{1}=T_{2}=T$, these specific volumes should be readily obtained from the RK EOS. Before integrating, we need to solve the partial differential $\Partial[P]{T}{v}$ for the RK EOS,
            \begin{displaymath}
              \Partial[P]{T}{v} = \frc{R}{v-b} + \frc{a}{2v\left(v+b\right)T^{3/2}}.
            \end{displaymath}
-           Now solving for the change in entropy,\solmarks{3/12}
+           Now solving for the change in entropy,\solmarks{3/10}
            \begin{eqnarray}
              s_{2}-s_{1} &=& \displaystyle\int\limits_{v_{1}}^{v_{2}} \left[\frc{R}{v-b} + \frc{a}{2v\left(v+b\right)T^{3/2}}\right]dv \nonumber \\
                         &=& R \ln{\left(\frc{v_{2}-b}{v_{1}-b}\right)} + \frc{a}{2bT^{3/2}}\left[\ln{\frc{v_{2}}{v_{1}}}-\ln{\frc{v_{2}+b}{v_{1}+b}}\right] \nonumber \\
                         &=& R \ln{\left(\frc{v_{2}-b}{v_{1}-b}\right)} + \frc{a}{2bT^{3/2}}\ln{\frc{v_{2}\left(v_{1}+b\right)}{v_{1}\left(v_{2}+b\right)}}.\nonumber
            \end{eqnarray}
-           For the change in internal energy, the term in bracket\solmarks{2/12}
+           For the change in internal energy, the term in bracket\solmarks{2/10}
            \begin{displaymath}
              \left[T\Partial[P]{T}{v}-P\right] = \frc{3a}{2v\left(v+b\right)T^{1/2}},
            \end{displaymath}
-           need to be integrated from $v_{1}$ to $v_{2}$,\solmarks{3/12}
+           need to be integrated from $v_{1}$ to $v_{2}$,\solmarks{3/10}
            \begin{eqnarray}
              u_{2}-u_{1} &=& \displaystyle\int\limits_{v_{1}}^{v_{2}} \frc{3a}{2v\left(v+b\right)T^{1/2}}dv \nonumber \\
                         &=& \frc{3a}{2bT^{1/2}}\left[\ln{\frc{v_{2}}{v_{1}}} - \ln{\frc{v_{2}+b}{v_{1}+b}}\right] \nonumber \\
