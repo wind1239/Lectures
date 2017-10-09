@@ -47,6 +47,11 @@
 \DeclareOption{datasheet}
 {\@datasheetattachedtrue}
 
+\newif\if@Pens
+\@Pensfalse
+\DeclareOption{Pens}
+{\@Penstrue}
+
 \newif\if@wsolutions
 \@wsolutionsfalse
 \DeclareOption{solutions}
@@ -183,8 +188,7 @@
 
   {\bf Failure to comply with the above will be regarded as cheating
     and may lead to disciplinary action as indicated in the Academic
-    Quality
-    Handbook Section 7 and particularly Appendix 7.1}\\
+    Quality Handbook.}\\
   \vspace{5mm}
 
   \vspace{2\baselineskip}
@@ -208,7 +212,11 @@
         \fi 
         \if@datasheetattached%
       \item Data sheets are attached to the paper.%
-      \item Physical constants and unit conversion factors are available in Appendix A, at the end of the paper.%
+      %\item Physical constants and unit conversion factors are available in Appendix A, at the end of the paper.%
+        \fi
+        \if@Pens%
+      \item Candidates %
+        {ARE NOT} permitted to use {GREEN} or {RED} pen in their booklets.
         \fi
       \end{enumerate}
     }

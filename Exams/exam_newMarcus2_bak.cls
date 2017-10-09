@@ -1,5 +1,8 @@
+\pdfoutput=1
 \ProvidesClass{exam}
 \LoadClass[UKenglish,a4paper,12pt]{article}
+\RequirePackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
 
 %%%%%%%%%%%%% Option flags
 \newif\if@resitpaper
@@ -32,11 +35,6 @@
 \DeclareOption{datasheet}
 {\@datasheetattachedtrue}
 
-\newif\if@Pens
-\@Pensfalse
-\DeclareOption{Pens}
-{\@Penstrue}
-
 \newif\if@wsolutions
 \@wsolutionsfalse
 \DeclareOption{solutions}
@@ -54,6 +52,17 @@
 \newcommand{\examtime}[1]{\def \@examtime {#1}}
 \newcommand{\examdate}[3]{%
   \newdate{ExamDateSaved}{#1}{#2}{#3}%
+  \ifnum\getdatemonth{ExamDateSaved}<9%
+  \newcommand{\SessionStart}{\pgfmathparse{int(\getdateyear{ExamDateSaved}-1)}\pgfmathresult}
+  \newcommand{\SessionEnd}{\getdateyear{ExamDateSaved}}
+  \newcommand{\SessionStartShort}{\pgfmathparse{int(mod(\getdateyear{ExamDateSaved}-1, 100))}\pgfmathresult}
+  \newcommand{\SessionEndShort}{\pgfmathparse{int(mod(\getdateyear{ExamDateSaved}, 100))}\pgfmathresult}
+  \else
+  \newcommand{\SessionStart}{\getdateyear{ExamDateSaved}}
+  \newcommand{\SessionEnd}{\pgfmathparse{int(\getdateyear{ExamDateSaved}+1)}\pgfmathresult}
+  \newcommand{\SessionStartShort}{\pgfmathparse{int(mod(\getdateyear{ExamDateSaved}, 100))}\pgfmathresult}
+  \newcommand{\SessionEndShort}{\pgfmathparse{int(mod(\getdateyear{ExamDateSaved}+1, 100))}\pgfmathresult}
+  \fi
 }
 \newcommand{\examformat}[1]{\def \@examformat {#1}}
 %%% Clear the variables at global scope
@@ -71,8 +80,8 @@
 \RequirePackage{url}
 
 %%%%%%%%%%% Notes function
-\RequirePackage{mdframed}
-\newcommand{\note}[1]{\begin{mdframed}[linewidth=1pt]{\bf Note:} {#1}\end{mdframed}}
+%\RequirePackage{mdframed}
+%\newcommand{\note}[1]{\begin{mdframed}[linewidth=1pt]{\bf Note:} {#1}\end{mdframed}}
 
 %%%% Formatting of dates for the exam
 \RequirePackage{datetime}
@@ -99,17 +108,16 @@
 
 %%% The standard header footer style
 \pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
 \fancyhf{}
 \makeatletter
 \if@wsolutions
 \chead{SOLUTIONS}
-\lhead{\marginnote{MARKS}}
+\lhead{\marginnote{\small Marks}}
 \fi
 \rhead{\if@samplepaper{SAMPLE-}\fi%
   \if@resitpaper{R-}\fi%
-  \@dtctr=\getdateyear{ExamDateSaved}%
-  \@modulo{\@dtctr}{100}%
-  \@coursecode/\twodigit{\@dtctr}}
+  \@coursecode/\SessionStart--\SessionEndShort}
 \makeatother
 \cfoot{\thepage/\pageref{LastPage}} \rfoot{}
 
@@ -120,6 +128,8 @@
 \parindent=0.0cm%
 \parskip=0.4cm%
 
+\RequirePackage{pgf}
+
 \renewcommand{\marks}[1]{\addtocounter{questiontotalmarks}{#1}\addtocounter{papertotalmarks}{#1}\unskip\linebreak[0]\mbox{}~\hfill\mbox{[#1 marks]}}
 
 %% frontmatter page
@@ -127,22 +137,46 @@
 \def \@frontmatter{%
   \RaggedRight
   \if@samplepaper\lhead{SAMPLE PAPER}\lfoot{SAMPLE PAPER}\rfoot{SAMPLE PAPER}\fi
-  \newcounter{lastyear}
-  \setcounter{lastyear}{\getdateyear{ExamDateSaved}}
-  \addtocounter{lastyear}{-1}
-  {\large \textbf{UNIVERSITY OF ABERDEEN\hspace{0.25in}SESSION \arabic{lastyear}--\getdateyear{ExamDateSaved}}
+  \newcounter{sessionyear}
+  \setcounter{sessionyear}{\getdateyear{ExamDateSaved}}
+  {\textbf{UNIVERSITY OF ABERDEEN\hspace{0.25in}SESSION \SessionStart--\SessionEndShort}
 
+    \begin{center}{\bf\Huge \@coursecode}\end{center}
+    
     \textbf{Degree Examination in \@coursecode~\@coursetitle}
 
     \textbf{\longexamdateformat\displaydate{ExamDateSaved}\hspace{2cm} \@examtime}}
   
   \if@samplepaper\begin{center}\textbf{\LARGE{SAMPLE PAPER}}\end{center}\fi
 
+  \begin{center}{\bf PLEASE NOTE THE FOLLOWING}\end{center}
+  \begin{enumerate}[(i)]
+  \item You \textbf{must not} have in your possession any material other than
+    that expressly permitted in the rules appropriate to this
+    examination. Where this is permitted, such material {\bf must not} be
+    amended, annotated or modified in any way.
+  \item You {\bf must not} have in your possession any material that could be
+    determined as giving you an advantage in the examination.
+  \item You {\bf must not} attempt to communicate with any candidate during
+    the exam, either orally or by passing written material, or by
+    showing material to another candidate, nor must you attempt to view
+    another candidate's work.
+  \item You {\bf must not} take to your examination desk any
+    electronic devices such as mobile phones or other “smart” devices.
+    The only exception to this rule is an approved calculator.
+  \end{enumerate}
+
+  {\bf Failure to comply with the above will be regarded as cheating
+    and may lead to disciplinary action as indicated in the Academic
+    Quality
+    Handbook Section 7 and particularly Appendix 7.1}\\
+  \vspace{5mm}
+
   \vspace{2\baselineskip}
   \begin{minipage}[t]{0.1\linewidth}
-      {\em Notes:}
+      {\bf\em Notes:}
   \end{minipage}
-  \begin{minipage}[t]{0.9\linewidth}
+  \begin{minipage}[t]{0.9\linewidth}\bf
     {\em
       \begin{enumerate}[(i)]
       \item Candidates %
@@ -155,38 +189,16 @@
         permitted to use the Engineering Mathematics Handbook.
         \if@steamtablesallowed
       \item Candidates %
-        {ARE} permitted to use steam tables, which will be provided.
+        {ARE} permitted to use thermodynamic tables with saturated fluid properties, which will be provided.
         \fi 
         \if@datasheetattached%
       \item Data sheets are attached to the paper.%
-        \fi
-        \if@Pens%
-      \item CAndidates %
-        {ARE NOT} permitted to use {GREEN} or {RED} pen in their booklets.
         \fi
       \end{enumerate}
     }
   \end{minipage}
   
-  \vspace{2\baselineskip}
-  {\bf PLEASE NOTE THE FOLLOWING}
-  \begin{enumerate}[(i)]
-  \item You \textbf{must not} have in your possession any material other than
-    that expressly permitted in the rules appropriate to this
-    examination. Where this is permitted, such material {\bf must not} be
-    amended, annotated or modified in any way.
-  \item You {\bf must not} have in your possession any material that could be
-    determined as giving you an advantage in the examination.
-  \item You {\bf must not} attempt to communicate with any candidate during
-    the exam, either orally or by passing written material, or by
-    showing material to another candidate, nor must you attempt to view
-    another candidate's work.
-  \end{enumerate}
   
-  {\bf Failure to comply with the above will be regarded as cheating
-    and may lead to disciplinary action as indicated in the Academic
-    Quality Handbook.}\\
-  \vspace{5mm}
   
   \begin{center}
     \textbf{\@examformat}
@@ -205,8 +217,9 @@
   \FloatBarrier\begin{center}%
     {\large\textbf{END OF PAPER}}%
   \end{center}%
-  \ifelsesolutions{\begin{center}{\bf Total Paper Marks:\thepapertotalmarks}\end{center}}{}
-}
+  \ifelsesolutions{\begin{center}{\bf Total Paper
+        Marks:\thepapertotalmarks} \\(not all questions are
+      compulsory)\end{center}}{} }
 
 % This command ensures that the END OF PAPER text is only printed at
 % the first occurrence, this is because it is either printed at the
@@ -275,3 +288,4 @@
   \addtocounter{partcounter}{1}%
   \FloatBarrier\pagebreak[3]{\centering\large\textbf{{P}{A}{R}{T} \Alph{partcounter}: #1}%
   \nopagebreak\FloatBarrier\nopagebreak}}
+\raggedbottom
