@@ -69,9 +69,13 @@ Create geometry with the dimensions given in the Problem Description. Note that,
 
 \subsubsection*{Mesh}
 
-We will now make a mesh of 450~divisions in the horizontal and 40~divisions in the vertical. Compared to the laminar model in the previous practical we're not only increasing the number of divisions at our inlet and outlet boundaries, we also want a finer mesh (smaller cells) near the pipe wall because for turbulent flows the velocity gradient ($\partial u/\partial r$) near the wall is much large compared to laminar flow. Closer towards the centreline the velocity gradient decreases so there we use a coarser mesh (larger cells). In order to to control the mesh size along an edge we will apply a mesh \emph{bias}.\\
+We will now make a mesh of 450~divisions in the horizontal and 40~divisions in the vertical. Compared to the laminar model in the previous practical we're not only increasing the number of divisions at our inlet and outlet boundaries, we also want a finer mesh (smaller cells) near the pipe wall because for turbulent flows the velocity gradient ($\partial u/\partial r$) near the wall is much large compared to laminar flow. Closer towards the centreline the velocity gradient decreases so we can use a coarser mesh (larger cells). In order to to control the mesh size along an edge we will apply a mesh \emph{bias}.\\
 
-First of all, we have to create a structured mesh by applying \bfr{Face Meshing} to your Mesh. Now, we still need to apply the required mesh size to the boundaries of our domain. Instead of applying the edge sizing to the inlet and outlet simultaneously we will need to apply it to each edge independently because of the biasing we are going to apply. Click \bfr{Mesh Control} in the \emph{mesh toolbar} and select \bfr{Sizing}. Select the edge tool \includegraphics[width=0.4cm]{edge_tool.png} from the \emph{selection toolbar} and click on the pipe inlet in your geometry and then click on \bfr{Apply} in the \emph{Details View} area. Set type to \bfr{Number of Divisions} and change the Number of Divisions to 40, set behavior to \bfr{Hard} and under \bfr{Bias Type} choose the second option, this decreases the cell size in the direction of the wall (note that the bias direction depends on how your edge was sketched, ie either from top-to-bottom or from bottom-to-top, so you might need to select the first option depending on how your geometry was created). Finally, set the Bias Factor to \bfr{15}. The bias factor indicates that the smallest division is 15\,times smaller than the largest division. Repeat the exercise for the outlet boundary conditions but this time apply the first option under \bfr{Bias type}. As an example, the \emph{Details View} and the outlet should now look as follows:
+First of all, we have to create a structured mesh by applying \bfr{Face Meshing} to the mesh. Now, we still need to apply the required mesh size to the boundaries of the domain. Instead of applying the edge sizing to the inlet and outlet simultaneously, we will need to apply it to each edge independently because of the biasing we are going to apply.
+
+Click \bfr{Mesh Control} in the \emph{mesh toolbar} and select \bfr{Sizing}. Select the edge tool \includegraphics[width=0.4cm]{edge_tool.png} from the \emph{selection toolbar} and click on the pipe inlet in the geometry, and then click on \bfr{Apply} in the \emph{Details View} area. Set type to \bfr{Number of Divisions} and change the {\it Number of Divisions} to 40, set behaviour to \bfr{Hard} and, under \bfr{Bias Type}, choose the second option. This decreases the cell size in the direction of the wall (note that the bias direction depends on how your edge was sketched, ie, either from top-to-bottom or from bottom-to-top, so you might need to select the first option depending on how your geometry was created).
+
+Finally, set the {\it Bias Factor} to \bfr{15}. The bias factor indicates that the smallest division is 15\,times smaller than the largest division. Repeat the exercise for the outlet boundary conditions but this time apply the first option under \bfr{Bias type}. As an example, the \emph{Details View} and the outlet should now look as follows:
 
         \begin{figure}[H]
         \begin{center}
@@ -79,34 +83,29 @@ First of all, we have to create a structured mesh by applying \bfr{Face Meshing}
         \end{center}
         \end{figure}
 
-If your mesh is getting finer near the centreline than you need to change the \emph{Bias Type}. Now also apply the 450 regular divisions (ie no biasing) to the pipewall and centreline. \hl{40$\times$400 mesh does not work anymore in fluent - aspect ratio is too much therefore fluent switches to unstructured mesh, so need to increase horizontal divisions to 450; need to explain aspect ratio here}\\
+If your resulting mesh is finer near the centreline than you may need to change the \emph{Bias Type}. Now also apply the 450 regular divisions (ie, no biasing) to the {\it pipewall} and {\it centreline}. \hl{40$\times$400 mesh does not work anymore in fluent - aspect ratio is too much therefore fluent switches to unstructured mesh, so need to increase horizontal divisions to 450; need to explain aspect ratio here}\\
 Create named boundaries for the \emph{inlet}, \emph{outlet}, \emph{centreline}, \emph{pipewall} and the \emph{flow\_domain}.
 
 
-\subsubsection*{Model set-up}
-
+\subsubsection*{Model Setup}
 
 \begin{itemize}
-    \item[-] \textbf{General}: set the solver to a \emph{steady}, \emph{axisymmetric} model, leave other settings at their default. You can investigate the mesh pressing \emph{Check}, the output of the mesh check is displayed in the \emph{Console} which, which should display \bfr{Done} (so no error messages). If you select \emph{Report quality} the console will give quality details, here the orthogonal quality is report (value between 0 and 1, higher is better) and the aspect ratio is the length/height of a cell.In this case the largest aspect ratio is nearly 35, which occurs for the cells closest to the pipewall.
-    \item[-] \textbf{Models}: set the \emph{Viscous} model to the \bfr{k-epsilon (2-eqn)} model, and choose the \bfr{Standard} model.The near wall area is the area affected by viscosity and covers the region $y^+<30$ where $y^+$ is the non-dimensional distance from the wall\footnote{$y^+=\rho yu_{*}/\mu$, where $u_{*}$ is the friction velocity $u_{*}=\sqrt{\tau_\mathrm{w}/\rho}$ and $\tau_\mathrm{w}$ is the wall shear stress}. Recall from boundary layer flow (\hl{Lecture Notes}) that $y^+<5$ is the \emph{viscous sublayer} while $y^+>30$ is the \emph{log-layer}, and the region inbetween is called the \emph{buffer layer}. The $k-\varepsilon$ model was not designed for the Near-Wall area (only for $y^+>30$ where the flow is fully turbulent) and
-        therefore we apply an additional ``model'' for the near wall region, the various model options are listed under \bfr{Near-Wall treatment}.
-        \emph{Standard wall functions} are semi-empirical formulae that cover the near-wall area and essentially apply boundary
-        conditions some distance away from the wall ($30 < y^+ < 100$), so that the turbulence-model equations do not need to be
-        solved very close to the wall. When you use the standard wall function the $y^+$ value of the first grid point therefore needs to
-        fall in the range $30 < y^+ < 100$. Another approach is the \emph{two-layer approach} which applies a separate model to the
-        near wall area, which allows the flow field to be resolved for grid points in the near-wall area, which then smoothly
-        ``blends'' into the turbulence model for $y^+>30$. The requirement for this approach is that the first point of your grid lies in the region $y^+<5$. Here we will select \bfr{Enhanced Wall Treatment} which applies either the standard wall function  or the two-layer approach depending on the $y^+$ of the first grid cell, where therefore don't have to worry too much about the $y^+$ value. The requirement mainly is that the first grid cell is either $y^+<5$ or $y^+>30$, we will check later if we have satisfied this condition. Note that the Enhanced Wall Treatment can only be applied to hydraulically smooth walls, so if your wall is rough you can only apply a standard wall function. When applying standard wall functions the $y^+$ of your first grid cell needs to be $>30$.
+    \item[-] \textbf{General}: set the solver to a \emph{steady}, \emph{axisymmetric} model, leave other settings at their default. You can investigate the mesh pressing \emph{Check}, the output of the {\it mesh check} is displayed in the \emph{Console}, which should display \bfr{Done} (so no error messages). If you select \emph{Report quality} the console will give quality details, here the orthogonal quality is reported (value between 0 and 1, the higher is better) and the aspect ratio is the length/height of a cell. In this case the largest aspect ratio is nearly 35, which occurs for the cells closest to the pipewall.
+    \item[-] \textbf{Models}: set the \emph{Viscous} model to the \bfr{k-$\varepsilon$ (2-eqn)} model, and choose the \bfr{Standard} model. The near wall area is the area affected by viscosity and covers the region $y^+<30$ where $y^+$ is the non-dimensional distance from the wall\footnote{$y^+=\rho yu_{*}/\mu$, where $u_{*}$ is the friction velocity $u_{*}=\sqrt{\tau_\mathrm{w}/\rho}$ and $\tau_\mathrm{w}$ is the wall shear stress.}. Recall from boundary layer flow (\hl{Lecture Notes}) that $y^+<5$ is the \emph{viscous sublayer} while $y^+>30$ is the \emph{log-layer}, and the region inbetween is called the \emph{buffer layer}. The $k-\varepsilon$ model was not designed for the Near-Wall area (only for $y^+>30$ where the flow is fully turbulent) and therefore we apply an additional ``model'' for the near wall region, the various model options are listed under \bfr{Near-Wall treatment}.
+      
+      \emph{Standard wall functions} are semi-empirical expressions that cover near-wall areas and essentially impose boundary conditions at some distance away from the wall ($30 < y^+ < 100$), so that turbulence-model equations do not need to be solved very close to the wall. When you use the standard wall function the $y^+$ value of the first grid point therefore needs to fall in the range $30 < y^+ < 100$. Another approach is the \emph{two-layer approach} which applies a separate model to the near wall-area, which allows the flow field to be resolved for grid points in the near-wall area, which then smoothly ``blends'' into the turbulence model for $y^+>30$.
+
+      The requirement for this approach is that the first point of the grid lies in the region $y^+<5$. Here, we will select \bfr{Enhanced Wall Treatment} which applies either the standard wall function or the two-layer approach depending on the $y^+$ of the first grid cell, therefore we don't need to worry about the $y^+$ value. The requirement mainly is that the first grid cell is either $y^+<5$ or $y^+>30$, we will check later if we have satisfied this condition. Note that the {\it Enhanced Wall Treatment} can only be applied to hydraulically smooth walls, so if teh wall is rough you can only apply a {\it standard wall function}. When applying standard wall functions the $y^+$ of the first grid cell needs to be $>30$.
         \begin{figure}[H]
             \begin{center}
                 \includegraphics[width=0.4\textwidth,clip]{k_eps_model_settings.png}
             \end{center}
         \end{figure}
-        Leave the model constants and other settings to their default values and press \bfr{OK}.
-        Ensure that all the other models (Multiphase, Energy, etc.) in the Models task page are switched off.
-    \item[-] \textbf{Materials:} create a new fluid with the density and viscosity as outlined in the problem description and apply the new fluid to your fluid domain under \emph{cell zone conditions}.
-    \item[-] \textbf{Boundary conditions:}
-    We now need to  specify our boundary conditions at the four boundaries of our domain. Note that our mathematical model now consists of two additional equations (one for $k$ and one for $\varepsilon$) we therefore also have to set boundary conditions for these equations.
-    Select \bfr{Boundary conditions} in the \emph{Navigation Pane} and then:
+        Leave the model constants and other settings to their default values and press \bfr{OK}. Ensure that all the other models (Multiphase, Energy, etc.) in the {\it Models task} page are \underline{switched off}.
+        
+      \item[-] \textbf{Materials:} create a new fluid with the density and viscosity as outlined in the problem description and apply the new fluid to your fluid domain under \emph{cell zone conditions}.
+        
+    \item[-] \textbf{Boundary conditions:} We now need to specify the boundary conditions at the four borders of the domain. Note that the mathematical model now consists of two additional equations (for $k$ and $\varepsilon$), therefore we also have to set up boundary conditions for these equations. Select \bfr{Boundary conditions} in the \emph{Navigation Pane} and then:
     \begin{enumerate}
         \item \emph{centreline}: set the centreline boundary \bfr{Type} to \bfr{axis}.
         \item \emph{inlet}: select \bfr{inlet} in the task page and click \bfr{Edit}, which will display the velocity inlet dialog box. Set the \bfr{Velocity Specification Method} to \bfr{Components} and set the \bfr{Axial Velocity} to 3.8755\,m/s. In addition we now also need to prescribe boundary conditions for the turbulence model. Therefore select \bfr{Intensity and Hydraulic Diameter} under the \emph{Specification Method} and set a turbulence intensity of \bfr{2\%} and set the hydraulic Diameter equal to the pipe diameter, i.e. \bfr{0.12936m}, see below. click \bfr{OK} to close the velocity inlet dialog box
@@ -115,35 +114,36 @@ Create named boundaries for the \emph{inlet}, \emph{outlet}, \emph{centreline}, 
             \includegraphics[width=0.45\textwidth,clip]{BCturb_velocity_inlet.png}
             \end{center}
             \end{figure}
-        \item \emph{outlet}: Select \bfr{outlet} in the boundary conditions task page and check if the \bfr{Type} is set to \bfr{pressure-outlet} (this should be the case, but if it's not, change the type to pressure-outlet). Click \bfr{Edit} and verify that the gauge pressure by default is set to 0\,Pa. You will also see Turbulence boundary conditions, which specify the turbulence present in case there is any  \emph{backflow} entering our domain through the outlet boundary. This will not be the case in our model so you can leave the Turbulence boundary conditions at their default values.
-        \item \emph{pipewall}: select the \bfr{pipewall} in the boundary conditions task page and verify that the \bfr{Type} is set to \bfr{wall}, and verify that the settings are \emph{stationary wall} with \emph{no slip }shear condition.
+        \item \emph{outlet}: Select \bfr{outlet} in the boundary conditions {\it Task Page} and check if the \bfr{Type} is set to \bfr{pressure-outlet} (this should be the case, but if it's not, change the type to pressure-outlet). Click \bfr{Edit} and verify that the gauge pressure by default is set to 0\,Pa. You will also see {\it Turbulence boundary conditions}, which specify the turbulence present in case there is any  \emph{backflow} entering the domain through the outlet boundary. This will not be the case in the model so you can leave the Turbulence boundary conditions at their default values.
+        \item \emph{pipewall}: select the \bfr{pipewall} in the boundary conditions {\it Task Page} and verify that the \bfr{Type} is set to \bfr{wall}. Verify that the settings are \emph{stationary wall} with \emph{no slip }shear condition.
     \end{enumerate}
-    \item[-] \textbf{Reference values: } set the reference density, length, velocity and viscosity. The other values variables we will not use as part of this exercise.
+    
+    \item[-] \textbf{Reference values: } set the reference density, length, velocity and viscosity. The other values variables will not be used as part of this exercise.
 \end{itemize}
+
 
 \subsection{Numerical solution}
 
 \begin{itemize}
-    \item[-] \textbf{Solution Methods:} set the discretization for the \emph{Momentum}, \emph{Turbulent Kinetic Energy} and \emph{Turbulent Dissipation Rate} to \bfr{Second Order upwind}. Set the other settings as indicated below. \hl{need to change pressure to first order?}
+    \item[-] \textbf{Solution Methods:} set the discretization for \emph{Momentum}, \emph{Turbulent Kinetic Energy} and \emph{Turbulent Dissipation Rate} to \bfr{Second Order upwind}. Set the other settings as indicated below. \hl{need to change pressure to first order?}
             \begin{figure}[H]
             \begin{center}
             \includegraphics[width=0.3\textwidth,clip]{solution_methods_turb.png}
             \end{center}
             \end{figure}
-    \item[-] \textbf{Monitors:} set the absolute criteria for all 5 equations to 1e-6.
-    \item[-] \textbf{Initialization:} We now need to give all the variables in each grid cell an initial value. Select Solution Initialization from the navigation pane, select \bfr{Standard Initialization} and choose inlet in the compute
-                from drop-down menu. The values from for the turbulent kinetic energy and turbulent dissipation rate are automatically computed from our inlet turbulence boundary conditions. Press \bfr{Initialize}.
-    \item[-] Before we start the calculation, we want to save the skin friction coefficient again but also the Y+ values . Go to \bfr{File} in the \emph{menu bar}, select \bfr{Data File Quantities} and in the right column select \bfr{Skin Friction Coefficient} and \bfr{Wall Yplus} and click \bfr{OK}.
-    \item[-] Now select \bfr{Run Calculation} from the \emph{Project Tree}. Set the \bfr{Number of Iterations} to 1000, then press \bfr{Calculate} and wait till your solution is converged. Save your project and close the Fluent window.
+    \item[-] \textbf{Monitors:} set the absolute criteria for all 5 equations to 10$^{-6}$.
+    \item[-] \textbf{Initialization:} We now need to initialise all the variables in each grid cell. Select {\it Solution Initialization} from the {\it Navigation Panel}, select \bfr{Standard Initialization} and choose {\it Inlet} in the compute from drop-down menu. The values from for the turbulent kinetic energy and turbulent dissipation rate are automatically computed from the inlet turbulence boundary conditions. Press \bfr{Initialize}.
+    \item[-] Before we start the calculation, we want to save the skin friction coefficient again but also the Y$^{+}$ values . Go to \bfr{File} in the \emph{menu bar}, select \bfr{Data File Quantities} and in the right column select \bfr{Skin Friction Coefficient} and \bfr{Wall Yplus} and click \bfr{OK}.
+    \item[-] Now select \bfr{Run Calculation} from the \emph{Project Tree}. Set the \bfr{Number of Iterations} to 1000, then press \bfr{Calculate} and wait till the solution has converged. Save your project and close the Fluent window.
 \end{itemize}
 
 
 
 \subsection{Post-processing}
-You should now plot the velocity vectors, contours, velocity profiles and the skin friction coefficient along the pipe wall similar to the laminar solution. Increase the number of samples on your \bfr{pipe inlet} and \bfr{pipe outlet} to improve the resolution of your profile plots.
-\\
-\\
-In the set-up of our model $k-\varepsilon$ model we applied the \emph{enhanced wall treatment} approach to model the near wall flow. This approach was only valid when the first cell away from the wall was either in the region $y^+<5$ or $y^+>30$. Here we are going to plot $y^+$ of the first grid cell to make sure this condition is satisfied. FLUENT conveniently stores the $y^+$ value of the first grid cell as the variable \bfr{Yplus}. Select the \includegraphics[width=.4cm]{chart_icon.png} icon, give your chart a suitable name and press \bfr{OK}. In the \emph{Details View}, select \bfr{pipe wall} under location, in the \emph{X-axis} tab select \bfr{X} under variable and in the \emph{Y-axis} tab select \bfr{Yplus}, then click \bfr{Apply}. Your plot should look as follow:
+You should now be able to plot velocity vectors, contours, velocity profiles and the skin friction coefficient along the pipe wall similar to the laminar solution. Increase the number of samples on your \bfr{pipe inlet} and \bfr{pipe outlet} to improve the resolution of  profile plots.
+\medskip
+
+In the set-up of the model $k-\varepsilon$ model we applied the \emph{enhanced wall treatment} approach to model the near wall flow. This approach was only valid when the first cell away from the wall was either in the region $y^+<5$ or $y^+>30$. Here we are going to plot $y^+$ of the first grid cell to ensure this condition is satisfied. FLUENT conveniently stores the $y^+$ value of the first grid cell as the variable \bfr{Yplus}. Select the \includegraphics[width=.4cm]{chart_icon.png} icon, give your chart a suitable name and press \bfr{OK}. In the \emph{Details View}, select \bfr{pipe wall} under location, in the \emph{X-axis} tab select \bfr{X} under variable and in the \emph{Y-axis} tab select \bfr{Yplus}, then click \bfr{Apply}. Your plot should look as follow:
 
 \begin{figure}[H]
 \begin{center}
@@ -151,7 +151,7 @@ In the set-up of our model $k-\varepsilon$ model we applied the \emph{enhanced w
 \end{center}
 \end{figure}
 
-Since $y^+$ never exceeds 5 in our domain our near-wall resolution is OK. Note that $y+$ is largest at the pipe inlet because the velocity gradient ($\partial u_{x}/\partial r$) and hence the wall shear-stress is largest here.
+Since $y^+$ never exceeds 5 in the domain, the near-wall resolution is appropriate. Note that $y^{+}$ is largest at the pipe inlet because the velocity gradient ($\partial u_{x}/\partial r$) and hence the wall shear-stress is largest here.
 
 \subsection{Exercises (Verifcation and Validation)}
 
@@ -219,7 +219,7 @@ Create a mesh with \bfr{350} equally-spaced divisions applied to the top and bot
 
 \begin{itemize}
     \item[-] \textbf{General}: set the solver to a \emph{steady}, \emph{axisymmetric} model, leave other settings at their default.
-    \item[-] \textbf{Models}: set the \emph{Viscous} model to the \bfr{k-epsilon (2-eqn)} model, and choose the \bfr{Standard} model. Because heat transfer is now part of our problem we need to switch on the energy model. Select \bfr{Models}, then select the \bfr{Energy} model, click edit, tick the selection box and click \bfr{OK}. \hl{The choice of the appropriate \emph{Viscous} model will be part of the exercises below.}
+    \item[-] \textbf{Models}: set the \emph{Viscous} model to the \bfr{k-$\varepsilon$ (2-eqn)} model, and choose the \bfr{Standard} model. Because heat transfer is now part of our problem we need to switch on the energy model. Select \bfr{Models}, then select the \bfr{Energy} model, click edit, tick the selection box and click \bfr{OK}. \hl{The choice of the appropriate \emph{Viscous} model will be part of the exercises below.}
 
     \item[-] \textbf{Materials:} Since the variations in absolute pressure are small in our pipeline, we will use a form of the ideal gas law in which the pressure remains constant and therefore the density will only be affected by changes in the temperature. Fluent calls this the ``Incompressible ideal gas'' law. By keeping the pressure constant we'll save some precious computational time. Under \bfr{Density} select \bfr{incompressible-ideal-gas}. Change any of the other properties to those given in the problem description, the viscosity you will determine in the first exercise below. Click \bfr{Change/Create} and then \bfr{Close} the \bfr{Create/Edit Materials} windows. Apply the new fluid to your fluid domain under \emph{cell zone conditions}.
     \item[-] \textbf{Boundary conditions:} We now need to specify our boundary conditions at the four boundaries of our domain. Specifying the type of boundaries and prescribing the \emph{Momentum} boundary conditions (velocity, pressure, turbulence) is similar as we did in Section~\ref{Part1} and therefore will not be repeated here. However, since we are also solving the energy equation in this problem we have additional thermal boundary conditions. For the inlet, wall and outlet boundaries these can be specified in the \bfr{Thermal} tab.:
