@@ -1,0 +1,304 @@
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+\setlength{\parindent}{0pt}
+
+\usepackage{fixltx2e}%% the official fixes for LaTeX2e
+\usepackage[a4paper,left=1in, right=1in, top=1in, bottom=1in]{geometry}
+\usepackage{graphicx} %% add [draft] for not generating figures (compiles much faster, in case only want to see text)
+\usepackage{color}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{bigints}
+\usepackage{soul} %% use \hl to higlight text
+\usepackage[section]{placeins} %% use \FloatBarrier command  to prevent floats to appear beyond some point in your documen
+
+
+\newcommand\Rey{\mbox{\textit{Re}}\,\,}
+\newcommand\bfr[1]{\textcolor[rgb]{1,0.00,0.00}{\textbf{\textsf{#1}}}}
+\newcommand\ra{$\rightarrow$}
+\newcommand\cm{\textcolor[rgb]{0.00,0.50,0.00}{\checkmark}\,\,}
+\begin{document}
+
+Practical EG501V Computational Fluid Dynamics - 2017/2018\\
+20 October - 16-18 hrs in MR117 \& MR 107 MacRobert Building
+\\
+\\
+\textbf{Online submission deadline: Wednesday 25 October at 23:59 hr}\\
+Submit on MyAberdeen in the form of a PDF file or MSWord document.\\
+\\
+\textbf{\Large{Practical 2. CFD of turbulent pipe flow and heat transfer}}
+
+\section{Introduction}
+Building on the knowledge of our previous practical of modeling laminar flow through a circular pipe using ANSYS Fluent, this tutorial will show how to solve problems involving:
+\begin{enumerate}
+   \item Tturbulent fluid flow through a circular pipe and;
+   \item Heat transfer in a circular pipe.
+\end{enumerate}
+In order to solve the momentum equation for the turbulent flow, we will use the $k-\varepsilon$ closure model, which was covered in Lecture Notes 8 and 9 on turbulence modeling. Heat transfer is modelled by including the {\it energy equation} in the Fluent simulations.
+
+Learning outcomes of this tutorial includes four key elements of CFD modelling, simulation and analysis:
+  \begin{enumerate}
+     \item Set up model \emph{Geometry};
+     \item \emph{Mesh generation};
+     \item Perform the \emph{Fluent analysis} and;
+     \item \emph{Post-processing} of your results (in \emph{CFD-Post}).
+  \end{enumerate}
+
+\section{Turbulent Pipe Flow}\label{Part1}
+
+\subsection{Problem description}
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.95\textwidth,clip]{pipe_geometry_turb.png}
+\end{center}
+\end{figure}
+
+We will consider a fluid flowing through the circular pipe of diameter $D=0.12936$\,m and length $L=5$\,m as sketched above. The inlet velocity is constant over the cross-sectional area and equal to $U=3.8755$\,m/s. The working fluid  has density $\rho=1.1644$\,kg/m$^3$ and fluid viscosity $\mu=1.8487\times10^{-5}$\,kg/ms. These properties result in a Reynolds number of $\Rey=\rho UD/\mu=31,577$ which means the flow is turbulent. The outlet pressure $p_\mathrm{o}$ is equal to 1\,atmosphere (standard pressure). The conditions given above are from a classic experiment obtained in the well-known \emph{Princeton SuperPipe} research facility at Princeton University, more details of this facility can be found \href{http://www.princeton.edu/~gasdyn/Facilities/Facilities.html#SuperPipe}{\underline{here}}. We will use experimental data from this facility to \emph{validate} the numerical results.
+
+In the following will we will go through the workflow in ANSYS Fluent, consisting of the \emph{pre-processing}, \emph{running the simulation} and \emph{Post-processing}. We assume that you have gained initial knowledge in setting up a model from the first Fluent practical and therefore this guide will not be as detailed as the previous Practical.
+
+
+\subsection{Pre-processing}
+
+Start a new project in the ANSYS workbench and save the project under a new \bfr{*.wbpj} file on your \emph{Homedrive}.
+
+\subsubsection*{Geometry}
+Create geometry with the dimensions given in the Problem Description. Note that, similar to the laminar pipe flow of practical~1a, we can use an axisymmetric model domain. Don't forget to change to surface body to \emph{Fluid}
+
+\subsubsection*{Mesh}
+
+We will now make a mesh of 450~divisions in the horizontal and 40~divisions in the vertical. Compared to the laminar model in the previous practical we're not only increasing the number of divisions at our inlet and outlet boundaries, we also want a finer mesh (smaller cells) near the pipe wall because for turbulent flows the velocity gradient ($\partial u/\partial r$) near the wall is much large compared to laminar flow. Closer towards the centreline the velocity gradient decreases so there we use a coarser mesh (larger cells). In order to to control the mesh size along an edge we will apply a mesh \emph{bias}.\\
+
+First of all, we have to create a structured mesh by applying \bfr{Face Meshing} to your Mesh. Now, we still need to apply the required mesh size to the boundaries of our domain. Instead of applying the edge sizing to the inlet and outlet simultaneously we will need to apply it to each edge independently because of the biasing we are going to apply. Click \bfr{Mesh Control} in the \emph{mesh toolbar} and select \bfr{Sizing}. Select the edge tool \includegraphics[width=0.4cm]{edge_tool.png} from the \emph{selection toolbar} and click on the pipe inlet in your geometry and then click on \bfr{Apply} in the \emph{Details View} area. Set type to \bfr{Number of Divisions} and change the Number of Divisions to 40, set behavior to \bfr{Hard} and under \bfr{Bias Type} choose the second option, this decreases the cell size in the direction of the wall (note that the bias direction depends on how your edge was sketched, ie either from top-to-bottom or from bottom-to-top, so you might need to select the first option depending on how your geometry was created). Finally, set the Bias Factor to \bfr{15}. The bias factor indicates that the smallest division is 15\,times smaller than the largest division. Repeat the exercise for the outlet boundary conditions but this time apply the first option under \bfr{Bias type}. As an example, the \emph{Details View} and the outlet should now look as follows:
+
+        \begin{figure}[H]
+        \begin{center}
+        \includegraphics[width=0.6\textwidth,clip]{bias_edge_sizing_outlet.png}
+        \end{center}
+        \end{figure}
+
+If your mesh is getting finer near the centreline than you need to change the \emph{Bias Type}. Now also apply the 450 regular divisions (ie no biasing) to the pipewall and centreline. \hl{40$\times$400 mesh does not work anymore in fluent - aspect ratio is too much therefore fluent switches to unstructured mesh, so need to increase horizontal divisions to 450; need to explain aspect ratio here}\\
+Create named boundaries for the \emph{inlet}, \emph{outlet}, \emph{centreline}, \emph{pipewall} and the \emph{flow\_domain}.
+
+
+\subsubsection*{Model set-up}
+
+
+\begin{itemize}
+    \item[-] \textbf{General}: set the solver to a \emph{steady}, \emph{axisymmetric} model, leave other settings at their default. You can investigate the mesh pressing \emph{Check}, the output of the mesh check is displayed in the \emph{Console} which, which should display \bfr{Done} (so no error messages). If you select \emph{Report quality} the console will give quality details, here the orthogonal quality is report (value between 0 and 1, higher is better) and the aspect ratio is the length/height of a cell.In this case the largest aspect ratio is nearly 35, which occurs for the cells closest to the pipewall.
+    \item[-] \textbf{Models}: set the \emph{Viscous} model to the \bfr{k-epsilon (2-eqn)} model, and choose the \bfr{Standard} model.The near wall area is the area affected by viscosity and covers the region $y^+<30$ where $y^+$ is the non-dimensional distance from the wall\footnote{$y^+=\rho yu_{*}/\mu$, where $u_{*}$ is the friction velocity $u_{*}=\sqrt{\tau_\mathrm{w}/\rho}$ and $\tau_\mathrm{w}$ is the wall shear stress}. Recall from boundary layer flow (\hl{Lecture Notes}) that $y^+<5$ is the \emph{viscous sublayer} while $y^+>30$ is the \emph{log-layer}, and the region inbetween is called the \emph{buffer layer}. The $k-\varepsilon$ model was not designed for the Near-Wall area (only for $y^+>30$ where the flow is fully turbulent) and
+        therefore we apply an additional ``model'' for the near wall region, the various model options are listed under \bfr{Near-Wall treatment}.
+        \emph{Standard wall functions} are semi-empirical formulae that cover the near-wall area and essentially apply boundary
+        conditions some distance away from the wall ($30 < y^+ < 100$), so that the turbulence-model equations do not need to be
+        solved very close to the wall. When you use the standard wall function the $y^+$ value of the first grid point therefore needs to
+        fall in the range $30 < y^+ < 100$. Another approach is the \emph{two-layer approach} which applies a separate model to the
+        near wall area, which allows the flow field to be resolved for grid points in the near-wall area, which then smoothly
+        ``blends'' into the turbulence model for $y^+>30$. The requirement for this approach is that the first point of your grid lies in the region $y^+<5$. Here we will select \bfr{Enhanced Wall Treatment} which applies either the standard wall function  or the two-layer approach depending on the $y^+$ of the first grid cell, where therefore don't have to worry too much about the $y^+$ value. The requirement mainly is that the first grid cell is either $y^+<5$ or $y^+>30$, we will check later if we have satisfied this condition. Note that the Enhanced Wall Treatment can only be applied to hydraulically smooth walls, so if your wall is rough you can only apply a standard wall function. When applying standard wall functions the $y^+$ of your first grid cell needs to be $>30$.
+        \begin{figure}[H]
+            \begin{center}
+                \includegraphics[width=0.4\textwidth,clip]{k_eps_model_settings.png}
+            \end{center}
+        \end{figure}
+        Leave the model constants and other settings to their default values and press \bfr{OK}.
+        Ensure that all the other models (Multiphase, Energy, etc.) in the Models task page are switched off.
+    \item[-] \textbf{Materials:} create a new fluid with the density and viscosity as outlined in the problem description and apply the new fluid to your fluid domain under \emph{cell zone conditions}.
+    \item[-] \textbf{Boundary conditions:}
+    We now need to  specify our boundary conditions at the four boundaries of our domain. Note that our mathematical model now consists of two additional equations (one for $k$ and one for $\varepsilon$) we therefore also have to set boundary conditions for these equations.
+    Select \bfr{Boundary conditions} in the \emph{Navigation Pane} and then:
+    \begin{enumerate}
+        \item \emph{centreline}: set the centreline boundary \bfr{Type} to \bfr{axis}.
+        \item \emph{inlet}: select \bfr{inlet} in the task page and click \bfr{Edit}, which will display the velocity inlet dialog box. Set the \bfr{Velocity Specification Method} to \bfr{Components} and set the \bfr{Axial Velocity} to 3.8755\,m/s. In addition we now also need to prescribe boundary conditions for the turbulence model. Therefore select \bfr{Intensity and Hydraulic Diameter} under the \emph{Specification Method} and set a turbulence intensity of \bfr{2\%} and set the hydraulic Diameter equal to the pipe diameter, i.e. \bfr{0.12936m}, see below. click \bfr{OK} to close the velocity inlet dialog box
+            \begin{figure}[H]
+            \begin{center}
+            \includegraphics[width=0.45\textwidth,clip]{BCturb_velocity_inlet.png}
+            \end{center}
+            \end{figure}
+        \item \emph{outlet}: Select \bfr{outlet} in the boundary conditions task page and check if the \bfr{Type} is set to \bfr{pressure-outlet} (this should be the case, but if it's not, change the type to pressure-outlet). Click \bfr{Edit} and verify that the gauge pressure by default is set to 0\,Pa. You will also see Turbulence boundary conditions, which specify the turbulence present in case there is any  \emph{backflow} entering our domain through the outlet boundary. This will not be the case in our model so you can leave the Turbulence boundary conditions at their default values.
+        \item \emph{pipewall}: select the \bfr{pipewall} in the boundary conditions task page and verify that the \bfr{Type} is set to \bfr{wall}, and verify that the settings are \emph{stationary wall} with \emph{no slip }shear condition.
+    \end{enumerate}
+    \item[-] \textbf{Reference values: } set the reference density, length, velocity and viscosity. The other values variables we will not use as part of this exercise.
+\end{itemize}
+
+\subsection{Numerical solution}
+
+\begin{itemize}
+    \item[-] \textbf{Solution Methods:} set the discretization for the \emph{Momentum}, \emph{Turbulent Kinetic Energy} and \emph{Turbulent Dissipation Rate} to \bfr{Second Order upwind}. Set the other settings as indicated below. \hl{need to change pressure to first order?}
+            \begin{figure}[H]
+            \begin{center}
+            \includegraphics[width=0.3\textwidth,clip]{solution_methods_turb.png}
+            \end{center}
+            \end{figure}
+    \item[-] \textbf{Monitors:} set the absolute criteria for all 5 equations to 1e-6.
+    \item[-] \textbf{Initialization:} We now need to give all the variables in each grid cell an initial value. Select Solution Initialization from the navigation pane, select \bfr{Standard Initialization} and choose inlet in the compute
+                from drop-down menu. The values from for the turbulent kinetic energy and turbulent dissipation rate are automatically computed from our inlet turbulence boundary conditions. Press \bfr{Initialize}.
+    \item[-] Before we start the calculation, we want to save the skin friction coefficient again but also the Y+ values . Go to \bfr{File} in the \emph{menu bar}, select \bfr{Data File Quantities} and in the right column select \bfr{Skin Friction Coefficient} and \bfr{Wall Yplus} and click \bfr{OK}.
+    \item[-] Now select \bfr{Run Calculation} from the \emph{Project Tree}. Set the \bfr{Number of Iterations} to 1000, then press \bfr{Calculate} and wait till your solution is converged. Save your project and close the Fluent window.
+\end{itemize}
+
+
+
+\subsection{Post-processing}
+You should now plot the velocity vectors, contours, velocity profiles and the skin friction coefficient along the pipe wall similar to the laminar solution. Increase the number of samples on your \bfr{pipe inlet} and \bfr{pipe outlet} to improve the resolution of your profile plots.
+\\
+\\
+In the set-up of our model $k-\varepsilon$ model we applied the \emph{enhanced wall treatment} approach to model the near wall flow. This approach was only valid when the first cell away from the wall was either in the region $y^+<5$ or $y^+>30$. Here we are going to plot $y^+$ of the first grid cell to make sure this condition is satisfied. FLUENT conveniently stores the $y^+$ value of the first grid cell as the variable \bfr{Yplus}. Select the \includegraphics[width=.4cm]{chart_icon.png} icon, give your chart a suitable name and press \bfr{OK}. In the \emph{Details View}, select \bfr{pipe wall} under location, in the \emph{X-axis} tab select \bfr{X} under variable and in the \emph{Y-axis} tab select \bfr{Yplus}, then click \bfr{Apply}. Your plot should look as follow:
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.6\textwidth,clip]{plot_Yplus.png}
+\end{center}
+\end{figure}
+
+Since $y^+$ never exceeds 5 in our domain our near-wall resolution is OK. Note that $y+$ is largest at the pipe inlet because the velocity gradient ($\partial u_{x}/\partial r$) and hence the wall shear-stress is largest here.
+
+\subsection{Exercises (Verifcation and Validation)}
+
+
+\begin{enumerate}
+\item \hl{shall we ask them here to check effect of changing the convergence criteria (so change it from 1e-6 to smaller value) and mesh sensitivity? Or in other words check whether the linearization and dicretization errors as small enough? We can also ask to check for mass continuity?}
+\item Present the following plots: 1) a contour plot of the horizontal velocity magnitude; 2) velocity profiles at $x=0$\,m, 1\,m, 5\,m and 10\,m. Make decent looking graphs by increasing the default fontsize, line width and axes labels in the figures (found under the graphs \emph{Details}). Note that for a clear looking contour plot you can apply a different Y-scale under the \emph{View} tab (e.g. 30). Export figures using the \emph{save picture} \includegraphics[width=.4cm]{export_fig_icon.png} button. Give an interpretation of the results in the graphs. [xx marks]
+\item Compare the skin friction coefficient at the outlet to the value you would obtain from the Moody diagram. Recall that the skin friction coefficient (Fanning friction factor) obtained from Fluent is equal to one fourth of the (Darcy-Weisbach) friction factor in the Moody diagram. [8 marks]
+\item There is no theoretical solution to describe the turbulent velocity profile, but to verify our numerical data we can compare it to the \emph{SuperPipe} experimental data for fully developed pipe flow. The experimental data can be found  \href{http://www.princeton.edu/~gasdyn/Superpipe_data/3.1577E+04.txt}{\underline{here}}, but for convenience we posted an Excel file with the data on MyAberdeen (containing only the data for half of the pipeline, similar to our numerical results). Compare your outlet velocity profile to the experimental velocity profile. Note that the experimental data is given in non-dimensional form, and that $r$ is the radial coordinate with $r=0$ at the pipe centreline and $r=R$ at the pipe wall ($R$ is the radius of the pipe), and that the $y$-coordinate is the wall-normal coordinate with $y=0$ at the pipe wall and $y=R$ at the pipe centreline. Data from your plots in \emph{CFD-Post} can be exported to \texttt{*.csv} files by clicking \includegraphics[width=1.2cm]{export.png} in the \emph{Details} of your plots, note that $Y$ in \emph{CFD-Post} is the radial coordinate. [xx marks]
+\end{enumerate}
+
+\section{Pipe Flow with Heat Transfer}\label{Part2}
+
+\subsection{Problem description}
+
+In this problem we will heat a section of the pipewall to investigate the effect of the temperature on the fluid. Direct localised heating of pipelines is often done to keep the fluid  above a certain temperature, such as the freeze point or in multi-phase pipelines temperatures below which processes such as hydrate or wax formation might occur. The pipeline has a diameter $D=0.06$\,m and  length of $L=7$\,m. The velocity at the inlet is constant over the cross-section with a value of $U=10$\,m/s. The inlet (room) temperature of the fluid is 294.15\,K. The outlet pressure $p_\mathrm{o}$ is equal to 1\,atmosphere (standard pressure).\\
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.95\textwidth,clip]{pipe_geometry_heattransfer.png}
+\end{center}
+\end{figure}
+
+The wall is heated between $x=2$\,m and $x=4\,$m with a constant heat flux of $5\,$kW/m$^2$. Assume that the pipe wall   is smooth. The heat capacity of the fluid is $c_\mathrm{p}=1006.43\,$J/(kg K), the thermal conductivity is $k_\mathrm{p}=0.0242$\,W/(m K), and molecular weight $MW=28.996$\,g/mol, the fluid viscosity will be specified later.
+\\
+\\
+Since much of this set-up is similar to the previous turbulent pipe flow exercise, except for the heat transfer, only the main differences will be highlighted in the following description of the set-up.
+
+\subsection{Pre-processing}
+
+\subsubsection*{Geometry}
+To save some effort you can copy the geometry from the previous exercise (right-click the geometry and select \emph{Duplicate}) and adjust the dimensions to match the dimensions of the new pipeline. Now we need to modify the sketch to  indicate the heated wall section in the middle of the pipe. Click the \bfr{Modify} tab and select \bfr{Split}, select two points at the top of the rectangle and two at the bottom of the rectangle. Note that their location does not matter at the moment since we will dimension them in a moment.\\
+Before we set the dimension we will first constrain the lower edges of the rectangle with the top edges of the rectangle. Click \bfr{Constraints} tab, and select \bfr{Equal Length}. Click the appropriate top and bottom edge sections and set them to be of equal length as shown below. Do the same for the middle sections.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.7\textwidth,clip]{equal_length.png}
+\end{center}
+\end{figure}
+
+Now set the two \bfr{Horizontal} dimensions of the heated section and click \includegraphics[width=1.2cm]{generate_button.png} to generate the surface.
+
+\subsubsection*{Mesh}
+Drag a new mesh component to your Project Schematic and connect the \bfr{Geometry} cell to the \bfr{Mesh} to start a new mesh. When you've opened up the mesher the first thing to do is create the \bfr{Named sections} as shown below. Because your top and bottom now consist of multiple sections you have to select two sections for the pipewall (keep Ctrl pressed while clicking the line sections with your mouse), and three section for the centreline.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.7\textwidth,clip]{heated_section.png}
+    \includegraphics[width=0.7\textwidth,clip]{pipewall.png}
+    \includegraphics[width=0.7\textwidth,clip]{inlet.png}
+    \includegraphics[width=0.7\textwidth,clip]{outlet.png}
+    \includegraphics[width=0.7\textwidth,clip]{centreline.png}
+\end{center}
+\end{figure}
+
+Create a mesh with \bfr{350} equally-spaced divisions applied to the top and bottom boundaries and 15 equally-spaced divisions on the inlet and outlet boundaries. In order to apply an equally-spaced division to the top boundary, we will select the three edges and then change the \bfr{Type} to \bfr{Element Size} and prescribe an element size of 0.02\,m as indicated below, which will give us 350 divisions over our 7\,m long pipeline. Repeat this exercise to apply 350\,divisions to the bottom boundary
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.3\textwidth,clip]{edge_sizing_3.png}
+\end{center}
+\end{figure}
+
+\subsubsection*{Model set-up}
+
+\begin{itemize}
+    \item[-] \textbf{General}: set the solver to a \emph{steady}, \emph{axisymmetric} model, leave other settings at their default.
+    \item[-] \textbf{Models}: set the \emph{Viscous} model to the \bfr{k-epsilon (2-eqn)} model, and choose the \bfr{Standard} model. Because heat transfer is now part of our problem we need to switch on the energy model. Select \bfr{Models}, then select the \bfr{Energy} model, click edit, tick the selection box and click \bfr{OK}. \hl{The choice of the appropriate \emph{Viscous} model will be part of the exercises below.}
+
+    \item[-] \textbf{Materials:} Since the variations in absolute pressure are small in our pipeline, we will use a form of the ideal gas law in which the pressure remains constant and therefore the density will only be affected by changes in the temperature. Fluent calls this the ``Incompressible ideal gas'' law. By keeping the pressure constant we'll save some precious computational time. Under \bfr{Density} select \bfr{incompressible-ideal-gas}. Change any of the other properties to those given in the problem description, the viscosity you will determine in the first exercise below. Click \bfr{Change/Create} and then \bfr{Close} the \bfr{Create/Edit Materials} windows. Apply the new fluid to your fluid domain under \emph{cell zone conditions}.
+    \item[-] \textbf{Boundary conditions:} We now need to specify our boundary conditions at the four boundaries of our domain. Specifying the type of boundaries and prescribing the \emph{Momentum} boundary conditions (velocity, pressure, turbulence) is similar as we did in Section~\ref{Part1} and therefore will not be repeated here. However, since we are also solving the energy equation in this problem we have additional thermal boundary conditions. For the inlet, wall and outlet boundaries these can be specified in the \bfr{Thermal} tab.:
+    \begin{enumerate}
+    \item \emph{inlet}: Specify the temperature of the inlet fluid to 294.15\,K.
+    \item \emph{outlet}: Here you need to specify again a \emph{backflow} boundary condition in case flow enters the domain, you can set it to the inlet temperature 294.15\,K.
+    \item \emph{heated\_section}: Select \bfr{Heat Flux} and set the value to that given in the problem description. Leave all other values at their default values.
+    \item \emph{pipewall}: There is not heat transfer across the pipe wall (insulated wall), so set the Heat flux (w/m2) to 0.
+    \end{enumerate}
+
+    \item[-] \textbf{Reference values: }
+\end{itemize}
+
+\subsubsection{Numerical solution}
+
+\begin{itemize}
+    \item[-] \textbf{Solution Methods:} set the discretization for the \emph{Momentum}, \emph{Turbulent Kinetic Energy} and \emph{Turbulent Dissipation Rate} to \bfr{Second Order upwind}. \hl{need to change pressure to first order?}
+    \item[-] \textbf{Monitors:} set the absolute criteria for all 6 equations to 1e-6.
+    \item[-] \textbf{Initialization:} Select Solution Initialization from the navigation pane, select \bfr{Standard Initialization} and choose inlet in the \emph{Compute from} drop-down menu. The values from for the turbulent kinetic energy and turbulent dissipation rate are automatically computed from our inlet turbulence boundary conditions. Press \bfr{Initialize}.
+    \item[-] Before we start the calculation, we want to save the skin friction coefficient again but also the Y+ values (which is Fluent Y+ value of the first cell from the wall). Go to \bfr{File} in the \emph{menu bar}, select \bfr{Data File Quantities} and in the right column select \bfr{Skin Friction Coefficient} and \bfr{Wall Yplus} and click \bfr{OK} (Note that you can also right-click on \emph{Run simulation} to select the Data file quantities).
+    \item[-] Now select \bfr{Run Calculation} from the \emph{Project Tree}. Set the \bfr{Number of Iterations} to 1000, then press \bfr{Calculate} and wait till your solution is converged.
+\end{itemize}
+
+\subsection{Exercises (Verification)}
+\hl{Jeff, these are my newly suggested question, last year's questions are copied below. Note that these are uncompleted yet, I have only started adjusting the first question. Having looked back at last year we first asked them to make a few laminar simulations, but I think know we should stick to turbulent flow only (since the tutorial is on turbulent flow)}
+\begin{enumerate}
+\item  Assuming the density is 1.2\,kg/m$^3$ at the inlet temperature, specify a value for the viscosity of the fluid so that the  \Rey= 80,000. Perform a simulation with the specified mesh. Investigate the linearization error and the mesh sensitivity. and check that mass and energy are conserved in your simulations. Based on this comparison which mesh size will you use for the remaining simulations? [xx marks]
+\item Based on your chosen mesh make the following three figures: 1) a contour plot of the $U$ velocity; 2) a contour plot of the temperature; 3) a plot of the temperature profiles at $x=1\,$m, 2\,m, 4\,m, 5\,m and 7\,m. Comment on your results. [xx marks]
+\item Plot the skin friction coefficient in the region x=1..7\,m and comment on the results.  [xx marks]
+\item The bulk (or mean) temperature across the pipe cross-sectional area, $T_\mathrm{m}$, characterises the average thermal energy state of the fluid. It is characterised as follows:
+\begin{equation}
+    \dot{m}c_\mathrm{p}T_\mathrm{m}=\int_{A_\mathrm{c}}\rho uc_\mathrm{p} T\mathrm{d}A=c_\mathrm{p}\int_0^R\rho uT2\pi r \mathrm{d}r %\int_0^R\rho u c_\mathrm{p}T\mathrm{d}\pi r^2=
+\end{equation}
+    where $\dot{m}$ is the mass flow rate, $A_\mathrm{c}$ is the pipe cross-sectional area and $R$ is the pipe radius. Note that $c_\mathrm{p}$ is taken outside the integral because (in our simulation) it is a constant. The temperature, $T$, velocity, $u$, and density, $\rho$ (because $\rho$ depends on $T$), are all a function of the pipe radius. The mass flow rate can be obtained from:
+    \begin{equation}
+        \dot{m}=\int_{A_\mathrm{c}} \rho u \mathrm{d}A=\int_0^R\rho u 2\pi r \mathrm{d}r%=\int_0^R\rho u\mathrm{d}\pi r^2
+    \end{equation}
+    we can therefore obtain the following expression for $T_\mathrm{m}$:
+    \begin{equation}\label{eq:Tm}
+        T_\mathrm{m}=\frac{\int\limits_0^R\rho uT2\pi r\mathrm{d}r}{\int\limits_0^R\rho u 2\pi r \mathrm{d}r}
+    \end{equation}
+    This expression can be solved in \emph{CFD-Post} at any location along the pipeline. To do so select the \emph{expressions} tab \includegraphics[width=1.5cm]{expressions.png}, right-click anywhere in the \emph{expressions window} and select \emph{New}. Give your expression a suitable name, e.g. ``Tm0m'' if you want to calculate the mean temperature at the inlet. In the \emph{Details} window we can now enter Equation~\ref{eq:Tm} above. The integral can be entered by right clicking in the empty area and select \emph{Functions$\rightarrow$CFD-Post$\rightarrow$lengthInt}. By right-clicking within the integral brackets enter the required variables and specify the \emph{Location} where you want to evaluate the integral after the @ symbol, i.e. here you need to specify the \emph{line} which you made earlier. Complete the expression to obtain the rhs of Equation~\ref{eq:Tm}, note that $\pi$ can be entered as ``pi'' and recall that the radial coordinate in CFD-Post is ``Y''. When the expression is complete press \includegraphics[width=1.1cm]{apply.png}, the value will appear in the ``Value'' box.
+    \\
+    \\
+    Evaluate the bulk temperature at every meter across the pipeline and make a plot of $T_\mathrm{m}$ against $x$ and comment on your results. [12 marks]
+\end{enumerate}
+
+\hl{Jeff, copied below are last year's questions}
+
+\begin{enumerate}
+\item  Assuming the density is 1.2\,kg/m$^3$ at the inlet temperature, specify a value for the viscosity of the fluid so that the \Rey= 400. Perform a simulation with the specified mesh. Make two more simulations; one whereby the radial mesh size increases to 30 divisions, and one with a radial mesh of 60 divisions. Keep the number of divisions in the axial direction the same (350). Report the number of iterations needed to reach convergence for each simulation. Compare the results of the three mesh sizes in a figure showing the $U$ velocity along the centreline and in a figure showing the temperature along the pipewall. Based on this comparison which mesh size will you use for the remaining simulations? [14 marks]
+\item Based on your chosen mesh make the following three figures: 1) a contour plot of the $U$ velocity; 2) a contour plot of the temperature; 3) a plot of the temperature profiles at $x=1\,$m, 2\,m, 4\,m, 5\,m and 7\,m. Comment on your results. [6 marks]
+\item Plot the skin friction coefficient in the region x=1..7\,m and comment on the results.  [10 marks]
+\item Using the same mesh as before perform a simulation for \Rey= 80,000. Report the main changes you have made to the Fluent set-up and report the number of iterations required to reach convergence. Without making any changes to the mesh size demonstrate that your simulation results are sensible.  [12 marks]
+\item Make the same three figures as under item 2 and comment on the main differences between the results. [6 marks]
+\item The bulk (or mean) temperature across the pipe cross-sectional area, $T_\mathrm{m}$, characterises the average thermal energy state of the fluid. It is characterised as follows:
+\begin{equation}
+    \dot{m}c_\mathrm{p}T_\mathrm{m}=\int_{A_\mathrm{c}}\rho uc_\mathrm{p} T\mathrm{d}A=c_\mathrm{p}\int_0^R\rho uT2\pi r \mathrm{d}r %\int_0^R\rho u c_\mathrm{p}T\mathrm{d}\pi r^2=
+\end{equation}
+    where $\dot{m}$ is the mass flow rate, $A_\mathrm{c}$ is the pipe cross-sectional area and $R$ is the pipe radius. Note that $c_\mathrm{p}$ is taken outside the integral because (in our simulation) it is a constant. The temperature, $T$, velocity, $u$, and density, $\rho$ (because $\rho$ depends on $T$), are all a function of the pipe radius. The mass flow rate can be obtained from:
+    \begin{equation}
+        \dot{m}=\int_{A_\mathrm{c}} \rho u \mathrm{d}A=\int_0^R\rho u 2\pi r \mathrm{d}r%=\int_0^R\rho u\mathrm{d}\pi r^2
+    \end{equation}
+    we can therefore obtain the following expression for $T_\mathrm{m}$:
+    \begin{equation}\label{eq:Tm}
+        T_\mathrm{m}=\frac{\int\limits_0^R\rho uT2\pi r\mathrm{d}r}{\int\limits_0^R\rho u 2\pi r \mathrm{d}r}
+    \end{equation}
+    This expression can be solved in \emph{CFD-Post} at any location along the pipeline. To do so select the \emph{expressions} tab \includegraphics[width=1.5cm]{expressions.png}, right-click anywhere in the \emph{expressions window} and select \emph{New}. Give your expression a suitable name, e.g. ``Tm0m'' if you want to calculate the mean temperature at the inlet. In the \emph{Details} window we can now enter Equation~\ref{eq:Tm} above. The integral can be entered by right clicking in the empty area and select \emph{Functions$\rightarrow$CFD-Post$\rightarrow$lengthInt}. By right-clicking within the integral brackets enter the required variables and specify the \emph{Location} where you want to evaluate the integral after the @ symbol, i.e. here you need to specify the \emph{line} which you made earlier. Complete the expression to obtain the rhs of Equation~\ref{eq:Tm}, note that $\pi$ can be entered as ``pi'' and recall that the radial coordinate in CFD-Post is ``Y''. When the expression is complete press \includegraphics[width=1.1cm]{apply.png}, the value will appear in the ``Value'' box.
+    \\
+    \\
+    Evaluate the bulk temperature at every meter across the pipeline and make a plot of $T_\mathrm{m}$ against $x$ and comment on your results. [12 marks]
+\end{enumerate}
+
+\vspace{1cm}
+
+\textbf{Submit (via MyAberdeen)}\\
+A document with the required figures and your answers to the exercises in Sections~\ref{Part1} and~\ref{Part2} of the practical. Graphs directly obtained from Fluent need to be exported by clicking the \includegraphics[width=.4cm]{export_fig_icon.png} button - do not make direct screen copies of your graphs. Other graphs can be made in Excel, Matlab etc. Give your comments/interpretation of results in (typically) four lines of text. \hl{Note that a report-style document is not required for this practical, just give your answers to the 9~exercises as part of this practical.}
+\\
+\\
+Deadline: \hl{Thursday 3$^\mathrm{th}$ of November 23:59hrs.}
+
+\end{document} 
