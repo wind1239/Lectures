@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%% Document Class Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Normal document mode%
+%Normal document mode% 
 \documentclass[10pt,compress,unknownkeysallowed]{beamer}
 %Draft or handout mode 
 %\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
@@ -228,7 +228,7 @@
 \begin{frame}
   \frametitle{Chemical Potential: Extending Fundamental Relations to Multi-Component Systems}
         \begin{enumerate}\setcounter{enumi}{3}  
-           \item<1-> From the last module, the \blue{stability criteria for phase equilibria} was expressed as a function of the Gibbs energy if the system is held at constant $T$, $P$ and number of moles:
+           \item<1-> From the last module, the \blue{stability criteria for phase equilibria} was expressed as a function of the Gibbs energy if the system is held at constant $T$, $P$ and number of moles (see Table 7.1 of Lecture Notes):
               \visible<1->{\begin{displaymath}
                  d\left(n G\right)^{k} = \left(n V\right)^{k}dP - \left(n S\right)^{k}dT + \sum\limits_{i}\mu_{i}^{k} dn_{i}^{k}  \;\;\;\text{ with } k = 1,2,\cdots,\mathcal{P}
               \end{displaymath}
@@ -256,7 +256,7 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Fugacity}
+  \frametitle{Fugacity: Definition for Pure Fluids}
         \begin{enumerate}%\setcounter{enumi}{3}  
            \item<1-> From the previous slides, we have expressed the {\it Gibbs free energy} as a function of $T$, $P$ and $n$, \ie $G=G(T,P,n)$, and defined the \blue{chemical potential},
               \begin{displaymath}
@@ -277,7 +277,7 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Fugacity}
+  \frametitle{Fugacity: Definition for Pure Fluids}
         \begin{enumerate}\setcounter{enumi}{2}  
            \item<1-> For \blue{pure fluids}, the {\it chemical potential} can be approximated to
              \begin{displaymath}
@@ -285,7 +285,7 @@
              \end{displaymath}
              where \blue{$\overline{g}$} is the \blue{molar Gibbs free energy};
              
-           \item<2-> From the \blue{Maxwell derived relations} (Module 2), a relationship between \blue{G}, \blue{P}, \blue{T} and \blue{V} is
+           \item<2-> From the \blue{Maxwell derived relations} (Module 2), a relationship between \blue{G}, \blue{P}, \blue{T} and \blue{V} is (see Eqn. 6.2i from the Lectue Notes)
              \begin{displaymath}
                 \Partial[G]{P}{T} = V \visible<3->{= \Partial[n\mu]{P}{T}}
              \end{displaymath}
@@ -304,7 +304,7 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Fugacity}
+  \frametitle{Fugacity: Definition for Pure Fluids}
         \begin{enumerate}\setcounter{enumi}{4}  
            \item<1-> For an ideal gas, this expression becomes
               \begin{displaymath}
@@ -328,25 +328,30 @@
 \end{frame}
 \normalsize
 
-
-
 %%%
 %%% Slide
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Fugacity}
+  \frametitle{Fugacity: Definition for Pure Fluids}
         \begin{enumerate}\setcounter{enumi}{6}  
            \item<1-> However, for a fluid to be considered to behave as an \blue{ideal gas}, {\it pressure} must be relatively low;
-           \item<2-> Therefore, the previous expression can be also used to represent the \red{chemical potential of real fluids},
+           \item<2-> Therefore, the previous expression can also be used to represent the \red{chemical potential of real fluids},
            
-             \visible<2->{\begin{block}{\begin{center}\normalsize{ Chemical Potential of Real Fluids}\end{center}}
+             \visible<2->{\begin{block}{\begin{center}\normalsize{ Fugacity of Real Fluids}\end{center}}
                  \begin{displaymath}
-                   \blue{\mu = RT\ln{f} + C(T),}
+                   \blue{\mu = RT\ln{f} + C(T).}
                  \end{displaymath}
-                 where \red{f} is the \red{fugacity of a real gas}, \ie \red{a mathematical pressure representation of an ideal gas that has the same chemical potential as the real gas at similar $P$ and $T$ conditions.} 
+                 The \red{fugacity of a real gas (f)} is a mathematical representation of pressure of an ideal gas that has the \red{same chemical potential as the real gas},
+                    \begin{displaymath}
+                        \begin{cases}
+                            \mu^{\text{ig}} = RT \ln{P} + C(T), & \\
+                            \mu = RT \ln{f} + C(T). & 
+                        \end{cases}
+                    \end{displaymath}
+                    For ideal gases \blue{$f=P$}, but fugacity for real gases is the equivalent to a pressure that results in $\mu^{\text{ig}}=\mu$.
+
                \end{block}}
-           \item<3-> \red{Fugacity} has the same units of pressure and is often referred as {\it fictitious pressure} 
                
         \end{enumerate}
 \end{frame}
@@ -358,9 +363,122 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Fugacity}
-        \begin{enumerate}\setcounter{enumi}{9}  
-           \item<1-> 
+  \frametitle{Fugacity: Definition for Pure Fluids}
+        \begin{enumerate}\setcounter{enumi}{8}  
+           \item<1-> \red{Fugacity} has the same units of pressure and is often referred as {\it fictitious pressure}.
+           \item<2-> As pressure tends to zero ($P\rightarrow 0$), the fluid behaves as an ideal gas; 
+           \item<3-> Therefore, the \red{fugacity} of a \blue{pure componenet} is equal to the pressure in the limiting \red{zero pressure}, \ie
+               \visible<4->{\begin{block}{\begin{center}\normalsize{ Fugacity at the limiting case for a pure fluid}\end{center}}
+                 \begin{displaymath}
+                    \blue{ \lim\limits_{P\rightarrow 0}\frc{f}{P} = 1}
+                 \end{displaymath}
+               \end{block}}
+        \end{enumerate}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Fugacity: Lewis-Randall Rule for Mixtures}
+        \begin{enumerate} 
+           \item<1-> Using the definition of chemical potential and extending it to fugacity using $\mu=RT\ln{f}+C(T)$,
+              \visible<2->{
+                 \begin{displaymath}
+                    \Partial[\mu]{P}{T} = \overline{v} \hspace{.5cm} \Longrightarrow \hspace{.5cm} RT\Partial[\left(\ln{f}\right)]{P}{T} = \overline{v} \hspace{1cm} \text{at constant temperature}
+                 \end{displaymath}}
+           
+           \item<3-> In a mixture of $\mathcal{C}$ components, we can rewrite this equation as
+              \visible<3->{
+                 \begin{displaymath}
+                    \begin{cases}
+                       RT\Partial[\left(\ln{f_{i}}\right)]{P}{T,n} = \overline{v_{i}}, &          \\
+                         &                                                                       \\
+                       RT\Partial[\left(\ln{\overline{f}_{i}}\right)]{P}{T,n} = \overline{V_{i}}, & 
+                    \end{cases}
+                 \end{displaymath}}
+                 \visible<4->{ 
+                 \begin{displaymath}
+                    \text{where}\begin{cases}
+                         f_{i}: & \text{fugacity of pure component } i; \\
+                         \overline{f}_{i}: & \text{fugacity of component } i \text{ in the mixture};  \\
+                         \overline{v}_{i}: & \text{molar volume of of pure component } i;  \\
+                         \overline{V}_{i}: & \text{molar volume of component } i \text{ in the mixture};  \\
+                    \end{cases}
+                 \end{displaymath}}
+               
+        \end{enumerate}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Fugacity: Lewis-Randall Rule for Mixtures}
+        \begin{enumerate}\setcounter{enumi}{2}  
+           \item<1-> Subtracting the second equation from the first and integrating from state $P'$ to $P$, 
+              \visible<2->{\begin{displaymath}
+                  RT \left\{\left.\ln{\left(\frc{\overline{f}_{i}}{f_{i}}\right)}\right|_{P'}^{P}\right\} = \int\limits_{P'}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP, \hspace{0.5cm} \text{at constant }T
+               \end{displaymath}}
+
+           \item<3-> In the limiting case, in which $P'\rightarrow 0$,
+              \visible<3->{\begin{displaymath}
+                  RT \left\{ \ln{ \left(\frc{\overline{f}_{i}}{f_{i}}\right) } - \lim\limits_{P'\rightarrow 0} \ln{ \left(\frc{\overline{f}_{i}}{f_{i}}\right) } \right\} = \int\limits_{P'}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP,
+               \end{displaymath}}
+
+           \item<4-> For the second term in the brackets at the left-hand side,
+                 \begin{displaymath}
+                    \visible<4->{\begin{cases}
+                       f_{i} \rightarrow P', & \\
+                                     & \\
+                       \overline{f}_{i} \rightarrow y_{i}P', &
+                    \end{cases}}
+                    \text{ as } P'\rightarrow 0  \hspace{0.1cm}\left(\text{where } y_{i}P' \text{ is obtained from Dalton's law}\right),
+                 \end{displaymath}
+               
+        \end{enumerate}
+\end{frame}
+\normalsize 
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Fugacity: Lewis-Randall Rule for Mixtures}
+        \begin{enumerate}\setcounter{enumi}{4}  
+           
+           \item<1-> (Cont.) resulting in 
+              \begin{displaymath}
+                 \lim\limits_{P'\rightarrow 0} \ln{ \left(\frc{\overline{f}_{i}}{f_{i}}\right) } \rightarrow \ln{\left(\frc{y_{i}P'}{P'}\right)} = \ln{y_{i}},
+              \end{displaymath}
+              leading to,
+                 \visible<2->{\begin{block}{\begin{center}\normalsize{ Relationship between Fugacity of a Pure Component and a Component in the Mixture}\end{center}}
+                       \begin{displaymath}
+                           \blue{RT\ln{\left(\frc{\overline{f}_{i}}{y_{i}f_{i}}\right)} = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP, \hspace{0.5cm} i=1, 2, \cdots, \mathcal{C}.}
+                       \end{displaymath}
+                       The term in brackets (left-hand side) represents the ratio between partial pressures between real and ideal fluids in a mixture.
+                 \end{block}}
+               
+        \end{enumerate}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Fugacity: Lewis-Randall Rule for Mixtures}
+        \begin{enumerate}\setcounter{enumi}{5}  
+           \item<1-> Assuming \blue{an ideal mixture}, the partial pressure of species $i$ is the fugacity of component $i$ in the mixture, \ie
+                 \begin{displaymath}
+                    \mfr[\overline{f}]{i}{V} = y_{i}P = P_{i}
+                 \end{displaymath}
            
            \visible<2->{\begin{block}{\begin{center}\normalsize{ }\end{center}}
                \blue{M}
@@ -369,6 +487,7 @@
         \end{enumerate}
 \end{frame}
 \normalsize
+
 
 
 %%%
