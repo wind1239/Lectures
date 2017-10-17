@@ -338,11 +338,11 @@
            \item<1-> However, for a fluid to be considered to behave as an \blue{ideal gas}, {\it pressure} must be relatively low;
            \item<2-> Therefore, the previous expression can also be used to represent the \red{chemical potential of real fluids},
            
-             \visible<2->{\begin{block}{\begin{center}\normalsize{ Fugacity of Real Fluids}\end{center}}
+             \visible<2->{\begin{block}{\begin{center}\normalsize{ Fugacity of Real Fluids (Devoe {\it et al.})}\end{center}}
                  \begin{displaymath}
                    \blue{\mu = RT\ln{f} + C(T).}
                  \end{displaymath}
-                 The \red{fugacity of a real gas (f)} is a mathematical representation of pressure of an ideal gas that has the \red{same chemical potential as the real gas},
+                 \red{``Fugacity is the pressure that the ideal gas (\ie the gas with no intermolecular forces) would need to have in order for its chemical potential at the given temperature to be the same as the chemical potential of the real gas''},
                     \begin{displaymath}
                         \begin{cases}
                             \mu^{\text{ig}} = RT \ln{P} + C(T), & \\
@@ -474,20 +474,82 @@
 %\scriptsize
 \begin{frame}
   \frametitle{Fugacity: Lewis-Randall Rule for Mixtures}
+
+  \begin{block}{\begin{center}\normalsize{ Lewis-Randall Rule for Mixtures }\end{center}}
+        Assuming \blue{an ideal mixture},
         \begin{enumerate}\setcounter{enumi}{5}  
-           \item<1-> Assuming \blue{an ideal mixture}, the partial pressure of species $i$ is the fugacity of component $i$ in the mixture, \ie
+           \item<1-> The \blue{the partial pressure of species $i$ is the vapour phase fugacity of component $i$ in the mixture}, \ie
                  \begin{displaymath}
-                    \mfr[\overline{f}]{i}{V} = y_{i}P = P_{i}
+                    \blue{\mfr[\overline{f}]{i}{V} = y_{i}P = P_{i}}
                  \end{displaymath}
-           
-           \visible<2->{\begin{block}{\begin{center}\normalsize{ }\end{center}}
-               \blue{M}
-               \end{block}}
-               
+                 
+           \item<2-> And the liquid phase fugacity of component $i$ in the mixture is,
+                 \begin{displaymath}
+                    \blue{\mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}}
+                 \end{displaymath}
+        \end{enumerate}
+        \visible<3->{The later expression is known as \red{Lewis-Randall rule} \blue{(or Raoult's law for fugacity)}. It shows that the fugacity of each species in an \blue{ideal solution} is proportional to its mole fraction; the proportionality constant is the fugacity of pure species i in the same physical state as the solution and at the same T and P.}
+  \end{block}
+  
+\end{frame}
+\normalsize
+
+%%%
+%%% SECTION
+%%%
+\section{Ideal Solutions and the Activity Coefficient}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Ideal Solutions}
+        \begin{enumerate}%\setcounter{enumi}{3}  
+           \item<1-> In Module 1, the concept of \blue{ideal gas} was introduced as {\it gaseous solution with no intra-molecular interactions};
+           \item<2-> Now, we should extend this definition to \real{ideal liquid solutions} (or \red{ideal liquid mixtures}), thus
+             \begin{enumerate}[a)]
+                \item<3-> Chemical species have similar molecular size and structure;
+                \item<4-> Obey Raoult's law (and the Raoult's law for fugacity) over the entire range of {\bf conposition};
+                \item<5-> $\Delta H_{\text{mix}}=0$, \ie no release or absorption of heat during dissolution (in other words, neither exothermic nor endothermic dissolution);
+                \item<5-> $\Delta V_{\text{mix}}=0$, \ie total volume of the solution is equal to the sum of the molar volumes of all components;
+                \item<6-> Total pressure is the sum of all partial pressures (\ie Dalton's law is obeyed),
+                  \begin{displaymath}
+                    P = \summation[P_{i}]{i}{} = \summation[P_{i}^{\text{sat}}x_{i}]{i}{}
+                  \end{displaymath}
+             \end{enumerate}  
         \end{enumerate}
 \end{frame}
 \normalsize
 
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Ideal Solutions}
+        \begin{enumerate}\setcounter{enumi}{2}  
+           \item<1-> Example: Liquid solutions of benzene and toluene obey Raoult's law very closely, whereas water and methanol (although soluble in all proportions) form liquid solutions that deviate considerably from Raoult's law;
+           \item<2-> The most commonly encountered situation for solutions of organic liquids is that each component deviates from Raoult's law behavior by having a higher fugacity than predicted by the Lewis-Randall rule (\ie positive deviation from Raoult's law).    
+        \end{enumerate}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Ideal and Non-Ideal Solutions: Deviations from the Raoult's Law ($xy$ phase diagrams)}
+  \vbox{
+     \hbox{\visible<1->{\includegraphics[width=5.5cm,height=4.cm,clip]{./../Pics/VLE_xy_DiagramIdeal}} \hspace{1cm}
+           \visible<2->{\includegraphics[width=5.5cm,height=4.cm,clip]{./../Pics/VLE_xy_DiagramNonIdeal1}}}
+  \vspace{-0.2cm}
+  \hbox{\hspace{4cm}
+        \visible<3->{\includegraphics[width=5.5cm,height=4.cm,clip]{./../Pics/VLE_xy_DiagramNonIdeal2}}}
+  }
+\end{frame}
+\normalsize
 
 
 %%%
@@ -495,12 +557,24 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Fugacity}
+  \frametitle{Activity: An Assessment Tool of Ideality of Mixtures}
         \begin{enumerate}%\setcounter{enumi}{3}  
-           \item<1-> 
+           \item<1-> Let's consider a liquid mixture with
+               \begin{displaymath}
+                  \mu_{i} = RT\ln{\overline{f}_{i}} + C_{i}(T), \text{ with } i=1, 2, \cdots, \mathcal{C}.
+               \end{displaymath}
+           \item<2-> Also, let's consider the same fluid $i$ pure at a \blue{reference-state}, \ie at $T$ and reference-state pressure, $P_{\text{ref}}$. If we subtract the chemical potential of $i$ at the reference-state $\left(\mu_{i}^{\circ}\right)$ from the mixture,
+               \begin{displaymath}
+                  \mu_{i} - \mu_{i}^{\circ} = RT\ln{\left(\frc{\overline{f}_{i}}{f_{i}^{\circ}}\right)} , \text{ with } i=1, 2, \cdots, \mathcal{C},
+               \end{displaymath}
+               where $f_{i}^{\circ}$ is the fugacity of component $i$ pure at \blue{reference-state} conditions.
            
-           \visible<2->{\begin{block}{\begin{center}\normalsize{ }\end{center}}
-               \blue{M}
+           \visible<2->{\begin{block}{\begin{center}\normalsize{Activity }\end{center}}
+               The term in brackets is defined as the \red{activity $\left(a_{i}\right)$} of component $i$,
+                    \begin{displaymath} 
+                          a_{i} = \frc{\overline{f}_{i}}{f_{i}^{\circ}},
+                    \end{displaymath}
+                    which measures {\it deviation} from ideal behaviour of liquid solutions. 
                \end{block}}
                
         \end{enumerate}
@@ -513,15 +587,48 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Fugacity}
-        \begin{enumerate}%\setcounter{enumi}{3}  
-           \item<1-> 
+  \frametitle{Activity Coefficient}
+        \begin{enumerate}%\setcounter{enumi}{2}  
+           \item<1-> Since the chemical potential was defined as the molar Gibbs free energy, \ie $\mu_{i}^{\circ} = \overline{g}_{i}^{\circ}$, therefore
+              \begin{displaymath}
+                 \mu_{i} = \overline{g}_{i}^{\circ} + RT\ln{a_{i}},
+              \end{displaymath}
+              where $\overline{g}_{i}^{\circ}$ is the molat Gibbs free energy of pure component $i$ at \blue{reference-state}. This is often tabulated for a number of chemical species and can be found in any ChemEng handbooks;
            
-           \visible<2->{\begin{block}{\begin{center}\normalsize{ }\end{center}}
-               \blue{M}
+           \visible<2->{\begin{block}{\begin{center}\normalsize{ Activity Coefficient}\end{center}}
+               For an \blue{ideal solution}, we can apply the \blue{Lewis-Randall rule}, 
+                  \begin{displaymath}
+                     a_{i} = \frc{\overline{f}_{i}}{f_{i}^{\circ}} = \frc{y_{i}f_{i}}{f_{i}^{\circ}} \;\; \Longrightarrow \;\; \frc{f_{i}}{f_{i}^{\circ}} = \frc{a_{i}}{y_{i}} = \gamma_{i}
+                  \end{displaymath}
+                  and define the \red{activity coefficient $\left(\gamma_{i}\right)$}. The activity coefficient is {\it adjustment} parameter that relates the actual behaviour to the ideal behaviour of a solution at the same $T$ and $P$. In a broad way, $\gamma$ operarates in a similar way as the compressibility factor $Z$ for gases (Module 1).
+                    
                \end{block}}
                
         \end{enumerate}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Activity Coefficient}
+       \begin{block}{\begin{center}\normalsize{ Activity Coefficient}\end{center}}
+            \begin{enumerate}\setcounter{enumi}{1}  
+               \item<1-> For solutions
+                  \begin{displaymath}
+                     \gamma_{i} = \frc{\overline{f}_{i}}{x_{i}f_{i}}
+                  \end{displaymath}
+               \item<2-> For VLE at low pressures:
+                  \begin{eqnarray}
+                      \blue{\gamma_{i}} &=& \frc{\overline{f}_{i}}{x_{i}f_{i}} = \frc{y_{i}P}{x_{i}f_{i}} \nonumber \\
+                                        &=&  \blue{\frc{y_{i}P}{x_{i}P_{i}^{\text{sat}}}}, \nonumber
+                  \end{eqnarray}
+                  this expression is the \red{modified Raoult's law}.
+             \end{enumerate}
+        \end{block}
+         
 \end{frame}
 \normalsize
 
