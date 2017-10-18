@@ -10,9 +10,9 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode% 
-\documentclass[10pt,compress,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,unknownkeysallowed]{beamer}
 %Draft or handout mode 
-%\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
+\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
 %\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
 
 
@@ -71,7 +71,7 @@
      \item<1-> Apply activity models to Raoult's law calculations;
      \item<1-> Derive expressions for activity coefficient based on excess Gibbs energy;
      \item<1-> Describe ideal gas mixtures;
-     \item<1-> Apply Henry's law to estimare fugacities of dilure components;
+     %\item<1-> Apply Henry's law to estimare fugacities of dilure components;
      \item<1-> Estimate fugacity coefficient through residual and excess properties.
    \end{enumerate}
 
@@ -169,8 +169,8 @@
   \frametitle{Partial Molar Properties: Definition}
   \begin{enumerate}\setcounter{enumi}{4}
     \item<1-> In general, \red{\underline{partial molar properties}} of a chemical species differs from its \blue{\underline{molar properties}} in a pure state in the mixture at the same $T$ and $P$; %in a pure state in the mixture (or solution) at the same $T$ and $P$; 
-    \item<2-> This is because in a pure state the molecules interact with its own species, however;
-    \item<3-> In a mixture (\ie solution) it may be subjected to different molecular interactions with other (dissimilar) molecules. 
+    \item<2-> This is because in a pure state, the molecules interact with its own species, however;
+    \item<3-> In a mixture (\ie solution) it may be subjected to different inter-molecular interactions with other (dissimilar) molecules. 
   \end{enumerate}
 \end{frame}
 \normalsize
@@ -191,7 +191,7 @@
        \visible<1->{\begin{displaymath}
          d\left(n G\right) = \left(n V\right)dP - \left(n S\right)dT
        \end{displaymath}}
-     \item<2-> In other words, \blue{Gibbs energy} may be defined as a function of \red{T} and \red{P}. However, let's extend such definition to single phase and multi-component system, \ie \blue{$G=G(T,P,n)$}:
+     \item<2-> In other words, \blue{Gibbs energy} may be defined as a function of \red{T} and \red{P}. However, let's extend such definition to a {\it single phase multi-component system}, \ie \blue{$G=G(T,P,n)$}:
        \visible<2->{\begin{displaymath}
          d\left(n G\right) = \left[\frc{\partial \left(n G\right)}{\partial P}\right]_{T,n}dP + \left[\frc{\partial \left(n G\right)}{\partial T}\right]_{P,n}dT + \blue{\left.\sum\limits_{i}\left[\frc{\partial \left(n G\right)}{\partial n_{i}}\right]_{P,T,n_{j}}dn_{i}\right.}
        \end{displaymath}}
@@ -485,7 +485,7 @@
                  
            \item<2-> And the liquid phase fugacity of component $i$ in the mixture is,
                  \begin{displaymath}
-                    \blue{\mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}}
+                    \red{\mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}}
                  \end{displaymath}
         \end{enumerate}
         \visible<3->{The later expression is known as \red{Lewis-Randall rule} \blue{(or Raoult's law for fugacity)}. It shows that the fugacity of each species in an \blue{ideal solution} is proportional to its mole fraction; the 'proportionality term' is the fugacity of pure species i in the same physical state as the solution and at the same T and P.}
@@ -687,20 +687,22 @@
   \begin{enumerate}\setcounter{enumi}{2}
       \item<1->Properties of ideal-gas mixtures:
           \visible<1->{\begin{eqnarray}
-             \blue{H^{\text{ig}} = \sum\limits_{i} y_{i}H_{i}^{\text{ig}}}, &&\blue{S^{\text{ig}} = \sum\limits_{i} y_{i}S_{i}^{\text{ig}}-R\sum\limits_{i}y_{i}\ln y_{i}}\;\;\; \nonumber \\
-             && \blue{G^{\text{ig}}=\sum\limits_{i}y_{i}G_{i}^{\text{ig}} + RT\sum\limits_{i}y_{i}\ln y_{i}}\nonumber
+             \blue{\overline{H}^{\text{igm}} = \sum\limits_{i} y_{i}\overline{h}_{i}^{\text{ig}}}, &&\blue{\overline{S}^{\text{igm}} = \sum\limits_{i} y_{i}\overline{s}_{i}^{\text{ig}}-R\sum\limits_{i}y_{i}\ln y_{i}}\;\;\; \nonumber \\
+             && \blue{\overline{G}^{\text{igm}}=\sum\limits_{i}y_{i}\overline{g}_{i}^{\text{ig}} + RT\sum\limits_{i}y_{i}\ln y_{i}}\nonumber
           \end{eqnarray}}
-      \item<2-> The Gibbs energy for ideal gas at constant $T$:
-          \visible<2->{\begin{displaymath}
-              \blue{ dG_{i}^{\text{ig}} = V_{i}^{\text{ig}} dP = \frc{RT}{P}dP = RT d\ln P}
-          \end{displaymath}}
-      \item<3-> And after integration:
-          \visible<3->{\begin{displaymath}
-              \blue{\mu^{\text{ig}} = \overline{G}_{i}^{\text{ig}}=\Gamma_{i}\left(T\right)+RT d\ln\left(y_{i}P\right)}\;\;\;\blue{G^{\text{ig}} =\sum\limits_{i}y_{i}\Gamma_{i}\left(T\right) + RT\sum\limits_{i}y_{i}\ln\left(y_{i}P\right)}
-          \end{displaymath}}
+      \item<2-> Defining the \red{isothermal molar property change of mixing, $\Delta M_{\text{mix}}$} \blue{$\left(\text{or }\Delta_{\text{mix}}M\right)$} as
+           \begin{displaymath}
+              \Delta M_{\text{mix}}(T,P) =  M(T,P) - \summation[y_{i}M_{i}(T,P)]{i}{} = \summation[y_{i}\left(\overline{M}_{i}-M_{i}\right)]{i}{},
+           \end{displaymath}
+      \item<3-> Thus,
+           \begin{displaymath}
+              \red{\Delta_{\text{mix}} \overline{s}^{\text{igm}} = -R\summation[y_{i}\ln{y_{i}}]{i}{}, \hspace{1cm} \Delta_{\text{mix}} \overline{g}^{\text{igm}} = RT\summation[y_{i}\ln{y_{i}}]{i}{}}
+           \end{displaymath}
+
+
   \end{enumerate}
   \begin{center}
-      \red{See Table 8.1 from Lecture Notes.}
+      \visible<3->{\blue{See Table 8.1 from Lecture Notes for a full compiled list of ideal gas mixture properties.}}
   \end{center}
 \end{frame}
 \normalsize
@@ -769,52 +771,48 @@
 %%%
 %%% FUGACITY
 %%%
-\subsection{Fugacity}
+\subsection{Fugacity Coefficient}
 
 %%%
 %%% Slide
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Fugacity and Fugacity Coefficient in Pure Species}
+  \frametitle{Fugacity Coefficient for Pure Species}
   \begin{enumerate}%\setcounter{enumi}{2}
-      \item<1-> The \blue{chemical potential, $\mu$} and \blue{fugacity, $f$} for pure species and mixtures are related from,
-          \visible<1->{\begin{displaymath}
-             \frc{G_{i}}{n} = \mu_{i} = RT\ln f_{i} + \mathcal{C}_{i}, \;\;\;\; f^{\text{ig}}_{i} = P 
-          \end{displaymath}} 
-      \item<2-> The fugacity coefficient is defined as \blue{$\phi_{i}=\frc{f_{i}}{P}$};
-      \item<3-> Now we can re-define the \blue{residual Gibbs energy}:
+      \item<1-> The \red{fugacity coefficient $\left(\phi\right)$} is defined as \blue{$\phi\equiv\frc{f}{P}$}, and for ideal gases, \red{$\phi = 1$},
+          \visible<2->{\begin{displaymath}
+              \begin{cases}
+                 \text{ideal gas:} & G^{\text{ig}} = RT\ln{P} + C(T) \\
+                 \text{real gas:} & G = RT\ln{f} + C(T) \\
+              \end{cases}
+          \end{displaymath}}
+  
+      \item<3-> Now, we can re-define the \blue{residual Gibbs free energy} $\left(\text{from Module 2: } M^{R} = M - M^{\text{ig}}\right)$,
           \visible<3->{\begin{displaymath}
-              \blue{ G_{i}^{\text{R}} = G_{i}-G_{i}^{\text{ig}} = RT\ln\frc{f_{i}}{P} = RT\ln\phi_{i}}
+              \blue{ G^{\text{R}} = G-G^{\text{ig}} = RT\ln\frc{f}{P} = RT\ln\phi}
           \end{displaymath}}
   \end{enumerate}
 \end{frame}
 \normalsize
 
-
-
-
 %%%
 %%% Slide
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Fugacity and Fugacity Coefficient in VLE of Pure Species}
-  \begin{enumerate}%\setcounter{enumi}{2}
-      \item<1-> Saturated vapour and saturated liquid in equilibrium:
-          \visible<1->{\begin{displaymath}
-             G_{i}^{k} = \mathcal{C}_{i}\left(T\right)+ RT\ln f_{i}^{k}\;\;\;\left(\text{ with } k=\text{liquid, vapour}\right)\;\;\text{ and } f_{i}^{\text{v}}=f_{i}^{\text{l}}=f_{i}^{\text{sat}}
-          \end{displaymath}} 
-          \visible<2->{\blue{The vapour and liquid phases of pure chemical species are in equilibrium when both phases have the same temperature, pressure and} \red{fugacity}.} 
-      \item<3-> Fugacity of pure liquid:
-          \visible<3->{\begin{displaymath}
-             f_{i}^{\text{l}}\left(P\right) = \frc{f_{i}^{\text{v}}\left(P_{i}^{\text{sat}}\right)}{P_{i}^{\text{sat}}} \frc{f_{i}^{\text{l}}\left(P_{i}^{\text{sat}}\right)}{f_{i}^{\text{v}} \left(P_{i}^{\text{sat}}\right)} \frc{f_{i}^{\text{l}}\left(P\right)}{f_{i}^{\text{l}}\left(P_{i}^{\text{sat}}\right)}P_{i}^{\text{sat}}\;\; \red{\Longrightarrow}\;\; \blue{f_{i}^{\text{l}} = \phi_{i}^{\text{sat}}P_{i}^{\text{sat}} \exp\left[\frc{V_{i}^{\text{l}}\left(P-P_{i}^{\text{sat}}\right)}{RT}\right]}
-          \end{displaymath}
-          where $V_{i}^{\text{l}}$ is assumed constant. The exponential term is also known as \blue{Poynting factor}.
-}
-  \end{enumerate}
+  \frametitle{Fugacity Coefficient for Pure Species}
+  
+      \visible<1->{\begin{block}{\begin{center}\normalsize{Fugacity and Fugacity Coefficient during VLE of Pure Species}\end{center}}
+               During \blue{phase transition} from {\it saturated liquid} to {\it saturated vapour}, $dG=0$ (Module 2), \ie
+               \begin{displaymath}
+                   \mfr[G]{}{L} - \mfr[G]{}{V} = 0 = RT\ln{\frc{\mfr[f]{}{V}}{\mfr[f]{}{L}}} \;\Longrightarrow\; \blue{\mfr[f]{}{L}=\mfr[f]{}{V}=\mfr[f]{}{sat}}\;\Longrightarrow\; \red{\mfr[\phi]{}{L}=\mfr[\phi]{}{V}=\mfr[\phi]{}{sat}}
+               \end{displaymath}
+               \blue{The vapour and liquid phases of pure chemical species are in equilibrium when both phases have the same temperature, pressure and} \red{fugacity}.
+             \end{block}} 
 \end{frame}
 \normalsize
+
 
 %%%
 %%% Slide
@@ -825,12 +823,12 @@
   \begin{enumerate}%\setcounter{enumi}{2}
       \item<1-> For species $i$ in a mixture of \blue{real gases} or \blue{liquids (solution)}:
           \visible<1->{\begin{displaymath}
-             \mu_{i} = \mathcal{C}_{i}\left(T\right) + RT\ln\overline{f}_{i}
+             \mu_{i} = RT\ln\overline{f}_{i} + C_{i}\left(T\right)
           \end{displaymath}
           where $\overline{f}_{i}$ represents the fugacity of component $i$ in the mixture.} 
       \item<2-> Therefore, for an arbitrary number of phases $\left(\mathcal{P}=\alpha,\beta,\cdots,\pi\right)$ in equilibrium:
           \visible<2->{\begin{displaymath}
-             \overline{f}_{i}^{\alpha} = \overline{f}_{i}^{\beta} = \cdots = \overline{f}_{i}^{\pi} \;\;\;\text{ with } i = 1,2,3,\cdots,\mathcal{N} 
+             \overline{f}_{i}^{\alpha} = \overline{f}_{i}^{\beta} = \cdots = \overline{f}_{i}^{\pi} \;\;\;\text{ with } i = 1,2,3,\cdots,\mathcal{C} 
           \end{displaymath}}
           \visible<3->{\blue{Multiple phases at the same $T$ and $P$ are in equilibrium when the fugacity of each component (i.e., chemical species) is the same in {\bf all phases}. }}
       \item<4-> \blue{Fugacity coefficient} for species in solution: \blue{$\overline{\phi}_{i}=\frc{\overline{f}_{i}}{y_{i}P}$}.
@@ -859,14 +857,6 @@
              G^{\text{id}} = \sum\limits_{i}x_{i}G_{i} + RT\sum\limits_{i}x_{i}\ln x_{i}, && S^{\text{id}} = \sum\limits_{i}x_{i}S_{i}-R\sum\limits_{i}x_{i}\ln x_{i} \nonumber \\
               V^{\text{id}} = \sum\limits_{i}x_{i}V_{i}   && H^{\text{id}} = \sum\limits_{i}x_{i}H_{i} \nonumber
           \end{eqnarray}}
-      \item<3-> \blue{Lewis-Randall rule}:
-          \visible<3->{\begin{displaymath}
-             \mu_{i}=\mathcal{C}_{i}\left(T\right)+RT\ln\overline{f}_{i} \;\;\text{ and } \;\; G_{i}=\mathcal{C}_{i}\left(T\right)+RT\ln f_{i}
-          \end{displaymath}
-          led to 
-          \begin{displaymath}
-             \blue{\overline{f}_{i}^{\text{id}}=x_{i}f_{i}}
-          \end{displaymath}}
   \end{enumerate}
 \end{frame}
 \normalsize
@@ -884,14 +874,13 @@
 \begin{frame}
   \frametitle{Excess Properties}
   \begin{enumerate}%\setcounter{enumi}{2}
-      \item<1-> If $M$ represents the molar (or unit-mass) value of any extensive thermodynamic property (e.g., $V$, $U$, $H$, $G$,$S$ etc) then an \blue{excess property, $M^{\text{E}}$} is defined as
+      \item<1-> In Module 3, \red{excess properties} were defined for any extensive thermodynamic property $M$ (= $V$, $U$, $H$, $G$,$S$ etc) as
           \visible<1->{\begin{displaymath}
              M^{\text{E}} = M - M^{\text{id}}
           \end{displaymath}
-          where $M$ and $M^{\text{id}}$ are the actual and ideal solution property.}
-      \item<2-> \blue{This means the change in $M$ that occurs on mixing at constant $T$ and $P$ in addition to that which would occur if an ideal mixture were formed.}
-      \item<3-> Excess properties are often complex non-linear functions of the composition, $T$ and $P$, and are usually obtained from experiments.
-      \item<4-> Excess properties have \blue{no meaning} for pure species, whereas {\it residual properties} exist for both \red{pure species} and \red{mixtures}.
+          where $M$ and $M^{\text{id}}$ are the actual and ideal solution properties.}
+      \item<2-> Excess properties are often complex non-linear functions of the composition, $T$ and $P$, and are usually obtained from experiments.
+      \item<3-> Excess properties have \blue{no meaning} for pure species, whereas {\it residual properties} exist for both \red{pure species} and \red{mixtures}.
   \end{enumerate}
 \end{frame}
 \normalsize
@@ -1050,8 +1039,11 @@
 \begin{frame}
  \frametitle{Summary}
    \begin{enumerate}[(i)]
-      \item Excess molar properties;
-      \item Definition of activity,activity coefficient, fugacity, fugacity coefficient and chemical potential for pure species and mixtures;
+      \item Introduction to concept of partial molar properties;
+      \item Chemical potential as a molar Gibbs free energy surrogate;
+      \item Definition of fugacity, activity, activity coefficient, fugacity coefficient for pure species and mixtures;
+      \item Requirements for Ideal solutions;
+      \item Criteria for phase equilibrium;
       \item Brief description of activity coefficient models currently used in simulators.
    \end{enumerate}
 \end{frame}
