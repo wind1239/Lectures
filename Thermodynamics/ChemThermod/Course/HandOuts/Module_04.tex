@@ -646,6 +646,62 @@
 \end{frame}
 \normalsize
 
+%%%
+%%% SUBSECTION
+%%5
+\section{Ideal Gas Mixture Model}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Ideal Gas Mixture Model}
+  \begin{enumerate}
+    \item<1->Useful model:
+        \begin{enumerate}
+          \item<1->Has a molecular basis;
+          \item<1-> Approximates reality in well-defined limit of zero pressure;
+          \item<1-> is analytically simple.
+        \end{enumerate}
+    \item<2-> Partial pressure:
+        \visible<2->{\begin{displaymath}
+            P_{i} = \frc{y_{i}R T}{V^{\text{ig}}} = y_{i}P\;\;\;\;\;\left(i=1,2,\cdots,\mathcal{N}\right)
+        \end{displaymath} }
+  \end{enumerate}
+  \visible<3->{\begin{block}{\textcolor{blue}{Gibbs Theorem}}
+                  \textcolor{blue}{$\lq$A partial molar property of a constituent species in an ideal-gas mixture is equal to the corresponding molar property of the species as a pure ideal gas at the mixture $T$ but at a $P$ equal to its partial pressure in the mixture.'\begin{displaymath}
+            \overline{M}^{\text{ig}}_{i}\left(T,P\right) = M^{\text{ig}}_{i}\left(T,P_{i}\right)
+          \end{displaymath}}
+               \end{block}}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Ideal Gas Mixture Model}
+  \begin{enumerate}\setcounter{enumi}{2}
+      \item<1->Properties of ideal-gas mixtures:
+          \visible<1->{\begin{eqnarray}
+             \blue{H^{\text{ig}} = \sum\limits_{i} y_{i}H_{i}^{\text{ig}}}, &&\blue{S^{\text{ig}} = \sum\limits_{i} y_{i}S_{i}^{\text{ig}}-R\sum\limits_{i}y_{i}\ln y_{i}}\;\;\; \nonumber \\
+             && \blue{G^{\text{ig}}=\sum\limits_{i}y_{i}G_{i}^{\text{ig}} + RT\sum\limits_{i}y_{i}\ln y_{i}}\nonumber
+          \end{eqnarray}}
+      \item<2-> The Gibbs energy for ideal gas at constant $T$:
+          \visible<2->{\begin{displaymath}
+              \blue{ dG_{i}^{\text{ig}} = V_{i}^{\text{ig}} dP = \frc{RT}{P}dP = RT d\ln P}
+          \end{displaymath}}
+      \item<3-> And after integration:
+          \visible<3->{\begin{displaymath}
+              \blue{\mu^{\text{ig}} = \overline{G}_{i}^{\text{ig}}=\Gamma_{i}\left(T\right)+RT d\ln\left(y_{i}P\right)}\;\;\;\blue{G^{\text{ig}} =\sum\limits_{i}y_{i}\Gamma_{i}\left(T\right) + RT\sum\limits_{i}y_{i}\ln\left(y_{i}P\right)}
+          \end{displaymath}}
+  \end{enumerate}
+\end{frame}
+\normalsize
+
 
 %%%
 %%% SECTION
@@ -705,62 +761,6 @@
 \normalsize
 
 
-
-%%%
-%%% SUBSECTION
-%%5
-\subsection{Ideal Gas Mixture Model}
-
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{Ideal Gas Mixture Model}
-  \begin{enumerate}
-    \item<1->Useful model:
-        \begin{enumerate}
-          \item<1->Has a molecular basis;
-          \item<1-> Approximates reality in well-defined limit of zero pressure;
-          \item<1-> is analytically simple.
-        \end{enumerate}
-    \item<2-> Partial pressure:
-        \visible<2->{\begin{displaymath}
-            P_{i} = \frc{y_{i}R T}{V^{\text{ig}}} = y_{i}P\;\;\;\;\;\left(i=1,2,\cdots,\mathcal{N}\right)
-        \end{displaymath} }
-  \end{enumerate}
-  \visible<3->{\begin{block}{\textcolor{blue}{Gibbs Theorem}}
-                  \textcolor{blue}{$\lq$A partial molar property of a constituent species in an ideal-gas mixture is equal to the corresponding molar property of the species as a pure ideal gas at the mixture $T$ but at a $P$ equal to its partial pressure in the mixture.'\begin{displaymath}
-            \overline{M}^{\text{ig}}_{i}\left(T,P\right) = M^{\text{ig}}_{i}\left(T,P_{i}\right)
-          \end{displaymath}}
-               \end{block}}
-\end{frame}
-\normalsize
-
-
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{Ideal Gas Mixture Model}
-  \begin{enumerate}\setcounter{enumi}{2}
-      \item<1->Properties of ideal-gas mixtures:
-          \visible<1->{\begin{eqnarray}
-             \blue{H^{\text{ig}} = \sum\limits_{i} y_{i}H_{i}^{\text{ig}}}, &&\blue{S^{\text{ig}} = \sum\limits_{i} y_{i}S_{i}^{\text{ig}}-R\sum\limits_{i}y_{i}\ln y_{i}}\;\;\; \nonumber \\
-             && \blue{G^{\text{ig}}=\sum\limits_{i}y_{i}G_{i}^{\text{ig}} + RT\sum\limits_{i}y_{i}\ln y_{i}}\nonumber
-          \end{eqnarray}}
-      \item<2-> The Gibbs energy for ideal gas at constant $T$:
-          \visible<2->{\begin{displaymath}
-              \blue{ dG_{i}^{\text{ig}} = V_{i}^{\text{ig}} dP = \frc{RT}{P}dP = RT d\ln P}
-          \end{displaymath}}
-      \item<3-> And after integration:
-          \visible<3->{\begin{displaymath}
-              \blue{\mu^{\text{ig}} = \overline{G}_{i}^{\text{ig}}=\Gamma_{i}\left(T\right)+RT d\ln\left(y_{i}P\right)}\;\;\;\blue{G^{\text{ig}} =\sum\limits_{i}y_{i}\Gamma_{i}\left(T\right) + RT\sum\limits_{i}y_{i}\ln\left(y_{i}P\right)}
-          \end{displaymath}}
-  \end{enumerate}
-\end{frame}
-\normalsize
 
 
 %%%
