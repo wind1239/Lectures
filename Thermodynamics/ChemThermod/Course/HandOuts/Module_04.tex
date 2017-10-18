@@ -365,7 +365,7 @@
 \begin{frame}
   \frametitle{Fugacity: Definition for Pure Fluids}
         \begin{enumerate}\setcounter{enumi}{8}  
-           \item<1-> \red{Fugacity} has the same units of pressure and is often referred as {\it fictitious pressure}.
+           \item<1-> \red{Fugacity} has the same units of pressure and is often referred as {\it fictitious or effective pressure}.
            \item<2-> As pressure tends to zero ($P\rightarrow 0$), the fluid behaves as an ideal gas; 
            \item<3-> Therefore, the \red{fugacity} of a \blue{pure componenet} is equal to the pressure in the limiting \red{zero pressure}, \ie
                \visible<4->{\begin{block}{\begin{center}\normalsize{ Fugacity at the limiting case for a pure fluid}\end{center}}
@@ -457,7 +457,7 @@
                  \lim\limits_{P'\rightarrow 0} \ln{ \left(\frc{\overline{f}_{i}}{f_{i}}\right) } \rightarrow \ln{\left(\frc{y_{i}P'}{P'}\right)} = \ln{y_{i}},
               \end{displaymath}
               leading to,
-                 \visible<2->{\begin{block}{\begin{center}\normalsize{ Relationship between Fugacity of a Pure Component and a Component in the Mixture}\end{center}}
+                 \visible<2->{\begin{block}{\begin{center}\normalsize{ Relationship between Fugacities of a Pure Component and a Component in the Mixture}\end{center}}
                        \begin{displaymath}
                            \blue{RT\ln{\left(\frc{\overline{f}_{i}}{y_{i}f_{i}}\right)} = \int\limits_{0}^{P}\left(\overline{V}_{i} - \overline{v}_{i}\right)dP, \hspace{0.5cm} i=1, 2, \cdots, \mathcal{C}.}
                        \end{displaymath}
@@ -488,7 +488,7 @@
                     \blue{\mfr[\overline{f}]{i}{L} = x_{i}\mfr[f]{i}{L}}
                  \end{displaymath}
         \end{enumerate}
-        \visible<3->{The later expression is known as \red{Lewis-Randall rule} \blue{(or Raoult's law for fugacity)}. It shows that the fugacity of each species in an \blue{ideal solution} is proportional to its mole fraction; the proportionality constant is the fugacity of pure species i in the same physical state as the solution and at the same T and P.}
+        \visible<3->{The later expression is known as \red{Lewis-Randall rule} \blue{(or Raoult's law for fugacity)}. It shows that the fugacity of each species in an \blue{ideal solution} is proportional to its mole fraction; the 'proportionality term' is the fugacity of pure species i in the same physical state as the solution and at the same T and P.}
   \end{block}
   
 \end{frame}
@@ -497,7 +497,12 @@
 %%%
 %%% SECTION
 %%%
-\section{Ideal Solutions and the Activity Coefficient}
+\section{Activity Coefficient}
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Ideal Solutions}
 
 %%%
 %%% Slide
@@ -507,15 +512,15 @@
   \frametitle{Ideal Solutions}
         \begin{enumerate}%\setcounter{enumi}{3}  
            \item<1-> In Module 1, the concept of \blue{ideal gas} was introduced as {\it gaseous solution with no intra-molecular interactions};
-           \item<2-> Now, we should extend this definition to \real{ideal liquid solutions} (or \red{ideal liquid mixtures}), thus
+           \item<2-> We can extend this idea to \blue{liquid solutions}. For a \red{solution} \blue{(or mixture)} to be considered \red{ideal}: 
              \begin{enumerate}[a)]
                 \item<3-> Chemical species have similar molecular size and structure;
-                \item<4-> Obey Raoult's law (and the Raoult's law for fugacity) over the entire range of {\bf conposition};
+                \item<4-> Raoult's law (and the Raoult's law for fugacity) nust be obeyed over the entire range of {\bf conposition};
                 \item<5-> $\Delta H_{\text{mix}}=0$, \ie no release or absorption of heat during dissolution (in other words, neither exothermic nor endothermic dissolution);
-                \item<5-> $\Delta V_{\text{mix}}=0$, \ie total volume of the solution is equal to the sum of the molar volumes of all components;
-                \item<6-> Total pressure is the sum of all partial pressures (\ie Dalton's law is obeyed),
+                \item<6-> $\Delta V_{\text{mix}}=0$, \ie total volume of the solution is equal to the sum of the molar volumes of all components;
+                \item<7-> Total pressure is the sum of all partial pressures (\ie Dalton's law is obeyed), \ie
                   \begin{displaymath}
-                    P = \summation[P_{i}]{i}{} = \summation[P_{i}^{\text{sat}}x_{i}]{i}{}
+                    P = \summation[P_{i}]{i=1}{\mathcal{C}} = \summation[P_{i}^{\text{sat}}x_{i}]{i=1}{\mathcal{C}}.
                   \end{displaymath}
              \end{enumerate}  
         \end{enumerate}
@@ -553,6 +558,10 @@
 
 
 %%%
+%%% SUBSECTION
+%%%
+\subsection{Activity}
+%%%
 %%% Slide
 %%%
 %\scriptsize
@@ -569,7 +578,7 @@
                \end{displaymath}
                where $f_{i}^{\circ}$ is the fugacity of component $i$ pure at \blue{reference-state} conditions.
            
-           \visible<2->{\begin{block}{\begin{center}\normalsize{Activity }\end{center}}
+           \visible<3->{\begin{block}{\begin{center}\normalsize{Activity }\end{center}}
                The term in brackets is defined as the \red{activity $\left(a_{i}\right)$} of component $i$,
                     \begin{displaymath} 
                           a_{i} = \frc{\overline{f}_{i}}{f_{i}^{\circ}},
@@ -583,13 +592,18 @@
 
 
 %%%
+%%% SUBSECTION
+%%%
+\subsection{Activity Coefficient}
+
+%%%
 %%% Slide
 %%%
 %\scriptsize
 \begin{frame}
   \frametitle{Activity Coefficient}
         \begin{enumerate}%\setcounter{enumi}{2}  
-           \item<1-> Since the chemical potential was defined as the molar Gibbs free energy, \ie $\mu_{i}^{\circ} = \overline{g}_{i}^{\circ}$, therefore
+           \item<1-> Since the chemical potential was defined as the molar Gibbs free energy, at the \blue{reference-state} $\mu_{i}^{\circ} = \overline{g}_{i}^{\circ}$, therefore
               \begin{displaymath}
                  \mu_{i} = \overline{g}_{i}^{\circ} + RT\ln{a_{i}},
               \end{displaymath}
@@ -600,7 +614,7 @@
                   \begin{displaymath}
                      a_{i} = \frc{\overline{f}_{i}}{f_{i}^{\circ}} = \frc{y_{i}f_{i}}{f_{i}^{\circ}} \;\; \Longrightarrow \;\; \frc{f_{i}}{f_{i}^{\circ}} = \frc{a_{i}}{y_{i}} = \gamma_{i}
                   \end{displaymath}
-                  and define the \red{activity coefficient $\left(\gamma_{i}\right)$}. The activity coefficient is {\it adjustment} parameter that relates the actual behaviour to the ideal behaviour of a solution at the same $T$ and $P$. In a broad way, $\gamma$ operarates in a similar way as the compressibility factor $Z$ for gases (Module 1).
+                  and define the \red{activity coefficient $\left(\gamma_{i}\right)$}. The \blue{activity coefficient} is an {\it adjustment} parameter that \blue{relates the actual behaviour to the ideal behaviour of a solution at the same $T$ and $P$}. In a broad way, $\gamma$ operarates in a similar way as the compressibility factor ($Z$) for gases (Module 1).
                     
                \end{block}}
                
@@ -610,7 +624,7 @@
 
 %%%
 %%% Slide
-%%%
+%%% 
 %\scriptsize
 \begin{frame}
   \frametitle{Activity Coefficient}
@@ -622,10 +636,10 @@
                   \end{displaymath}
                \item<2-> For VLE at low pressures:
                   \begin{eqnarray}
-                      \blue{\gamma_{i}} &=& \frc{\overline{f}_{i}}{x_{i}f_{i}} = \frc{y_{i}P}{x_{i}f_{i}} \nonumber \\
-                                        &=&  \blue{\frc{y_{i}P}{x_{i}P_{i}^{\text{sat}}}}, \nonumber
+                      \red{\gamma_{i}} &=& \frc{\overline{f}_{i}}{x_{i}f_{i}} = \frc{y_{i}P}{x_{i}f_{i}} \nonumber \\
+                                        &=&  \red{\frc{y_{i}P}{x_{i}P_{i}^{\text{sat}}}}, \nonumber
                   \end{eqnarray}
-                  this expression is the \red{modified Raoult's law}.
+                  this expression is the \red{modified Raoult's law}, defined in Module 3.
              \end{enumerate}
         \end{block}
          
@@ -634,59 +648,36 @@
 
 
 %%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
-  \frametitle{Fugacity}
-        \begin{enumerate}%\setcounter{enumi}{3}  
-           \item<1-> 
-           
-           \visible<2->{\begin{block}{\begin{center}\normalsize{ }\end{center}}
-               \blue{M}
-               \end{block}}
-               
-        \end{enumerate}
-\end{frame}
-\normalsize
-
-
-
-%%%
 %%% SECTION
-%%%
-\section{Partial Properties}
-%%%
-%%% SUBSECTION
-%%%
-\subsection{Introduction}
+%%% 
+\section{Solutions Theory}
+
 %%%
 %%% SUBSECTION
 %%%
-\subsection{Fundamental Relations}
-%%%
-%%% Slide
-%%%
+\subsection{Gibbs-Duhem Relations}
+
 %\scriptsize
 \begin{frame}
-  \frametitle{Partial Properties: Relations between Molar and Partial Molar Properties}
+  \frametitle{Gibbs-Duhem Relations}
   \begin{enumerate}%\setcounter{enumi}{8}
-    \item<1->For the total property $M$:
+    \item<1->For the total property $M\;(\equiv V,U,H,S,A,G)$:
       \visible<1->{\begin{displaymath}
-          n M = \sum\limits_{i} n_{i}\overline{M}_{i}\;\;\;\text{ and }\;\;\; M = \sum\limits_{i}x_{i}\overline{M}_{i}
-      \end{displaymath}}
+          n M = \sum\limits_{i} n_{i}\overline{M}_{i} \Longrightarrow M = \sum\limits_{i}x_{i}\overline{M}_{i}, \text{ where }\;\overline{M}_{i}=\Partial[\left(nM\right)]{n_{i}}{P,T,n_{j} \left(n_{i} \ne n_{j}\right)  }
+      \end{displaymath}
+      is the partial molar property of species $i$ in solution.}
     \item<2->General expression for $dM$:
       \visible<2->{\begin{displaymath}
           dM = \sum\limits_{i}x_{i}d\overline{M}_{i} + \sum\limits_{i}\overline{M}_{i}dx_{i}
       \end{displaymath}}
   \end{enumerate}
-  \visible<3->{\begin{block}{\textcolor{blue}{Gibbs-Duhem Equation}}
+  \visible<3->{\begin{block}{\begin{center}\normalsize{Gibbs-Duhem Equation }\end{center}}
                \begin{displaymath}
-                   \left(\frc{\partial M}{\partial P}\right)_{T,x} dP + \left(\frc{\partial M}{\partial T}\right)_{P,x}dT - \sum\limits_{i}x_{i}d\overline{M}_{i} = 0
+                   \red{\left(\frc{\partial M}{\partial P}\right)_{T,x} dP + \left(\frc{\partial M}{\partial T}\right)_{P,x}dT - \sum\limits_{i}x_{i}d\overline{M}_{i} = 0}
                 \end{displaymath}
                and at $T$ and $P$ constant:
                \begin{displaymath}
-                  \textcolor{blue}{\sum\limits_{i}x_{i}d\overline{M}_{i} = 0}
+                  \red{\sum\limits_{i}x_{i}d\overline{M}_{i} = 0}
                \end{displaymath}
              \end{block}}
 \end{frame}
@@ -698,24 +689,22 @@
 %\scriptsize
 \begin{frame}
   \frametitle{Partial Properties in Binary Solutions}
-  \begin{enumerate}%\setcounter{enumi}{8}
-    \item<1->Partial properties are readily calculated directly from an expression of the solution property as a function of composition at constant $T$ and $P$:
-      \visible<1->{\begin{displaymath}
-          \overline{M}_{1} = M + x_{2}\frc{d M}{dx_{1}} \;\;\;\text{ and } \;\;\; \overline{M}_{2}=M-x_{1}\frc{d M}{dx_{1}}
-      \end{displaymath}}
-    \item<2->Or in derivative format:
-      \visible<2->{\begin{displaymath}
-          x_{1}\frc{d\overline{M}_{1}}{dx_{1}} + x_{2}\frc{d\overline{M}_{2}}{dx_{1}} = 0\;\;\;\text{ and }\;\;\; \frc{d\overline{M}_{1}}{dx_{1}} = -\frc{x_{2}}{x_{1}}\frc{d\overline{M}_{2}}{dx_{1}}
-      \end{displaymath}}
-  \end{enumerate}
+    \begin{block}{\begin{center}\normalsize{Applications of the Gibbs-Duhem Equation }\end{center}}
+      \begin{enumerate}%\setcounter{enumi}{8}
+         \item<1->Partial properties are readily calculated directly from an expression of the solution property as a function of composition at constant $T$ and $P$:
+            \visible<1->{\begin{displaymath}
+                            \red{\overline{M}_{1} = M + x_{2}\frc{d M}{dx_{1}} \;\;\;\text{ and } \;\;\; \overline{M}_{2}=M-x_{1}\frc{d M}{dx_{1}}}
+                         \end{displaymath}}
+         \item<2->Or in derivative format:
+            \visible<2->{\begin{displaymath}
+                            \blue{x_{1}\frc{d\overline{M}_{1}}{dx_{1}} + x_{2}\frc{d\overline{M}_{2}}{dx_{1}} = 0\;\;\;\text{ and }\;\;\; \frc{d\overline{M}_{1}}{dx_{1}} = -\frc{x_{2}}{x_{1}}\frc{d\overline{M}_{2}}{dx_{1}}}
+                         \end{displaymath}}
+      \end{enumerate}
+   \end{block}
 \end{frame}
 \normalsize
 
 
-%%%
-%%% SECTION
-%%% 
-\section{Solution Theory}
 
 %%%
 %%% SUBSECTION
