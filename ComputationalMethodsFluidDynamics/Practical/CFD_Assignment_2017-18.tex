@@ -149,15 +149,41 @@
 \begin{document}
 
 \section{Introduction}
-High-density polyethylene (HDPE) is the third largest commodity plastic material produced in the world (after PVC and PP) with annual production of 51.33 MMT (2016) and worth of approximately USD 64 billions. HDPE resin is used in a wide range of applications from food and beverage packaging to corrosion- and thermal-resistant pipes. The aim of this practical is to prepare preliminary fluid flow designs of several components of a new HDPE industrial production plant (Fig.~\ref{HDPE_Plant}) using Ansys Fluent CFD.   
+High-density polyethylene (HDPE) is the third largest commodity plastic material produced in the world (after PVC and PP) with annual production of 51.33 MMT (2016) and worth of approximately USD 64 billions. HDPE resin is used in a wide range of applications from food and beverage packaging to corrosion- and thermal-resistant pipes. The aim of this practical is to prepare preliminary fluid flow designs of the ethylene flow stream prior to the polymerisation reactor in a new Gas Phase LLDPE/HDPE industrial production plant (Fig.~\ref{HDPE_Plant}) using Ansys Fluent CFD.   
  
 \begin{figure}[H]
   \begin{center}
      \includegraphics[width=0.8\textwidth,clip]{./Pics/hdpe_production_img2.jpg}
-     \caption{HDPE fluxogram}\label{HDPE_Plant}
+     \caption{Gas Phase LLDPE/HDPE Swing Process Dow Chemical) fluxogram}\label{HDPE_Plant}
   \end{center}
 \end{figure}
 
+{\bf Gaseous Ethylene Stream (A):} prior to the removal of water and oxygen at the pressure vessel, gaseous ethylene $\left(\text{75}^{\circ}\text{C}\right)$ is heated up to 140$^{\circ}$C in a finned tube cross-flow heat exchanger (Fig.~\ref{HE_FlowPastHeatedCyclinder}, bottom). Fluid flowing in the tubes is mineral oil $\left(\text{Terminol}\textregistered\text{66 at 300}^{\circ}\text{C, with C}_{p}=2.57\text{ kJ.(kg.K)}^{-1}\right.$, 
+
+$\left.\rho= 808.5\text{ kg.m}^{-3}, \kappa=0.095\text{W.(m.K)}^{-1}\text{ and }\mu=0.41\text{ mPa.s}\right)$. After the contaminant (water and oxygen) removal, the gaseous stream is refrigerated from 120$^{\circ}$C to 90$^{\circ}$C in a similar finned tube cross-flow heat exchanger (same mineral oil was used, but with temperature of 50$^{\circ}$C).  In order to support the design of such heat exchanger, specific technical information with respect to flow dynamics and heat transfer need to be obtained.
+     \begin{enumerate}[i)]
+        \item\label{1a} Flow past a heated cylinder: In order to obtain the appropriate parameters for the design of such heat exchanger, a simplified 2D model involving ethylene gas flow past a heated cylinder (Fig.~\ref{HE_FlowPastHeatedCyclinder}, top) can be used to obtain information about drag forces and heat transfer (solid-fluid and fluid-fluid) that can later be used in the design and optimisation of the whole heat exchanger. 
+        \item\label{1b} Flow past a bank of heated cylinders: With the experience gained in (\ref{1a}), it is important to investigate the drag and heat transfer mechanisms in a bank of heated cylinders, i.e., the impact of such set of obstacles in the flow dynamics.
+        \item\label{1c} Cross-flow heat exchanger (see \href{https://www.youtube.com/watch?v=-03gO3UwFeA}{https://www.youtube.com/watch?v=-03gO3UwFeA}): After the preliminary study (\ref{1a}-\ref{1b}) wrt optimal configuration of bank of heated cylinders, extend the model to 3D simulation and investigate flow dynamics and heat transfer rate.
+     \end{enumerate}
+
+     {\bf Tasks:}
+     \begin{itemize}
+        \item Initial geometry, mesh (unstructured) and set-up for 2D configurations described in \ref{1a}-\ref{1b};
+        \item Gas compressibility assumptions: incompressible and compressible using PR-EOS;
+        \item Investigation of drag around the cylinder(s) and the impact in the induced heat diffusion;
+        \item Investigation of turbulence induced by the cylinder(s) through different models;
+        \item Heat transfer efficiency in the \ref{1c}, temperature gradient in ethylene and oil (internal flow fluid) streams;
+        \item Maybe optimal design for the heat exchanger.
+     \end{itemize}
+
+     \begin{figure}[h]
+         \vbox{ \hbox{\hspace{1cm}\includegraphics[width=0.7\textwidth,clip]{./Pics/HeatExchanger_2D.pdf}}
+                \hbox{\hspace{3cm}\includegraphics[width=0.5\textwidth,clip]{./Pics/HE_Finned.png}}}
+         \caption{Flow past (heated) cylinder and banks of (heated) cylinders (top/middle). Cross-flow heat exchanger (bottom). }\label{HE_FlowPastHeatedCyclinder}
+     \end{figure}
+
+\begin{comment}
 Systems that will be investigated are:
 \begin{enumerate}[A.]
   \item {\bf Gaseous Ethylene Stream:} prior to the removal of water and oxygen at the pressure vessel, gaseous ethylene $\left(\text{XX}^{\circ}\text{C, A}\right)$ is heated up in a finned tube cross flow heat exchanger (Fig.~\ref{HE_FlowPastHeatedCyclinder}, bottom). In order to support the design of such heat exchanger, specific technical information with respect to flow dynamics and heat transfer need to be obtained.
@@ -182,7 +208,6 @@ Systems that will be investigated are:
                 \hbox{\hspace{3cm}\includegraphics[width=0.5\textwidth,clip]{./Pics/HE_Finned.png}}}
          \caption{Flow past (heated) cylinder and banks of (heated) cylinders (top/middle). Cross-flow heat exchanger (bottom). }\label{HE_FlowPastHeatedCyclinder}
      \end{figure}
-
 %%%
   \item {\bf Design of a Manifold Pipeline System:} four gaseous streams (B) are mixed before the polymerisation at the reactor in a hydraulic pipeline (Fig.~\ref{ManifoldPipeline}). The streams are:
      \begin{itemize}
@@ -200,19 +225,15 @@ Systems that will be investigated are:
         \item Turbulence models in the manifold pipeline system;
         \item Determine the optimal configuration for the manifold system that leads to the smallest pressure drop.
      \end{itemize}
-     
-     
-     
-    
 
      \begin{figure}[h]
          \vbox{ \hbox{\hspace{1cm}\includegraphics[width=0.7\textwidth,clip]{./Pics/ManifoldPipeline1.jpg}}
                 \hbox{\hspace{3cm}\includegraphics[width=0.5\textwidth,clip]{./Pics/ManifoldPipeline2.jpg}}}
          \caption{Manifold hydraulic pipeline (mixing of gases). }\label{ManifoldPipeline}
      \end{figure}
-
-
 \end{enumerate}
+
+\end{comment}
 
 
 
