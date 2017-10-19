@@ -125,7 +125,7 @@
 \newcommand{\blue}{\textcolor{blue}}
 \newcommand{\green}{\textcolor{green}}
 \newcommand{\purple}{\textcolor{purple}}
-\newcommand{\eg}{{\it e.g.}}
+\newcommand{\eg}{{\it e.g., }}
 \newcommand\Rey{\mbox{\textit{Re}}\,\,}
 \newcommand\bfr[1]{\textcolor[rgb]{1,0.00,0.00}{\textbf{\textsf{#1}}}}
 \newcommand\ra{$\rightarrow$}
@@ -149,22 +149,27 @@
 
 \begin{document}
 
-\section{Introduction}
-High-density polyethylene (HDPE) is the third largest commodity plastic material produced in the world (after PVC and PP) with annual production of 51.33 MMT (2016) and worth of approximately USD 64 billions. HDPE resin is used in a wide range of applications from food and beverage packaging to corrosion- and thermal-resistant pipes. There are several industrial patented technology processes to produce HDPE, \eg
-
+\section{Introduction} 
+High-density polyethylene (HDPE) is the third largest commodity plastic material produced in the world (after PVC and PP) with annual production of 51.33 MMT (2016) and worth of approximately USD 64 billions. HDPE resin is used in a wide range of applications from food and beverage packaging to corrosion- and thermal-resistant pipes. There are several industrial patented technology processes to produce HDPE worldwide, \eg 'Chevron-Philips Slurry Loop', 'Lyondell-Basell Ziegler Slurry Process', 'DOW Chemical Solution Process', Univation's 'UNIPOL Swing Process' (Fig.~\ref{HDPE_Plant}) etc.
 
 The aim of this practical is to prepare preliminary fluid flow designs of the ethylene flow stream prior to the polymerisation reactor in a new Gas Phase LLDPE/HDPE industrial production plant (Fig.~\ref{HDPE_Plant}) using Ansys Fluent CFD.   
  
 \begin{figure}[H]
   \begin{center}
-     \includegraphics[width=0.8\textwidth,clip]{./Pics/hdpe_production_img2.jpg}
+     \includegraphics[width=0.8\textwidth,clip]{./Pics/hdpe_production_img2.jpg} 
      \caption{Gas Phase LLDPE/HDPE Swing Process Dow Chemical) fluxogram}\label{HDPE_Plant}
   \end{center}
 \end{figure}
 
-{\bf Gaseous Ethylene Stream (A):} prior to the removal of water and oxygen at the pressure vessel, gaseous ethylene $\left(\text{75}^{\circ}\text{C}\right)$ is heated up to 140$^{\circ}$C in a finned tube cross-flow heat exchanger (Fig.~\ref{HE_FlowPastHeatedCyclinder}, bottom). Fluid flowing in the tubes is mineral oil $\left(\text{Terminol}\textregistered\text{66 at 300}^{\circ}\text{C, with C}_{p}=2.57\text{ kJ.(kg.K)}^{-1}\right.$, 
+{\bf Gaseous Ethylene Stream (A):} prior to the removal of water and oxygen at the pressure vessel, gaseous ethylene $\left(\text{75}^{\circ}\text{C}\right)$ is heated up to 140$^{\circ}$C in a finned tube cross-flow heat exchanger (Fig.~\ref{HE_FlowPastHeatedCyclinder}, bottom). Fluid flowing in the tubes is mineral oil $\left(\href{http://twt.mpei.ac.ru/TTHB/HEDH/HTF-66.PDF}{\text{Therminol}\textregistered\text{66}} \text{ at 300}^{\circ}\text{C, with C}_{p}=2.57\text{ kJ.(kg.K)}^{-1}\right.$, 
 
-$\left.\rho= 808.5\text{ kg.m}^{-3}, \kappa=0.095\text{W.(m.K)}^{-1}\text{ and }\mu=0.41\text{ mPa.s}\right)$. After the contaminant (water and oxygen) removal, the gaseous stream is refrigerated from 120$^{\circ}$C to 90$^{\circ}$C in a similar finned tube cross-flow heat exchanger (same mineral oil was used, but with temperature of 50$^{\circ}$C).  In order to support the design of such heat exchanger, specific technical information with respect to flow dynamics and heat transfer need to be obtained.
+$\left.\rho= 808.5\text{ kg.m}^{-3}, \kappa=0.095\text{W.(m.K)}^{-1}\text{ and }\mu=0.41\text{ mPa.s}\right)$. After the contaminants (water and oxygen) removal, the gaseous stream is refrigerated from 120$^{\circ}$C to 90$^{\circ}$C in a similar finned tube cross-flow heat exchanger (same mineral oil was used, but with temperature of 50$^{\circ}$C).  In order to support the design of such heat exchangers, specific technical information must to be obtained:
+     \begin{enumerate}[a)]
+        \item heat transfer from the tubes (containing $\text{Therminol}\textregistered\text{66}$ to the ethylene stream \blue{(A)};
+        \item heat transfer from the ethylene stream to the tubes (containing $\text{Therminol}\textregistered\text{66}$ \blue{(B)};
+        \item turbulence-induced mixing due to the pipes arrangement;
+        
+     \end{enumerate}
      \begin{enumerate}[i)]
         \item\label{1a} Flow past a heated cylinder: In order to obtain the appropriate parameters for the design of such heat exchanger, a simplified 2D model involving ethylene gas flow past a heated cylinder (Fig.~\ref{HE_FlowPastHeatedCyclinder}, top) can be used to obtain information about drag forces and heat transfer (solid-fluid and fluid-fluid) that can later be used in the design and optimisation of the whole heat exchanger. 
         \item\label{1b} Flow past a bank of heated cylinders: With the experience gained in (\ref{1a}), it is important to investigate the drag and heat transfer mechanisms in a bank of heated cylinders, i.e., the impact of such set of obstacles in the flow dynamics.
