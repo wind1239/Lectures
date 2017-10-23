@@ -9,10 +9,10 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-\documentclass[10pt,compress,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,unknownkeysallowed]{beamer}
 %Draft or handout mode
 %\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
-%\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
+\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
 % These settings must be set for each presentation
@@ -22,7 +22,7 @@
 \institute{School of Engineering}
 \newcommand{\emailaddress}{}%jefferson.gomes@abdn.ac.uk}
 \newcommand{\logoimage}{../FigBanner/UoAHorizBanner}
-\title{EX3030/EM40JK}
+\title{Heat Mass and Momentum Transfer (EX3030/EM40JN)}
 \subtitle{Transient Heat Transfer}
 \date[ ]{ }
 
@@ -134,7 +134,7 @@
         \begin{enumerate}
            \item<1-> In the study of heat transfer, the simplest case analysis is when bodies are assumed \red{{\it isothermal}} and, therefore they can be treated as a \blue{lump} system;
            \item<2-> This means that the temperature of these bodies at any spatial coordinate can be expressed as function of time only, i.e., \blue{$T=T\left(t\right)$}; 
-           \item<4-> Let's consider a body of mass \blue{$m$} and arbitrary shape $\left(\text{with area} \blue{A_{s}}\right)$ and temperature \blue{$T$};
+           \item<4-> Let's consider a body of mass \blue{$m$} and arbitrary shape $\left(\text{with area } \blue{A_{s}}\right)$ and temperature \blue{$T$};
         \end{enumerate}
 \end{frame}
 
@@ -176,24 +176,34 @@
 %%%
 \begin{frame}
  \frametitle{Thermal Energy Balance}
-   \begin{enumerate}\setcounter{enumi}{6}\scriptsize
+   \begin{enumerate}\setcounter{enumi}{6}%\scriptsize
      \item<1-> The energy balance,
           \visible<1->{\blue{\begin{displaymath}
               hA_{s}\left(T_{\infty}-T\right)dt = mC_{p}dT \label{eqn:energybalance}
           \end{displaymath}}}
-     \item<1-> can be rearranged and integrated as (from time \blue{$0$} to \blue{$t$}),
-          \visible<2->{\begin{eqnarray}
+          \visible<2->{ can be rearranged and integrated as (from time \blue{$0$} to \blue{$t$}),
+            \begin{shaded}
+            \begin{eqnarray}
               \int\limits_{T_{0}}^{T(t)}\frc{d\left(T-T_{\infty}\right)}{T-T_{\infty}} &=& \int\limits_{0}^{t}-\frc{hA_{s}}{\rho V C_{p}}dt \;\;\Rightarrow \;\; \ln\frc{T(t)-T_{\infty}}{T_{0}-T_{\infty}} = -\frc{hA_{s}}{\rho V C_{p}}t  \nonumber\\ 
               \blue{\frc{T(t)-T_{\infty}}{T_{0}-T_{\infty}}} &\blue{=}& \blue{e^{-bt}} \label{eqn:CharacteristicTime}
-          \end{eqnarray}}
-          \visible<2->{where \blue{$T_{0}$} is the initial temperature and $b = \frc{hA_{s}}{\rho V C_{p}}$ is the \blue{time constant} with dimension {\bf $\left[\text{time}^{-1}\right]$}.}
-     \item<3-> From Eqn.~\ref{eqn:CharacteristicTime}:
-        \begin{enumerate}\scriptsize
-           \item<3-> We can calculate either the temperature \blue{$T(t)$} of the body at a given time \blue{$t$} or;
-           \item<4-> The time \blue{$t$} required for a body to reach temperature \blue{$T(t)$};
-           \item<5-> Temperature \blue{$T(t)$} approaches the surrounding temperature \blue{$T_{\infty}$} {\bf exponentially};
-           \item<6-> A large value of \blue{b} indicates a higher rate of temperature decay;
-           \item<7-> Finally, \blue{b} is proportional to \blue{$A_{s}$} and inversely proportional to \blue{$m$} and \blue{$C_{p}$} of the body. This means that it takes longer to heat or cool a larger mass, in particular if it also has a large heat capacity.
+          \end{eqnarray}\end{shaded}}
+          \visible<3->{where \blue{$T_{0}$} is the initial temperature and $b = \frc{hA_{s}}{\rho V C_{p}}$ is the \blue{time constant} with dimension {\bf $\left[\text{time}^{-1}\right]$}.}
+   \end{enumerate}
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{Thermal Energy Balance}
+   \begin{enumerate}\setcounter{enumi}{7}%\scriptsize
+     \item<1-> From Eqn.~\ref{eqn:CharacteristicTime}:
+        \begin{enumerate}%\scriptsize
+           \item<1-> We can calculate either the temperature \blue{$T(t)$} of the body at a given time \blue{$t$} or;
+           \item<2-> The time \blue{$t$} required for a body to reach temperature \blue{$T(t)$};
+           \item<3-> Temperature \blue{$T(t)$} approaches the surrounding temperature \blue{$T_{\infty}$} {\bf exponentially};
+           \item<4-> A large value of \blue{b} indicates a higher rate of temperature decay;
+           \item<5-> Finally, \blue{b} is proportional to \blue{$A_{s}$} and inversely proportional to \blue{$m$} and \blue{$C_{p}$} of the body. This means that it takes longer to heat or cool a larger mass, in particular if it also has a large heat capacity.
         \end{enumerate}
    \end{enumerate}
 \end{frame}
@@ -233,11 +243,11 @@
     \begin{shaded}
        In summary, in the \blue{lumped-capacitance method}, temperature can be computed using the assuption that a body will heat /cool uniformly, \ie $T(t)$,
           \begin{displaymath}
-             \frc{T(t)-T_{\infty}}{T_{0}-T_{\infty}} = e^{-bt},\;\;\;\text{ where }\;\;\;\ b = \frc{hA_{s}}{\rho V C_{p}}.
+             \red{\frc{T(t)-T_{\infty}}{T_{0}-T_{\infty}} = e^{-bt},\;\;\;\text{ where }\;\;\;\ b = \frc{hA_{s}}{\rho V C_{p}}.}
           \end{displaymath}
 This method is valid {\bf only if}
            \begin{displaymath}
-               \Bi \le 0.1
+               \blue{\Bi \le 0.1}
            \end{displaymath}
     \end{shaded}
 
@@ -300,7 +310,7 @@ This method is valid {\bf only if}
 \begin{frame}
  \frametitle{Introduction}
    \begin{enumerate}%\setcounter{enumi}{5}%\scriptsize
-     \item<1-> In most transient heat transfer problems, the \blue{\it Biot} dimensionless number is larger than \blue{0.1} and the \blue{lumped-capacitance method} and Eqn.~\ref{eqn:CharacteristicTime} can not be used.
+     \item<1-> In most transient heat transfer problems, the \blue{\it Biot} dimensionless number is larger than \blue{0.1} and the \blue{lumped-capacitance method (Eqn.~\ref{eqn:CharacteristicTime})} can not be used.
      \item<2-> In such cases, it is necessary to calculate the temperature distribution throught spatial and time domains, i.e., \red{$T\left(\underline{x},t\right)$}, where $\underline{x}$ is the spatial-coordinate in 1-, 2- and 3-D;
    \end{enumerate}
 
@@ -442,13 +452,27 @@ This method is valid {\bf only if}
         \begin{equation}
            \theta_{\text{sph}} = \frc{T(r,t)-T_{\infty}}{T_{i}-T_{\infty}}= A_{1}e^{-\lambda_{1}^{2}\tau}\frc{\sin{\left(\frc{\lambda_{1}r}{r_{0}}\right)}}{\frc{\lambda_{1}r}{r_{0}}}\label{analytical:sphere}
         \end{equation}
+        \end{enumerate}
+        
+   \visible<1->{$A_{1}$ and $\lambda_{1}$ are functions of the $Bi$ dimensioneless number. Function $J_{0}$ is the zeroth-order Bessel function of the first kind (see Tables in Appendix 1).} \\
+   \visible<2->{Note that in Bessel function, the term in brackets is the {\bf argument} of the function, \ie in $J_{0}\left(\eta\right)$, $\eta= \frc{\lambda_{1}r}{r_{0}}$.}
 
-     \item<4-> At the centre of the geometry: $\cos{0}=1=\mathbf{J_{0}}(0)=1$ and the limit of $\frac{sin{x}}{x}$ is 1.
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+\begin{frame}
+ \frametitle{1-D Transient Heat Conduction (with $\tau > 0.2$)}
+   \begin{enumerate}[(a)]\setcounter{enumi}{3}%\scriptsize
+     \item<1-> At the centre of the geometry: $\cos{0}=1=\mathbf{J_{0}}(0)=1$ and the limit of $\frac{sin{x}}{x}$ is 1.
          \begin{equation}
              \theta_{0,\text{wall}} = \theta_{0,\text{cyl}} = \theta_{0,\text{sph}} = \frc{T_{0}-T_{\infty}}{T_{i}-T_{\infty}} = A_{1}e^{-\lambda_{1}^{2}\tau}
          \end{equation}
-   \end{enumerate} 
-   \visible<1->{$A_{1}$ and $\lambda_{1}$ are functions of the $Bi$ dimensioneless number. Function $J_{0}$ is the zeroth-order Bessel function of the first kind (see Tables in Appendix 1).}
+   \end{enumerate}
+   
+   \visible<1->{$A_{1}$ and $\lambda_{1}$ are functions of the $Bi$ dimensioneless number. Function $J_{0}$ is the zeroth-order Bessel function of the first kind (see Tables in Appendix 1).} \\
+   \visible<1->{Note that in Bessel function, the term in brackets is the {\bf argument} of the function, \ie in $J_{0}\left(\eta\right)$, $\eta= \frc{\lambda_{1}r}{r_{0}}$.}
 
 \end{frame}
 
