@@ -10,10 +10,10 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode% 
-%\documentclass[10pt,compress,unknownkeysallowed]{beamer}
+\documentclass[10pt,compress,unknownkeysallowed]{beamer}
 %Draft or handout mode 
 %\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
-\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
 
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
@@ -105,10 +105,10 @@
 \begin{frame}
  \frametitle{Aims and Objectives}
     \begin{enumerate}
-        \item<1-> In the previous Modules we have focused primarily on thermodynamic systems comprising pure substances and mixtures in VLE;
-        \item<1-> In this module, five new thermodynamic functions will be introduced, chemical potential, fugacity, activity, activity coefficient and fugacity coefficient;
+        \item<1-> In previous Modules we have focused primarily on thermodynamic systems comprising pure substances and mixtures in VLE;
+        \item<1-> In this module, five new thermodynamic functions will be introduced: chemical potential, fugacity, activity, activity coefficient and fugacity coefficient;
         \item<1-> These functions help describe the non-ideality of solutions in the same way as the compressibility factor, $Z$, helped with gases;
-        \item<1-> This module will focus on thermodynamic description of solutions and how these functions can be used to determine the properties of ideal and real liquid solutions. 
+        \item<1-> This module will focus on the thermodynamic description of solutions and how these functions can be used to determine the properties of ideal and real liquid solutions. 
    \end{enumerate}
 \end{frame}
 
@@ -130,7 +130,7 @@
 \begin{frame}
   \frametitle{Partial Molar Properties: Definition}
   \begin{enumerate}%\setcounter{enumi}{8}
-    \item<1-> In \blue{multi-component systems}, the total value of any {\bf extensive property, $M^{t}$} $\left(M\equiv V,U, H, A, G\right)$, is not \underline{only} dependent on $T$ and $P$, but also on the \blue{number of moles of each species} present in the system;
+    \item<1-> In \blue{multi-component systems}, the total value of any {\bf extensive property, $M^{t}$} $\left(M\equiv V,U, H, S, A, G\right)$, is not \underline{only} dependent on $T$ and $P$, but also on the \blue{number of moles of each species} present in the system;
     \item<2-> We can thus write it in functional form as
       \begin{displaymath}
         M^{t}=nM = M\left(T,P,n_{1}, n_{2}, \cdots n_{\mathcal{C}}\right), \hspace{.5cm} \text{ with } n = \summation[n_{i}]{i=1}{\mathcal{C}},
@@ -156,7 +156,7 @@
                   \red{\overline{M}_{i}=\left[\frc{\partial\left(nM\right)}{\partial n_{i}}\right]_{T,P,n_{j}}}
                \end{displaymath}
         \end{block}}
-    \item<3-> \red{Partial molar property} represents the change of total property \blue{$nM$} of a mixture resulting from addition of an infinitesimal amount of species $i$ to a finite amount of solution (at constant $T$ and $P$);
+    \item<2-> \red{Partial molar property} represents the change of total property \blue{$M^{t}=nM$} of a mixture resulting from addition of an infinitesimal amount of species $i$ to a finite amount of solution (at constant $T$ and $P$);
   \end{enumerate}
 \end{frame}
 \normalsize
@@ -191,7 +191,7 @@
        \visible<1->{\begin{displaymath}
          d\left(n G\right) = \left(n V\right)dP - \left(n S\right)dT
        \end{displaymath}}
-     \item<2-> In other words, \blue{Gibbs energy} may be defined as a function of \red{T} and \red{P}. However, let's extend such definition to a {\it single phase multi-component system}, \ie \blue{$G=G(T,P,n)$}:
+     \item<2-> In other words, \blue{Gibbs energy} may be defined as a function of \red{T} and \red{P}. However, let's extend such definition to a \underline{\it single phase multi-component} system, \ie \blue{$G=G(T,P,n)$}:
        \visible<2->{\begin{displaymath}
          d\left(n G\right) = \left[\frc{\partial \left(n G\right)}{\partial P}\right]_{T,n}dP + \left[\frc{\partial \left(n G\right)}{\partial T}\right]_{P,n}dT + \blue{\left.\sum\limits_{i}\left[\frc{\partial \left(n G\right)}{\partial n_{i}}\right]_{P,T,n_{j}}dn_{i}\right.}
        \end{displaymath}}
@@ -285,7 +285,7 @@
              \end{displaymath}
              where \blue{$\overline{g}$} is the \blue{molar Gibbs free energy};
              
-           \item<2-> From the \blue{Maxwell derived relations} (Module 2), a relationship between \blue{G}, \blue{P}, \blue{T} and \blue{V} is (see Eqn. 6.2i from the Lectue Notes)
+           \item<2-> From the \blue{Maxwell derived relations} (Module 2), a relationship between \blue{G}, \blue{P}, \blue{T} and \blue{V} is (see Eqn. 6.2i from the Lecture Notes)
              \begin{displaymath}
                 \Partial[G]{P}{T} = V \visible<3->{= \Partial[n\mu]{P}{T}}
              \end{displaymath}
@@ -367,7 +367,7 @@
         \begin{enumerate}\setcounter{enumi}{8}  
            \item<1-> \red{Fugacity} has the same units of pressure and is often referred as {\it fictitious or effective pressure}.
            \item<2-> As pressure tends to zero ($P\rightarrow 0$), the fluid behaves as an ideal gas; 
-           \item<3-> Therefore, the \red{fugacity} of a \blue{pure componenet} is equal to the pressure in the limiting \red{zero pressure}, \ie
+           \item<3-> Therefore, the \red{fugacity} of a \blue{pure component} is equal to the pressure in the limiting \red{zero pressure}, \ie
                \visible<4->{\begin{block}{\begin{center}\normalsize{ Fugacity at the limiting case for a pure fluid}\end{center}}
                  \begin{displaymath}
                     \blue{ \lim\limits_{P\rightarrow 0}\frc{f}{P} = 1}
@@ -515,7 +515,7 @@
            \item<2-> We can extend this idea to \blue{liquid solutions}. For a \red{solution} \blue{(or mixture)} to be considered \red{ideal}: 
              \begin{enumerate}[a)]
                 \item<3-> Chemical species have similar molecular size and structure;
-                \item<4-> Raoult's law (and the Raoult's law for fugacity) nust be obeyed over the entire range of {\bf conposition};
+                \item<4-> Raoult's law (and the Raoult's law for fugacity) must be obeyed over the entire range of {\bf composition};
                 \item<5-> $\Delta H_{\text{mix}}=0$, \ie no release or absorption of heat during dissolution (in other words, neither exothermic nor endothermic dissolution);
                 \item<6-> $\Delta V_{\text{mix}}=0$, \ie total volume of the solution is equal to the sum of the molar volumes of all components;
                 \item<7-> Total pressure is the sum of all partial pressures (\ie Dalton's law is obeyed), \ie
