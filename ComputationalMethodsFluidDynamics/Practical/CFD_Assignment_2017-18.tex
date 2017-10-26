@@ -172,8 +172,8 @@ The aim of this practical is to prepare preliminary fluid flow designs of the et
 
 {\bf Gaseous Ethylene Stream:} prior to the removal of water and oxygen at the pressure vessel, gaseous ethylene $\left(\text{75}^{\circ}\text{C}\right)$ is heated up to 140$^{\circ}$C in a finned tube cross-flow heat exchanger (Fig.~\ref{HE_FlowPastHeatedCyclinder}, bottom). Fluid flowing in the tubes is mineral oil $\left(\href{http://twt.mpei.ac.ru/TTHB/HEDH/HTF-66.PDF}{\text{Therminol}\textregistered\text{66}} \text{ at 300}^{\circ}\text{C, with C}_{p}=2.57\text{ kJ.(kg.K)}^{-1}\right.$, 
 
-$\left.\rho= 808.5\text{ kg.m}^{-3}, \kappa=0.095\text{W.(m.K)}^{-1}\text{ and }\mu=0.41\text{ mPa.s}\right)$. After the contaminants (water and oxygen) removal, the gaseous stream is refrigerated from 120$^{\circ}$C to 90$^{\circ}$C in a similar finned tube cross-flow heat exchanger (G, same mineral oil was used, but with temperature of 50$^{\circ}$C).  In order to support the design of such heat exchangers, specific technical information must to be obtained:
-     \begin{enumerate}[a)]
+$\left.\rho= 808.5\text{ kg.m}^{-3}, \kappa=0.095\text{W.(m.K)}^{-1}\text{ and }\mu=0.41\text{ mPa.s}\right)$. After the contaminants (water and oxygen) removal, the gaseous stream is refrigerated from 120$^{\circ}$C to 90$^{\circ}$C in a similar finned tube cross-flow heat exchanger (G, same mineral oil was used, but with temperature of 50$^{\circ}$C).  In order to support the design of such heat exchangers, specific technical information must be obtained:
+     \begin{enumerate}[i)]
         \item heat transfer from the tubes (containing $\text{Therminol}\textregistered\text{66}$) to the ethylene stream (A);
         \item heat transfer from the ethylene stream to the tubes (containing $\text{Therminol}\textregistered\text{66}$) (G);
         \item turbulence-induced mixing due to the pipes arrangement (Fig,~\ref{HE_FlowPastHeatedCyclinder} b-c) in both heat exchangers.        
@@ -198,8 +198,7 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
                 \vv procedures are critical tools to build confidence of numerical simulations. Before simulating flow and heat dynamics in the {\it Heat Exchanger A}, a \vv procedure should be designed to assess the initial accuracy of the model.
                 \medskip
 
-                {\it Flow past a cylinder} is a classical CFD \vv exercise and it is often used (a) to asses numerical accuracy (verification) and functionalities of models as the flow is steady and symmetric at low \Rey numbers and; (b) to validate against experimental solutions\footnote{\eg \href{https://doi.org/10.1017/S0022112064000544}{A.S. Grove {\it et al.} (1964) 'An Experimental Investigation of the Steady Separated Flow Past a Circular Cylinder', Journal of Fluid Mechanics 19:60-80}; \href{https://doi.org/10.1017/S0022112070001428}{S.C.R. Dennis and G. Chang (1970) 'Numerical Solutions for Steady Flow Past a Circular Cylinder at Reynolds Numbers up to 100', Journal Fluid Mechanics 42:471-489}; \href{https://doi.org/10.1017/S0022112059000829}{D.J. Tritton (1959) 'Experiments on the Flow Past a Circular Cylinder at Low Reynolds Numbers'  Journal Fluid Mechanics 6:547-567}; \href{https://doi.org/10.1017/S0022112061000950}{A. Roshko (1961) 'Experiments on the Flow Past a Circular Cylinder at Very High Reynolds Number', Journal of Fluid Mechanics 10:345-356}.}. At low Reynolds number (\Rey), any perturbation in the velocity boundary conditions is readily dissipated by viscous forces. However, as the \Rey increases, such perturbations may lead to fluid instabilities at the wake of the cylinder (also known as {\it 'vortex shedding'}), which may strongly impact on the fluid velocity and pressure fields and, therefore on momentum and heat transfers.
-
+                {\it Flow past a cylinder} is a classical CFD \vv exercise and it is often used (a) to asses numerical accuracy (verification) and functionalities of models as the flow is steady and symmetric at low \Rey numbers and; (b) to validate against experimental solutions\footnote{\eg \href{https://doi.org/10.1017/S0022112064000544}{A.S. Grove {\it et al.} (1964) 'An Experimental Investigation of the Steady Separated Flow Past a Circular Cylinder', Journal of Fluid Mechanics 19:60-80}; \href{https://doi.org/10.1017/S0022112070001428}{S.C.R. Dennis and G. Chang (1970) 'Numerical Solutions for Steady Flow Past a Circular Cylinder at Reynolds Numbers up to 100', Journal Fluid Mechanics 42:471-489}; \href{https://doi.org/10.1017/S0022112059000829}{D.J. Tritton (1959) 'Experiments on the Flow Past a Circular Cylinder at Low Reynolds Numbers'  Journal Fluid Mechanics 6:547-567}; \href{https://doi.org/10.1017/S0022112061000950}{A. Roshko (1961) 'Experiments on the Flow Past a Circular Cylinder at Very High Reynolds Number', Journal of Fluid Mechanics 10:345-356}.}. At low Reynolds number (\Rey), any perturbation in the velocity boundary conditions is readily dissipated by viscous forces. However, as the \Rey increases, such perturbations may lead to fluid instabilities at the wake of the cylinder (also known as \blue{\it 'vortex shedding'}), which may strongly impact on the fluid velocity and pressure fields and, therefore on momentum and heat transfers.
                 
 %%%
 %%%  SUBSECTION: FLOW PAST A CYLINDER
@@ -211,12 +210,26 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
             D = 2.5 cm & L = 31.5 cm & L$_{1}$ = 11.5 cm & L$_{2}$ = 12.5 cm & H = 25.0 cm.  
        \end{tabular}
      \end{center}
-     Simulations should be conducted with \Rey of \red{10, 120, 1000} and \red{5000}. 
+     Simulations should be conducted with \Rey of \red{10}, \red{10$^{3}$} and \red{10$^{4}$}. 
  
      \begin{center}
        {\bf Procedure for Building the Geometry}
      \end{center}
      \red{From Dominc ... also do you know any fluid mechanics textbook(s) that contain(s) this subject (recommended reading) ? I guess 'cause of the heterogeneity of the group we can not make reference to Vlad's lecture notes.}
+
+     \begin{shaded}
+        \begin{center} {\bf Tips: } \end{center}
+        \begin{enumerate}[a)]
+           \item For laminar flow regimes, simulations should be performed assuming steady-state regime;
+           \item For transition and turbulent flows $\left(\text{\ie } 10^{2}\le\Rey\le 10^{5}\right)$, simulations should be conducted assuming either steady-state or transient regimes. The decision of flow regime should be based on oscillations of calculated residuals. During the simulation, assuming steady-state regime, you may notice that the solution does not converge, therefore the simulation setup should be changed to transient regime. In such cases, the decision of \blue{time-step size} should be based on the Strouhal dimensionless number,
+             \begin{displaymath}
+               St = \frc{f D}{u},
+             \end{displaymath}
+             where $f$ is the frequency of the {\it vortex shedding}. The {\it St} number for 10$^{2}\le\Rey\le$10$^{5}$ is equal to 0.2 and you should obtain the time-step size assuming 20 time-steps per period $\left(\text{period = frequency}^{-1}\right)$.
+        \end{enumerate}  
+         
+     \end{shaded}
+     
 
      \begin{shaded}
         \begin{center} \blue{\bf Tasks: } \end{center}
@@ -392,7 +405,7 @@ If late or non-submission is due to medical or other circumstances out with your
              \item Although you do not need to show (in the report) plots and screen-shots on tests for verification (\eg mesh-independent solution, solution convergence, mass conservation, Y$^{+}$ for the turbulent flow simulations etc), you should perform all these tests as {\bf any failure may result in poor drag and heat transfer predictions};
              \item Ensure that residuals for the simulations are all set to 10$^{-5}$;
              \item For the solvers, use {\bf Standard} method for the {\bf pressure} field;
-             \item \red{Dominic, any other tip?}
+             \item All transient simulations should be conducted with 10 iterations per time-step;
           \end{enumerate}
        \end{shaded}
        
