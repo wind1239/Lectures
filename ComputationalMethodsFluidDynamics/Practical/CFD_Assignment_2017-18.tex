@@ -108,7 +108,7 @@
 %%%
 %%% Headers and Footers
 \lhead[] {\text{\small{EG501V -- Computational Fluid Dynamics}}}
-\rhead[\text{\small{Assignment 2017/18}}]{Assignment 2017/18}
+\rhead[\text{\small{Final Assignment 2017/18}}]{Final Assignment 2017/18}
 \lfoot[]{CFD}
 \rfoot[\thepage]{\thepage}
 \renewcommand{\headrulewidth}{0.8pt}
@@ -130,7 +130,7 @@
 \newcommand\bfr[1]{\textcolor[rgb]{1,0.00,0.00}{\textbf{\textsf{#1}}}}
 \newcommand\ra{$\rightarrow$}
 \newcommand\cm{\textcolor[rgb]{0.00,0.50,0.00}{\checkmark}\,\,}
-\newcommand{\vv}{V$\&$V}
+\newcommand{\vv}{V$\&$V }
 
 
 
@@ -190,17 +190,17 @@ $\left.\rho= 808.5\text{ kg.m}^{-3}, \kappa=0.095\text{W.(m.K)}^{-1}\text{ and }
        \item Determine key-parameters for the cross-flow heat exchangers (overall drag and heat transfer).
      \end{enumerate}
 
-     \subsection{Model and Software Quality Assurance (QA): Verification and Validation (\vv)}
+     \subsection{Model and Software Quality Assurance (QA): Verification and Validation (V$\&$V)}
                 {\it Model and software quality assurance} encompass a set of procedures adopted by the CFD industry to ensure that models and software are in compliance with fundamental requirements, such as accuracy, range of confidence etc\footnote{\href{https://doi.org/10.1146/annurev.fluid.29.1.123}{P.J. Roache (1997) 'Quantification of Uncertainty in Computational Fluid Dynamics', Annual Review of Fluid Mechanics 29:123-160.}}. Model and software QA are the main means to assess the accuracy of computational simulations and comprise of two sets of procedures:
                 \begin{enumerate}
                 \item {\bf Verification} is a ``process of determining that a model implementation accurately represents the developer's conceptual description of the
 model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S0376-0421(02)00005-2}{W.L. Oberkampf and T.G. Trucano (2002) 'Verification and Validation in Computational Fluid Dynamics', Progress in Aerospace Sciences 38:209-272.}};
                    \item {\bf Validation} is a ``process of determining the degree to which a model is an accurate representation of the real world from the perspective of the intended uses of the model''$^{2}$;
                 \end{enumerate}
-                \vv~procedures are critical tools to build confidence of numerical simulations. Before simulating flow and heat dynamics in the {\it Heat Exchanger A}, a \vv~procedure should be designed to assess the initial accuracy of the model.
+                \vv procedures are critical tools to build confidence of numerical simulations. Before simulating flow and heat dynamics in the {\it Heat Exchanger A}, a \vv procedure should be designed to assess the initial accuracy of the model.
                 \medskip
 
-                {\it Flow past a cylinder} is a classical CFD \vv~exercise and it is often used (a) to asses numerical accuracy (verification) and functionalities of models as the flow is steady and symmetric at low \Rey numbers and; (b) to validate against experimental solutions\footnote{\eg \href{https://doi.org/10.1017/S0022112064000544}{A.S. Grove {\it et al.} (1964) 'An Experimental Investigation of the Steady Separated Flow Past a Circular Cylinder', Journal of Fluid Mechanics 19:60-80}; \href{https://doi.org/10.1017/S0022112070001428}{S.C.R. Dennis and G. Chang (1970) 'Numerical Solutions for Steady Flow Past a Circular Cylinder at Reynolds Numbers up to 100', Journal Fluid Mechanics 42:471-489}; \href{https://doi.org/10.1017/S0022112059000829}{D.J. Tritton (1959) 'Experiments on the Flow Past a Circular Cylinder at Low Reynolds Numbers'  Journal Fluid Mechanics 6:547-567}; \href{https://doi.org/10.1017/S0022112061000950}{A. Roshko (1961) 'Experiments on the Flow Past a Circular Cylinder at Very High Reynolds Number', Journal of Fluid Mechanics 10:345-356}.}. At low Reynolds number (\Rey), any perturbation in the velocity boundary conditions is readily dissipated by viscous forces. However, as the \Rey increases, such perturbations may lead to fluid instabilities at the wake of the cylinder (also known as \blue{\it 'vortex shedding'}), which may strongly impact on the fluid velocity and pressure fields and, therefore on momentum and heat transfers. More background information on flow past a cylinder can be found in fluid mechanics textbooks which are available online through the library\footnote{Schlichting $\&$ Gersten (2017) \emph{Boundary layer theory}, Springer, pg. 18-24 and Cohen, Kundu \& Ayyaswamy (2007) \emph{Fluid Mechanics}, 4$^{\text{th}}$ edition, Elsevier, Section~10.9.}.
+                {\it Flow past a cylinder} is a classical CFD \vv exercise and it is often used (a) to asses numerical accuracy (verification) and functionalities of models as the flow is steady and symmetric at low \Rey numbers and; (b) to validate against experimental solutions\footnote{\eg \href{https://doi.org/10.1017/S0022112064000544}{A.S. Grove {\it et al.} (1964) 'An Experimental Investigation of the Steady Separated Flow Past a Circular Cylinder', Journal of Fluid Mechanics 19:60-80}; \href{https://doi.org/10.1017/S0022112070001428}{S.C.R. Dennis and G. Chang (1970) 'Numerical Solutions for Steady Flow Past a Circular Cylinder at Reynolds Numbers up to 100', Journal Fluid Mechanics 42:471-489}; \href{https://doi.org/10.1017/S0022112059000829}{D.J. Tritton (1959) 'Experiments on the Flow Past a Circular Cylinder at Low Reynolds Numbers'  Journal Fluid Mechanics 6:547-567}; \href{https://doi.org/10.1017/S0022112061000950}{A. Roshko (1961) 'Experiments on the Flow Past a Circular Cylinder at Very High Reynolds Number', Journal of Fluid Mechanics 10:345-356}.}. At low Reynolds number (\Rey), any perturbation in the velocity boundary conditions is readily dissipated by viscous forces. However, as the \Rey increases, such perturbations may lead to fluid instabilities at the wake of the cylinder (also known as \blue{\it 'vortex shedding'}), which may strongly impact on the fluid velocity and pressure fields and, therefore on momentum and heat transfers. More background information on flow past a cylinder can be found in fluid mechanics textbooks which are available online through the library\footnote{Schlichting $\&$ Gersten (2017) \emph{Boundary layer theory}, Springer, pg. 18-24 and Cohen, Kundu \& Ayyaswamy (2007) \emph{Fluid Mechanics}, 4$^{\text{th}}$ edition, Elsevier, Section~10.9.}.
 
 %%%
 %%%  SUBSECTION: FLOW PAST A CYLINDER
@@ -243,9 +243,16 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
                       \begin{displaymath}
                            \varepsilon = \frac{1}{N}\sum\limits_{j=1}^{N}\left|\frac{u_{x,j}^{i+1}-u_{x,j}^{i}}{u_{x,j}^{i}}\right|
                       \end{displaymath}
-                      A solution is assumed to be mesh-independent if $\varepsilon$ is smaller than a prescribed value, \eg 5$\times$10$^{-2}$;
+                      A solution is assumed to be mesh-independent if $\varepsilon$ is smaller than a prescribed value, \eg $10^{-5} \le \varepsilon \le 10^{-1}$. If you choose to assess mesh quality through this procedure, you should report the value of $\varepsilon$;
                  \end{enumerate}
-             \item For quick assessing (inspection purposes) it is advised (at the end of the simulation) to make use of the varies {\it plotting tools} at the {\it Results tab} in {\it Fluent}, rather than the {\it CFD-Post}. This may save you some valuable time during the processing. {\it CFD-Post} may be used for final make the final plots.
+               \item For quick assessing (inspection purposes) it is advised (at the end of the simulation) to make use of the varies {\it plotting tools} at the {\it Results tab} in {\it Fluent}, rather than the {\it CFD-Post}. This may save you some valuable time during the processing. {\it CFD-Post} may be used for final make the final plots;
+               \item For making line (\ie XY) plots of simulated fields around the cylinder, in the {\it CFD-Results}:
+                 \begin{enumerate}[i)]
+                    \item Select Location $\rightarrow$ Polyline;
+                    \item `Boundary Intersect` in {\it Method};
+                    \item 'symmetry' in {\it Boundary List};
+                    \item 'cylinder' in {\it Intersect with}.
+                 \end{enumerate}
         \end{enumerate}
      \end{shaded}
 
@@ -256,9 +263,14 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
         \begin{enumerate}[a)]
            \item {\bf Verification:} Determine minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions.
            \item {\bf Validation:} Determine (mean) drag coefficients around the cylinder for the performed simulations. Compare the simulated results with experimental data obtained from Fig.~1.12 of Schlichting \& Gersten's book [4] $\left(\text{\Rey}\times C_{D} \text{ experimental data can be found on MyAberdeen}\right)$. Do they agree with expected values according to the \Rey numbers?
-           \item {\bf Validation:} Plot vorticity and streamline profiles for \Rey=10 and \Rey=100. Compare and discuss flow behaviour (\ie development of vortex shedding as a result of fluid instabilities) in both cases. Comment on expected velocity, pressure and vorticity profiles (based on the literature) at \Rey=10, 100 and 1000, \ie at different flow regimes (from laminar to transition to turbulent).
+           \item {\bf Validation:}
+             \begin{enumerate}[i)]
+               \item Plot vorticity and streamline profiles (\ie contour plots) for \Rey=10 and \Rey=100;
+               \item Plot (in a single picture) {\it pressure coefficient} profile (\ie XY plot) around the cylinder for \Rey=10, \Rey=100 and \Rey=1000;
+               \item Compare and discuss flow behaviour, in particular the development of vortex shedding as a result of fluid instabilities, in all cases (you do not need to make plots of all cases, just those requested in \blue{i-ii}). Comment on expected velocity, pressure, streamline and vorticity profiles (based on the literature) at \Rey=10, 100 and 1000, \ie at different flow regimes (from laminar to transition to turbulent).
+               \end{enumerate}
         \end{enumerate}
-        \blue{Note that for unsteady simulations, plots should be for the last time-step.}
+        \begin{center}\blue{Note that for unsteady simulations, plots should be for the last time-step.}\end{center}
      \end{shaded}
 
 \begin{comment}     
@@ -392,7 +404,7 @@ Systems that will be investigated are:
           \item Tasks requested.
      \end{enumerate}
 
-     \item Report should contain no more than (\underline{maximum}) 8 pages including bibliography and appendices (if any) -- see attached example, with the following structure (this {\bf does not} include plagiarism cover sheet):
+     \item Report should contain no more than (\underline{maximum}) 8 pages including bibliography and appendices (if any)\footnote{A template for the report is also available in MyAberdeen.}, with the following structure (this {\bf does not} include plagiarism cover sheet):
        \begin{enumerate}
           \item Abstract: short summary of the main contents of the report including the main conclusions;
           \item Introduction: overview of the models (\ie conservative equations, turbulence models etc) used in the simulations and the relevance of the {\it flow past a cylinder} as a validation experiment for CFDs;
