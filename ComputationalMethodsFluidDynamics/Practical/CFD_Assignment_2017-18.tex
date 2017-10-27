@@ -156,7 +156,7 @@
 \end{center}
 
 \begin{shaded}\begin{center}
-{\bf Part 1 of the Assignment is available from October 27$^{\text{th}}$ at 10am. Part 2 will be released on November 6$^{\text{th}}$ at 10 am.}\end{center}
+{\bf Part 1 of the Assignment is available in MyAberdeen from October 27$^{\text{th}}$ at noon. Part 2 will be released on November 6$^{\text{th}}$ at noon.}\end{center}
 \end{shaded}
 
 \section{Introduction}
@@ -205,7 +205,7 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
 %%%
 %%%  SUBSECTION: FLOW PAST A CYLINDER
 %%%
-     \subsubsection{Flow Past a Cylinder}\label{FlowPastCylinder}
+     \subsection{Flow Past a Cylinder}\label{FlowPastCylinder}
      As a first step for \vv of the numerical model, perform numerical {\it flow past a cylinder} experiments (Fig.~\ref{HE_FlowPastHeatedCyclinder}a) with ethylene as the incompressible working fluid. Dimensions of the computational domain are:
      \begin{center}
        \begin{tabular}{c c c c c}
@@ -214,9 +214,10 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
      \end{center}
      Simulations should be conducted with \Rey of \red{10}, \red{10$^{2}$} and \red{10$^{3}$}.
 
-     \begin{center}
-       {\bf Procedure for Building the Geometry \& Mesh}
-     \end{center}
+     \subsubsection{Procedure for Building the Geometry \& Mesh}
+  %   \begin{center}
+  %     {\bf Procedure for Building the Geometry \& Mesh}
+  %   \end{center}
      To create the geometry in \emph{DesignModeller} simply draw a rectangular domain around the origin and then draw within the domain a circle with the origin as its centre.  Give the appropriate dimensions and then create a surface from your sketch. Because we are dealing with a curved surface we are going to use an \blue{unstructured mesh}. In \emph{Mesher} change the method to \emph{Triangles}. The default mesh is rather coarse, so you can specify the mesh sizing along the cylinder. You can control the mesh size in the flow domain in the mesh size setting (\emph{Details view}).  By changing \emph{Span Angle Center}, \emph{Min size} and \emph{Max face size} will allow to control the mesh (you can try out other settings as well).
 
      \begin{shaded}
@@ -250,10 +251,11 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
 
 
      \begin{shaded}
-        \begin{center} \blue{\bf Tasks: } \end{center}
+       \subsubsection{Tasks}
+        %\begin{center} \blue{\bf Tasks: } \end{center}
         \begin{enumerate}[a)]
-           \item {\bf Verification:} determine minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions.
-           \item {\bf Validation:} Determine (mean) drag coefficients around the cylinder for the performed simulations. Compare the simulated results with experimental data obtained from Fig. 1.12 of Schlichting \& Gersten's book [4] $\left(\text{\Rey}\times C_{D} \text{ experimental data can be found on MyAberdeen}\right)$. Do they agree with expected values according to the \Rey numbers?
+           \item {\bf Verification:} Determine minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions.
+           \item {\bf Validation:} Determine (mean) drag coefficients around the cylinder for the performed simulations. Compare the simulated results with experimental data obtained from Fig.~1.12 of Schlichting \& Gersten's book [4] $\left(\text{\Rey}\times C_{D} \text{ experimental data can be found on MyAberdeen}\right)$. Do they agree with expected values according to the \Rey numbers?
            \item {\bf Validation:} Plot vorticity and streamline profiles for \Rey=10 and \Rey=100. Compare and discuss flow behaviour (\ie development of vortex shedding as a result of fluid instabilities) in both cases. Comment on expected velocity, pressure and vorticity profiles (based on the literature) at different flow regimes (\ie laminar (low- and mid-\Rey) and turbulent flows). Note that for unsteady simulations, plots should be for the last time-step.
         \end{enumerate}
      \end{shaded}
@@ -269,7 +271,7 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
      \begin{shaded}
         \begin{center} \blue{\bf Tasks: } \end{center}
         \begin{enumerate}[a)]
-           \item {\bf Verification:} determine the minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions.
+           \item {\bf Verification:} Determine the minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions.
            \item {\bf Validation:} Determine drag coefficient, heat transfer coefficient and Nusselt number around the cylinder for the performed simulations. Compare the $C_{D}$ with the expected value. Also, compare the obtained Nusselt number with the \red{ XX correlation:}
              \begin{displaymath}
                Nu = \frc{h L}{\kappa} = \red{k_{1} + k_{2}\Rey^{a}Pr^{b}},
@@ -392,8 +394,8 @@ Systems that will be investigated are:
      \item Report should contain no more than (\underline{maximum}) 8 pages including bibliography and appendices (if any) -- see attached example, with the following structure (this {\bf does not} include plagiarism cover sheet):
        \begin{enumerate}
           \item Abstract: short summary of the main contents of the report including the main conclusions;
-          \item Introduction: overview of the models (\ie conservative equations) used in the simulations and the relevance of the {\it flow past a cylinder} as a validation experiment for CFDs;
-          \item Simulation Setup: List of all relevant information wrt geometry, mesh, initial and boundary conditions and equations used;
+          \item Introduction: overview of the models (\ie conservative equations, turbulence models etc) used in the simulations and the relevance of the {\it flow past a cylinder} as a validation experiment for CFDs;
+          \item Simulation Setup: List of all relevant information with respect to geometry, mesh, initial and boundary conditions and equations used;
           \item Results and Analysis;
           \item Concluding Remarks.
        \end{enumerate}
