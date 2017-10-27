@@ -1,8 +1,7 @@
-
 %\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
 \documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
 \usepackage[pdftex,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
-\usepackage{graphicx} 
+\usepackage{graphicx}
 \usepackage{wrapfig,pdfpages}% Include figure files
 %\usepackage{dcolumn,enumerate}% Align table columns on decimal point
 \usepackage{enumerate}%,enumitem}% Align table columns on decimal point
@@ -156,32 +155,35 @@
   \Large{\bf Final CFD Assignment}
 \end{center}
 
+\begin{shaded}\begin{center}
+{\bf Part 1 of the Assignment is available from October 27$^{\text{th}}$ at 10am. Part 2 will be released on November 6$^{\text{th}}$ at 10 am.}\end{center}
+\end{shaded}
 
-\section{Introduction} 
+\section{Introduction}
 High-density polyethylene (HDPE) is the third largest commodity plastic material produced in the world (after PVC and PP) with annual production of 51.33 MMT (2016) and worth of approximately USD 64 billions. HDPE resin is used in a wide range of applications from food and beverage packaging to corrosion- and thermal-resistant pipes. There are several industrial patented technology processes to produce HDPE worldwide, \eg 'Chevron-Philips Slurry Loop', 'Lyondell-Basell Ziegler Slurry Process', 'DOW Chemical Solution Process', Univation's 'UNIPOL Swing Process' (Fig.~\ref{HDPE_Plant}) etc.
 
 \medskip
-The aim of this practical is to prepare preliminary fluid flow designs of the ethylene flow stream prior to the polymerisation reactor in a new Gas Phase LLDPE/HDPE industrial production plant (Fig.~\ref{HDPE_Plant}) using Ansys Fluent CFD.   
- 
+The aim of this practical is to prepare preliminary fluid flow designs of the ethylene flow stream prior to the polymerisation reactor in a new Gas Phase LLDPE/HDPE industrial production plant (Fig.~\ref{HDPE_Plant}) using Ansys Fluent CFD.
+
 \begin{figure}[H]
   \begin{center}
-     \includegraphics[width=0.8\textwidth,clip]{./Pics/hdpe_production_img2.jpg} 
+     \includegraphics[width=0.8\textwidth,clip]{./Pics/hdpe_production_img2.jpg}
      \caption{Gas Phase LLDPE/HDPE Swing Process Dow Chemical) fluxogram}\label{HDPE_Plant}
   \end{center}
 \end{figure}
 
-{\bf Gaseous Ethylene Stream:} prior to the removal of water and oxygen at the pressure vessel, gaseous ethylene $\left(\text{75}^{\circ}\text{C}\right)$ is heated up to 140$^{\circ}$C in a finned tube cross-flow heat exchanger (Fig.~\ref{HE_FlowPastHeatedCyclinder}, bottom). Fluid flowing in the tubes is mineral oil $\left(\href{http://twt.mpei.ac.ru/TTHB/HEDH/HTF-66.PDF}{\text{Therminol}\textregistered\text{66}} \text{ at 300}^{\circ}\text{C, with C}_{p}=2.57\text{ kJ.(kg.K)}^{-1}\right.$, 
+{\bf Gaseous Ethylene Stream:} prior to the removal of water and oxygen at the pressure vessel, gaseous ethylene $\left(\text{75}^{\circ}\text{C}\right)$ is heated up to 140$^{\circ}$C in a finned tube cross-flow heat exchanger (Fig.~\ref{HE_FlowPastHeatedCyclinder}, bottom). Fluid flowing in the tubes is mineral oil $\left(\href{http://twt.mpei.ac.ru/TTHB/HEDH/HTF-66.PDF}{\text{Therminol}\textregistered\text{66}} \text{ at 300}^{\circ}\text{C, with C}_{p}=2.57\text{ kJ.(kg.K)}^{-1}\right.$,
 
 $\left.\rho= 808.5\text{ kg.m}^{-3}, \kappa=0.095\text{W.(m.K)}^{-1}\text{ and }\mu=0.41\text{ mPa.s}\right)$. After the contaminants (water and oxygen) removal, the gaseous stream is refrigerated from 120$^{\circ}$C to 90$^{\circ}$C in a similar finned tube cross-flow heat exchanger (G, same mineral oil was used, but with temperature of 50$^{\circ}$C).  In order to support the design of such heat exchangers, specific technical information must be obtained:
      \begin{enumerate}[i)]
         \item heat transfer from the tubes (containing $\text{Therminol}\textregistered\text{66}$) to the ethylene stream (A);
         \item heat transfer from the ethylene stream to the tubes (containing $\text{Therminol}\textregistered\text{66}$) (G);
-        \item turbulence-induced mixing due to the pipes arrangement (Fig,~\ref{HE_FlowPastHeatedCyclinder} b-c) in both heat exchangers.        
+        \item turbulence-induced mixing due to the pipes arrangement (Fig,~\ref{HE_FlowPastHeatedCyclinder} b-c) in both heat exchangers.
      \end{enumerate}
-     
+
      {\bf For this practical, we will focus on flow dynamics in the heat exchanger A. A systematic 2-D CFD study is suggested to assess the relevant parameters for this investigation, \ie drag forces, velocity, temperature and pressure profiles.}
 
-     \section{Heat Exchanger A: Preliminary Analysis}
+     \section{Heat Exchanger A: Preliminary Analysis (Part 1)}
      In the design and optimisation of finned tube cross-flow heat exchangers, it is critical to have reliable information about flow dynamics (\ie spatial-distribution of pressure, temperature and velocity fields), turbulence energies and the impact of internals on them. Therefore, we should systematically study these variables by:
      \begin{enumerate}
        \item Model design and {\it quality assurance};
@@ -195,11 +197,11 @@ $\left.\rho= 808.5\text{ kg.m}^{-3}, \kappa=0.095\text{W.(m.K)}^{-1}\text{ and }
 model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S0376-0421(02)00005-2}{W.L. Oberkampf and T.G. Trucano (2002) 'Verification and Validation in Computational Fluid Dynamics', Progress in Aerospace Sciences 38:209-272.}};
                    \item {\bf Validation} is a ``process of determining the degree to which a model is an accurate representation of the real world from the perspective of the intended uses of the model''$^{2}$;
                 \end{enumerate}
-                \vv procedures are critical tools to build confidence of numerical simulations. Before simulating flow and heat dynamics in the {\it Heat Exchanger A}, a \vv procedure should be designed to assess the initial accuracy of the model.
+                \vv~procedures are critical tools to build confidence of numerical simulations. Before simulating flow and heat dynamics in the {\it Heat Exchanger A}, a \vv~procedure should be designed to assess the initial accuracy of the model.
                 \medskip
 
-                {\it Flow past a cylinder} is a classical CFD \vv exercise and it is often used (a) to asses numerical accuracy (verification) and functionalities of models as the flow is steady and symmetric at low \Rey numbers and; (b) to validate against experimental solutions\footnote{\eg \href{https://doi.org/10.1017/S0022112064000544}{A.S. Grove {\it et al.} (1964) 'An Experimental Investigation of the Steady Separated Flow Past a Circular Cylinder', Journal of Fluid Mechanics 19:60-80}; \href{https://doi.org/10.1017/S0022112070001428}{S.C.R. Dennis and G. Chang (1970) 'Numerical Solutions for Steady Flow Past a Circular Cylinder at Reynolds Numbers up to 100', Journal Fluid Mechanics 42:471-489}; \href{https://doi.org/10.1017/S0022112059000829}{D.J. Tritton (1959) 'Experiments on the Flow Past a Circular Cylinder at Low Reynolds Numbers'  Journal Fluid Mechanics 6:547-567}; \href{https://doi.org/10.1017/S0022112061000950}{A. Roshko (1961) 'Experiments on the Flow Past a Circular Cylinder at Very High Reynolds Number', Journal of Fluid Mechanics 10:345-356}.}. At low Reynolds number (\Rey), any perturbation in the velocity boundary conditions is readily dissipated by viscous forces. However, as the \Rey increases, such perturbations may lead to fluid instabilities at the wake of the cylinder (also known as \blue{\it 'vortex shedding'}), which may strongly impact on the fluid velocity and pressure fields and, therefore on momentum and heat transfers.
-                
+                {\it Flow past a cylinder} is a classical CFD \vv~exercise and it is often used (a) to asses numerical accuracy (verification) and functionalities of models as the flow is steady and symmetric at low \Rey numbers and; (b) to validate against experimental solutions\footnote{\eg \href{https://doi.org/10.1017/S0022112064000544}{A.S. Grove {\it et al.} (1964) 'An Experimental Investigation of the Steady Separated Flow Past a Circular Cylinder', Journal of Fluid Mechanics 19:60-80}; \href{https://doi.org/10.1017/S0022112070001428}{S.C.R. Dennis and G. Chang (1970) 'Numerical Solutions for Steady Flow Past a Circular Cylinder at Reynolds Numbers up to 100', Journal Fluid Mechanics 42:471-489}; \href{https://doi.org/10.1017/S0022112059000829}{D.J. Tritton (1959) 'Experiments on the Flow Past a Circular Cylinder at Low Reynolds Numbers'  Journal Fluid Mechanics 6:547-567}; \href{https://doi.org/10.1017/S0022112061000950}{A. Roshko (1961) 'Experiments on the Flow Past a Circular Cylinder at Very High Reynolds Number', Journal of Fluid Mechanics 10:345-356}.}. At low Reynolds number (\Rey), any perturbation in the velocity boundary conditions is readily dissipated by viscous forces. However, as the \Rey increases, such perturbations may lead to fluid instabilities at the wake of the cylinder (also known as \blue{\it 'vortex shedding'}), which may strongly impact on the fluid velocity and pressure fields and, therefore on momentum and heat transfers. More background information on flow past a cylinder can be found in fluid mechanics textbooks which are available online through the library\footnote{Schlichting $\&$ Gersten (2017) \emph{Boundary layer theory}, Springer, pg. 18-24 and Cohen, Kundu \& Ayyaswamy (2007) \emph{Fluid Mechanics}, 4$^{\text{th}}$ edition, Elsevier, Section~10.9.}.
+
 %%%
 %%%  SUBSECTION: FLOW PAST A CYLINDER
 %%%
@@ -207,45 +209,63 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
      As a first step for \vv of the numerical model, perform numerical {\it flow past a cylinder} experiments (Fig.~\ref{HE_FlowPastHeatedCyclinder}a) with ethylene as the incompressible working fluid. Dimensions of the computational domain are:
      \begin{center}
        \begin{tabular}{c c c c c}
-            D = 2.5 cm & L = 31.5 cm & L$_{1}$ = 11.5 cm & L$_{2}$ = 12.5 cm & H = 25.0 cm.  
+            D = 2.5 cm & L = 31.5 cm & L$_{1}$ = 11.5 cm & L$_{2}$ = 12.5 cm & H = 25.0 cm.
        \end{tabular}
      \end{center}
-     Simulations should be conducted with \Rey of \red{10}, \red{10$^{3}$} and \red{10$^{4}$}. 
- 
+     Simulations should be conducted with \Rey of \red{10}, \red{10$^{2}$} and \red{10$^{3}$}.
+
      \begin{center}
-       {\bf Procedure for Building the Geometry}
+       {\bf Procedure for Building the Geometry \& Mesh}
      \end{center}
-     \red{From Dominc ... also do you know any fluid mechanics textbook(s) that contain(s) this subject (recommended reading) ? I guess 'cause of the heterogeneity of the group we can not make reference to Vlad's lecture notes.}
+     To create the geometry in \emph{DesignModeller} simply draw a rectangular domain around the origin and then draw within the domain a circle with the origin as its centre.  Give the appropriate dimensions and then create a surface from your sketch. Because we are dealing with a curved surface we are going to use an \blue{unstructured mesh}. In \emph{Mesher} change the method to \emph{Triangles}. The default mesh is rather coarse, so you can specify the mesh sizing along the cylinder. You can control the mesh size in the flow domain in the mesh size setting (\emph{Details view}).  By changing \emph{Span Angle Center}, \emph{Min size} and \emph{Max face size} will allow to control the mesh (you can try out other settings as well).
 
      \begin{shaded}
         \begin{center} {\bf Tips: } \end{center}
         \begin{enumerate}[a)]
-           \item For laminar flow regimes, simulations should be performed assuming steady-state regime;
-           \item For transition and turbulent flows $\left(\text{\ie } 10^{2}\le\Rey\le 10^{5}\right)$, simulations should be conducted assuming either steady-state or transient regimes. The decision of flow regime should be based on oscillations of calculated residuals. During the simulation, assuming steady-state regime, you may notice that the solution does not converge, therefore the simulation setup should be changed to transient regime. In such cases, the decision of \blue{time-step size} should be based on the Strouhal dimensionless number,
+          \item In all simulations performed before, you should have assumed a steady-state regime. However as in this test-case, fluid instabilities may appear as a result of perturbations. This can be noticed by oscillations in \blue{\it lift coefficient} (see [4]) and the solution may not converge. In such cases, simulations should be conducted under \red{\it transient conditions};
+           \item In transient calculations, the decision of \blue{time-step size} should be based on the Strouhal dimensionless number,
              \begin{displaymath}
                St = \frc{f D}{u},
              \end{displaymath}
-             where $f$ is the frequency of the {\it vortex shedding}. The {\it St} number for 10$^{2}\le\Rey\le$10$^{5}$ is equal to 0.2 and you should obtain the time-step size assuming 20 time-steps per period $\left(\text{period = frequency}^{-1}\right)$.
-        \end{enumerate}  
-         
+             where $f$ is the frequency of the {\it vortex shedding}. The {\it St} number for 10$^{2}\le\Rey\le$10$^{5}$ is approximately equal to 0.2 and you should obtain the time-step size assuming 20 time-steps per period $\left(\text{period = frequency}^{-1}\right)$;
+             \item Although you do not need to show (in the report) plots and screen-shots on tests for verification (\eg mesh-independent solution, solution convergence, mass conservation, Y$^{+}$ for the turbulent flow simulations etc), you should perform all these tests as {\bf any failure may result in poor drag and heat transfer predictions};
+             \item The top and bottom wall of the domain can be set to {\it no shear} boundary conditions (\ie no flux across the borders);
+             \item For the {\it pressure solver}, you should use the {\bf Standard} method;
+             \item For the transient regime, you should solve the problem using {\bf second-order implicit} method;  
+             \item All transient simulations should be conducted with {\bf 10 iterations per time-step};
+             \item \blue{Drag and lift coefficient monitors} can be set under {\bf Report Definitions}. Give them sensible names and ensure to tick \emph{Report file}, \emph{Report Plot} and \emph{Print to console}. Under {\bf Monitors} you can change the filename and path for the output files and the setting for the plots. \blue{For transient simulations \underline{it is useful to get, and plot, data every timestep (instead of every iteration)};}
+             \item Bear in mind that a few simulations may take 10-25 mins to run (depending on the mesh resolution);
+             \item For assessing mesh-independent solution, there are two methodologies that can be used:
+                 \begin{enumerate}[i)]
+                    \item Visual inspection (qualitative assessment) of $u_{x}\times y$ plots (similar that you have in previous Practicals) of several simulations with continuous mesh refinement, or;
+                    \item From $u_{x}\times y$ plots from two continuous mesh refinements, $i$ and $i+1$, extract $\mathbf{u}_{x}^{i}(y)$ and $\mathbf{u}_{x}^{i+1}(y)$ (both are arrays of dimension $N$), calculate
+                      \begin{displaymath}
+                           \varepsilon = \frac{1}{N}\sum\limits_{j=1}^{N}\left|\frac{u_{x,j}^{i+1}-u_{x,j}^{i}}{u_{x,j}^{i}}\right|
+                      \end{displaymath}
+                      A solution is assumed to be mesh-independent if $\varepsilon$ is smaller than a prescribed value, \eg 5$\times$10$^{-2}$;
+                 \end{enumerate}
+             \item For quick assessing (inspection purposes) it is advised (at the end of the simulation) to make use of the varies {\it plotting tools} at the {\it Results tab} in {\it Fluent}, rather than the {\it CFD-Post}. This may save you some valuable time during the processing. {\it CFD-Post} may be used for final make the final plots.
+        \end{enumerate}
      \end{shaded}
-     
+
 
      \begin{shaded}
         \begin{center} \blue{\bf Tasks: } \end{center}
         \begin{enumerate}[a)]
-           \item {\bf Verification:} determine the minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions (see \blue{Tips} at the end of the document).
-           \item {\bf Validation:} Determine drag coefficients around the cylinder for the performed simulations. Do they agree with expected values according to the \Rey numbers?
-           \item {\bf Validation:} How do simulated velocity, pressure, vorticity and streamline profiles compare with either experimental or other numerical solutions? Comment on expected velocity, pressure and vorticity profiles (based on the literature) at different flow regimes (\ie laminar (low- and mid-\Rey) and turbulent flows).  
-        \end{enumerate}  
+           \item {\bf Verification:} determine minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions.
+           \item {\bf Validation:} Determine (mean) drag coefficients around the cylinder for the performed simulations. Compare the simulated results with experimental data obtained from Fig. 1.12 of Schlichting \& Gersten's book [4] $\left(\text{\Rey}\times C_{D} \text{ experimental data can be found on MyAberdeen}\right)$. Do they agree with expected values according to the \Rey numbers?
+           \item {\bf Validation:} Plot vorticity and streamline profiles for \Rey=10 and \Rey=100. Compare and discuss flow behaviour (\ie development of vortex shedding as a result of fluid instabilities) in both cases. Comment on expected velocity, pressure and vorticity profiles (based on the literature) at different flow regimes (\ie laminar (low- and mid-\Rey) and turbulent flows). Note that for unsteady simulations, plots should be for the last time-step.
+        \end{enumerate}
      \end{shaded}
-                     
+
+\begin{comment}     
+
 %%%
 %%%  SUBSECTION: FLOW PAST A HEATED CYLINDER
 %%%
      \subsubsection{Flow Past a Heated Cylinder}\label{FlowPastHeatedCylinder}
      In order to investigate the heat exchange between the ethylene stream $\left(\text{75}^{\circ}\text{C}\right)$ and the cylinder, let's assume that the cylinder has constant temperature of 300$^{\circ}$C. Use the computational domain from Section~\ref{FlowPastCylinder} with \Rey of \red{10, 120, 1000} and \red{5000}. Here, assume that the {\bf fluid's density depends only on the temperature}.
-     
+
      \begin{shaded}
         \begin{center} \blue{\bf Tasks: } \end{center}
         \begin{enumerate}[a)]
@@ -257,35 +277,36 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
              where $h$ is the inter-phase heat transfer coefficient, $L$ is the characteristic length, $\kappa$ is the conductive heat transfer coefficient and $Pr$ is the dimensionless Prandtl number.
            \item {\bf Validation:} How do simulated velocity, pressure, temperature, vorticity and streamline profiles compare with either experimental or other numerical solutions? Comment on expected temperature, velocity, pressure and vorticity profiles (based on the literature) at different flow regimes.
            \item Which flow regime provides the best heat diffusion? Why?
-        \end{enumerate}  
+        \end{enumerate}
      \end{shaded}
 
 
      \subsection{2-D Investigation of Heat Past a Bank of Heated Cylinders}
      Now, we should extend the initial model configuration to a bank of cylinders (all at constant temperature of 300$^{\circ}$C) to investigate the impact of turbulence induced by bluff bodies. You should allocate 9 cylinders in the domain in \underline{\bf both} staggered (Fig.~\ref{HE_FlowPastHeatedCyclinder}b) and non-staggered (Fig.~\ref{HE_FlowPastHeatedCyclinder}c) configurations. Assume that the {\bf fluid's density depends only on the temperature}. Distances L3-L7 should be defined to aim maximum heat diffusion. Simulations should be conducted for \Rey of 10, 80 and 120 for both cylinder configurations.
-     
+
      \begin{shaded}
         \begin{center} \blue{\bf Tasks: } \end{center}
         \begin{enumerate}[a)]
            \item Determine the minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions).
-           \item Determine drag coefficient, heat transfer coefficient and Nusselt number around the cylinders for the performed simulations. 
+           \item Determine drag coefficient, heat transfer coefficient and Nusselt number around the cylinders for the performed simulations.
            \item Show simulated velocity, pressure, temperature, vorticity and streamline profiles.
            \item Which flow regime and cylinder configuration provides the best heat diffusion? Why?
            \item Does the outlet temperature reach the expected value of 140$^{\circ}$C? If not, what would you suggest to improve heat diffusion?
-        \end{enumerate}  
+        \end{enumerate}
      \end{shaded}
-     
-      
+
+
+\end{comment} 
      \begin{figure}[h]
          \vbox{ \hbox{\hspace{1cm}\includegraphics[width=0.7\textwidth,clip]{./Pics/HeatExchanger_2D.pdf}}
                 \hbox{\hspace{3cm}\includegraphics[width=0.5\textwidth,clip]{./Pics/HE_Finned.png}}}
          \caption{Flow past (heated) cylinder and banks of (heated) cylinders (top/middle). Cross-flow heat exchanger (bottom). }\label{HE_FlowPastHeatedCyclinder}
      \end{figure}
 
- \begin{comment}    
-     
+ \begin{comment}
+
      \begin{enumerate}[1)]
-        \item\label{1a} {\bf Flow past a heated cylinder:} A simplified 2D model involving ethylene gas flow past a heated cylinder (Fig.~\ref{HE_FlowPastHeatedCyclinder}, a) can be used to obtain information about drag forces and heat transfer (solid-fluid and fluid-fluid) that can later be used in the design and optimisation of the whole heat exchanger. 
+        \item\label{1a} {\bf Flow past a heated cylinder:} A simplified 2D model involving ethylene gas flow past a heated cylinder (Fig.~\ref{HE_FlowPastHeatedCyclinder}, a) can be used to obtain information about drag forces and heat transfer (solid-fluid and fluid-fluid) that can later be used in the design and optimisation of the whole heat exchanger.
         \item\label{1b} {\bf Flow past a bank of heated cylinders:} With the experience gained in (\ref{1a}), it is important to investigate the drag and heat transfer mechanisms in a bank of heated cylinders, i.e., the impact of such set of obstacles in the flow dynamics.
         \item\label{1c} Cross-flow heat exchanger (see \href{https://www.youtube.com/watch?v=-03gO3UwFeA}{https://www.youtube.com/watch?v=-03gO3UwFeA}): After the preliminary study (\ref{1a}-\ref{1b}) wrt optimal configuration of bank of heated cylinders, extend the model to 3D simulation and investigate flow dynamics and heat transfer rate.
      \end{enumerate}
@@ -306,7 +327,7 @@ Systems that will be investigated are:
 \begin{enumerate}[A.]
   \item {\bf Gaseous Ethylene Stream:} prior to the removal of water and oxygen at the pressure vessel, gaseous ethylene $\left(\text{XX}^{\circ}\text{C, A}\right)$ is heated up in a finned tube cross flow heat exchanger (Fig.~\ref{HE_FlowPastHeatedCyclinder}, bottom). In order to support the design of such heat exchanger, specific technical information with respect to flow dynamics and heat transfer need to be obtained.
      \begin{enumerate}[i)]
-        \item\label{1a} Flow past a heated cylinder: In order to obtain the appropriate parameters for the design of such heat exchanger, a simplified 2D model involving ethylene gas flow past a heated cylinder (Fig.~\ref{HE_FlowPastHeatedCyclinder}, top) can be used to obtain information about drag forces and heat transfer (solid-fluid and fluid-fluid) that can later be used in the design and optimisation of the whole heat exchanger. 
+        \item\label{1a} Flow past a heated cylinder: In order to obtain the appropriate parameters for the design of such heat exchanger, a simplified 2D model involving ethylene gas flow past a heated cylinder (Fig.~\ref{HE_FlowPastHeatedCyclinder}, top) can be used to obtain information about drag forces and heat transfer (solid-fluid and fluid-fluid) that can later be used in the design and optimisation of the whole heat exchanger.
         \item\label{1b} Flow past a bank of heated cylinders: With the experience gained in (\ref{1a}), it is important to investigate the drag and heat transfer mechanisms in a bank of heated cylinders, i.e., the impact of such set of obstacles in the flow dynamics.
         \item\label{1c} Cross-flow heat exchanger (see \href{https://www.youtube.com/watch?v=-03gO3UwFeA}{https://www.youtube.com/watch?v=-03gO3UwFeA}): After the preliminary study (\ref{1a}-\ref{1b}) wrt optimal configuration of bank of heated cylinders, extend the model to 3D simulation and investigate flow dynamics and heat transfer rate.
      \end{enumerate}
@@ -334,7 +355,7 @@ Systems that will be investigated are:
         \item 2-Butene (comonomer, E) at XZ$^{\circ}$C $\left(\dot{m}_{\text{2-butene}} = ZY\right)$;
         \item Recycled (C, i.e., mixture of the above streams with composition of 15/60/25$\%$ in weight) at YZ$^{\circ}$C $\left(\dot{m}_{\text{rec}} = YX \text{kg.s}^{-1}\right)$.
      \end{itemize}
-     
+
      {\bf Tasks:} The distance from the pre-processing units (A, C, E and F) to the reactor is of XX m and the reactor is placed in a platform at a height of YY m from the soil. You should design a manifold pipeline considering:
      \begin{itemize}
         \item Assume all pipelines are insulated and no heat is lost to the environment;
@@ -357,7 +378,6 @@ Systems that will be investigated are:
 
 
 
-
 \clearpage
 \begin{center} \Large{\bf Deliverables}\end{center}
 \begin{enumerate}[1)]
@@ -367,12 +387,12 @@ Systems that will be investigated are:
           \item Mesh information and quality;
           \item Numerical schemes (\ie solution methods) and sub-models (\eg turbulence, heat transfer etc) used;
           \item Tasks requested.
-     \end{enumerate} 
-  
+     \end{enumerate}
+
      \item Report should contain no more than (\underline{maximum}) 8 pages including bibliography and appendices (if any) -- see attached example, with the following structure (this {\bf does not} include plagiarism cover sheet):
        \begin{enumerate}
           \item Abstract: short summary of the main contents of the report including the main conclusions;
-          \item Introduction: overview of the models (\ie conservative equations) used in the simulations and the relevance of the {\it flow past a cylinder} as a validation experiment for CFDs; 
+          \item Introduction: overview of the models (\ie conservative equations) used in the simulations and the relevance of the {\it flow past a cylinder} as a validation experiment for CFDs;
           \item Simulation Setup: List of all relevant information wrt geometry, mesh, initial and boundary conditions and equations used;
           \item Results and Analysis;
           \item Concluding Remarks.
@@ -394,20 +414,5 @@ If late or non-submission is due to medical or other circumstances out with your
 \item Note that the submitted work is part of the continuous assessment which will contribute 40$\%$ to your EG501V mark.
 
 \end{enumerate}
-
-       %%%
-       %%% TIPS
-       %%%
-       
-       \begin{shaded}
-          \begin{center} \blue{\bf Tips} \end{center}
-          \begin{enumerate}[i)]
-             \item Although you do not need to show (in the report) plots and screen-shots on tests for verification (\eg mesh-independent solution, solution convergence, mass conservation, Y$^{+}$ for the turbulent flow simulations etc), you should perform all these tests as {\bf any failure may result in poor drag and heat transfer predictions};
-             \item Ensure that residuals for the simulations are all set to 10$^{-5}$;
-             \item For the solvers, use {\bf Standard} method for the {\bf pressure} field;
-             \item All transient simulations should be conducted with 10 iterations per time-step;
-          \end{enumerate}
-       \end{shaded}
-       
 
 \end{document}
