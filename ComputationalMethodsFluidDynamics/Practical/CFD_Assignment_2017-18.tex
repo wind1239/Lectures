@@ -258,14 +258,14 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
 
 
      \begin{shaded}
-       \subsubsection{Tasks}
+       \subsubsection{Tasks}\label{FPC:Tasks}
         %\begin{center} \blue{\bf Tasks: } \end{center}
         \begin{enumerate}[a)]
            \item {\bf Verification:} Determine minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions.
            \item {\bf Validation:} Determine (mean) drag coefficients around the cylinder for the performed simulations. Compare the simulated results with experimental data obtained from Fig.~1.12 of Schlichting \& Gersten's book [4] $\left(\text{\Rey}\times C_{D} \text{ experimental data can be found on MyAberdeen}\right)$. Do they agree with expected values according to the \Rey numbers?
            \item {\bf Validation:}
              \begin{enumerate}[i)]
-               \item Plot vorticity and streamline profiles (\ie contour plots) for \Rey=10 and \Rey=100;
+               \item\label{Task:Plot} Plot vorticity and streamline profiles (\ie contour plots) for \Rey=10 and \Rey=100;
                \item Plot (in a single picture) {\it pressure coefficient} profile (\ie XY plot) around the cylinder for \Rey=10, \Rey=100 and \Rey=1000;
                \item Compare and discuss flow behaviour, in particular the development of vortex shedding as a result of fluid instabilities, in all cases (you do not need to make plots of all cases, just those requested in \blue{i-ii}). Comment on expected velocity, pressure, streamline and vorticity profiles (based on the literature) at \Rey=10, 100 and 1000, \ie at different flow regimes (from laminar to transition to turbulent).
                \end{enumerate}
@@ -278,20 +278,38 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
 %%%
 %%%  SUBSECTION: FLOW PAST A HEATED CYLINDER
 %%%
-     \subsubsection{Flow Past a Heated Cylinder}\label{FlowPastHeatedCylinder}
-     In order to investigate the heat exchange between the ethylene stream $\left(\text{75}^{\circ}\text{C}\right)$ and the cylinder, let's assume that the cylinder has constant temperature of 300$^{\circ}$C. Use the computational domain from Section~\ref{FlowPastCylinder} with \Rey of \red{10, 120, 1000} and \red{5000}. Here, assume that the {\bf fluid's density depends only on the temperature}.
+     \subsection{Flow Past a Heated Cylinder}\label{FlowPastHeatedCylinder}
+     The next stage in the model and software QA is to assess the accuracy of the heat and flow dynamic models through another traditional test-case -- {\it flow past a heated cylinder}\footnote{See Bergman, Lavine, Incropera and Dewitt, 'Fundamentals of Heat and Mass Transfer', 7$^{\text{th}}$ Edition, Sections 7.4-6, pages 293-308; Holman, 'Heat Transfer', 10$^{\text{th}}$ Edition, Sections 6.3-4, pages 293-308.}. The current model setup, introduced in Section~\ref{FlowPastCylinder}, must be validated against both experimental and simulated results\footnote{a) \href{https://doi.org/10.1115/1.3450685}{Churchil and Bernstein (1977) Journal of Heat Transfer 99:300-306}; b) \href{https://link.springer.com/article/10.1007/s12206-009-0610-2}{Baranyi {\it et al.} (2009) Journal of Mechanical Science and Technology 23:1829-1834}; c) \href{https://doi.org/10.1017/jfm.2011.313}{Hu and Koochesfahani (2011) Journal of Fluid Mechanics 685:235-270}; d) \href{http://www.theijes.com/papers/v3-i3/Version-4/B0334008019.pdf}{Golani and Dhiman (2014) International Journal of Engineering and Sciences 3:8-19}; e) \href{http://aip.scitation.org/doi/pdf/10.1063/1.1804547}{Shi {\it et al.} (2004) Physics of Fluids 16:4331-4345}; f) \href{http://dept.ku.edu/~cfdku/papers/aiaa-2007-0801.pdf}{Varma {\it et al.} (2007) 45$^{\text{th}}$ AIAA Aerospace Sciences Meeting and Exhibit}.}.
+
+     As the simulated and experimental data in [6] refer to air flow around a heated cylinder under various Reynolds and Prandtl conditions, you should start the validation procedure using \blue{\underline{air} at 75$^{\circ}$C with \Rey=10 and \Rey=100}. Assume that the cylinder has constant temperature of 300$^{\circ}$C and use the computational domain from Section~\ref{FlowPastCylinder}. Finally, assume that the {\bf fluid's density depends only on the temperature}.
+
+
 
      \begin{shaded}
-        \begin{center} \blue{\bf Tasks: } \end{center}
+        \begin{center} {\bf Tips: } \end{center}
         \begin{enumerate}[a)]
-           \item {\bf Verification:} Determine the minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions.
-           \item {\bf Validation:} Determine drag coefficient, heat transfer coefficient and Nusselt number around the cylinder for the performed simulations. Compare the $C_{D}$ with the expected value. Also, compare the obtained Nusselt number with the \red{ XX correlation:}
-             \begin{displaymath}
-               Nu = \frc{h L}{\kappa} = \red{k_{1} + k_{2}\Rey^{a}Pr^{b}},
-             \end{displaymath}
-             where $h$ is the inter-phase heat transfer coefficient, $L$ is the characteristic length, $\kappa$ is the conductive heat transfer coefficient and $Pr$ is the dimensionless Prandtl number.
-           \item {\bf Validation:} How do simulated velocity, pressure, temperature, vorticity and streamline profiles compare with either experimental or other numerical solutions? Comment on expected temperature, velocity, pressure and vorticity profiles (based on the literature) at different flow regimes.
-           \item Which flow regime provides the best heat diffusion? Why?
+           \item All \blue{Tips} used in Section~\ref{FlowPastCylinder} should be applied here.
+           \item 
+        \end{enumerate}
+     \end{shaded}
+
+
+     
+     \begin{shaded}
+        \subsubsection{Tasks}\label{FPHC:Tasks}
+        \begin{enumerate}[a)]
+           \item {\bf Verification:} Determine the minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions. Also, \Rey has strongly dependency on both density and flow velocity.
+           \item {\bf Validation:} Determine averaged drag coefficient $\left(C_{D}\right)$ and Nusselt number ({\it Nu}) around the cylinder for the performed simulations (\ie with \Rey=10 and \Rey=100). Compare simulated $C_{D}$ and $Nu$ with:
+             \begin{enumerate}
+               \item Expected values from the literature (\eg [6]), both experimental or numerical;
+               \item Empirical correlations due to Hilpert (1933), Zukauskas (1972) and Churchill $\&$ Bernstein (1977) (Eqns. 7.52-54 of Bergman {\it et al.} textbook. A copy of the Book's Section is available at {\it MyAberdeen}).
+             \end{enumerate}
+             Compile values of $C_{D}$ and $Nu$ from your simulations, references (both experimental and simulation data at the same similar flow conditions) and these three correlations in a Table and comment the discrepancies between these values and, in particular, with your simulation data.
+           \item {\bf Validation:}
+             \begin{enumerate}[i)]
+               \item Plot vorticity and streamline profiles (\ie contour plots) for \Rey=10 and \Rey=100. How do these profiles differ from those in Section~\ref{FPC:Tasks} \ref{Task:Plot} ?
+               \item Based on available information, which flow regime provides the best heat transfer rate? Why? What are the main parameters for analysis?
+             \end{enumerate}
         \end{enumerate}
      \end{shaded}
 
