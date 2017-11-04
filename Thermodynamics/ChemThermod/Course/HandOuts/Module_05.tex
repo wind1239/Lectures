@@ -241,7 +241,6 @@
 %%%
 \subsection{Reaction Coordinate}
 
-
 %%%
 %%% Slide
 %%%
@@ -276,28 +275,52 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Reaction Coordinate for Multi-Reactions Systems}
+  \frametitle{Reaction Coordinate for Multi-Reaction Systems}
   \begin{block}{\begin{center}General Chemical Reaction\end{center}}
-        Given the reaction in ultiple steps:
+        Given the reaction in multiple steps:
         \begin{displaymath}
-           \nu_{a}A(g) + \nu_{b}B(g) \Leftrightarrow \nu_{c}C(g) + \nu_{d}D(g) \begin{cases}
-               \nu_{a,1}A(g) \leftrightarrow \nu_{c,1}C(g) + \nu_{e,1}E(g) & \\
-               \nu_{e,2}E(g) + \nu_{b,2}B(g) \leftrightarrow \nu_{f,2}F(g) & \\
-               \nu_{a,3}A(g) + \nu_{f,3}F(g) \leftrightarrow \nu_{d,3}D(g) & \\
-           \end{cases}
+           \visible<1->{\nu_{a}A(g) + \nu_{b}B(g) \Longleftrightarrow \nu_{c}C(g) + \nu_{d}D(g)}\visible<2->{ \begin{cases}
+               \nu_{a,1}A(g) \longleftrightarrow \nu_{c,1}C(g) + \nu_{e,1}E(g) & \\
+               \nu_{e,2}E(g) + \nu_{b,2}B(g) \longleftrightarrow \nu_{f,2}F(g) & \\
+               \nu_{a,3}A(g) + \nu_{f,3}F(g) \longleftrightarrow \nu_{d,3}D(g) & 
+           \end{cases}}
          \end{displaymath} 
+         where \blue{$\nu_{i,j}$} is the stoichiometric coefficient of chemical species \blue{$i$} in reaction \blue{$j$}.
   \end{block}
         \begin{enumerate} \setcounter{enumi}{3}
-           \item<1-> Multireaction progress:
+           \item<3-> Multireaction progress:
                \visible<1->{\begin{displaymath}
                   d n_{i} = \sum\limits_{i}\nu_{i,j}d\varepsilon_{j}
                \end{displaymath}}
-           \item<2-> Mole fractions of species:     
+           \item<4-> Mole fractions of species:     
                \visible<2->{\begin{displaymath}
                   y_{i} = \frc{n_{i,0} + \sum\limits_{j}\nu_{i,j}\varepsilon_{j}} {n_{0} + \sum\limits_{j} \nu_{j}\varepsilon_{j}}
                \end{displaymath}}  
         \end{enumerate}
              \blue{where $j$ is the reaction index.}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Standard Enthalpy and Entropy of Reaction}
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Standard Enthalpy of Reaction}
+      Given the homogeneous reaction:
+        \begin{displaymath}
+           \visible<1->{\nu_{a}A(g) + \nu_{b}B(g) \Longleftrightarrow \nu_{c}C(g) + \nu_{d}D(g)}
+         \end{displaymath} 
+      \begin{enumerate}[a)]
+         \item<2-> The \red{standard enthalpy of reaction, $\Delta H_{r}^{\circ}$} (also called {\it standard heat of reaction}) is the heat produced or consumed during a chemical reaction at constant $T$ and \blue{\it standard pressure of 1 atm} 
+      \end{enumerate}
 \end{frame}
 \normalsize
 
