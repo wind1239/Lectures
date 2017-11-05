@@ -9,9 +9,9 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-\documentclass[10pt,compress,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,unknownkeysallowed]{beamer}
 %Draft or handout mode 
-%\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
+\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
 %\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
@@ -337,7 +337,7 @@
 %%%
 %%% SUBSECTION
 %%%
-\subsection{Standard Enthalpy and Entropy of Reaction}
+\subsection{Standard Gibbs Free Energy of Reaction}
 
 
 %%%
@@ -388,7 +388,7 @@
   \frametitle{$\Delta H_{f}^{\circ}$ and $\Delta G_{f}^{\circ}$ (Moran $\&$ Shapiro, 2006)}
      \begin{center}
        \includegraphics[width=.7\columnwidth,clip]{./../Pics/EnthalpyFormationTable2}
-     \end{center}
+     \end{center} 
 \end{frame}
 \normalsize
 
@@ -402,14 +402,14 @@
   \frametitle{Standard Enthalpy of Reaction}
       Given the homogeneous reaction:
         \begin{displaymath}
-           \visible<1->{\nu_{a}A(g) + \nu_{b}B(g) \Longleftrightarrow \nu_{c}C(g) + \nu_{d}D(g)}
+           \visible<1->{\nu_{a}A(g) + \nu_{b}B(g)  + \cdots \Longleftrightarrow \nu_{c}C(g) + \nu_{d}D(g) + \cdots}
         \end{displaymath}
         \visible<2->{\begin{block}{\begin{center}Definition (Devoe, 2012)\end{center}} 
             ``A \red{standard molar reaction enthalpy $\left(\Delta H_{r}^{\circ}\right)$} is the molar integral enthalpy of formation of species taking place under standard state conditions (each reactant and product at unit activity) at constant temperature.''
         \end{block}}
 
         \visible<3->{\begin{block}{\begin{center} Standard Molar Enthalpy of Reaction \end{center}}
-            In other words, the \red{standard molar enthalpy of reaction, $\Delta H_{r}^{\circ}$} (also called {\it standard heat of reaction}) is the heat produced or consumed during a chemical reaction at constant \blue{$T$} and \blue{\it standard pressure $\left(P^{\circ}\right)$ of 1 atm},
+            In other words, the \red{standard molar enthalpy of reaction, $\Delta H_{r}^{\circ}$} (also called {\it standard heat of reaction}), is the heat produced or consumed during a chemical reaction at constant \blue{$T$} and \blue{\it standard pressure $\left(P^{\circ}\right)$ of 1 atm},
            \begin{displaymath}
                 \red{\Delta H_{r}^{\circ} = \summation[\nu_{i}\Delta H_{i,f}^{\circ}]{i=1}{\mathcal{C}}},\;\;\blue{\left(T \text{ is often defined as 25}^{\circ}\text{C}\right)}.
            \end{displaymath}
@@ -417,7 +417,35 @@
 \end{frame}
 \normalsize
 
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Standard Enthalpy of Reaction}
+      
 
+      \begin{block}{\begin{center} Exothermic and Endothermic Reactions \end{center}}
+          \visible<1->{Given the \blue{standard enthalpy of reaction},
+                         \begin{displaymath}
+                             \red{\Delta H_{r}^{\circ} = \summation[\left\{\nu_{i}\Delta H_{i,f}^{\circ}(T)\right\}_{\text{prodt}}]{i=1}{\mathcal{C}} + \summation[\left\{\nu_{i}\Delta H_{i,f}^{\circ}(T)\right\}_{\text{react}}]{i=1}{\mathcal{C}} }
+                         \end{displaymath} 
+                         with \red{$\left(\nu_{i}>0\right)_{\text{prodt}}$} and \blue{$\left(\nu_{i}<0\right)_{\text{react}}$}.
+                      }
+
+            \visible<2->{\red{$\Delta H_{r}^{\circ}$} measures the heat associated with the reaction:
+               \begin{displaymath}
+                   \Delta H_{r}^{\circ} 
+                        \begin{cases}
+                             > 0: & \text{Reaction is \red{endothermic}, \ie reaction only occurs if heat is } \\
+                                  & \hspace{1cm} \text{added to the system}; \\
+                             < 0: & \text{Reaction is \blue{exothermic}, \ie reaction produces heat};
+                        \end{cases}
+               \end{displaymath}}
+
+        \end{block}
+\end{frame}
+\normalsize
 
 %%%
 %%% Slide
@@ -428,11 +456,11 @@
      \begin{block}{\begin{center}Determining $\Delta H_{r}^{\circ}(T)$\end{center}} 
       Given the homogeneous reaction:
         \begin{displaymath}
-           \visible<1->{\nu_{a}A(g) + \nu_{b}B(g) \Longleftrightarrow \nu_{c}C(g) + \nu_{d}D(g)}
+           \visible<1->{\nu_{a}A(g) + \nu_{b}B(g) + \cdots \Longleftrightarrow \nu_{c}C(g) + \nu_{d}D(g) + \cdots}
         \end{displaymath}
-        \visible<2->{When a reaction takes place in a temperature different from 25$^{\circ}$C,
+        \visible<2->{When a reaction takes place at temperature $T\ne 25^{\circ}$C,
            \begin{displaymath}
-             \red{\Delta H_{r}^{\circ} = \summation[\left\{\nu_{i}\Delta H_{i,f}^{\circ}(T)\right\}_{\text{prodt}}]{i=1}{\mathcal{C}} - \summation[\left\{\nu_{i}\Delta H_{i,f}^{\circ}(T)\right\}_{\text{react}}]{i=1}{\mathcal{C}} }
+             \red{\Delta H_{r}^{\circ} = \summation[\left\{\nu_{i}\Delta H_{i,f}^{\circ}(T)\right\}_{\text{prodt}}]{i=1}{\mathcal{C}} + \summation[\left\{\nu_{i}\Delta H_{i,f}^{\circ}(T)\right\}_{\text{react}}]{i=1}{\mathcal{C}} }
            \end{displaymath} 
            where}
         \visible<3->{\begin{displaymath}
@@ -440,6 +468,90 @@
           \end{displaymath}
           $C_{p}$ is often expressed as a polynomial of $T$ and can be obtained from any ChemEng Handbook.}
         \end{block}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Standard Entropy of Reaction}
+      Given the homogeneous reaction:
+        \begin{displaymath}
+           \visible<1->{\nu_{a}A(g) + \nu_{b}B(g) + \cdots \Longleftrightarrow \nu_{c}C(g) + \nu_{d}D(g) + \cdots} 
+        \end{displaymath}
+
+        \visible<2->{\begin{block}{\begin{center} Standard Molar Entropy of Reaction \end{center}}
+            The \red{standard molar entropy of reaction, $\Delta S_{r}^{\circ}$} at temperature \blue{T} and \blue{\it standard pressure $\left(P^{\circ}\right)$ of 1 atm} is defined as 
+           \begin{displaymath}
+             \red{\Delta S_{r}^{\circ} = \summation[\left\{\nu_{i}\Delta S_{i,f}^{\circ}(T)\right\}_{\text{prodt}}]{i=1}{\mathcal{C}} + \summation[\left\{\nu_{i}\Delta S_{i,f}^{\circ}(T)\right\}_{\text{react}}]{i=1}{\mathcal{C}} }
+           \end{displaymath} 
+           where}
+        \visible<3->{\begin{displaymath}
+             \blue{\Delta S_{i,f}^{\circ}(T) =  \Delta S_{i,f}^{\circ}(T = 298.15 K) + \int\limits_{298.15 K}^{T} \frc{\Delta C_{p,i}}{T}dT}
+          \end{displaymath}
+        \end{block}}
+\end{frame}
+\normalsize
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Standard Gibbs Free Energy of Reaction}
+      \begin{enumerate}[a)]
+         \item<1-> From the Fundamental Thermodynamic Relations:
+              \visible<1->{\begin{displaymath}
+                              dG = dH - TdS
+                           \end{displaymath}
+              }
+         \item<2-> The \red{standard Gibbs free energy of reaction} can be obtained from \underline{either} the fundamental thermodynamic relation \underline{or} from tabulated values of \red{standard Gibbs free energy of formation}
+      \end{enumerate}
+ 
+
+        \visible<3->{\begin{block}{\begin{center} Standard Molar Gibbs Free Energy of Reaction \end{center}}
+            The \red{standard molar Gibbs free energy of reaction, $\Delta G_{r}^{\circ}$} at temperature \blue{T} and \blue{\it standard pressure $\left(P^{\circ}\right)$ of 1 atm} is defined as 
+           \begin{displaymath}
+             \red{\Delta G_{r}^{\circ} = \summation[\left\{\nu_{i}\Delta G_{i,f}^{\circ}(T)\right\}_{\text{prodt}}]{i=1}{\mathcal{C}} + \summation[\left\{\nu_{i}\Delta G_{i,f}^{\circ}(T)\right\}_{\text{react}}]{i=1}{\mathcal{C}} }
+           \end{displaymath} 
+           where}
+        \visible<3->{\begin{displaymath}
+             \blue{\Delta G_{i,f}^{\circ}(T) =  \Delta H_{i,f}^{\circ}(T) - T \Delta S_{i,f}^{\circ}(T) }
+          \end{displaymath}
+        \end{block}}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Standard Gibbs Free Energy of Reaction: Direction of Reaction}
+      \begin{enumerate}[a)]
+          \item<1-> Given the homogeneous reaction:
+               \begin{eqnarray}
+                  && \nu_{a}A(g) + \nu_{b}B(g) + \cdots \red{\longrightarrow} \nu_{c}C(g) + \nu_{d}D(g) + \cdots \nonumber \\ 
+                  && \nu_{a}A(g) + \nu_{b}B(g) + \cdots \blue{\longleftarrow} \nu_{c}C(g) + \nu_{d}D(g) + \cdots \nonumber
+               \end{eqnarray}
+               \visible<2->{What is the direction at $T$ and $P$? Towards the products ? Or towards the reactants?}
+      \end{enumerate}
+
+        \visible<3->{\begin{block}{\begin{center} Direction of Reaction (\ie Spontaneity) \end{center}}
+            The direction of a chemical reaction can be determined based on the \red{standard molar Gibbs free energy of reaction, $\Delta G_{r}^{\circ}$} at temperature \blue{T} and \blue{$\left(P^{\circ}\right)$}:
+           \begin{displaymath}
+                 \Delta G_{r}^{\circ}(T)
+               \begin{cases}
+                   < 0: & \text{Reaction towards the formation of products \red{(spontaneous)}}; \\ 
+                   = 0: & \text{Reaction is at equilibrium, \ie no further change occurs}; \\ 
+                   > 0: & \text{Reaction will not proceed or occur toward the formation of}\\ 
+                        & \hspace{1cm} \text{ reactants \blue{(non-spontaneous)}}.
+               \end{cases}
+           \end{displaymath} 
+        \end{block}}
 \end{frame}
 \normalsize
 
@@ -466,13 +578,13 @@
       \end{figure}
      \end{column}
      \begin{column}[l]{0.5\linewidth}%\scriptsize
-        \begin{itemize} 
-           \item<1-> From Module 04 we studied that the equilibrium criteria can be described as function of state properties (i.e., $G$, $S$, $U$, $H$ and $A$);
+        \begin{enumerate}[a)] 
+           \item<1-> From \blue{Module 03}, we studied that the equilibrium criteria can be described as function of state properties (i.e., $G$, $S$, $U$, $H$ and $A$);
            \item<2-> In reactive systems, at constant $T$ and $P$, the equilibrium is reached when the \blue{total Gibbs energy} is \red{minimum}, i.e., 
-               \visible<1->{\begin{displaymath}
-                  \left(d G^{t}\right)_{T,P} = 0 
+               \visible<2->{\begin{displaymath}
+                  \left(\frc{d G^{t}}{d\varepsilon}\right)_{T,P} = 0 
                \end{displaymath}}
-        \end{itemize}
+        \end{enumerate}
      \end{column}
   \end{columns}
 \end{frame}
@@ -490,27 +602,100 @@
 %\scriptsize
 \begin{frame}
   \frametitle{Reaction Equilibrium: Equilibrium Constant}
-      \begin{enumerate} 
-        \item<1-> The total Gibbs free energy of a system of homogeneous chemical reactions can be represented by the individual contributions for reacting species,
-            \visible<1->{\begin{displaymath}
-                G^{t} = \summation[n_{i}\overline{G}_{i}]{i=1}{\mathcal{C}} = \summation[\left(n_{i,0}+\nu_{i}\varepsilon\right)\overline{G}_{i}]{i=1}{\mathcal{C}}
-            \end{displaymath}
-            leading to }
-            \visible<2->{\begin{displaymath}
-                \summation[\nu_{i}\overline{G}_{i}]{i=1}{\mathcal{C}} = 0  = \summation[\nu_{i}\mu_{i}]{i=1}{\mathcal{C}} \;\;\;\red{\text{(equilibrium criteria)}}
-            \end{displaymath}}
-        \item<2-> Defining the {\it standard state} \blue{$\left(^{\circ}\right)$} as the state in which
-            \begin{enumerate}
-               \item<2-> $P=1$ atm {\bf and};
-               \item<2-> component is pure $\left(\text{\ie } x_{i}^{\circ}=1\right)$ {\bf or } component at infinite dilution $\left(\text{\ie } x_{i}^{\infty}=x_{i}^{\circ}=0\right)$ {\bf or} {\it ideal 1 molal solution}.
-            \end{enumerate}
-         \item<3-> \blue{(Gibbs at reaction conditions - Gibbs at standard conditions)} is represented by {\it activities} of the reacting species, \ie
-            \visible<3->{\begin{displaymath}
-                \overline{G}\left(T,P, x_{i}\right)  - \overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right) = RT\ln{\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}} = RT\ln{a_{i}}
-            \end{displaymath}}
-
+      \begin{enumerate}[a)]
+         \item<1-> The \red{equilibrium} of a chemical reaction is reached when \blue{$\Delta G_{r}^{\circ}(T)=0$},
+         \item<2-> For example, given the homogeneous reactions:
+              \visible<2->{
+             \reaction{ NH_{3} (aq) + H_{2}O (l) <=> NH_{4}^{+} (l) + OH^{-} (aq) }
+             At equilibrium (with constant $T$ and $P$),
+                \begin{displaymath}
+                    \underbrace{\frc{\left[NH_{4}^{+}\right].\left[OH^{-}\right]}{\left[NH_{3}\right].\left[H_{2}O\right]}}_{\text{reaction quotient}} = \text{constant},
+                \end{displaymath}
+             where \blue{[]} represents either concentration or activity of species.}
+            \visible<3->{And,
+             \reaction{ 2 NO (g) + O_{2} (g) <=> 2 NO_{2} (g) }
+             At equilibrium (with constant $T$ and $P$),
+                \begin{displaymath}
+                    \underbrace{\frc{P_{\text{NO}_{2}}^{2}}{P_{\text{NO}}^{2}.P_{\text{O}_{2}}}}_{\text{reaction quotient}} = \text{constant},
+                \end{displaymath}}
+            \visible<4->{At \blue{equilibrium the reaction quotient} \red{(K)} \blue{becomes \underline{constant}.}}
       \end{enumerate}
 \end{frame}
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Reaction Equilibrium: Equilibrium Constant}
+        \begin{displaymath}
+           \visible<1->{\nu_{a}A + \nu_{b}B  \Longleftrightarrow \nu_{c}C + \nu_{d}D } 
+        \end{displaymath}
+      \begin{enumerate}[a)]\setcounter{enumi}{2}
+         \item<1-> The \blue{equilibrium} is a state in which no further change is possible under specific parameters, \ie 
+         \item<1-> The rate of the forward reaction is equal to the reverse reaction;
+         \item<2-> Any changes of the reaction parameters (\eg addition of chemical species, changes in pressure and/or temperature conditions) may lead to new equilibrium, which may not be the same as the previous one;
+         \item<3-> The \blue{reaction quotient}, \red{K}, is called \red{\it equilibrium constant} and establishes a relationship between activities (or concentration for ideal systems or partial pressures for gas mixtures) of species in equilibrium;
+         \item<3-> \red{$K$} does not give any information on {\it how fast a reaction proceeds}. This is controlled by \blue{reaction kinetics} which is not the focus of our study.
+      \end{enumerate}
+\end{frame}
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Reaction Equilibrium: Equilibrium Constant}
+      \begin{enumerate}[a)]\setcounter{enumi}{7}
+        \item<1-> The total Gibbs free energy of homogeneous chemical reactions can be represented by the individual contributions of reacting species,
+            \visible<1->{\begin{displaymath}
+                G^{t} = \summation[n_{i}\overline{G}_{i}]{i=1}{\mathcal{C}} = \summation[\left(n_{i,0}+\nu_{i}\varepsilon\right)\overline{G}_{i}]{i=1}{\mathcal{C}},
+            \end{displaymath}
+            where $\overline{G}_{i}$ is the partial molar Gibbs energy of component $i$}.
+      \end{enumerate}
+
+      \begin{block} {\begin{center}Equilibrium Criteria\end{center}}
+            \visible<2->{\begin{displaymath}
+                \summation[\nu_{i}\overline{G}_{i}]{i=1}{\mathcal{C}} = 0  = \summation[\nu_{i}\mu_{i}]{i=1}{\mathcal{C}}, 
+            \end{displaymath}}
+          \visible<3->{where {\it standard state} \blue{$\left(^{\circ}\right)$} is the state in which}
+                  \begin{enumerate}[i)]
+                      \item<3-> $P=1$ atm {\bf and};
+                      \item<3-> Component is pure $\left(\text{\ie } x_{i}^{\circ}=1\right)$ {\bf or } component at infinite dilution $\left(\text{\ie } x_{i}^{\infty}=x_{i}^{\circ}=0\right)$ {\bf or} {\it ideal 1 molal solution}.
+                   \end{enumerate}
+      \end{block}
+
+\end{frame}
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Reaction Equilibrium: Equilibrium Constant}
+      \begin{enumerate}[a)]\setcounter{enumi}{8}
+        \item<1-> Thus the difference between states
+            \begin{center}
+                 \blue{(Gibbs at reaction conditions - Gibbs at standard conditions)},
+            \end{center}
+            can be represented by {\it activities} of the reacting species, \ie
+            \visible<2->{\begin{displaymath}
+                \overline{G}\left(T,P, x_{i}\right)  - \overline{G}_{i}^{\circ}\left(T,P=1\text{ atm}, x_{i}^{\circ}\right) = RT\ln{\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}} = RT\ln{a_{i}},
+            \end{displaymath}}
+            \visible<2->{where
+            \begin{displaymath}
+               \begin{cases}
+                    \overline{f}_{i}: & \text{fugacity of component } i \text{ in the mixture}; \\
+                    \overline{f}_{i}^{\circ}: & \text{fugacity of component } i \text{ in the mixture at standard conditions}; \\
+                    a_{i}: & \text{activity of component } i \text{ in the mixture}.
+               \end{cases}
+            \end{displaymath}}
+      \end{enumerate}
+\end{frame}
+
+
 
 %%%
 %%% Slide
@@ -533,6 +718,36 @@
 \end{frame}
 
 
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Reaction Equilibrium: Equilibrium Constant}
+       \begin{block}{\begin{center}Equilibrium Constant\end{center}}
+            Let's consider a chemical reaction in {\it equilibrium},
+               \begin{displaymath}
+                   \nu_{a} A + \nu_{b} B \Longleftrightarrow \nu_{c} C + \nu_{d} D 
+               \end{displaymath} 
+          \begin{center}
+            \begin{tabular}{l | c c}
+               \hline
+                  {\bf Ideal Gas} & $\Delta G_{r}^{\circ}=-RT\ln{K_{p}}=\Delta\mu_{r}^{\circ}$ & $K_{p} = \frc{P_{C}^{c}.P_{D}^{d}}{P_{A}^{a}.P_{B}^{b}}$ \\
+                                  &                                                &                                                         \\
+                  {\bf Real Gas}  & $\Delta \mu_{r}^{\circ}=-RT\ln{K_{f}}$               &  $K_{f} = \frc{f_{C}^{c}.f_{D}^{d}}{f_{A}^{a}.f_{B}^{b}} K_{p}$ \\
+                                  &                                                &                                                         \\
+                  {\bf Ideal Solution} & $\Delta G_{r}^{\circ}=-RT\ln{K_{c}}=\Delta\mu_{r}^{\circ}$ & $K_{c} = \frc{[C]^{c}.[D]^{d}}{[A]^{a}.[B]^{b}}$ \\
+                                  &                                                &                                                         \\
+                  {\bf Real Solution} & $\Delta\mu_{r}^{\circ}=-RT\ln{K_{a}}$             &  $K_{a} = \frc{a_{C}^{c}.a_{D}^{d}}{a_{A}^{a}.a_{B}^{b}} K_{c}$\\
+                                  &                                                &                                                         \\
+               \hline
+            \end{tabular}
+           \end{center}
+ 
+       \end{block}
+\end{frame}
+
 %%%
 %%% Slide
 %%%
@@ -551,16 +766,9 @@
 \begin{frame}
   \frametitle{Reaction Equilibrium:  Dependence of $K$ with Temperature } 
 
-      \begin{enumerate} \setcounter{enumi}{3} 
-         \item<1-> If the standard state of each chemical species in the reaction is chosen to be $T=298.15$ K and $P= 1$ atm,
-         \begin{displaymath}
-              \Delta G_{r}^{\circ} \left(T=298.15\text{ K}\right) = \summation[\nu_{i}\Delta G_{i,f}^{\circ}\left(T=298.15\text{ K}\right)]{i}{},
-         \end{displaymath}
-         where $\Delta G_{i,f}^{\circ}$ is the standard state Gibbs free energy of formation, which can be obtained for a large number of chemical species in any Chemical Engineering Handbook.
-      \end{enumerate}
 
-      \visible<2->{\begin{block}{\begin{center}Van't Hoff Equation\end{center}}
-            The Van't Hoff equation can help obtaining the {\it equilibrium constant} at any temperature by integrating from $T=298.15$ K,
+      \visible<1->{\begin{block}{\begin{center}Van't Hoff Equation\end{center}}
+            The \blue{Van't Hoff equation} can help obtaining the {\it equilibrium constant} \red{at any temperature by integrating from $T=298.15$ K} to \red{T},
                \begin{displaymath}
                  \frc{d\left(\ln{K}\right)}{dT} = \frc{\Delta H^{\circ}_{r}}{RT^{2}} \;\;\;\;\;\text{ or }\;\;\;\;\; \frc{d}{dT}\left(\Delta G^{\circ}_{r}/RT\right) = -\frc{d\left(\ln{K}\right)}{dT} = -\frc{\Delta H^{\circ}_{r}}{RT^{2}}
                \end{displaymath} 
@@ -574,7 +782,7 @@
 %\scriptsize
 \begin{frame}
   \frametitle{Reaction Equilibrium:  Dependence of $K$ with Composition } 
-      \begin{enumerate} \setcounter{enumi}{4} 
+      \begin{enumerate}[a)] \setcounter{enumi}{9} 
          \item<1-> From 
            \begin{displaymath}
                 K = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}} = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i}},
@@ -595,7 +803,7 @@
 %\scriptsize
 \begin{frame}
   \frametitle{Reaction Equilibrium:  Dependence of $K$ with Composition } 
-      \begin{enumerate} \setcounter{enumi}{6} 
+      \begin{enumerate}[a)] \setcounter{enumi}{11} 
          \item<1-> From 
            \begin{displaymath}
                 K = \prod\limits_{i=1}^{\mathcal{C}} a_{i}^{\nu_{i}} = \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{\overline{f}_{i}^{\circ}}\right)^{\nu_{i}},
@@ -621,27 +829,27 @@
 %%%
 %%% SUBSECTION
 %%%
-\subsection{Phase Rule}
+%\subsection{Phase Rule}
 
 %%%
 %%% Slide
 %%%
 %\scriptsize
-\begin{frame}
-  \frametitle{Reaction Equilibrium: Phase Rule}
-     \begin{enumerate} %\setcounter{enumi}{4}
-        \item<1-> Recall the Gibbs phase rule (Module 1) for \blue{non-reacting multiphase and multi-component systems}:
-           \visible<1->{\begin{displaymath}
-             \Psi = 2 + \mathcal{C} - \mathcal{P}
-           \end{displaymath}
-             where $\Psi$ is the number of \textcolor{blue}{degrees of freedom} for the system, \textcolor{blue}{2} refers to the independent variables ($T$ and $P$), \textcolor{blue}{$\mathcal{C}$} is the number of chemical species and \textcolor{blue}{$\mathcal{P}$} is the number of phases;}   
-        \item<2->For a multiphase, multi-component systems with \red{$\mathcal{R}$ chemical reactions} take place: 
-           \visible<1->{\begin{displaymath}
-              \blue{\Psi = 2 + \mathcal{C} - \mathcal{P} - \mathcal{R}}
-           \end{displaymath}}
-     \end{enumerate}
-\end{frame}
-\normalsize
+%\begin{frame}
+%  \frametitle{Reaction Equilibrium: Phase Rule}
+%     \begin{enumerate}[a)] %\setcounter{enumi}{4}
+%        \item<1-> Recall the Gibbs phase rule (Module 1) for \blue{non-reacting multiphase and multi-component systems}:
+%           \visible<1->{\begin{displaymath}
+%             \Psi = 2 + \mathcal{C} - \mathcal{P}
+%           \end{displaymath}
+%             where $\Psi$ is the number of \textcolor{blue}{degrees of freedom} for the system, \textcolor{blue}{2} refers to the independent variables ($T$ and $P$), \textcolor{blue}{$\mathcal{C}$} is the number of chemical species and \textcolor{blue}{$\mathcal{P}$} is the number of phases;}   
+%        \item<2->For a multiphase, multi-component systems with \red{$\mathcal{R}$ chemical reactions} take place: 
+%           \visible<1->{\begin{displaymath}
+%              \blue{\Psi = 2 + \mathcal{C} - \mathcal{P} - \mathcal{R}}
+%           \end{displaymath}}
+%     \end{enumerate}
+%\end{frame}
+%\normalsize
 
 %%%
 %%% SUBSECTION
@@ -664,12 +872,12 @@
 
         \visible<1->{\begin{block}{\begin{center}Simultaneous Reactions\end{center}}
                \begin{displaymath}
-                      K = 
+                      K_{j} = 
                           \begin{cases}
                                \prod\limits_{i=1}^{\mathcal{C}} \left(\frc{\overline{f}_{i}}{P^{\circ}}\right)^{\nu_{i,j}}, & \blue{\text{(gas phase),}} \\
                                                                    & \\
                                \left(\frc{P}{P^{\circ}}\right)^{-\nu_{i,j}}\prod\limits_{i=1}^{\mathcal{C}} \left(y_{i}\right)^{\nu_{i,j}}, &\blue{\text{(ideal gas mixture).}}
-                          \end{cases}
+                          \end{cases}\hspace{1cm} \forall j\in\left\{1,2,\cdots,\mathcal{R}\right\}
                \end{displaymath}
       \end{block}}
 
@@ -693,6 +901,7 @@
    \end{enumerate}
 \end{frame}
 
+\begin{comment}
 \section{Examples}
 
 %%%
@@ -739,7 +948,7 @@
        \blue{where $\Delta G^{\circ}_{\text{f,298}}$ and $\Delta H^{\circ}_{\text{f,298}}$ are the standard state Gibbs energy and enthalpy of formation. }
      
 \end{frame}
-
+\end{comment}
 
 \end{document}
  
