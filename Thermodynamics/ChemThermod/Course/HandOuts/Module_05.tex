@@ -78,7 +78,7 @@
  \frametitle{Aims and Objectives}
    \begin{enumerate}
      \item<1-> In the previous modules we studied thermodynamic relations in non-reactive systems;
-     \item<1-> In Modules 3 and 4 we focused on systems involving mixtures of components in gas and liquid phases behaving as ideal and non-ideal solutions;
+     \item<1-> In Modules 3 and 4 we focused on systems involving components in gas and liquid phases behaving as ideal and non-ideal mixtures;
      \item<2-> Most of the thermodynamic relations can be extended to systems involving single and multiple reactions across single and multiple phases;
      \item<2-> The aim of this module is {\bf to study equilibrium state of homogeneous (\ie single phase) chemical reactions.}
    \end{enumerate}
@@ -93,11 +93,13 @@
  \frametitle{Suggested References}
   Literature relevant for this module:
   \begin{enumerate}[(i)]
-   \item\label{SVN_Book} J.M. Smith, H.C. Van Ness, M.M. Abbott, $\lq$Introduction to Chemical Engineering Thermodynamics', 6$^{th}$ Edition: Chapter 13;
-   %\item Y.V.C. Rao, $\lq$Chemical Engineering Thermodynamics',4$^{th}$ Edition: Chapters 10 and 12.
-   \item\label{Sandle_Book} S.I. Sandler, $\lq$Chemical, Biochemical and Engineering Thermodynamics', 4$^{th}$ Edition: Chapters 8.3-5 and 13;
-   \item\label{Lue_Book} L. Lue, $\lq$Chemical Thermodynmics', {\it eBook at bookboon.com}, Chapter 12;
-   \item\label{Balmer_Book}R.T. Balmer, $\lq$Modern Engineering Thermodynamics', Chapter 15.
+     \item\label{SVN_Book} J.M. Smith, H.C. Van Ness, M.M. Abbott, $\lq$Introduction to Chemical Engineering Thermodynamics', 6$^{th}$ Edition: Chapter 13;
+     \item\label{Sandle_Book} S.I. Sandler, $\lq$Chemical, Biochemical and Engineering Thermodynamics', 4$^{th}$ Edition: Chapters 8.3-5 and 13;
+     \item\label{Lue_Book} L. Lue, $\lq$Chemical Thermodynmics', {\it eBook at bookboon.com}, Chapter 12;
+     \item\label{Balmer_Book}R.T. Balmer, $\lq$Modern Engineering Thermodynamics', Chapter 15;
+     \item\label{Moran_Book} M.J. Moran and H.N. Shapiro, $\lq$Fundamentals of Engineering Thermodynamics', 5$^{\text{th}}$ Edition, Chapter 14;
+     \item\label{Devoe_Book} H. Devoe, $\lq$Thermodynamics and Chemistry', 2$^{\text{nd}}$ Edition, Chapter 11;
+     \item\label{Atkins_Book} P. Atkins and J. de Paula, $\lq$Physical Chemistry', 8$^{\text{th}}$ Edition: Chapters 2 and 5.
   \end{enumerate}
 \end{frame}
 
@@ -126,7 +128,7 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Chemical Reaction Process: \underline{Diffusion} $\times$ Kinetics $\times$ Thermodynamics}
+  \frametitle{Chemical Reaction Process: \blue{Diffusion} $\times$ Kinetics $\times$ Thermodynamics}
 
   \begin{block}{\begin{center}General Chemical Reaction\end{center}}
      Given the chemical reaction below
@@ -150,7 +152,7 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Chemical Reaction Process: Diffusion $\times$ \underline{Kinetics} $\times$ Thermodynamics}
+  \frametitle{Chemical Reaction Process: Diffusion $\times$ \blue{Kinetics} $\times$ Thermodynamics}
 
   \begin{block}{\begin{center}General Chemical Reaction\end{center}}
      Given the chemical reaction below
@@ -174,7 +176,7 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Chemical Reaction Process: \underline{Diffusion} $\times$ \underline{Kinetics} $\times$ Thermodynamics}
+  \frametitle{Chemical Reaction Process: \blue{Diffusion} $\times$ \blue{Kinetics} $\times$ Thermodynamics}
 
 
    \begin{enumerate}[a)]
@@ -252,22 +254,52 @@
         where \red{$\nu_{i}$} represent \blue{molar stoichiometric coefficients} and $A_{i}$ are chemical species.
   \end{block}
 
-  \begin{enumerate}
-    \item<1-> Change in quantities as reaction progresses:
-        \visible<2->{\begin{displaymath}
+  \begin{enumerate}[a)]
+      \item<1-> The Standard notation \\
+         \begin{center} 
+            \begin{tabular}{l l}
+           %\hline 
+              {\it Reactants:} \red{negative $\nu_{i}$};  & \it{Product:} \blue{positive $\nu_{i}$},\\
+           %\hline
+            \end{tabular}
+         \end{center}
+         
+       \item<2-> is adopted to enable writing chemical reactions in mathematical form:
+         \begin{displaymath}
+            \nu_{l} A_{l} + \nu_{m} A_{m} + \cdots + \nu_{z} A_{z} - \left( \nu_{1} A_{1} + \nu_{2} A_{2}  + \cdots \nu_{k} A_{k}\right) = 0;
+         \end{displaymath}
+  \end{enumerate}
+\end{frame}
+\normalsize
+
+
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Reaction Coordinate}
+  
+  \begin{enumerate}\setcounter{enumi}{2}
+     \item<1-> Change in quantities as reaction progresses:
+        \visible<1->{\begin{displaymath}
            \frc{d n_{1}}{\nu_{1}}  =  \frc{d n_{2}}{\nu_{2}} = \cdots =  \frc{d n_{k}}{\nu_{k}} = \cdots = \frc{d n_{z}}{\nu_{z}}  \blue{\Longrightarrow \frc{d n_{i}}{\nu_{i}} = \text{constant} }
         \end{displaymath}}
-    \item<1-> \red{Reaction coordinate $\varepsilon$},
-        \visible<3->{\begin{displaymath}
+    \item<2-> \red{Reaction coordinate $\varepsilon$},
+        \visible<2->{\begin{displaymath}
            \frc{d n_{i}}{\nu_{i}} =  d \varepsilon_{i} \hspace{.5cm}\Longleftrightarrow\hspace{.5cm} d n_{i} = \nu_{i} d\varepsilon 
         \end{displaymath}}
-    \item<1-> Mole fractions of species:
-        \visible<4->{\begin{displaymath}
+    \item<3-> Mole fractions of species:
+        \visible<3->{\begin{displaymath}
            y_{i} = \frc{n_{i}}{n} = \frc{n_{i,0}+\nu_{i}\varepsilon}{n_{0}+\nu\varepsilon}
         \end{displaymath}}     
   \end{enumerate}
 \end{frame}
 \normalsize
+
+
 
 
 %%%
@@ -313,16 +345,101 @@
 %%%
 %\scriptsize
 \begin{frame}
+  \frametitle{Formation Reaction}  
+            \visible<1->{\begin{block}{\begin{center}Definition (Devoe, 2012)\end{center}} 
+              ``The \red{formation reaction} of a substance is the reaction in which the substance, at a given temperature and in a given physical state, is \blue{formed from the constituent elements in their reference states at the same temperature}. ''
+            \end{block}}
+            
+            \visible<2->{\begin{block}{\begin{center}Definition (Devoe, 2012)\end{center}} 
+              ``The \red{reference state} of an element is usually chosen to be the \blue{standard state} of the element in the allotropic form and physical state that is stable at the given temperature and the standard pressure.''
+            \end{block}}
+\end{frame}
+\normalsize
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Standard Enthalpy of Formation}      
+      \begin{enumerate}[a)]
+         \item<1-> Let's consider the {\it exothermic} reaction to produce \red{CO$_{2}$} from \red{C} and \red{O$_{2}$},
+            \begin{displaymath}
+               C \left(\text{s}, \text{graphite}, P^{\circ}\right) + O_{2} \left(\text{g}, P^{\circ}\right) \Longleftrightarrow CO_{2} \left(\text{g}, P^{\circ}\right),
+            \end{displaymath}
+            \visible<2->{Product $\left(\text{CO}_{2}\right)$ is formed from the reaction of \blue{elemental reactants}, \ie \blue{atom} (\red{C}) and \blue{diatomic molecules} $\left(\red{\text{O}_{2}}\right)$. The reaction produces 393.52 kJ.mol$^{-1}$ of heat;}
+            \visible<3->{\begin{block}{\begin{center}Definition (Devoe, 2012)\end{center}} 
+              ``The \blue{standard molar enthalpy of formation} (or {\it standard molar heat of formation}) $\Delta H_{f}^{\circ}$, of a substance is the molar enthalpy change of substance produced in the \blue{formation reaction} of the substance in its standard state. The \blue{standard state} (or \blue{reference state} of a substance is its most stable state at the specified temperature and 1 atm.''
+            \end{block}}
+         \item<4-> By definition, $\Delta H_{f}^{\circ}$ for the \blue{reference state} of an \blue{element} $\left(\text{\eg C, O}_{2}, \text{Br}_{2}, \text{etc}\right)$ is \red{zero};
+         \item<5-> Values of \red{standard molar enthalpy of formation} are tabulated for a number of chemical species.
+      \end{enumerate}
+\end{frame}
+\normalsize
+
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{$\Delta H_{f}^{\circ}$ and $\Delta G_{f}^{\circ}$ (Moran $\&$ Shapiro, 2006)}
+     \begin{center}
+       \includegraphics[width=.7\columnwidth,clip]{./../Pics/EnthalpyFormationTable2}
+     \end{center}
+\end{frame}
+\normalsize
+
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
   \frametitle{Standard Enthalpy of Reaction}
       Given the homogeneous reaction:
         \begin{displaymath}
            \visible<1->{\nu_{a}A(g) + \nu_{b}B(g) \Longleftrightarrow \nu_{c}C(g) + \nu_{d}D(g)}
-         \end{displaymath} 
-      \begin{enumerate}[a)]
-         \item<2-> The \red{standard enthalpy of reaction, $\Delta H_{r}^{\circ}$} (also called {\it standard heat of reaction}) is the heat produced or consumed during a chemical reaction at constant $T$ and \blue{\it standard pressure of 1 atm} 
-      \end{enumerate}
+        \end{displaymath}
+        \visible<2->{\begin{block}{\begin{center}Definition (Devoe, 2012)\end{center}} 
+            ``A \red{standard molar reaction enthalpy $\left(\Delta H_{r}^{\circ}\right)$} is the molar integral enthalpy of formation of species taking place under standard state conditions (each reactant and product at unit activity) at constant temperature.''
+        \end{block}}
+
+        \visible<3->{\begin{block}{\begin{center} Standard Molar Enthalpy of Reaction \end{center}}
+            In other words, the \red{standard molar enthalpy of reaction, $\Delta H_{r}^{\circ}$} (also called {\it standard heat of reaction}) is the heat produced or consumed during a chemical reaction at constant \blue{$T$} and \blue{\it standard pressure of 1 atm},
+           \begin{displaymath}
+                \red{\Delta H_{r}^{\circ} = \summation[\nu_{i}\Delta H_{i,f}^{\circ}]{i=1}{\mathcal{C}}},\;\;\blue{\left(T \text{ is often defined as 25}^{\circ}\text{C}\right)}.
+           \end{displaymath}
+        \end{block}}
 \end{frame}
 \normalsize
+
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+  \frametitle{Reaction Enthalpy Change at $T$ and $P$}
+      Given the homogeneous reaction:
+        \begin{displaymath}
+           \visible<1->{\nu_{a}A(g) + \nu_{b}B(g) \Longleftrightarrow \nu_{c}C(g) + \nu_{d}D(g)}
+        \end{displaymath}
+        \visible<2->{When a reaction takes place in a temperature different from 25$^{\circ}$C,}
+           \begin{displaymath}
+             \Delta H_{r}^{\circ} =  \summation[\left[\nu_{i}\Delta H_{i,f}^{\circ}(T)\right]_{\text{prodt}}]{i=1}{\mathcal{C}} - %\summation[\left[\nu_{i}\Delta H_{i,f}^{\circ}(T)\right]_{\text{react}}]{i=1}{\mathcal{C}},
+           \end{displaymath} 
+           where
+        %\visible<3->{\begin{displaymath}
+         %    \Delta H_{i,f}^{\circ}(T) = % \Delta H_{i,f}^{\circ}(T = 298.15 K) + \int\limits_{298.15 K}^{T} \Delta C_{p,i}dT
+          % \end{displaymath}} 
+\end{frame}
+\normalsize
+
 
 
 %%%
