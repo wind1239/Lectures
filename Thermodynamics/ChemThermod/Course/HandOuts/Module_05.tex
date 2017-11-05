@@ -409,7 +409,7 @@
         \end{block}}
 
         \visible<3->{\begin{block}{\begin{center} Standard Molar Enthalpy of Reaction \end{center}}
-            In other words, the \red{standard molar enthalpy of reaction, $\Delta H_{r}^{\circ}$} (also called {\it standard heat of reaction}) is the heat produced or consumed during a chemical reaction at constant \blue{$T$} and \blue{\it standard pressure of 1 atm},
+            In other words, the \red{standard molar enthalpy of reaction, $\Delta H_{r}^{\circ}$} (also called {\it standard heat of reaction}) is the heat produced or consumed during a chemical reaction at constant \blue{$T$} and \blue{\it standard pressure $\left(P^{\circ}\right)$ of 1 atm},
            \begin{displaymath}
                 \red{\Delta H_{r}^{\circ} = \summation[\nu_{i}\Delta H_{i,f}^{\circ}]{i=1}{\mathcal{C}}},\;\;\blue{\left(T \text{ is often defined as 25}^{\circ}\text{C}\right)}.
            \end{displaymath}
@@ -424,19 +424,22 @@
 %%%
 %\scriptsize
 \begin{frame}
-  \frametitle{Reaction Enthalpy Change at $T$ and $P$}
+  \frametitle{Reaction Enthalpy Change at $P^{\circ}$ and $T\ne 25^{\circ}C$}
+     \begin{block}{\begin{center}Determining $\Delta H_{r}^{\circ}(T)$\end{center}} 
       Given the homogeneous reaction:
         \begin{displaymath}
            \visible<1->{\nu_{a}A(g) + \nu_{b}B(g) \Longleftrightarrow \nu_{c}C(g) + \nu_{d}D(g)}
         \end{displaymath}
-        \visible<2->{When a reaction takes place in a temperature different from 25$^{\circ}$C,}
+        \visible<2->{When a reaction takes place in a temperature different from 25$^{\circ}$C,
            \begin{displaymath}
-             \Delta H_{r}^{\circ} =  \summation[\left[\nu_{i}\Delta H_{i,f}^{\circ}(T)\right]_{\text{prodt}}]{i=1}{\mathcal{C}} - %\summation[\left[\nu_{i}\Delta H_{i,f}^{\circ}(T)\right]_{\text{react}}]{i=1}{\mathcal{C}},
+             \red{\Delta H_{r}^{\circ} = \summation[\left\{\nu_{i}\Delta H_{i,f}^{\circ}(T)\right\}_{\text{prodt}}]{i=1}{\mathcal{C}} - \summation[\left\{\nu_{i}\Delta H_{i,f}^{\circ}(T)\right\}_{\text{react}}]{i=1}{\mathcal{C}} }
            \end{displaymath} 
-           where
-        %\visible<3->{\begin{displaymath}
-         %    \Delta H_{i,f}^{\circ}(T) = % \Delta H_{i,f}^{\circ}(T = 298.15 K) + \int\limits_{298.15 K}^{T} \Delta C_{p,i}dT
-          % \end{displaymath}} 
+           where}
+        \visible<3->{\begin{displaymath}
+             \blue{\Delta H_{i,f}^{\circ}(T) =  \Delta H_{i,f}^{\circ}(T = 298.15 K) + \int\limits_{298.15 K}^{T} \Delta C_{p,i}dT}\;\;\text{ with }\;\;\Delta C_{p,i} = \nu_{i}C_{p,i}
+          \end{displaymath}
+          $C_{p}$ is often expressed as a polynomial of $T$ and can be obtained from any ChemEng Handbook.}
+        \end{block}
 \end{frame}
 \normalsize
 
