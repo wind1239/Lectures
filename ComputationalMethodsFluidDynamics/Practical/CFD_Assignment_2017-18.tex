@@ -127,6 +127,7 @@
 \newcommand{\eg}{{\it e.g., }}
 \newcommand{\ie}{{\it i.e., }}
 \newcommand\Rey{\mbox{\textit{Re}}\,\,}
+\newcommand\Nu{\mbox{\textit{Nu}}\,\,}
 \newcommand\bfr[1]{\textcolor[rgb]{1,0.00,0.00}{\textbf{\textsf{#1}}}}
 \newcommand\ra{$\rightarrow$}
 \newcommand\cm{\textcolor[rgb]{0.00,0.50,0.00}{\checkmark}\,\,}
@@ -155,9 +156,9 @@
   \Large{\bf Final CFD Assignment}
 \end{center}
 
-\begin{shaded}\begin{center}
-{\bf Part 1 of the Assignment is available in MyAberdeen from October 27$^{\text{th}}$ at noon. Part 2 will be released on November 6$^{\text{th}}$ at noon.}\end{center}
-\end{shaded}
+%\begin{shaded}\begin{center}
+%{\bf Part 1 of the Assignment is available in MyAberdeen from October 27$^{\text{th}}$ at noon. Part 2 will be released on November 6$^{\text{th}}$ at noon.}\end{center}
+%\end{shaded}
 
 \section{Introduction}
 High-density polyethylene (HDPE) is the third largest commodity plastic material produced in the world (after PVC and PP) with annual production of 51.33 MMT (2016) and worth of approximately USD 64 billions. HDPE resin is used in a wide range of applications from food and beverage packaging to corrosion- and thermal-resistant pipes. There are several industrial patented technology processes to produce HDPE worldwide, \eg 'Chevron-Philips Slurry Loop', 'Lyondell-Basell Ziegler Slurry Process', 'DOW Chemical Solution Process', Univation's 'UNIPOL Swing Process' (Fig.~\ref{HDPE_Plant}) etc.
@@ -183,7 +184,7 @@ $\left.\rho= 808.5\text{ kg.m}^{-3}, \kappa=0.095\text{W.(m.K)}^{-1}\text{ and }
 
      {\bf For this practical, we will focus on flow dynamics in the heat exchanger A. A systematic 2-D CFD study is suggested to assess the relevant parameters for this investigation, \ie drag forces, velocity, temperature and pressure profiles.}
 
-     \section{Heat Exchanger A: Preliminary Analysis (Part 1)}
+     \section{Heat Exchanger A: Preliminary Analysis }
      In the design and optimisation of finned tube cross-flow heat exchangers, it is critical to have reliable information about flow dynamics (\ie spatial-distribution of pressure, temperature and velocity fields), turbulence energies and the impact of internals on them. Therefore, we should systematically study these variables by:
      \begin{enumerate}
        \item Model design and {\it quality assurance};
@@ -261,7 +262,7 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
        \subsubsection{Tasks}\label{FPC:Tasks}
         %\begin{center} \blue{\bf Tasks: } \end{center}
         \begin{enumerate}[a)]
-           \item {\bf Verification:} Determine minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions.
+           \item {\bf Verification:} Determine minimum mesh resolutions (\ie number of cell) necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions.
            \item {\bf Validation:} Determine (mean) drag coefficients around the cylinder for the performed simulations. Compare the simulated results with experimental data obtained from Fig.~1.12 of Schlichting \& Gersten's book [4] $\left(\text{\Rey}\times C_{D} \text{ experimental data can be found on MyAberdeen}\right)$. Do they agree with expected values according to the \Rey numbers?
            \item {\bf Validation:}
              \begin{enumerate}[i)]
@@ -279,35 +280,39 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
 %%%  SUBSECTION: FLOW PAST A HEATED CYLINDER
 %%%
      \subsection{Flow Past a Heated Cylinder}\label{FlowPastHeatedCylinder}
-     The next stage in the model and software QA is to assess the accuracy of the heat and flow dynamic models through another traditional test-case -- {\it flow past a heated cylinder}\footnote{See Bergman, Lavine, Incropera and Dewitt, 'Fundamentals of Heat and Mass Transfer', 7$^{\text{th}}$ Edition, Sections 7.4-6, pages 293-308; Holman, 'Heat Transfer', 10$^{\text{th}}$ Edition, Sections 6.3-4, pages 293-308.}. The current model setup, introduced in Section~\ref{FlowPastCylinder}, must be validated against both experimental and simulated results\footnote{a) \href{https://doi.org/10.1115/1.3450685}{Churchil and Bernstein (1977) Journal of Heat Transfer 99:300-306}; b) \href{https://link.springer.com/article/10.1007/s12206-009-0610-2}{Baranyi {\it et al.} (2009) Journal of Mechanical Science and Technology 23:1829-1834}; c) \href{https://doi.org/10.1017/jfm.2011.313}{Hu and Koochesfahani (2011) Journal of Fluid Mechanics 685:235-270}; d) \href{http://www.theijes.com/papers/v3-i3/Version-4/B0334008019.pdf}{Golani and Dhiman (2014) International Journal of Engineering and Sciences 3:8-19}; e) \href{http://aip.scitation.org/doi/pdf/10.1063/1.1804547}{Shi {\it et al.} (2004) Physics of Fluids 16:4331-4345}; f) \href{http://dept.ku.edu/~cfdku/papers/aiaa-2007-0801.pdf}{Varma {\it et al.} (2007) 45$^{\text{th}}$ AIAA Aerospace Sciences Meeting and Exhibit}.}.
+     The next stage in the model and software QA is to assess the accuracy of the heat and flow dynamic models through another traditional test-case -- {\it flow past a heated cylinder}\footnote{See Bergman, Lavine, Incropera and Dewitt (2011) 'Fundamentals of Heat and Mass Transfer', 7$^{\text{th}}$ Edition, Sections 7.4-6, pages 293-308; Holman (2010) 'Heat Transfer', 10$^{\text{th}}$ Edition, Sections 6.3-4, pages 293-308.}. The current model setup introduced in Section~\ref{FlowPastCylinder} must be validated against both experimental and simulated data\footnote{a) \href{https://doi.org/10.1115/1.3450685}{Churchil and Bernstein (1977) Journal of Heat Transfer 99:300-306}; b) \href{https://link.springer.com/article/10.1007/s12206-009-0610-2}{Baranyi {\it et al.} (2009) Journal of Mechanical Science and Technology 23:1829-1834}; c) \href{https://doi.org/10.1017/jfm.2011.313}{Hu and Koochesfahani (2011) Journal of Fluid Mechanics 685:235-270}; d) \href{http://www.theijes.com/papers/v3-i3/Version-4/B0334008019.pdf}{Golani and Dhiman (2014) International Journal of Engineering and Sciences 3:8-19}; e) \href{http://aip.scitation.org/doi/pdf/10.1063/1.1804547}{Shi {\it et al.} (2004) Physics of Fluids 16:4331-4345}; f) \href{http://dept.ku.edu/~cfdku/papers/aiaa-2007-0801.pdf}{Varma {\it et al.} (2007) 45$^{\text{th}}$ AIAA Aerospace Sciences Meeting and Exhibit}.}.
 
-     As the simulated and experimental data in [6] refer to air flow around a heated cylinder under various Reynolds and Prandtl conditions, you should start the validation procedure using \blue{\underline{air} at 75$^{\circ}$C with \Rey=10 and \Rey=100}. Assume that the cylinder has constant temperature of 300$^{\circ}$C and use the computational domain from Section~\ref{FlowPastCylinder}. Finally, assume that the {\bf fluid's density depends only on the temperature}.
+     As the simulated and experimental data in [6] refer to air flow around a heated cylinder under various Reynolds and Prandtl conditions, you should start the validation procedure using \blue{\underline{air}} (instead of ethylene) \blue{at 75$^{\circ}$C with \Rey=10 and \Rey=100}. Use the computational domain designed in Section~\ref{FlowPastCylinder} with the \underline{cylinder at constant temperature of 300$^{\circ}$C}. Finally, assume that the {\bf fluid's density depends only on the temperature}.
 
 
 
      \begin{shaded}
         \begin{center} {\bf Tips: } \end{center}
         \begin{enumerate}[a)]
-           \item All \blue{Tips} used in Section~\ref{FlowPastCylinder} should be applied here.
-           \item 
+           \item All \blue{Tips} used in Section~\ref{FlowPastCylinder} should be applied here;
+           \item In Fluent, in order to obtain the average of a variable over the cylinder wall (\eg averaged Nusselt number, averaged heat transfer coefficient etc.), go to {\it Report definitions} $\Rightarrow$ {\it New} $\Rightarrow$ {\it Surface Report}  $\Rightarrow$ {\it Vertex Average}. Here you can select the variable of interest and, as surface, select the cylinder. Do not forget to also tick the {\it report file}, {\it report plots} and {\it print to console} to see/export the \blue{vertex averaged variable} that you have created;
+           \item Convergence can be improved by selecting {\it Hybrid Initializiation}. The \blue{Hybrid Initialization method} computes the initial flow field based on inlet and outlet boundary conditions.
         \end{enumerate}
      \end{shaded}
-
-
      
      \begin{shaded}
         \subsubsection{Tasks}\label{FPHC:Tasks}
         \begin{enumerate}[a)]
-           \item {\bf Verification:} Determine the minimum mesh resolutions necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions. Also, \Rey has strongly dependency on both density and flow velocity.
-           \item {\bf Validation:} Determine averaged drag coefficient $\left(C_{D}\right)$ and Nusselt number ({\it Nu}) around the cylinder for the performed simulations (\ie with \Rey=10 and \Rey=100). Compare simulated $C_{D}$ and $Nu$ with:
-             \begin{enumerate}
-               \item Expected values from the literature (\eg [6]), both experimental or numerical;
-               \item Empirical correlations due to Hilpert (1933), Zukauskas (1972) and Churchill $\&$ Bernstein (1977) (Eqns. 7.52-54 of Bergman {\it et al.} textbook. A copy of the Book's Section is available at {\it MyAberdeen}).
-             \end{enumerate}
-             Compile values of $C_{D}$ and $Nu$ from your simulations, references (both experimental and simulation data at the same similar flow conditions) and these three correlations in a Table and comment the discrepancies between these values and, in particular, with your simulation data.
+           \item {\bf Verification:} Determine the minimum mesh resolutions (\ie number of cell) necessary for the numerical simulations (\ie grid that leads to mesh-independent solutions). Bear in mind that \Rey number (\ie flow regime) does affect the mesh resolution necessary to achieve mesh-independent solutions. Also, {\bf \Rey has strongly dependency on both density and flow velocity.}
            \item {\bf Validation:}
              \begin{enumerate}[i)]
-               \item Plot vorticity and streamline profiles (\ie contour plots) for \Rey=10 and \Rey=100. How do these profiles differ from those in Section~\ref{FPC:Tasks} \ref{Task:Plot} ?
+               \item Determine averaged drag coefficient $\left(C_{D}\right)$ and Nusselt number ({\it Nu}) around the cylinder for the performed simulations (\ie with \Rey=10 and \Rey=100).
+               \item Repeat the numerical simulations using \blue{ethylene} as working fluid for both \Rey numbers, and determine $C_{D}$ and {\it Nu}.
+               \item Compare \red{all} computed $C_{D}$ and \Nu (from simulations conducted with air and ethylene at \Rey=10 and \Rey=100) with:
+                  \begin{itemize}
+                     \item Available values (for air only) from the literature (\eg [6]), both experimental and numerical;
+                     \item Empirical correlations due to Hilpert (1933), Zukauskas (1972) and Churchill $\&$ Bernstein (1977) (Eqns. 7.52-54 of Bergman {\it et al.}, 2011). A scanned photocopy of the Book's sections is available at {\it MyAberdeen}.
+                  \end{itemize}
+                  \blue{Compile values of $C_{D}$ and {\it Nu}} from your simulations, references (both experimental and simulation data at the same (or similar) flow conditions) and these three correlations \blue{in a table and comment the discrepancies between these values and, in particular, with your simulation data}.
+            \end{enumerate}
+           \item {\bf Validation:}
+             \begin{enumerate}[i)]
+               \item Plot vorticity and streamline profiles (\ie contour plots) for ethylene at \Rey=10 and \Rey=100. How do these profiles differ from those in Section~\ref{FPC:Tasks} (c.i) ?
                \item Based on available information, which flow regime provides the best heat transfer rate? Why? What are the main parameters for analysis?
              \end{enumerate}
         \end{enumerate}
@@ -328,6 +333,14 @@ model and the solution to the model''\footnote{\href{https://doi.org/10.1016/S03
         \end{enumerate}
      \end{shaded}
 
+     \begin{shaded}
+        \begin{center} {\bf Tips: } \end{center}
+        \begin{enumerate}[a)]
+           \item All \blue{Tips} used in Sections~\ref{FlowPastCylinder}-\ref{FlowPastHeatedCylinder} should be applied here;
+           \item For the periodic simulations set the solver to {\it Steady}, under {\it Solution methods} select the {\it Coupled pressure-velocity coupling scheme} and enable the {\it Pseudo Transient} tick box. The \blue{Pseudo Transient} option enables the pseudo transient algorithm in the coupled pressure-based solver. This algorithm ``effectively adds an unsteady term to the solution equations in order to improve stability and convergence behaviour'' (Fluent Manual);
+           \item In the case of the Period/symmetric model domain you can mirror the display across the symmetry planes and periodic boundaries in Fluent by selecting the {\it Viewing}  tab and selecting {\it Views}, where you can select the mirror planes.
+        \end{enumerate}
+     \end{shaded}
 
 %\end{comment} 
      \begin{figure}[h]
