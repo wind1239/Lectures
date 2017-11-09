@@ -9,9 +9,9 @@
 % Pick if you want slides, or draft slides (no animations)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Normal document mode%
-%\documentclass[10pt,compress,unknownkeysallowed]{beamer}
+\documentclass[10pt,compress,unknownkeysallowed]{beamer}
 %Draft or handout mode 
-\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
+%\documentclass[10pt,compress,handout,unknownkeysallowed]{beamer}
 %\documentclass[10pt,compress,handout,ignorenonframetext,unknownkeysallowed]{beamer}
 
 %%%%%%%%%%%%%%%%%%%% General Document settings %%%%%%%%%%%%%%%%%%%%%%%
@@ -161,12 +161,12 @@
 
    \begin{enumerate}[a)]
        \item<1-> \red{$r_{k}$} represents the \blue{rate of reaction}, \ie the `speed' of the reaction. The \blue{rate of reaction} measures how 'fast' or 'slow' reactants ($A$ and $B$) has been consumed and products ($C$ and $D$) have been produced;
-       \item<1-> Therefore, the \blue{rate of reaction is proportional to the amount of chemical species} in the system, \eg
+       \item<2-> The \blue{rate of reaction is proportional to the amount of chemical species} in the system, \eg
              \begin{displaymath}
                   r_{k} = \kappa [A]^{m_{1}}[B]^{m_{2}}[C]^{m_{3}}[D]^{m_{4}},
              \end{displaymath}
              where the proportionality constant $\kappa$ is the \red{\it rate of reaction constant}, [$\Theta$] is the concentration of the chemical species and coefficients $m_{i}$ are the order of the reactant;
-       \item<1-> \blue{Chemical kinetics studies \underline{reactions' progress}}, \ie `speed' of consumption of reactants and production of products and \red{mechanisms of reactions};
+       \item<3-> \blue{Chemical kinetics studies \underline{reactions' progress}}, \ie `speed' of consumption of reactants and production of products and \red{mechanisms of reactions};
    \end{enumerate}
 \end{frame}
 \normalsize
@@ -202,14 +202,14 @@
   \end{block}  
    \begin{enumerate}[a)]
        \item<1-> \red{$K_{e}$} is the \red{thermodynamic equilibrium constant} and `measures how much product and reactants exist in the mixture at equilibrium',
-       \item<1-> The equilibrium constant takes into account the conditions ($T$ and $P$) that lead a given set of reactions into equilibrium, \eg
+       \item<2-> The \red{equilibrium constant} takes into account the conditions ($T$ and $P$) that lead a given set of reactions into equilibrium, \eg
              \begin{displaymath}
-                  K_{e} = \frc{a_{C}a_{D}}{a_{A}a_{B}}
+                  K_{e} = \frc{a_{C}.a_{D}}{a_{A}.a_{B}}
              \end{displaymath}
              where $a_{i}$ is \blue{activity of chemical species}. 
-       \item<1-> \blue{Chemical Reaction Thermodynamics } studies state functions and conditions necessary to {\it maximum} conversion of species;
-       \item<1-> Reactions that leads to $\sim$100$\%$ of conversion are called \blue{irreversible}, whereas;
-       \item<1-> Reactions that have conversion rates significantly smaller than 100$\%$ are called \blue{reversible}.
+       \item<3-> \blue{Chemical Reaction Thermodynamics } studies state functions and conditions necessary to {\it maximum} conversion of species;
+       \item<3-> Reactions that leads to $\sim$100$\%$ of conversion are called \blue{irreversible}, whereas;
+       \item<3-> Reactions that have conversion rates significantly smaller than 100$\%$ are called \blue{reversible}.
    \end{enumerate}
 \end{frame}
 \normalsize
@@ -299,6 +299,19 @@
 \end{frame}
 \normalsize
 
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+ \frametitle{Example 9.1 (page 171)}
+     \blue{Five moles of hydrogen, two moles of CO and 1.5 moles of CH$_{3}$OH vapour are combined in a batch methanol synthesis reactor (closed system) at 500 K and 1 MPa. Develop expressions for compositions (\ie mole fractions) of the species in terms of the reaction coordinate. The components are known to react with the following stoichiometry:
+  \begin{displaymath}
+      2 H_{2} (g) + CO (g) \Longleftrightarrow CH_{3}OH (g).
+  \end{displaymath}}
+     
+\end{frame}
 
 
 
@@ -776,6 +789,37 @@
       \end{block}}
 \end{frame}
 
+
+
+%%%
+%%% Slide
+%%%
+%\scriptsize
+\begin{frame}
+ \frametitle{Example 9.2 (pg. 176):}
+     \blue{Ethylene is produced from the decomposition of ethane,}
+       \begin{displaymath}
+          \blue{C_{2}H_{6} (g) \Longleftrightarrow C_{2}H_{4} (g) + H_{2} (g) }
+       \end{displaymath} 
+       \blue{Determine the equilibrium composition at 1000$^{\circ}$C and 1 atm. Assume that, initially, there is 1 mol of ethane. Given,}
+       \begin{center}
+           \blue{\begin{tabular}{|c c c c|}
+           \hline
+                                        &  C$_{2}$H$_{6}$ (g) & C$_{2}$H$_{4}$ (g) &  H$_{2}$ (g)  \\ 
+           \hline
+             $\Delta G^{\circ}_{\text{f,298}}$  &  -32.84            &  68.15           & 0.0           \\
+                   (kJ/mol)             &                    &                  &               \\
+           \hline
+             $\Delta H^{\circ}_{\text{f,298}}$  &  -84.68            &  52.26           & 0.0           \\
+                   (kJ/mol)             &                    &                  &               \\
+           \hline 
+           \end{tabular}}
+       \end{center}
+       \blue{where $\Delta G^{\circ}_{\text{f,298}}$ and $\Delta H^{\circ}_{\text{f,298}}$ are the standard state Gibbs energy and enthalpy of formation. }
+     
+\end{frame}
+
+
 %%%
 %%% Slide
 %%%
@@ -900,55 +944,6 @@
      %\item Apply phase rule for reacting systems.
    \end{enumerate}
 \end{frame}
-
-\begin{comment}
-\section{Examples}
-
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
- \frametitle{Example 1:}
-     \blue{Calculate the equilibrium extent of decomposition of nitrogen tetroxide $\left(N_{2}O_{4}\right)$,}
-        \begin{displaymath}
-           \blue{N_{2}O_{4} (g) \Longleftrightarrow 2 NO_{2} (g)}
-        \end{displaymath}
-        \blue{at 25$^{\circ}$C and 1 atm. Assume that the gas mixture behaves as an ideal gas and the Gibbs energies of formation at 25$^{\circ}$C are:}
-        \begin{displaymath}
-          \blue{ \left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} = 97.89 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} = 51.31 \text{ kJ.mol}^{-1}.}
-        \end{displaymath}
-     
-\end{frame}
-
-%%%
-%%% Slide
-%%%
-%\scriptsize
-\begin{frame}
- \frametitle{Example 2:}
-     \blue{Ethylene is produced from the decomposition of ethane,}
-       \begin{displaymath}
-          \blue{C_{2}H_{6} (g) \Longleftrightarrow C_{2}H_{4} (g) + H_{2} (g) }
-       \end{displaymath} 
-       \blue{Determine the equilibrium composition at 1000$^{\circ}$C and 1 atm. Assume that, initially, there is 1 mol of ethane. Given,}
-       \begin{center}
-           \blue{\begin{tabular}{|c c c c|}
-           \hline
-                                        &  C$_{2}$H$_{6}$ (g) & C$_{2}$H$_{4}$ (g) &  H$_{2}$ (g)  \\ 
-           \hline
-             $\Delta G^{\circ}_{\text{f,298}}$  &  -32.84            &  68.15           & 0.0           \\
-                   (kJ/mol)             &                    &                  &               \\
-           \hline
-             $\Delta H^{\circ}_{\text{f,298}}$  &  -84.68            &  52.26           & 0.0           \\
-                   (kJ/mol)             &                    &                  &               \\
-           \hline 
-           \end{tabular}}
-       \end{center}
-       \blue{where $\Delta G^{\circ}_{\text{f,298}}$ and $\Delta H^{\circ}_{\text{f,298}}$ are the standard state Gibbs energy and enthalpy of formation. }
-     
-\end{frame}
-\end{comment}
 
 \end{document}
  
