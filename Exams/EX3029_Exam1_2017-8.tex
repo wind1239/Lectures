@@ -16,8 +16,8 @@
 \coursecode{EX3029}%% 
 \coursetitle{Chemical Thermodynamics}
  
-\examtime{00.00--00.00}%
-\examdate{15}{12}{2017}% 
+\examtime{14.00--17.00}%
+\examdate{11}{12}{2017}% 
 \examformat{Attempt ALL questions. \\ Each question is worth 20 marks.}
 
 % Other symbols
@@ -43,19 +43,19 @@
 %%% Question 01 
 %%%
 \begin{question}
-     In the design of a new process, nitrogen dioxide $\left(\text{NO}_{2}\right)$ is produced through the decomposition of 1 mol of nitrogen tetroxide $\left(\text{N}_{2}\text{O}_{4}\right)$,
+     In the design of a new process, nitrogen dioxide $\left(\text{NO}_{2}\right)$ is produced through the decomposition of nitrogen tetroxide $\left(\text{N}_{2}\text{O}_{4}\right)$,
         \begin{displaymath}
            N_{2}O_{4} (g) \Longleftrightarrow 2 NO_{2} (g),
         \end{displaymath}
         The Gibbs energy of formation at 25$^{\circ}$C of both species are:
         \begin{displaymath}
-           \left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} = 97.89 \text{ kJ.mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} = 51.31 \text{ kJ.mol}^{-1}.
+           \left(\Delta G^{\circ}_{\text{f,298}}\right)_{N_{2}O_{4}} = 97.89 \text{ kJ mol}^{-1} \text{ and } \left(\Delta G^{\circ}_{\text{f,298}}\right)_{NO_{2}} = 51.31 \text{ kJ mol}^{-1}.
         \end{displaymath}
-        The standard enthalpy of this reaction at 25$^{\circ}$C is 56.189 kJ.mol$^{-1}$. For such decomposition, three scenarios are considered to assess overall conversion:
+        The standard enthalpy of this reaction at 25$^{\circ}$C is 56.189 kJ mol$^{-1}$. For such decomposition, three scenarios are considered to assess overall conversion:
         \begin{enumerate}[A.]
-           \item Decomposition at 25$^{\circ}$C;
-           \item Initial dilution with inert N$_{2}$ prior to the decomposition at 25$^{\circ}$C;
-           \item Decomposition at 126.85$^{\circ}$C.
+           \item Decomposition of N$_{2}$O$_{4}$ at 25$^{\circ}$C;
+           \item Initial dilution with inert N$_{2}$ prior to the decomposition of N$_{2}$O$_{4}$ at 25$^{\circ}$C;
+           \item Decomposition of N$_{2}$O$_{4}$ at 126.85$^{\circ}$C.
         \end{enumerate}
         Calculate the composition of the species in equilibrium for:
      \begin{enumerate}[a)]
@@ -148,25 +148,31 @@ Solving this integral for $T=400$ K leads to $K_{400\text{ K}} = 51.4338$~\solma
              K_{400\text{ K}}   = 51.4331 \hspace{1.2cm} \Longrightarrow \varepsilon = 0.9632  \hspace{.35cm} \Longrightarrow \;\;  y_{NO_{2}} = 0.9813 \text{ and } y_{N_{2}O_{4}} = 0.0187
          \end{displaymath}
          
-        Note that at low temperature, 250 K $\left(-23.15^{\circ}\text{C}\right)$, the production of nitrogen dioxide is fairly small (backward reaction), however as the temperature rises the forward reaction becomes dominant with 98.1$\%$ of NO$_{2}$ being produced at 400 K$\left(126.85^{\circ}\text{C}\right)$.
+        Note that at such high temperature (400 K) the forward reaction becomes dominant with nearly 98.1$\%$ of NO$_{2}$ being produced.
            }
          \item Which scenario will lead to larger NO$_{2}$ production? Why?\marks{2}
-           \solution{At room temperature conditions (A and B), the equilibrium constant is 0.1894 whereas at 400 K (C), it reaches 0.9632, \ie, most N$_{2}$O$_{4}$ is decomposed to produce NO$_{2}$. Thus, the best scenario is C.~\solmarks{2/2}
+           \solution{At room temperature conditions (A and B), the equilibrium constant is 0.1484 with reaction coordinate ranging from 0.0715 (B) to 0.1891 (A). At 400 K (C), equilibrium constant reaches 51.4331 $\left(\text{with }\varepsilon=0.9632\right)$, \ie, nearly all N$_{2}$O$_{4}$ is decomposed to produce NO$_{2}$. Thus, the best scenario is C.~\solmarks{2/2}
 
-             }
-  
-          
+             }          
      \end{enumerate}
-     Heat capacity for both gases is expressed in polynomial form as,
+      Given:
+         \begin{displaymath}
+           \Delta M_{r}^{\circ} = \summation[\nu_{i}\Delta M_{f,i}^{\circ}]{i=1}{\mathcal{C}},%  \hspace{1cm} \text{with } M=\left\{U,H,G,S,A\right\}, 
+         \end{displaymath}
+         where $M=\left\{U,H,G,S,A\right\}$, $\nu$ is the molar stoichiometric coefficient, and
+         \begin{displaymath}
+            \Delta H_{r}^{\circ}(T) - \Delta H_{r,25^{\circ}\text{C}}^{\circ} = \int \Delta C_{p}^{\circ}dT \hspace{1cm} \text{ with } \Delta C_{p}^{\circ} = \summation[\nu_{i}C_{p,i}]{i=1}{\mathcal{C}},
+         \end{displaymath}
+     where the molar heat capacity at constant pressure for both gases is expressed in polynomial form as,
   \begin{displaymath}
-    C_{p} = a + bT + CT^{2} + dT^{3}, \;\;\;\;\left(\text{in J.mol}^{-1}\text{.K}^{-1}\right)
+    C_{p} = a + bT + CT^{2} + dT^{3}, \;\;\;\;\left(\text{in J mol}^{-1}\text{ K}^{-1}\right)
   \end{displaymath}
   where
   \begin{center}
     \begin{tabular}{ l | c c c c }
       \hline
                          &  $a$     &  $b\times 10^{-2}$  & $c\times 10^{-5}$  & $d\times 10^{-9}$ \\
-                         &$\left(\text{J.mol}^{-1}\text{.K}^{-1}\right)$& $\left(\text{J.mol}^{-1}\text{.K}^{-2}\right)$& $\left(\text{J.mol}^{-1}\text{.K}^{-3}\right)$& $\left(\text{J.mol}^{-1}\text{.K}^{-4}\right)$ \\
+                         &$\left(\text{J mol}^{-1}\text{ K}^{-1}\right)$& $\left(\text{J mol}^{-1}\text{ K}^{-2}\right)$& $\left(\text{J mol}^{-1}\text{ K}^{-3}\right)$& $\left(\text{J mol}^{-1}\text{ K}^{-4}\right)$ \\
       \hline
       NO$_{2}$             &  22.929 &      5.711          & -3.519            & 7.866 \\
       N$_{2}$O$_{4}$       &   33.054 &      18.661         &    -11.339        &  -- 
@@ -182,7 +188,7 @@ Solving this integral for $T=400$ K leads to $K_{400\text{ K}} = 51.4338$~\solma
 %%%
 \begin{question}
   \begin{enumerate}[a)]
-     \item Calculate the molar volume $\left(\text{in m}^{3}\text{.mol}^{-1}\right)$ and compressibility factor ($Z$) for gaseous ammonia at 450 K and 56 atm using the van der Waals (vdW) equation of state. Critical temperature and pressure of ammonia are 405.5 K and 111.3 atm, respectively.~\marks{12}
+     \item Calculate the molar volume $\left(\text{in m}^{3}\text{ mol}^{-1}\right)$ and compressibility factor ($Z$) for gaseous ammonia at 450 K and 56 atm using the van der Waals (vdW) equation of state. Critical temperature and pressure of ammonia are 405.5 K and 111.3 atm, respectively.~\marks{12}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
        \solution{The generic form of cubic equations of state is defined as,~\solmarks{1/12}
               \begin{displaymath}
@@ -241,7 +247,7 @@ Solving this integral for $T=400$ K leads to $K_{400\text{ K}} = 51.4338$~\solma
         \begin{displaymath}
             \left(\frc{\partial P}{\partial T}\right)_{V}\left(\frc{\partial V}{\partial P}\right)_{T}\left(\frc{\partial T}{\partial V}\right)_{P} = -1,
         \end{displaymath}
-        obtain $\left(\frc{\partial V}{\partial T}\right)_{P}$ for the van der Waals equation of state.\marks{5}
+        obtain an algebraic expression for $\left(\frc{\partial V}{\partial T}\right)_{P}$ for the van der Waals equation of state.\marks{5}
 %====================
         \solution{ The vdW-EOS is,
      \begin{displaymath}
@@ -269,11 +275,11 @@ Solving this integral for $T=400$ K leads to $K_{400\text{ K}} = 51.4338$~\solma
 
 %%% Johannes T0602
 %%%
-\item\label{T0602} What is the change in entropy when 700 litres of CO$_{2}$ and 300 litres of N$_{2}$ form a gas mixture at 1 bar and 25$^{\circ}$C? Assume ideal gases, and given
+\item\label{T0602} What is the change in entropy when 0.7 m$^{3}$ of CO$_{2}$ and 0.3 m$^{3}$ of N$_{2}$ form a gas mixture at 1 bar and 25$^{\circ}$C? Assume ideal gases, and given
 \begin{displaymath}
 \Delta S = - nR\sum\limits_{i=1}^{n}y_{i}\ln{y_{i}},
 \end{displaymath}
-where $S$, $n$ and $y$ are entropy, number of moles and mole fraction, respectively.~\marks{10}
+where $S$, $n$ and $y$ are entropy, number of moles and mole fraction, respectively. $R$ is the molar gas constant.~\marks{10}
 
 %===========================
 \solution{ For CO$_{2}$ (1) and N$_{2}$ (2) at 1 bar and 25$^{\circ}$C with ideal gas behaviour, {\it mole fraction (x$_{i}$) = volume fraction (y$_{i}$)} as,~\solmarks{2/10}
@@ -283,12 +289,12 @@ where $S$, $n$ and $y$ are entropy, number of moles and mole fraction, respectiv
 \end{eqnarray}
 Therefore,~\solmarks{2/10}
 \begin{eqnarray}
-y_{1} = 0.7 \;\;\Longrightarrow V_{1}^{t} = 0.7\;cm^{3} \nonumber \\
-y_{2} = 0.3 \;\;\Longrightarrow V_{2}^{t} = 0.3\;cm^{3} \nonumber
+y_{1} = 0.7 \;\;\Longrightarrow V_{1}^{t} = 0.7\;m^{3} \nonumber \\
+y_{2} = 0.3 \;\;\Longrightarrow V_{2}^{t} = 0.3\;m^{3} \nonumber
 \end{eqnarray}
 At $P=1$ bar and $T=298.15$ K, the number of moles, $n$, is~\solmarks{2/10}
 \begin{displaymath}
-n = \frc{P}{RT}\sum V_{i}^{t} = 40.34 \text{moles}
+n = \frc{P}{RT}\sum V_{i}^{t} = 40.34 \text{ moles}
 \end{displaymath}
 The entropy change is~\solmarks{4/10}
 \begin{displaymath}
@@ -393,7 +399,7 @@ y_{1} = \frc{P_{1}}{P} = 0.360\;\;\text{ and } \;\; y_{2} = 0.640
         
 %====================================================
 %%% Moran & Shapiro (Example 11.5)      
-     \item Using the Redlich-Kwong equation of state, develop algebraic expressions for changes in specific entropy $\left(s_{2}-s_{1}\right)$ and internal energy $\left(u_{2}-u_{1}\right)$ of a gas between two states at the same temperature, \ie $T_{1}=T_{2}$, and pressures $P_{1}$ and $P_{2}$.\marks{10}
+     \item Using the Redlich-Kwong equation of state, develop algebraic expressions for changes in specific entropy $\left(s_{2}-s_{1}\right)$ and internal energy $\left(u_{2}-u_{1}\right)$ of a gas between two states at the same temperature $\left(\text{\ie T}_{1}=\text{T}_{2}\right)$ and pressures $P_{1}$ and $P_{2}$.\marks{10}
 %====================
         \solution{The RK EOS is explicit in pressure,
            \begin{displaymath}
@@ -455,7 +461,7 @@ y_{1} = \frc{P_{1}}{P} = 0.360\;\;\text{ and } \;\; y_{2} = 0.640
 \begin{displaymath}
   y_{i} P = x_{i}\gamma_{i}P_{i}^{\text{sat}},
 \end{displaymath} 
-determine $T$ and $P$ for the separator. The activity coefficients for the liquid phase are given by,
+determine $T$ and $P$ for the separator. Activity coefficients for the liquid phase are given by,
 \begin{displaymath}
 \ln\gamma_{1} = 0.93x_{2}^{2} \;\;\;\;\;\text{ and }\;\;\;\;\;\ln\gamma_{2}=0.93x_{1}^{2},
 \end{displaymath}
