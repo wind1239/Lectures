@@ -135,7 +135,7 @@ Now, using the Van't Hoff equation,~\solmarks{1/8}
                                                 &=& \frc{1}{R}\left[-\frc{56189}{T} + 12.804\ln{T} - \frc{7.239\times 10^{-2}}{2}T + \frc{4.301\times 10^{-5}}{6}T^{2} + \right. \nonumber \\
                                                 &&\hspace{3cm}\left.\frc{15.732\times 10^{-9}}{12}T^{3}\right]_{298.15\text{ K}}^{T} \nonumber
 \end{eqnarray}
-Solving this integral for $T=400$ K leads to $K_{400\text{ K}} = 51.4338$~\solmarks{1/8}, with
+Solving this integral for $T=400$ K leads to $K_{400\text{ K}} = 51.4157$~\solmarks{1/8}, with
          \begin{displaymath}
             y_{N_{2}O_{4}} = \frc{1-\varepsilon}{1+\varepsilon}\;\;\;\;\;\text{ and }\;\;\;\;\;\; y_{NO_{2}} = \frc{2\varepsilon}{1+\varepsilon},
          \end{displaymath}
@@ -145,7 +145,7 @@ Solving this integral for $T=400$ K leads to $K_{400\text{ K}} = 51.4338$~\solma
          \end{displaymath}
          Leading to~\solmarks{2/8}
          \begin{displaymath}
-             K_{400\text{ K}}   = 51.4331 \hspace{1.2cm} \Longrightarrow \varepsilon = 0.9632  \hspace{.35cm} \Longrightarrow \;\;  y_{NO_{2}} = 0.9813 \text{ and } y_{N_{2}O_{4}} = 0.0187
+             K_{400\text{ K}}   = 51.4157 \hspace{1.2cm} \Longrightarrow \varepsilon = 0.9632  \hspace{.35cm} \Longrightarrow \;\;  y_{NO_{2}} = 0.9813 \text{ and } y_{N_{2}O_{4}} = 0.0187
          \end{displaymath}
          
         Note that at such high temperature (400 K) the forward reaction becomes dominant with nearly 98.1$\%$ of NO$_{2}$ being produced.
@@ -208,15 +208,30 @@ Solving this integral for $T=400$ K leads to $K_{400\text{ K}} = 51.4338$~\solma
               \end{displaymath}
               $\beta$ and $q$ are \solmarks{2/12}:
               \begin{displaymath}
-                 \beta = 5.6671\times 10^{-2}\;\;\text{ and }\;\; q = 3.0414
+                 \beta = 5.6674\times 10^{-2}\;\;\text{ and }\;\; q = 3.0413
               \end{displaymath}
               We can simplify the generic form of cubic EOS as,
               \begin{displaymath}
                   Z =  1 + \beta - q\beta\frc{Z-\beta}{Z^{2}}
               \end{displaymath}
-              And solving it (calculator), we can obtain Z = 0.8718 \solmarks{3/12}. Molar volume can be obtained through \solmarks{3/12} 
+              And solving it (calculator), we can obtain Z = 0.8718 \solmarks{3/12} (using Z=1 as initial guess). Molar volume can be obtained through \solmarks{3/12} 
               \begin{displaymath}
-                  V = \frc{Z R T}{P} = 5.7482\times 10^{-4}\;\text{m}^{3}.\text{mol}^{-1}
+                  V = \frc{Z R T}{P} = 5.7492\times 10^{-4}\;\text{m}^{3}.\text{mol}^{-1}.
+              \end{displaymath}
+              \medskip
+              \begin{center} {\bf OR}\end{center}
+              Calculating $a$ and $b$\solmarks{6/12}
+              \begin{eqnarray}
+                a = \frc{27}{64}\frc{R^{2}T_{c}^{2}}{P_{c}}&=&4.2527\times 10^{-6} \text{ m}^{6}\text{bar mol}^{-2}, \nonumber \\
+                b = \frc{1}{8}\frc{R T_{c}}{P_{c}} &=&3.7373 \times 10^{-5} \text{m}^{3}\text{mol}^{-1}, \nonumber
+              \end{eqnarray}
+              and plug them in
+              \begin{displaymath}
+                P=\frc{R T}{V-b} - \frc{a}{V^{2}}
+              \end{displaymath}
+              leads to (calculator) {\bf 5.7492$\times$10$^{-4}$ m$^{3}$mol$^{-1}$}\solmarks{3/12} $\left(\text{using V}^{\text{ig}}\text{=6.5944}\times\text{10}^{-4}\text{m}^{3}\text{mol}^{-1}\text{ as initial guess}\right)$. Compressibility factor can be obtained from\solmarks{3/12}
+              \begin{displaymath}
+                Z=\frc{P V}{R T}=0.8718
               \end{displaymath}
        }
 
@@ -255,7 +270,7 @@ Solving this integral for $T=400$ K leads to $K_{400\text{ K}} = 51.4338$~\solma
      \end{displaymath}
      where $V$ is the molar volume and $a$ and $b$ are constants that depends only on critical properties, $P_{c}$ and $T_{c}$. Due to the non-linearity of this EOS, obtaining $\Partial[V]{T}{P}$ from a direct differentiation would be difficult, thus\solmarks{5/5}
      \begin{displaymath}
-         \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}} = -\frc{\frc{R}{V-b}}{-\frc{RT}{\left(V-b\right)^{2}}+\frc{2a}{V^{3}}}
+         \Partial[V]{T}{P} = -\frc{\Partial[P]{T}{V}}{\Partial[P]{V}{T}} = -\frc{\frc{R}{V-b}}{-\frc{RT}{\left(V-b\right)^{2}}+\frc{2a}{V^{3}}}=-\frc{RV^{3}\left(V-b\right)}{2a\left(V-b\right)^{2}-RTV^{3}}
      \end{displaymath} 
 
           }
@@ -326,22 +341,20 @@ The entropy change is~\solmarks{4/10}
    [P] = kPa and [T] = $\left[\text{D}_{i}\right]$ = $\left[\text{E}_{i}\right]$ = K.~\marks{10}
 
 %========================
-\solution{ At 331 K, the saturation pressures are $P_{1}^{sat}=$ 42.90 kPa and $P_{2}^{sat}=$ 7054 kPa.~\solmarks{2/10}
-
-The liquid solution with $x_{1}=0.412$ and $x_{2}=0.588$ results in the following activity coefficient $\gamma_{1}=2.011$ and $\gamma_{2}=1.521$.~\solmarks{2/10}
+\solution{ At 331 K, the saturation pressures are $P_{1}^{sat}=$ 42.90 kPa and $P_{2}^{sat}=$ 70.54 kPa~\solmarks{2/10}. The liquid solution with $x_{1}=0.412$ and $x_{2}=0.588$ results in the following activity coefficient $\gamma_{1}=2.0112$ and $\gamma_{2}=1.6702$.~\solmarks{2/10}
 
 The partial pressure of ethanol and n-hexane are,~\solmarks{2/10}
 \begin{eqnarray}
 P_{1} = x_{1}\gamma_{1}P_{1}^{sat} = 35.55\text{ kPa} \nonumber \\
-P_{2} = x_{2}\gamma_{2}P_{2}^{sat} = 63.09\text{ kPa} \nonumber 
+P_{2} = x_{2}\gamma_{2}P_{2}^{sat} = 69.28\text{ kPa} \nonumber 
 \end{eqnarray}
 The bubble pressure is~\solmarks{2/10}
 \begin{displaymath}
-P =P_{1} + P_{2} = 98.64\text{ kPa}
+P =P_{1} + P_{2} = 104.83\text{ kPa}
 \end{displaymath}
 And the composition of the vapour phase is~\solmarks{2/10}
 \begin{displaymath}
-y_{1} = \frc{P_{1}}{P} = 0.360\;\;\text{ and } \;\; y_{2} = 0.640
+y_{1} = \frc{P_{1}}{P} = 0.3391\;\;\text{ and } \;\; y_{2} = 0.6609.
 \end{displaymath}
 
 }
