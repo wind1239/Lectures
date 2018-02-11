@@ -459,49 +459,6 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
    \end{subequations}
 
 
-
-% Example
-   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
-     \begin{example}\label{Chapter:SolutionThermodynamics:Example3}
-           At 25$^{\circ}$C and atmospheric pressure, the volume change of mixing of a binary liquid mixture of species 1 and 2 is given by,
-       \begin{displaymath}
-          \Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right)\;\;\;\;\text{ with }\;\;\;\left[\Delta V\right] = \text{cm}^{3}.\text{mol}^{-1}
-       \end{displaymath}
-       with molar volumes of $V_{1} = 110\;\text{cm}^{3}.\text{mol}^{-1}$ and $V_{2} = 90\;\text{cm}^{3}.\text{mol}^{-1}$. Determine the partial molar volumes, $\overline{V}_{1}$ and $\overline{V}_{2}$, in a mixture containing 40$\%$-mol of species 1.
-     \end{example}
-
-% SOLUTION
-     \noindent{\bf Solution:} 
-          The mixture contains 40$\%$-mol of species 1, \ie $x_{1}=0.40$ and $x_{2}=1-x_{1}=0.60$. The partial molar volumes, $\overline{V}_{i}$, can be obtained from Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k}, 
-               \begin{displaymath}
-                 \begin{cases}
-                    \overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}},\\
-                    \overline{M}_{2} = M - x_{1}\frc{dM}{dx_{1}},
-                 \end{cases}
-              \end{displaymath}
-              with $M=V$. Therefore the first step is to calculate the molar volume of the solution, $V$,
-                 \begin{displaymath}
-                    V^{E} = V - V^{\text{id}} = V - \summation[x_{i}V_{i}]{i=1}{2} = V - \underbrace{\left(x_{1}V_{1} + x_{2}V_{2}\right)}_{98\text{ cm}^{3}.\text{mol}^{-1}},
-                 \end{displaymath}
-              with the excess volume, $V^{E}=\Delta V$, obtained from the given expression,
-                 \begin{displaymath}
-                    V^{E} = \Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right) = 7.92\text{ cm}^{3}.\text{mol}^{-1}
-                 \end{displaymath}
-              therefore $V=105.92\text{ cm}^{3}.\text{mol}^{-1}$.
-\medskip
-
-              Now using Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k} to calculate the partial molar volume $\overline{V}_{i}$,
-                 \begin{eqnarray}
-                    \overline{V}_{1} &=& V + x_{2}\frc{dV}{dx_{1}} = V + x_{2}\frc{d}{dx_{1}} \left(\overbrace{\Delta V}^{V^{E}} + x_{1}V_{1} + x_{2}V_{2}\right) \nonumber \\
-                         &=& V + x_{2}\frc{d}{dx_{1}} \left[x_{1}x_{2}\left(45x_{1}+25x_{2}\right)+x_{1}V_{1}+x_{2}V_{2}\right] = 190.28\text{ cm}^{3}.\text{mol}^{-1}, \nonumber
-                 \end{eqnarray}
-              with the same procedure for $\overline{V}_{2}=49.68\text{ cm}^{3}.\text{mol}^{-1}$. We can check if our calculations are correct with,
-                 \begin{displaymath}
-                      V = \summation[x_{i}\overline{V}_{i}]{}{} = x_{1}\overline{V}_{1} + x_{2}\overline{V}_{2} = 105.92\text{ cm}^{3}.\text{mol}^{-1}.
-                 \end{displaymath}
-           
-   \end{MyExample} 
-     
 % Example
    \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
      \begin{example}\label{Chapter:SolutionThermodynamics:Example4} %http://people.cst.cmich.edu/teckl1mm/PChemI/Chm351Ch7aF01.htm
@@ -565,7 +522,7 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
           \end{tabular}
         \end{center}
           \begin{center}
-              \includegraphics[width=0.75\columnwidth,clip]{./../Pics/Example04_Pic}
+              \includegraphics[width=0.75\columnwidth,clip]{./Pics/Example04_Pic}
           \end{center}
 \end{itemize}
 
@@ -623,7 +580,53 @@ This proportionality constant, $\mathcal{H}$, is called {\it Henry's law constan
           \end{shaded}
  %
    \end{subequations}
-      
+
+
+
+% Example
+   \begin{MyExample}{\begin{center}{\bf Example}\end{center}}
+     \begin{example}\label{Chapter:SolutionThermodynamics:Example3}
+           At 25$^{\circ}$C and atmospheric pressure, the volume change of mixing of a binary liquid mixture of species 1 and 2 is given by,
+       \begin{displaymath}
+          \Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right)\;\;\;\;\text{ with }\;\;\;\left[\Delta V\right] = \text{cm}^{3}.\text{mol}^{-1}
+       \end{displaymath}
+       with molar volumes of $V_{1} = 110\;\text{cm}^{3}.\text{mol}^{-1}$ and $V_{2} = 90\;\text{cm}^{3}.\text{mol}^{-1}$. Determine the partial molar volumes, $\overline{V}_{1}$ and $\overline{V}_{2}$, in a mixture containing 40$\%$-mol of species 1.
+     \end{example}
+
+% SOLUTION
+     \noindent{\bf Solution:} 
+          The mixture contains 40$\%$-mol of species 1, \ie $x_{1}=0.40$ and $x_{2}=1-x_{1}=0.60$. The partial molar volumes, $\overline{V}_{i}$, can be obtained from Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k}, 
+               \begin{displaymath}
+                 \begin{cases}
+                    \overline{M}_{1} = M + x_{2}\frc{dM}{dx_{1}},\\
+                    \overline{M}_{2} = M - x_{1}\frc{dM}{dx_{1}},
+                 \end{cases}
+              \end{displaymath}
+              with $M=V$. Therefore the first step is to calculate the molar volume of the solution, $V$,
+                 \begin{displaymath}
+                    V^{E} = V - V^{\text{id}} = V - \summation[x_{i}V_{i}]{i=1}{2} = V - \underbrace{\left(x_{1}V_{1} + x_{2}V_{2}\right)}_{98\text{ cm}^{3}.\text{mol}^{-1}},
+                 \end{displaymath}
+              with the excess volume, $V^{E}=\Delta V$, obtained from the given expression,
+                 \begin{displaymath}
+                    V^{E} = \Delta V = x_{1}x_{2}\left(45x_{1}+25x_{2}\right) = 7.92\text{ cm}^{3}.\text{mol}^{-1}
+                 \end{displaymath}
+              therefore $V=105.92\text{ cm}^{3}.\text{mol}^{-1}$.
+\medskip
+
+              Now using Eqn.~\ref{Chapter:SolutionThermodynamics:Eqn:GibbsDuhem1k} to calculate the partial molar volume $\overline{V}_{i}$,
+                 \begin{eqnarray}
+                    \overline{V}_{1} &=& V + x_{2}\frc{dV}{dx_{1}} = V + x_{2}\frc{d}{dx_{1}} \left(\overbrace{\Delta V}^{V^{E}} + x_{1}V_{1} + x_{2}V_{2}\right) \nonumber \\
+                         &=& V + x_{2}\frc{d}{dx_{1}} \left[x_{1}x_{2}\left(45x_{1}+25x_{2}\right)+x_{1}V_{1}+x_{2}V_{2}\right] = 190.28\text{ cm}^{3}.\text{mol}^{-1}, \nonumber
+                 \end{eqnarray}
+              with the same procedure for $\overline{V}_{2}=49.68\text{ cm}^{3}.\text{mol}^{-1}$. We can check if our calculations are correct with,
+                 \begin{displaymath}
+                      V = \summation[x_{i}\overline{V}_{i}]{}{} = x_{1}\overline{V}_{1} + x_{2}\overline{V}_{2} = 105.92\text{ cm}^{3}.\text{mol}^{-1}.
+                 \end{displaymath}
+           
+   \end{MyExample} 
+     
+
+   
 %%% SECTION
 \section{Ideal Gas Mixture Model}\label{Chapter:SolutionThermodynamics:Section:IGM}\index{Gases!Mixture}
    \begin{subequations}
