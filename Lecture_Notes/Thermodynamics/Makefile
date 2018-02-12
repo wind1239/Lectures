@@ -6,6 +6,10 @@ ChemEng_Thermodynamics.idx:	ChemEng_Thermodynamics.idx
 Matlab_Assignment.pdf:		Matlab_Assignment.tex
 EquationsList.pdf:		EquationsList.tex
 
+GeothermalEnergy.pdf:		GeothermalEnergy.tex
+GeothermalEnergy.idx:		GeothermalEnergy.idx
+
+
 %.pdf:	%.tex
 	rm -f $*.pdf
 	pdflatex $<
