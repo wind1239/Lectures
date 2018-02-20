@@ -25,10 +25,16 @@
 \setlength\evensidemargin {-0.3cm}
 
 \setlength\headheight{0in} 
-\setlength\topmargin{0.cm}
+\setlength\topmargin{0.cm} 
 \setlength\headsep{1.cm}
 \setlength\footskip{1.cm}
 \setlength\parskip{0pt}
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\ie}{{\it i.e.,}}
+\newcommand{\eg}{{\it e.g.,}}
+\newcommand{\wrt}{{\it wrt }}
+
 
 %%%
 %%% space between lines
@@ -51,6 +57,39 @@
 }
 \vfill 
 \clearpage
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
+\begin{center}
+  {\Large Review of the Manuscript PNUCENE-D-18-00023 `Conceptual Design of a Bayonet Tube Steam Generator with Heat Transfer Enhancement using a Helical Coiled Downcomer' by A. Bersano {\it et al.}}
+\end{center}
+
+\medskip
+The manuscript reports the investigation of design and performance of Bayonet-type steam generator with helical tube using the TH code RELAP5-3D. The paper is very well written with a small number of unrevised sentences. The manuscript is insightful despite a limited overview of the main subject areas: design of steam generators, flow dynamics, heat transfer mechanisms in complex geometries, phase change etc.
+
+The main aim of the manuscript is to assess 'the use of a helical coiled downcomer inside the bayonet (...) instead of the traditional straight one, as a passive heat transfer enhancement method'. Indeed, from the title (and from the aim stated in the Abstract) I was expecting (a) a comprehensive overview of existing steam generators design and associated technologies; (b) analysis of Bayonet-type steam generators based on either experiments or available simulated data; (c) model validation (flow and heat dynamics associated with downcomer pipe and helical tubes), and; (d) description and analysis of the proposed Bayonet-type steam generator with helicoidal tube. Unfortunately, none of them was fully achieved in this manuscript, although (a) and (d) were partially covered.
+
+Design and performance analysis was performed by running numerical simulations with RELAP5-3D. Any fluid flow numerical experiment should start with rigorous model and/or software validation with similar: (a) flow regime; (b) geometry and/or; (c) physics (\eg heat transfer, phase change, etc). From the manuscript, it is not clear if the initial model (\ie Bayonet-type steam generator with straight tube), Section 4.2,  was validated -- \ie if RELAP5-3D can accurately simulate such flow dynamics. Was the relevant simulated data in Table 2 validated against either experiments or other simulated data (cross-code validation)?
+
+Analysis of numerical simulations involving helical tubes and swirl flows (Sections 4.3 and 5) were performed assuming that the initial model was correct. From Figs. 8-12, is it fair to assume that: (a) temperature differences (for the 3 cases) throughout the domain do not substantially vary at the downcomer but present a small change (5-10K) at the annulus; (b) power has similar behaviour as temperature, and; (c) correlations used (k factor and swirl tube) only have an impact with large number of downcomer coils? Why?
+
+Overall, I would recommend the authors to address the model validation and improve the analysis of the results, in particular the pressure drop (in its relationship with the friction factor). 
+
+
+
+%%%
+%%% Appendix
+%%% 
+%{
+%  \includepdf[pages=-,fitpaper, angle=0]{./Scan/Scan_PNUCENE_D_17_00143.pdf}} 
+
+
+\clearpage
+
+
+
 
 %%%%%%%
 %%%%%%%
