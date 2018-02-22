@@ -139,7 +139,8 @@
 %%%
 %%%
 %%%
-\item {\bf Initial Design of a Reservoir Simulation Workbench: From Field Mapping to Reservoir Management}\\
+\item {\bf Initial Design of a Reservoir Simulation Workbench: From Field Mapping to Reservoir Management}
+  
 Reservoir simulator is a crucial tool for efficient and cost-effective hydrocarbon production. It has been developed in both academia and industry for several applications, e.g., optimal production of oil and gas, to ensure safety operation of O$\&$G fields, to predict fluid flow in geological formations, etc. Flow simulations in porous media are often bounded by uncertainties associated with fluid and rock properties and averaging (densities, viscosities, stress, permeabilities, porosities etc), geological formation (data from core, well-log, seismic, geochemistry analysis, etc) and the computational methods used to solve transport equations. 
 
 \noindent
@@ -161,7 +162,9 @@ Reservoir simulator is a crucial tool for efficient and cost-effective hydrocarb
 \noindent
 {\bf Specifics:} 
 \begin{enumerate}
-\item Review and computational (\all) -- 1 student.
+\item \all -- 1 student;
+\item Computational/Theoretical/Review;
+\item After initial review of the whole workflow (Weeks 1-3), the student {\bf must} choose one/two stage(s) and undertake an in-depth analysis and simulation (in either programming language, \ie Matlab, Python, C or Fortran, or an appropriate simulation tool) on this/these stage(s);
 \end{enumerate}
 
 \noindent
@@ -173,10 +176,61 @@ Reservoir simulator is a crucial tool for efficient and cost-effective hydrocarb
 \item DeBaun \etall (2006) `An Extensible Architecture for Next Generation Scalable Parallel Reservoir Simulation’, SPE 93274;
 \item Chen \etall (2006) `Computational Methods for Multiphase Flows in PorousMedia', SIAM Computational Science $\&$ Engineering, ISBN 0-89871-606-3;
 \item Teletzke \etall (2010) `Enhanced Oil Recovery Pilot Testing Best Practices', SPE Journal SPE118055;
-\item Miller \etall (1998) `Multiphase Flow andTransport Modeling in Heterogeneous Porous Media: Challenges and Approaches', Advances in Water Resources 21:77-120.
+\item Miller \etall (1998) `Multiphase Flow and Transport Modeling in Heterogeneous Porous Media: Challenges and Approaches', Advances in Water Resources 21:77-120.
 \end{itemize}
 
 \clearpage
+
+%%%
+%%%
+%%%
+\item {\bf Upscaling Techniques for Waterflooding}
+
+  Numerical reservoir simulations are usually constrained by grid resolution and availability of computational resources. Detailed realisations of geological formations (\ie models) usually contain hundredth million of cells $\left(\text{10}^{8}\right)$ that can not be effectively used by simulators due to CPU time and memory constraints.  In each cell, all fluid (e.g., density, viscosity, etc) and rock (e.g., porosity, permeabilities, etc) properties are allocated and used to solve transport equations (\ie Darcy and saturation continuity equations) in space and time. A common strategy is to smoothly coarse the grid (upgridding) while `statistically' {\it `averaging'} cells-embedded properties (upscaling) across geological regions.  Although this methodology has been largely used by industry in simulations involving large fields, heterogeneities across the regions may lead to inaccurate flow solutions, thus different upscaling techniques have been developed. 
+
+
+\noindent
+{\bf Objectives:}
+\begin{enumerate}
+\item Critical review and analysis of state-of-the-art technologies for {\it upscaling};
+\item Study of heterogeneity in carbonate and sandstone reservoirs (technologies to identify heterogenous media and its impact in fluid flow during recovery stages);
+\item Perform numerical simulations of multiphase flows (water/oil) in heterogenous porous media with focus on upscaling a few key-properties (e.g., permeability).  
+\end{enumerate}
+
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item \all -- 1 student;
+\item Computational/Theoretical/Review;
+\item After initial review on (Weeks 1-3):
+   \begin{enumerate}
+       \item Reservoir engineering and simulation methods;
+       \item Waterflooding, principles and technologies;
+       \item Geological field mapping and grid generation;
+       \item Upscale modelling approaches;
+   \end{enumerate}
+the student {\bf must} choose one/two aspects of the topics above and undertake an in-depth analysis and simulation (in either programming language, \ie Matlab, Python, C or Fortran, or an appropriate simulation tool) on this/these topic(s).
+\end{enumerate}
+
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item Z. Chen, G. Huan, Y. Ma (2006) `Computational Methods for Multiphase Flows in Porous Media', {\it SIAM Computational Science $\&$ Engineering}, ISBN 0-89871-606-3;
+\item T. Nakashima (2009) `Near-Well Upscaling for Two- and Three-Phase Flows', {\it PhD Thesis}, Stanford University.
+\item P. Audigane, M.J. Blunt (2004) `Dual Mesh Method for Upscaling in Waterflood Simulation', {\it Transport in Porous Media} 55:71-89;
+\item G.F. Teletzke, R.C. Wattenbarger, J.R. Wilkinson (2010) `Enhanced Oil Recovery Pilot Testing Best Practices', {\it SPE Journal} SPE118055;
+\item C.T. Miller, G. Christakos, P.T. Imhoff, J.F McBride, J.A. Pedit (1998) `Multiphase Flow and Transport Modeling in Heterogeneous Porous Media: Challenges and Approaches', {\it Advances in Water Resources} 21:77-120;
+\item  Ahmed $\&$ McKinney (2005) `Advanced Reservoir Engineering’, Elsevier;
+\item Jenny \etall (2002) `Modeling Flow in Geometrically Complex Reservoirs Using Hexahedral Multiblock Grids', {\it SPE Journal}, SPE78673;
+\item B. Bailey \etall (2000) \href{https://www.slb.com/~/media/Files/resources/oilfield_review/ors00/spr00/p30_51.pdf}{`Water Control'}, {\it Oil Field Review}, Spring, 30-51.
+\end{itemize}
+
+
+\clearpage
+
+
+
 %%%
 %%%
 %%%
@@ -300,13 +354,14 @@ To calculate thermodynamic equilibrium for a closed system, three conditions mus
 %%%
 \item {\bf Study of Multiscale Waterflooding Mechanisms in Heterogeneous Reservoir Simulations}
 
-Immiscible displacement flows has been widely studied for oil $\&$ gas production (e.g., enhanced oil recovery, heavy oil production, etc) and pollution dispersion (e.g., solute transport in aquifers, radionuclides diffusion in subsurface, etc) applications. In hydrocarbon production, a fluid (displacing fluid, water, CO$_{2}$, polymer solutions etc) is injcted into the reservoirs that is saturated with a second fluid (oil and/or gas). Both fluids can be either immiscibles, partially miscibles or fully miscibles. The displacement of a more viscous fluid by a less viscous one leads to a mechanical instability driven by the mobility ratio (MR). This instability, known as viscous fingering, and its effect in the field production has received attention from the oil $\&$ gas community worldwide.
+Immiscible displacement flows has been widely studied for oil $\&$ gas production (e.g., enhanced oil recovery, heavy oil production, etc) and pollution dispersion (e.g., solute transport in aquifers, radionuclides diffusion in subsurface, etc) applications. In hydrocarbon production, a fluid (displacing fluid, water, CO$_{2}$, polymer solutions etc) is injected into the reservoirs that is saturated with a second fluid (oil and/or gas). Both fluids can be either immiscibles, partially miscibles or fully miscibles. The displacement of a more viscous fluid by a less viscous one leads to a mechanical instability driven by the mobility ratio (MR). This instability, known as Saffman-Taylor phenomena (or viscous fingering), and its effect in the field production has received attention from the oil $\&$ gas community worldwide.
 
 \noindent
 {\bf Objectives:}
 \begin{enumerate}
-\item Critical review and analysis of state-of-the-art technologies for EOR;
-%\item Critical review of water production: mechanisms and technologies for mitigation and remediation;
+\item \all -- 2 students (max);
+\item Computational/Theoretical/Review;
+\item Critical review of water production: mechanisms and technologies for mitigation and remediation;
 \item Theoretical study of multiscale viscous fingering: mechanisms, impact on oil production, strategies to mitigate its effects etc;
 \item Study of heterogeneity in reservoirs (technologies to identify heterogenous media and its impact in fluid flow during recovery stages);
 \item Perform numerical simulations of multiphase flows (water/oil) in heterogenous porous media with focus on formation and identification of viscous fingering.  
@@ -315,9 +370,7 @@ Immiscible displacement flows has been widely studied for oil $\&$ gas productio
 \noindent
 {\bf Specifics:} 
 \begin{enumerate}
-\item Computational and theoretical review (\all) -- 1 student. 
-\item Simulations will be performed in the {\it Fluidity} (open-source multi-physics simulator). 
-\item For {\it Fluidity}, the student is required to install {\it Linux} (Ubuntu distro) and {\it Fluidity} in her/his laptop. 
+\item Simulations can be performed using either \href{http://multifluids.github.io/}{IC-FERST/Fluidity} (open-source multi-physics simulator) or ECLIPSE software. For  \href{http://multifluids.github.io/}{IC-FERST/Fluidity} (under {\it Linux/Ubuntu} distro), the student is required to install it in her/his laptop.  
 \end{enumerate}
 
 
@@ -333,6 +386,54 @@ Immiscible displacement flows has been widely studied for oil $\&$ gas productio
 \item M.C. Kim (2012) `Linear Stability Analysis on the Onset of the Viscous Fingering of a Miscible Slice in a Porous Media', {\it Advances in Water Resource} 35:1-9;%
 \item C.T. Miller, G. Christakos, P.T. Imhoff, J.F McBride, J.A. Pedit (1998) `Multiphase Flow and Transport Modeling in Heterogeneous Porous Media: Challenges and Approaches', {\it Advances in Water Resources} 21:77-120.
 \end{itemize}
+
+
+\clearpage
+
+%%%
+%%%
+%%%
+\item {\bf Numerical Simulations of CO$_{2}$-EOR in Heterogeneous Reservoir Simulations}
+
+  Fluid displacement in porous media domains has been widely investigated for oil $\&$ gas production (e.g., enhanced oil recovery, heavy oil production, etc) and pollution dispersion (e.g., solute transport in aquifers, radionuclides diffusion in subsurface, etc) applications. In hydrocarbon production, a displacing fluid (\eg water, CO$_{2}$, steam, natural gas, polymer solutions etc) is injected into the reservoir that is saturated with a second fluid (oil and/or gas). Both fluids can be either immiscibles, partially miscibles or fully miscibles. The displacement of a more viscous fluid by a less viscous one leads to a mechanical instability (due to pressure gradient at the interface between fluids) driven by the mobility ratio (MR). This instability, known as Saffman-Taylor phenomena (or viscous fingering), and its effect in CO$_{2}$-EOR is the focus of this project.
+
+  The overarching aim of this project is to investigate to formation and progress of fluid instabilities during the migration of CO$_{2}$ in the domain, and the objectives are:
+\begin{enumerate}
+\item Critical review of CO$_{2}$-EOR process;
+\item Theoretical study of multiscale viscous fingering: mechanisms, impact on oil production, strategies to mitigate its effects etc;
+\item Study of heterogeneity in reservoirs (technologies to identify heterogenous media and its impact in fluid flow during recovery stages);
+\item Perform numerical simulations of multiphase flows $\left(\text{CO}_{2}\text{/oil}\right)$ in heterogeneous porous media with focus on formation and identification of viscous fingering, in particular 
+  \begin{enumerate}
+     \item Investigating the impact of MR on the formation of fingers and;
+     \item Assess the use of element-pairs $\left(\text{\eg} P_{1}DG-P_{2}, P_{1}DG-P_{1} \text{ and }  P_{1}DG-P_{1}DG, etc\right)$ to capture the detail dynamics whilst keeping accuracy.
+  \end{enumerate} 
+\end{enumerate}
+  
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Simulations must be performed using the \href{http://multifluids.github.io/}{IC-FERST/Fluidity} (open-source multi-physics simulator). For  \href{http://multifluids.github.io/}{IC-FERST/Fluidity} (under {\it Linux/Ubuntu} distro), the student is required to install it in her/his laptop.  
+\end{enumerate}
+
+
+\noindent
+{\bf References:}
+\begin{itemize}
+\item Z. Chen, G. Huan, Y. Ma (2006) `Computational Methods for Multiphase Flows in Porous Media', {\it SIAM Computational Science $\&$ Engineering}, ISBN 0-89871-606-3;
+\item M. Blunt and M.Christie (1994) `Theory of Viscous Fingering in Two Phase, Three Component Flow', {\it SPE Journal} SPE22613;
+\item M.L.R. Farias, M.S. Carvalho, A.L.S. Souza (2013) `Numerical and Experimental Investigation of Produced Water Reinjection Viscous Oil Recovery', {\it Offshore Technology Conference}, Rio de Janeiro;
+%\item P.A. Sesini, D.A.F. Souza, A.L.G. Coutinho (2010) `Finite Element Simulation of Viscous Fingering in Miscible Displacements at High Mobility-Ratios', {\it Journal of the Brazilian Society of Mechanical Science and Engineering}, 32:292-299;
+\item G.F. Teletzke, R.C. Wattenbarger, J.R. WIlkinson (2010) `Enhanced Oil Recovery Pilot Testing Best Practices', {\it SP Journal} SPE118055;
+\item D. Beliveau (2009) `Waterflooding Viscous Oil Reservoirs', {\it SPE Journal} SPE113132;
+\item M.C. Kim (2012) `Linear Stability Analysis on the Onset of the Viscous Fingering of a Miscible Slice in a Porous Media', {\it Advances in Water Resource} 35:1-9;%
+\item C.T. Miller, G. Christakos, P.T. Imhoff, J.F McBride, J.A. Pedit (1998) `Multiphase Flow and Transport Modeling in Heterogeneous Porous Media: Challenges and Approaches', {\it Advances in Water Resources} 21:77-120;
+\item J.L.M.A. Gomes, D. Pavlidis, P. Salinas, Z. Xie, J.R. Percival, Y. Melnikova, C.C. Pain, M.D. Jackson (2017). 'A Force-Balanced Control Volume Finite Element Method for Multi-Phase Porous Media Flow Modelling'. International Journal for Numerical Methods in Fluids, 83:431–445;
+\item P. Mostaghimi, J.R. Percival, D. Pavlidis, R.J. Ferrier, J.L.M.A. Gomes, G.J.  Gorman, M.D. Jackson, S.J. Neethling, C.C. Pain (2015). 'Anisotropic Mesh Adaptivity an Control Volume Finite Element Methods for Numerical Simulation of Multiphase Flow in Porous Media'. Mathematical Geosciences 47:417-440;
+\item M.D. Jackson, J.R. Percival, P. Mostaghimi, B. Tollit, D. Pavlidis, C.C. Pain, J.L.M.A. Gomes, A. ElSheikh, P. Salinas, A.H. Muggeridge, M. Blunt (2015) 'Reservoir Modeling for Flow Simulation by Use of Surfaces, Adaptive Unstructured Meshes, and an Overlapping-Control-Volume Finite-Element Method'. SPE Reservoir Evaluation $\&$ Engineering 18, SPE-163633-PA. 
+\end{itemize}
+
+
+
 
 \clearpage
 
@@ -630,8 +731,45 @@ In rapid chemistry processes, such as combustion, kinetics mechanisms are repres
 \item L.Petzold (1983) `Automatics Selection of Methods for Solving Stiff and Nonstiff Systems of Ordinary Differential Equations', SIAM Journal of Scientific Statistical Computation 4:136-148;
 \item S.B. Pope (1985)  `PDF Methods for Turbulent Reactive Flows',  Prog. Energy Combust. Sci. 11:119-192.
 \end{itemize}
+\clearpage
+%%%
+%%%
+%%%
+\item {\bf Numerical Investigation of SubChannel Heat Flux during Postulated Loss-of-Coolant Accidents (LOCA) in Pressurised Water Reactors (PWR) }
+
+  There are approximately 440 nuclear power reactors in operation worldwide with capacity to produce 375 GWe, 28 reactors are under construction and a large number are in different stages of planning and designing. The latest generation of pressurised water reactors (PWR) -- the most common type of nuclear reactor, is designed to minimize the risk of damage to fuel and control rods during potential accidents.
+
+  Fuel rods may overheat during a loss-of-coolant accident (LOCA) due to either the coupled thermohydraulics and neutronics instabilities or critical heat flux (CHF) events (i.e., sharp reduction of the local heat flux due to nucleate boiling). In the latter, the flow of water/steam and heat can produce local hydrodynamics instabilities that can lead to damages to the cladding, control and fuel rods.
+
+  During a LOCA event, the resulting boiling leads to the formation and transport of bubbles of vapour by the high velocity coolant fluid. Bubbles can form clusters or coalesce, resulting in vapour clots or slug flows in the narrow reactor core channels, which in turn affect the designed coolant heat flux. The resulting large temperature system can potentially damage the solid structures (cladding and fuel rods) leading to core melting and fragmentation.
+  
+  This project aims to study progress of postulated loss-of-coolant accidents in PWRs that may lead to reactor core melting. The project will exploit existing computational methods to investigate CHF in tube bundles during a LOCA event. This will involve the study of:
+  \begin{enumerate} 
+    \item multi-scale heat and fluid flows coupled with turbulent methods;
+    \item procedure stages towards a LOCA event;
+    \item prediction of heat transfer and bubble size distribution during LOCA event.
+  \end{enumerate}
+  
+
+ 
+\noindent
+{\bf Specifics:} 
+\begin{enumerate}
+\item Computational and Theoretical (MSc Process Safety and \Chem) -- 1 student.
+\end{enumerate}
+
+\noindent
+{\bf References:}
+\begin{itemize}
+  \item T. Kunugi et al. (2008) Large-Scale Computations in Nuclear Engineering: CFD for Multiphase Flows and DNS for Turbulent Flows with/without Magnetic Field, Parallel Computational Fluid Dynamics.
+  \item J. Bakosi et al. (2013) Large-Eddy Simulations of Turbulent Flow for Grid-to-Rod Fretting in Nuclear Reactors, Nuclear Engineering and Design 262: 544-561;
+  \item J. Gomes et al. (2011) Coupled Neutronics-Fluids Modelling of Criticality within a MOX Powder System, Progress in Nuclear Energy 53: 523-552;
+  \item A. Buchan et al. (2012) Simulated Transient Dynamics and Heat Transfer Characteristics of the Water Boiler Nuclear Reactor – SUPO – with Cooling Coil Heat Extraction, Annals of Nuclear Energy 48: 68-83;
+  \item S.Mimouni et al. (2011) Combined Evaluation of 2$^{\text{nd}}$-Order Turbulence Model and Polydispersion Model for Two-Phase Boiling Flow and Application to Fuel Assembly Analysis, Nuclear Engineering and Design 241:4523-4536.
+\end{itemize}
 
 \clearpage
+
 
 %%%
 \end{enumerate}
@@ -681,6 +819,35 @@ The main aim of this project is to develop a simulation framework that integrate
 
 
 
+%%%
+%%%
+%%%
+\item {\bf Numerical Investigation of Flow Boiling Heat Transfer in Water-Cooled Reactors}
+  
+  There are approximately 440 nuclear power reactors in operation worldwide with capacity to produce 375 GWe, 28 reactors are under construction and a large number are in different stages of planning and designing. The latest generation of pressurised water reactors (PWR) -- the most common type of nuclear reactor, is designed to minimize the risk of damage to fuel and control rods during potential accidents.
+
+  Fuel rods may overheat during a loss-of-coolant accident (LOCA) due to either the coupled thermohydraulics and neutronics instabilities or critical heat flux (CHF) events (i.e., sharp reduction of the local heat flux due to nucleate boiling). In the latter, the flow of water/steam and heat can produce local hydrodynamics instabilities that can lead to damages to the cladding, control and fuel rods.
+
+  During a LOCA event, the resulting boiling leads to the formation and transport of bubbles of vapour by the high velocity coolant fluid. Bubbles can form clusters or coalesce, resulting in vapour clots or slug flows in the narrow reactor core channels, which in turn affect the designed coolant heat flux. The resulting large temperature system can potentially damage the solid structures (cladding and fuel rods) leading to core melting and fragmentation.
+  
+  This project aims to improve our understanding of the initial LOCA stages that may lead to a reactor core melting. The project will exploit existing state-of-the-art computational methods to investigate CHF in tube bundles during a LOCA event. This will involve the development of CFD models for:
+  \begin{enumerate}% [a)]
+    \item multi-scale heat and fluid flows using high-order accurate schemes coupled with adaptive LES turbulent methods;
+    \item heterogeneous and homogeneous nucleation mechanisms, and;
+    \item prediction of heat transfer and bubble size distribution.
+  \end{enumerate}
+  
+  Applicants must hold, or expect to receive, a first or upper second class honours degree (or equivalent) in a relevant engineering, mathematical, computing or physical sciences discipline. Expertise in fluid mechanics and strong programming (Fortran or C) skills are essential. Background in computational fluid dynamics is desirable.
+  
+\noindent
+{\bf References:}
+\begin{itemize}
+  \item T. Kunugi et al. (2008) Large-Scale Computations in Nuclear Engineering: CFD for Multiphase Flows and DNS for Turbulent Flows with/without Magnetic Field, Parallel Computational Fluid Dynamics.
+  \item J. Bakosi et al. (2013) Large-Eddy Simulations of Turbulent Flow for Grid-to-Rod Fretting in Nuclear Reactors, Nuclear Engineering and Design 262: 544-561;
+  \item J. Gomes et al. (2011) Coupled Neutronics-Fluids Modelling of Criticality within a MOX Powder System, Progress in Nuclear Energy 53: 523-552;
+  \item A. Buchan et al. (2012) Simulated Transient Dynamics and Heat Transfer Characteristics of the Water Boiler Nuclear Reactor – SUPO – with Cooling Coil Heat Extraction, Annals of Nuclear Energy 48: 68-83;
+  \item S.Mimouni et al. (2011) Combined Evaluation of 2$^{\text{nd}}$-Order Turbulence Model and Polydispersion Model for Two-Phase Boiling Flow and Application to Fuel Assembly Analysis, Nuclear Engineering and Design 241:4523-4536.
+\end{itemize}
 %%%
 \end{enumerate}
 

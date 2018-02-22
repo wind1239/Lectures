@@ -1,0 +1,151 @@
+\documentclass[14pt,twoside]{report}
+
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{natbib}
+\usepackage{pdfpages,enumitem}
+
+%%% Rotating Page
+\usepackage{pdflscape}
+\usepackage{afterpage}
+%\usepackage{capt-of}% or use the larger `caption` package
+%\usepackage{lipsum}% dummy text
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+
+%\usepackage{fancyhdr} %%%%
+%\pagestyle{fancy}%%%%
+\pagestyle{empty}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\ie}{{\it i.e.,}}
+\newcommand{\eg}{{\it e.g.,}}
+\newcommand{\wrt}{{\it wrt }}
+
+%%% 
+%%% Headers and Footers
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\lhead[] {\text{\small{PhD Projects}}} 
+\rhead[] {\text{\small{Dr Jeff Gomes}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+\lfoot[]{}%{\today}%{Dr Jeff Gomes}
+\rfoot[]{}%[\thepage]{\thepage}
+\cfoot[]{}%[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand {\baselinestretch}{1.5}
+
+\begin{document}
+
+
+\begin{center}
+   \large{\bf An Integrated Simulation Framework for Radionuclide Transport in Waste Repository Systems}
+\end{center}
+
+The major technological challenge for current and future generations of nuclear power plants is the efficient disposal and management of high- and intermediate-level nuclear waste (H/ILW), which must be isolated from the biosphere. Deep and stable geological formations have been considered as a viable option for permanent disposal of nuclear waste. The goal of geological disposal is to ensure that radioactive waste produced from reprocessing and spent fuel are contained in the dual engineered repository (\ie canisters and backfill rock matrix) and host-rock. In the canisters (e.g., spent fuel cask), water is vaporised by the decay-heat from H/ILW producing steam micro-bubbles (due to homogeneous/heterogeneous nucleation) and radiolytic gases (from radiolysis processes) that build up the internal pressure. If the pressure exceeds the canisters' structural limits, radionuclides can leak and flow through the backfill rock matrix (low permeability) and unconsolidated-consolidated host rock and, eventually reach an aquifer.
+
+The transport of radionuclides in porous media and in open water has been investigated extensively, both numerically and experimentally, in different length-scales. Most of these studies focused on individual phenomena, \ie advection, diffusion and hydrodynamic dispersion of isotopes, equilibrium or kinetic reaction of radionuclides and radioactive decay. This project aims to develop a multiscale and multi-physics computational framework that enables modelling and simulation of transport of radionuclides from a postulated accident scenario, \ie from the damaged canister to the aquifer. This simulation tool is built in the top of the existing computational fluid dynamics (CFD) Fluidity model.  Fluidity is an open-source general-purpose multi-physics flow solver built upon various finite element and finite volume discretisation methods on unstructured anisotropic meshes. The model is based on existing parallel mesh-adaptive technologies that allow arbitrary movement of the mesh in time-dependent problems.
+
+This project will focus on multiscale model for radionuclides transport through backfill and host rock matrices. This will involve development of 3-D fully coupled models of advection, diffusion, dispersion and rock-matrix diffusion of dissolved radioactive species. Fluids will be assumed to comprise of two phases (liquid water, micro-bubbles of steam and radiolytic gases) and an arbitrary number of radionuclide species (multi-component approach). Model and software will be validated against lab-scale experiments, field observations and data from natural analogues (e.g., Oklo reactor).  The resulting model can help site operators and regulators to predict radionuclide migration in geological formations and to plan emergency responses for leakages.
+
+The main aim of this project is to develop a simulation framework that integrates transport and dispersion of radionuclides, waste inventory (\ie nuclear data) and geological characterisation that is able to support detailed safety assessment of scenarios involving the accidental release of radioactive material in hydrogeological formations. The project will develop advanced computational methods for multi-physics problems. This model will be built in the top of the 3D CFD Fluidity software - a finite element method (FEM) -based flow simulator incorporating anisotropic mesh-adaptivity capability. The transport of radionuclides will be modelled within the existing multi-component model framework with associated tabulated and parameterised decay-heat rate. This 3-years PhD project will be divided in 9 continuous tasks that will rely on intense collaboration with academics at the University of Aberdeen:
+\begin{enumerate}
+   \item Familiarisation with (a) numerical methods for PDEs (in particular on discontinuous Galerkin finite element methods - DGFEM), (b) transport equations (advection-diffusion-reactive equations); (c) neutron-radiation transport equation; (d) best practices in software engineering and HPC and; (e) Fluidity CFD model;
+   \item To implement rock heterogeneity (\ie temporally evolving permeability and porosity fields) in the Fluidity model. Model validation against laboratory measurements of the saturation field in carbonate rock as aqueous HCl imbibes through it;
+   \item To develop a numerical formulation for compressible multiphase flows based on high-order shock-capturing schemes (e.g., Riemann methods);
+   \item To optimise the mesh-adaptivity library for the coupled multiphase and multi-component flow formulations;
+   \item To develop high-order accurate tetrahedral discontinuous finite elements;
+   \item Model validation against laboratory measurements of waterflood oil recovery from homogeneous limestone. Compare best-fit relative permeability functions obtained from the Buckley-Leverett solution;
+   \item To implement and test libraries that conservatively couple flow and transport equations models, multi-component (for different species of radionuclides) submodel and decay-heat parameterisation;
+   \item Model and software quality assurance: extensive verification and validation test-case procedures for the models. This will include (semi-)analytical solutions, method of the manufactured solutions (MMS), benchmark field observation and data from analogues (e.g., Oklo natural reactor);
+   %\item To engage with project stakeholders to design a test-case based on existing (or planned) storage site.
+\end{enumerate}
+
+
+{\bf Strategic Fit:} The current multi-physics and multiscale model framework was designed to solve transport equations in complex geometries and as such can be applied to a number of distinct scenarios for disposal of nuclear waste inventory. The resulting integrated model framework and experimental data will be able to support the environmental, safety $\&$ risk planning and management activities of site operators and regulators. It will also support policymakers to establish thermo-geophysical conditions to safe site operation.
+
+{\bf Skills and Capabilities:} This project proposes to integrate R$\&$D activities on waste storage, decommissioning and spent fuel, but to focus on critical safety assessment on both, traditional storage sites and deep and geological disposal facilities. The skills and capabilities obtained through this project will be complementary to NDA and SLCs engineering activities.  The PhD student will be trained in a number of disciplines: fluid dynamics, computational methods, heat and mass transfer, neutron-radiation transport, and software engineering. In addition, her/his training will benefit from strong cross-fertilisation with existing academic energy programmes (\ie oil and gas engineering, renewable energy, subsea engineering, geophysics etc) in similar areas: turbulence, safety engineering and risk management, power generation, material sciences, decommissioning etc.
+
+{\bf References}
+\begin{enumerate}
+   \item Gomes {\it et al.} (2011) `Coupled neutronics-fluids modelling of criticality within a MOX powder system', Progress in Nuclear Energy 53:523-552;
+   \item Buchan {\it et al.} (2012) `Simulated transient dynamics and heat transfer characteristics of the water boiler nuclear reactor – SUPO – with cooling coil heat extraction', Annals of Nuclear Energy 48:68-83;
+   \item Gomes {\it al.} (2016) `A force-balanced control volume finite element method for multi-phase porous media flow modelling', Int. J. Num. Meth. Fluids, \href{http://dx.doi.org/10.1002/fld.4275}{http://dx.doi.org/10.1002/fld.4275}.
+
+\end{enumerate}
+
+\pagebreak
+
+%%%
+%%%
+%%%
+
+\begin{center}
+   \large{Numerical Investigation of Flow Boiling Heat Transfer in Water-Cooled Reactors}
+\end{center}
+  
+  There are approximately 440 nuclear power reactors in operation worldwide with capacity to produce 375 GWe, 28 reactors are under construction and a large number are in different stages of planning and designing. The latest generation of pressurised water reactors (PWR) -- the most common type of nuclear reactor, is designed to minimize the risk of damage to fuel and control rods during potential accidents.
+
+  Fuel rods may overheat during a loss-of-coolant accident (LOCA) due to either the coupled thermohydraulics and neutronics instabilities or critical heat flux (CHF) events (i.e., sharp reduction of the local heat flux due to nucleate boiling). In the latter, the flow of water/steam and heat can produce local hydrodynamics instabilities that can lead to damages to the cladding, control and fuel rods.
+
+  During a LOCA event, the resulting boiling leads to the formation and transport of bubbles of vapour by the high velocity coolant fluid. Bubbles can form clusters or coalesce, resulting in vapour clots or slug flows in the narrow reactor core channels, which in turn affect the designed coolant heat flux. The resulting large temperature system can potentially damage the solid structures (cladding and fuel rods) leading to core melting and fragmentation.
+  
+  This project aims to improve our understanding of the initial LOCA stages that may lead to a reactor core melting. The project will exploit existing state-of-the-art computational methods to investigate CHF in tube bundles during a LOCA event. This will involve the development of CFD models for:
+  \begin{enumerate}% [a)]
+    \item multi-scale heat and fluid flows using high-order accurate schemes coupled with adaptive LES turbulent methods;
+    \item heterogeneous and homogeneous nucleation mechanisms, and;
+    \item prediction of heat transfer and bubble size distribution.
+  \end{enumerate}
+  
+  Applicants must hold, or expect to receive, a first or upper second class honours degree (or equivalent) in a relevant engineering, mathematical, computing or physical sciences discipline. Expertise in fluid mechanics and strong programming (Fortran or C) skills are essential. Background in computational fluid dynamics is desirable.
+  
+\noindent
+{\bf References:}
+\begin{itemize}
+  \item T. Kunugi et al. (2008) Large-Scale Computations in Nuclear Engineering: CFD for Multiphase Flows and DNS for Turbulent Flows with/without Magnetic Field, Parallel Computational Fluid Dynamics.
+  \item J. Bakosi et al. (2013) Large-Eddy Simulations of Turbulent Flow for Grid-to-Rod Fretting in Nuclear Reactors, Nuclear Engineering and Design 262: 544-561;
+  \item J. Gomes et al. (2011) Coupled Neutronics-Fluids Modelling of Criticality within a MOX Powder System, Progress in Nuclear Energy 53: 523-552;
+  \item A. Buchan et al. (2012) Simulated Transient Dynamics and Heat Transfer Characteristics of the Water Boiler Nuclear Reactor – SUPO – with Cooling Coil Heat Extraction, Annals of Nuclear Energy 48: 68-83;
+  \item S.Mimouni et al. (2011) Combined Evaluation of 2$^{\text{nd}}$-Order Turbulence Model and Polydispersion Model for Two-Phase Boiling Flow and Application to Fuel Assembly Analysis, Nuclear Engineering and Design 241:4523-4536.
+\end{itemize}
+%%%
+
+
+%%%
+%%%
+%%%
+
+\end{document}
