@@ -34,8 +34,8 @@
             \end{displaymath}
             leads to
             \begin{eqnarray}
-               &&\frc{PV}{RT}=1+\frc{B}{V}+\frc{C}{V^{2}} \;\;\Longrightarrow \;\; V = 1722.2698 \frc{\text{cm}^{3}}{\text{mol}}\;\;\;\text{ and } \nonumber \\
-               && Z =  \frc{PV}{RT} \;\;\Longrightarrow \;\; Z = 0.8925 \nonumber
+               &&\frc{PV}{RT}=1+\frc{B}{V}+\frc{C}{V^{2}} \;\;\Longrightarrow \;\; V^{\text{vap}} = 1722.2698 \frc{\text{cm}^{3}}{\text{mol}}\;\;\;\text{ and } \nonumber \\
+               && Z =  \frc{PV}{RT} \;\;\Longrightarrow \;\; Z^{\text{vap}} = 0.8925 \nonumber
             \end{eqnarray}
 %
         \item Redlich-Kwong EOS:
@@ -54,7 +54,7 @@
                    \end{eqnarray}
                    We can calculate $Z^{\text{vap}}$ using the calculator with initial guess of $Z^{\text{guess}}=1$ (ideal gas assumption). This leads to 
                    \begin{displaymath}
-                      Z^{\text{vap}} = 0.8883 \;\;\;\Longrightarrow \;\;\; V = \frc{Z^{\text{vap}} R T}{P} = 1714.1342 \text{cm}^{3}\text{.mol}^{-1}
+                      Z^{\text{vap}} = 0.8883 \;\;\;\Longrightarrow \;\;\; V^{\text{vap}} = \frc{Z^{\text{vap}} R T}{P} = 1714.1342 \text{cm}^{3}\text{.mol}^{-1}
                    \end{displaymath}
             \end{enumerate}
 %
@@ -65,7 +65,7 @@
                    \end{eqnarray}
                    Again, with initial guess of $Z^{\text{guess}}=1$ (ideal gas assumption) leads to 
                    \begin{displaymath}
-                      Z^{\text{vap}} = 0.8949 \;\;\;\Longrightarrow \;\;\; V = \frc{Z^{\text{vap}} R T}{P} = 1726.8701 \text{cm}^{3}\text{.mol}^{-1}
+                      Z^{\text{vap}} = 0.8949 \;\;\;\Longrightarrow \;\;\; V^{\text{vap}} = \frc{Z^{\text{vap}} R T}{P} = 1726.8701 \text{cm}^{3}\text{.mol}^{-1}
                    \end{displaymath}
 %
         \item Peng-Robinson EOS: using the same procedure as in (b) with 
@@ -75,10 +75,23 @@
                    \end{eqnarray}
                    Again, with initial guess of $Z^{\text{guess}}=1$ (ideal gas assumption) leads to 
                    \begin{displaymath}
-                      Z^{\text{vap}} = 0.8818 \;\;\;\Longrightarrow \;\;\; V = \frc{Z^{\text{vap}} R T}{P} = 1701.5913 \text{cm}^{3}\text{.mol}^{-1}
+                      Z^{\text{vap}} = 0.8818 \;\;\;\Longrightarrow \;\;\; V^{\text{vap}} = \frc{Z^{\text{vap}} R T}{P} = 1701.5913 \text{cm}^{3}\text{.mol}^{-1}
                    \end{displaymath}
 %
      \end{enumerate}
+     In summary, gaseous sulfur hexafluoride at 348.15 K and 15 bar:
+     \begin{center}
+        \begin{tabular} {l| c c }
+           \hline
+                               &  $Z^{\text{vap}}$    & $V^{\text{vap}}\;\left(\text{cm}^{3}\text{.mol}^{-1}\right)$    \\
+           \hline
+           Virial              &  0.8925           & 1722.27                                                    \\
+           Redlich-Kwong       &  0.8883           & 1714.13                                                    \\
+           Soave-Redlich-Kwong &  0.8949           & 1726.87                                                    \\
+           Peng-Robinson       &  0.8818           & 1701.59
+   
+        \end{tabular}
+     \end{center}
 
 
   \end{probsol}
