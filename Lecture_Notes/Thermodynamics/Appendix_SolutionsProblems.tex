@@ -45,7 +45,11 @@
             As this is a non-linear equation on $V$, there are 2 ways to solve this problem:
             \begin{enumerate}[a)]
                \item Calculating $V^{\text{vap}}$ from the RK EOS through an iterative method and then obtain $Z^{\text{vap}}$: although this would be a direct method to solve the problem, as a cubic equation of state, the RK EOS has three roots that may be either real or imaginary. Different from calculating the roots of a cubic polynomial in $Z$ (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1}) in which the largest real root is associated with the vapour phase whereas the smallest real root is associated with the liquid phase (Section~\ref{Chapter:VolumetricPropertiesPureSubstances:Section:GenericCubicEOS}). However, when solving the cubic polynomial in $V$, there are no rules for associating roots with phases. Thus, it is necessary to calculate all three $V$ roots and then obtain all three $Z$ roots, with this information in hand, we can finally associate the $Z$ roots with the phases and, by consequence the corresponding $V^{\text{vap}}$;
-               \item Calculating $Z^{\text{vap}}$ through Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zvap} and then obtain $V^{\text{vap}}$:
+               \item Calculating $Z^{\text{vap}}$ through Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zvap} and then obtain $V^{\text{vap}}$: the general form of the cubic EOS (Eqn.~\ref{Chapter:VolumetricPropertiesPureSubstances:Eqn:GeneralCubicEOS1_Zvap}) can be used to calculate $Z^{\text{vap}}$ and then calculate $V^{\text{vap}}$, 
+                   \begin{eqnarray}
+                      && Z^{\text{vap}} = 1 + \beta - q\beta \frc{Z_{\text{vap}} - \beta} {\left(Z_{\text{vap}}+\varepsilon\beta\right)\left(Z_{\text{vap}} +\sigma\beta\right)},\;\;\;\;\text{ where } \nonumber \\
+                      P_{r} = 0.3989,\; T_{r}=1.0924,\; \Omega=0.08664,\; \Psi = 0.42748,\; \alpha=T_{r}^{-1/2}=0.9568 \nonumber \\
+                   \end{eqnarray}
             \end{enumerate}
 %
      \end{enumerate}
